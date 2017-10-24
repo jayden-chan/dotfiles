@@ -1,0 +1,60 @@
+snippet linearalgebra
+	\documentclass[11pt]{article}
+	\usepackage{amsmath}
+	\usepackage{amssymb}
+	\usepackage{enumerate}
+	\usepackage{systeme}
+	\usepackage{fullpage}
+
+	\title{${1:}}
+	\author{Jayden Chan (V00898517)}
+	\date{${2:}}
+
+	\begin{document}
+		${3:}
+	\end{document
+
+snippet calculus
+	\documentclass[11pt]{article}
+	\usepackage{siunitx}
+	\usepackage{amsmath}
+	\usepackage{amssymb}
+	\usepackage{enumerate}
+	\usepackage{systeme}
+	\usepackage{fullpage}
+
+	\newcommand{\der}[2]{\frac{d#1}{d#2}}
+	\newcommand{\dera}[3]{\frac{d#1}{d#2}\rvert_{#3}}
+
+	\title{${1:}}
+	\author{Jayden Chan (V00898517)}
+	\date{${2:}}
+
+	\begin{document}
+		${3:}
+	\end{document}
+
+snippet beg
+	\begin{${1:}}
+		${2:}	
+	\end{$1}
+
+snippet fr
+	\frac{${1:}}{${2:}}
+
+snippet b
+	\textbf{${1:}}
+
+snippet rm
+	\text{${1:}}
+
+snippet der
+	\deriv{${1:}}{${2:}}
+
+snippet dera
+	\dera{${1:}}{${2:}}{${3:}}
+
+snippet fl
+	\begin{flalign*}
+		${1}
+	\end{flalign*}
