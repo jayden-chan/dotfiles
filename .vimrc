@@ -87,3 +87,6 @@ filetype off
     iab retrun return
     iab erturn return
     iab thsi this
+    iab truel true;
+    iab falsel false;
+    iab returnl return;
