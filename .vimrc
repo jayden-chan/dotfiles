@@ -8,7 +8,6 @@ filetype off
 
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'easymotion/vim-easymotion'
     Plugin 'joshdick/onedark.vim'
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
@@ -19,12 +18,11 @@ filetype off
     call vundle#end()
     filetype plugin indent on
     
-" Behaviour
+" Look/Feel
 
     syntax on
     colorscheme onedark
 
-    set number relativenumber
     set expandtab
     set tabstop=4
     set shiftwidth=4
@@ -38,6 +36,10 @@ filetype off
 
     " Anti-arthritis
     inoremap jj <Esc>
+
+    " Relative line number toggle
+    set number relativenumber
+    map <F9> :set rnu!<CR>
 
     " Reload .vimrc
     map <leader>ss :so $MYVIMRC<CR>
@@ -53,6 +55,8 @@ filetype off
     inoremap {<CR> {<CR><BS>}<Esc>ko
     inoremap ( ()<Esc>i
     inoremap [ []<Esc>i
+    inoremap < <><Esc>i
+    inoremap " ""<Esc>i
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -63,8 +67,10 @@ filetype off
     " Various other cursor control maps
     noremap L $
     noremap J 0
-    noremap I H
-    noremap K L
+    noremap I <c-u>
+    noremap K <c-d>
+    map <leader>i H
+    map <leader>k L
 
     " Disable Ex mode
     map q <nop>
@@ -87,6 +93,5 @@ filetype off
     iab retrun return
     iab erturn return
     iab thsi this
-    iab truel true;
-    iab falsel false;
-    iab returnl return;
+    iab fcuntoin function
+    iab fucntion function
