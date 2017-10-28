@@ -13,12 +13,12 @@ filetype off
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
     Plugin 'arrufat/vala.vim'
-    Plugin 'tpope/vim-surround'
+    Plugin 'vim-airline/vim-airline'
 
     call vundle#end()
     filetype plugin indent on
     
-" Look/Feel
+" Behaviour
 
     syntax on
     colorscheme onedark
@@ -28,14 +28,15 @@ filetype off
     set shiftwidth=4
     set smarttab
     set smartindent
+    
+    set noshowmode
+
+    let g:tex_flavor = "latex"
 
 " Binds
 
     " Leader
     let mapleader = "\<Space>"
-
-    " Anti-arthritis
-    inoremap jj <Esc>
 
     " Relative line number toggle
     set number relativenumber
@@ -55,8 +56,11 @@ filetype off
     inoremap {<CR> {<CR><BS>}<Esc>ko
     inoremap ( ()<Esc>i
     inoremap [ []<Esc>i
-    inoremap < <><Esc>i
     inoremap " ""<Esc>i
+    inoremap ' ''<Esc>i
+
+    " Easy semicolons
+    inoremap ;; <Esc>$a;
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -69,8 +73,17 @@ filetype off
     noremap J 0
     noremap I <c-u>
     noremap K <c-d>
-    map <leader>i H
-    map <leader>k L
+    noremap <leader>z zz
+    map <leader>j <C-w>h
+    map <leader>k <C-w>j
+    map <leader>i <C-w>k
+    map <leader>l <C-w>l
+
+    " Easily resize splits
+    map <c-i> :resize -5<CR>
+    map <c-k> :resize +5<CR>
+    map <c-j> :vertical resize +5<CR>
+    map <c-l> :vertical resize -5<CR>
 
     " Disable Ex mode
     map q <nop>
@@ -79,14 +92,19 @@ filetype off
     " New line no insert mode
     map go o<Esc>
 
+    " Copy Paste etc.
+    map <leader>p "+p
+    map <leader>y "+y
+
     " Tab switching
     map <tab>j :tabprevious<CR>
     map <tab>l :tabnext<CR>
 
-" Plugin specific binds
+" Plugin specific settings
 
     let NERDTreeMapOpenSplit='h'
     map <c-n> :NERDTreeToggle<CR>
+    let g:airline_powerline_fonts = 1
 
 " Abbreviations
 
