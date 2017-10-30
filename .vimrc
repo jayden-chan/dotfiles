@@ -14,6 +14,7 @@ filetype off
     Plugin 'garbas/vim-snipmate'
     Plugin 'arrufat/vala.vim'
     Plugin 'vim-airline/vim-airline'
+    Plugin 'gcmt/taboo.vim'
 
     call vundle#end()
     filetype plugin indent on
