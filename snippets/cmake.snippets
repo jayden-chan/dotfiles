@@ -1,0 +1,16 @@
+snippet start
+	cmake_minimum_required(VERSION 3.5)
+
+	project(${1:name})
+
+	set(CMAKE_BUILD_TPYE Debug)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+
+	include_directories(include)
+
+	file(GLOB SOURCES "src/*.cpp")
+
+	add_executable(
+		$1
+		${SOURCES}
+	)

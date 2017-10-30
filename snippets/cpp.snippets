@@ -1,0 +1,36 @@
+snippet starting
+	#include <iostream>
+
+	using namespace std;
+
+	int main()
+	{
+		cout << "Hello World!" << endl;
+
+		return 0;
+	}
+
+snippet header
+	#ifndef ${1:}_H
+	#define $1_H
+
+	class ${2:}
+	{
+		public:
+			$2();
+		protected:
+		private:
+	};
+
+	#endif // $1_H
+
+snippet source
+	#include <iostream>
+	#include "${1:}.h"
+
+	using namespace std;
+
+	$1::$1(${2:})
+	{
+		${0}
+	}
