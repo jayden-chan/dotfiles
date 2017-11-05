@@ -1,4 +1,4 @@
-snippet starting
+snippet cppstart
 	#include <iostream>
 
 	using namespace std;
@@ -33,4 +33,16 @@ snippet source
 	$1::$1(${2:})
 	{
 		${0}
+	}
+
+snippet for
+	for(int ${1:} = 0; $1 < ${2:}; $1++)
+	{
+		${0:}
+	}
+
+snippet forr
+	for(int ${1:} = ${2:}; $1 > 0; $1--)
+	{
+		${0:}
 	}

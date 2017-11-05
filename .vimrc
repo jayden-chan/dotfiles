@@ -15,6 +15,8 @@ filetype off
     Plugin 'arrufat/vala.vim'
     Plugin 'vim-airline/vim-airline'
     Plugin 'gcmt/taboo.vim'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'jiangmiao/auto-pairs'
 
     call vundle#end()
     filetype plugin indent on
@@ -24,14 +26,22 @@ filetype off
     syntax on
     colorscheme onedark
 
+    " 1 tab = 4 spaces
     set expandtab
     set tabstop=4
     set shiftwidth=4
     set smarttab
     set smartindent
+
+    set gdefault
+
+    set splitright
     
     set noshowmode
+    set scrolloff=8
+    set incsearch
 
+    " Set .tex files to LaTeX syntax
     let g:tex_flavor = "latex"
 
 " Binds
@@ -41,37 +51,36 @@ filetype off
 
     " Relative line number toggle
     set number relativenumber
-    map <F9> :set rnu!<CR>
-
+    map <F9> <Esc>:set<Space>rnu!<CR>
+    
     " Reload .vimrc
     map <leader>ss :so $MYVIMRC<CR>
 
     " Map Ctrl-s to save because I am a compulsive saver 
-    nmap <c-s> :w<CR>
-    imap <c-s> <Esc>:w<CR>
+    nmap <c-s> :wa<CR>
+    imap <c-s> <Esc>:wa<CR>
 
     " Spell check
     map <F6> :setlocal spell! spelllang=en_ca<CR>
 
     " Delimiter auto complete
-    inoremap {<CR> {<CR><BS>}<Esc>ko
-    inoremap ( ()<Esc>i
-    inoremap [ []<Esc>i
-    inoremap " ""<Esc>i
-    inoremap ' ''<Esc>i
+    "inoremap {<CR> {<CR><BS>}<Esc>ko
+    "inoremap ( ()<Esc>i
+    "inoremap [ []<Esc>i
+    "inoremap " ""<Esc>i
 
-    " Easy semicolons
+    " ez semicolons
     inoremap ;; <Esc>$a;
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
     noremap j h
-    noremap k j
-    noremap i k
+    noremap k gj
+    noremap i gk
 
     " Various other cursor control maps
     noremap L $
-    noremap J 0
+    noremap J ^
     noremap I <c-u>
     noremap K <c-d>
     noremap <leader>z zz
@@ -105,12 +114,16 @@ filetype off
 
     let NERDTreeMapOpenSplit='h'
     map <c-n> :NERDTreeToggle<CR>
+    let g:snipMate = {}
+    let g:snipMate.no_default_aliases = 1
     let g:airline_powerline_fonts = 1
 
 " Abbreviations
 
     iab retrun return
+    iab retnru return
     iab erturn return
+    iab ertnru return
     iab thsi this
     iab fcuntoin function
     iab fucntion function
