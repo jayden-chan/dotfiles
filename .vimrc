@@ -33,13 +33,25 @@ filetype off
     set smarttab
     set smartindent
 
+    " Search settings
     set gdefault
+    set ignorecase
+    set incsearch
 
     set splitright
+    set lazyredraw
+
+    " Nicer line wraps
+    set linebreak
+    set breakindent
+
+    " No auto folds please
+    set foldlevel=1000
+
+    set history=9001
     
     set noshowmode
     set scrolloff=8
-    set incsearch
 
     " Set .tex files to LaTeX syntax
     let g:tex_flavor = "latex"
