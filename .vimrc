@@ -48,6 +48,7 @@ filetype off
 
     " No auto folds please
     set foldlevel=1000
+    set foldmethod=indent
 
     set history=9001
     

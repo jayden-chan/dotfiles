@@ -1,4 +1,4 @@
-snippet cstart
+snippet castart
 	/*
 		Name: Jayden Chan
 		UVicID: V00898517
@@ -12,7 +12,20 @@ snippet cstart
 
 	int main() {
 		${0}
-		return 0;
+		return EXIT_SUCCESS;
+	}
+
+snippet cstart
+	/*
+		Author: Jayden Chan
+		Date: ${1:}
+	*/
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	int main() {
+		${0}
+		return EXIT_SUCCESS;
 	}
 
 snippet for
@@ -29,6 +42,4 @@ snippet pf
 	printf("${0}");
 
 snippet pl
-	printf("${1:}\n"${2:});
-
-
+	printf("${1:}\n"${0});

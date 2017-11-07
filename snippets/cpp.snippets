@@ -38,11 +38,17 @@ snippet source
 snippet for
 	for(int ${1:} = 0; $1 < ${2:}; $1++)
 	{
-		${0:}
+		${0}
 	}
 
 snippet forr
 	for(int ${1:} = ${2:}; $1 > 0; $1--)
 	{
-		${0:}
+		${0}
 	}
+
+snippet cout
+	cout << "${1:}"${0};
+
+snippet coutl
+	cout << "${1:}" << endl;
