@@ -28,7 +28,7 @@ filetype off
     syntax on
     colorscheme onedark
 
-    " 1 tab = 4 spaces
+    " Tab settings
     set expandtab
     set tabstop=4
     set shiftwidth=4
@@ -43,15 +43,16 @@ filetype off
     set splitright
     set lazyredraw
 
-    " Nicer line wraps
+    " Nice line wraps
     set linebreak
     set breakindent
+    set wrapmargin=3
 
     " No auto folds please
     set foldlevel=1000
     set foldmethod=indent
 
-    set history=9001
+    set undolevels=9001
     
     set noshowmode
     set scrolloff=8
@@ -115,6 +116,10 @@ filetype off
     map <leader>p "+p
     map <leader>y "+y
 
+    " Delete line without filling yank buffer
+    nmap <silent> <leader>dd "_dd
+    vmap <silent> <leader>dd "_dd
+
     " Tab switching
     map <tab>j :tabprevious<CR>
     map <tab>l :tabnext<CR>
@@ -122,6 +127,7 @@ filetype off
 " Plugin specific settings
 
     let NERDTreeMapOpenSplit='h'
+    autocmd vimenter * NERDTree
     map <c-n> :NERDTreeToggle<CR>
     let g:snipMate = {}
     let g:snipMate.no_default_aliases = 1
