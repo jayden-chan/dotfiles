@@ -1,4 +1,5 @@
 set nocompatible
+
 filetype off
 
 " Plugins
@@ -74,12 +75,6 @@ filetype off
 
     " Spell check
     map <F6> :setlocal spell! spelllang=en_ca<CR>
-
-    " Delimiter auto complete
-    "inoremap {<CR> {<CR><BS>}<Esc>ko
-    "inoremap ( ()<Esc>i
-    "inoremap [ []<Esc>i
-    "inoremap " ""<Esc>i
 
     " ez semicolons
     inoremap ;; <Esc>$a;
