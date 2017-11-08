@@ -53,6 +53,8 @@ filetype off
     set foldmethod=indent
 
     set undolevels=9001
+
+    set cursorline
     
     set noshowmode
     set scrolloff=8
