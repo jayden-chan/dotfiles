@@ -18,7 +18,6 @@ filetype off
     Plugin 'gcmt/taboo.vim'
     Plugin 'tpope/vim-fugitive'
     Plugin 'jiangmiao/auto-pairs'
-    Plugin 'vim-syntastic/syntastic'
 
     call vundle#end()
     filetype plugin indent on
@@ -58,6 +57,8 @@ filetype off
     
     set noshowmode
     set scrolloff=8
+
+    set autochdir
 
     " Set .tex files to LaTeX syntax
     let g:tex_flavor = "latex"
@@ -114,6 +115,9 @@ filetype off
     " New line no insert mode
     map go o<Esc>
 
+    " Easily open corresponding source file
+    nmap <leader>vv :vsplit ../src/%<.cpp<CR>
+
     " Copy Paste etc.
     map <leader>p "+p
     map <leader>y "+y
@@ -129,21 +133,10 @@ filetype off
 " Plugin specific settings
 
     let NERDTreeMapOpenSplit='h'
-    autocmd vimenter * NERDTree
     map <c-n> :NERDTreeToggle<CR>
     let g:snipMate = {}
     let g:snipMate.no_default_aliases = 1
     let g:airline_powerline_fonts = 1
-
-    " Syntastic
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
 
 " Abbreviations
 
