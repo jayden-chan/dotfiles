@@ -18,6 +18,7 @@ filetype off
     Plugin 'gcmt/taboo.vim'
     Plugin 'tpope/vim-fugitive'
     Plugin 'jiangmiao/auto-pairs'
+    Plugin 'xuhdev/vim-latex-live-preview'
 
     call vundle#end()
     filetype plugin indent on
@@ -137,6 +138,9 @@ filetype off
     let g:snipMate = {}
     let g:snipMate.no_default_aliases = 1
     let g:airline_powerline_fonts = 1
+
+    "let g:livepreview_previewer = 'mupdf'
+    let g:livepreview_engine = 'xelatex'
 
 " Abbreviations
 
