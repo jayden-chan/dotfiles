@@ -46,7 +46,6 @@ filetype off
     " Nice line wraps
     set linebreak
     set breakindent
-    set wrapmargin=3
 
     " No auto folds please
     set foldlevel=1000
@@ -117,7 +116,7 @@ filetype off
     map go o<Esc>
 
     " Easily open corresponding source file
-    nmap <leader>vv :vsplit ../src/%<.cpp<CR>
+    nmap <leader>vv :110vs ../src/%<.cpp \| tabp<CR>
 
     " Copy Paste etc.
     map <leader>p "+p
