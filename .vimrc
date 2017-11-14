@@ -109,18 +109,18 @@ filetype off
     map <c-l> :vertical resize -5<CR>
 
     " Disable Ex mode
-    map q <nop>
+    map q: <nop>
     map Q <nop>
 
     " New line no insert mode
     map go o<Esc>
 
     " Easily open corresponding source file
-    nmap <leader>vv :110vs ../src/%<.cpp \| tabp<CR>
+    nmap <silent> <leader>vv :110vs ../src/%<.cpp \| tabp<CR>
 
     " Copy Paste etc.
-    map <leader>p "+p
-    map <leader>y "+y
+    map <silent> <leader>p "+p
+    map <silent> <leader>y "+y
 
     " Delete line without filling yank buffer
     nmap <silent> <leader>dd "_dd
@@ -138,7 +138,6 @@ filetype off
     let g:snipMate.no_default_aliases = 1
     let g:airline_powerline_fonts = 1
 
-    "let g:livepreview_previewer = 'mupdf'
     let g:livepreview_engine = 'xelatex'
 
 " Abbreviations
