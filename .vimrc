@@ -116,7 +116,7 @@ filetype off
     map go o<Esc>
 
     " Easily open corresponding source file
-    nmap <silent> <leader>vv :110vs ../src/%<.cpp \| tabp<CR>
+    nmap <silent> <leader>vv :110vs ../src/%<.cpp \| tabn<CR>
 
     " Copy Paste etc.
     map <silent> <leader>p "+p
