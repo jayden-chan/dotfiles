@@ -63,6 +63,9 @@ filetype off
     " Set .tex files to LaTeX syntax
     let g:tex_flavor = "latex"
 
+    " Make LaTeX live preview smoother
+    set updatetime=1000
+
 " Binds
 
     " Leader
