@@ -84,6 +84,7 @@ filetype off
 
     " Spell check
     map <F6> :setlocal spell! spelllang=en_ca<CR>
+    set spellfile=~/.vim/en.utf-8.add
 
     " ez semicolons
     inoremap ;; <Esc>$a;
