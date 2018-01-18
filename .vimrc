@@ -19,10 +19,13 @@ filetype off
     Plugin 'tpope/vim-fugitive'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'xuhdev/vim-latex-live-preview'
+    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'tpope/vim-commentary'
 
     call vundle#end()
     filetype plugin indent on
-    
+
 " Behaviour
 
     syntax on
@@ -54,7 +57,7 @@ filetype off
     set undolevels=9001
 
     set cursorline
-    
+
     set noshowmode
     set scrolloff=8
 
@@ -74,11 +77,11 @@ filetype off
     " Relative line number toggle
     set number relativenumber
     map <F9> <Esc>:set<Space>rnu!<CR>
-    
+
     " Reload .vimrc
     map <leader>ss :so $MYVIMRC<CR>
 
-    " Map Ctrl-s to save because I am a compulsive saver 
+    " Map Ctrl-s to save because I am a compulsive saver
     nmap <c-s> :wa<CR>
     imap <c-s> <Esc>:wa<CR>
 
@@ -88,6 +91,12 @@ filetype off
 
     " ez semicolons
     inoremap ;; <Esc>$a;
+
+    " ez comments
+    " noremap ff <Esc>^i//<Esc>
+
+    " ez whitespace removal
+    noremap <leader>ww :%s/\s\+$//e<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -120,7 +129,7 @@ filetype off
     map go o<Esc>
 
     " Easily open corresponding source file
-    nmap <silent> <leader>vv :110vs ../src/%<.cpp \| tabn<CR>
+    nmap <silent> <leader>vv :110vs ../src/%<.cpp \| tabp<CR>
 
     " Copy Paste etc.
     map <silent> <leader>p "+p
@@ -143,6 +152,12 @@ filetype off
     let g:airline_powerline_fonts = 1
 
     let g:livepreview_engine = 'xelatex'
+
+    let g:NERDTreeFileExtensionHighlightFullName = 1
+    let g:NERDTreeExactMatchHighlightFullName = 1
+    let g:NERDTreePatternMatchHighlightFullName = 1
+
+    let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
 
 " Abbreviations
 
