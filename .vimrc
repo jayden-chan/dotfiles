@@ -92,9 +92,6 @@ filetype off
     " ez semicolons
     inoremap ;; <Esc>$a;
 
-    " ez comments
-    " noremap ff <Esc>^i//<Esc>
-
     " ez whitespace removal
     noremap <leader>ww :%s/\s\+$//e<CR>
 
@@ -131,7 +128,7 @@ filetype off
     " Easily open corresponding source file
     nmap <silent> <leader>vv :110vs ../src/%<.cpp \| tabp<CR>
 
-    " Copy Paste etc.
+    " Copy Paste etc from system clipboard
     map <silent> <leader>p "+p
     map <silent> <leader>y "+y
 
@@ -147,8 +144,10 @@ filetype off
 
     let NERDTreeMapOpenSplit='h'
     map <c-n> :NERDTreeToggle<CR>
+
     let g:snipMate = {}
     let g:snipMate.no_default_aliases = 1
+
     let g:airline_powerline_fonts = 1
 
     let g:livepreview_engine = 'xelatex'
