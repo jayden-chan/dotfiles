@@ -90,7 +90,7 @@ filetype off
     set spellfile=~/.vim/en.utf-8.add
 
     " ez semicolons
-    inoremap ;; <Esc>$a;
+    inoremap ;; <Esc>A;
 
     " ez whitespace removal
     noremap <leader>ww :%s/\s\+$//e<CR>
@@ -104,9 +104,13 @@ filetype off
     " Various other cursor control maps
     noremap L $
     noremap J ^
-    noremap I <c-u>
-    noremap K <c-d>
-    noremap <leader>z zz
+    noremap I 18<c-u>
+    noremap K 18<c-d>
+
+    " Recenter file on current line
+    map <leader>z zz
+
+    " Change splits
     map <leader>j <C-w>h
     map <leader>k <C-w>j
     map <leader>i <C-w>k
@@ -139,6 +143,15 @@ filetype off
     " Tab switching
     map <tab>j :tabprevious<CR>
     map <tab>l :tabnext<CR>
+
+    " Fix 'I' behaviour in V-block
+    vnoremap H I
+
+    " Mouse for scrolling only, mostly for skimming files
+    set mouse=a
+    map <LeftMouse> <nop>
+    map <RightMouse> <nop>
+    map <MiddleMouse> <nop>
 
 " Plugin specific settings
 
