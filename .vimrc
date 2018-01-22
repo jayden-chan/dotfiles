@@ -22,6 +22,7 @@ filetype off
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
+    Plugin 'majutsushi/tagbar'
 
     call vundle#end()
     filetype plugin indent on
@@ -30,6 +31,8 @@ filetype off
 
     syntax on
     colorscheme onedark
+
+    set guifont=Monospace\ 14
 
     " Tab settings
     set expandtab
@@ -107,9 +110,6 @@ filetype off
     noremap I 18<c-u>
     noremap K 18<c-d>
 
-    " Recenter file on current line
-    map <leader>z zz
-
     " Change splits
     map <leader>j <C-w>h
     map <leader>k <C-w>j
@@ -144,14 +144,20 @@ filetype off
     map <tab>j :tabprevious<CR>
     map <tab>l :tabnext<CR>
 
+    " Open tagbar
+    nmap <c-b> :TagbarToggle<CR>
+
     " Fix 'I' behaviour in V-block
     vnoremap H I
 
     " Mouse for scrolling only, mostly for skimming files
     set mouse=a
-    map <LeftMouse> <nop>
-    map <RightMouse> <nop>
-    map <MiddleMouse> <nop>
+    nmap <LeftMouse> <nop>
+    nmap <RightMouse> <nop>
+    nmap <MiddleMouse> <nop>
+    imap <LeftMouse> <nop>
+    imap <RightMouse> <nop>
+    imap <MiddleMouse> <nop>
 
 " Plugin specific settings
 
@@ -170,6 +176,11 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
 
     let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
+
+    let g:tagbar_map_togglecaseinsensitive = 'h'
+    let g:tagbar_autoclose = 1
+    let g:tagbar_sort = 0
+    let g:tagbar_width = 30
 
 " Abbreviations
 
