@@ -69,6 +69,15 @@ source $ZSH/oh-my-zsh.sh
 stty stop ''
 stty start ''
 
+alias lcm='latexmk -pvc -pdf'
+alias :q='exit'
+alias gdf='cd ~/Documents/Git/dotfiles'
+alias gpf='cd ~/Documents/Git/programming-folder'
+alias gstat='git status'
+alias gadd='git add --all'
+alias gcom='git commit'
+alias gpsh='git push'
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
