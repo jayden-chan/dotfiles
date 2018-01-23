@@ -79,7 +79,7 @@ alias gcommit='git commit'
 alias gpush='git push'
 alias gpull='git pull'
 alias gdiff='git diff'
-alias sshde='ssh -l jayden@jaydendesktop.ddns.net'
+alias sshd='ssh jayden@jaydendesktop.ddns.net'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
