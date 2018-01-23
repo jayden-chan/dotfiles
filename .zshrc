@@ -73,10 +73,13 @@ alias lcm='latexmk -pvc -pdf'
 alias :q='exit'
 alias gdf='cd ~/Documents/Git/dotfiles'
 alias gpf='cd ~/Documents/Git/programming-folder'
-alias gstat='git status'
+alias gstatus='git status'
 alias gadd='git add --all'
-alias gcom='git commit'
-alias gpsh='git push'
+alias gcommit='git commit'
+alias gpush='git push'
+alias gpull='git pull'
+alias gdiff='git diff'
+alias sshde='ssh -l jayden@jaydendesktop.ddns.net'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
