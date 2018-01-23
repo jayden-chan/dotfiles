@@ -176,6 +176,8 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
 
     let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
+    let g:ycm_min_num_identifier_candidate_chars = 4
+    let g:ycm_max_num_identifier_candidates = 5
 
     let g:tagbar_map_togglecaseinsensitive = 'h'
     let g:tagbar_autoclose = 1
