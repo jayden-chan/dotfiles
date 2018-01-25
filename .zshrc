@@ -80,6 +80,7 @@ alias gpush='git push'
 alias gpull='git pull'
 alias gdiff='git diff'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
+alias javc='javac -Xlint:all'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
