@@ -81,6 +81,10 @@ alias gpull='git pull'
 alias gdiff='git diff'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias javc='javac -Xlint:all'
+alias vim="nvim"
+alias vi="nvim"
+
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
