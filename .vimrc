@@ -126,6 +126,9 @@ filetype off
     map q: <nop>
     map Q <nop>
 
+    " Repeat macro without spamming @
+    map <c-m> @@
+
     " New line no insert mode
     map go o<Esc>
 
