@@ -81,10 +81,14 @@ alias gpull='git pull'
 alias gdiff='git diff'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias javc='javac -Xlint:all'
-alias vim="nvim"
+# alias vim="vim"
 alias vi="nvim"
+alias gmu='cd ~/Documents/Programming/Java/matrix-utils/'
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
+
+# Export gradle path
+export PATH=$PATH:/opt/gradle/gradle-4.5/bin
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

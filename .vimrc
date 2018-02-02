@@ -126,8 +126,8 @@ filetype off
     map q: <nop>
     map Q <nop>
 
-    " Repeat macro without spamming @
-    map <c-m> @@
+    " Used for centering text in the 'thicc' comments
+    map <c-m> ^f*a<Space><Esc>f*h<Space><Esc>^
 
     " New line no insert mode
     map go o<Esc>
