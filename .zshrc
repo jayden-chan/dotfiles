@@ -84,6 +84,7 @@ alias javc='javac -Xlint:all'
 # alias vim="vim"
 alias vi="nvim"
 alias gmu='cd ~/Documents/Programming/Java/matrix-utils/'
+alias gr="./gradlew"
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 

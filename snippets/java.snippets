@@ -14,12 +14,12 @@ snippet jstart
 	}
 
 snippet jastart
-	/*
-	 * Name: Jayden Chan
-	 * ID: V00898517
-	 * Date: ${1:}
-	 * Filename: ${2:}.java
-	 * Details: ${3:}
+	/**
+	 * @author Jayden Chan <jaydencn7@gmail.com>
+	 * @version 1
+	 * Date created: ${1:}
+	 *
+	 * ${0}
 	*/
 
 	public class $2 {
@@ -51,6 +51,9 @@ snippet forr
 		${0}
 	}
 
+snippet ob
+	${1:} ${2:} = new $1(${0});
+
 snippet com
 	/**
 	 * ${0}
@@ -60,3 +63,9 @@ snippet thicc
 	/****************************************************************/
 	/*${0}*/
 	/****************************************************************/
+
+snippet test
+	@Test
+	public void test${1:}() {
+		${0}
+	}
