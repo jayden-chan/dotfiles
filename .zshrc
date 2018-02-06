@@ -66,8 +66,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-stty stop ''
-stty start ''
+stty stop undef
+stty start undef
 
 alias lcm='latexmk -pvc -pdf'
 alias :q='exit'
