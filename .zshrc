@@ -69,22 +69,27 @@ source $ZSH/oh-my-zsh.sh
 stty stop undef
 stty start undef
 
-alias lcm='latexmk -pvc -pdf'
-alias :q='exit'
+# Git alias
 alias gdf='cd ~/Documents/Git/dotfiles'
 alias gpf='cd ~/Documents/Git/programming-folder'
+alias gmu='cd ~/Documents/Programming/Java/matrix-utils/'
 alias gstatus='git status'
 alias gadd='git add --all'
 alias gcommit='git commit -v -S'
 alias gpush='git push'
 alias gpull='git pull'
 alias gdiff='git diff'
-alias sshd='ssh jayden@jaydendesktop.ddns.net'
+
+# Compilation
 alias javc='javac -Xlint:all'
-# alias vim="vim"
-alias vi="nvim"
-alias gmu='cd ~/Documents/Programming/Java/matrix-utils/'
+alias lcm='latexmk -pvc -pdf'
 alias gr="./gradlew"
+
+# Other
+alias :q='exit'
+alias sshd='ssh jayden@jaydendesktop.ddns.net'
+alias ls="ls -a"
+alias vi="nvim"
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
