@@ -23,14 +23,18 @@ filetype off
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'majutsushi/tagbar'
+    Plugin 'tomasiser/vim-code-dark'
 
     call vundle#end()
     filetype plugin indent on
 
 " Behaviour
 
+    set t_Co=256
+    set t_ut=
+
     syntax on
-    colorscheme onedark
+    colorscheme codedark
 
     set guifont=Monospace\ 14
 
@@ -186,6 +190,8 @@ filetype off
     let g:tagbar_autoclose = 1
     let g:tagbar_sort = 0
     let g:tagbar_width = 30
+
+    let g:codedark_term256=1
 
 " Abbreviations
 
