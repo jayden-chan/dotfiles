@@ -154,6 +154,9 @@ filetype off
     " Open tagbar
     nmap <c-b> :TagbarToggle<CR>
 
+    " Git status
+    map <c-g> :Gstatus<CR>
+
     " Fix 'I' behaviour in V-block
     vnoremap H I
 
@@ -185,6 +188,7 @@ filetype off
     let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
     let g:ycm_min_num_identifier_candidate_chars = 4
     let g:ycm_max_num_identifier_candidates = 5
+    set completeopt-=preview
 
     let g:tagbar_map_togglecaseinsensitive = 'h'
     let g:tagbar_autoclose = 1

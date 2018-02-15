@@ -88,7 +88,6 @@ alias gr="./gradlew"
 # Other
 alias :q='exit'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
-alias ls="ls -a"
 alias vi="nvim"
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
