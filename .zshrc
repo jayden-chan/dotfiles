@@ -78,17 +78,20 @@ alias gadd='git add --all'
 alias gcommit='git commit -v -S'
 alias gpush='git push'
 alias gpull='git pull'
+alias gpulla='git pull --rebase'
 alias gdiff='git diff'
+alias gbran='git branch'
+alias gch='git checkout'
 
 # Compilation
 alias javc='javac -Xlint:all'
 alias lcm='latexmk -pvc -pdf'
-alias gr="./gradlew"
+alias gr='./gradlew'
 
 # Other
 alias :q='exit'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
-alias vi="nvim"
+alias vi='nvim'
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
