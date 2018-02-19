@@ -9,7 +9,6 @@ filetype off
 
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'joshdick/onedark.vim'
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
@@ -24,6 +23,7 @@ filetype off
     Plugin 'tpope/vim-commentary'
     Plugin 'majutsushi/tagbar'
     Plugin 'tomasiser/vim-code-dark'
+    Plugin 'godlygeek/tabular'
 
     call vundle#end()
     filetype plugin indent on
