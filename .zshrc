@@ -91,7 +91,7 @@ alias gr='./gradlew'
 # Other
 alias :q='exit'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
-alias vi='nvim'
+alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
