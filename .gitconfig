@@ -1,11 +1,11 @@
 [user]
-	email = jaydencn7@gmail.com
-	name = Jayden Chan
-	signingkey = 808F1681
+    email = jaydencn7@gmail.com
+    name = Jayden Chan
+    signingkey = 808F1681
 [push]
-	default = simple
+    default = simple
 [credential]
-	helper = store
+    helper = store
 [commit]
     gpgsign = true
 [core]
