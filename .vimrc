@@ -30,9 +30,11 @@ filetype off
 
 " Behaviour
 
+    " 256 Colors
     set t_Co=256
     set t_ut=
 
+    " Theme
     syntax on
     colorscheme codedark
 
@@ -64,8 +66,9 @@ filetype off
     set undolevels=9001
 
     set cursorline
-
     set noshowmode
+
+    " Don't let the cursor reach the top/bottom 8 lines of text
     set scrolloff=8
 
     set autochdir
@@ -196,6 +199,14 @@ filetype off
     let g:tagbar_width = 30
 
     let g:codedark_term256=1
+
+" Commands
+
+    command Q :q
+    command Wq :wq
+    command WQ :wq
+    command Wqa :wqa
+    command WQa :wqa
 
 " Abbreviations
 
