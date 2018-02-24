@@ -1,0 +1,13 @@
+[user]
+	email = jaydencn7@gmail.com
+	name = Jayden Chan
+	signingkey = 808F1681
+[push]
+	default = simple
+[credential]
+	helper = store
+[commit]
+    gpgsign = true
+[core]
+    editor = vim
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
