@@ -35,7 +35,7 @@ prompt_context(){}
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -88,8 +88,11 @@ alias javc='javac -Xlint:all'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 
-# Other
+# Exit
 alias :q='exit'
+alias :Q='exit'
+
+# Other
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias aptupdate='sudo apt update && apt list --upgradable && sudo apt upgrade && sudo apt autoremove'
@@ -104,30 +107,3 @@ function chpwd() {
 
 # Export gradle path
 export PATH=$PATH:/opt/gradle/gradle-4.5/bin
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
