@@ -22,7 +22,7 @@ filetype off
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'majutsushi/tagbar'
-    Plugin 'tomasiser/vim-code-dark'
+    Plugin 'jayden-chan/vim-code-dark'
     Plugin 'godlygeek/tabular'
 
     call vundle#end()
