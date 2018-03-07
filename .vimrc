@@ -24,6 +24,7 @@ filetype off
     Plugin 'majutsushi/tagbar'
     Plugin 'jayden-chan/vim-code-dark'
     Plugin 'godlygeek/tabular'
+    Plugin 'vim-syntastic/syntastic'
 
     call vundle#end()
     filetype plugin indent on
@@ -199,6 +200,15 @@ filetype off
     let g:tagbar_width = 30
 
     let g:codedark_term256=1
+
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 
 " Commands
 
