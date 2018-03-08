@@ -72,16 +72,7 @@ stty start undef
 # Git alias
 alias gdf='cd ~/Documents/Git/dotfiles'
 alias gpf='cd ~/Documents/Git/programming-folder'
-alias gmu='cd ~/Documents/Programming/Java/matrix-utils/'
-alias gstatus='git status'
-alias gadd='git add --all'
-alias gcommit='git commit -v -S'
-alias gpush='git push'
-alias gpull='git pull'
-alias gpulla='git pull --rebase'
-alias gdiff='git diff'
-alias gbran='git branch'
-alias gch='git checkout'
+alias gc='git commit -v -S'
 
 # Compilation
 alias javc='javac -Xlint:all'
