@@ -14,7 +14,6 @@ filetype off
     Plugin 'garbas/vim-snipmate'
     Plugin 'arrufat/vala.vim'
     Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
     Plugin 'gcmt/taboo.vim'
     Plugin 'tpope/vim-fugitive'
     Plugin 'jiangmiao/auto-pairs'
