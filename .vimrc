@@ -14,6 +14,7 @@ filetype off
     Plugin 'garbas/vim-snipmate'
     Plugin 'arrufat/vala.vim'
     Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
     Plugin 'gcmt/taboo.vim'
     Plugin 'tpope/vim-fugitive'
     Plugin 'jiangmiao/auto-pairs'
@@ -24,7 +25,7 @@ filetype off
     Plugin 'majutsushi/tagbar'
     Plugin 'jayden-chan/vim-code-dark'
     Plugin 'godlygeek/tabular'
-    Plugin 'vim-syntastic/syntastic'
+    Plugin 'udalov/kotlin-vim'
 
     call vundle#end()
     filetype plugin indent on
