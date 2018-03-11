@@ -9,9 +9,6 @@ snippet jstart
 
 	public class ${0} {
 	    
-		public static void main(String args[]) {
-			System.out.println("Hello world");
-		}
 	}
 
 snippet jastart
@@ -24,10 +21,12 @@ snippet jastart
 	*/
 
 	public class $2 {
-	    
-		public static void main(String args[]) {
-		    System.out.println("Hello world");
-		}
+	
+	}
+
+snippet main
+	public static void main(String args[]) {
+		System.out.println("Hello World!");
 	}
 
 snippet cw
@@ -61,9 +60,9 @@ snippet com
 	 */
 
 snippet thicc
-	/****************************************************************/
-	/*${0}*/
-	/****************************************************************/
+	//==================================================
+	//${0}
+	//==================================================
 
 snippet test
 	@Test
@@ -73,3 +72,6 @@ snippet test
 
 snippet sb
 	sb.append(${0});
+
+snippet ts
+	toString()${0}
