@@ -1,9 +1,9 @@
 [options]
-#allow_bold = true
+allow_bold = true
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = DejaVu Sans Mono for Powerline 14
+font = Source Code Pro for Powerline 13
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -23,7 +23,7 @@ scrollback_lines = 10000
 #cursor_blink = system
 
 # "block", "underline" or "ibeam"
-#cursor_shape = block
+#cursor_shape = ibeam
 
 # Hide links that are no longer valid in url select overlay mode
 #filter_unmatched_urls = true
@@ -34,42 +34,51 @@ scrollback_lines = 10000
 # set size hints for the window
 #size_hints = false
 
-# "off", "left" or "right"
-#scrollbar = off
-
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
-
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
 background = rgba(51, 51, 51, 0.93)
+foreground      = #f8f8f2
+foreground_bold = #f5f4f1
+cursor          = #f5f4f1
 
-# If unset, will reverse foreground and background
-#highlight = #2f2f2f
+# 16 color space
 
-# Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+# Black, Gray, Silver, White
+color0  = #272822
+color8  = #75715e
+color7  = #f8f8f2
+color15 = #f9f8f5
+
+# Red
+color1  = #f92672
+color9  = #f92672
+
+# Green
+color2  = #a6e22e
+color10 = #a6e22e
+
+# Yellow
+color3  = #f4bf75
+color11 = #f4bf75
+
+# Blue
+color4  = #66d9ef
+color12 = #66d9ef
+
+# Purple
+color5  = #ae81ff
+color13 = #ae81ff
+
+# Teal
+color6  = #a1efe4
+color14 = #a1efe4
+
+# Extra colors
+color16 = #fd971f
+color17 = #cc6633
+color18 = #383830
+color19 = #49483e
+color20 = #a59f85
+color21 = #f5f4f1# If unset, will reverse foreground and background
 
 [hints]
 #font = Monospace 12
