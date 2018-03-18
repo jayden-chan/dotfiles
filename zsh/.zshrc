@@ -88,12 +88,6 @@ alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias aptupdate='sudo apt update && apt list --upgradable && sudo apt upgrade && sudo apt autoremove'
 
-# Auto ls on cd
-function chpwd() {
-    emulate -L zsh
-    ls -a
-}
-
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 # Export gradle path
