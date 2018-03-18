@@ -23,7 +23,7 @@ filetype off
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'majutsushi/tagbar'
-    Plugin 'jayden-chan/vim-code-dark'
+    Plugin 'joshdick/onedark.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'udalov/kotlin-vim'
 
@@ -38,7 +38,10 @@ filetype off
 
     " Theme
     syntax on
-    colorscheme codedark
+    colorscheme onedark
+
+    " Transperent background
+    hi Normal guibg=NONE ctermbg=NONE
 
     set guifont=Monospace\ 14
 
