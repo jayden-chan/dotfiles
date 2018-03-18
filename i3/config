@@ -151,11 +151,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-}
-
 # Spotify
 set $pause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 set $next  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
@@ -168,8 +163,8 @@ for_window [class=".*"] border pixel 0
 hide_edge_borders both
 
 # Startup scripts
-exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id $HOME/.screenlayout/init-screens.sh
+exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id compton
 exec --no-startup-id xset m 1/1 0
 exec --no-startup-id xmodmap -e "clear lock"                #disable caps lock switch
