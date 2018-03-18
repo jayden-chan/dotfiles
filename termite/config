@@ -3,7 +3,7 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 14
+font = DejaVu Sans Mono for Powerline 14
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
