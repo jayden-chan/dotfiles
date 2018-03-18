@@ -79,6 +79,12 @@ alias javc='javac -Xlint:all'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 
+# dotfile editing
+alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/.vimrc'
+alias zshrc='vim /home/jayden/Documents/Git/dotfiles/zsh/.zshrc'
+alias dotup='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-up.sh'
+alias dotdown='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-down.sh'
+
 # Exit
 alias :q='exit'
 alias :Q='exit'
