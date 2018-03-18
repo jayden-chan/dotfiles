@@ -97,4 +97,4 @@ alias aptupdate='sudo apt update && apt list --upgradable && sudo apt upgrade &&
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 # Export gradle path
-export PATH=$PATH:/opt/gradle/gradle-4.5/bin
+export PATH=$PATH:/opt/gradle/gradle-4.6/bin
