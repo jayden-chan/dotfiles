@@ -70,7 +70,7 @@ filetype off
 
     set undolevels=9001
 
-    set cursorline
+    set nocursorline
     set noshowmode
 
     " Don't let the cursor reach the top/bottom 8 lines of text
@@ -182,6 +182,7 @@ filetype off
     let NERDTreeMapOpenSplit='h'
     map <c-n> :NERDTreeToggle<CR>
 
+    let g:snipMate = get(g:, 'snipMate', {})
     let g:snipMate = {}
     let g:snipMate.no_default_aliases = 1
 
