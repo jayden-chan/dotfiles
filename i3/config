@@ -185,20 +185,27 @@ exec --no-startup-id $HOME/.screenlayout/init-screens.sh    # Set configurations
 exec --no-startup-id $HOME/.fehbg                           # Set wallpaper
 exec --no-startup-id compton                                # Start compton
 exec --no-startup-id xset m 1/1 0                           # Disable mouse acceleration
-exec --no-startup-id xmodmap -e "clear lock"                #disable caps lock switch
-exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+exec --no-startup-id xmodmap -e "clear lock"                # Disable caps lock switch
+exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" # Set caps_lock as escape
+exec --no-startup-id numlockx on                            # Turn on num lock
 
 # Binds
 bindsym $mod+g gaps inner current set 0
 bindsym $mod+b gaps inner current set 30
 
+# Easily start programs
 bindsym $mod+c exec --no-startup-id google-chrome
 bindsym $mod+n exec --no-startup-id nautilus
+bindsym $mod+m exec --no-startup-id spotify
 
+# Music control
 bindsym $mod+Pause exec $pause
 bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
+# Set outputs for specific workspaces
 workspace $ws1 output $screen1
 workspace $ws2 output $screen2
 workspace $ws3 output $screen3
+
+assign [class="^Spotify$"] number 1
