@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+set $amod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -92,6 +93,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Define screen names
+set $screen1 "DP-0"
+set $screen2 "HDMI-0"
+set $screen3 "DVI-D-0"
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -116,6 +122,18 @@ bindsym $mod+Shift+7 workspace $ws7
 bindsym $mod+Shift+8 workspace $ws8
 bindsym $mod+Shift+9 workspace $ws9
 bindsym $mod+Shift+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $amod+Shift+1 move container to workspace $ws1;  workspace $ws1
+bindsym $amod+Shift+2 move container to workspace $ws2;  workspace $ws2
+bindsym $amod+Shift+3 move container to workspace $ws3;  workspace $ws3
+bindsym $amod+Shift+4 move container to workspace $ws4;  workspace $ws4
+bindsym $amod+Shift+5 move container to workspace $ws5;  workspace $ws5
+bindsym $amod+Shift+6 move container to workspace $ws6;  workspace $ws6
+bindsym $amod+Shift+7 move container to workspace $ws7;  workspace $ws7
+bindsym $amod+Shift+8 move container to workspace $ws8;  workspace $ws8
+bindsym $amod+Shift+9 move container to workspace $ws9;  workspace $ws9
+bindsym $amod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -180,3 +198,7 @@ bindsym $mod+n exec --no-startup-id nautilus
 bindsym $mod+Pause exec $pause
 bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
+
+workspace $ws1 output $screen1
+workspace $ws2 output $screen2
+workspace $ws3 output $screen3
