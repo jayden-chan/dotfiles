@@ -203,6 +203,11 @@ bindsym Pause                exec $pause
 bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
+# Screenshots
+bindsym Print exec --no-startup-id shutter -s
+bindsym Shift+Print exec --no-startup-id shutter --section
+
+
 # Set outputs for specific workspaces
 workspace $ws1 output $screen1
 workspace $ws2 output $screen2
