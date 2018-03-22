@@ -33,6 +33,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# Open scratch terminal
+bindsym $mod+Shift+Return [instance="droptermite"] scratchpad show; [instance="droptermite"] move position center
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -188,6 +191,14 @@ exec --no-startup-id xset m 1/1 0                           # Disable mouse acce
 exec --no-startup-id xmodmap -e "clear lock"                # Disable caps lock switch
 exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" # Set caps_lock as escape
 exec --no-startup-id numlockx on                            # Turn on num lock
+
+# Scratchpad terminal settings
+for_window [instance="droptermite"] floating enable
+for_window [instance="droptermite"] resize set 960 400
+for_window [instance="droptermite"] move scratchpad
+for_window [instance="droptermite"] border pixel 5
+
+exec_always --no-startup-id termite --name droptermite
 
 # Binds
 bindsym $mod+g gaps inner current set 0

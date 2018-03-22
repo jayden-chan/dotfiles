@@ -53,16 +53,16 @@ color1  = #f92672
 color9  = #f92672
 
 # Green
-color2  = #a6e22e
-color10 = #a6e22e
+color2  = #64d852
+color10 = #64d852
 
 # Yellow
-color3  = #f4bf75
-color11 = #f4bf75
+color3  = #d3b615
+color11 = #d3b615
 
 # Blue
-color4  = #66d9ef
-color12 = #66d9ef
+color4  = #00a0ff
+color12 = #00a0ff
 
 # Purple
 color5  = #ae81ff
