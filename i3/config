@@ -150,9 +150,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Spotify
-set $pause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-set $next  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-set $prev  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+set $pause --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+set $next --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+set $prev --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 gaps inner 30
 gaps outer 0
@@ -168,7 +168,8 @@ exec --no-startup-id xset m 1/1 0                           # Disable mouse acce
 exec --no-startup-id xmodmap -e "clear lock"                # Disable caps lock switch
 exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" # Set caps_lock as escape
 exec --no-startup-id numlockx on                            # Turn on num lock
-exec --no-startup-id polybar grace
+exec --no-startup-id polybar grace                          # Open polybar
+exec --no-startup-id ulauncher                              # Start Ulauncher
 
 # Scratchpad terminal settings
 for_window [instance="droptermite"] floating enable
