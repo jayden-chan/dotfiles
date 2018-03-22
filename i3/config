@@ -207,6 +207,8 @@ bindsym XF86AudioRaiseVolume exec $next
 bindsym Print exec --no-startup-id shutter -s
 bindsym Shift+Print exec --no-startup-id shutter --section
 
+bindsym $mod+Shift+plus move scratchpad
+bindsym $mod+plus scratchpad show
 
 # Set outputs for specific workspaces
 workspace $ws1 output $screen1
