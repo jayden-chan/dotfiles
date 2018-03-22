@@ -35,7 +35,7 @@ scrollback_lines = 10000
 #size_hints = false
 
 [colors]
-background = rgba(51, 51, 51, 0.93)
+background = rgba(51, 51, 51, 0.85)
 foreground      = #f8f8f2
 foreground_bold = #f5f4f1
 cursor          = #f5f4f1

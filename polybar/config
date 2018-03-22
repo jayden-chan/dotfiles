@@ -9,19 +9,20 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #333333
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #606060
 primary = #008cff
 secondary = #e60053
 alert = #bd2c40
+white = #ffffff
 
 [bar/grace]
 monitor = ${env:MONITOR:HDMI-0}
 width = 100%
-height = 27
+height = 29
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -42,9 +43,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Material\-Design\-Iconic\-Font:pixelsize=10;1
+font-0 = Arial:pixelsize=12;2
+font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
+font-2 = Material\-Design\-Iconic\-Font:pixelsize=11;1
 
 modules-left = powermenu i3
 modules-center = date
@@ -141,7 +142,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = 1
 format-prefix = "cpu: "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #f90000
@@ -149,7 +150,7 @@ label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
-interval = 2
+interval = 1
 format-prefix = "mem: "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #4bffdc
@@ -294,7 +295,7 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.primary}
+label-open-foreground = ${colors.white}
 label-close = 
 label-close-foreground = ${colors.secondary}
 label-separator = |

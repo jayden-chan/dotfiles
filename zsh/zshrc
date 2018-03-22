@@ -27,8 +27,8 @@ alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 
 # dotfile editing
-alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/.vimrc'
-alias zshrc='vim /home/jayden/Documents/Git/dotfiles/zsh/.zshrc'
+alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/vimrc'
+alias zshrc='vim /home/jayden/Documents/Git/dotfiles/zsh/zshrc'
 alias dotup='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-up.sh'
 alias dotdown='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-down.sh'
 
@@ -59,4 +59,12 @@ function updatesys () {
     sudo apt autoremove
     echo
     echo --- Finished full system upgrade ---
+}
+
+function installfont () {
+    sudo echo --- Installing font ---
+    cp $1 ~/.fonts
+    echo --- Refreshing font cache ---
+    sudo fc-cache -fv
+    echo --- Done ---
 }
