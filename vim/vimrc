@@ -12,13 +12,11 @@ filetype off
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
-    Plugin 'arrufat/vala.vim'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'gcmt/taboo.vim'
     Plugin 'tpope/vim-fugitive'
     Plugin 'jiangmiao/auto-pairs'
-    Plugin 'xuhdev/vim-latex-live-preview'
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
@@ -192,7 +190,7 @@ filetype off
 
     let g:airline_powerline_fonts = 1
 
-    let g:livepreview_engine = 'xelatex'
+    let g:onedark_termcolors = 256
 
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
@@ -207,17 +205,6 @@ filetype off
     let g:tagbar_autoclose = 1
     let g:tagbar_sort = 0
     let g:tagbar_width = 30
-
-    let g:codedark_term256=1
-
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
 
 " Commands
 
