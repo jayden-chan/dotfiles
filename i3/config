@@ -47,6 +47,18 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# resize window
+bindsym $amod+j resize shrink width 10 px or 10 ppt
+bindsym $amod+k resize grow height 10 px or 10 ppt
+bindsym $amod+i resize shrink height 10 px or 10 ppt
+bindsym $amod+l resize grow width 10 px or 10 ppt
+
+# arrows
+bindsym $amod+Left resize shrink width 10 px or 10 ppt
+bindsym $amod+Down resize grow height 10 px or 10 ppt
+bindsym $amod+Up resize shrink height 10 px or 10 ppt
+bindsym $amod+Right resize grow width 10 px or 10 ppt
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -178,6 +190,7 @@ for_window [instance="droptermite"] move scratchpad
 for_window [instance="droptermite"] border pixel 5
 
 exec_always --no-startup-id termite --name droptermite
+exec_always --no-startup-id /home/jayden/Documents/Git/dotfiles/scripts/polybar.sh
 
 # Binds
 bindsym $mod+g gaps inner current set 0
