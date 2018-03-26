@@ -214,6 +214,8 @@ filetype off
     command Wqa :wqa
     command WQa :wqa
 
+    autocmd FileType gitcommit setlocal spell
+
 " Abbreviations
 
     iab retrun return
