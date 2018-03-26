@@ -30,17 +30,10 @@ filetype off
 
 " Behaviour
 
-    " 256 Colors
-    set t_Co=256
-    set t_ut=
-
     " Theme
     syntax on
     colorscheme onedark
     set termguicolors
-
-    " Transperent background
-    " hi Normal guibg=NONE ctermbg=NONE
 
     set guifont=Monospace\ 14
 
