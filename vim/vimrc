@@ -37,9 +37,10 @@ filetype off
     " Theme
     syntax on
     colorscheme onedark
+    set termguicolors
 
     " Transperent background
-    hi Normal guibg=NONE ctermbg=NONE
+    " hi Normal guibg=NONE ctermbg=NONE
 
     set guifont=Monospace\ 14
 
@@ -49,6 +50,9 @@ filetype off
     set shiftwidth=4
     set smarttab
     set smartindent
+
+    " Use backspace
+    set backspace=indent,eol,start
 
     " Search settings
     set gdefault

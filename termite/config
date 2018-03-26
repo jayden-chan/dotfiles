@@ -36,50 +36,43 @@ scrollback_lines = 10000
 
 [colors]
 background = rgba(51, 51, 51, 0.85)
-foreground      = #f8f8f2
-foreground_bold = #f5f4f1
-cursor          = #f5f4f1
+foreground      = #abb2bf
+foreground_bold = #abb2bf
+cursor          =
 
-# 16 color space
+# black
+color0  = #282c34
+color8  = #5c6370
 
-# Black, Gray, Silver, White
-color0  = #272822
-color8  = #75715e
-color7  = #f8f8f2
-color15 = #f9f8f5
+# red
+color1  = #e06c75
+color9  = #be5046
 
-# Red
-color1  = #f92672
-color9  = #f92672
+# green
+color2  = #98c379
+color10 = #7a9f60
 
-# Green
-color2  = #64d852
-color10 = #64d852
+# yellow
+color3  = #e5c07b
+color11 = #d19a66
 
-# Yellow
-color3  = #d3b615
-color11 = #d3b615
+# blue
+color4  = #61afef
+color12 = #3b84c0
 
-# Blue
-color4  = #00a0ff
-color12 = #00a0ff
+# magenta
+color5  = #c678dd
+color13 = #9a52af
 
-# Purple
-color5  = #ae81ff
-color13 = #ae81ff
+# cyan
+color6  = #56b6c2
+color14 = #3c909b
 
-# Teal
-color6  = #a1efe4
-color14 = #a1efe4
+# white
+color7  = #abb2bf
+color15 = #828997
 
-# Extra colors
-color16 = #fd971f
-color17 = #cc6633
-color18 = #383830
-color19 = #49483e
-color20 = #a59f85
-color21 = #f5f4f1# If unset, will reverse foreground and background
-
+vim: ft=dosini cms=#%s
 [hints]
 #font = Monospace 12
 #foreground = #dcdccc

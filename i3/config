@@ -4,9 +4,7 @@ set $amod Mod4
 # Change window border color
 client.focused #555555 #555555 #ffffff #2e9ef4 #000000
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:SFNS Display 13
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
