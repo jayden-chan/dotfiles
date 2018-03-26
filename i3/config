@@ -185,7 +185,7 @@ exec --no-startup-id ulauncher                              # Start Ulauncher
 
 # Scratchpad terminal settings
 for_window [instance="droptermite"] floating enable
-for_window [instance="droptermite"] resize set 960 400
+for_window [instance="droptermite"] resize set 960 475
 for_window [instance="droptermite"] move scratchpad
 
 exec_always --no-startup-id termite --name droptermite
