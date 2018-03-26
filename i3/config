@@ -187,7 +187,6 @@ exec --no-startup-id ulauncher                              # Start Ulauncher
 for_window [instance="droptermite"] floating enable
 for_window [instance="droptermite"] resize set 960 400
 for_window [instance="droptermite"] move scratchpad
-for_window [instance="droptermite"] border pixel 5
 
 exec_always --no-startup-id termite --name droptermite
 exec_always --no-startup-id /home/jayden/Documents/Git/dotfiles/scripts/polybar.sh
