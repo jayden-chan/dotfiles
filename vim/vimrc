@@ -72,12 +72,16 @@ filetype off
 
     set undolevels=9001
 
+    " No cursor line
     set nocursorline
+
+    " No command bar
     set noshowmode
 
     " Don't let the cursor reach the top/bottom 8 lines of text
     set scrolloff=8
 
+    " Automatically update working dir
     set autochdir
 
     " Set .tex files to LaTeX syntax
@@ -86,6 +90,7 @@ filetype off
     " Make LaTeX live preview smoother
     set updatetime=1000
 
+    " Change cursor to bar and underscore for different modes
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[4 q"
     let &t_EI = "\<Esc>[2 q"
@@ -123,8 +128,8 @@ filetype off
     noremap i gk
 
     " Various other cursor control maps
-    noremap L $
-    noremap J ^
+    noremap L g$
+    noremap J g^
     noremap I 18<c-u>
     noremap K 18<c-d>
 
@@ -193,7 +198,6 @@ filetype off
     let g:snipMate.no_default_aliases = 1
 
     let g:airline_powerline_fonts = 1
-
     let g:onedark_termcolors = 256
 
     let g:NERDTreeFileExtensionHighlightFullName = 1
@@ -218,7 +222,9 @@ filetype off
     command Wqa :wqa
     command WQa :wqa
 
+    " Enable spell check for certain file types
     autocmd FileType gitcommit setlocal spell
+    autocmd FileType text setlocal spell
 
 " Abbreviations
 
