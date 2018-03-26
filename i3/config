@@ -171,15 +171,14 @@ for_window [class=".*"] border pixel 0
 hide_edge_borders both
 
 # Startup scripts
-exec --no-startup-id $HOME/.screenlayout/init-screens.sh    # Set configurations for screens
-exec --no-startup-id $HOME/.fehbg                           # Set wallpaper
-exec --no-startup-id compton                                # Start compton
-exec --no-startup-id xset m 1/1 0                           # Disable mouse acceleration
-exec --no-startup-id xmodmap -e "clear lock"                # Disable caps lock switch
-exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" # Set caps_lock as escape
-exec --no-startup-id numlockx on                            # Turn on num lock
-exec --no-startup-id polybar grace                          # Open polybar
-exec --no-startup-id ulauncher                              # Start Ulauncher
+exec --no-startup-id $HOME/.screenlayout/init-screens.sh                      # Set configurations for screens
+exec --no-startup-id $HOME/.fehbg                                             # Set wallpaper
+exec --no-startup-id compton                                                  # Start compton
+exec --no-startup-id xset m 1/1 0                                             # Disable mouse acceleration
+exec --no-startup-id xmodmap -e "clear lock"                                  # Disable caps lock switch
+exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"                   # Set caps_lock as escape
+exec --no-startup-id numlockx on                                              # Turn on num lock
+exec --no-startup-id /home/jayden/Documents/Git/dotfiles/scripts/ulauncher.sh # Start Ulauncher
 
 # Scratchpad terminal settings
 for_window [instance="droptermite"] floating enable
