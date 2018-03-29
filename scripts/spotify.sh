@@ -24,7 +24,7 @@ main() {
     if [ "$status" = "" ]; then
         echo Paused
     else
-        echo "${*:-%artist% - %title%}" | sed "s/%artist%/$artist/g;s/%title%/$title/g;s/%album%/$album/g"i | sed 's/&/\\&/g'
+        echo $artist - $title
     fi
 
 }
