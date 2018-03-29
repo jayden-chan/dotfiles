@@ -47,7 +47,7 @@ font-0 = SFNS Display:pixelsize=12;2
 font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
 font-2 = Material\-Design\-Iconic\-Font:pixelsize=11;1
 
-modules-left = powermenu i3
+modules-left = powermenu i3 spotify
 modules-center = date
 modules-right = xbacklight memory cpu battery temperature
 
@@ -206,7 +206,6 @@ time-alt = %I:%M:%S
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #0a6cf5
 
 label = %date% %time%
 
@@ -284,10 +283,12 @@ label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-; ramp-0 = 
-; ramp-1 =
-; ramp-2 = 
-; ramp-foreground = ${colors.foreground-alt}
+[module/spotify]
+type = custom/script
+exec = /home/jayden/Documents/Git/dotfiles/scripts/spotify.sh
+exec-if = pgrep -x spotify
+tail = true
+interval = 0
 
 [module/powermenu]
 type = custom/menu

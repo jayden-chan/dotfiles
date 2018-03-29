@@ -218,5 +218,8 @@ workspace $ws3 output $screen3
 # Make Spotify open on correct monitor
 for_window [class="^Spotify$"] move to workspace $ws1
 
+# Make pulseaudio EQ start in floating mode
+for_window [class="^Pulseaudio-equalizer\.py$"] floating enable
+
 # Don't change focus when moving mouse
 focus_follows_mouse no
