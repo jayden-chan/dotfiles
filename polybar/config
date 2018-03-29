@@ -45,7 +45,7 @@ module-margin-right = 2
 
 font-0 = SFNS Display:pixelsize=12;2
 font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
-font-2 = Material\-Design\-Iconic\-Font:pixelsize=11;1
+font-2 = Material\-Design\-Iconic\-Font:pixelsize=13;3
 
 modules-left = powermenu i3 spotify
 modules-center = date
@@ -143,7 +143,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 1
-format-prefix = "cpu: "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #f90000
 label = %percentage:2%%
@@ -151,7 +151,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 1
-format-prefix = "mem: "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #4bffdc
 label = %percentage_used%%
@@ -276,7 +276,7 @@ format-warn = <label-warn>
 
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
 
-format-prefix = "temp: "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %temperature%
@@ -287,6 +287,12 @@ label-warn-foreground = ${colors.secondary}
 type = custom/script
 exec = /home/jayden/Documents/Git/dotfiles/scripts/spotify.sh
 exec-if = pgrep -x spotify
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+
+click-left = i3-msg '[class="Spotify"] focus'
+
 tail = true
 interval = 0
 
