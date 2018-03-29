@@ -218,6 +218,7 @@ filetype off
     " Enable spell check for certain file types
     autocmd FileType gitcommit setlocal spell
     autocmd FileType text setlocal spell
+    autocmd FileType markdown setlocal spell
 
 " Abbreviations
 
