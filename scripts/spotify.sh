@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Author: Nicholas Feldman
-# URL:    https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh
+# Author:   Nicholas Feldman, Jayden Chan
+# Based on: https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh
 
 main() {
     if ! pgrep -x spotify >/dev/null; then

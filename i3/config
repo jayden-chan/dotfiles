@@ -167,11 +167,10 @@ set $prev --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.
 gaps inner 30
 gaps outer 0
 
-for_window [class=".*"] border pixel 0
+default_border none
 hide_edge_borders both
 
 # Startup scripts
-exec --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/ulauncher.sh # Start Ulauncher
 exec --no-startup-id $HOME/.screenlayout/init-screens.sh                         # Set configurations for screens
 exec --no-startup-id $HOME/.fehbg                                                # Set wallpaper
 exec --no-startup-id compton                                                     # Start compton
@@ -189,7 +188,7 @@ exec_always --no-startup-id termite --name droptermite
 exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/polybar.sh
 exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/ulauncher.sh
 
-# Binds
+#### Binds ####
 bindsym $mod+g gaps inner current set 0
 bindsym $mod+b gaps inner current set 30
 
@@ -210,6 +209,11 @@ bindsym Shift+Print exec --no-startup-id shutter --section
 bindsym $mod+Shift+plus move scratchpad
 bindsym $mod+plus scratchpad show
 
+#### Settings ####
+#
+# Don't change focus when moving mouse
+focus_follows_mouse no
+
 # Set outputs for specific workspaces
 workspace $ws1 output $screen1
 workspace $ws2 output $screen2
@@ -221,5 +225,5 @@ for_window [class="^Spotify$"] move to workspace $ws1
 # Make pulseaudio EQ start in floating mode
 for_window [class="^Pulseaudio-equalizer\.py$"] floating enable
 
-# Don't change focus when moving mouse
-focus_follows_mouse no
+# Make Ulauncher open on main monitor
+for_window [class="^Ulauncher$"] move to workspace $ws2

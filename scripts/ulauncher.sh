@@ -8,6 +8,7 @@ while pgrep -u jayden -x ulauncher >/dev/null; do sleep 1; done
 
 # Wait until compton starts
 while ! pgrep -u jayden -x compton >/dev/null; do sleep 1; done
+sleep 2
 
 # Launch Ulauncher
 ulauncher &
