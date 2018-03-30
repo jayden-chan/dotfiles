@@ -174,11 +174,11 @@ filetype off
 
     " Mouse for scrolling only, mostly for skimming files
     set mouse=a
-    nmap <LeftMouse> <nop>
-    nmap <RightMouse> <nop>
+    nmap <LeftMouse>   <nop>
+    nmap <RightMouse>  <nop>
     nmap <MiddleMouse> <nop>
-    imap <LeftMouse> <nop>
-    imap <RightMouse> <nop>
+    imap <LeftMouse>   <nop>
+    imap <RightMouse>  <nop>
     imap <MiddleMouse> <nop>
 
 " Plugin specific settings
