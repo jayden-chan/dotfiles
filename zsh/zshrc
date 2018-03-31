@@ -23,6 +23,8 @@ alias gc='git commit -v -S'
 
 # Compilation
 alias javc='javac -Xlint:all'
+alias javca='javac -Xlint:all *.java'
+alias javcl='rm *.class'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 
