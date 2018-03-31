@@ -24,6 +24,7 @@ filetype off
     Plugin 'joshdick/onedark.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'udalov/kotlin-vim'
+    Plugin 'junegunn/goyo.vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -32,9 +33,12 @@ filetype off
 
     " Theme
     syntax on
-    colorscheme onedark
+
+    set t_Co=256
+    set t_ut=
     set termguicolors
 
+    colorscheme onedark
     set guifont=Monospace\ 14
 
     " Tab settings
@@ -206,6 +210,8 @@ filetype off
     let g:tagbar_autoclose = 1
     let g:tagbar_sort = 0
     let g:tagbar_width = 30
+
+    let g:goyo_width = 120
 
 " Commands
 
