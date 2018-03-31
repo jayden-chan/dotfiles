@@ -53,7 +53,7 @@ filetype off
     set incsearch
 
     set splitright
-    set lazyredraw
+    " set lazyredraw
 
     " Nice line wraps
     set linebreak
