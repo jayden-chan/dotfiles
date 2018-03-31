@@ -131,21 +131,20 @@ filetype off
     noremap K 18<c-d>
 
     " Change splits
-    map <leader>j <C-w>h
-    map <leader>k <C-w>j
-    map <leader>i <C-w>k
-    map <leader>l <C-w>l
+    nnoremap <leader>j <C-w>h
+    nnoremap <leader>k <C-w>j
+    nnoremap <leader>i <C-w>k
+    nnoremap <leader>l <C-w>l
 
-    inoremap <c-i> <Up>
-    inoremap <c-k> <Down>
+    " Move the cursor more easily while in insert mode
     inoremap <c-j> <Left>
     inoremap <c-l> <Right>
 
     " Easily resize splits
-    map <c-i> :resize -5<CR>
-    map <c-k> :resize +5<CR>
-    map <c-j> :vertical resize +5<CR>
-    map <c-l> :vertical resize -5<CR>
+    nnoremap <c-i> :resize -5<CR>
+    nnoremap <c-k> :resize +5<CR>
+    nnoremap <c-j> :vertical resize +5<CR>
+    nnoremap <c-l> :vertical resize -5<CR>
 
     " Disable Ex mode
     map q: <nop>
@@ -173,7 +172,7 @@ filetype off
     map <tab>l :tabnext<CR>
 
     " Open tagbar
-    nmap <c-b> :TagbarToggle<CR>
+    nnoremap <c-b> :TagbarToggle<CR>
 
     " Git status
     map <c-g> :Gstatus<CR>
