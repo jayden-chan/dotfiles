@@ -198,8 +198,8 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = "%a "
-date-alt = " %Y/%m/%d"
+date = "%a, %b %e "
+date-alt = "%a, %b %e "
 
 time = %OI:%M
 time-alt = %I:%M:%S
