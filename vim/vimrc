@@ -136,6 +136,11 @@ filetype off
     map <leader>i <C-w>k
     map <leader>l <C-w>l
 
+    inoremap <c-i> <Up>
+    inoremap <c-k> <Down>
+    inoremap <c-j> <Left>
+    inoremap <c-l> <Right>
+
     " Easily resize splits
     map <c-i> :resize -5<CR>
     map <c-k> :resize +5<CR>
