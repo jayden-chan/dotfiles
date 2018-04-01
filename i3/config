@@ -1,5 +1,5 @@
 set $mod Mod1
-set $amod Mod4
+set $super Mod4
 
 # Change window border color
 client.focused #555555 #555555 #ffffff #2e9ef4 #000000
@@ -46,16 +46,16 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # resize window
-bindsym $amod+j resize shrink width 10 px or 10 ppt
-bindsym $amod+k resize grow height 10 px or 10 ppt
-bindsym $amod+i resize shrink height 10 px or 10 ppt
-bindsym $amod+l resize grow width 10 px or 10 ppt
+bindsym $super+j resize shrink width 10 px or 10 ppt
+bindsym $super+k resize grow height 10 px or 10 ppt
+bindsym $super+i resize shrink height 10 px or 10 ppt
+bindsym $super+l resize grow width 10 px or 10 ppt
 
 # arrows
-bindsym $amod+Left resize shrink width 10 px or 10 ppt
-bindsym $amod+Down resize grow height 10 px or 10 ppt
-bindsym $amod+Up resize shrink height 10 px or 10 ppt
-bindsym $amod+Right resize grow width 10 px or 10 ppt
+bindsym $super+Left resize shrink width 10 px or 10 ppt
+bindsym $super+Down resize grow height 10 px or 10 ppt
+bindsym $super+Up resize shrink height 10 px or 10 ppt
+bindsym $super+Right resize grow width 10 px or 10 ppt
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -114,16 +114,16 @@ bindsym $mod+Shift+9 workspace $ws9
 bindsym $mod+Shift+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $amod+Shift+1 move container to workspace $ws1;  workspace $ws1
-bindsym $amod+Shift+2 move container to workspace $ws2;  workspace $ws2
-bindsym $amod+Shift+3 move container to workspace $ws3;  workspace $ws3
-bindsym $amod+Shift+4 move container to workspace $ws4;  workspace $ws4
-bindsym $amod+Shift+5 move container to workspace $ws5;  workspace $ws5
-bindsym $amod+Shift+6 move container to workspace $ws6;  workspace $ws6
-bindsym $amod+Shift+7 move container to workspace $ws7;  workspace $ws7
-bindsym $amod+Shift+8 move container to workspace $ws8;  workspace $ws8
-bindsym $amod+Shift+9 move container to workspace $ws9;  workspace $ws9
-bindsym $amod+Shift+0 move container to workspace $ws10; workspace $ws10
+bindsym $super+Shift+1 move container to workspace $ws1;  workspace $ws1
+bindsym $super+Shift+2 move container to workspace $ws2;  workspace $ws2
+bindsym $super+Shift+3 move container to workspace $ws3;  workspace $ws3
+bindsym $super+Shift+4 move container to workspace $ws4;  workspace $ws4
+bindsym $super+Shift+5 move container to workspace $ws5;  workspace $ws5
+bindsym $super+Shift+6 move container to workspace $ws6;  workspace $ws6
+bindsym $super+Shift+7 move container to workspace $ws7;  workspace $ws7
+bindsym $super+Shift+8 move container to workspace $ws8;  workspace $ws8
+bindsym $super+Shift+9 move container to workspace $ws9;  workspace $ws9
+bindsym $super+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -193,10 +193,10 @@ bindsym $mod+g gaps inner current set 0
 bindsym $mod+b gaps inner current set 30
 
 # Easily start programs
-bindsym $amod+c exec --no-startup-id google-chrome
-bindsym $amod+n exec --no-startup-id termite -e ranger
-bindsym $amod+v exec --no-startup-id termite -e vim
-bindsym $amod+m exec --no-startup-id spotify
+bindsym $super+c exec --no-startup-id google-chrome
+bindsym $super+n exec --no-startup-id termite -e ranger
+bindsym $super+v exec --no-startup-id termite -e vim
+bindsym $super+m exec --no-startup-id spotify
 
 # Music control
 bindsym Pause                exec $pause
