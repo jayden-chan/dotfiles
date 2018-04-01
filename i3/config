@@ -193,7 +193,7 @@ bindsym $mod+g gaps inner current set 0
 bindsym $mod+b gaps inner current set 30
 
 # Easily start programs
-bindsym $amod+c exec --no-startup-id firefox
+bindsym $amod+c exec --no-startup-id google-chrome
 bindsym $amod+n exec --no-startup-id termite -e ranger
 bindsym $amod+v exec --no-startup-id termite -e vim
 bindsym $amod+m exec --no-startup-id spotify
@@ -225,6 +225,3 @@ for_window [class="^Spotify$"] move to workspace $ws1
 
 # Make pulseaudio EQ start in floating mode
 for_window [class="^Pulseaudio-equalizer\.py$"] floating enable
-
-# Make Ulauncher open on main monitor
-for_window [class="^Ulauncher$"] move to workspace $ws2
