@@ -20,7 +20,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym Control+space exec --no-startup-id rofi -show run -theme Arc-Dark -font "SF-Pro-Display 14"
+bindsym Control+space exec --no-startup-id rofi -show drun -theme Arc-Dark -font "SF-Pro-Display 14"
 
 # change focus
 bindsym $mod+j focus left
@@ -178,7 +178,7 @@ exec --no-startup-id $HOME/.fehbg                                               
 exec --no-startup-id xmodmap -e "clear lock"                                      # Disable caps lock switch
 exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"                       # Set caps_lock as escape
 exec --no-startup-id numlockx on                                                  # Turn on num lock
-exec --no-startup-id xinput --set-prop 10 153 3.0 0.0 0.0 0.0 3.0 0.0 0.0 0.0 1.0 # No mouse accel
+exec --no-startup-id xinput --set-prop 10 153 3.5 0.0 0.0 0.0 3.5 0.0 0.0 0.0 1.0 # No mouse accel
 
 # Scratchpad terminal settings
 for_window [instance="droptermite"] floating enable
@@ -195,8 +195,7 @@ bindsym $mod+b gaps inner current set 30
 
 # Easily start programs
 bindsym $super+c exec --no-startup-id google-chrome-stable
-bindsym $super+n exec --no-startup-id termite -e ranger
-bindsym $super+v exec --no-startup-id termite -e vim
+bindsym $super+n exec --no-startup-id nautilus
 bindsym $super+m exec --no-startup-id spotify
 
 # Music control
@@ -212,7 +211,7 @@ bindsym $mod+Shift+plus move scratchpad
 bindsym $mod+plus scratchpad show
 
 #### Settings ####
-#
+
 # Don't change focus when moving mouse
 focus_follows_mouse no
 
