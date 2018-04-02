@@ -17,8 +17,8 @@ stty stop undef
 stty start undef
 
 # Git alias
-alias gdf='cd ~/Documents/Git/dotfiles'
-alias gpf='cd ~/Documents/Git/programming-folder'
+alias gdf='cd /home/jayden/Documents/Git/dotfiles'
+alias gpf='cd /home/jayden/Documents/Git/programming-folder'
 alias gc='git commit -v -S'
 
 # Compilation
@@ -39,6 +39,11 @@ alias :q='exit'
 alias :Q='exit'
 alias :wq='exit'
 alias :Wq='exit'
+
+# Error prevention
+alias cim='vim'
+alias dw='cd'
+alias clera='clear'
 
 # Other
 alias rs='cd && clear'
@@ -68,7 +73,7 @@ function updatesys () {
 
 function installfont () {
     sudo echo --- Installing font ---
-    cp $1 ~/.local/share/fonts
+    cp $1 /home/jayden/.local/share/fonts
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---
