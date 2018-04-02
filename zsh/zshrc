@@ -65,7 +65,7 @@ function updatesys () {
 
 function installfont () {
     sudo echo --- Installing font ---
-    cp $1 ~/.fonts
+    cp $1 ~/.local/share/fonts
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---

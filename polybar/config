@@ -274,7 +274,7 @@ format = <label>
 format-warn = <label-warn>
 ; format-warn-underline = ${self.format-underline}
 
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}

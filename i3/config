@@ -19,7 +19,8 @@ bindsym $mod+Shift+Return [instance="droptermite"] scratchpad show; [instance="d
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym Control+space exec --no-startup-id rofi -show run -theme Arc-Dark -font "SF-Pro-Display 14"
 
 # change focus
 bindsym $mod+j focus left
@@ -193,7 +194,7 @@ bindsym $mod+g gaps inner current set 0
 bindsym $mod+b gaps inner current set 30
 
 # Easily start programs
-bindsym $super+c exec --no-startup-id google-chrome
+bindsym $super+c exec --no-startup-id google-chrome-stable
 bindsym $super+n exec --no-startup-id termite -e ranger
 bindsym $super+v exec --no-startup-id termite -e vim
 bindsym $super+m exec --no-startup-id spotify
