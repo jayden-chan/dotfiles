@@ -4,4 +4,3 @@ cp -R ~/.vim/snippets          ~/Documents/Git/dotfiles/
 cp    ~/.config/termite/config ~/Documents/Git/dotfiles/termite
 cp    ~/.tmux.conf             ~/Documents/Git/dotfiles/tmux
 cp    ~/.config/polybar/config ~/Documents/Git/dotfiles/polybar
-cp    ~/.config/ranger/rc.conf ~/Documents/Git/dotfiles/ranger

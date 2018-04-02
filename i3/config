@@ -173,9 +173,8 @@ hide_edge_borders both
 
 # Startup scripts
 exec --no-startup-id $HOME/.screenlayout/init-screens.sh                         # Set configurations for screens
-exec --no-startup-id $HOME/.fehbg                                                # Set wallpaper
 exec --no-startup-id compton                                                     # Start compton
-exec --no-startup-id xset m 1/1 0                                                # Disable mouse acceleration
+exec --no-startup-id $HOME/.fehbg                                                # Set wallpaper
 exec --no-startup-id xmodmap -e "clear lock"                                     # Disable caps lock switch
 exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"                      # Set caps_lock as escape
 exec --no-startup-id numlockx on                                                 # Turn on num lock
