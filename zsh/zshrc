@@ -37,8 +37,11 @@ alias dotdown='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-down.sh'
 # Exit
 alias :q='exit'
 alias :Q='exit'
+alias :wq='exit'
+alias :Wq='exit'
 
 # Other
+alias rs='cd && clear'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 
