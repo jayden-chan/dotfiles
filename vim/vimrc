@@ -21,7 +21,7 @@ filetype off
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'majutsushi/tagbar'
-    Plugin 'joshdick/onedark.vim'
+    Plugin 'jayden-chan/onedark.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'udalov/kotlin-vim'
     Plugin 'junegunn/goyo.vim'
