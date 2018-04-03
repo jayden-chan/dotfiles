@@ -78,3 +78,13 @@ function installfont () {
     sudo fc-cache -fv
     echo --- Done ---
 }
+
+function lpac () {
+    echo --- Native ---
+    echo
+    pacman -Qqettn
+    echo
+    echo --- AUR ---
+    echo
+    pacman -Qqettm
+}
