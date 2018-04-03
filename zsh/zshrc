@@ -40,7 +40,7 @@ alias :Q='exit'
 alias :wq='exit'
 alias :Wq='exit'
 
-# Error prevention
+# U S E R   E R R O R
 alias cim='vim'
 alias dw='cd'
 alias clera='clear'
@@ -54,22 +54,6 @@ alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/i
 
 # Export gradle path
 export PATH=$PATH:/opt/gradle/gradle-4.6/bin
-
-# Functions
-function updatesys () {
-    sudo echo --- Performing full system update ---
-    echo
-    sudo apt update
-    echo
-    echo --- List upgrade packages ---
-    echo
-    apt list --upgradable
-    echo
-    sudo apt upgrade
-    sudo apt autoremove
-    echo
-    echo --- Finished full system upgrade ---
-}
 
 function installfont () {
     sudo echo --- Installing font ---
