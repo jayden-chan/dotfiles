@@ -190,6 +190,7 @@ exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/polyb
 exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/ulauncher.sh
 
 #### Binds ####
+#
 bindsym $mod+g gaps inner current set 0
 bindsym $mod+b gaps inner current set 30
 
@@ -204,8 +205,8 @@ bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
 # Screenshots
-bindsym Print exec --no-startup-id shutter -s
-bindsym Shift+Print exec --no-startup-id shutter --section
+bindsym --release Print exec --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/scrotS.sh
+bindsym Shift+Print exec --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/scrotW.sh
 
 bindsym $mod+Shift+plus move scratchpad
 bindsym $mod+plus scratchpad show
@@ -221,7 +222,7 @@ workspace $ws2 output $screen2
 workspace $ws3 output $screen3
 
 # Make Spotify open on correct monitor
-for_window [class="^Spotify$"] move to workspace $ws1
+for_window [class="^Spotify$"] move to workspace $ws3
 
 # Make pulseaudio EQ start in floating mode
 for_window [class="^Pulseaudio-equalizer\.py$"] floating enable
