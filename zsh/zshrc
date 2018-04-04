@@ -78,3 +78,12 @@ function lpac () {
     echo
     pacman -Qqettm
 }
+
+function pacu () {
+    sudo echo --- Beginning Full System Upgrade ---
+    echo
+    sudo pacman -Syu
+    echo
+    echo --- Done ---
+    notify-send pacman System\ Upgrade\ Complete
+}
