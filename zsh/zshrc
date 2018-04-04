@@ -36,7 +36,7 @@ alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
 # dotfile editing
 alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim /home/jayden/Documents/Git/dotfiles/zsh/zshrc'
-alias dotup='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-up.sh && cd /home/jayden/Documents/Git/dotfiles'
+alias dotup='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-up.sh && cd /home/jayden/Documents/Git/dotfiles && gst'
 alias dotdown='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-down.sh'
 
 # Exit
