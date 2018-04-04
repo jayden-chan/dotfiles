@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/jayden/.oh-my-zsh
 
+echo -e "\e[3m$(fortune -a)\e[0m"
 ZSH_THEME="agnoster"
 DEFAULT_USER="jayden"
 prompt_context(){}
@@ -27,6 +28,11 @@ alias javca='javac -Xlint:all *.java'
 alias javcl='rm *.class'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
+
+# Pacman
+alias pi='sudo pacman -S'
+alias pr='sudo pacman -Rsn'
+alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
 
 # dotfile editing
 alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/vimrc'

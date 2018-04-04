@@ -101,7 +101,7 @@ filetype off
     set number relativenumber
     map <F9> <Esc>:set<Space>rnu!<CR>
 
-    " Reload .vimrc
+    " Reload vimrc
     map <leader>ss :so $MYVIMRC<CR>
 
     " Map Ctrl-s to save because I am a compulsive saver
