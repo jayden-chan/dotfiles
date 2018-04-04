@@ -4,7 +4,6 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/jayden/.oh-my-zsh
 
-echo -e "\e[3m$(fortune -a)\e[0m"
 ZSH_THEME="agnoster"
 DEFAULT_USER="jayden"
 prompt_context(){}
