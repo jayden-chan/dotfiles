@@ -158,6 +158,11 @@ for_window [instance="droptermite"] floating enable
 for_window [instance="droptermite"] resize set 960 475
 for_window [instance="droptermite"] move scratchpad
 
+for_window [instance="datetermite"] floating enable
+for_window [instance="datetermite"] resize set 210 210
+for_window [instance="datetermite"] move position mouse
+for_window [instance="datetermite"] move down 30px
+
 exec_always --no-startup-id termite --name droptermite
 exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/polybar.sh
 exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/ulauncher.sh

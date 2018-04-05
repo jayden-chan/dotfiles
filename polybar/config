@@ -61,12 +61,6 @@ tray-padding = 2
 
 ;override-redirect = true
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
@@ -194,18 +188,6 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-[module/date]
-type = internal/date
-interval = 1
-
-date = "%a, %b %e "
-time = %OI:%M
-
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
-
-label = %date% %time%
-
 [module/volume]
 type = internal/volume
 
@@ -279,6 +261,17 @@ format-prefix-foreground = ${colors.foreground-alt}
 label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
+
+[module/date]
+type = custom/script
+exec = /home/jayden/Documents/Git/dotfiles/scripts/date.sh
+
+click-left = i3-msg 'exec --no-startup-id termite --name datetermite -e cal --hold'
+format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+
+tail = true
+interval = 1
 
 [module/spotify]
 type = custom/script
