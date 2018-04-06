@@ -1,5 +1,6 @@
 set $mod Mod1
 set $super Mod4
+set $gaps 47
 
 # Change window border color
 client.focused          #2e3440 #3b84c0 #ffffff #3b84c0 #285577
@@ -146,7 +147,7 @@ set $pause --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 set $next --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 set $prev --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-gaps inner 50
+gaps inner $gaps
 gaps outer 0
 
 default_border none
@@ -169,7 +170,7 @@ exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/ulaun
 #### Binds ####
 
 bindsym $mod+g gaps inner current set 0
-bindsym $mod+b gaps inner current set 50
+bindsym $mod+b gaps inner current set $gaps
 
 # Easily start programs
 bindsym $super+c exec --no-startup-id google-chrome-stable
