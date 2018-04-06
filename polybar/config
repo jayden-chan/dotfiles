@@ -18,6 +18,11 @@ secondary = #e60053
 alert = #bd2c40
 white = #ffffff
 
+green = #0A9C5D
+blue = #3177F0
+red = #E93330
+yellow = #EEC03E
+
 [bar/grace]
 monitor = ${env:MONITOR:HDMI-0}
 width = 100%
@@ -98,7 +103,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-underline = ${colors.blue}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -138,7 +143,7 @@ type = internal/cpu
 interval = 1
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #f90000
+format-underline = ${colors.yellow}
 label = %percentage:2%%
 
 [module/memory]
@@ -146,7 +151,7 @@ type = internal/memory
 interval = 1
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #4bffdc
+format-underline = ${colors.green}
 label = %percentage_used%%
 
 [module/wlan]
@@ -248,7 +253,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <label>
-; format-underline = #f50a4d
+format-underline = ${colors.red}
 format-warn = <label-warn>
 ; format-warn-underline = ${self.format-underline}
 

@@ -25,6 +25,7 @@ filetype off
     Plugin 'godlygeek/tabular'
     Plugin 'udalov/kotlin-vim'
     Plugin 'junegunn/goyo.vim'
+    Plugin 'arcticicestudio/nord-vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -38,7 +39,11 @@ filetype off
     set t_ut=
     set termguicolors
 
-    colorscheme onedark
+    let g:nord_italic = 1
+    let g:nord_italic_comments = 1
+    let g:nord_uniform_status_lines = 1
+
+    colorscheme nord
     set guifont=Monospace\ 14
 
     " Tab settings
@@ -200,6 +205,7 @@ filetype off
 
     let g:airline_powerline_fonts = 1
     let g:onedark_termcolors = 256
+    let g:airline_theme='nord'
 
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
