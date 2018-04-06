@@ -2,14 +2,17 @@ set $mod Mod1
 set $super Mod4
 
 # Change window border color
-client.focused          #2e3440 #2e3440 #2e3440 #2e3440 #2e3440
-client.focused_inactive #2e3440 #2e3440 #2e3440 #2e3440 #2e3440
-client.unfocused        #2e3440 #2e3440 #2e3440 #2e3440 #2e3440
-client.urgent           #2e3440 #2e3440 #2e3440 #2e3440 #2e3440
-client.placeholder      #2e3440 #2e3440 #2e3440 #2e3440 #2e3440
-client.background       #2e3440
+client.focused          #2e3440 #3b84c0 #ffffff #3b84c0 #285577
+client.focused_inactive #2e3440 #5f676a #ffffff #484e50 #5f676a
+client.unfocused        #2e3440 #2e3440 #888888 #292d2e #222222
+client.urgent           #2e3440 #900000 #ffffff #900000 #900000
+client.placeholder      #2e3440 #0c0c0c #ffffff #000000 #0c0c0c
+client.background       #ffffff
 
-font pango:SFNS Display 12
+# 61afef
+# 3b84c0
+
+font pango:SF Pro Display 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -143,7 +146,7 @@ set $pause --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 set $next --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 set $prev --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-gaps inner 30
+gaps inner 50
 gaps outer 0
 
 default_border none
@@ -157,7 +160,7 @@ exec --no-startup-id nitrogen --restore &                                       
 exec --no-startup-id xmodmap -e "clear lock"                                      # Disable caps lock switch
 exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"                       # Set caps_lock as escape
 exec --no-startup-id numlockx on                                                  # Turn on num lock
-exec --no-startup-id xinput --set-prop 10 153 3.5 0.0 0.0 0.0 3.5 0.0 0.0 0.0 1.0 # No mouse accel
+exec --no-startup-id xinput --set-prop 10 153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.0 # No mouse accel
 
 exec_always --no-startup-id termite --name droptermite
 exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/polybar.sh
@@ -166,7 +169,7 @@ exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/ulaun
 #### Binds ####
 
 bindsym $mod+g gaps inner current set 0
-bindsym $mod+b gaps inner current set 30
+bindsym $mod+b gaps inner current set 50
 
 # Easily start programs
 bindsym $super+c exec --no-startup-id google-chrome-stable
@@ -208,4 +211,4 @@ for_window [instance="droptermite"] move scratchpad
 for_window [instance="datetermite"] floating enable
 for_window [instance="datetermite"] resize set 210 210
 for_window [instance="datetermite"] move position mouse
-for_window [instance="datetermite"] move down 30px
+for_window [instance="datetermite"] move down 35px
