@@ -5,3 +5,4 @@ cp    ~/.vim/en.utf-8.add      ~/Documents/Git/dotfiles/vim
 cp    ~/.config/termite/config ~/Documents/Git/dotfiles/termite
 cp    ~/.tmux.conf             ~/Documents/Git/dotfiles/tmux
 cp    ~/.config/polybar/config ~/Documents/Git/dotfiles/polybar
+cp    ~/.config/dunst/dunstrc  ~/Documents/Git/dotfiles/dunst
