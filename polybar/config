@@ -18,10 +18,10 @@ secondary = #e60053
 alert = #bd2c40
 white = #ffffff
 
-green = #0A9C5D
-blue = #3177F0
-red = #E93330
-yellow = #EEC03E
+green = #a3be8c
+blue = #5e81ac
+red = #bf616a
+yellow = #b48ead
 
 [bar/grace]
 monitor = ${env:MONITOR:HDMI-0}

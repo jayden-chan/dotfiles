@@ -54,6 +54,7 @@ alias clera='clear'
 alias rs='cd && clear'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
+alias nfetch='neofetch --ascii_distro Arch_old'
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
