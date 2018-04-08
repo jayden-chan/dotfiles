@@ -36,9 +36,8 @@ alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
 # dotfile editing
 alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim /home/jayden/Documents/Git/dotfiles/zsh/zshrc'
-alias dotup='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-up.sh && cd /home/jayden/Documents/Git/dotfiles && gst'
-alias dotdown='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-down.sh'
 alias dot='vim /home/jayden/Documents/Git/dotfiles/'
+alias dotu='cd /home/jayden/Documents/Git/dotfiles && gst'
 
 # Exit
 alias :q='exit'
@@ -78,13 +77,4 @@ function lpac () {
     echo --- AUR ---
     echo
     pacman -Qqettm
-}
-
-function pacu () {
-    sudo echo --- Beginning Full System Upgrade ---
-    echo
-    sudo pacman -Syu
-    echo
-    echo --- Done ---
-    notify-send pacman System\ Upgrade\ Complete
 }
