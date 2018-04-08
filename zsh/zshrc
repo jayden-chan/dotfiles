@@ -77,3 +77,6 @@ function lpac () {
     echo
     pacman -Qqettm
 }
+function pach () {
+    cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
+}
