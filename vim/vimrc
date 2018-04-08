@@ -33,12 +33,13 @@ filetype off
     " Theme
     syntax on
 
+    " 256 colors
     set t_Co=256
     set t_ut=
     set termguicolors
 
     colorscheme onedark
-    set guifont=Monospace\ 14
+    set guifont=Monospace\ 13
 
     " Tab settings
     set expandtab
@@ -55,14 +56,14 @@ filetype off
     set ignorecase
     set incsearch
 
+    " Open new splits on the right
     set splitright
-    " set lazyredraw
 
     " Nice line wraps
     set linebreak
     set breakindent
 
-    " No auto folds please
+    " Fold settings
     set foldlevel=1000
     set foldmethod=indent
 
@@ -114,8 +115,9 @@ filetype off
     " ez semicolons
     inoremap ;; <Esc>A;
 
-    " ez whitespace removal
+    " Formatting
     noremap <leader>ww :%s/\s\+$//e<CR>
+    noremap <leader>tt gg=G
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
