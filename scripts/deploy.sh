@@ -1,3 +1,15 @@
+rm -r ~/.config/compton.conf 2>/dev/null
+rm -r ~/.config/dunst/dunstrc 2>/dev/null
+rm -r ~/.config/i3/config 2>/dev/null
+rm -r ~/.config/polybar/config 2>/dev/null
+rm -r ~/.config/termite/config 2>/dev/null
+rm -r ~/.tmux.conf 2>/dev/null
+rm -r ~/.vimrc 2>/dev/null
+rm -r ~/.zshrc 2>/dev/null
+rm -r ~/.zlogout 2>/dev/null
+rm -r ~/.vim/en.utf-8.add 2>/dev/null
+rm -r ~/.vim/snippets 2>/dev/null
+
 ln -s ~/Documents/Git/dotfiles/compton/compton.conf ~/.config/compton.conf
 ln -s ~/Documents/Git/dotfiles/dunst/dunstrc        ~/.config/dunst/dunstrc
 ln -s ~/Documents/Git/dotfiles/i3/config            ~/.config/i3/config
