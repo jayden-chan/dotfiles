@@ -170,6 +170,9 @@ exec_always --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/ulauncher.sh
 bindsym $mod+g gaps inner current set 0
 bindsym $mod+Shift+g gaps inner current set $gaps
 
+bindsym $mod+b gaps inner current set 0; gaps outer current set $gaps
+bindsym $mod+Shift+b gaps inner current set $gaps; gaps outer current set 0
+
 # Easily start programs
 bindsym $super+c exec --no-startup-id google-chrome-stable
 bindsym $super+n exec --no-startup-id nautilus
@@ -200,7 +203,7 @@ workspace $ws3 output $screen3
 # Window specific settings
 for_window [class="^Spotify$"] move to workspace $ws3
 for_window [class="^Nitrogen$"] floating enable
-for_window [class="^Termite$"] border pixel 2
+for_window [class="^Termite$"] border pixel 1
 
 # Scratchpad terminal settings
 for_window [instance="droptermite"] floating enable
