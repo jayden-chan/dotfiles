@@ -268,7 +268,7 @@ label-warn-foreground = ${colors.secondary}
 
 [module/date]
 type = custom/script
-exec = /home/jayden/Documents/Git/dotfiles/scripts/date.sh
+exec = $HOME/Documents/Git/dotfiles/scripts/date.sh
 
 click-left = i3-msg 'exec --no-startup-id termite --name datetermite -e cal --hold'
 format-prefix =
@@ -279,7 +279,7 @@ interval = 1
 
 [module/spotify]
 type = custom/script
-exec = /home/jayden/Documents/Git/dotfiles/scripts/spotify.sh
+exec = $HOME/Documents/Git/dotfiles/scripts/spotify.sh
 exec-if = pgrep -x spotify
 
 format-prefix = "  "

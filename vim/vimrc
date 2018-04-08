@@ -4,7 +4,7 @@ filetype off
 
 " Plugins
 
-    set rtp+=~/.vim/bundle/Vundle.vim
+    set rtp+=$HOME/.vim/bundle/Vundle.vim
     call vundle#begin()
 
     Plugin 'VundleVim/Vundle.vim'
@@ -109,7 +109,7 @@ filetype off
 
     " Spell check
     map <F6> :setlocal spell! spelllang=en_ca<CR>
-    set spellfile=/home/jayden/.vim/en.utf-8.add
+    set spellfile=$HOME/.vim/en.utf-8.add
 
     " ez semicolons
     inoremap ;; <Esc>A;

@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/jayden/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 DEFAULT_USER="jayden"
@@ -17,8 +17,8 @@ stty stop undef
 stty start undef
 
 # Git alias
-alias gdf='cd /home/jayden/Documents/Git/dotfiles'
-alias gpf='cd /home/jayden/Documents/Git/programming-folder'
+alias gdf='cd $HOME/Documents/Git/dotfiles'
+alias gpf='cd $HOME/Documents/Git/programming-folder'
 alias gc='git commit -v -S'
 
 # Compilation
@@ -34,10 +34,10 @@ alias pr='sudo pacman -Rsn'
 alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
 
 # dotfile editing
-alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/vimrc'
-alias zshrc='vim /home/jayden/Documents/Git/dotfiles/zsh/zshrc'
-alias dot='vim /home/jayden/Documents/Git/dotfiles/'
-alias dotu='cd /home/jayden/Documents/Git/dotfiles && gst'
+alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
+alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
+alias dot='vim $HOME/Documents/Git/dotfiles/'
+alias dotu='cd $HOME/Documents/Git/dotfiles && gst'
 
 # Exit
 alias :q='exit'
@@ -63,7 +63,7 @@ export PATH=$PATH:/opt/gradle/gradle-4.6/bin
 
 function installfont () {
     sudo echo --- Installing font ---
-    cp $1 /home/jayden/.local/share/fonts
+    cp $1 $HOME/.local/share/fonts
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---

@@ -27,7 +27,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym Control+space exec --no-startup-id rofi -show drun -display-drun "run" -show-icons -drun-icon-theme "Papirus" -theme Custom-Nord -font "SF-Pro-Display 14" -lines 7 -scroll-method 1 -me-select-entry '' -me-accept-entry 'MousePrimary'
-bindsym Control+Shift+space exec --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/rofi-power.sh
+bindsym Control+Shift+space exec --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/rofi-power.sh
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -162,8 +162,8 @@ exec --no-startup-id xinput --set-prop 10 153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.
 exec --no-startup-id xinput --set-prop 9  153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.0
 
 exec_always --no-startup-id termite --name droptermite
-exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/polybar.sh
-exec_always --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/ulauncher.sh
+exec_always --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/polybar.sh
+exec_always --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/ulauncher.sh
 
 #### Binds ####
 
@@ -181,8 +181,8 @@ bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
 # Screenshots
-bindsym --release Print exec --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/scrotS.sh
-bindsym Shift+Print exec --no-startup-id sh /home/jayden/Documents/Git/dotfiles/scripts/scrotW.sh
+bindsym --release Print exec --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/scrotS.sh
+bindsym Shift+Print exec --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/scrotW.sh
 
 bindsym $mod+Shift+plus move scratchpad
 bindsym $mod+plus scratchpad show
