@@ -38,6 +38,7 @@ alias vimrc='vim /home/jayden/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim /home/jayden/Documents/Git/dotfiles/zsh/zshrc'
 alias dotup='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-up.sh && cd /home/jayden/Documents/Git/dotfiles && gst'
 alias dotdown='sh /home/jayden/Documents/Git/dotfiles/scripts/dots-down.sh'
+alias dot='vim /home/jayden/Documents/Git/dotfiles/'
 
 # Exit
 alias :q='exit'

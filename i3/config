@@ -10,9 +10,6 @@ client.urgent           #2e3440 #900000 #ffffff #900000 #900000
 client.placeholder      #2e3440 #0c0c0c #ffffff #000000 #0c0c0c
 client.background       #ffffff
 
-# 61afef
-# 3b84c0
-
 font pango:SF Pro Display 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
