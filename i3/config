@@ -168,7 +168,7 @@ exec_always --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/ulauncher.sh
 #### Binds ####
 
 bindsym $mod+g gaps inner current set 0
-bindsym $mod+b gaps inner current set $gaps
+bindsym $mod+Shift+g gaps inner current set $gaps
 
 # Easily start programs
 bindsym $super+c exec --no-startup-id google-chrome-stable
