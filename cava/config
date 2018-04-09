@@ -17,7 +17,7 @@ autosens = 0
 
 # Manual sensitivity in %. Autosens must be turned off for this to take effect.
 # 200 means double height. Accepts only non-negative values.
-sensitivity = 25
+sensitivity = 30
 
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
