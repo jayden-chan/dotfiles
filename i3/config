@@ -176,7 +176,7 @@ bindsym $mod+Shift+b gaps inner current set $gaps; gaps outer current set 0
 # Easily start programs
 bindsym $super+c exec --no-startup-id google-chrome-stable
 bindsym $super+n exec --no-startup-id nautilus
-bindsym $super+m exec --no-startup-id spotify
+bindsym $super+m exec --no-startup-id spotify; exec --no-startup-id urxvt -e cava
 
 # Music control
 bindsym Pause                exec $pause
