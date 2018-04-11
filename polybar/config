@@ -8,9 +8,8 @@
 ;=====================================================
 
 [colors]
-background = #D82e3440
+background = #D82d2d2d
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #606060
 primary = #008cff
