@@ -22,6 +22,51 @@ blue = #5e81ac
 red = #bf616a
 yellow = #b48ead
 
+[bar/swift]
+monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 29
+;offset-x = 1%
+;offset-y = 1%
+radius = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 3
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = SF Pro Display:pixelsize=12:weight=semibold;2
+font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
+font-2 = Material\-Design\-Iconic\-Font:pixelsize=13;3
+
+modules-left = powermenu i3 spotify
+modules-center = date
+modules-right = xbacklight memory cpu battery temperature
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 [bar/grace]
 monitor = ${env:MONITOR:HDMI-0}
 width = 100%
