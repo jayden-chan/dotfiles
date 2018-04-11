@@ -20,7 +20,8 @@ white = #ffffff
 green = #a3be8c
 blue = #5e81ac
 red = #bf616a
-yellow = #b48ead
+yellow = #ebcb8b
+magenta = #b48ead
 
 [bar/swift]
 monitor = ${env:MONITOR:eDP-1}
@@ -52,7 +53,7 @@ font-2 = Material\-Design\-Iconic\-Font:pixelsize=13;3
 
 modules-left = powermenu i3 spotify
 modules-center = date
-modules-right = xbacklight memory cpu battery temperature
+modules-right = memory cpu battery wlan
 
 tray-position = right
 tray-padding = 2
@@ -97,7 +98,7 @@ font-2 = Material\-Design\-Iconic\-Font:pixelsize=13;3
 
 modules-left = powermenu i3 spotify
 modules-center = date
-modules-right = xbacklight memory cpu battery temperature
+modules-right = memory cpu temperature
 
 tray-position = right
 tray-padding = 2
@@ -165,29 +166,12 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
 [module/cpu]
 type = internal/cpu
 interval = 1
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.yellow}
+format-underline = ${colors.magenta}
 label = %percentage:2%%
 
 [module/memory]
@@ -200,25 +184,16 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface =
+interface = wlp2s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+format-connected = <label-connected>
+format-connected-underline = ${colors.yellow}
+label-connected = ""
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+format-disconnected = <label-disconnected>
+format-disconnected-underline = #ff0000
+label-disconnected = ""
 
 [module/eth]
 type = internal/network
@@ -266,30 +241,26 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-prefix = "  "
+format-charging-prefix-foreground = ${colors.foreground-alt}
+format-charging = <label-charging>
+format-charging-underline = ${colors.red}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
 ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
