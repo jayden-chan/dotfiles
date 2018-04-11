@@ -164,7 +164,6 @@ $exec xinput --set-prop 9  153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.0
 
 exec_always --no-startup-id termite --name droptermite
 exec_always --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/polybar.sh
-exec_always --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/ulauncher.sh
 
 #### Binds ####
 
@@ -186,9 +185,9 @@ bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
 # Sound
-bindsym $mod+XF86AudioMute $exec amixer sset Master 0%; $exec notify-send -h "int:value:$(awk -F"[][]" '/dB/ {print $2}' <(amixer sget Master) | head -c -2)" Sound Volume:
-bindsym $mod+XF86AudioRaiseVolume $exec amixer sset Master 5%+
-bindsym $mod+XF86AudioLowerVolume $exec amixer sset Master 5%-
+bindsym $mod+XF86AudioMute $exec amixer sset Master 0%; $exec sh $HOME/Documents/Git/dotfiles/scripts/printvol.sh
+bindsym $mod+XF86AudioRaiseVolume $exec amixer sset Master 5%+; $exec sh $HOME/Documents/Git/dotfiles/scripts/printvol.sh
+bindsym $mod+XF86AudioLowerVolume $exec amixer sset Master 5%-; $exec sh $HOME/Documents/Git/dotfiles/scripts/printvol.sh
 
 # Brightness
 bindsym XF86MonBrightnessUp $exec light -A 9.9; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
