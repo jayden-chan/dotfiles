@@ -1,6 +1,7 @@
 set $mod Mod1
 set $super Mod4
 set $gaps 47
+set $exec exec --no-startup-id
 
 # Change window border color
 client.focused          #2e3440 #5e81ac #ffffff #3b84c0 #5e81ac
@@ -26,8 +27,8 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym Control+space exec --no-startup-id rofi -show drun -display-drun "run" -show-icons -drun-icon-theme "Papirus" -theme Custom-Nord -font "SF-Pro-Display 14" -lines 7 -scroll-method 1 -me-select-entry '' -me-accept-entry 'MousePrimary'
-bindsym Control+$mod+Delete exec --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/rofi-power.sh
+bindsym Control+space $exec rofi -show drun -display-drun "run" -show-icons -drun-icon-theme "Papirus" -theme Custom-Nord -font "SF-Pro-Display 14" -lines 7 -scroll-method 1 -me-select-entry '' -me-accept-entry 'MousePrimary'
+bindsym Control+$mod+Delete $exec sh $HOME/Documents/Git/dotfiles/scripts/rofi-power.sh
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -137,7 +138,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r [instance="droptermite"] kill; restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e $exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Spotify
 set $pause --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -152,14 +153,14 @@ default_floating_border pixel 2
 hide_edge_borders both
 
 # Startup scripts
-exec --no-startup-id $HOME/.screenlayout/init-screens.sh                          # Set configurations for screens
-exec --no-startup-id compton                                                      # Start compton
-exec --no-startup-id nitrogen --restore &                                         # Set wallpaper
-exec --no-startup-id xmodmap -e "clear lock"                                      # Disable caps lock switch
-exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"                       # Set caps_lock as escape
-exec --no-startup-id numlockx on                                                  # Turn on num lock
-exec --no-startup-id xinput --set-prop 10 153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.0 # No mouse accel
-exec --no-startup-id xinput --set-prop 9  153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.0
+$exec $HOME/.screenlayout/init-screens.sh                          # Set configurations for screens
+$exec compton                                                      # Start compton
+$exec nitrogen --restore &                                         # Set wallpaper
+$exec xmodmap -e "clear lock"                                      # Disable caps lock switch
+$exec xmodmap -e "keysym Caps_Lock = Escape"                       # Set caps_lock as escape
+$exec numlockx on                                                  # Turn on num lock
+$exec xinput --set-prop 10 153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.0 # No mouse accel
+$exec xinput --set-prop 9  153 3.8 0.0 0.0 0.0 3.8 0.0 0.0 0.0 1.0
 
 exec_always --no-startup-id termite --name droptermite
 exec_always --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/polybar.sh
@@ -174,18 +175,28 @@ bindsym $mod+b gaps inner current set 0; gaps outer current set $gaps
 bindsym $mod+Shift+b gaps inner current set $gaps; gaps outer current set 0
 
 # Easily start programs
-bindsym $super+c exec --no-startup-id google-chrome-stable
-bindsym $super+n exec --no-startup-id nautilus
-bindsym $super+m exec --no-startup-id spotify
+bindsym $super+c $exec google-chrome-stable
+bindsym $super+n $exec nautilus
+bindsym $super+m $exec spotify
 
-# Music control
+# Music
 bindsym Pause                exec $pause
+bindsym XF86AudioMute        exec $pause
 bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
+# Sound
+bindsym $mod+XF86AudioMute $exec amixer sset Master 0%; $exec notify-send -h "int:value:$(awk -F"[][]" '/dB/ {print $2}' <(amixer sget Master) | head -c -2)" Sound Volume:
+bindsym $mod+XF86AudioRaiseVolume $exec amixer sset Master 5%+
+bindsym $mod+XF86AudioLowerVolume $exec amixer sset Master 5%-
+
+# Brightness
+bindsym XF86MonBrightnessUp $exec light -A 9.9; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
+bindsym XF86MonBrightnessDown $exec light -U 9.9; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
+
 # Screenshots
-bindsym --release Print exec --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/scrotS.sh
-bindsym Shift+Print exec --no-startup-id sh $HOME/Documents/Git/dotfiles/scripts/scrotW.sh
+bindsym --release Print $exec sh $HOME/Documents/Git/dotfiles/scripts/scrotS.sh
+bindsym Shift+Print $exec sh $HOME/Documents/Git/dotfiles/scripts/scrotW.sh
 
 bindsym $mod+Shift+plus move scratchpad
 bindsym $mod+plus scratchpad show
