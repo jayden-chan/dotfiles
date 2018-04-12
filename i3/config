@@ -149,6 +149,8 @@ set $prev --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.
 gaps inner $gaps
 gaps outer 0
 
+mouse_warping none
+
 default_border none
 default_floating_border pixel 2
 hide_edge_borders both
