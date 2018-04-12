@@ -8,5 +8,5 @@ ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc             $HOME/.vimrc
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc             $HOME/.zshrc
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout           $HOME/.zlogout
 ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add      $HOME/.vim/en.utf-8.add
-ln -fs $HOME/Documents/Git/dotfiles/snippets              $HOME/.vim/snippets
+ln -fs $HOME/Documents/Git/dotfiles/snippets/             $HOME/.vim/snippets
 ln -fs $HOME/Documents/Git/dotfiles/rofi/Custom-Nord.rasi $HOME/.config/rofi/Custom-Nord.rasi
