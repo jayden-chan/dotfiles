@@ -1,12 +1,12 @@
 * {
-    backgroundcolor: #2e3440;
-    bg1: #3b4252;
-    backgroundcoloralternate: #2e3440;
+    backgroundcolor: #2d2d2d;
+    bg1: #474747;
+    backgroundcoloralternate: #2d2d2d;
     separatorcolor: #3b4252;
     scrollbarcolor: #3b4252;
     foregroundcolor: #839496;
     foregroundcolorinverse: #839496;
-    selectioncolor: #3b4252;
+    selectioncolor: #474747;
 
 
     font-size: 1px;
@@ -30,7 +30,7 @@
     background-color: @backgroundcolor;
     border-color: @separatorcolor;
     border: 1;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 #mainbox {
