@@ -39,6 +39,10 @@ alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
 alias dot='vim $HOME/Documents/Git/dotfiles/'
 alias dotu='cd $HOME/Documents/Git/dotfiles && gst'
 
+# Info
+alias weather='curl -s "wttr.in/?lang=en" | head -7'
+alias nfetch='neofetch --ascii_distro arch_old'
+
 # Exit
 alias :q='exit'
 alias :Q='exit'
@@ -49,6 +53,7 @@ alias :Wq='exit'
 alias cim='vim'
 alias dw='cd'
 alias clera='clear'
+alias vun-'vim'
 
 # Other
 alias rs='cd && clear'
@@ -77,6 +82,7 @@ function lpac () {
     echo
     pacman -Qqettm
 }
+
 function pach () {
     cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
 }
