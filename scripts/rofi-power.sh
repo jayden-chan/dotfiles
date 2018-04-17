@@ -5,7 +5,7 @@ RESULT=$(echo -e "logout\nlock\nreboot\nshutdown" | rofi -dmenu -i -p "power" -t
 if [ "$RESULT" = "logout" ]; then
     i3-msg 'exit'
 elif [ "$RESULT" = "lock" ]; then
-    exec betterlockscreen -l blur
+    dm-tool lock
 elif [ "$RESULT" = "reboot" ]; then
     exec reboot
 elif [ "$RESULT" = "shutdown" ]; then
