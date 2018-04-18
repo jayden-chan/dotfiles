@@ -170,10 +170,11 @@ hide_edge_borders both
 $exec $HOME/.screenlayout/init-screens.sh    # Set configurations for screens
 $exec compton                                # Start compton
 $exec nitrogen --restore &                   # Set wallpaper
+$exec wal -R                                 # Restore wal colors
+$exec sh $scripts/mouseaccel.sh              # Set mouse sensitivity
+$exec numlockx on                            # Turn on num lock
 $exec xmodmap -e "clear lock"                # Disable caps lock switch
 $exec xmodmap -e "keysym Caps_Lock = Escape" # Set caps_lock as escape
-$exec numlockx on                            # Turn on num lock
-$exec sh $scripts/mouseaccel.sh              # Set mouse sensitivity
 
 exec_always --no-startup-id termite --name droptermite
 exec_always --no-startup-id sh $scripts/polybar.sh
