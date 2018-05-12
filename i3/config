@@ -169,7 +169,7 @@ hide_edge_borders both
 # Startup scripts
 $exec $HOME/.screenlayout/init-screens.sh    # Set configurations for screens
 $exec compton                                # Start compton
-$exec wal -R                                 # Restore wal colors
+$exec wal -R -n                              # Restore wal colors
 $exec nitrogen --restore &                   # Set wallpaper
 $exec sh $scripts/mouseaccel.sh              # Set mouse sensitivity
 $exec numlockx on                            # Turn on num lock
