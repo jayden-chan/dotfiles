@@ -88,3 +88,7 @@ function lpac () {
 function pach () {
     cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
 }
+
+function wificonnect () {
+    nmcli dev wifi connect $1 password $2
+}
