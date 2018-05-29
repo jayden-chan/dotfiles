@@ -45,13 +45,22 @@ snippet astr
 	\usepackage{systeme}
 	\usepackage{fullpage}
 	\usepackage{gensymb}
+	\usepackage{titlesec}
 
-	\title{${1:}}
-	\author{Jayden Chan (V00898517)}
-	\date{${2:}}
+	\setlength\parindent{0pt}
+	\setlength\parskip{1em}
+	\titlespacing\section{0pt}{2pt plus 1pt minus 1pt}{0pt plus 2pt minus 2pt}
+	\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+	\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 	\begin{document}
-	\maketitle
+
+		\begin{center}
+			\LARGE{${1:title}} \par
+			\Large{Jayden Chan (V00898517)} \par
+			\large{${0:date}}
+		\end{center}
+
 		\section{OBJECTIVE}
 		This is where the objective section goes.
 
@@ -143,3 +152,10 @@ snippet jh
 
 snippet kh
 	\hat{k}${0}
+
+snippet qq
+	\item
+		\begin{enumerate}
+			\item[Q:] \textit{${1:}}
+			\item[A:] ${0}
+		\end{enumerate}
