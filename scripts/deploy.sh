@@ -1,12 +1,12 @@
-ln -fs $HOME/Documents/Git/dotfiles/compton/compton.conf  $HOME/.config/compton.conf
-ln -fs $HOME/Documents/Git/dotfiles/dunst/dunstrc         $HOME/.config/dunst/dunstrc
-ln -fs $HOME/Documents/Git/dotfiles/i3/config             $HOME/.config/i3/config
-ln -fs $HOME/Documents/Git/dotfiles/polybar/config        $HOME/.config/polybar/config
-ln -fs $HOME/Documents/Git/dotfiles/termite/config        $HOME/.config/termite/config
-ln -fs $HOME/Documents/Git/dotfiles/tmux/.tmux.conf       $HOME/.tmux.conf
-ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc             $HOME/.vimrc
-ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc             $HOME/.zshrc
-ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout           $HOME/.zlogout
-ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add      $HOME/.vim/en.utf-8.add
-ln -fs $HOME/Documents/Git/dotfiles/snippets/             $HOME/.vim/snippets
-ln -fs $HOME/Documents/Git/dotfiles/rofi/Custom-Nord.rasi $HOME/.config/rofi/Custom-Nord.rasi
+rm $HOME/.tmux.conf        2>/dev/null
+rm $HOME/.vimrc            2>/dev/null
+rm $HOME/.zshrc            2>/dev/null
+rm $HOME/.zlogout          2>/dev/null
+rm $HOME/.vim/en.utf-8.add 2>/dev/null
+
+ln -fs $HOME/Documents/Git/dotfiles/tmux/.tmux.conf  $HOME/.tmux.conf
+ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc        $HOME/.vimrc
+ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc        $HOME/.zshrc
+ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout      $HOME/.zlogout
+ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add $HOME/.vim/en.utf-8.add
+ln -fs $HOME/Documents/Git/dotfiles/snippets/        $HOME/.vim/
