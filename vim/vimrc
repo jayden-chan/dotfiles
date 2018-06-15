@@ -119,7 +119,7 @@ filetype off
 
     " Formatting
     noremap <leader>ww :%s/\s\+$//e<CR>
-    noremap <leader>tt gg=G
+    noremap <leader>tt mtgg=G`tzz
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -132,6 +132,8 @@ filetype off
     noremap J g^
     noremap I 18<c-u>
     noremap K 18<c-d>
+
+    nnoremap <leader>c gJ
 
     " Change splits
     nnoremap <leader>j <C-w>h
@@ -243,6 +245,8 @@ filetype off
     autocmd FileType css setlocal softtabstop=2
     autocmd FileType json setlocal shiftwidth=2
     autocmd FileType json setlocal softtabstop=2
+    autocmd FileType snippets setlocal tabstop=4
+    autocmd FileType snippets setlocal shiftwidth=4
 
 " Abbreviations
 

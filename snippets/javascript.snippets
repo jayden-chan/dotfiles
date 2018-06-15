@@ -10,3 +10,21 @@ snippet cclass
 
 		}
 	}
+
+snippet <>
+	<${1:}${2}>${0}</$1>
+
+snippet react
+	import React, { Component } from 'react';
+
+	class ${1:} extends Component {
+	  render() {
+	    return (
+	      <div>
+	        ${0}
+	      </div>
+	    );
+	  }
+	}
+
+	export default $1;
