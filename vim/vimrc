@@ -24,6 +24,8 @@ filetype off
     Plugin 'godlygeek/tabular'
     Plugin 'udalov/kotlin-vim'
     Plugin 'junegunn/goyo.vim'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'mxw/vim-jsx'
 
     call vundle#end()
     filetype plugin indent on
@@ -43,8 +45,8 @@ filetype off
 
     " Tab settings
     set expandtab
-    set tabstop=4
     set shiftwidth=4
+    set softtabstop=4
     set smarttab
     set smartindent
 
@@ -231,6 +233,16 @@ filetype off
     autocmd FileType text setlocal spell
     autocmd FileType markdown setlocal spell
     autocmd FileType tex setlocal spell
+
+    " Set indentation to 2 spaces for certain files
+    autocmd FileType javascript setlocal shiftwidth=2
+    autocmd FileType javascript setlocal softtabstop=2
+    autocmd FileType html setlocal shiftwidth=2
+    autocmd FileType html setlocal softtabstop=2
+    autocmd FileType css setlocal shiftwidth=2
+    autocmd FileType css setlocal softtabstop=2
+    autocmd FileType json setlocal shiftwidth=2
+    autocmd FileType json setlocal softtabstop=2
 
 " Abbreviations
 
