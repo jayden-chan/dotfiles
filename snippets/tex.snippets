@@ -46,6 +46,7 @@ snippet astr
 	\usepackage{fullpage}
 	\usepackage{gensymb}
 	\usepackage{titlesec}
+	\usepackage{pgfplots}
 
 	\setlength\parindent{0pt}
 	\setlength\parskip{1em}
@@ -53,12 +54,14 @@ snippet astr
 	\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 	\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
+	\pgfplotsset{width=15cm,compat=1.9}
+
 	\begin{document}
 
 		\begin{center}
-			\LARGE{${1:title}} \par
+			\LARGE{ASTR 101 - Lab ${1:title}} \par
 			\Large{Jayden Chan (V00898517)} \par
-			\large{${0:date}}
+			\large{${2:date}}
 		\end{center}
 
 		\section{OBJECTIVE}
