@@ -28,11 +28,6 @@ alias javcl='rm *.class'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 
-# Pacman
-alias pi='sudo pacman -S'
-alias pr='sudo pacman -Rsn'
-alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
-
 # dotfile editing
 alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
@@ -40,7 +35,6 @@ alias dot='vim $HOME/Documents/Git/dotfiles/'
 alias dotu='cd $HOME/Documents/Git/dotfiles && gst'
 
 # Info
-alias weather='curl -s "wttr.in/?lang=en" | head -7'
 alias nfetch='neofetch --ascii_distro arch_old'
 
 # Exit
@@ -51,13 +45,14 @@ alias :Wq='exit'
 
 # U S E R   E R R O R
 alias cim='vim'
+alias vom='vim'
+alias vun='vim'
 alias dw='cd'
 alias clera='clear'
-alias vun-'vim'
 
 # Other
 alias rs='cd && clear'
-alias sshd='ssh jayden@jaydendesktop.ddns.net'
+alias sshd='ssh jayden@154.20.43.231'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
@@ -71,22 +66,4 @@ function installfont () {
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---
-}
-
-function lpac () {
-    echo --- Native ---
-    echo
-    pacman -Qqettn
-    echo
-    echo --- AUR ---
-    echo
-    pacman -Qqettm
-}
-
-function pach () {
-    cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
-}
-
-function wificonnect () {
-    nmcli dev wifi connect $1 password $2
 }

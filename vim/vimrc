@@ -117,7 +117,7 @@ filetype off
     " ez semicolons
     inoremap ;; <Esc>A;
 
-    " Formatting
+    " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
     noremap <leader>tt mtgg=G`tzz
 
