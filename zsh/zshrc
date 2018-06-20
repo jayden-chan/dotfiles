@@ -57,9 +57,6 @@ alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/i
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
-# Export gradle path
-export PATH=$PATH:/opt/gradle/gradle-4.7/bin
-
 function installfont () {
     sudo echo --- Installing font ---
     cp $1 $HOME/.local/share/fonts
@@ -67,3 +64,6 @@ function installfont () {
     sudo fc-cache -fv
     echo --- Done ---
 }
+
+# Export gradle path
+export PATH=$PATH:/opt/gradle/gradle-4.7/bin

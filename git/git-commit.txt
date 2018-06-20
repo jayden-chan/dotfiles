@@ -2,6 +2,7 @@
 # |<----  Using a Maximum Of 50 Characters  ---->|
 # (If applied, this commit will...) (Max 50 char)
 
+
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
 # Explain why this change is being made
 # Provide links or keys to any relevant tickets, articles or other resources
