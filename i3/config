@@ -16,12 +16,12 @@ set_from_resource $bg i3wm.color2
 # client.placeholder      #2e3440 #0c0c0c #ffffff #000000 #0c0c0c
 # client.background       #ffffff
 
-client.focused          $bg $bg $fg $bg $bg
-client.focused_inactive $bg $bg $fg $bg $bg
-client.unfocused        $bg $bg $fg $bg $bg
-client.urgent           $bg $bg $fg $bg $bg
-client.placeholder      $bg $bg $fg $bg $bg
-client.background       $bg $bg $fg $bg $bg
+# client.focused          $bg $bg $fg $bg $bg
+# client.focused_inactive $bg $bg $fg $bg $bg
+# client.unfocused        $bg $bg $fg $bg $bg
+# client.urgent           $bg $bg $fg $bg $bg
+# client.placeholder      $bg $bg $fg $bg $bg
+# client.background       $bg $bg $fg $bg $bg
 
 font pango:SF Pro Display 12
 
