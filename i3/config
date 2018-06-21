@@ -1,0 +1,240 @@
+set $mod Mod1
+set $super Mod4
+set $gaps 47
+set $exec exec --no-startup-id
+set $scripts $HOME/Documents/Git/dotfiles/scripts
+
+set_from_resource $fg i3wm.color7
+set_from_resource $bg i3wm.color2
+
+
+# Change window border color
+# client.focused          #2e3440 #5e81ac #ffffff #3b84c0 #5e81ac
+# client.focused_inactive #2e3440 #5f676a #ffffff #484e50 #5f676a
+# client.unfocused        #2e3440 #2e3440 #888888 #292d2e #5f676a
+# client.urgent           #2e3440 #900000 #ffffff #900000 #900000
+# client.placeholder      #2e3440 #0c0c0c #ffffff #000000 #0c0c0c
+# client.background       #ffffff
+
+client.focused          $bg $bg $fg $bg $bg
+client.focused_inactive $bg $bg $fg $bg $bg
+client.unfocused        $bg $bg $fg $bg $bg
+client.urgent           $bg $bg $fg $bg $bg
+client.placeholder      $bg $bg $fg $bg $bg
+client.background       $bg $bg $fg $bg $bg
+
+font pango:SF Pro Display 12
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite
+
+# Open scratch terminal
+bindsym $mod+Shift+Return [instance="droptermite"] scratchpad show; [instance="droptermite"] move position center
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym Control+space $exec rofi -show drun -display-drun "run" -show-icons -drun-icon-theme "Papirus" -theme Custom-Nord -font "SF-Pro-Display 14" -lines 7 -scroll-method 1 -me-select-entry '' -me-accept-entry 'MousePrimary'
+bindsym Control+$mod+Delete $exec sh $scripts/rofi-power.sh
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+i focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+i move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# resize window
+bindsym $super+j resize shrink width 10 px or 10 ppt
+bindsym $super+k resize grow height 10 px or 10 ppt
+bindsym $super+i resize shrink height 10 px or 10 ppt
+bindsym $super+l resize grow width 10 px or 10 ppt
+
+# arrows
+bindsym $super+Left resize shrink width 10 px or 10 ppt
+bindsym $super+Down resize grow height 10 px or 10 ppt
+bindsym $super+Up resize shrink height 10 px or 10 ppt
+bindsym $super+Right resize grow width 10 px or 10 ppt
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define screen names
+set $screen1 "DP-0"
+set $screen2 "HDMI-0"
+set $screen3 "DVI-D-0"
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+Shift+1 workspace $ws1
+bindsym $mod+Shift+2 workspace $ws2
+bindsym $mod+Shift+3 workspace $ws3
+bindsym $mod+Shift+4 workspace $ws4
+bindsym $mod+Shift+5 workspace $ws5
+bindsym $mod+Shift+6 workspace $ws6
+bindsym $mod+Shift+7 workspace $ws7
+bindsym $mod+Shift+8 workspace $ws8
+bindsym $mod+Shift+9 workspace $ws9
+bindsym $mod+Shift+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $super+Shift+1 move container to workspace $ws1;  workspace $ws1
+bindsym $super+Shift+2 move container to workspace $ws2;  workspace $ws2
+bindsym $super+Shift+3 move container to workspace $ws3;  workspace $ws3
+bindsym $super+Shift+4 move container to workspace $ws4;  workspace $ws4
+bindsym $super+Shift+5 move container to workspace $ws5;  workspace $ws5
+bindsym $super+Shift+6 move container to workspace $ws6;  workspace $ws6
+bindsym $super+Shift+7 move container to workspace $ws7;  workspace $ws7
+bindsym $super+Shift+8 move container to workspace $ws8;  workspace $ws8
+bindsym $super+Shift+9 move container to workspace $ws9;  workspace $ws9
+bindsym $super+Shift+0 move container to workspace $ws10; workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r [instance="droptermite"] kill; restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e $exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Spotify
+set $pause --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+set $next --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+set $prev --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+gaps inner $gaps
+gaps outer 0
+
+mouse_warping none
+
+default_border none
+default_floating_border pixel 2
+hide_edge_borders both
+
+# Startup scripts
+$exec $HOME/.screenlayout/init-screens.sh    # Set configurations for screens
+$exec compton                                # Start compton
+$exec wal -R -n                              # Restore wal colors
+$exec nitrogen --restore &                   # Set wallpaper
+$exec sh $scripts/mouseaccel.sh              # Set mouse sensitivity
+$exec numlockx on                            # Turn on num lock
+$exec xmodmap -e "clear lock"                # Disable caps lock switch
+$exec xmodmap -e "keysym Caps_Lock = Escape" # Set caps_lock as escape
+
+exec_always --no-startup-id termite --name droptermite
+exec_always --no-startup-id sh $scripts/polybar.sh
+
+#### Binds ####
+
+bindsym $mod+g gaps inner current set 0
+bindsym $mod+Shift+g gaps inner current set $gaps
+
+bindsym $mod+b gaps inner current set 0; gaps outer current set $gaps
+bindsym $mod+Shift+b gaps inner current set $gaps; gaps outer current set 0
+
+# Easily start programs
+bindsym $super+c $exec google-chrome-stable
+bindsym $super+n $exec nautilus
+bindsym $super+m $exec spotify
+
+# Music
+bindsym Pause                exec $pause
+bindsym XF86AudioMute        exec $pause
+bindsym XF86AudioLowerVolume exec $prev
+bindsym XF86AudioRaiseVolume exec $next
+
+# Sound
+bindsym $mod+XF86AudioMute $exec amixer sset Master 0%; $exec sh $scripts/printvol.sh
+bindsym $mod+XF86AudioRaiseVolume $exec amixer sset Master 5%+; $exec sh $scripts/printvol.sh
+bindsym $mod+XF86AudioLowerVolume $exec amixer sset Master 5%-; $exec sh $scripts/printvol.sh
+
+# Brightness
+bindsym XF86MonBrightnessUp $exec light -A 9.9; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
+bindsym XF86MonBrightnessDown $exec light -U 9.9; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
+
+# Screenshots
+bindsym --release Print $exec sh $scripts/scrotS.sh
+bindsym Shift+Print $exec sh $scripts/scrotW.sh
+
+bindsym $mod+Shift+plus move scratchpad
+bindsym $mod+plus scratchpad show
+
+#### Settings ####
+
+# Don't change focus when moving mouse
+focus_follows_mouse no
+
+# Set outputs for specific workspaces
+workspace $ws1 output $screen1
+workspace $ws2 output $screen2
+workspace $ws3 output $screen3
+
+# Window specific settings
+for_window [class="^Spotify$"] move to workspace $ws3
+for_window [class="^Nitrogen$"] floating enable
+for_window [class="^Termite$"] border pixel 1
+
+# Scratchpad terminal settings
+for_window [instance="droptermite"] floating enable
+for_window [instance="droptermite"] resize set 960 475
+for_window [instance="droptermite"] move scratchpad
+
+for_window [instance="datetermite"] floating enable
+for_window [instance="datetermite"] resize set 210 210
+for_window [instance="datetermite"] move position mouse
+for_window [instance="datetermite"] move down 35px
