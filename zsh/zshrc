@@ -28,6 +28,11 @@ alias javcl='rm *.class'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 
+# Pacman
+alias pi='sudo pacman -S'
+alias pr='sudo pacman -Rsn'
+alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
+
 # dotfile editing
 alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
@@ -55,8 +60,6 @@ alias rs='cd && clear'
 alias sshd='ssh jayden@154.20.43.231'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
-
 function installfont () {
     sudo echo --- Installing font ---
     cp $1 $HOME/.local/share/fonts
@@ -64,6 +67,22 @@ function installfont () {
     sudo fc-cache -fv
     echo --- Done ---
 }
+
+function lpac () {
+    echo --- Native ---
+    echo
+    pacman -Qqettn
+    echo
+    echo --- AUR ---
+    echo
+    pacman -Qqettm
+}
+
+function pach () {
+    cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
+}
+
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 # Export gradle path
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
