@@ -185,7 +185,7 @@ bindsym $mod+Shift+b gaps inner current set $gaps; gaps outer current set 0
 # Easily start programs
 bindsym $super+c $exec firefox
 bindsym $super+n $exec nautilus
-bindsym $super+m $exec spotify
+bindsym $super+m $exec sh $scripts/focus_spotify.sh
 
 # Music
 bindsym Pause                exec $pause
@@ -216,12 +216,13 @@ workspace $ws2 output $screen2
 workspace $ws3 output $screen3
 
 # Don't change focus when moving mouse
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # Window specific settings
 # for_window [class="^Spotify$"] move to workspace $ws3
 for_window [class="^Nitrogen$"] floating enable
 for_window [class="^Termite$"] border pixel 1
+for_window [title="Welcome to Android Studio"] floating enable
 
 for_window [instance="datetermite"] floating enable
 for_window [instance="datetermite"] resize set 210 210

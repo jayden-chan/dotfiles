@@ -26,7 +26,6 @@ main() {
     else
         echo $artist - $title
     fi
-
 }
 
 main "$@"
