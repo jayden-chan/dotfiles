@@ -16,20 +16,12 @@ primary = #008cff
 secondary = #e60053
 alert = #bd2c40
 
-;white = ${xrdb:color0:#222}
-;green = ${xrdb:color7:#222}
-;blue = ${xrdb:color7:#222}
-;red = ${xrdb:color1:#222}
-;yellow = ${xrdb:color2:#222}
-;magenta = ${xrdb:color3:#222}
-
-white   = #ffffff
-green   = #63d15e
-blue    = #42aadd
-red     = #dd4242
-yellow  = #dd4242
-magenta = #ff5bb8
-
+white = ${xrdb:color0:#222}
+green = ${xrdb:color7:#222}
+blue = ${xrdb:color7:#222}
+red = ${xrdb:color1:#222}
+yellow = ${xrdb:color2:#222}
+magenta = ${xrdb:color3:#222}
 
 ;white = #ffffff
 ;green = #a3be8c

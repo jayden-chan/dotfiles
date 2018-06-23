@@ -15,12 +15,12 @@ client.urgent           #2e3440 #900000 #ffffff #900000 #900000
 client.placeholder      #2e3440 #0c0c0c #ffffff #000000 #0c0c0c
 client.background       #ffffff
 
-# client.focused          $bg $bg $fg $bg $bg
-# client.focused_inactive $bg $bg $fg $bg $bg
-# client.unfocused        $bg $bg $fg $bg $bg
-# client.urgent           $bg $bg $fg $bg $bg
-# client.placeholder      $bg $bg $fg $bg $bg
-# client.background       $bg $bg $fg $bg $bg
+client.focused          $bg $bg $fg $bg $bg
+client.focused_inactive $bg $bg $fg $bg $bg
+client.unfocused        $bg $bg $fg $bg $bg
+client.urgent           $bg $bg $fg $bg $bg
+client.placeholder      $bg $bg $fg $bg $bg
+client.background       $bg $bg $fg $bg $bg
 
 font pango:Arial 12
 
@@ -35,8 +35,10 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym Control+space $exec rofi -show drun -display-drun "run" -show-icons -drun-icon-theme "Papirus" -theme Custom-Nord -font "SF-Pro-Display 14" -lines 7 -scroll-method 1 -me-select-entry '' -me-accept-entry 'MousePrimary'
-bindsym Control+$mod+Delete $exec sh $scripts/rofi-power.sh
+bindsym Control+space $exec sh $scripts/rofi.sh --normal
+
+#rofi -show drun -display-drun "run:" -show-icons -drun-icon-theme "Papirus" -theme theme -font "Noto Sans 14" -scroll-method 1
+bindsym Control+$mod+Delete $exec sh $scripts/rofi.sh --power
 
 # change focus
 bindsym $mod+j focus left

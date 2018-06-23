@@ -1,21 +1,17 @@
 * {
-    backgroundcolor: #2d2d2d;
-    bg1: #474747;
-    backgroundcoloralternate: #2d2d2d;
-    separatorcolor: #3b4252;
-    scrollbarcolor: #3b4252;
-    foregroundcolor: #839496;
-    foregroundcolorinverse: #839496;
-    selectioncolor: #474747;
-
+    backgroundcolor: #2d2d2dcf;
+    backgroundcoloralternate: #2d2d2d00;
+    separatorcolor: #3b425200;
+    scrollbarcolor: #3b425200;
+    foregroundcolor: #ffffff;
+    foregroundcolorinverse: #ffffff;
+    selectioncolor: #88888866;
 
     font-size: 1px;
     border-color: @separatorcolor;
-    background-color: @backgroundcolor;
+    background-color: #ffffff00;
     text-color: @foregroundcolor;
     margin: 0;
-    margin-bottom: 0;
-    margin-top: 0;
     spacing: 0;
 }
 
@@ -23,19 +19,13 @@
     spacing: 0;
     margin: 0;
     dynamic: true;
-
 }
 
 #window {
     background-color: @backgroundcolor;
-    border-color: @separatorcolor;
-    border: 1;
-    border-radius: 5px;
 }
 
 #mainbox {
-    border: 0;
-    padding: 0;
     background-color: @backgroundcoloralternate;
 }
 
