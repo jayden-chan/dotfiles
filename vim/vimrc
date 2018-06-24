@@ -173,6 +173,11 @@ filetype off
     nmap <silent> <leader>dd "_dd
     vmap <silent> <leader>dd "_dd
 
+    " Prevent x, c and d from filling buffer
+    noremap x "_x
+    noremap d "_x
+    noremap c "_c
+
     " Tab switching
     map <tab>j :tabprevious<CR>
     map <tab>l :tabnext<CR>
