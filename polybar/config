@@ -73,8 +73,9 @@ cursor-scroll = ns-resize
 
 [bar/grace]
 monitor = ${env:MONITOR:HDMI-0}
+
 width = 80%
-height = 29
+height = 32
 offset-x = 10%
 offset-y = 5
 radius = 10

@@ -170,13 +170,15 @@ filetype off
     map <silent> <leader>y "+y
 
     " Delete line without filling yank buffer
-    nmap <silent> <leader>dd "_dd
-    vmap <silent> <leader>dd "_dd
+    nnoremap <silent> <leader>dd "_dd
+    vnoremap <silent> <leader>dd "_dd
 
     " Prevent x, c and d from filling buffer
     noremap x "_x
-    noremap d "_x
+    noremap d "_d
     noremap c "_c
+
+    noremap dd dd
 
     " Tab switching
     map <tab>j :tabprevious<CR>
