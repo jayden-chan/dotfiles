@@ -85,7 +85,43 @@ function pach () {
     cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
 }
 
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+function up_one_func {
+    cd ..
+    zle reset-prompt
+}
+
+function lsa_func {
+    echo
+    ls -a
+    zle reset-prompt
+}
+
+function gst_func {
+    echo
+    git status
+    zle reset-prompt
+}
+
+function clear_func {
+    clear
+    zle reset-prompt
+}
+
+zle -N up_one_widget up_one_func
+bindkey '^E' up_one_widget
+
+zle -N lsa_widget lsa_func
+bindkey '^R' lsa_widget
+
+zle -N gst_widget gst_func
+bindkey '^G' gst_widget
+
+zle -N clear_widget clear_func
+bindkey "^W" clear_widget
 
 # Export gradle path
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
+export GOPATH=$HOME/Dev/Go
+export PATH=$HOME/Dev/Go/bin:$PATH
+
+[[ $TMUX = "" ]] && export TERM="xterm-256color"

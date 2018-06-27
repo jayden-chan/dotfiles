@@ -173,12 +173,11 @@ filetype off
     nnoremap <silent> <leader>dd "_dd
     vnoremap <silent> <leader>dd "_dd
 
-    " Prevent x, c and d from filling buffer
+    " Prevent x and c from filling buffer
     noremap x "_x
-    noremap d "_d
     noremap c "_c
 
-    noremap dd dd
+    noremap cc "_cc
 
     " Tab switching
     map <tab>j :tabprevious<CR>
@@ -212,6 +211,8 @@ filetype off
     let g:snipMate.no_default_aliases = 1
 
     let g:airline_powerline_fonts = 1
+    let g:airline_section_c = '%t'
+
     let g:onedark_termcolors = 256
 
     let g:NERDTreeFileExtensionHighlightFullName = 1
@@ -221,12 +222,6 @@ filetype off
     let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
     let g:ycm_min_num_identifier_candidate_chars = 4
     let g:ycm_max_num_identifier_candidates = 5
-    set completeopt-=preview
-
-    let g:tagbar_map_togglecaseinsensitive = 'h'
-    let g:tagbar_autoclose = 1
-    let g:tagbar_sort = 0
-    let g:tagbar_width = 30
 
     let g:goyo_width = 120
 
@@ -253,8 +248,14 @@ filetype off
     autocmd FileType css setlocal softtabstop=2
     autocmd FileType json setlocal shiftwidth=2
     autocmd FileType json setlocal softtabstop=2
+
+    " Set indentation to hard tabs for some files
     autocmd FileType snippets setlocal tabstop=4
     autocmd FileType snippets setlocal shiftwidth=4
+    autocmd FileType go setlocal noexpandtab
+    autocmd FileType go setlocal tabstop=4
+    autocmd FileType go setlocal shiftwidth=4
+
 
 " Abbreviations
 
