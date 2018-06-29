@@ -67,6 +67,7 @@ filetype off
     set foldlevel=1000
     set foldmethod=indent
 
+    " I mess up a lot
     set undolevels=9001
 
     " No cursor line
@@ -91,9 +92,6 @@ filetype off
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[4 q"
     let &t_EI = "\<Esc>[2 q"
-    " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    " let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-    " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Binds
 
@@ -115,7 +113,7 @@ filetype off
     map <F6> :setlocal spell! spelllang=en_ca<CR>
     set spellfile=$HOME/.vim/en.utf-8.add
 
-    " ez semicolons
+    " ez semicolons (perhaps the greatest bind in this entire config)
     inoremap ;; <Esc>A;
 
     " Formatting (remove whitespace and reindent)
@@ -131,9 +129,8 @@ filetype off
     " Various other cursor control maps
     noremap L g$
     noremap J g^
-    noremap I 18<c-u>
-    noremap K 18<c-d>
-
+    noremap I 17<c-u>
+    noremap K 17<c-d>
     nnoremap <leader>c gJ
 
     " Change splits
@@ -176,7 +173,6 @@ filetype off
     " Prevent x and c from filling buffer
     noremap x "_x
     noremap c "_c
-
     noremap cc "_cc
 
     " Tab switching
@@ -194,12 +190,12 @@ filetype off
 
     " Mouse for scrolling only, mostly for skimming files
     set mouse=a
-    nmap <LeftMouse>   <nop>
-    nmap <RightMouse>  <nop>
-    nmap <MiddleMouse> <nop>
-    imap <LeftMouse>   <nop>
-    imap <RightMouse>  <nop>
-    imap <MiddleMouse> <nop>
+    " nmap <LeftMouse>   <nop>
+    " nmap <RightMouse>  <nop>
+    " nmap <MiddleMouse> <nop>
+    " imap <LeftMouse>   <nop>
+    " imap <RightMouse>  <nop>
+    " imap <MiddleMouse> <nop>
 
 " Plugin specific settings
 
@@ -227,42 +223,46 @@ filetype off
 
 " Commands
 
+    " Make leaving easier in case of typos
     command Q :q
     command Wq :wq
     command WQ :wq
     command Wqa :wqa
     command WQa :wqa
 
+    " Always open NERDTree in new windows
+    autocmd VimEnter * NERDTree
+
     " Enable spell check for certain file types
     autocmd FileType gitcommit setlocal spell
-    autocmd FileType text setlocal spell
-    autocmd FileType markdown setlocal spell
-    autocmd FileType tex setlocal spell
+    autocmd FileType text      setlocal spell
+    autocmd FileType markdown  setlocal spell
+    autocmd FileType tex       setlocal spell
 
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript setlocal shiftwidth=2
     autocmd FileType javascript setlocal softtabstop=2
-    autocmd FileType html setlocal shiftwidth=2
-    autocmd FileType html setlocal softtabstop=2
-    autocmd FileType css setlocal shiftwidth=2
-    autocmd FileType css setlocal softtabstop=2
-    autocmd FileType json setlocal shiftwidth=2
-    autocmd FileType json setlocal softtabstop=2
+    autocmd FileType html       setlocal shiftwidth=2
+    autocmd FileType html       setlocal softtabstop=2
+    autocmd FileType css        setlocal shiftwidth=2
+    autocmd FileType css        setlocal softtabstop=2
+    autocmd FileType json       setlocal shiftwidth=2
+    autocmd FileType json       setlocal softtabstop=2
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets setlocal tabstop=4
     autocmd FileType snippets setlocal shiftwidth=4
-    autocmd FileType go setlocal noexpandtab
-    autocmd FileType go setlocal tabstop=4
-    autocmd FileType go setlocal shiftwidth=4
+    autocmd FileType go       setlocal noexpandtab
+    autocmd FileType go       setlocal tabstop=4
+    autocmd FileType go       setlocal shiftwidth=4
 
 
 " Abbreviations
 
-    iab retrun return
-    iab retnru return
-    iab erturn return
-    iab ertnru return
-    iab thsi this
+    iab retrun   return
+    iab retnru   return
+    iab erturn   return
+    iab ertnru   return
+    iab thsi     this
     iab fcuntoin function
     iab fucntion function
