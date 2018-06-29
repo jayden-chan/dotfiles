@@ -221,6 +221,16 @@ filetype off
 
     let g:goyo_width = 120
 
+" Functions
+
+    fun! OpenNERDTree()
+        " Don't open for these filetypes
+        if &ft =~ 'gitcommit\|vim\|zsh'
+            return
+        endif
+        NERDTree
+    endfun
+
 " Commands
 
     " Make leaving easier in case of typos
@@ -231,30 +241,19 @@ filetype off
     command WQa :wqa
 
     " Always open NERDTree in new windows
-    autocmd VimEnter * NERDTree
+    autocmd VimEnter * call OpenNERDTree()
 
     " Enable spell check for certain file types
-    autocmd FileType gitcommit setlocal spell
-    autocmd FileType text      setlocal spell
-    autocmd FileType markdown  setlocal spell
-    autocmd FileType tex       setlocal spell
+    autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript setlocal shiftwidth=2
-    autocmd FileType javascript setlocal softtabstop=2
-    autocmd FileType html       setlocal shiftwidth=2
-    autocmd FileType html       setlocal softtabstop=2
-    autocmd FileType css        setlocal shiftwidth=2
-    autocmd FileType css        setlocal softtabstop=2
-    autocmd FileType json       setlocal shiftwidth=2
-    autocmd FileType json       setlocal softtabstop=2
+    autocmd FileType javascript,html,css,json setlocal shiftwidth=2
+    autocmd FileType javascript,html,css,json setlocal softtabstop=2
 
     " Set indentation to hard tabs for some files
-    autocmd FileType snippets setlocal tabstop=4
-    autocmd FileType snippets setlocal shiftwidth=4
-    autocmd FileType go       setlocal noexpandtab
-    autocmd FileType go       setlocal tabstop=4
-    autocmd FileType go       setlocal shiftwidth=4
+    autocmd FileType snippets,go setlocal tabstop=4
+    autocmd FileType snippets,go setlocal shiftwidth=4
+    autocmd FileType go          setlocal noexpandtab
 
 
 " Abbreviations
