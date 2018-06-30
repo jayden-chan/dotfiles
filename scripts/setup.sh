@@ -42,6 +42,7 @@ nodejs
 npm
 python
 python-pip
+go
 "
 
 export system="

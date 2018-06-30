@@ -226,7 +226,7 @@ filetype off
 
     fun! OpenNERDTree()
         " Don't open for these filetypes
-        if &ft =~ 'gitcommit\|vim\|zsh'
+        if &ft =~ 'gitcommit\|vim\|zsh\|dosini'
             return
         endif
         NERDTree
@@ -234,7 +234,7 @@ filetype off
 
     fun! OpenNERDMirror()
         " Don't open for these filetypes
-        if &ft =~ 'gitcommit\|vim\|zsh'
+        if &ft =~ 'gitcommit\|vim\|zsh\|dosini'
             return
         endif
         NERDTreeMirror
