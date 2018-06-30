@@ -152,8 +152,8 @@ bindsym $mod+Shift+e $exec "i3-nagbar -t warning -m 'You pressed the exit shortc
 
 # Spotify
 set $pause --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-set $next --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-set $prev --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+set $next  --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+set $prev  --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 gaps inner $gaps
 gaps outer 0
@@ -196,7 +196,7 @@ bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
 # Sound
-bindsym $mod+XF86AudioMute $exec amixer sset Master 0%; $exec sh $scripts/printvol.sh
+bindsym $mod+XF86AudioMute        $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
 bindsym $mod+XF86AudioRaiseVolume $exec amixer sset Master 5%+; $exec sh $scripts/printvol.sh
 bindsym $mod+XF86AudioLowerVolume $exec amixer sset Master 5%-; $exec sh $scripts/printvol.sh
 

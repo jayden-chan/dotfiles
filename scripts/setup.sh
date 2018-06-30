@@ -1,6 +1,20 @@
 #!/bin/sh
 
-echo Installing Software...
+echo -n "WARNING: This script is intended to be run on a fresh Arch installation
+with sudo and users/groups properly set up. I don't know what will happen if you
+run it in any other scenario.
+
+"
+
+echo -n "Continue? [Y/n] "
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    echo Running setup script...
+else
+    echo Aborting
+    exit 0
+fi
 
 sudo pacman -Syu
 
@@ -101,4 +115,6 @@ echo "Software setup complete, you must now compile Vim and install the followin
     insomnia
     polybar
     spotify
+
+...and install the fonts in /fonts
 "
