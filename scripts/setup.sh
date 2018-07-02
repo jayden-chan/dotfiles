@@ -27,6 +27,8 @@ pavucontrol
 qiv
 scrot
 vlc
+libreoffice-fresh
+lastpass-cli
 "
 
 export dev="
