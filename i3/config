@@ -115,9 +115,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-set $screen1 "DVI-D-0"
+set $screen1 "DP-0"
 set $screen2 "HDMI-0"
-set $screen3 "DP-0"
+set $screen3 "DVI-D-0"
 
 # switch to workspace
 bindsym $mod+Shift+1 workspace $ws1
@@ -217,7 +217,7 @@ workspace $ws1 output $screen1
 workspace $ws2 output $screen2
 workspace $ws3 output $screen3
 
-# Don't change focus when moving mouse
+# Change focus when moving mouse
 focus_follows_mouse yes
 
 # Window specific settings
