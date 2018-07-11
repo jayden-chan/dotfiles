@@ -45,6 +45,7 @@ npm
 python
 python-pip
 go
+diff-so-fancy
 "
 
 export system="
