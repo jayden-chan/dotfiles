@@ -96,4 +96,5 @@
     "window.menuBarVisibility": "toggle",
     "keyboard.dispatch": "keyCode",
     "workbench.colorTheme": "One Dark Pro",
+    "[javascript]": {"editor.tabSize": 2},
 }
