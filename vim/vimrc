@@ -84,6 +84,9 @@ filetype off
     " Automatically update working dir
     set autochdir
 
+    " Don't open preview windows
+    set completeopt-=preview
+
     " Set .tex files to LaTeX syntax
     let g:tex_flavor = "latex"
 
@@ -239,6 +242,9 @@ filetype off
     fun! OpenNERDMirror()
         " Don't open for these filetypes
         if &ft =~ 'gitcommit\|vim\|zsh\|dosini'
+            return
+        endif
+        if &buftype =~ 'quickfix'
             return
         endif
         NERDTreeMirror
