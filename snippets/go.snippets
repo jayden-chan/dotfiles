@@ -14,5 +14,29 @@ snippet pf
 snippet cw
 	fmt.Println(${1})
 
+snippet lf
+	log.Printf(${1})
+
+snippet lw
+	log.Println(${1})
+
 snippet imp
 	"github.com/jayden-chan/${0}"
+
+snippet po
+	Point{X: ${1}, Y: ${2}}
+
+snippet for
+	for ${1:} := 0; $1 < ${3:}; $1++ {
+		
+	}
+
+snippet forr
+	for ${1:} := ${2:}; $1 > 0; $1-- {
+		
+	}
+
+snippet fore
+	for ${1}, ${2} := range ${3} {
+		
+	}
