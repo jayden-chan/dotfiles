@@ -164,9 +164,6 @@ filetype off
     " New line no insert mode
     map go o<Esc>
 
-    " Easily open corresponding source file
-    nmap <silent> <leader>vv :110vs ../src/%<.cpp \| tabp<CR>
-
     " Copy Paste etc from system clipboard
     map <silent> <leader>p "+p
     map <silent> <leader>y "+y
@@ -184,16 +181,10 @@ filetype off
     map <tab>j :tabprevious<CR>
     map <tab>l :tabnext<CR>
 
-    " Open tagbar
-    nnoremap <c-b> :TagbarToggle<CR>
-
-    " Git status
-    map <c-g> :Gstatus<CR>
-
     " Fix 'I' behaviour in V-block
     vnoremap H I
 
-    " Mouse for scrolling only, mostly for skimming files
+    " Enable mouse
     set mouse=a
 
 " Plugin specific settings
@@ -229,27 +220,6 @@ filetype off
     let g:go_highlight_types = 1
     let g:go_highlight_variable_declarations = 1
 
-" Functions
-
-    fun! OpenNERDTree()
-        " Don't open for these filetypes
-        if &ft =~ 'gitcommit\|vim\|zsh\|dosini'
-            return
-        endif
-        NERDTree
-    endfun
-
-    fun! OpenNERDMirror()
-        " Don't open for these filetypes
-        if &ft =~ 'gitcommit\|vim\|zsh\|dosini'
-            return
-        endif
-        if &buftype =~ 'quickfix'
-            return
-        endif
-        NERDTreeMirror
-    endfun
-
 " Commands
 
     " Make leaving easier in case of typos
@@ -258,10 +228,11 @@ filetype off
     command WQ :wq
     command Wqa :wqa
     command WQa :wqa
+    command Qa :qa
+    command QA :qa
 
-    " Always open NERDTree in new windows
-    autocmd VimEnter * call OpenNERDTree()
-    autocmd BufWinEnter * call OpenNERDMirror()
+    " Mirror NERDTree when file is opened in new window
+    autocmd BufWinEnter *.* NERDTreeMirror
 
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
@@ -275,7 +246,6 @@ filetype off
     autocmd FileType snippets,go setlocal shiftwidth=4
     autocmd FileType go          setlocal noexpandtab
 
-
 " Abbreviations
 
     iab retrun   return
@@ -285,3 +255,5 @@ filetype off
     iab thsi     this
     iab fcuntoin function
     iab fucntion function
+    iab costn    const
+    iab conts    const
