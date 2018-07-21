@@ -29,6 +29,7 @@ scrot
 vlc
 libreoffice-fresh
 lastpass-cli
+gpick
 "
 
 export dev="
@@ -46,6 +47,7 @@ python
 python-pip
 go
 diff-so-fancy
+neovim
 "
 
 export system="
@@ -115,7 +117,8 @@ do
     sudo pacman -S $p
 done
 
-echo "Software setup complete, you must now compile Vim and install the following AUR packages:
+echo "Software setup complete, you must install the following AUR packages:
+    yay
     insomnia
     polybar
     spotify
