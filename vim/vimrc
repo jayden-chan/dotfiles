@@ -40,8 +40,11 @@ filetype off
     set t_ut=
     set termguicolors
 
+    " Enable 256 colors and italics, must be run before
+    " `colorscheme onedark`
+    let g:onedark_termcolors = 256
+    let g:onedark_terminal_italics = 1
     colorscheme onedark
-    set guifont=Monospace\ 13
 
     " Tab settings
     set expandtab
@@ -92,6 +95,9 @@ filetype off
 
     " Make LaTeX live preview smoother
     set updatetime=1000
+
+    " Enable mouse
+    set mouse=a
 
     " Change cursor to bar and underscore for different modes
     let &t_SI = "\<Esc>[6 q"
@@ -184,8 +190,8 @@ filetype off
     " Fix 'I' behaviour in V-block
     vnoremap H I
 
-    " Enable mouse
-    set mouse=a
+    " Run go tests
+    nmap <leader>g :GoTest<CR>
 
 " Plugin specific settings
 
@@ -199,7 +205,6 @@ filetype off
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'
 
-    let g:onedark_termcolors = 256
 
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
