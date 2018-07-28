@@ -16,8 +16,6 @@ else
     exit 0
 fi
 
-sudo pacman -Syu
-
 export apps="
 evince
 gimp
@@ -28,7 +26,6 @@ qiv
 scrot
 vlc
 libreoffice-fresh
-lastpass-cli
 gpick
 "
 
@@ -48,6 +45,7 @@ python-pip
 go
 diff-so-fancy
 neovim
+python-neovim
 "
 
 export system="
@@ -57,6 +55,7 @@ dunst
 i3-gaps
 lightdm
 lightdm-gtk-greeter
+perl-anyevent-i3
 numlockx
 pulseaudio
 rofi
@@ -66,6 +65,7 @@ zsh
 
 export cli="
 curl
+lastpass-cli
 mlocate
 imagemagick
 neofetch
@@ -83,35 +83,38 @@ export theme="
 lxappearance
 nitrogen
 papirus-icon-theme
+lightdm-gtk-greeter-settings
 python-pywal
 arc-gtk-theme
 "
+echo Updating system...
+sudo pacman -Syu
 
-echo Installing CLI tools...
+echo "Installing CLI tools... [1/5]"
 for p in $cli
 do
     sudo pacman -S $p
 done
 
-echo Installing dev tools...
+echo "Installing dev tools... [2/5]"
 for p in $tech
 do
     sudo pacman -S $p
 done
 
-echo Installing system tools...
+echo "Installing system tools... [3/5]"
 for p in $system
 do
     sudo pacman -S $p
 done
 
-echo Installing theme tools...
+echo "Installing theme tools... [4/5]"
 for p in $theme
 do
     sudo pacman -S $p
 done
 
-echo Installing applications...
+echo "Installing applications... [5/5]"
 for p in $apps
 do
     sudo pacman -S $p
@@ -122,6 +125,7 @@ echo "Software setup complete, you must install the following AUR packages:
     insomnia
     polybar
     spotify
+    heroku-cli
 
 ...and install the fonts in /fonts
 "

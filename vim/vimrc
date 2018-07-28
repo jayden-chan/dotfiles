@@ -140,8 +140,8 @@ filetype off
     " Various other cursor control maps
     noremap L g$
     noremap J g^
-    noremap I 17<c-u>
-    noremap K 17<c-d>
+    noremap I 12<c-u>
+    noremap K 12<c-d>
     nnoremap <leader>c gJ
 
     " Change splits
