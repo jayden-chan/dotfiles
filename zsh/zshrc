@@ -31,6 +31,7 @@ alias javcl='rm *.class'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 alias god='cd ~/Dev/Go/src/github.com/jayden-chan/'
+alias mb='make build'
 
 # Pacman
 alias pi='sudo pacman -S'
