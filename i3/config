@@ -172,7 +172,7 @@ $exec nitrogen --restore &                   # Set wallpaper
 $exec sh $scripts/mouseaccel.sh              # Set mouse sensitivity
 $exec numlockx on                            # Turn on num lock
 $exec xmodmap -e "clear lock"                # Disable caps lock switch
-$exec xmodmap -e "keysym Caps_Lock = Escape" # Set caps_lock as escape
+$exec xmodmap -e "keysym Caps_Lock = Escape" # Set caps lock as escape
 $exec xset r rate 300 35                     # Set key repeat delay and rate
 
 exec_always --no-startup-id sh $scripts/polybar.sh
