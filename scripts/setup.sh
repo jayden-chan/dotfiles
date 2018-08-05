@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo -n "WARNING: This script is intended to be run on a fresh Arch installation
-with sudo and users/groups folders properly set up. I don't know what will happen
+with sudo and users/groups and folders properly set up. I don't know what will happen
 if you run it in any other scenario.
 
 "
@@ -31,7 +31,6 @@ flashplugin
 "
 
 export dev="
-git
 cmake
 fakeroot
 gcc
@@ -63,7 +62,6 @@ numlockx
 pulseaudio
 rofi
 termite
-zsh
 "
 
 export cli="
@@ -76,6 +74,7 @@ unzip
 which
 openssh
 xclip
+xorg-server
 xorg-xinput
 xorg-xmodmap
 xorg-xprop
@@ -96,31 +95,31 @@ sudo pacman -Syu
 echo "Installing CLI tools... [1/5]"
 for p in $cli
 do
-    sudo pacman -S $p
+    sudo pacman -S --noconfirm $p
 done
 
 echo "Installing dev tools... [2/5]"
 for p in $tech
 do
-    sudo pacman -S $p
+    sudo pacman -S --noconfirm $p
 done
 
 echo "Installing system tools... [3/5]"
 for p in $system
 do
-    sudo pacman -S $p
+    sudo pacman -S --noconfirm $p
 done
 
 echo "Installing theme tools... [4/5]"
 for p in $theme
 do
-    sudo pacman -S $p
+    sudo pacman -S --noconfirm $p
 done
 
 echo "Installing applications... [5/5]"
 for p in $apps
 do
-    sudo pacman -S $p
+    sudo pacman -S --noconfirm $p
 done
 
 echo "Software setup complete, install the following AUR packages:

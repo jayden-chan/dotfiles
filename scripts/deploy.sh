@@ -7,14 +7,14 @@ rm -r /home/jayden/.config/nvim    2>/dev/null
 rm -r /home/jayden/.vim            2>/dev/null
 rm -r /home/jayden/.config/termite 2>/dev/null
 
-mkdir /home/jayden/.vim
-mkdir /home/jayden/.config/nvim
-mkdir /home/jayden/.config/compton
-mkdir /home/jayden/.config/dunst
-mkdir /home/jayden/.config/i3
-mkdir /home/jayden/.config/polybar
-mkdir /home/jayden/.config/rofi
-mkdir /home/jayden/.config/termite
+mkdir -p /home/jayden/.vim
+mkdir -p /home/jayden/.config/nvim
+mkdir -p /home/jayden/.config/compton
+mkdir -p /home/jayden/.config/dunst
+mkdir -p /home/jayden/.config/i3
+mkdir -p /home/jayden/.config/polybar
+mkdir -p /home/jayden/.config/rofi
+mkdir -p /home/jayden/.config/termite
 
 ln -fs /home/jayden/Documents/Git/dotfiles/compton/compton.conf /home/jayden/.config/compton/compton.conf
 ln -fs /home/jayden/Documents/Git/dotfiles/dunst/dunstrc        /home/jayden/.config/dunst/dunstrc
