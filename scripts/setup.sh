@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo -n "WARNING: This script is intended to be run on a fresh Arch installation
-with sudo and users/groups properly set up. I don't know what will happen if you
-run it in any other scenario.
+with sudo and users/groups folders properly set up. I don't know what will happen
+if you run it in any other scenario.
 
 "
 
@@ -27,6 +27,7 @@ scrot
 vlc
 libreoffice-fresh
 gpick
+flashplugin
 "
 
 export dev="
@@ -43,6 +44,8 @@ npm
 python
 python-pip
 go
+dep
+docker
 diff-so-fancy
 neovim
 python-neovim
@@ -120,8 +123,9 @@ do
     sudo pacman -S $p
 done
 
-echo "Software setup complete, you must install the following AUR packages:
+echo "Software setup complete, install the following AUR packages:
     yay
+    google-cloud-sdk-minimal
     insomnia
     polybar
     spotify
