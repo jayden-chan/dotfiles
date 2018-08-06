@@ -31,6 +31,7 @@ flashplugin
 "
 
 export dev="
+git
 cmake
 fakeroot
 gcc
@@ -95,40 +96,49 @@ sudo pacman -Syu
 echo "Installing CLI tools... [1/5]"
 for p in $cli
 do
-    sudo pacman -S --noconfirm $p
+    sudo pacman -S --needed --noconfirm $p
 done
 
 echo "Installing dev tools... [2/5]"
-for p in $tech
+for p in $dev
 do
-    sudo pacman -S --noconfirm $p
+    sudo pacman -S --needed --noconfirm $p
 done
 
 echo "Installing system tools... [3/5]"
 for p in $system
 do
-    sudo pacman -S --noconfirm $p
+    sudo pacman -S --needed --noconfirm $p
 done
 
 echo "Installing theme tools... [4/5]"
 for p in $theme
 do
-    sudo pacman -S --noconfirm $p
+    sudo pacman -S --needed --noconfirm $p
 done
 
 echo "Installing applications... [5/5]"
 for p in $apps
 do
-    sudo pacman -S --noconfirm $p
+    sudo pacman -S --needed --noconfirm $p
 done
 
-echo "Software setup complete, install the following AUR packages:
-    yay
-    google-cloud-sdk-minimal
-    insomnia
-    polybar
-    spotify
-    heroku-cli
+echo "Installing yay AUR package"
 
-...and install the fonts in /fonts
-"
+echo "cd ~/Downloads"
+cd ~/Downloads
+
+echo "git clone https://aur.archlinux.org/yay.git"
+git clone https://aur.archlinux.org/yay.git
+
+echo "cd yay"
+cd yay
+
+echo "makepkg -si"
+makepkg -si
+
+echo "Installing AUR packages"
+yay -S google-cloud-sdk-minimal insomnia polybar spotify
+
+echo
+echo "Software setup complete.
