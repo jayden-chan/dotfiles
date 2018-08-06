@@ -1,0 +1,53 @@
+// vim:ts=4:sw=4:et
+{
+    // splith split container with 1 children
+    "border": "none",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": 0.8,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 530,
+               "width": 814,
+               "x": 0,
+               "y": 0
+            },
+            "name": "jayden@grace: ~",
+            "percent": 1,
+            "swallows": [
+               {
+                  "class": "^Termite$",
+                  "instance": "^termite$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 530,
+       "width": 814,
+       "x": 0,
+       "y": 0
+    },
+    "name": "jayden@grace: ~",
+    "percent": 0.2,
+    "swallows": [
+       {
+          "class": "^Termite$",
+          "instance": "^termite$"
+       }
+    ],
+    "type": "con"
+}
+
