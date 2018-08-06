@@ -10,9 +10,9 @@ elif [ "$1" = "--power" ]; then
     elif [ "$RESULT" = "lock" ]; then
         dm-tool lock
     elif [ "$RESULT" = "reboot" ]; then
-        exec reboot
+        reboot
     elif [ "$RESULT" = "shutdown" ]; then
-        exec shutdown -h now
+        shutdown -h now
     fi
 fi
 
