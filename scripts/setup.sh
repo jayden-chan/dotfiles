@@ -90,6 +90,7 @@ lightdm-gtk-greeter-settings
 python-pywal
 arc-gtk-theme
 "
+
 echo Updating system...
 sudo pacman -Syu
 
@@ -124,7 +125,6 @@ do
 done
 
 echo "Installing yay AUR package"
-
 echo "cd ~/Downloads"
 cd ~/Downloads
 

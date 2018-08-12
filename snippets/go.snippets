@@ -25,15 +25,21 @@ snippet imp
 
 snippet for
 	for ${1:} := 0; $1 < ${2:}; $1++ {
-		
+		${0}
 	}
 
 snippet forr
 	for ${1:} := ${2:}; $1 > 0; $1-- {
-		
+		${0}
 	}
 
 snippet fore
 	for ${1}, ${2} := range ${3} {
-		
+		${0}
+	}
+
+snippet route
+	// URI: ${1:}
+	func ${2:}(res http.ResponseWriter, req *http.Request) {
+		${0}
 	}
