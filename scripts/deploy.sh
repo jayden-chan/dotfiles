@@ -24,6 +24,7 @@ ln -fs /home/jayden/Documents/Git/dotfiles/latex/latexmkrc      /home/jayden/.la
 ln -fs /home/jayden/Documents/Git/dotfiles/polybar/config       /home/jayden/.config/polybar/config
 ln -fs /home/jayden/Documents/Git/dotfiles/rofi/theme.rasi      /home/jayden/.config/rofi/theme.rasi
 ln -fs /home/jayden/Documents/Git/dotfiles/snippets/            /home/jayden/.vim/
+ln -fs /home/jayden/Documents/Git/dotfiles/snippets/            /home/jayden/.config/nvim/
 ln -fs /home/jayden/Documents/Git/dotfiles/vim/en.utf-8.add     /home/jayden/.vim/en.utf-8.add
 ln -fs /home/jayden/Documents/Git/dotfiles/termite/config       /home/jayden/.config/termite/config
 ln -fs /home/jayden/Documents/Git/dotfiles/tmux/.tmux.conf      /home/jayden/.tmux.conf

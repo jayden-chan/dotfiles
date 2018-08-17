@@ -16,6 +16,10 @@ else
     exit 0
 fi
 
+export swift="
+alsa-utils
+"
+
 export apps="
 evince
 gimp
@@ -94,37 +98,37 @@ arc-gtk-theme
 echo Updating system...
 sudo pacman -Syu
 
-echo "Installing CLI tools... [1/5]"
+echo "Installing CLI tools... [1/7]"
 for p in $cli
 do
     sudo pacman -S --needed --noconfirm $p
 done
 
-echo "Installing dev tools... [2/5]"
+echo "Installing dev tools... [2/7]"
 for p in $dev
 do
     sudo pacman -S --needed --noconfirm $p
 done
 
-echo "Installing system tools... [3/5]"
+echo "Installing system tools... [3/7]"
 for p in $system
 do
     sudo pacman -S --needed --noconfirm $p
 done
 
-echo "Installing theme tools... [4/5]"
+echo "Installing theme tools... [4/7]"
 for p in $theme
 do
     sudo pacman -S --needed --noconfirm $p
 done
 
-echo "Installing applications... [5/5]"
+echo "Installing applications... [5/7]"
 for p in $apps
 do
     sudo pacman -S --needed --noconfirm $p
 done
 
-echo "Installing yay AUR package"
+echo "Installing yay AUR package... [6/7]"
 echo "cd ~/Downloads"
 cd ~/Downloads
 
@@ -138,7 +142,18 @@ echo "makepkg -si"
 makepkg -si
 
 echo "Installing AUR packages"
-yay -S google-cloud-sdk-minimal insomnia polybar spotify
+yay -S google-cloud-sdk-minimal insomnia polybar spotify heroku-cli
+
+echo "Installing laptop-specific packages... [7/7]"
+if [ $(hostname) == "swift" ]; then
+    for p in $swift
+    do
+        sudo pacman -S -needed --noconfirm $p
+    done
+    yay -S light
+else
+    echo "Laptop hostname not detected, not installing packages"
+fi
 
 echo
 echo "Software setup complete.
