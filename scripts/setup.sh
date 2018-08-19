@@ -67,6 +67,7 @@ numlockx
 pulseaudio
 rofi
 termite
+ntp
 "
 
 export cli="
@@ -156,4 +157,9 @@ else
 fi
 
 echo
-echo "Software setup complete.
+echo "Software setup complete. Enable the following systemd services:
+    lightdm
+    acpid
+    docker
+    NetworkManager (may already be enabled)
+    ntpd"
