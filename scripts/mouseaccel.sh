@@ -5,6 +5,4 @@ for id in `xinput --list | grep 'pointer' | grep 'Logitech Gaming Mouse G502' | 
     xinput --set-prop $id 295 -1
 done
 
-xinput --set-prop 'SYNA2B2C:01 06CB:7F27 Touchpad' 281 1
-
-notify-send xinput 'Mouse sensitivity set'
+xinput --set-prop 'SYNA2B2C:01 06CB:7F27 Touchpad' 280 1
