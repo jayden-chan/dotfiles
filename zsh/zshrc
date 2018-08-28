@@ -68,6 +68,17 @@ alias rs='cd && clear'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 
+function wallpaper () {
+    if [ $HOST = "grace" ]; then
+        nitrogen --set-zoom-fill --head=0 $1
+        nitrogen --set-zoom-fill --head=1 $1
+        nitrogen --set-zoom-fill --head=2 $1
+    else
+        nitrogen --set-zoom-fill $1
+    fi
+    wal -i $1 -n
+}
+
 function installfont () {
     sudo echo --- Installing font ---
     cp $1 $HOME/.local/share/fonts
