@@ -289,7 +289,7 @@ format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 
 tail = true
-interval = 1
+interval = 5
 
 [module/spotify]
 type = custom/script
