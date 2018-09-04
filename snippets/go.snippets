@@ -45,3 +45,39 @@ snippet route
 	func ${2:}(res http.ResponseWriter, req *http.Request) {
 		${0}
 	}
+
+snippet raw
+	data, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		HTTPRes(res, "Malformed request data", http.StatusBadRequest)
+		return
+	}
+
+snippet auth
+	authSuccess, customer := authenticate(req)
+	if !authSuccess {
+		HTTPRes(res, "Customer authorization failed.", http.StatusUnauthorized)
+		return
+	}
+
+snippet json
+	var (
+		${1}
+	)
+
+	paths := [][]string{
+		${2}
+	}
+	jsonparser.EachKey(data, func(idx int, value []byte, vt jsonparser.ValueType, err error) {
+		switch idx {
+		${0}
+		}
+	}, paths...)
+
+snippet db
+	rows, err := queryDB("${1:}"${2:})
+	if err != nil {
+		HTTPRes(res, "An internal server error occurred.", http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
