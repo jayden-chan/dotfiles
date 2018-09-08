@@ -142,7 +142,7 @@ filetype off
     noremap J g^
     noremap I 12<c-u>
     noremap K 12<c-d>
-    nnoremap <leader>c gJ
+    nnoremap <leader>c J
 
     " Change splits
     nnoremap <leader>j <C-w>h

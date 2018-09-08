@@ -39,9 +39,6 @@ alias pi='sudo pacman -S'
 alias pr='sudo pacman -Rsn'
 alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
 
-# Editor
-alias vim="nvim"
-
 # dotfile editing
 alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
