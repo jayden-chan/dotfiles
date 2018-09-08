@@ -54,11 +54,15 @@ alias :Q='exit'
 alias :wq='exit'
 alias :Wq='exit'
 
+# Editor
+alias vim='nvim'
+
 # U S E R   E R R O R
 alias cim='vim'
 alias vom='vim'
 alias vun='vim'
 alias dw='cd'
+alias cs='cd'
 alias clera='clear'
 
 # Other
