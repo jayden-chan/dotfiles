@@ -16,7 +16,7 @@ filetype off
     Plugin 'gcmt/taboo.vim'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plugin 'Valloric/YouCompleteMe'
+    " Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-surround'
     Plugin 'jayden-chan/onedark.vim'
@@ -26,6 +26,7 @@ filetype off
     Plugin 'mxw/vim-jsx'
     Plugin 'fatih/vim-go'
     Plugin 'buoto/gotests-vim'
+    Plugin 'Shougo/deoplete.nvim'
 
     call vundle#end()
     filetype plugin indent on
@@ -211,9 +212,16 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
     let NERDTreeAutoDeleteBuffer = 1
 
-    let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
-    let g:ycm_min_num_identifier_candidate_chars = 4
-    let g:ycm_max_num_identifier_candidates = 5
+    " let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
+    " let g:ycm_min_num_identifier_candidate_chars = 4
+    " let g:ycm_max_num_identifier_candidates = 5
+
+    let g:deoplete#enable_at_startup = 1
+
+    call deoplete#custom#option({
+    \ 'max_list': 10,
+    \ 'smart_case': v:true,
+    \ })
 
     let g:goyo_width = 120
 

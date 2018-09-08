@@ -41,6 +41,7 @@ alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
 
 # Editor
 alias vim="nvim"
+alias nvim="vim"
 
 # dotfile editing
 alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
