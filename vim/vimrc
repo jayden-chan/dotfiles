@@ -58,9 +58,11 @@ filetype off
     set backspace=indent,eol,start
 
     " Search settings
-    set gdefault
-    set ignorecase
-    set incsearch
+    set gdefault           " Global by default
+    set ignorecase         " Ignore case
+    set incsearch          " Search incrementally
+    set nohls              " Don't highlight
+    set inccommand=nosplit " Show find/replace as it is typed
 
     " Open new splits on the right
     set splitright
@@ -76,7 +78,7 @@ filetype off
     " I mess up a lot
     set undolevels=9001
 
-    " No cursor line
+    " Cursor line
     set cursorline
 
     " No command bar
@@ -156,8 +158,8 @@ filetype off
     inoremap <c-l> <Right>
 
     " Easily resize splits
-    nnoremap <c-i> :resize -5<CR>
-    nnoremap <c-k> :resize +5<CR>
+    nnoremap <c-i> :resize -2<CR>
+    nnoremap <c-k> :resize +2<CR>
     nnoremap <c-j> :vertical resize +5<CR>
     nnoremap <c-l> :vertical resize -5<CR>
 
@@ -215,7 +217,9 @@ filetype off
     let g:ycm_min_num_identifier_candidate_chars = 4
     let g:ycm_max_num_identifier_candidates = 9
 
+    " Set git-gutter column to always on
     set signcolumn=yes
+    let g:gitgutter_map_keys = 0
 
     let g:goyo_width = 120
 
@@ -226,6 +230,7 @@ filetype off
     let g:go_highlight_extra_types = 1
     let g:go_highlight_types = 1
     let g:go_highlight_variable_declarations = 1
+    let g:go_textobj_enabled = 0
 
 " Commands
 
