@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set color scheme from wal
 (cat ~/.cache/wal/sequences &)
 
-ZSH_THEME="agnoster"
+ZSH_THEME="jayden-chan"
 DEFAULT_USER="jayden"
 prompt_context() {}
 plugins=(git)

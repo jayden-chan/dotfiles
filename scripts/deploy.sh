@@ -31,3 +31,4 @@ ln -fs /home/jayden/Documents/Git/dotfiles/tmux/.tmux.conf      /home/jayden/.tm
 ln -fs /home/jayden/Documents/Git/dotfiles/vim/vimrc            /home/jayden/.config/nvim/init.vim
 ln -fs /home/jayden/Documents/Git/dotfiles/zsh/zshrc            /home/jayden/.zshrc
 ln -fs /home/jayden/Documents/Git/dotfiles/zsh/zlogout          /home/jayden/.zlogout
+ln -fs /home/jayden/Documents/Git/dotfiles/zsh/custom.zsh-theme /home/jayden/.oh-my-zsh/themes/jayden-chan.zsh-theme
