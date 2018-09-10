@@ -63,3 +63,7 @@ api
 json
 deregister
 vim
+MySQL
+MariaDB
+PostgreSQL
+JavaScript

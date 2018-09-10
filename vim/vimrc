@@ -16,7 +16,7 @@ filetype off
     Plugin 'gcmt/taboo.vim'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plugin 'Valloric/YouCompleteMe'
+    " Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-surround'
     Plugin 'jayden-chan/onedark.vim'
@@ -27,6 +27,10 @@ filetype off
     Plugin 'fatih/vim-go'
     Plugin 'buoto/gotests-vim'
     Plugin 'airblade/vim-gitgutter'
+    Plugin 'Shougo/deoplete.nvim'
+    Plugin 'zchee/deoplete-go'
+    Plugin 'roxma/nvim-yarp'
+    Plugin 'roxma/vim-hug-neovim-rpc'
 
     call vundle#end()
     filetype plugin indent on
@@ -84,6 +88,9 @@ filetype off
     " No command bar
     set noshowmode
 
+    " Hide ugly completion messages
+    set shortmess+=c
+
     " Don't let the cursor reach the top/bottom 8 lines of text
     set scrolloff=8
 
@@ -133,6 +140,9 @@ filetype off
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
     noremap <leader>tt mtgg=G`tzz
+
+    " Close quickfix
+    noremap <c-q> :ccl<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -193,9 +203,6 @@ filetype off
     " Fix 'I' behaviour in V-block
     vnoremap H I
 
-    " Run go tests
-    nmap <leader>g :GoTest<CR>
-
 " Plugin specific settings
 
     let NERDTreeMapOpenSplit='h'
@@ -213,9 +220,10 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
     let NERDTreeAutoDeleteBuffer = 1
 
-    let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
-    let g:ycm_min_num_identifier_candidate_chars = 4
-    let g:ycm_max_num_identifier_candidates = 9
+    " let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
+    " let g:ycm_min_num_identifier_candidate_chars = 4
+    " let g:ycm_max_num_identifier_candidates = 9
+    let g:deoplete#enable_at_startup = 1
 
     " Set git-gutter column to always on
     set signcolumn=yes
@@ -231,6 +239,7 @@ filetype off
     let g:go_highlight_types = 1
     let g:go_highlight_variable_declarations = 1
     let g:go_textobj_enabled = 0
+    let g:go_list_type = "quickfix"
 
 " Commands
 
