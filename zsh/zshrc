@@ -34,11 +34,6 @@ alias god='cd ~/Dev/Go/src/github.com/jayden-chan/'
 alias mb='make build'
 alias hh='git push heroku master && heroku logs --tail'
 
-# Pacman
-alias pi='sudo pacman -S'
-alias pr='sudo pacman -Rsn'
-alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
-
 # dotfile editing
 alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
@@ -56,6 +51,7 @@ alias :Wq='exit'
 
 # Editor
 alias vim='nvim'
+alias vimz='vim $(fzf)'
 
 # U S E R   E R R O R
 alias cim='vim'
