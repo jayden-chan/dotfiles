@@ -41,7 +41,7 @@ snippet fore
 	}
 
 snippet route
-	// URI: ${1:}
+	// Path: ${1:}
 	func ${2:}(res http.ResponseWriter, req *http.Request) {
 		${0}
 	}
@@ -71,7 +71,6 @@ snippet json
 	var (
 		${1}
 	)
-
 	paths := [][]string{
 		${2}
 	}
@@ -84,6 +83,7 @@ snippet json
 snippet db
 	rows, err := db.Query("${1:}"${2:})
 	if err != nil {
+		log.Println(err)
 		util.HTTPRes(res, "An internal server error occurred.", http.StatusInternalServerError)
 		return
 	}
@@ -99,7 +99,9 @@ snippet db
 
 	var ret results
 	for rows.Next() {
-		rows.Scan(&ret.${0})
+		var r row
+		rows.Scan(&r.${0})
+		ret.Results = append(ret.Results, r)
 	}
 
 snippet err

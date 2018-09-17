@@ -134,7 +134,6 @@ zle -N clear_widget clear_func
 bindkey "^W" clear_widget
 
 # Export gradle path
-export PATH=$PATH:/opt/gradle/gradle-4.9/bin
 export GOPATH=$HOME/Dev/Go
 export PATH=$HOME/Dev/Go/bin:$PATH
 

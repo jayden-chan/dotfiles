@@ -32,6 +32,8 @@ vlc
 libreoffice-fresh
 gpick
 flashplugin
+neovim
+python-neovim
 "
 
 export dev="
@@ -47,12 +49,12 @@ nodejs
 npm
 python
 python-pip
+python-pylint
 go
 dep
 docker
 diff-so-fancy
-neovim
-python-neovim
+gradle
 "
 
 export system="
@@ -68,6 +70,8 @@ pulseaudio
 rofi
 termite
 ntp
+fzf
+jq
 "
 
 export cli="
@@ -143,7 +147,7 @@ echo "makepkg -si"
 makepkg -si
 
 echo "Installing AUR packages"
-yay -S google-cloud-sdk-minimal insomnia polybar spotify heroku-cli
+yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras
 
 echo "Installing laptop-specific packages... [7/7]"
 if [ $(hostname) == "swift" ]; then
