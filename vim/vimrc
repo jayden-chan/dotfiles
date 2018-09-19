@@ -16,7 +16,6 @@ filetype off
     Plugin 'gcmt/taboo.vim'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-    " Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-surround'
     Plugin 'jayden-chan/onedark.vim'
