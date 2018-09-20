@@ -18,6 +18,7 @@ fi
 
 export swift="
 alsa-utils
+arm-none-eabi-gdb
 "
 
 export apps="
@@ -39,6 +40,7 @@ git
 cmake
 fakeroot
 gcc
+gdb
 jdk8-openjdk
 make
 autoconf
@@ -75,6 +77,7 @@ curl
 lastpass-cli
 mlocate
 imagemagick
+texlive-most
 neofetch
 unzip
 which
@@ -143,7 +146,7 @@ echo "makepkg -si"
 makepkg -si
 
 echo "Installing AUR packages"
-yay -S google-cloud-sdk-minimal insomnia polybar spotify heroku-cli
+yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin
 
 echo "Installing laptop-specific packages... [7/7]"
 if [ $(hostname) == "swift" ]; then

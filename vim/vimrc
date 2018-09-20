@@ -16,7 +16,6 @@ filetype off
     Plugin 'gcmt/taboo.vim'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-    " Plugin 'Valloric/YouCompleteMe'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-surround'
     Plugin 'jayden-chan/onedark.vim'
@@ -31,6 +30,8 @@ filetype off
     Plugin 'zchee/deoplete-go'
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
+    Plugin 'wellle/targets.vim'
+    Plugin 'leafgarland/typescript-vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -131,7 +132,7 @@ filetype off
     imap <c-s> <Esc>:wa<CR>
 
     " Spell check
-    map <F6> :setlocal spell! spelllang=en_ca<CR>
+    map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/.vim/en.utf-8.add
 
     " ez semicolons (perhaps the greatest bind in this entire config)
@@ -259,8 +260,8 @@ filetype off
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,html,css,json setlocal shiftwidth=2
-    autocmd FileType javascript,html,css,json setlocal softtabstop=2
+    autocmd FileType javascript,typescript,html,css,json setlocal shiftwidth=2
+    autocmd FileType javascript,typescript,html,css,json setlocal softtabstop=2
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4

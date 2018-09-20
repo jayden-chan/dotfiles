@@ -56,6 +56,7 @@ alias :Wq='exit'
 
 # Editor
 alias vim='nvim'
+alias vimz='vim $(fzf)'
 
 # U S E R   E R R O R
 alias cim='vim'
