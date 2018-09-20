@@ -33,6 +33,8 @@ vlc
 libreoffice-fresh
 gpick
 flashplugin
+neovim
+python-neovim
 "
 
 export dev="
@@ -49,12 +51,12 @@ nodejs
 npm
 python
 python-pip
+python-pylint
 go
 dep
 docker
 diff-so-fancy
-neovim
-python-neovim
+gradle
 "
 
 export system="
@@ -70,6 +72,8 @@ pulseaudio
 rofi
 termite
 ntp
+fzf
+jq
 "
 
 export cli="

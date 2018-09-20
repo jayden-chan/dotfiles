@@ -34,11 +34,6 @@ alias god='cd ~/Dev/Go/src/github.com/jayden-chan/'
 alias mb='make build'
 alias hh='git push heroku master && heroku logs --tail'
 
-# Pacman
-alias pi='sudo pacman -S'
-alias pr='sudo pacman -Rsn'
-alias pc='sudo pacman -Rsn $(pacman -Qtdq)'
-
 # dotfile editing
 alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
@@ -139,7 +134,6 @@ zle -N clear_widget clear_func
 bindkey "^W" clear_widget
 
 # Export gradle path
-export PATH=$PATH:/opt/gradle/gradle-4.9/bin
 export GOPATH=$HOME/Dev/Go
 export PATH=$HOME/Dev/Go/bin:$PATH
 
