@@ -138,17 +138,14 @@ do
 done
 
 echo "Installing yay AUR package... [6/7]"
-echo "cd ~/Downloads"
+set -x
+
 cd ~/Downloads
-
-echo "git clone https://aur.archlinux.org/yay.git"
 git clone https://aur.archlinux.org/yay.git
-
-echo "cd yay"
 cd yay
-
-echo "makepkg -si"
 makepkg -si
+
+unset -x
 
 echo "Installing AUR packages"
 yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin
