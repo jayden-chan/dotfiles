@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -r /home/jayden/.config/compton 2>/dev/null
 rm -r /home/jayden/.config/dunst   2>/dev/null
 rm -r /home/jayden/.config/i3      2>/dev/null
@@ -27,7 +29,6 @@ ln -fs /home/jayden/Documents/Git/dotfiles/snippets/            /home/jayden/.vi
 ln -fs /home/jayden/Documents/Git/dotfiles/snippets/            /home/jayden/.config/nvim/
 ln -fs /home/jayden/Documents/Git/dotfiles/vim/en.utf-8.add     /home/jayden/.vim/en.utf-8.add
 ln -fs /home/jayden/Documents/Git/dotfiles/termite/config       /home/jayden/.config/termite/config
-ln -fs /home/jayden/Documents/Git/dotfiles/tmux/.tmux.conf      /home/jayden/.tmux.conf
 ln -fs /home/jayden/Documents/Git/dotfiles/vim/vimrc            /home/jayden/.config/nvim/init.vim
 ln -fs /home/jayden/Documents/Git/dotfiles/zsh/zshrc            /home/jayden/.zshrc
 ln -fs /home/jayden/Documents/Git/dotfiles/zsh/zlogout          /home/jayden/.zlogout

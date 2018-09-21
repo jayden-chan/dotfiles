@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 vol=$(amixer sget Master | grep -o -P '\[\d+' | sed 's/^\[//g')
 

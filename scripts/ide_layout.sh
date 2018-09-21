@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 
 if [ $1 = "--single" ]; then
     i3-msg "layout splitv; gaps inner current set 0; gaps outer current set 46 append_layout /home/jayden/Documents/Git/dotfiles/i3/ide1.json; exec --no-startup-id termite"
