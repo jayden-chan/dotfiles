@@ -78,6 +78,7 @@ jq
 
 export cli="
 curl
+bat
 lastpass-cli
 mlocate
 imagemagick
