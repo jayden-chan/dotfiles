@@ -1,13 +1,13 @@
 #!/bin/sh
 
-rm -r /home/jayden/.config/compton 2>/dev/null
-rm -r /home/jayden/.config/dunst   2>/dev/null
-rm -r /home/jayden/.config/i3      2>/dev/null
-rm -r /home/jayden/.config/polybar 2>/dev/null
-rm -r /home/jayden/.config/rofi    2>/dev/null
-rm -r /home/jayden/.config/nvim    2>/dev/null
-rm -r /home/jayden/.vim            2>/dev/null
-rm -r /home/jayden/.config/termite 2>/dev/null
+rm -r /home/jayden/.config/compton.conf 2>/dev/null
+rm -r /home/jayden/.config/dunst        2>/dev/null
+rm -r /home/jayden/.config/i3           2>/dev/null
+rm -r /home/jayden/.config/polybar      2>/dev/null
+rm -r /home/jayden/.config/rofi         2>/dev/null
+rm -r /home/jayden/.config/nvim         2>/dev/null
+rm -r /home/jayden/.vim                 2>/dev/null
+rm -r /home/jayden/.config/termite      2>/dev/null
 
 mkdir -p /home/jayden/.vim
 mkdir -p /home/jayden/.config/nvim
@@ -18,7 +18,7 @@ mkdir -p /home/jayden/.config/polybar
 mkdir -p /home/jayden/.config/rofi
 mkdir -p /home/jayden/.config/termite
 
-ln -fs /home/jayden/Documents/Git/dotfiles/compton/compton.conf /home/jayden/.config/compton/compton.conf
+ln -fs /home/jayden/Documents/Git/dotfiles/compton/compton.conf /home/jayden/.config/compton.conf
 ln -fs /home/jayden/Documents/Git/dotfiles/dunst/dunstrc        /home/jayden/.config/dunst/dunstrc
 ln -fs /home/jayden/Documents/Git/dotfiles/git/gitconfig        /home/jayden/.gitconfig
 ln -fs /home/jayden/Documents/Git/dotfiles/i3/config            /home/jayden/.config/i3/config
