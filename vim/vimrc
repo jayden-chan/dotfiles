@@ -221,9 +221,6 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
     let NERDTreeAutoDeleteBuffer = 1
 
-    " let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
-    " let g:ycm_min_num_identifier_candidate_chars = 4
-    " let g:ycm_max_num_identifier_candidates = 9
     let g:deoplete#enable_at_startup = 1
 
     " Set git-gutter column to always on
@@ -280,3 +277,4 @@ filetype off
     iab fucntion function
     iab costn    const
     iab conts    const
+    iab THe      The
