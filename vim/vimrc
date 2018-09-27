@@ -278,3 +278,4 @@ filetype off
     iab costn    const
     iab conts    const
     iab THe      The
+    iab !+       !=
