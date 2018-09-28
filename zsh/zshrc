@@ -68,13 +68,30 @@ alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/i
 
 function wallpaper () {
     if [ $HOST = "grace" ]; then
-        nitrogen --set-zoom-fill --head=0 $1
-        nitrogen --set-zoom-fill --head=1 $1
-        nitrogen --set-zoom-fill --head=2 $1
+        nitrogen --set-zoom-fill --save --head=0 $1
+        nitrogen --set-zoom-fill --save --head=1 $1
+        nitrogen --set-zoom-fill --save --head=2 $1
     else
         nitrogen --set-zoom-fill $1
     fi
     wal -i $1 -n
+}
+
+function wallsolid () {
+    local p="$HOME/Pictures/Wallpapers/Single Screen/Solid.png"
+    convert -size 1920x1080 xc:$1 $p
+
+    if [ $HOST = "grace" ]; then
+        nitrogen --set-zoom-fill --save --head=0 $p
+        nitrogen --set-zoom-fill --save --head=1 $p
+        nitrogen --set-zoom-fill --save --head=2 $p
+    else
+        nitrogen --set-zoom-fill $p
+    fi
+
+    echo "{\"special\":{\"background\":\"#272f33\",\"foreground\":\"#d5d5d5\",\"cursor\":\"#d5d5d5\"},\"colors\":{\"color0\":\"#000000\",\"color1\":\"#ffffff\",\"color2\":\"#ffffff\",\"color3\":\"#ffffb6\",\"color4\":\"$1\",\"color5\":\"$2\",\"color6\":\"$1\",\"color7\":\"$2\",\"color8\":\"#6c6c66\",\"color9\":\"$2\",\"color10\":\"#ffffff\",\"color11\":\"#ffffb6\",\"color12\":\"$1\",\"color13\":\"$2\",\"color14\":\"$1\",\"color15\":\"#fdfbee\"}}" > $HOME/Documents/Git/dotfiles/termite/solid-theme.json
+
+    wal -f $HOME/Documents/Git/dotfiles/termite/solid-theme.json
 }
 
 function installfont () {

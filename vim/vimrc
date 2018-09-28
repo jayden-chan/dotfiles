@@ -249,6 +249,7 @@ filetype off
     command WQa :wqa
     command Qa :qa
     command QA :qa
+    command Minify :%s/\s// | :%s/\n//
 
     " Mirror NERDTree when file is opened in new window
     autocmd BufWinEnter *.* NERDTreeMirror
