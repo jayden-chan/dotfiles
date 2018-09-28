@@ -1,35 +1,36 @@
 #!/bin/sh
 
-rm -r /home/jayden/.config/compton.conf 2>/dev/null
-rm -r /home/jayden/.config/dunst        2>/dev/null
-rm -r /home/jayden/.config/i3           2>/dev/null
-rm -r /home/jayden/.config/polybar      2>/dev/null
-rm -r /home/jayden/.config/rofi         2>/dev/null
-rm -r /home/jayden/.config/nvim         2>/dev/null
-rm -r /home/jayden/.vim                 2>/dev/null
-rm -r /home/jayden/.config/termite      2>/dev/null
+rm -r $HOME/.config/compton.conf 2>/dev/null
+rm -r $HOME/.config/dunst        2>/dev/null
+rm -r $HOME/.config/i3           2>/dev/null
+rm -r $HOME/.config/polybar      2>/dev/null
+rm -r $HOME/.config/rofi         2>/dev/null
+rm -r $HOME/.config/nvim         2>/dev/null
+rm -r $HOME/.vim                 2>/dev/null
+rm -r $HOME/.config/termite      2>/dev/null
 
-mkdir -p /home/jayden/.vim
-mkdir -p /home/jayden/.config/nvim
-mkdir -p /home/jayden/.config/compton
-mkdir -p /home/jayden/.config/dunst
-mkdir -p /home/jayden/.config/i3
-mkdir -p /home/jayden/.config/polybar
-mkdir -p /home/jayden/.config/rofi
-mkdir -p /home/jayden/.config/termite
+mkdir -p $HOME/.vim
+mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/compton
+mkdir -p $HOME/.config/dunst
+mkdir -p $HOME/.config/i3
+mkdir -p $HOME/.config/polybar
+mkdir -p $HOME/.config/rofi
+mkdir -p $HOME/.config/termite
 
-ln -fs /home/jayden/Documents/Git/dotfiles/compton/compton.conf /home/jayden/.config/compton.conf
-ln -fs /home/jayden/Documents/Git/dotfiles/dunst/dunstrc        /home/jayden/.config/dunst/dunstrc
-ln -fs /home/jayden/Documents/Git/dotfiles/git/gitconfig        /home/jayden/.gitconfig
-ln -fs /home/jayden/Documents/Git/dotfiles/i3/config            /home/jayden/.config/i3/config
-ln -fs /home/jayden/Documents/Git/dotfiles/latex/latexmkrc      /home/jayden/.latexmkrc
-ln -fs /home/jayden/Documents/Git/dotfiles/polybar/config       /home/jayden/.config/polybar/config
-ln -fs /home/jayden/Documents/Git/dotfiles/rofi/theme.rasi      /home/jayden/.config/rofi/theme.rasi
-ln -fs /home/jayden/Documents/Git/dotfiles/snippets/            /home/jayden/.vim/
-ln -fs /home/jayden/Documents/Git/dotfiles/snippets/            /home/jayden/.config/nvim/
-ln -fs /home/jayden/Documents/Git/dotfiles/vim/en.utf-8.add     /home/jayden/.vim/en.utf-8.add
-ln -fs /home/jayden/Documents/Git/dotfiles/termite/config       /home/jayden/.config/termite/config
-ln -fs /home/jayden/Documents/Git/dotfiles/vim/vimrc            /home/jayden/.config/nvim/init.vim
-ln -fs /home/jayden/Documents/Git/dotfiles/zsh/zshrc            /home/jayden/.zshrc
-ln -fs /home/jayden/Documents/Git/dotfiles/zsh/zlogout          /home/jayden/.zlogout
-ln -fs /home/jayden/Documents/Git/dotfiles/zsh/custom.zsh-theme /home/jayden/.oh-my-zsh/themes/jayden-chan.zsh-theme
+ln -fs $HOME/Documents/Git/dotfiles/compton/compton.conf       $HOME/.config/compton.conf
+ln -fs $HOME/Documents/Git/dotfiles/dunst/dunstrc              $HOME/.config/dunst/dunstrc
+ln -fs $HOME/Documents/Git/dotfiles/git/gitconfig              $HOME/.gitconfig
+ln -fs $HOME/Documents/Git/dotfiles/i3/config                  $HOME/.config/i3/config
+ln -fs $HOME/Documents/Git/dotfiles/latex/latexmkrc            $HOME/.latexmkrc
+ln -fs $HOME/Documents/Git/dotfiles/polybar/config             $HOME/.config/polybar/config
+ln -fs $HOME/Documents/Git/dotfiles/rofi/theme.rasi            $HOME/.config/rofi/theme.rasi
+ln -fs $HOME/Documents/Git/dotfiles/snippets/                  $HOME/.vim/
+ln -fs $HOME/Documents/Git/dotfiles/snippets/                  $HOME/.config/nvim/
+ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add           $HOME/.vim/en.utf-8.add
+ln -fs $HOME/Documents/Git/dotfiles/termite/config             $HOME/.config/termite/config
+ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc                  $HOME/.config/nvim/init.vim
+ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc                  $HOME/.zshrc
+ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout                $HOME/.zlogout
+ln -fs $HOME/Documents/Git/dotfiles/zsh/custom.zsh-theme       $HOME/.oh-my-zsh/themes/jayden-chan.zsh-theme
+ln -fs $HOME/Documents/Git/dotfiles/firefox/MaterialFox/chrome $HOME/.mozilla/firefox/5zyahlda.default/
