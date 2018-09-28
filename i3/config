@@ -232,6 +232,7 @@ for_window [title="Welcome to Android Studio"] floating enable
 for_window [class="^Nautilus$"] floating enable
 
 for_window [instance="datetermite"] floating enable
+for_window [instance="datetermite"] border pixel 1
 for_window [instance="datetermite"] resize set 210 210
 for_window [instance="datetermite"] move position mouse
 for_window [instance="datetermite"] move down 35px
