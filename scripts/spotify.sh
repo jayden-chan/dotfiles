@@ -23,6 +23,8 @@ main() {
 
     if [ "$status" = "" ]; then
         echo Paused
+    elif [ ${#title} -gt 60 ]; then
+        echo $artist - $(echo $title | cut -c -60)...
     else
         echo $artist - $title
     fi
