@@ -24,7 +24,6 @@ arm-none-eabi-gdb
 export apps="
 evince
 gimp
-htop
 nautilus
 pavucontrol
 qiv
