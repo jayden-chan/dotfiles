@@ -32,6 +32,8 @@ filetype off
     Plugin 'roxma/vim-hug-neovim-rpc'
     Plugin 'wellle/targets.vim'
     Plugin 'leafgarland/typescript-vim'
+    Plugin 'ayu-theme/ayu-vim'
+    "...
 
     call vundle#end()
     filetype plugin indent on
@@ -50,7 +52,9 @@ filetype off
     " `colorscheme onedark`
     let g:onedark_termcolors = 256
     let g:onedark_terminal_italics = 1
-    colorscheme onedark
+    let ayucolor="mirage"   " for dark version of theme
+    colorscheme ayu
+    " colorscheme onedark
 
     " Tab settings
     set expandtab
