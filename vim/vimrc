@@ -33,7 +33,6 @@ filetype off
     Plugin 'wellle/targets.vim'
     Plugin 'leafgarland/typescript-vim'
     Plugin 'ayu-theme/ayu-vim'
-    "...
 
     call vundle#end()
     filetype plugin indent on
@@ -48,13 +47,8 @@ filetype off
     set t_ut=
     set termguicolors
 
-    " Enable 256 colors and italics, must be run before
-    " `colorscheme onedark`
-    let g:onedark_termcolors = 256
-    let g:onedark_terminal_italics = 1
-    let ayucolor="mirage"   " for dark version of theme
+    let ayucolor="mirage"
     colorscheme ayu
-    " colorscheme onedark
 
     " Tab settings
     set expandtab
