@@ -265,6 +265,9 @@ filetype off
     autocmd FileType c           setlocal shiftwidth=8
     autocmd FileType go          setlocal noexpandtab
 
+    " Easily open corresponding source file (C/C++)
+    autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
+
 " Abbreviations
 
     iab retrun   return

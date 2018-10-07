@@ -18,6 +18,7 @@ fi
 
 export swift="
 alsa-utils
+arm-none-eabi-gcc
 arm-none-eabi-gdb
 "
 
