@@ -18,7 +18,6 @@ fi
 
 export swift="
 alsa-utils
-arm-none-eabi-gcc
 arm-none-eabi-gdb
 "
 
@@ -148,7 +147,7 @@ makepkg -si
 unset -x
 
 echo "Installing AUR packages"
-yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin
+yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc
 
 echo "Installing laptop-specific packages... [7/7]"
 if [ $(hostname) == "swift" ]; then
