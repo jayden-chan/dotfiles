@@ -25,7 +25,6 @@ ln -fs $HOME/Documents/Git/dotfiles/i3/config                  $HOME/.config/i3/
 ln -fs $HOME/Documents/Git/dotfiles/latex/latexmkrc            $HOME/.latexmkrc
 ln -fs $HOME/Documents/Git/dotfiles/polybar/config             $HOME/.config/polybar/config
 ln -fs $HOME/Documents/Git/dotfiles/rofi/theme.rasi            $HOME/.config/rofi/theme.rasi
-ln -fs $HOME/Documents/Git/dotfiles/snippets/                  $HOME/.vim/
 ln -fs $HOME/Documents/Git/dotfiles/snippets/                  $HOME/.config/nvim/
 ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add           $HOME/.vim/en.utf-8.add
 ln -fs $HOME/Documents/Git/dotfiles/termite/config             $HOME/.config/termite/config
