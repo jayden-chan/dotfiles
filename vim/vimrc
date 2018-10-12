@@ -63,8 +63,9 @@ filetype off
     " Search settings
     set gdefault           " Global by default
     set ignorecase         " Ignore case
+    set smartcase          " Override ignorecase if search contains capitals
     set incsearch          " Search incrementally
-    set nohls              " Don't highlight
+    set nohls              " Don't highlight after Enter is pressed
     set inccommand=nosplit " Show find/replace as it is typed
 
     " Open new splits on the right
