@@ -18,7 +18,6 @@ filetype off
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-surround'
-    Plugin 'jayden-chan/onedark.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'junegunn/goyo.vim'
     Plugin 'pangloss/vim-javascript'
@@ -32,7 +31,7 @@ filetype off
     Plugin 'roxma/vim-hug-neovim-rpc'
     Plugin 'wellle/targets.vim'
     Plugin 'leafgarland/typescript-vim'
-    Plugin 'ayu-theme/ayu-vim'
+    Plugin 'morhetz/gruvbox'
 
     call vundle#end()
     filetype plugin indent on
@@ -47,8 +46,13 @@ filetype off
     set t_ut=
     set termguicolors
 
-    let ayucolor="mirage"
-    colorscheme ayu
+    set background=dark
+    let g:gruvbox_contrast_dark='hard'
+    let g:gruvbox_sign_column='bg0'
+    let g:gruvbox_italic=1
+    let g:gruvbox_bold=1
+    let g:gruvbox_underline=1
+    colorscheme gruvbox
 
     " Tab settings
     set expandtab
