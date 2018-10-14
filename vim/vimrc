@@ -263,7 +263,7 @@ filetype off
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
     autocmd FileType snippets,go setlocal shiftwidth=4
-    autocmd FileType c           setlocal shiftwidth=8
+    autocmd FileType c,asm       setlocal shiftwidth=8
     autocmd FileType go          setlocal noexpandtab
 
     " Easily open corresponding source file (C/C++)
