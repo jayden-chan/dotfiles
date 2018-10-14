@@ -227,7 +227,7 @@ focus_follows_mouse yes
 # Window specific settings
 for_window [class="^Spotify$"] move to workspace $ws3
 for_window [class="^Nitrogen$"] floating enable
-for_window [class="^Termite$"] border pixel 7
+for_window [class="^Termite$"] border pixel 1
 for_window [title="Welcome to Android Studio"] floating enable
 for_window [class="^Nautilus$"] floating enable
 for_window [class="^Nm-connection-editor$"] floating enable

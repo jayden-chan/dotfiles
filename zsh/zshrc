@@ -81,7 +81,7 @@ function wallpaper () {
     else
         nitrogen --set-zoom-fill $1
     fi
-    wal -i $1 -n
+    wal -i $1 -n --backend $2
 }
 
 function wallsolid () {
