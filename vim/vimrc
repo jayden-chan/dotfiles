@@ -55,6 +55,9 @@ filetype off
     let g:gruvbox_italic=1
     let g:gruvbox_bold=1
     let g:gruvbox_underline=1
+    let g:gruvbox_invert_selection=0
+    let g:gruvbox_italicize_strings=1
+
     colorscheme gruvbox
 
     " Tab settings
@@ -90,7 +93,7 @@ filetype off
     set undolevels=9001
 
     " Cursor line
-    set cursorline
+    set nocursorline
 
     " No command bar
     set noshowmode
@@ -108,7 +111,7 @@ filetype off
     set completeopt-=preview
 
     " Set .tex files to LaTeX syntax
-    let g:tex_flavor = "latex"
+    let g:tex_flavor="latex"
 
     " Make LaTeX live preview smoother
     set updatetime=500

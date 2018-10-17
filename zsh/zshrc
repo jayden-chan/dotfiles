@@ -101,6 +101,12 @@ function wallsolid () {
     wal -f $HOME/Documents/Git/dotfiles/termite/solid-theme.json
 }
 
+function github () {
+    touch README.md
+    echo "# $1" > README.md
+    touch LICENSE
+}
+
 function installfont () {
     sudo echo --- Installing font ---
     cp $1 $HOME/.local/share/fonts
