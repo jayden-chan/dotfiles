@@ -1,0 +1,269 @@
+{
+    "window.zoomLevel": 1,
+    "editor.fontFamily": "'Noto Mono for Powerline'",
+    "window.enableMenuBarMnemonics": false,
+    "window.menuBarVisibility": "toggle",
+    "editor.fontSize": 14,
+    "keyboard.dispatch": "keyCode",
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ";",
+                ";"
+            ],
+            "after": [
+                "<Esc>",
+                "A",
+                ";"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "I"
+            ]
+        },
+        {
+            "before": [
+                "h"
+            ],
+            "after": [
+                "i"
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "i"
+            ],
+            "after": [
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "g",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "g",
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "I"
+            ],
+            "after": [
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+            ]
+        },
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "h"
+            ],
+            "after": [
+                "i"
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "i"
+            ],
+            "after": [
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "g",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "g",
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "I"
+            ],
+            "after": [
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+                "k",
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+                "j",
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "o"
+            ],
+            "after": [
+                "o",
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        },
+        {
+            "before": [
+                "cc",
+            ],
+            "after": [
+                "\"",
+                "_",
+                "cc"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "editor.smoothScrolling": true,
+    "vim.scroll": 12
+}

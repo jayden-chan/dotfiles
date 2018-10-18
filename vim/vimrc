@@ -32,6 +32,7 @@ filetype off
     Plugin 'wellle/targets.vim'
     Plugin 'leafgarland/typescript-vim'
     Plugin 'morhetz/gruvbox'
+    Plugin 'rust-lang/rust.vim'
 
     call vundle#end()
     filetype plugin indent on
