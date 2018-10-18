@@ -51,6 +51,7 @@ npm
 python
 python-pip
 python-pylint
+rustup
 go
 dep
 docker
@@ -147,7 +148,7 @@ makepkg -si
 unset -x
 
 echo "Installing AUR packages"
-yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc
+yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc visual-studio-code-bin
 
 echo "Installing laptop-specific packages... [7/7]"
 if [ $(hostname) == "swift" ]; then
