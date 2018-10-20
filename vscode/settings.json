@@ -1,4 +1,7 @@
 {
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#333333"
+    },
     "window.zoomLevel": 1,
     "editor.fontFamily": "'Noto Mono for Powerline'",
     "window.enableMenuBarMnemonics": false,
