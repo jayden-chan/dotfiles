@@ -9,6 +9,19 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "macros": {
+        "saveAndExitInsertMode": [
+            "workbench.action.files.save",
+            "extension.vim_escape"
+        ]
+    },
+    "vim.handleKeys": {
+        "<C-w>": false
+    },
+    "vim.leader": "<space>",
+    "vim.foldfix": true,
+    "editor.smoothScrolling": true,
+    "vim.scroll": 12,
     "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -303,7 +316,5 @@
             ]
         }
     ],
-    "vim.leader": "<space>",
-    "editor.smoothScrolling": true,
-    "vim.scroll": 12
+    "workbench.colorTheme": "Gruvbox Dark (Hard)"
 }

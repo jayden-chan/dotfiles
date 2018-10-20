@@ -29,6 +29,8 @@ ln -fs $HOME/Documents/Git/dotfiles/snippets/                  $HOME/.config/nvi
 ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add           $HOME/.vim/en.utf-8.add
 ln -fs $HOME/Documents/Git/dotfiles/termite/config             $HOME/.config/termite/config
 ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc                  $HOME/.config/nvim/init.vim
+ln -fs $HOME/Documents/Git/dotfiles/vscode/settings.json       $HOME/.config/Code/User/settings.json
+ln -fs $HOME/Documents/Git/dotfiles/vscode/keybindings.json    $HOME/.config/Code/User/keybindings.json
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc                  $HOME/.zshrc
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout                $HOME/.zlogout
 ln -fs $HOME/Documents/Git/dotfiles/zsh/custom.zsh-theme       $HOME/.oh-my-zsh/themes/jayden-chan.zsh-theme
