@@ -1,4 +1,7 @@
 {
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#333333"
+    },
     "window.zoomLevel": 1,
     "editor.fontFamily": "'Noto Mono for Powerline'",
     "window.enableMenuBarMnemonics": false,
@@ -9,6 +12,7 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "editor.minimap.enabled": false,
     "macros": {
         "saveAndExitInsertMode": [
             "workbench.action.files.save",
@@ -18,10 +22,6 @@
     "vim.handleKeys": {
         "<C-w>": false
     },
-    "vim.leader": "<space>",
-    "vim.foldfix": true,
-    "editor.smoothScrolling": true,
-    "vim.scroll": 12,
     "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -316,5 +316,8 @@
             ]
         }
     ],
-    "workbench.colorTheme": "Gruvbox Dark (Hard)"
+    "workbench.colorTheme": "Gruvbox Dark (Hard)",
+    "vim.leader": "<space>",
+    "vim.foldfix": true,
+    "vim.scroll": 12,
 }
