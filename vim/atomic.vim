@@ -13,24 +13,43 @@ let g:colors_name = "atomic"
 
 
 " Define reusable colorvariables.
-let s:bg="#343233"
-let s:fg="#EFDAB9"
-let s:fg2="#dcc9aa"
-let s:fg3="#c9b79b"
-let s:fg4="#b6a68d"
-let s:bg2="#444243"
-let s:bg3="#545354"
-let s:bg4="#656364"
-let s:keyword="#78AF9F"
-let s:builtin="#659CC8"
-let s:const= "#78AF"
-let s:comment="#808080"
-let s:func="#84cb88"
-let s:str="#FFD152"
-let s:type="#659CC8"
-let s:var="#EFDAB9"
-let s:warning="#C13F21"
-let s:warning2="#D36E2D"
+let s:bg       = "#343233"
+let s:fg       = "#EFDAB9"
+let s:fg2      = "#dcc9aa"
+let s:fg3      = "#c9b79b"
+let s:fg4      = "#b6a68d"
+let s:bg2      = "#444243"
+let s:bg3      = "#545354"
+let s:bg4      = "#656364"
+let s:keyword  = "#78AF9F"
+let s:builtin  = "#659CC8"
+let s:const    = "#78AF9F"
+let s:comment  = "#808080"
+let s:func     = "#84cb88"
+let s:str      = "#FFD152"
+let s:type     = "#659CC8"
+let s:var      = "#EFDAB9"
+let s:warning  = "#C13F21"
+let s:warning2 = "#D36E2D"
+
+call s:HL("AtomicBG", s:bg      )
+call s:HL("AtomicFG", s:fg      )
+call s:HL("AtomicFG2", s:fg2     )
+call s:HL("AtomicFG3", s:fg3     )
+call s:HL("AtomicFG4", s:fg4     )
+call s:HL("AtomicBG2", s:bg2     )
+call s:HL("AtomicBG3", s:bg3     )
+call s:HL("AtomicBG4", s:bg4     )
+call s:HL("AtomicKeyword", s:keyword )
+call s:HL("AtomicBuiltIn", s:builtin )
+call s:HL("AtomicConst", s:const   )
+call s:HL("", s:comment )
+call s:HL("", s:func    )
+call s:HL("", s:str     )
+call s:HL("", s:type    )
+call s:HL("", s:var     )
+call s:HL("", s:warning )
+call s:HL("", s:warning2)
 
 exe 'hi Normal guifg='s:fg' guibg='s:bg
 exe 'hi Cursor guifg='s:bg' guibg='s:fg
@@ -111,4 +130,19 @@ exe 'hi htmlSpecialTagName guifg='s:keyword
 " Markdown Highlighting
 exe 'hi mkdCode guifg='s:builtin
 
+" NERDTree
+hi! link NERDTreeDir GruvboxAqua
+hi! link NERDTreeDirSlash GruvboxAqua
 
+hi! link NERDTreeOpenable GruvboxOrange
+hi! link NERDTreeClosable GruvboxOrange
+
+hi! link NERDTreeFile GruvboxFg1
+hi! link NERDTreeExecFile GruvboxYellow
+
+hi! link NERDTreeUp GruvboxGray
+hi! link NERDTreeCWD GruvboxGreen
+hi! link NERDTreeHelp GruvboxFg1
+
+hi! link NERDTreeToggleOn GruvboxGreen
+hi! link NERDTreeToggleOff GruvboxRed
