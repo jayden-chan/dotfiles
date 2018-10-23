@@ -110,7 +110,7 @@
                 "k",
                 "k",
                 "k",
-                "k",
+                "k"
             ]
         },
         {
@@ -129,7 +129,7 @@
                 "j",
                 "j",
                 "j",
-                "j",
+                "j"
             ]
         },
         {
@@ -250,7 +250,7 @@
                 "k",
                 "k",
                 "k",
-                "k",
+                "k"
             ]
         },
         {
@@ -269,7 +269,7 @@
                 "j",
                 "j",
                 "j",
-                "j",
+                "j"
             ]
         },
         {
@@ -307,7 +307,7 @@
         },
         {
             "before": [
-                "cc",
+                "cc"
             ],
             "after": [
                 "\"",
@@ -319,5 +319,5 @@
     "workbench.colorTheme": "Gruvbox Dark (Hard)",
     "vim.leader": "<space>",
     "vim.foldfix": true,
-    "vim.scroll": 12,
+    "vim.scroll": 12
 }

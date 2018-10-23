@@ -102,9 +102,13 @@ function wallsolid () {
 }
 
 function github () {
-    touch README.md
-    echo "# $1" > README.md
-    touch LICENSE
+    if [ "$1" = "" ]; then
+        echo "You must specify a name"
+    else
+        touch README.md
+        echo "# $1" > README.md
+        touch LICENSE
+    fi
 }
 
 function installfont () {

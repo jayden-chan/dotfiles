@@ -82,10 +82,6 @@ filetype off
     " Open new splits on the right
     set splitright
 
-    " Nice line wraps
-    set textwidth=80
-    set wrap
-
     " Fold settings
     set foldlevel=1000
     set foldmethod=indent
@@ -94,7 +90,7 @@ filetype off
     set undolevels=9001
 
     " Cursor line
-    set nocursorline
+    set cursorline
 
     " No command bar
     set noshowmode
