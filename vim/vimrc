@@ -20,8 +20,6 @@ filetype off
     Plugin 'tpope/vim-surround'
     Plugin 'godlygeek/tabular'
     Plugin 'junegunn/goyo.vim'
-    Plugin 'pangloss/vim-javascript'
-    Plugin 'mxw/vim-jsx'
     Plugin 'fatih/vim-go'
     Plugin 'buoto/gotests-vim'
     Plugin 'airblade/vim-gitgutter'
@@ -30,9 +28,9 @@ filetype off
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
     Plugin 'wellle/targets.vim'
-    Plugin 'leafgarland/typescript-vim'
     Plugin 'morhetz/gruvbox'
-    Plugin 'rust-lang/rust.vim'
+    Plugin 'jayden-chan/vim-comfy'
+    Plugin 'sheerun/vim-polyglot'
 
     call vundle#end()
     filetype plugin indent on
@@ -59,7 +57,7 @@ filetype off
     let g:gruvbox_invert_selection=0
     let g:gruvbox_italicize_strings=1
 
-    colorscheme atomic
+    colorscheme comfy
 
     " Tab settings
     set expandtab
@@ -233,6 +231,8 @@ filetype off
 
     let g:deoplete#enable_at_startup = 1
 
+    let g:javascript_plugin_jsdoc = 1
+
     " Set git-gutter column to always on
     set signcolumn=yes
     let g:gitgutter_map_keys = 0
@@ -252,14 +252,14 @@ filetype off
 " Commands
 
     " Make leaving easier in case of typos
-    command Q :q
-    command Wq :wq
-    command WQ :wq
-    command Wqa :wqa
-    command WQa :wqa
-    command Qa :qa
-    command QA :qa
-    command Minify :%s/\s// | :%s/\n//
+    command! Q :q
+    command! Wq :wq
+    command! WQ :wq
+    command! Wqa :wqa
+    command! WQa :wqa
+    command! Qa :qa
+    command! QA :qa
+    command! Minify :%s/\s// | :%s/\n//
 
     " Mirror NERDTree when file is opened in new window
     autocmd BufWinEnter *.* NERDTreeMirror
