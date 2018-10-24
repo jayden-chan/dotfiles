@@ -1,6 +1,4 @@
-// vim:ts=4:sw=4:et
 {
-    // splith split container with 1 children
     "border": "none",
     "floating": "auto_off",
     "layout": "splith",
@@ -28,8 +26,7 @@
             "type": "con"
         }
     ]
-}
-
+},
 {
     "border": "pixel",
     "current_border_width": 1,
