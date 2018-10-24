@@ -102,6 +102,7 @@ papirus-icon-theme
 lightdm-gtk-greeter-settings
 python-pywal
 arc-gtk-theme
+ttf-hack
 "
 
 echo Updating system...
