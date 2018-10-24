@@ -112,6 +112,9 @@ filetype off
     " Set .tex files to LaTeX syntax
     let g:tex_flavor="latex"
 
+    " Unix file line endings
+    set ff=unix
+
     " Make LaTeX live preview smoother
     set updatetime=500
 
