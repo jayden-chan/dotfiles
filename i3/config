@@ -1,6 +1,6 @@
 set $mod Mod1
 set $super Mod4
-set $gaps 46
+set $gaps 43
 set $exec exec --no-startup-id
 set $scripts $HOME/Documents/Git/dotfiles/scripts
 

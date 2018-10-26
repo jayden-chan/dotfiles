@@ -283,6 +283,7 @@ filetype off
     autocmd FileType snippets,go setlocal tabstop=4
     autocmd FileType snippets,go setlocal shiftwidth=4
     autocmd FileType c,asm       setlocal shiftwidth=8
+    autocmd FileType c,asm       setlocal expandtab
     autocmd FileType go          setlocal noexpandtab
 
     " Easily open corresponding source file (C/C++)
