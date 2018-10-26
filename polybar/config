@@ -38,7 +38,7 @@ monitor = ${env:MONITOR:eDP-1}
 width = 80%
 height = 32
 offset-x = 10%
-offset-y = 6
+offset-y = 5
 radius = 10
 fixed-center = true
 
@@ -78,7 +78,7 @@ monitor = ${env:MONITOR:HDMI-0}
 width = 80%
 height = 32
 offset-x = 10%
-offset-y = 6
+offset-y = 5
 radius = 10
 fixed-center = true
 
