@@ -66,10 +66,6 @@ filetype off
     set smarttab
     set smartindent
 
-    " Wrap settings
-    set textwidth=80
-    set wrap
-
     " Use backspace
     set backspace=indent,eol,start
 

@@ -62,7 +62,7 @@ font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
 font-2 = Material\-Design\-Iconic\-Font:pixelsize=13;3
 
 modules-left = powermenu i3 spotify
-modules-center = date
+modules-center = date weather
 modules-right = memory cpu battery wlan
 
 wm-restack = i3
@@ -290,6 +290,17 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 tail = true
 interval = 5
+
+[module/weather]
+type = custom/script
+exec = $HOME/Documents/Git/dotfiles/scripts/weather.sh
+
+click-left = i3-msg 'exec --no-startup-id termite --name datetermite -e cal --hold'
+format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+
+tail = true
+interval = 120
 
 [module/spotify]
 type = custom/script
