@@ -1,13 +1,13 @@
 #!/bin/sh
 
-rm -r $HOME/.config/compton.conf 2>/dev/null
-rm -r $HOME/.config/dunst        2>/dev/null
-rm -r $HOME/.config/i3           2>/dev/null
-rm -r $HOME/.config/polybar      2>/dev/null
-rm -r $HOME/.config/rofi         2>/dev/null
-rm -r $HOME/.config/nvim         2>/dev/null
-rm -r $HOME/.vim                 2>/dev/null
-rm -r $HOME/.config/termite      2>/dev/null
+rm -rf $HOME/.config/compton.conf 2>/dev/null
+rm -rf $HOME/.config/dunst        2>/dev/null
+rm -rf $HOME/.config/i3           2>/dev/null
+rm -rf $HOME/.config/polybar      2>/dev/null
+rm -rf $HOME/.config/rofi         2>/dev/null
+rm -rf $HOME/.config/nvim         2>/dev/null
+rm -rf $HOME/.vim                 2>/dev/null
+rm -rf $HOME/.config/termite      2>/dev/null
 
 mkdir -p $HOME/.vim
 mkdir -p $HOME/.config/nvim/colors
@@ -29,10 +29,7 @@ ln -fs $HOME/Documents/Git/dotfiles/snippets/                  $HOME/.config/nvi
 ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add           $HOME/.vim/en.utf-8.add
 ln -fs $HOME/Documents/Git/dotfiles/termite/config             $HOME/.config/termite/config
 ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc                  $HOME/.config/nvim/init.vim
-ln -fs $HOME/Documents/Git/dotfiles/vim/atomic.vim             $HOME/.config/nvim/colors/atomic.vim
 ln -fs $HOME/Documents/Git/dotfiles/vscode/settings.json       $HOME/.config/Code/User/settings.json
 ln -fs $HOME/Documents/Git/dotfiles/vscode/keybindings.json    $HOME/.config/Code/User/keybindings.json
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc                  $HOME/.zshrc
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout                $HOME/.zlogout
-ln -fs $HOME/Documents/Git/dotfiles/zsh/custom.zsh-theme       $HOME/.oh-my-zsh/themes/jayden-chan.zsh-theme
-ln -fs $HOME/Documents/Git/dotfiles/firefox/MaterialFox/chrome $HOME/.mozilla/firefox/5zyahlda.default/
