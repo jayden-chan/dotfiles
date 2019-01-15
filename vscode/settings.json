@@ -17,6 +17,12 @@
     "vim.foldfix": true,
     "vim.scroll": 12,
     "telemetry.enableTelemetry": false,
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
     "macros": {
         "saveAndExitInsertMode": [
             "workbench.action.files.save",
@@ -319,5 +325,11 @@
                 "cc"
             ]
         }
+    ],
+    "editor.lineNumbers": "relative",
+    "cSpell.userWords": [
+        "contentful",
+        "saasquatch",
+        "webtask"
     ]
 }
