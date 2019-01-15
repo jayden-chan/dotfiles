@@ -5,7 +5,6 @@
     "window.zoomLevel": 1,
     "editor.fontFamily": "Hack",
     "window.enableMenuBarMnemonics": false,
-    "window.menuBarVisibility": "toggle",
     "editor.fontSize": 13,
     "keyboard.dispatch": "keyCode",
     "vim.incsearch": true,
