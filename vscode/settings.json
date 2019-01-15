@@ -3,16 +3,20 @@
         "statusBar.background": "#333333"
     },
     "window.zoomLevel": 1,
-    "editor.fontFamily": "'Noto Mono for Powerline'",
+    "editor.fontFamily": "Hack",
     "window.enableMenuBarMnemonics": false,
     "window.menuBarVisibility": "toggle",
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "keyboard.dispatch": "keyCode",
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "editor.minimap.enabled": false,
+    "vim.leader": "<space>",
+    "vim.foldfix": true,
+    "vim.scroll": 12,
+    "telemetry.enableTelemetry": false,
     "macros": {
         "saveAndExitInsertMode": [
             "workbench.action.files.save",
@@ -315,9 +319,5 @@
                 "cc"
             ]
         }
-    ],
-    "workbench.colorTheme": "Gruvbox Dark (Hard)",
-    "vim.leader": "<space>",
-    "vim.foldfix": true,
-    "vim.scroll": 12
+    ]
 }

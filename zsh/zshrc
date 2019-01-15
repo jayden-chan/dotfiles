@@ -172,6 +172,13 @@ bindkey "^W" clear_widget
 export GOPATH=$HOME/Dev/Go
 export PATH=$HOME/Dev/Go/bin:$PATH
 
+# npm global packages config
+export NPM_PATH=$HOME/.npm-global
+export PATH=$NPM_PATH/bin:$PATH
+
+unset MANPATH
+export MANPATH="$NPM_PATH/share/man:$(manpath)"
+
 # Ensure GPG sign prompt shows on correct screen
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
