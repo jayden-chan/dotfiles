@@ -17,6 +17,7 @@
     "vim.foldfix": true,
     "vim.scroll": 12,
     "telemetry.enableTelemetry": false,
+    "editor.lineNumbers": "relative",
     "[json]": {
         "editor.tabSize": 2
     },
@@ -326,10 +327,10 @@
             ]
         }
     ],
-    "editor.lineNumbers": "relative",
     "cSpell.userWords": [
         "contentful",
         "saasquatch",
         "webtask"
-    ]
+    ],
+    "explorer.confirmDragAndDrop": false
 }

@@ -5,7 +5,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set color scheme from wal
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 ZSH_THEME="jayden-chan"
 DEFAULT_USER="jayden"
@@ -173,8 +173,8 @@ export GOPATH=$HOME/Dev/Go
 export PATH=$HOME/Dev/Go/bin:$PATH
 
 # npm global packages config
-export NPM_PATH=$HOME/.npm-global
-export PATH=$NPM_PATH/bin:$PATH
+NPM_PATH="$HOME/.npm-global"
+PATH="$NPM_PATH/bin:$PATH"
 
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
