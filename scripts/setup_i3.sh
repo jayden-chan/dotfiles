@@ -24,7 +24,7 @@ arm-none-eabi-gdb
 export apps="
 evince
 gimp
-nautilus
+dolphin
 pavucontrol
 qiv
 scrot
@@ -139,15 +139,18 @@ do
 done
 
 echo "Installing yay AUR package... [6/7]"
-set -x
+set -v
 
 cd ~/Downloads
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si && rm -rf yay
 
-unset -x
 
+echo "Setting up Rust toolchains"
+rustup default stable
+
+set +v
 echo "Installing AUR packages"
 yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc visual-studio-code-bin
 
