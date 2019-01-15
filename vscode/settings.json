@@ -13,6 +13,12 @@
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "editor.minimap.enabled": false,
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
     "macros": {
         "saveAndExitInsertMode": [
             "workbench.action.files.save",
@@ -319,5 +325,11 @@
     "workbench.colorTheme": "Gruvbox Dark (Hard)",
     "vim.leader": "<space>",
     "vim.foldfix": true,
-    "vim.scroll": 12
+    "vim.scroll": 12,
+    "editor.lineNumbers": "relative",
+    "cSpell.userWords": [
+        "contentful",
+        "saasquatch",
+        "webtask"
+    ]
 }
