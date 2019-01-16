@@ -331,5 +331,6 @@
         "saasquatch",
         "webtask"
     ],
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Gruvbox Dark (Medium)"
 }
