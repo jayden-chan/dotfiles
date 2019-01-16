@@ -5,7 +5,9 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set color scheme from wal
-# (cat ~/.cache/wal/sequences &)
+if [ $HOST = "swift" ]; then
+    (cat ~/.cache/wal/sequences &)
+fi
 
 ZSH_THEME="jayden-chan"
 DEFAULT_USER="jayden"
