@@ -23,5 +23,5 @@
         "key": "ctrl+s",
         "command": "macros.saveAndExitInsertMode",
         "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Insert'"
-    }
+    },
 ]
