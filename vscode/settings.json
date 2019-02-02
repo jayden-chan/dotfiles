@@ -2,7 +2,7 @@
     "workbench.colorCustomizations": {
         "statusBar.background": "#333333"
     },
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0.5,
     "editor.fontFamily": "Hack",
     "window.enableMenuBarMnemonics": false,
     "editor.fontSize": 14,
@@ -18,6 +18,10 @@
     "telemetry.enableTelemetry": false,
     "editor.lineNumbers": "relative",
     "files.trimTrailingWhitespace": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.confirmDelete": false,
     "[json]": {
         "editor.tabSize": 2
     },
@@ -112,7 +116,9 @@
                 "I"
             ],
             "after": [
-                "<c-u>"
+                "1",
+                "2",
+                "k"
             ]
         },
         {
@@ -120,7 +126,9 @@
                 "K"
             ],
             "after": [
-                "<c-d>"
+                "1",
+                "2",
+                "j"
             ]
         },
         {
@@ -230,7 +238,9 @@
                 "I"
             ],
             "after": [
-                "<c-u>"
+                "1",
+                "2",
+                "k"
             ]
         },
         {
@@ -238,7 +248,9 @@
                 "K"
             ],
             "after": [
-                "<c-d>"
+                "1",
+                "2",
+                "j"
             ]
         },
         {
@@ -283,7 +295,18 @@
                 "_",
                 "cc"
             ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c"
+            ],
+            "after": [
+                "J"
+            ]
         }
     ],
-    "explorer.confirmDragAndDrop": false
+    "cSpell.userWords": [
+        "jayden"
+    ]
 }
