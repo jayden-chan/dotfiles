@@ -31,6 +31,7 @@ filetype off
     Plugin 'morhetz/gruvbox'
     Plugin 'jayden-chan/vim-comfy'
     Plugin 'sheerun/vim-polyglot'
+    Plugin 'rust-lang/rust.vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -57,7 +58,7 @@ filetype off
     let g:gruvbox_invert_selection=0
     let g:gruvbox_italicize_strings=1
 
-    colorscheme comfy
+    colorscheme gruvbox
 
     " Tab settings
     set expandtab
