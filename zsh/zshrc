@@ -28,6 +28,7 @@ setopt extendedglob
 alias gdf='cd $HOME/Documents/Git/dotfiles'
 alias gpf='cd $HOME/Documents/Git/programming-folder'
 alias gc='git commit -v -S'
+alias gla='git pull --all'
 
 # Compilation
 alias javc='javac -Xlint:all'

@@ -146,6 +146,9 @@ filetype off
     " ez semicolons (perhaps the greatest bind in this entire config)
     inoremap ;; <Esc>A;
 
+    " ez macro repeat
+    noremap , @@
+
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
     noremap <leader>tt mtgg=G`tzz
@@ -253,6 +256,8 @@ filetype off
     let g:go_highlight_variable_declarations = 1
     let g:go_textobj_enabled = 0
     let g:go_list_type = "quickfix"
+
+    let g:rustfmt_autosave = 1
 
 " Commands
 
