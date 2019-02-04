@@ -5,7 +5,7 @@ filetype off
 " Plugins
 
     set rtp+=$HOME/.vim/bundle/Vundle.vim
-    call vundle#begin()
+    call vundle#begin('$HOME/.vim/bundle')
 
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'scrooloose/nerdtree'
@@ -32,6 +32,7 @@ filetype off
     Plugin 'jayden-chan/vim-comfy'
     Plugin 'sheerun/vim-polyglot'
     Plugin 'rust-lang/rust.vim'
+    Plugin 'Yggdroot/indentline'
 
     call vundle#end()
     filetype plugin indent on
@@ -45,6 +46,8 @@ filetype off
     set t_Co=256
     set t_ut=
     set termguicolors
+
+    set guifont=Hack:h12
 
     " Set dark gruvbox theme
     set background=dark
@@ -258,6 +261,8 @@ filetype off
     let g:go_list_type = "quickfix"
 
     let g:rustfmt_autosave = 1
+
+    let g:indentLine_char = '│'
 
 " Commands
 
