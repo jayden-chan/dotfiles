@@ -24,3 +24,10 @@ snippet test
 	fn test_${1:}() {
 	    ${0}
 	}
+
+snippet testmod
+	#[cfg(test)]
+	mod tests {
+	    use super::*;
+		${0}
+	}
