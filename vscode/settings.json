@@ -2,21 +2,26 @@
     "workbench.colorCustomizations": {
         "statusBar.background": "#333333"
     },
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0.5,
     "editor.fontFamily": "Hack",
     "window.enableMenuBarMnemonics": false,
-    "editor.fontSize": 13,
+    "editor.fontSize": 14,
     "keyboard.dispatch": "keyCode",
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "vim.scroll": 1,
     "editor.minimap.enabled": false,
     "vim.leader": "<space>",
     "vim.foldfix": true,
-    "vim.scroll": 12,
     "telemetry.enableTelemetry": false,
     "editor.lineNumbers": "relative",
+    "files.trimTrailingWhitespace": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.confirmDelete": false,
     "[json]": {
         "editor.tabSize": 2
     },
@@ -30,7 +35,9 @@
         ]
     },
     "vim.handleKeys": {
-        "<C-w>": false
+        "<C-w>": false,
+        "<c-u>": true,
+        "<c-d>": true
     },
     "vim.insertModeKeyBindingsNonRecursive": [
         {
@@ -109,17 +116,8 @@
                 "I"
             ],
             "after": [
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
+                "1",
+                "2",
                 "k"
             ]
         },
@@ -128,17 +126,8 @@
                 "K"
             ],
             "after": [
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
+                "1",
+                "2",
                 "j"
             ]
         },
@@ -249,17 +238,8 @@
                 "I"
             ],
             "after": [
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
-                "k",
+                "1",
+                "2",
                 "k"
             ]
         },
@@ -268,17 +248,8 @@
                 "K"
             ],
             "after": [
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
-                "j",
+                "1",
+                "2",
                 "j"
             ]
         },
@@ -324,12 +295,22 @@
                 "_",
                 "cc"
             ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c"
+            ],
+            "after": [
+                "J"
+            ]
         }
     ],
     "cSpell.userWords": [
         "contentful",
         "saasquatch",
-        "webtask"
+        "webtask",
+        "jayden"
     ],
     "explorer.confirmDragAndDrop": false,
     "workbench.colorTheme": "Gruvbox Dark (Medium)"
