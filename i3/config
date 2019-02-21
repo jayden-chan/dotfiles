@@ -39,6 +39,7 @@ bindsym Control+space $exec sh $scripts/rofi.sh --normal
 
 #rofi -show drun -display-drun "run:" -show-icons -drun-icon-theme "Papirus" -theme theme -font "Noto Sans 14" -scroll-method 1
 bindsym Control+$mod+Delete $exec sh $scripts/rofi.sh --power
+bindsym Control+$mod+l $exec dm-tool lock
 
 # change focus
 bindsym $mod+j focus left
