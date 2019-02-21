@@ -63,6 +63,8 @@ alias :Wq='exit'
 alias vim='nvim'
 alias vimz='vim $(fzf)'
 
+alias pdcli='node ~/Dev/Work/program-tools/packages/program-dev-cli/dist/index.js'
+
 # U S E R   E R R O R
 alias cim='vim'
 alias vom='vim'

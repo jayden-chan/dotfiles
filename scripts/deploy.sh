@@ -8,6 +8,7 @@ rm -rf $HOME/.config/rofi         2>/dev/null
 rm -rf $HOME/.config/nvim         2>/dev/null
 rm -rf $HOME/.vim                 2>/dev/null
 rm -rf $HOME/.config/termite      2>/dev/null
+rm -rf $HOME/.hyper.js            2>/dev/null
 
 mkdir -p $HOME/.vim
 mkdir -p $HOME/.config/nvim/colors
@@ -18,6 +19,7 @@ mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/rofi
 mkdir -p $HOME/.config/termite
 
+cd ~
 ln -fs $HOME/Documents/Git/dotfiles/compton/compton.conf       $HOME/.config/compton.conf
 ln -fs $HOME/Documents/Git/dotfiles/dunst/dunstrc              $HOME/.config/dunst/dunstrc
 ln -fs $HOME/Documents/Git/dotfiles/git/gitconfig              $HOME/.gitconfig
@@ -33,3 +35,4 @@ ln -fs $HOME/Documents/Git/dotfiles/vscode/settings.json       $HOME/.config/Cod
 ln -fs $HOME/Documents/Git/dotfiles/vscode/keybindings.json    $HOME/.config/Code/User/keybindings.json
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc                  $HOME/.zshrc
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout                $HOME/.zlogout
+ln -fs $HOME/Documents/Git/dotfiles/hyper/config               $HOME/.hyper.js
