@@ -92,7 +92,7 @@ filetype off
     set undolevels=9001
 
     " Cursor line
-    set cursorline
+    set nocursorline
 
     " No command bar
     set noshowmode

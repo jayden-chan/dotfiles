@@ -33,7 +33,8 @@ magenta = ${xrdb:color3:#222}
 ;magenta = #b48ead
 
 [bar/swift]
-monitor = ${env:MONITOR:eDP-1}
+; monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:HDMI-1}
 
 width = 80%
 height = 32
