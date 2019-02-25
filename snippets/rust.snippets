@@ -25,6 +25,12 @@ snippet test
 	    ${0}
 	}
 
+snippet bench
+	#[bench]
+	fn bench_${1:}() {
+	    ${0}
+	}
+
 snippet testmod
 	#[cfg(test)]
 	mod tests {
