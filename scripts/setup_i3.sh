@@ -57,6 +57,7 @@ dep
 docker
 diff-so-fancy
 gradle
+ctags
 "
 
 export system="
@@ -74,6 +75,7 @@ termite
 ntp
 fzf
 jq
+ripgrep
 "
 
 export cli="

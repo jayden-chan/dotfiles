@@ -33,6 +33,10 @@ filetype off
     Plugin 'sheerun/vim-polyglot'
     Plugin 'rust-lang/rust.vim'
     Plugin 'Yggdroot/indentline'
+    Plugin 'junegunn/fzf.vim'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'w0rp/ale'
+    Plugin 'tpope/vim-fugitive'
 
     call vundle#end()
     filetype plugin indent on
@@ -67,6 +71,7 @@ filetype off
     set expandtab
     set shiftwidth=4
     set softtabstop=4
+    set tabstop=4
     set smarttab
     set smartindent
 
