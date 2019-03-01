@@ -109,7 +109,7 @@ filetype off
     set scrolloff=8
 
     " Automatically update working dir
-    set autochdir
+    set noautochdir
 
     " Don't open preview windows
     set completeopt-=preview
@@ -163,6 +163,11 @@ filetype off
 
     " Close quickfix
     noremap <c-q> :ccl<CR>
+
+    " Fuzzy finding
+    nnoremap <leader>f :FZ<CR>
+    nnoremap <leader>r :Rg<CR>
+    nnoremap <leader>b :BTags<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -253,6 +258,10 @@ filetype off
     set signcolumn=yes
     let g:gitgutter_map_keys = 0
 
+    " GitGutter
+    nnoremap ]c :GitGutterNextHunk<CR>
+    nnoremap [c :GitGutterPrevHunk<CR>
+
     let g:goyo_width = 120
 
     let g:go_doc_keywordprg_enabled = 0
@@ -268,6 +277,13 @@ filetype off
     let g:rustfmt_autosave = 1
 
     let g:indentLine_char = '│'
+
+    nnoremap ]e :ALENext<CR>
+    nnoremap [e :ALEPrevious<CR>
+
+    nnoremap <leader>n :TagbarToggle<CR>
+
+    let $FZF_DEFAULT_COMMAND = 'rg --files'
 
 " Commands
 
