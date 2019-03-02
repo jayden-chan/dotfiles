@@ -177,6 +177,9 @@ bindkey "^W" clear_widget
 export GOPATH=$HOME/Dev/Go
 export PATH=$HOME/Dev/Go/bin:$PATH
 
+# Make fzf respect .gitignore
+export FZF_DEFAULT_COMMAND="rg --files"
+
 # npm global packages config
 NPM_PATH="$HOME/.npm-global"
 PATH="$NPM_PATH/bin:$PATH"

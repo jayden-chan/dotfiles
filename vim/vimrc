@@ -108,7 +108,7 @@ filetype off
     " Don't let the cursor reach the top/bottom 8 lines of text
     set scrolloff=8
 
-    " Automatically update working dir
+    " Don't automatically update working dir
     set noautochdir
 
     " Don't open preview windows
@@ -258,7 +258,6 @@ filetype off
     set signcolumn=yes
     let g:gitgutter_map_keys = 0
 
-    " GitGutter
     nnoremap ]c :GitGutterNextHunk<CR>
     nnoremap [c :GitGutterPrevHunk<CR>
 
