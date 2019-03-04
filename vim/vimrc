@@ -37,6 +37,7 @@ filetype off
     Plugin 'majutsushi/tagbar'
     Plugin 'w0rp/ale'
     Plugin 'tpope/vim-fugitive'
+    Plugin 'racer-rust/vim-racer'
 
     call vundle#end()
     filetype plugin indent on
@@ -314,6 +315,9 @@ filetype off
     autocmd FileType c,asm       setlocal shiftwidth=8
     autocmd FileType c,asm       setlocal expandtab
     autocmd FileType go          setlocal noexpandtab
+
+    autocmd FileType rust nmap <leader>de <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <leader>do <Plug>(rust-doc)
 
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>

@@ -181,8 +181,11 @@ export PATH=$HOME/Dev/Go/bin:$PATH
 export FZF_DEFAULT_COMMAND="rg --files"
 
 # npm global packages config
-NPM_PATH="$HOME/.npm-global"
-PATH="$NPM_PATH/bin:$PATH"
+export NPM_PATH="$HOME/.npm-global"
+export PATH="$NPM_PATH/bin:$PATH"
+
+# Add cargo binaries
+export PATH="$HOME/.cargo/bin:$PATH"
 
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
