@@ -284,6 +284,8 @@ filetype off
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
+    let g:vim_markdown_conceal = 0
+
 " Commands
 
     " Make leaving easier in case of typos

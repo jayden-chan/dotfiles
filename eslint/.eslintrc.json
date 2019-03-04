@@ -1,7 +1,11 @@
 {
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
-    "ecmaVersion": 2019
+    "ecmaVersion": 2019,
+    "sourceType": "module"
   },
   "env": {
     "es6": true,
@@ -39,11 +43,17 @@
     ],
     "comma-dangle": [
       "warn",
-      "always"
+      "always-multiline"
     ],
     "no-cond-assign": [
       "error",
       "always"
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 100
+      }
     ],
     "no-case-declarations": "off",
     "no-console": "off"
