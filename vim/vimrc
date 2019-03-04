@@ -152,23 +152,23 @@ filetype off
     map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/.vim/en.utf-8.add
 
-    " ez semicolons (perhaps the greatest bind in this entire config)
+    " ez semicolons & commas (perhaps the greatest binds in this entire config)
     inoremap ;; <Esc>A;
-
-    " ez macro repeat
-    noremap , @@
+    nnoremap ;; <Esc>A;<Esc>
+    inoremap ,, <Esc>A,
+    nnoremap ,, <Esc>A,<Esc>
 
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
     noremap <leader>tt mtgg=G`tzz
 
     " Close quickfix
-    noremap <c-q> :ccl<CR>
+    noremap <silent> <c-q> :ccl<CR>
 
     " Fuzzy finding
-    nnoremap <leader>f :FZ<CR>
-    nnoremap <leader>r :Rg<CR>
-    nnoremap <leader>b :BTags<CR>
+    nnoremap <silent> <leader>f :FZ<CR>
+    nnoremap <silent> <leader>r :Rg<CR>
+    nnoremap <silent> <leader>b :BTags<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
