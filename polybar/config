@@ -314,7 +314,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 click-left = i3-msg '[class="Spotify"] focus'
 
 tail = true
-interval = 1
+interval = 0.5
 
 [module/powermenu]
 type = custom/menu

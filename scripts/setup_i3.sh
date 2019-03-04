@@ -76,6 +76,7 @@ ntp
 fzf
 jq
 ripgrep
+htop
 "
 
 export cli="
@@ -146,15 +147,11 @@ set -v
 cd ~/Downloads
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si && rm -rf yay
-
-
-echo "Setting up Rust toolchains"
-rustup default stable
+makepkg -si && cd .. && rm -rf yay
 
 set +v
 echo "Installing AUR packages"
-yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc visual-studio-code-bin
+yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc hyper
 
 echo "Installing laptop-specific packages... [7/7]"
 if [ $(hostname) == "swift" ]; then
