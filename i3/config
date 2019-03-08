@@ -166,15 +166,15 @@ default_floating_border pixel 2
 hide_edge_borders both
 
 # Startup scripts
-$exec $HOME/.screenlayout/init-screens.sh    # Set configurations for screens
-$exec compton                                # Start compton
-$exec wal -R -n                              # Restore wal colors
-$exec sh $scripts/mouseaccel.sh              # Set mouse sensitivity
-$exec numlockx on                            # Turn on num lock
-$exec xmodmap -e "clear lock"                # Disable caps lock switch
-$exec xmodmap -e "keysym Caps_Lock = Escape" # Set caps lock as escape
-$exec xset r rate 300 35                     # Set key repeat delay and rate
-$exec nitrogen --restore                     # Set wallpaper
+$exec $HOME/.screenlayout/init-screens.sh         # Set configurations for screens
+$exec compton --config $HOME/.config/compton.conf # Start compton
+$exec wal -R -n                                   # Restore wal colors
+$exec sh $scripts/mouseaccel.sh                   # Set mouse sensitivity
+$exec numlockx on                                 # Turn on num lock
+$exec xmodmap -e "clear lock"                     # Disable caps lock switch
+$exec xmodmap -e "keysym Caps_Lock = Escape"      # Set caps lock as escape
+$exec xset r rate 300 35                          # Set key repeat delay and rate
+$exec nitrogen --restore                          # Set wallpaper
 
 exec_always --no-startup-id sh $scripts/polybar.sh
 
