@@ -24,7 +24,7 @@ arm-none-eabi-gdb
 export apps="
 evince
 gimp
-dolphin
+nautilus
 pavucontrol
 qiv
 scrot
@@ -34,6 +34,7 @@ gpick
 flashplugin
 neovim
 python-neovim
+firefox
 "
 
 export dev="
