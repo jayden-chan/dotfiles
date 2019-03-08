@@ -83,7 +83,7 @@ function wallpaper () {
         nitrogen --set-zoom-fill --save --head=1 $1
         nitrogen --set-zoom-fill --save --head=2 $1
     else
-        nitrogen --set-zoom-fill $1
+        nitrogen --set-zoom-fill --save $1
     fi
     wal -i $1 -n --backend $2
 }
