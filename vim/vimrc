@@ -259,8 +259,8 @@ filetype off
     set signcolumn=yes
     let g:gitgutter_map_keys = 0
 
-    nnoremap ]c :GitGutterNextHunk<CR>
-    nnoremap [c :GitGutterPrevHunk<CR>
+    nnoremap <silent> ]c :GitGutterNextHunk<CR>
+    nnoremap <silent> [c :GitGutterPrevHunk<CR>
 
     let g:goyo_width = 120
 
@@ -278,10 +278,10 @@ filetype off
 
     let g:indentLine_char = '│'
 
-    nnoremap ]e :ALENext<CR>
-    nnoremap [e :ALEPrevious<CR>
+    nnoremap <silent> ]e :ALENext<CR>
+    nnoremap <silent> [e :ALEPrevious<CR>
 
-    nnoremap <leader>n :TagbarToggle<CR>
+    nnoremap <silent> <leader>n :TagbarToggle<CR>
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
@@ -316,8 +316,8 @@ filetype off
     autocmd FileType c,asm       setlocal expandtab
     autocmd FileType go          setlocal noexpandtab
 
-    autocmd FileType rust nmap <leader>de <Plug>(rust-def-vertical)
-    autocmd FileType rust nmap <leader>do <Plug>(rust-doc)
+    autocmd FileType rust nmap <silent> <leader>de <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <silent> <leader>do <Plug>(rust-doc)
 
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
