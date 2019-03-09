@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export EDITOR=nvim
 
 # Set color scheme from wal
 (cat ~/.cache/wal/sequences &)
@@ -73,6 +74,7 @@ alias clera='clear'
 
 # Other
 alias rs='cd && clear'
+alias l='ls -A'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias comfy='vim $HOME/.vim/bundle/vim-comfy'
@@ -83,7 +85,7 @@ function wallpaper () {
         nitrogen --set-zoom-fill --save --head=1 $1
         nitrogen --set-zoom-fill --save --head=2 $1
     else
-        nitrogen --set-zoom-fill $1
+        nitrogen --set-zoom-fill --save $1
     fi
     wal -i $1 -n --backend $2
 }
@@ -144,7 +146,7 @@ function up_one_func {
 
 function lsa_func {
     echo
-    ls -a
+    ls -A
     zle reset-prompt
 }
 
