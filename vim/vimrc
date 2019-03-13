@@ -261,6 +261,7 @@ filetype off
 
     nnoremap <silent> ]c :GitGutterNextHunk<CR>
     nnoremap <silent> [c :GitGutterPrevHunk<CR>
+    nnoremap <leader>u   :GitGutterUndoHunk<CR>
 
     let g:goyo_width = 120
 
