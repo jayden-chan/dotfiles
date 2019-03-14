@@ -282,6 +282,10 @@ filetype off
     nnoremap <silent> ]e :ALENext<CR>
     nnoremap <silent> [e :ALEPrevious<CR>
 
+    let g:ale_linters = {'rust': ['rls']}
+    let g:ale_rust_rls_executable = '/usr/bin/rls'
+    let g:ale_rust_rls_toolchain = 'stable'
+
     nnoremap <silent> <leader>n :TagbarToggle<CR>
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'

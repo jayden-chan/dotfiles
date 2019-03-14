@@ -24,8 +24,8 @@ stty start undef
 setopt extendedglob
 
 # Git alias
-alias gdf='cd $HOME/Documents/Git/dotfiles'
-alias gpf='cd $HOME/Documents/Git/programming-folder'
+alias gdf='cd $HOME/Documents/Git/dotfiles && git status'
+alias gpf='cd $HOME/Documents/Git/programming-folder && git status'
 alias gc='git commit -v -S'
 alias gla='git pull --all'
 
@@ -133,6 +133,16 @@ function lpac () {
     echo --- AUR ---
     echo
     pacman -Qqettm
+}
+
+function preview() {
+    for file in $(ls -A); do
+        echo "File: $file"
+        head -5 $file
+        echo
+    done
+
+    echo "Number of files: $(ls -A | wc -l)"
 }
 
 function pach () {
