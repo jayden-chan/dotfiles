@@ -12,8 +12,8 @@
     "percent": 0.8,
     "swallows": [
        {
-          "class": "^Termite$",
-          "instance": "^termite$"
+          "class": "^Alacritty$",
+          "instance": "^Alacritty$"
        }
     ],
     "type": "con"
@@ -46,8 +46,8 @@
                     "percent": 1,
                     "swallows": [
                        {
-                          "class": "^Termite$",
-                          "instance": "^termite$"
+                          "class": "^Alacritty$",
+                          "instance": "^Alacritty$"
                        }
                     ],
                     "type": "con"
@@ -68,8 +68,8 @@
             "percent": 0.7,
             "swallows": [
                {
-                  "class": "^Termite$",
-                  "instance": "^termite$"
+                  "class": "^Alacritty$",
+                  "instance": "^Alacritty$"
                }
             ],
             "type": "con"

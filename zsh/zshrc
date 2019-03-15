@@ -102,9 +102,9 @@ function wallsolid () {
         nitrogen --set-zoom-fill $p
     fi
 
-    echo "{\"special\":{\"background\":\"#202020\",\"foreground\":\"#d5d5d5\",\"cursor\":\"#d5d5d5\"},\"colors\":{\"color0\":\"#000000\",\"color1\":\"$2\",\"color2\":\"#ffffff\",\"color3\":\"#ffffb6\",\"color4\":\"$1\",\"color5\":\"$2\",\"color6\":\"$1\",\"color7\":\"$2\",\"color8\":\"#6c6c66\",\"color9\":\"$2\",\"color10\":\"#ffffff\",\"color11\":\"#ffffb6\",\"color12\":\"$1\",\"color13\":\"$2\",\"color14\":\"$1\",\"color15\":\"#fdfbee\"}}" > $HOME/Documents/Git/dotfiles/termite/solid-theme.json
+    echo "{\"special\":{\"background\":\"#202020\",\"foreground\":\"#d5d5d5\",\"cursor\":\"#d5d5d5\"},\"colors\":{\"color0\":\"#000000\",\"color1\":\"$2\",\"color2\":\"#ffffff\",\"color3\":\"#ffffb6\",\"color4\":\"$1\",\"color5\":\"$2\",\"color6\":\"$1\",\"color7\":\"$2\",\"color8\":\"#6c6c66\",\"color9\":\"$2\",\"color10\":\"#ffffff\",\"color11\":\"#ffffb6\",\"color12\":\"$1\",\"color13\":\"$2\",\"color14\":\"$1\",\"color15\":\"#fdfbee\"}}" > $HOME/Documents/Git/dotfiles/alacritty/solid-theme.json
 
-    wal -f $HOME/Documents/Git/dotfiles/termite/solid-theme.json
+    wal -f $HOME/Documents/Git/dotfiles/alacritty/solid-theme.json
 }
 
 function github () {
@@ -143,6 +143,7 @@ function preview() {
     done
 
     echo "Number of files: $(ls -A | wc -l)"
+    echo "Number of unique files: $(ls -A | sort | uniq -u | wc -l)"
 }
 
 function pach () {

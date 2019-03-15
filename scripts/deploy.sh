@@ -7,7 +7,7 @@ rm -rf $HOME/.config/polybar      2>/dev/null
 rm -rf $HOME/.config/rofi         2>/dev/null
 rm -rf $HOME/.config/nvim         2>/dev/null
 rm -rf $HOME/.vim                 2>/dev/null
-rm -rf $HOME/.config/termite      2>/dev/null
+rm -rf $HOME/.config/alacritty    2>/dev/null
 rm -rf $HOME/.hyper.js            2>/dev/null
 
 mkdir -p $HOME/.vim
@@ -17,7 +17,7 @@ mkdir -p $HOME/.config/dunst
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/rofi
-mkdir -p $HOME/.config/termite
+mkdir -p $HOME/.config/alacritty
 
 cd ~
 ln -fs $HOME/Documents/Git/dotfiles/compton/compton.conf       $HOME/.config/compton.conf
@@ -29,7 +29,7 @@ ln -fs $HOME/Documents/Git/dotfiles/polybar/config             $HOME/.config/pol
 ln -fs $HOME/Documents/Git/dotfiles/rofi/theme.rasi            $HOME/.config/rofi/theme.rasi
 ln -fs $HOME/Documents/Git/dotfiles/snippets/                  $HOME/.config/nvim/
 ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add           $HOME/.vim/en.utf-8.add
-ln -fs $HOME/Documents/Git/dotfiles/termite/config             $HOME/.config/termite/config
+ln -fs $HOME/Documents/Git/dotfiles/alacritty/alacritty.yml    $HOME/.config/alacritty/alacritty.yml
 ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc                  $HOME/.config/nvim/init.vim
 ln -fs $HOME/Documents/Git/dotfiles/vscode/settings.json       $HOME/.config/Code/User/settings.json
 ln -fs $HOME/Documents/Git/dotfiles/vscode/keybindings.json    $HOME/.config/Code/User/keybindings.json

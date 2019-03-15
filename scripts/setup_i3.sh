@@ -72,7 +72,7 @@ perl-anyevent-i3
 numlockx
 pulseaudio
 rofi
-termite
+alacritty
 ntp
 fzf
 jq
