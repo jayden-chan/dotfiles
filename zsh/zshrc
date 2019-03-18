@@ -137,9 +137,14 @@ function lpac () {
 
 function preview() {
     for file in $(ls -A); do
-        echo "File: $file"
-        head -5 $file
-        echo
+        if [[ -f $file ]]; then
+            echo "File: $(tput bold)$file$(tput sgr0)"
+            head -5 $file
+            echo
+        elif [[ -d $file ]]; then
+            echo "Folder: $(tput bold)$file$(tput sgr0)"
+            echo
+        fi
     done
 
     echo "Number of files: $(ls -A | wc -l)"
