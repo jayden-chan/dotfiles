@@ -233,7 +233,7 @@ for_window [class="^Spotify$"] move to workspace $ws3
 for_window [class="^Nitrogen$"] floating enable
 for_window [class="^Termite$"] border pixel 1
 for_window [title="Welcome to Android Studio"] floating enable
-for_window [class="^Nautilus$"] floating enable
+for_window [class="^Org.gnome.Nautilus$"] floating enable
 for_window [class="^Nm-connection-editor$"] floating enable
 
 for_window [instance="datetermite"] floating enable
