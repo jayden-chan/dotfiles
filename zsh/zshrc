@@ -71,6 +71,7 @@ alias vun='vim'
 alias dw='cd'
 alias cs='cd'
 alias clera='clear'
+eval $(thefuck --alias)
 
 # Other
 alias rs='cd && clear'

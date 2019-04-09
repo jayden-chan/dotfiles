@@ -313,5 +313,6 @@
         "jayden"
     ],
     "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Gruvbox Dark (Medium)"
+    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "window.menuBarVisibility": "toggle"
 }

@@ -38,6 +38,7 @@ filetype off
     Plugin 'w0rp/ale'
     Plugin 'tpope/vim-fugitive'
     Plugin 'racer-rust/vim-racer'
+    Plugin 'mhartington/nvim-typescript'
 
     call vundle#end()
     filetype plugin indent on
@@ -163,7 +164,7 @@ filetype off
     noremap <leader>tt mtgg=G`tzz
 
     " Close quickfix
-    noremap <silent> <c-q> :ccl<CR>
+    noremap <silent> <c-q> :ccl<CR>:pclose<CR>
 
     " Fuzzy finding
     nnoremap <silent> <leader>f :FZ<CR>
@@ -281,6 +282,7 @@ filetype off
 
     nnoremap <silent> ]e :ALENext<CR>
     nnoremap <silent> [e :ALEPrevious<CR>
+    nnoremap <silent> <leader>o :ALEGoToDefinition<CR>
 
     let g:ale_linters = {'rust': ['rls']}
     let g:ale_rust_rls_executable = '/usr/bin/rls'
@@ -311,8 +313,8 @@ filetype off
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,typescript,html,css,json setlocal shiftwidth=2
-    autocmd FileType javascript,typescript,html,css,json setlocal softtabstop=2
+    autocmd FileType javascript,html,css,json setlocal shiftwidth=2
+    autocmd FileType javascript,html,css,json setlocal softtabstop=2
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
