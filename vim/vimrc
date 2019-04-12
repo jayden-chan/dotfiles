@@ -14,7 +14,8 @@ filetype off
     Plugin 'garbas/vim-snipmate'
     Plugin 'vim-airline/vim-airline'
     Plugin 'gcmt/taboo.vim'
-    Plugin 'jiangmiao/auto-pairs'
+    " Plugin 'jiangmiao/auto-pairs'
+    Plugin 'rstacruz/vim-closer'
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-surround'
@@ -102,6 +103,9 @@ filetype off
 
     " Cursor line
     set nocursorline
+
+    " Disable auto continuing comments on Enter
+    set formatoptions-=cro
 
     " No command bar
     set noshowmode
