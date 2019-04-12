@@ -1,0 +1,41 @@
+snippet th
+	this.${0}
+
+snippet log
+	console.log(${0});
+
+snippet cclass
+	class ${0} {
+		constructor() {
+
+		}
+	}
+
+snippet for
+	for(let ${1:} = ${2:}; $1 < ${3:}; $1++) {
+	  
+	}
+
+snippet <>
+	<${1:} ${2:}>${0}</$1>
+
+snippet react
+	import React, { Component } from 'react';
+
+	class ${1:} extends Component {
+	  render() {
+	    return (
+	      <div>
+	        ${0}
+	      </div>
+	    );
+	  }
+	}
+
+	export default $1;
+
+snippet handler
+	exports.${1:} = function(args, callback) {
+	  ${0}
+	  callback();
+	}

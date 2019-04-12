@@ -33,12 +33,14 @@ filetype off
     Plugin 'sheerun/vim-polyglot'
     Plugin 'rust-lang/rust.vim'
     Plugin 'Yggdroot/indentline'
+    Plugin 'junegunn/fzf'
     Plugin 'junegunn/fzf.vim'
     Plugin 'majutsushi/tagbar'
     Plugin 'w0rp/ale'
     Plugin 'tpope/vim-fugitive'
     Plugin 'racer-rust/vim-racer'
     Plugin 'mhartington/nvim-typescript'
+    Plugin 'HerringtonDarkholme/yats.vim'
 
     call vundle#end()
     filetype plugin indent on
