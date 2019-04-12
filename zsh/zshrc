@@ -68,10 +68,13 @@ alias pdcli='node ~/Dev/Work/program-tools/packages/program-dev-cli/dist/index.j
 alias cim='vim'
 alias vom='vim'
 alias vun='vim'
+alias bim='vim'
 alias dw='cd'
 alias cs='cd'
 alias clera='clear'
-eval $(thefuck --alias)
+alias celar='clear'
+alias clare='clear'
+alias claer='clear'
 
 # Other
 alias please='sudo'
