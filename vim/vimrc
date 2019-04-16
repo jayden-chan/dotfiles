@@ -101,7 +101,7 @@ filetype off
     set undolevels=9001
 
     " Cursor line
-    set nocursorline
+    set cursorline
 
     " Disable auto continuing comments on Enter
     set formatoptions-=cro
