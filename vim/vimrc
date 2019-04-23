@@ -188,6 +188,8 @@ filetype off
     noremap I 12<c-u>
     noremap K 12<c-d>
     nnoremap <leader>c J
+    " Split line, inverse of J
+    nnoremap <leader>C i<CR><esc>k:s/\s\+$//e<CR>j:noh<CR>
 
 
     map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -298,6 +300,7 @@ filetype off
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
     let g:vim_markdown_conceal = 0
+    let g:tex_conceal = ''
 
 " Commands
 
