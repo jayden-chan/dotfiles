@@ -318,8 +318,8 @@ filetype off
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,html,css,json setlocal shiftwidth=2
-    autocmd FileType javascript,html,css,json setlocal softtabstop=2
+    autocmd FileType javascript,typescript,html,css,json setlocal shiftwidth=2
+    autocmd FileType javascript,typescript,html,css,json setlocal softtabstop=2
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
@@ -343,6 +343,9 @@ filetype off
     iab thsi     this
     iab fcuntoin function
     iab fucntion function
+    iab funcotin function
+    iab funcoitn function
+    iab funciton function
     iab costn    const
     iab conts    const
     iab THe      The
