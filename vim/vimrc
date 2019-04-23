@@ -320,6 +320,9 @@ filetype off
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
+    " Set a max line length marker for LaTeX and Markdown files
+    autocmd FileType markdown,tex set colorcolumn=90
+    
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript,typescript,html,css,json setlocal shiftwidth=2
     autocmd FileType javascript,typescript,html,css,json setlocal softtabstop=2
@@ -352,4 +355,6 @@ filetype off
     iab costn    const
     iab conts    const
     iab THe      The
+    iab THis     This
     iab !+       !=
+    iab +>       =>
