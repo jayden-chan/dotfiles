@@ -304,6 +304,7 @@ filetype off
 
     let g:vim_markdown_conceal = 0
     let g:tex_conceal = ''
+    let g:polyglot_disabled = ['latex']
 
 " Commands
 
