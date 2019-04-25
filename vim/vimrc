@@ -212,6 +212,9 @@ filetype off
     nnoremap <c-j> :vertical resize +5<CR>
     nnoremap <c-l> :vertical resize -5<CR>
 
+    " Make c-p function like c-i since s-i was previously remapped
+    nnoremap <c-p> <c-i>
+
     " Disable Ex mode
     map q: <nop>
     map Q <nop>
@@ -320,8 +323,9 @@ filetype off
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
-    " Set a max line length marker for LaTeX and Markdown files
+    " Set a max line length for LaTeX and Markdown files
     autocmd FileType markdown,tex set colorcolumn=90
+    autocmd FileType markdown,tex set textwidth=89
     
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript,typescript,html,css,json setlocal shiftwidth=2
