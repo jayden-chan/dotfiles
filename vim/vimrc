@@ -325,8 +325,8 @@ filetype off
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
     " Set a max line length for LaTeX and Markdown files
-    autocmd FileType markdown,tex set colorcolumn=90
-    autocmd FileType markdown,tex set textwidth=89
+    autocmd FileType markdown,tex setlocal colorcolumn=90
+    autocmd FileType markdown,tex setlocal textwidth=89
     
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript,typescript,html,css,json setlocal shiftwidth=2
