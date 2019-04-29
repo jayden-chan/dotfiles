@@ -155,7 +155,7 @@ echo "Installing AUR packages"
 yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc hyper
 
 echo "Installing laptop-specific packages... [7/7]"
-if [ $(hostname) == "swift" ]; then
+if [ $(hostname) = "swift" ]; then
     for p in $swift
     do
         sudo pacman -S -needed --noconfirm $p
