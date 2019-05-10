@@ -83,7 +83,6 @@ alias l='ls -A'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias comfy='vim $HOME/.vim/bundle/vim-comfy'
-alias uniqc="echo \"Unique commands executed: \$(history | rg '\d+\s+(.*)' --only-matching --replace='\$1' | sort | uniq | wc -l)\""
 
 function wallpaper () {
     if [ $HOST = "grace" ]; then
@@ -139,6 +138,14 @@ function lpac () {
     echo --- AUR ---
     echo
     pacman -Qqettm
+}
+
+function uniqc () {
+    echo "Unique commands executed: $(history | rg '\d+\s+(.*)' --only-matching --replace='$1' | sort | uniq | wc -l)"
+    if [ "$#" = 1 ]; then
+        echo "Top $1 commands:"
+        echo "$(history | rg '\d+\s+(.*)' --only-matching --replace='$1' | sort | uniq -c | sort -nr | head -$1)"
+    fi
 }
 
 function preview() {
