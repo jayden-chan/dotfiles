@@ -43,7 +43,6 @@ alias hh='git push heroku master && heroku logs --tail'
 alias vimrc='vim $HOME/Documents/Git/dotfiles/vim/vimrc'
 alias zshrc='vim $HOME/Documents/Git/dotfiles/zsh/zshrc'
 alias dot='vim $HOME/Documents/Git/dotfiles/'
-alias dotu='cd $HOME/Documents/Git/dotfiles && gst'
 
 # Info
 alias nfetch='neofetch --ascii_distro arch_old'
@@ -60,9 +59,6 @@ alias :Wq='exit'
 
 # Editor
 alias vim='nvim'
-alias vimz='vim $(fzf)'
-
-alias pdcli='node ~/Dev/Work/program-tools/packages/program-dev-cli/dist/index.js'
 
 # U S E R   E R R O R
 alias cim='vim'
@@ -75,11 +71,13 @@ alias clera='clear'
 alias celar='clear'
 alias clare='clear'
 alias claer='clear'
+alias ckear='clear'
 
 # Other
 alias please='sudo'
 alias rs='cd && clear'
 alias l='ls -A'
+alias pdcli='node ~/Dev/Work/program-tools/packages/program-dev-cli/dist/index.js'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias comfy='vim $HOME/.vim/bundle/vim-comfy'
@@ -141,10 +139,20 @@ function lpac () {
 }
 
 function uniqc () {
-    echo "Unique commands executed: $(history | rg '\d+\s+(.*)' --only-matching --replace='$1' | sort | uniq | wc -l)"
+    echo "Unique commands executed: $(history \
+        | rg '\d+\s+(.*)' --only-matching --replace='$1' \
+        | sort \
+        | uniq \
+        | wc -l)"
+
     if [ "$#" = 1 ]; then
         echo "Top $1 commands:"
-        echo "$(history | rg '\d+\s+(.*)' --only-matching --replace='$1' | sort | uniq -c | sort -nr | head -$1)"
+        echo "$(history \
+            | rg '\d+\s+(.*)' --only-matching --replace='$1' \
+            | sort \
+            | uniq -c \
+            | sort -nr \
+            | head -$1)"
     fi
 }
 
