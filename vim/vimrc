@@ -41,6 +41,7 @@ filetype off
     Plugin 'racer-rust/vim-racer'
     Plugin 'mhartington/nvim-typescript'
     Plugin 'HerringtonDarkholme/yats.vim'
+    Plugin 'jparise/vim-graphql'
 
     call vundle#end()
     filetype plugin indent on
