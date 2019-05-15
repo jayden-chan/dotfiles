@@ -24,8 +24,8 @@
     "no-magic-numbers": [
       "warn",
       {
-        "ignoreArrayIndexes": true,
-        "ignore": [1]
+        "ignore": [1, 200, 400, 500],
+        "ignoreArrayIndexes": true
       }
     ],
     "indent": [
