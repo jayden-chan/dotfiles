@@ -152,7 +152,8 @@ function uniqc () {
             | sort \
             | uniq -c \
             | sort -nr \
-            | head -$1)"
+            | head -$1 \
+            | nl)"
     fi
 }
 
