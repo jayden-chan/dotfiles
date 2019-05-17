@@ -24,7 +24,7 @@
     "no-magic-numbers": [
       "warn",
       {
-        "ignore": [1, 200, 400, 500],
+        "ignore": [0, 1, 200, 400, 500],
         "ignoreArrayIndexes": true
       }
     ],
