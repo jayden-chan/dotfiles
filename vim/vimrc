@@ -331,8 +331,8 @@ filetype off
     autocmd FileType markdown,tex setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,typescript,html,css,json setlocal shiftwidth=2
-    autocmd FileType javascript,typescript,html,css,json setlocal softtabstop=2
+    autocmd FileType javascript,typescript,html,css,json,sql setlocal shiftwidth=2
+    autocmd FileType javascript,typescript,html,css,json,sql setlocal softtabstop=2
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
