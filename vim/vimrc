@@ -323,6 +323,8 @@ filetype off
     " Mirror NERDTree when file is opened in new window
     autocmd BufWinEnter *.* NERDTreeMirror
 
+    autocmd FileType typescript let g:ale_javascript_eslint_options = '--parser @typescript-eslint/parser'
+
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 

@@ -212,6 +212,12 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
+prompt_gwip() {
+  if [ "$(work_in_progress)" = "WIP!!" ]; then
+    prompt_segment black default "$(work_in_progress)"
+  fi
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -220,6 +226,7 @@ build_prompt() {
   prompt_context
   prompt_dir
   prompt_git
+  prompt_gwip
   prompt_bzr
   prompt_hg
   prompt_end
