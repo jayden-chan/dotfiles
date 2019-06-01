@@ -104,9 +104,6 @@ filetype off
     " Cursor line
     set cursorline
 
-    " Disable auto continuing comments on Enter
-    set formatoptions-=cro
-
     " No command bar
     set noshowmode
 
@@ -304,7 +301,6 @@ filetype off
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
-    let g:vim_markdown_conceal = 0
     let g:tex_conceal = ''
     let g:polyglot_disabled = ['latex', 'typescript']
 
@@ -332,6 +328,9 @@ filetype off
     autocmd FileType markdown,tex setlocal textwidth=89
     autocmd FileType markdown,tex setlocal colorcolumn=90
 
+    " Disable the stupid conceal stuff in markdown
+    autocmd FileType markdown setlocal conceallevel=0
+
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript,typescript,html,css,json,sql setlocal shiftwidth=2
     autocmd FileType javascript,typescript,html,css,json,sql setlocal softtabstop=2
@@ -348,6 +347,9 @@ filetype off
 
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
+
+    " Don't auto continue single line comments (//)
+    autocmd FileType c,cpp,javascript,typescript,go,rust setlocal comments-=:// comments+=f://
 
 " Abbreviations
 
