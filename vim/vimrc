@@ -42,6 +42,7 @@ filetype off
     Plugin 'mhartington/nvim-typescript'
     Plugin 'HerringtonDarkholme/yats.vim'
     Plugin 'jparise/vim-graphql'
+    Plugin 'mbbill/undotree'
 
     call vundle#end()
     filetype plugin indent on
