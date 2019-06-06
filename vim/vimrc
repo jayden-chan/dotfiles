@@ -157,6 +157,9 @@ filetype off
     map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/.vim/en.utf-8.add
 
+    " Make Esc work in terminal mode
+    tnoremap <Esc> <C-\><C-n>
+
     " ez semicolons & commas (perhaps the greatest binds in this entire config)
     inoremap ;; <Esc>A;
     nnoremap ;; <Esc>A;<Esc>
@@ -332,6 +335,9 @@ filetype off
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript,typescript,html,css,json,sql setlocal shiftwidth=2
     autocmd FileType javascript,typescript,html,css,json,sql setlocal softtabstop=2
+
+    " Enter insert mode automatically when entering terminal
+    autocmd BufWinEnter,WinEnter term://* startinsert
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
