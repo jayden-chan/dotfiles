@@ -303,7 +303,7 @@ filetype off
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
     let g:tex_conceal = ''
-    let g:polyglot_disabled = ['latex', 'typescript']
+    let g:polyglot_disabled = ['latex', 'typescript', 'markdown']
 
 " Commands
 
@@ -328,9 +328,6 @@ filetype off
     " Set a max line length for LaTeX and Markdown files
     autocmd FileType markdown,tex setlocal textwidth=89
     autocmd FileType markdown,tex setlocal colorcolumn=90
-
-    " Disable the stupid conceal stuff in markdown
-    autocmd FileType markdown setlocal conceallevel=0
 
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript,typescript,html,css,json,sql setlocal shiftwidth=2
