@@ -59,11 +59,13 @@ docker
 diff-so-fancy
 gradle
 ctags
+postgresql
 "
 
 export system="
 arandr
 compton
+cups
 dunst
 i3-gaps
 lightdm
@@ -78,6 +80,7 @@ fzf
 jq
 ripgrep
 htop
+iputils
 "
 
 export cli="
@@ -87,6 +90,7 @@ lastpass-cli
 mlocate
 imagemagick
 texlive-most
+biber
 neofetch
 unzip
 which
