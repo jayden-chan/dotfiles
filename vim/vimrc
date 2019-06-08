@@ -193,6 +193,8 @@ filetype off
     " Split line, inverse of J
     nnoremap <leader>C i<CR><esc>k:s/\s\+$//e<CR>j:noh<CR>
 
+    " Open a new terminal window
+    nnoremap <leader>e :below new<CR>:terminal<CR>
 
     map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
