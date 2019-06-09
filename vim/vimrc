@@ -284,8 +284,8 @@ filetype off
 
     let g:indentLine_char = '│'
 
-    nnoremap <silent> ]e :lnext<CR>
-    nnoremap <silent> [e :lprev<CR>
+    nmap <silent> ]e <Plug>(coc-diagnostic-next)
+    nmap <silent> [e <Plug>(coc-diagnostic-prev)
     nmap <silent> <leader>o <Plug>(coc-definition)
     nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
 

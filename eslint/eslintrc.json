@@ -2,7 +2,7 @@
   "extends": [
     "eslint:recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
@@ -22,13 +22,6 @@
     "prefer-const": "warn",
     "no-self-compare": "error",
     "no-var": "error",
-    "no-magic-numbers": [
-      "warn",
-      {
-        "ignore": [0, 1, 200, 400, 500],
-        "ignoreArrayIndexes": true
-      }
-    ],
     "indent": [
       "warn",
       2,
