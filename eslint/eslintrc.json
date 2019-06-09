@@ -47,14 +47,7 @@
       "warn",
       "always"
     ],
-    "no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "args": "none",
-        "ignoreRestSiblings": false
-      }
-    ],
+    "no-unused-vars": "off",
     "keyword-spacing": [
       "warn"
     ],

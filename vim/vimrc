@@ -23,6 +23,7 @@ filetype off
         " coc-tsserver
         " coc-rls
         " coc-json
+        " coc-eslint
 
         Plug 'jiangmiao/auto-pairs'
         Plug 'airblade/vim-gitgutter'
@@ -33,12 +34,10 @@ filetype off
     " Syntax
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-        Plug 'sheerun/vim-polyglot', { 'for': 'javascript' }
-        " Plug 'othree/yajs.vim', { 'for': 'javascript' }
+        Plug 'othree/yajs.vim', { 'for': 'javascript' }
         " Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascript' }
 
     call plug#end()
-    filetype plugin indent on
 
 " Behaviour
 
@@ -150,8 +149,9 @@ filetype off
     map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/.vim/en.utf-8.add
 
-    " Make Esc work in terminal mode
+    " Make Esc work in terminal mode, but not for fzf or rg
     tnoremap <Esc> <C-\><C-n>
+    autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
 
     " ez semicolons & commas (perhaps the greatest binds in this entire config)
     inoremap ;; <Esc>A;
@@ -169,7 +169,7 @@ filetype off
     " " Fuzzy finding
     nnoremap <silent> <leader>f :FZ<CR>
     nnoremap <silent> <leader>r :Rg<CR>
-    " nnoremap <silent> <leader>b :BTags<CR>
+    nnoremap <silent> <leader>b :BTags<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -282,22 +282,12 @@ filetype off
     " let g:go_textobj_enabled = 0
     " let g:go_list_type = "quickfix"
 
-    " let g:rustfmt_autosave = 1
-
     let g:indentLine_char = '│'
 
-    " nnoremap <silent> ]e :ALENext<CR>
-    " nnoremap <silent> [e :ALEPrevious<CR>
     nnoremap <silent> ]e :lnext<CR>
     nnoremap <silent> [e :lprev<CR>
-    " nnoremap <silent> <leader>o :ALEGoToDefinition<CR>
-    " nnoremap <silent> <leader>O :ALEGoToDefinitionInVSplit<CR>
-
-    " let g:ale_linters = {'rust': ['rls']}
-    " let g:ale_rust_rls_executable = '/usr/bin/rls'
-    " let g:ale_rust_rls_toolchain = 'stable'
-
-    " nnoremap <silent> <leader>n :TagbarToggle<CR>
+    nmap <silent> <leader>o <Plug>(coc-definition)
+    nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
@@ -316,9 +306,7 @@ filetype off
     command! Minify :%s/\s// | :%s/\n//
 
     " Mirror NERDTree when file is opened in new window
-    autocmd BufWinEnter *.* NERDTreeMirror
-
-    " autocmd FileType typescript let g:ale_javascript_eslint_options = '--parser @typescript-eslint/parser'
+    autocmd BufWinEnter *.* silent NERDTreeMirror
 
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
@@ -340,9 +328,6 @@ filetype off
     autocmd FileType c,asm       setlocal shiftwidth=8
     autocmd FileType c,asm       setlocal expandtab
     autocmd FileType go          setlocal noexpandtab
-
-    " autocmd FileType rust nmap <silent> <leader>de <Plug>(rust-def-vertical)
-    " autocmd FileType rust nmap <silent> <leader>do <Plug>(rust-doc)
 
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
