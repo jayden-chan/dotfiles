@@ -4,47 +4,40 @@ filetype off
 
 " Plugins
 
-    set rtp+=$HOME/.vim/bundle/Vundle.vim
-    call vundle#begin('$HOME/.vim/bundle')
+    call plug#begin('~/.local/share/nvim/plugged')
 
-    Plugin 'VundleVim/Vundle.vim'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'garbas/vim-snipmate'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'gcmt/taboo.vim'
-    Plugin 'jiangmiao/auto-pairs'
-    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plugin 'tpope/vim-commentary'
-    Plugin 'tpope/vim-surround'
-    Plugin 'godlygeek/tabular'
-    Plugin 'junegunn/goyo.vim'
-    Plugin 'fatih/vim-go'
-    Plugin 'buoto/gotests-vim'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'Shougo/deoplete.nvim'
-    Plugin 'zchee/deoplete-go'
-    Plugin 'roxma/nvim-yarp'
-    Plugin 'roxma/vim-hug-neovim-rpc'
-    Plugin 'wellle/targets.vim'
-    Plugin 'morhetz/gruvbox'
-    Plugin 'jayden-chan/vim-comfy'
-    Plugin 'sheerun/vim-polyglot'
-    Plugin 'rust-lang/rust.vim'
-    Plugin 'Yggdroot/indentline'
-    Plugin 'junegunn/fzf'
-    Plugin 'junegunn/fzf.vim'
-    Plugin 'majutsushi/tagbar'
-    Plugin 'w0rp/ale'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'racer-rust/vim-racer'
-    Plugin 'mhartington/nvim-typescript'
-    Plugin 'HerringtonDarkholme/yats.vim'
-    Plugin 'jparise/vim-graphql'
-    Plugin 'mbbill/undotree'
+    " Theme
+        Plug 'morhetz/gruvbox'
+        Plug 'Yggdroot/indentline'
+        Plug 'vim-airline/vim-airline'
 
-    call vundle#end()
+    " fs nav
+        Plug 'scrooloose/nerdtree'
+        Plug '/usr/bin/fzf'
+        Plug 'junegunn/fzf.vim'
+
+    " IDE-like
+        Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+        " Plugins
+        " -------
+        " coc-tsserver
+        " coc-rls
+        " coc-json
+
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'airblade/vim-gitgutter'
+        Plug 'tpope/vim-commentary'
+        Plug 'tpope/vim-surround'
+        Plug 'gcmt/taboo.vim'
+
+    " Syntax
+        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
+        Plug 'sheerun/vim-polyglot', { 'for': 'javascript' }
+        " Plug 'othree/yajs.vim', { 'for': 'javascript' }
+        " Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascript' }
+
+    call plug#end()
     filetype plugin indent on
 
 " Behaviour
@@ -124,10 +117,10 @@ filetype off
     let g:tex_flavor="latex"
 
     " Unix file line endings
-    set ff=unix
+    set fileformat=unix
 
     " Make LaTeX live preview smoother
-    set updatetime=500
+    set updatetime=300
 
     " Enable mouse
     set mouse=a
@@ -144,7 +137,7 @@ filetype off
 
     " Relative line number toggle
     set number relativenumber
-    map <F9> <Esc>:set<Space>rnu!<CR>
+    map <F9> <Esc>:set rnu!<CR>
 
     " Reload vimrc
     map <leader>ss :so $MYVIMRC<CR>
@@ -171,12 +164,12 @@ filetype off
     noremap <leader>tt mtgg=G`tzz
 
     " Close quickfix
-    noremap <silent> <c-q> :ccl<CR>:pclose<CR>
+    noremap <silent> <c-q> :ccl<bar>pcl<bar>lcl<CR>
 
-    " Fuzzy finding
+    " " Fuzzy finding
     nnoremap <silent> <leader>f :FZ<CR>
     nnoremap <silent> <leader>r :Rg<CR>
-    nnoremap <silent> <leader>b :BTags<CR>
+    " nnoremap <silent> <leader>b :BTags<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -190,11 +183,12 @@ filetype off
     noremap I 12<c-u>
     noremap K 12<c-d>
     nnoremap <leader>c J
+
     " Split line, inverse of J
     nnoremap <leader>C i<CR><esc>k:s/\s\+$//e<CR>j:noh<CR>
 
     " Open a new terminal window
-    nnoremap <leader>e :below new<CR>:terminal<CR>
+    nnoremap <leader>e :below new<bar>terminal<CR>
 
     map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -254,9 +248,9 @@ filetype off
     let NERDTreeMapOpenSplit='h'
     map <c-n> :NERDTreeToggle<CR>
 
-    let g:snipMate = get(g:, 'snipMate', {})
-    let g:snipMate = {}
-    let g:snipMate.no_default_aliases = 1
+    " let g:snipMate = get(g:, 'snipMate', {})
+    " let g:snipMate = {}
+    " let g:snipMate.no_default_aliases = 1
 
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'
@@ -265,8 +259,6 @@ filetype off
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
     let NERDTreeAutoDeleteBuffer = 1
-
-    let g:deoplete#enable_at_startup = 1
 
     let g:javascript_plugin_jsdoc = 1
 
@@ -278,37 +270,38 @@ filetype off
     nnoremap <silent> [c :GitGutterPrevHunk<CR>
     nnoremap <leader>u   :GitGutterUndoHunk<CR>
 
-    let g:goyo_width = 120
+    " let g:goyo_width = 120
 
-    let g:go_doc_keywordprg_enabled = 0
-    let g:go_highlight_methods=1
-    let g:go_highlight_functions=1
-    let g:go_highlight_function_calls = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_types = 1
-    let g:go_highlight_variable_declarations = 1
-    let g:go_textobj_enabled = 0
-    let g:go_list_type = "quickfix"
+    " let g:go_doc_keywordprg_enabled = 0
+    " let g:go_highlight_methods=1
+    " let g:go_highlight_functions=1
+    " let g:go_highlight_function_calls = 1
+    " let g:go_highlight_extra_types = 1
+    " let g:go_highlight_types = 1
+    " let g:go_highlight_variable_declarations = 1
+    " let g:go_textobj_enabled = 0
+    " let g:go_list_type = "quickfix"
 
-    let g:rustfmt_autosave = 1
+    " let g:rustfmt_autosave = 1
 
     let g:indentLine_char = '│'
 
-    nnoremap <silent> ]e :ALENext<CR>
-    nnoremap <silent> [e :ALEPrevious<CR>
-    nnoremap <silent> <leader>o :ALEGoToDefinition<CR>
-    nnoremap <silent> <leader>O :ALEGoToDefinitionInVSplit<CR>
+    " nnoremap <silent> ]e :ALENext<CR>
+    " nnoremap <silent> [e :ALEPrevious<CR>
+    nnoremap <silent> ]e :lnext<CR>
+    nnoremap <silent> [e :lprev<CR>
+    " nnoremap <silent> <leader>o :ALEGoToDefinition<CR>
+    " nnoremap <silent> <leader>O :ALEGoToDefinitionInVSplit<CR>
 
-    let g:ale_linters = {'rust': ['rls']}
-    let g:ale_rust_rls_executable = '/usr/bin/rls'
-    let g:ale_rust_rls_toolchain = 'stable'
+    " let g:ale_linters = {'rust': ['rls']}
+    " let g:ale_rust_rls_executable = '/usr/bin/rls'
+    " let g:ale_rust_rls_toolchain = 'stable'
 
-    nnoremap <silent> <leader>n :TagbarToggle<CR>
+    " nnoremap <silent> <leader>n :TagbarToggle<CR>
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
     let g:tex_conceal = ''
-    let g:polyglot_disabled = ['latex', 'typescript', 'markdown']
 
 " Commands
 
@@ -325,7 +318,7 @@ filetype off
     " Mirror NERDTree when file is opened in new window
     autocmd BufWinEnter *.* NERDTreeMirror
 
-    autocmd FileType typescript let g:ale_javascript_eslint_options = '--parser @typescript-eslint/parser'
+    " autocmd FileType typescript let g:ale_javascript_eslint_options = '--parser @typescript-eslint/parser'
 
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
@@ -348,8 +341,8 @@ filetype off
     autocmd FileType c,asm       setlocal expandtab
     autocmd FileType go          setlocal noexpandtab
 
-    autocmd FileType rust nmap <silent> <leader>de <Plug>(rust-def-vertical)
-    autocmd FileType rust nmap <silent> <leader>do <Plug>(rust-doc)
+    " autocmd FileType rust nmap <silent> <leader>de <Plug>(rust-def-vertical)
+    " autocmd FileType rust nmap <silent> <leader>do <Plug>(rust-doc)
 
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
