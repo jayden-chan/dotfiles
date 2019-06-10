@@ -16,6 +16,11 @@ filetype off
         Plug '/usr/bin/fzf'
         Plug 'junegunn/fzf.vim'
 
+    " Git
+        Plug 'airblade/vim-gitgutter'
+        Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-rhubarb'
+
     " IDE-like
         Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
         " Plugins
@@ -26,7 +31,6 @@ filetype off
         " coc-eslint
 
         Plug 'jiangmiao/auto-pairs'
-        Plug 'airblade/vim-gitgutter'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
