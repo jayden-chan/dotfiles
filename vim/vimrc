@@ -35,11 +35,15 @@ filetype off
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
 
+        Plug 'MarcWeber/vim-addon-mw-utils'
+        Plug 'tomtom/tlib_vim'
+        Plug 'garbas/vim-snipmate'
+
     " Syntax
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
         Plug 'othree/yajs.vim', { 'for': 'javascript' }
-        " Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascript' }
+        Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascript' }
 
     call plug#end()
 
