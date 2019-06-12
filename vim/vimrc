@@ -13,7 +13,7 @@ filetype off
 
     " fs nav
         Plug 'scrooloose/nerdtree'
-        Plug '/usr/bin/fzf'
+        Plug 'junegunn/fzf'
         Plug 'junegunn/fzf.vim'
 
     " Git
