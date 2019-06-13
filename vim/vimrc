@@ -42,8 +42,9 @@ filetype off
     " Syntax
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-        Plug 'othree/yajs.vim', { 'for': 'javascript' }
-        Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascript' }
+        Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+        autocmd FileType typescript Plug 'MaxMEllon/vim-jsx-pretty'
+        Plug 'mboughaba/i3config.vim'
 
     call plug#end()
 
@@ -99,10 +100,7 @@ filetype off
     set foldlevel=1000
     set foldmethod=indent
 
-    " I mess up a lot
     set undolevels=9001
-
-    " Cursor line
     set cursorline
 
     " No command bar
@@ -142,14 +140,14 @@ filetype off
     " Leader
     let mapleader = "\<Space>"
 
-    " Relative line number toggle
+    " Relative line number toggle, toggle w/ F9
     set number relativenumber
     map <F9> <Esc>:set rnu!<CR>
 
     " Reload vimrc
     map <leader>ss :so $MYVIMRC<CR>
 
-    " Map Ctrl-s to save because I am a compulsive saver
+    " Map Ctrl-s to save
     nmap <c-s> :wa<CR>
     imap <c-s> <Esc>:wa<CR>
 
@@ -171,7 +169,7 @@ filetype off
     noremap <leader>ww :%s/\s\+$//e<CR>
     noremap <leader>tt mtgg=G`tzz
 
-    " Close quickfix
+    " Close quickfix/preview/location
     noremap <silent> <c-q> :ccl<bar>pcl<bar>lcl<CR>
 
     " " Fuzzy finding
@@ -198,6 +196,7 @@ filetype off
     " Open a new terminal window
     nnoremap <leader>e :below new<bar>terminal<CR>
 
+    " F10 shows the color group of the symbol below the cursor
     map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -218,7 +217,7 @@ filetype off
     nnoremap <c-j> :vertical resize +5<CR>
     nnoremap <c-l> :vertical resize -5<CR>
 
-    " Make c-p function like c-i since s-i was previously remapped
+    " Make c-p function like c-i since c-i was previously remapped
     nnoremap <c-p> <c-i>
 
     " Disable Ex mode
@@ -245,8 +244,8 @@ filetype off
     noremap cc "_cc
 
     " Tab switching
-    map <tab>j :tabprevious<CR>
-    map <tab>l :tabnext<CR>
+    nmap <silent> <tab>j :tabprevious<CR>
+    nmap <silent> <tab>l :tabnext<CR>
 
     " Fix 'I' behaviour in V-block
     vnoremap H I
@@ -256,9 +255,9 @@ filetype off
     let NERDTreeMapOpenSplit='h'
     map <c-n> :NERDTreeToggle<CR>
 
-    " let g:snipMate = get(g:, 'snipMate', {})
-    " let g:snipMate = {}
-    " let g:snipMate.no_default_aliases = 1
+    let g:snipMate = get(g:, 'snipMate', {})
+    let g:snipMate = {}
+    let g:snipMate.no_default_aliases = 1
 
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'
@@ -278,7 +277,7 @@ filetype off
     nnoremap <silent> [c :GitGutterPrevHunk<CR>
     nnoremap <leader>u   :GitGutterUndoHunk<CR>
 
-    " let g:goyo_width = 120
+    let g:goyo_width = 120
 
     " let g:go_doc_keywordprg_enabled = 0
     " let g:go_highlight_methods=1
@@ -296,6 +295,7 @@ filetype off
     nmap <silent> [e <Plug>(coc-diagnostic-prev)
     nmap <silent> <leader>o <Plug>(coc-definition)
     nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
+    nmap <silent> <leader>n <Plug>(coc-references)
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
@@ -304,13 +304,16 @@ filetype off
 " Commands
 
     " Make leaving easier in case of typos
-    command! Q :q
+    command! -bang Q :q<bang>
     command! Wq :wq
     command! WQ :wq
     command! Wqa :wqa
     command! WQa :wqa
-    command! Qa :qa
-    command! QA :qa
+    command! WQA :wqa
+    command! -bang Qa :qa<bang>
+    command! -bang QA :qa<bang>
+
+    " Remove all spaces and newlines
     command! Minify :%s/\s// | :%s/\n//
 
     " Mirror NERDTree when file is opened in new window
