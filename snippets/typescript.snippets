@@ -33,6 +33,21 @@ snippet <>
 	  ${0}
 	</$1>
 
+snippet then
+	Then('${1}', function(this: World${2}) {
+	  ${0}
+	});
+
+snippet when
+	When('${1}', function(this: World${2}) {
+	  ${0}
+	});
+
+snippet given
+	Given('${1}', function(this: World${2}) {
+	  ${0}
+	});
+
 snippet react
 	import React, { Component } from 'react';
 

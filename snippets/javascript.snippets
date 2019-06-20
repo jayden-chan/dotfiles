@@ -48,6 +48,21 @@ snippet react
 
 	export default $1;
 
+snippet then
+	Then('${1}', function(this: World${2}) {
+	  ${0}
+	});
+
+snippet when
+	When('${1}', function(this: World${2}) {
+	  ${0}
+	});
+
+snippet given
+	Given('${1}', function(this: World${2}) {
+	  ${0}
+	});
+
 snippet handler
 	exports.${1:} = function(args, callback) {
 	  ${0}

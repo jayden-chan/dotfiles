@@ -21,6 +21,9 @@ filetype off
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-rhubarb'
 
+    " Util
+        Plug 'godlygeek/tabular'
+
     " IDE-like
         Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
         " Plugins
