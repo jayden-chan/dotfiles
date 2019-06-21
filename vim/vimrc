@@ -49,6 +49,7 @@ filetype off
         Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
         autocmd FileType typescript Plug 'MaxMEllon/vim-jsx-pretty'
         Plug 'mboughaba/i3config.vim'
+        Plug 'jparise/vim-graphql'
 
     call plug#end()
 
