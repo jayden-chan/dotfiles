@@ -50,6 +50,7 @@ filetype off
         autocmd FileType typescript Plug 'MaxMEllon/vim-jsx-pretty'
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
+        Plug 'rust-lang/rust.vim'
 
     call plug#end()
 
