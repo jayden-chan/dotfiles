@@ -302,6 +302,7 @@ filetype off
     nmap <silent> <leader>o <Plug>(coc-definition)
     nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
     nmap <silent> <leader>n <Plug>(coc-references)
+    nmap <silent> <leader>R <Plug>(coc-rename)
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
