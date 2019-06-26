@@ -110,7 +110,6 @@ papirus-icon-theme
 lightdm-gtk-greeter-settings
 python-pywal
 arc-gtk-theme
-ttf-hack
 "
 
 echo Updating system...
@@ -156,7 +155,7 @@ makepkg -si && cd .. && rm -rf yay
 
 set +v
 echo "Installing AUR packages"
-yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc hyper
+yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc hyper powerline-fonts-git
 
 echo "Installing laptop-specific packages... [7/7]"
 if [ $(hostname) = "swift" ]; then
