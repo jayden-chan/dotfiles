@@ -304,6 +304,8 @@ filetype off
     nmap <silent> <leader>n <Plug>(coc-references)
     nmap <silent> <leader>R <Plug>(coc-rename)
 
+    let g:rustfmt_autosave = 1
+
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
     let g:tex_conceal = ''
