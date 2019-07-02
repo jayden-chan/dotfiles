@@ -173,6 +173,8 @@ $exec sh $scripts/mouseaccel.sh                   # Set mouse sensitivity
 $exec numlockx on                                 # Turn on num lock
 $exec xmodmap -e "clear lock"                     # Disable caps lock switch
 $exec xmodmap -e "keysym Caps_Lock = Escape"      # Set caps lock as escape
+# $exec xmodmap -e "keycode 51 = BackSpace"         # Set backslash as backspace
+# $exec xmodmap -e "keysym 22 = backslash"          # Set backspace as backslash
 $exec xset r rate 300 35                          # Set key repeat delay and rate
 $exec nitrogen --restore                          # Set wallpaper
 
