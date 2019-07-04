@@ -171,12 +171,13 @@ $exec compton --config $HOME/.config/compton.conf # Start compton
 $exec wal -R -n                                   # Restore wal colors
 $exec sh $scripts/mouseaccel.sh                   # Set mouse sensitivity
 $exec numlockx on                                 # Turn on num lock
-$exec xmodmap -e "clear lock"                     # Disable caps lock switch
-$exec xmodmap -e "keysym Caps_Lock = Escape"      # Set caps lock as escape
-# $exec xmodmap -e "keycode 51 = BackSpace"         # Set backslash as backspace
-# $exec xmodmap -e "keysym 22 = backslash"          # Set backspace as backslash
 $exec xset r rate 300 35                          # Set key repeat delay and rate
 $exec nitrogen --restore                          # Set wallpaper
+
+# Key maps
+$exec xmodmap -e "clear lock"                   # Disable caps lock switch
+$exec xmodmap -e "keysym Caps_Lock = Escape"    # Set caps lock as escape
+$exec xmodmap -e "keycode 9 = grave asciitilde" # Set escape as grave/tilde (anne pro)
 
 exec_always --no-startup-id sh $scripts/polybar.sh
 
@@ -194,16 +195,16 @@ bindsym $super+n $exec nautilus
 bindsym $super+m $exec sh $scripts/focus_spotify.sh
 
 # Music
-bindsym XF86AudioPlay             exec $pause
-bindsym XF86AudioNext             exec $next
-bindsym XF86AudioPrev             exec $prev
-bindsym Pause                     exec $pause
-bindsym $mod+XF86AudioMute        exec $pause
+bindsym XF86AudioPlay        exec $pause
+bindsym XF86AudioNext        exec $next
+bindsym XF86AudioPrev        exec $prev
+bindsym Pause                exec $pause
+bindsym $mod+XF86AudioMute   exec $pause
 bindsym XF86AudioLowerVolume exec $prev
 bindsym XF86AudioRaiseVolume exec $next
 
 # Sound
-bindsym XF86AudioMute        $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
+bindsym XF86AudioMute             $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
 bindsym $mod+XF86AudioRaiseVolume $exec amixer sset Master 3%+; $exec sh $scripts/printvol.sh
 bindsym $mod+XF86AudioLowerVolume $exec amixer sset Master 3%-; $exec sh $scripts/printvol.sh
 
@@ -233,7 +234,7 @@ focus_follows_mouse yes
 # Window specific settings
 for_window [class="^Spotify$"] move to workspace $ws3
 for_window [class="^Nitrogen$"] floating enable
-for_window [class="^Termite$"] border pixel 1
+for_window [class="^feh$"] floating enable
 for_window [title="Welcome to Android Studio"] floating enable
 for_window [class="^Org.gnome.Nautilus$"] floating enable
 for_window [class="^Nm-connection-editor$"] floating enable

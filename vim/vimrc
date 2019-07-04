@@ -297,6 +297,8 @@ filetype off
 
     let g:indentLine_char = '│'
 
+    let g:rustfmt_autosave = 1
+
     nmap <silent> ]e <Plug>(coc-diagnostic-next)
     nmap <silent> [e <Plug>(coc-diagnostic-prev)
     nmap <silent> <leader>o <Plug>(coc-definition)
