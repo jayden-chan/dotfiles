@@ -195,9 +195,9 @@ bindsym XF86AudioPlay        exec $pause
 bindsym XF86AudioNext        exec $next
 bindsym XF86AudioPrev        exec $prev
 bindsym Pause                exec $pause
-bindsym $mod+XF86AudioMute   exec $pause
-bindsym XF86AudioLowerVolume exec $prev
-bindsym XF86AudioRaiseVolume exec $next
+bindsym $super+space         exec $pause
+bindsym $super+equal         exec $next
+bindsym $super+minus         exec $prev
 
 # Sound
 bindsym XF86AudioMute             $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
