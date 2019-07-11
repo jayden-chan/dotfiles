@@ -273,6 +273,9 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
     let NERDTreeAutoDeleteBuffer = 1
 
+    let g:prettier#autoformat = 0
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json, PrettierAsync
+
     let g:javascript_plugin_jsdoc = 1
 
     " Set git-gutter column to always on
