@@ -198,8 +198,13 @@ function gst_func {
     zle reset-prompt
 }
 
-function clear_func {
-    clear
+function mb_func {
+    make build
+    zle reset-prompt
+}
+
+function mr_func {
+    make run
     zle reset-prompt
 }
 
@@ -212,8 +217,11 @@ bindkey '^R' lsa_widget
 zle -N gst_widget gst_func
 bindkey '^G' gst_widget
 
-zle -N clear_widget clear_func
-bindkey "^W" clear_widget
+zle -N mb_widget mb_func
+bindkey '^B' mb_widget
+
+zle -N mr_widget mr_func
+bindkey '^N' mr_widget
 
 # Opt out of .NET telemetry (yikes...)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1

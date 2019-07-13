@@ -22,13 +22,13 @@ client.urgent           $bg $bg $fg $bg $bg
 client.placeholder      $bg $bg $fg $bg $bg
 client.background       $bg $bg $fg $bg $bg
 
-font pango:Arial 12
+font pango:Nimbus Sans 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return $exec alacritty
+bindsym $mod+Return $exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -196,8 +196,8 @@ bindsym XF86AudioNext        exec $next
 bindsym XF86AudioPrev        exec $prev
 bindsym Pause                exec $pause
 bindsym $super+space         exec $pause
-bindsym $super+equal         exec $next
-bindsym $super+minus         exec $prev
+bindsym $mod+equal           exec $next
+bindsym $mod+minus           exec $prev
 
 # Sound
 bindsym XF86AudioMute             $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
