@@ -114,16 +114,6 @@ function wallsolid () {
     wal -f $HOME/Documents/Git/dotfiles/alacritty/solid-theme.json
 }
 
-function github () {
-    if [ "$1" = "" ]; then
-        echo "You must specify a name"
-    else
-        touch README.md
-        echo "# $1" > README.md
-        touch LICENSE
-    fi
-}
-
 function installfont () {
     sudo echo --- Installing font ---
     cp $1 $HOME/.local/share/fonts
@@ -175,6 +165,28 @@ function preview() {
 
     echo "Number of files: $(ls -A | wc -l)"
     echo "Number of unique files: $(ls -A | sort | uniq -u | wc -l)"
+}
+
+function cargo_init() {
+    if [ "$1" = "" ]; then
+        echo "You must specify a project name"
+    else
+        cargo init $1
+        cd $1
+        touch README.md
+        echo "# $1" > README.md
+
+        if [ "$2" != "" ]; then
+            echo "\n$2" >> README.md
+        fi
+
+        touch Makefile
+        echo "build:\n\tcargo build\n\nrun:\n\tcargo run\n\n.PHONY: build run" > Makefile
+
+        touch LICENSE
+
+        echo "Project creation finished, don't forget to add a license"
+    fi
 }
 
 function pach () {
