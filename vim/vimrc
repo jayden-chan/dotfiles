@@ -258,9 +258,6 @@ filetype off
 
 " Plugin specific settings
 
-    let NERDTreeMapOpenSplit='h'
-    map <c-n> :NERDTreeToggle<CR>
-
     let g:snipMate = get(g:, 'snipMate', {})
     let g:snipMate = {}
     let g:snipMate.no_default_aliases = 1
@@ -268,6 +265,8 @@ filetype off
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'
 
+    let NERDTreeMapOpenSplit='h'
+    map <c-n> :NERDTreeToggle<CR>
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
