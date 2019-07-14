@@ -167,7 +167,6 @@ hide_edge_borders both
 
 # Startup scripts
 $exec $HOME/.screenlayout/init-screens.sh         # Set configurations for screens
-$exec $scripts/keyboard.sh                        # Setup keyboard settings
 $exec compton --config $HOME/.config/compton.conf # Start compton
 $exec wal -R -n                                   # Restore wal colors
 $exec sh $scripts/mouseaccel.sh                   # Set mouse sensitivity
