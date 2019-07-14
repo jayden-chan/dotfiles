@@ -47,7 +47,7 @@ filetype off
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
         Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-        autocmd FileType typescript Plug 'MaxMEllon/vim-jsx-pretty'
+        Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascript' }
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
         Plug 'rust-lang/rust.vim'
@@ -297,6 +297,12 @@ filetype off
     nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
     nmap <silent> <leader>n <Plug>(coc-references)
     nmap <silent> <leader>R <Plug>(coc-rename)
+
+    " Prevent coc from auto assigning these to stupid binds
+    vmap <silent> <leader>F13 <Plug>(coc-funcobj-i)
+    vmap <silent> <leader>F14 <Plug>(coc-funcobj-a)
+    omap <silent> <leader>F15 <Plug>(coc-funcobj-i)
+    omap <silent> <leader>F16 <Plug>(coc-funcobj-a)
 
     let g:rustfmt_autosave = 1
 
