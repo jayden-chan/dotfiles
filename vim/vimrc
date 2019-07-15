@@ -44,6 +44,7 @@ filetype off
         Plug 'garbas/vim-snipmate'
 
     " Syntax
+        Plug 'plasticboy/vim-markdown'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript'] }
         Plug 'pangloss/vim-javascript'
@@ -58,7 +59,7 @@ filetype off
 " Behaviour
 
     " Theme
-    syntax on
+    syntax enable
 
     " 256 colors
     set t_Co=256
@@ -182,7 +183,7 @@ filetype off
     " Fuzzy finding
     nnoremap <silent> <leader>f :FZ<CR>
     nnoremap <silent> <leader>r :Rg<CR>
-    nnoremap <silent> <leader>b :BTags<CR>
+    nnoremap <silent> <leader>b :Tags<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
