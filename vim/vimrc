@@ -45,9 +45,10 @@ filetype off
 
     " Syntax
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-        Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-        Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-        Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascript' }
+        Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript'] }
+        Plug 'pangloss/vim-javascript'
+        Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+        Plug 'mxw/vim-jsx'
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
         Plug 'rust-lang/rust.vim'
