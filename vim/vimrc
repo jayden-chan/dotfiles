@@ -183,7 +183,6 @@ filetype off
     " Fuzzy finding
     nnoremap <silent> <leader>f :FZ<CR>
     nnoremap <silent> <leader>r :Rg<CR>
-    nnoremap <silent> <leader>b :Tags<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -299,6 +298,20 @@ filetype off
     nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
     nmap <silent> <leader>n <Plug>(coc-references)
     nmap <silent> <leader>R <Plug>(coc-rename)
+
+    nnoremap <silent> <leader>I :CocList diagnostics<CR>
+    nnoremap <silent> <leader>b :CocList -I symbols<CR>
+
+    " Show documentation in preview window
+    nnoremap <silent> <leader>i :call <SID>show_documentation()<CR>
+
+    function! s:show_documentation()
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
 
     " Prevent coc from auto assigning these to stupid binds
     vmap <silent> <leader>F13 <Plug>(coc-funcobj-i)
