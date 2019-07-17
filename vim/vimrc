@@ -53,6 +53,7 @@ filetype off
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
         Plug 'rust-lang/rust.vim'
+        Plug 'cespare/vim-toml', { 'for': 'toml' }
 
     call plug#end()
 

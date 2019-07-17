@@ -183,6 +183,9 @@ function cargo_init() {
         touch Makefile
         echo "build:\n\tcargo build\n\nrun:\n\tcargo run\n\n.PHONY: build run" > Makefile
 
+        touch rustfmt.toml
+        echo "max_width = 80" > rustfmt.toml
+
         touch LICENSE
 
         echo "Project creation finished, don't forget to add a license"
