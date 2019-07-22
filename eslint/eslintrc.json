@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "eslint:recommended"
-  ],
+  "extends": ["eslint:recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2019,
@@ -22,49 +20,14 @@
     "prefer-const": "warn",
     "no-self-compare": "error",
     "no-var": "error",
-    "indent": [
-      "warn",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
-    "quotes": [
-      "warn",
-      "single",
-      {
-        "allowTemplateLiterals": true
-      }
-    ],
-    "semi": [
-      "warn",
-      "always"
-    ],
+    "indent": "off",
+    "quotes": "off",
+    "semi": "off",
     "no-unused-vars": "off",
-    "keyword-spacing": [
-      "warn"
-    ],
-    "comma-dangle": [
-      "warn",
-      "always-multiline"
-    ],
-    "no-cond-assign": [
-      "error",
-      "always"
-    ],
-    "no-extra-parens": [
-      "warn",
-      "all",
-      {
-        "nestedBinaryExpressions": false,
-        "ignoreJSX": "multi-line"
-      }
-    ],
-    "max-len": [
-      "warn",
-      {
-        "code": 100
-      }
-    ]
+    "keyword-spacing": "off",
+    "comma-dangle": "off",
+    "no-cond-assign": ["error", "always"],
+    "no-extra-parens": "off",
+    "max-len": "off"
   }
 }
