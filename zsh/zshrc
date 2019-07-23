@@ -214,12 +214,12 @@ function gst_func {
 }
 
 function mb_func {
-    make build
+    eval $JBUILD_COMMAND
     zle reset-prompt
 }
 
 function mr_func {
-    make run
+    eval $JRUN_COMMAND
     zle reset-prompt
 }
 

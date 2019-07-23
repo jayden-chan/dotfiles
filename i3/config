@@ -208,11 +208,8 @@ bindsym XF86MonBrightnessUp $exec light -A 5; $exec notify-send -h "int:value:$(
 bindsym XF86MonBrightnessDown $exec light -U 5; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
 
 # Screenshots
-bindsym --release Print $exec sh $scripts/scrotS.sh
-bindsym Shift+Print $exec sh $scripts/scrotW.sh
-
-bindsym $mod+Shift+plus move scratchpad
-bindsym $mod+plus scratchpad show
+bindsym --release Print $exec sh $scripts/screenshot.sh
+bindsym Shift+Print $exec sh $scripts/screenshot.sh --monitor
 
 bindsym $mod+t $exec sh $scripts/ide_layout.sh --single
 bindsym $mod+y $exec sh $scripts/ide_layout.sh --double

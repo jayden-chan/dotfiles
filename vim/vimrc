@@ -13,6 +13,7 @@ filetype off
 
     " fs nav
         Plug 'scrooloose/nerdtree'
+        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'junegunn/fzf'
         Plug 'junegunn/fzf.vim'
 
@@ -45,7 +46,6 @@ filetype off
 
     " Syntax
         Plug 'plasticboy/vim-markdown'
-        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript'] }
         Plug 'pangloss/vim-javascript'
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -61,6 +61,7 @@ filetype off
 
     " Theme
     syntax enable
+    set encoding=UTF-8
 
     " 256 colors
     set t_Co=256
@@ -274,8 +275,12 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
     let NERDTreeAutoDeleteBuffer = 1
 
+    let s:blue = "689FB6"
+    let g:NERDTreeExtensionHighlightColor = {}
+    let g:NERDTreeExtensionHighlightColor['tsx'] = s:blue
+
     let g:prettier#autoformat = 0
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json, PrettierAsync
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, PrettierAsync
 
     let g:javascript_plugin_jsdoc = 1
 
