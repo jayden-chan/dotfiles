@@ -309,7 +309,7 @@ filetype off
     nnoremap <silent> <leader>b :CocList -I symbols<CR>
 
     " Show documentation in preview window
-    nnoremap <silent> <leader>i :call <SID>show_documentation()<CR>
+    nnoremap <silent> <leader>g :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
         if (index(['vim','help'], &filetype) >= 0)
@@ -330,6 +330,8 @@ filetype off
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
     let g:tex_conceal = ''
+
+    vmap <silent> <leader>t :Tabularize /|
 
 " Commands
 
