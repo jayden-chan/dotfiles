@@ -21,18 +21,29 @@ alsa-utils
 arm-none-eabi-gdb
 "
 
+export aur="
+google-cloud-sdk
+insomnia
+polybar
+spotify
+heroku-cli
+git-extras
+gotop-bin
+xcolor
+powerline-fonts-git
+neovim-nightly
+"
+
 export apps="
 evince
 gimp
 nautilus
 pavucontrol
-qiv
+feh
 scrot
 vlc
 libreoffice-fresh
-gpick
 flashplugin
-neovim
 python-neovim
 firefox
 "
@@ -54,10 +65,8 @@ python-pip
 python-pylint
 rustup
 go
-dep
 docker
 diff-so-fancy
-gradle
 ctags
 postgresql
 "
@@ -155,7 +164,10 @@ makepkg -si && cd .. && rm -rf yay
 
 set +v
 echo "Installing AUR packages"
-yay -S google-cloud-sdk insomnia polybar spotify heroku-cli git-extras gotop-bin loc hyper powerline-fonts-git
+for p in $aur
+do
+    yay -S $p --nocomfirm
+done
 
 echo "Installing laptop-specific packages... [7/7]"
 if [ $(hostname) = "swift" ]; then
