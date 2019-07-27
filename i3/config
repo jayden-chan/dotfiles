@@ -171,7 +171,7 @@ $exec compton --config $HOME/.config/compton.conf # Start compton
 $exec wal -R -n                                   # Restore wal colors
 $exec sh $scripts/mouseaccel.sh                   # Set mouse sensitivity
 $exec numlockx on                                 # Turn on num lock
-$exec xset r rate 300 35                          # Set key repeat delay and rate
+$exec xset r rate 270 35                          # Set key repeat delay and rate
 $exec nitrogen --restore                          # Set wallpaper
 
 exec_always --no-startup-id sh $scripts/polybar.sh
