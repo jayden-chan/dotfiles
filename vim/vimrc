@@ -379,6 +379,8 @@ filetype off
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
 
+    autocmd! BufNewFile,BufRead *.svelte set ft=html
+
     " Don't auto continue single line comments (//)
     autocmd FileType c,cpp,javascript,typescript,go,rust setlocal comments-=:// comments+=f://
 
