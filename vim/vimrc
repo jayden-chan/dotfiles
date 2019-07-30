@@ -387,6 +387,8 @@ filetype off
 " Abbreviations
 
     iab retrun   return
+    iab rerturn  return
+    iab rertrun  return
     iab retnru   return
     iab erturn   return
     iab ertnru   return
@@ -396,6 +398,7 @@ filetype off
     iab funcotin function
     iab funcoitn function
     iab funciton function
+    iab funciotn function
     iab costn    const
     iab conts    const
     iab THe      The
