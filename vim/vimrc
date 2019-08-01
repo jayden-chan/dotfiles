@@ -202,6 +202,10 @@ filetype off
     " Split line, inverse of J
     nnoremap <leader>C i<CR><esc>k:s/\s\+$//e<CR>j:noh<CR>
 
+    " Make X and Y behave like C and D
+    nnoremap Y y$
+    nnoremap X v$<Left>"_x
+
     " Open a new terminal window
     nnoremap <leader>e :below new<bar>terminal<CR>
 
@@ -363,8 +367,8 @@ filetype off
     autocmd FileType markdown,tex setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx,html,scss,css,json,sql setlocal shiftwidth=2
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx,html,scss,css,json,sql setlocal softtabstop=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx,html,scss,css,json,toml,sql setlocal shiftwidth=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx,html,scss,css,json,toml,sql setlocal softtabstop=2
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
