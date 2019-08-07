@@ -27,7 +27,6 @@ setopt extendedglob
 alias gdf='cd $HOME/Documents/Git/dotfiles && git status'
 alias gpf='cd $HOME/Documents/Git/programming-folder && git status'
 alias gc='git commit -v -S'
-alias gla='git pull --all'
 alias gcop='git checkout production'
 alias gpuu='git push -u origin $(git symbolic-ref --short HEAD)'
 
