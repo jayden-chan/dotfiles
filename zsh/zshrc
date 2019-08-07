@@ -258,10 +258,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
 
-if [ $HOST = "swift" ]; then
-    export GOOGLE_APPLICATION_CREDENTIALS="/home/jayden/.keen-clone-12hi5v12ov51o21512-e4b433db3d6f.json"
-fi
-
 # Ensure GPG sign prompt shows on correct screen
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
