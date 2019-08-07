@@ -10,6 +10,7 @@ filetype off
         Plug 'morhetz/gruvbox'
         Plug 'Yggdroot/indentline'
         Plug 'vim-airline/vim-airline'
+        Plug 'junegunn/goyo.vim'
 
     " fs nav
         Plug 'scrooloose/nerdtree'
