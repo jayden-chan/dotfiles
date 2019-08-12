@@ -285,7 +285,7 @@ label-warn-foreground = ${colors.secondary}
 type = custom/script
 exec = $HOME/Documents/Git/dotfiles/scripts/date.sh
 
-click-left = i3-msg 'exec --no-startup-id alacritty --name datetermite -e cal --hold'
+click-left = i3-msg 'exec --no-startup-id termite --name datetermite -e cal --hold'
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 
@@ -296,7 +296,7 @@ interval = 5
 type = custom/script
 exec = $HOME/Documents/Git/dotfiles/scripts/weather.sh
 
-click-left = i3-msg 'exec --no-startup-id alacritty --name datetermite -e cal --hold'
+click-left = i3-msg 'exec --no-startup-id termite --name datetermite -e cal --hold'
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 
