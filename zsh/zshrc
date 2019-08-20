@@ -98,8 +98,15 @@ function wallpaper () {
 }
 
 function wallsolid () {
+    if [ "$1" = "--help" ]; then
+        echo "Usage: wallsolid <background color> <accent color>"
+        echo
+        echo "Example: wallsolid 99dff7 ffffff"
+        return
+    fi
+
     local p="$HOME/Pictures/Wallpapers/Single Screen/Solid.png"
-    convert -size 1920x1080 xc:$1 $p
+    convert -size 1920x1080 xc:\#$1 $p
 
     if [ $HOST = "grace" ]; then
         nitrogen --set-zoom-fill --save --head=0 $p
