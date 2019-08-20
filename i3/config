@@ -161,8 +161,8 @@ gaps outer 0
 
 mouse_warping none
 
-default_border none
-default_floating_border pixel 2
+default_border pixel 6
+default_floating_border pixel 6
 hide_edge_borders both
 
 # Startup scripts
