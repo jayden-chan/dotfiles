@@ -4,8 +4,13 @@ set $gaps 43
 set $exec exec --no-startup-id
 set $scripts $HOME/Documents/Git/dotfiles/scripts
 
-set_from_resource $fg i3wm.color7
-set_from_resource $bg i3wm.color2
+# if non-solid theme
+# set_from_resource $fg i3wm.color7
+# set_from_resource $bg i3wm.color2
+
+# if solid theme
+set $bg #ffffff
+set $fg #202020
 
 # Change window border color
 # client.focused          #2e3440 #5e81ac #ffffff #3b84c0 #5e81ac
