@@ -79,7 +79,7 @@ monitor = ${env:MONITOR:HDMI-0}
 width = 80%
 height = 32
 offset-x = 10%
-offset-y = 5
+offset-y = 8.5
 radius = 10
 fixed-center = true
 

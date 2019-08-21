@@ -1,6 +1,6 @@
 set $mod Mod1
 set $super Mod4
-set $gaps 43
+set $gaps 49
 set $exec exec --no-startup-id
 set $scripts $HOME/Documents/Git/dotfiles/scripts
 
@@ -235,6 +235,7 @@ for_window [class="^feh$"] floating enable
 for_window [title="Welcome to Android Studio"] floating enable
 for_window [class="^Org.gnome.Nautilus$"] floating enable
 for_window [class="^Nm-connection-editor$"] floating enable
+for_window [class="^firefox$"] border none
 
 for_window [instance="datetermite"] floating enable
 for_window [instance="datetermite"] border pixel 1
