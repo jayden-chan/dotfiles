@@ -70,6 +70,7 @@ alias ivm='vim'
 alias bim='vim'
 alias dw='cd'
 alias cs='cd'
+alias clear='clear -x'
 alias clera='clear'
 alias celar='clear'
 alias clare='clear'
@@ -118,7 +119,7 @@ function wallsolid () {
     fi
 
     # echo "{\"special\":{\"background\":\"#3b3c3d\",\"foreground\":\"#d5d5d5\",\"cursor\":\"#d5d5d5\"},\"colors\":{\"color0\":\"#000000\",\"color1\":\"$2\",\"color2\":\"#ffffff\",\"color3\":\"#ffffb6\",\"color4\":\"$1\",\"color5\":\"$2\",\"color6\":\"$1\",\"color7\":\"$2\",\"color8\":\"#6c6c66\",\"color9\":\"$2\",\"color10\":\"#ffffff\",\"color11\":\"#ffffb6\",\"color12\":\"$1\",\"color13\":\"$2\",\"color14\":\"$1\",\"color15\":\"#fdfbee\"}}" > $HOME/Documents/Git/dotfiles/termite/solid-theme.json
-    
+
 echo "{\"special\":{\"background\":\"#2e3440\",\"foreground\":\"#d8dee9\",\"cursor\":\"#d5d5d5\"},\"colors\":{\"color0\":\"#3b4252\",\"color1\":\"#bf616a\",\"color2\":\"#a3be8c\",\"color3\":\"#ebcb8b\",\"color4\":\"#81a1c1\",\"color5\":\"#b48ead\",\"color6\":\"#88c0d0\",\"color7\":\"#e5e9f0\",\"color8\":\"#4c566a\",\"color9\":\"#bf616a\",\"color10\":\"#a3be8c\",\"color11\":\"#ebcb8b\",\"color12\":\"#81a1c1\",\"color13\":\"#b48ead\",\"color14\":\"#8fbcbb\",\"color15\":\"#eceff4\"}}" > $HOME/Documents/Git/dotfiles/termite/solid-theme.json
 
     wal -f $HOME/Documents/Git/dotfiles/termite/solid-theme.json
