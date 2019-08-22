@@ -7,7 +7,7 @@ filetype off
     call plug#begin('~/.local/share/nvim/plugged')
 
     " Theme
-        Plug 'morhetz/gruvbox'
+        Plug 'jayden-chan/gruvbox'
         Plug 'Yggdroot/indentline'
         Plug 'vim-airline/vim-airline'
         Plug 'junegunn/goyo.vim'
@@ -53,7 +53,7 @@ filetype off
         Plug 'mxw/vim-jsx'
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
-        Plug 'rust-lang/rust.vim'
+        Plug 'jayden-chan/rust.vim'
         Plug 'cespare/vim-toml', { 'for': 'toml' }
 
     call plug#end()
