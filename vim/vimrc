@@ -281,8 +281,11 @@ filetype off
     let NERDTreeAutoDeleteBuffer = 1
 
     let s:blue = "689FB6"
+    let s:red = "AE403F"
     let g:NERDTreeExtensionHighlightColor = {}
     let g:NERDTreeExtensionHighlightColor['tsx'] = s:blue
+    let g:NERDTreeExtensionHighlightColor['tex'] = s:blue
+    let g:NERDTreeExtensionHighlightColor['pdf'] = s:red
 
     let g:prettier#autoformat = 0
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, PrettierAsync
