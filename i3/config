@@ -205,8 +205,8 @@ bindsym $mod+minus           exec $prev
 
 # Sound
 bindsym XF86AudioMute             $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
-bindsym $mod+XF86AudioRaiseVolume $exec amixer sset Master 3%+; $exec sh $scripts/printvol.sh
-bindsym $mod+XF86AudioLowerVolume $exec amixer sset Master 3%-; $exec sh $scripts/printvol.sh
+bindsym XF86AudioRaiseVolume $exec amixer sset Master 3%+; $exec sh $scripts/printvol.sh
+bindsym XF86AudioLowerVolume $exec amixer sset Master 3%-; $exec sh $scripts/printvol.sh
 
 # Brightness
 bindsym XF86MonBrightnessUp $exec light -A 5; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
