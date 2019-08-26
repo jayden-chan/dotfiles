@@ -204,7 +204,7 @@ bindsym $mod+equal           exec $next
 bindsym $mod+minus           exec $prev
 
 # Sound
-bindsym XF86AudioMute             $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
+bindsym XF86AudioMute        $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
 bindsym XF86AudioRaiseVolume $exec amixer sset Master 3%+; $exec sh $scripts/printvol.sh
 bindsym XF86AudioLowerVolume $exec amixer sset Master 3%-; $exec sh $scripts/printvol.sh
 
