@@ -217,7 +217,7 @@ function up_one_func {
 
 function lsa_func {
     echo
-    ls -A
+    exa -a
     zle reset-prompt
 }
 
