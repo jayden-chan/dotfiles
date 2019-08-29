@@ -82,11 +82,10 @@ alias please='sudo'
 alias rs='cd && clear'
 alias ls='exa'
 alias l='exa -a'
-alias pdcli='node ~/Dev/Work/program-tools/packages/program-dev-cli/dist/index.js'
 alias sshd='ssh jayden@jaydendesktop.ddns.net'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
-alias comfy='vim $HOME/.vim/bundle/vim-comfy'
 alias open='feh --auto-zoom --force-aliasing'
+alias o='xdg-open'
 alias x='xset r rate 270 35'
 
 function wallpaper () {
