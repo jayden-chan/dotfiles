@@ -19,6 +19,9 @@ fi
 export swift="
 alsa-utils
 arm-none-eabi-gdb
+blueman
+bluez-utils
+pulseaudio-bluetooth
 "
 
 export aur="
@@ -40,7 +43,7 @@ gimp
 nautilus
 pavucontrol
 feh
-scrot
+maim
 vlc
 libreoffice-fresh
 flashplugin
@@ -90,11 +93,13 @@ jq
 ripgrep
 htop
 iputils
+ponymix
 "
 
 export cli="
 curl
 bat
+exa
 lastpass-cli
 mlocate
 imagemagick
