@@ -195,21 +195,21 @@ bindsym $super+n $exec nautilus
 bindsym $super+m $exec sh $scripts/focus_spotify.sh
 
 # Music
-bindsym XF86AudioPlay        exec $pause
-bindsym XF86AudioNext        exec $next
-bindsym XF86AudioPrev        exec $prev
-bindsym Pause                exec $pause
-bindsym $super+space         exec $pause
-bindsym $mod+equal           exec $next
-bindsym $mod+minus           exec $prev
+bindsym XF86AudioPlay exec $pause
+bindsym XF86AudioNext exec $next
+bindsym XF86AudioPrev exec $prev
+bindsym Pause         exec $pause
+bindsym $super+space  exec $pause
+bindsym $mod+equal    exec $next
+bindsym $mod+minus    exec $prev
 
 # Sound
-bindsym XF86AudioMute        $exec amixer sset Master 0%;  $exec sh $scripts/printvol.sh
-bindsym XF86AudioRaiseVolume $exec amixer sset Master 3%+; $exec sh $scripts/printvol.sh
-bindsym XF86AudioLowerVolume $exec amixer sset Master 3%-; $exec sh $scripts/printvol.sh
+bindsym XF86AudioMute        $exec ponymix toggle     | xargs sh -c 'notify-send -h "int:value:$0" Sound Volume:'
+bindsym XF86AudioRaiseVolume $exec ponymix increase 3 | xargs sh -c 'notify-send -h "int:value:$0" Sound Volume:'
+bindsym XF86AudioLowerVolume $exec ponymix decrease 3 | xargs sh -c 'notify-send -h "int:value:$0" Sound Volume:'
 
 # Brightness
-bindsym XF86MonBrightnessUp $exec light -A 5; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
+bindsym XF86MonBrightnessUp   $exec light -A 5; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
 bindsym XF86MonBrightnessDown $exec light -U 5; $exec notify-send -h "int:value:$(light -G)" Screen Brightness:
 
 # Screenshots
@@ -231,6 +231,7 @@ focus_follows_mouse yes
 # Window specific settings
 for_window [class="^Spotify$"] move to workspace $ws3
 for_window [class="^Nitrogen$"] floating enable
+for_window [class="^Blueman-manager$"] floating enable
 for_window [class="^feh$"] floating enable
 for_window [title="Welcome to Android Studio"] floating enable
 for_window [class="^Org.gnome.Nautilus$"] floating enable
