@@ -19,8 +19,9 @@ fi
 export swift="
 alsa-utils
 arm-none-eabi-gdb
-blueman
+bluez
 bluez-utils
+blueman
 pulseaudio-bluetooth
 "
 
