@@ -19,6 +19,12 @@ snippet asn
 snippet der
 	#[derive(${0})]
 
+snippet re
+	Result<${1}, ${2}>${0}
+
+snippet op
+	Option<${1}>${0}
+
 snippet test
 	#[test]
 	fn test_${1:}() {

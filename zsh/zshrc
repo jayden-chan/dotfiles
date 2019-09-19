@@ -214,12 +214,6 @@ function up_one_func {
     zle reset-prompt
 }
 
-function lsa_func {
-    echo
-    exa -a
-    zle reset-prompt
-}
-
 function gst_func {
     echo
     git status
@@ -238,9 +232,6 @@ function mr_func {
 
 zle -N up_one_widget up_one_func
 bindkey '^E' up_one_widget
-
-zle -N lsa_widget lsa_func
-bindkey '^R' lsa_widget
 
 zle -N gst_widget gst_func
 bindkey '^G' gst_widget
