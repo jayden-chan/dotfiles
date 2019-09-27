@@ -200,8 +200,18 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
+    local spotify_widget = wibox.widget.textbox()
+    local command = "sh " .. scripts .. "/spotify.sh"
+
+    awful.widget.watch(
+        command, 1,
+        function(widget, stdout, stderr, exitreason, exitcode)
+            spotify_widget:set_text(stdout:gsub("^%s*(.-)%s*$", "%1"))
+        end
+    )
+
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 35})
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -212,10 +222,9 @@ awful.screen.connect_for_each_screen(function(s)
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        spotify_widget, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
