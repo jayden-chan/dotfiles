@@ -72,6 +72,10 @@ commandprev = spotifybasecommand .. "Previous"
 
 printvol = " | xargs sh -c 'notify-send -h \"int:value:$0\" Sound Volume:'"
 
+-- Startup commands
+awful.utils.spawn("sh " .. scripts .. "/mouseaccel.sh", false);
+awful.utils.spawn("xset r rate 270 35", false);
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
