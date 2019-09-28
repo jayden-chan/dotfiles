@@ -73,8 +73,8 @@ commandprev = spotifybasecommand .. "Previous"
 printvol = " | xargs sh -c 'notify-send -h \"int:value:$0\" Sound Volume:'"
 
 -- Startup commands
-awful.utils.spawn("sh " .. scripts .. "/mouseaccel.sh", false);
-awful.utils.spawn("xset r rate 270 35", false);
+awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false);
+awful.util.spawn("xset r rate 270 35", false);
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -124,7 +124,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock('%a %b %d %I:%M ')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -210,7 +210,7 @@ awful.screen.connect_for_each_screen(function(s)
     awful.widget.watch(
         command, 1,
         function(widget, stdout, stderr, exitreason, exitcode)
-            spotify_widget:set_text(stdout:gsub("^%s*(.-)%s*$", "%1"))
+            spotify_widget:set_text("   " .. stdout:gsub("^%s*(.-)%s*$", "%1"))
         end
     )
 
