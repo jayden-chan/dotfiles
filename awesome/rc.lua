@@ -88,9 +88,9 @@ end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.max,
+    awful.layout.suit.floating,
     awful.layout.suit.fair,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -451,6 +451,10 @@ clientkeys = gears.table.join(
         awful.spawn.easy_async("light -G", function(stdout, stderr, exitreason, exitcode)
             brightnessnot = naughty.notify({text = "Brightness: " .. math.floor(stdout + 0.5) .. "%", title = "Screen", replaces_id = brightnessnot}).id
         end)
+    end),
+    -- Power menu
+    awful.key({"Control", modkey}, "Delete", function()
+        awful.spawn("sh " .. scripts .. "/rofi.sh --power", false)
     end)
 )
 
