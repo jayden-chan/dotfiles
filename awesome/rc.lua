@@ -72,9 +72,19 @@ commandprev = spotifybasecommand .. "Previous"
 
 printvol = " | xargs sh -c 'notify-send -h \"int:value:$0\" Sound Volume:'"
 
+brightnessnot = nil
+volumenot = nil
+
 -- Startup commands
-awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false);
-awful.util.spawn("xset r rate 270 35", false);
+awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
+awful.util.spawn("xset r rate 270 35", false)
+
+-- Set esc as caps lock on laptop
+if (os.getenv("$HOST") == "swift") then
+    awful.util.spawn("xmodmap -e \"clear lock\"", false)
+    awful.util.spawn("xmodmap -e \"keysym Caps_Lock = Escape\"", false)
+end
+
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -388,14 +398,26 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize horizontally", group = "client"}),
     -- Volume Keys
-    awful.key({}, "XF86AudioLowerVolume", function ()
-        awful.util.spawn("ponymix decrease 3" .. printvol, false)
+    awful.key({}, "XF86AudioLowerVolume", function()
+        awful.spawn.easy_async("ponymix decrease 3", function(stdout, stderr, exitreason, exitcode)
+            volumenot = naughty.notify({text = "Volume: " .. math.floor(stdout + 0.5) .. "%", title = "Sound", replaces_id = volumenot}).id
+        end)
     end),
-    awful.key({}, "XF86AudioRaiseVolume", function ()
-        awful.util.spawn("ponymix increase 3" .. printvol, false)
+    awful.key({}, "XF86AudioRaiseVolume", function()
+        awful.spawn.easy_async("ponymix increase 3", function(stdout, stderr, exitreason, exitcode)
+            volumenot = naughty.notify({text = "Volume: " .. math.floor(stdout + 0.5) .. "%", title = "Sound", replaces_id = volumenot}).id
+        end)
     end),
     awful.key({}, "XF86AudioMute", function ()
-        awful.util.spawn("ponymix toggle" .. printvol, false)
+        awful.spawn.easy_async("ponymix toggle", function(tout, terr, texit, tcode)
+            awful.spawn.easy_async("ponymix is-muted", function(mout, merr, mexit, mcode)
+                if (mcode == 0) then
+                    volumenot = naughty.notify({text = "Volume: " .. math.floor(tout + 0.5) .. "%", title = "Sound", replaces_id = volumenot}).id
+                else
+                    volumenot = naughty.notify({text = "Volume: Muted", title = "Sound", replaces_id = volumenot}).id
+                end
+            end)
+        end)
     end),
     -- Media Keys
     awful.key({}, "XF86AudioPlay", function()
@@ -416,6 +438,19 @@ clientkeys = gears.table.join(
     end),
     awful.key({"Shift"}, "Print", function()
         awful.util.spawn("sh " .. scripts .. "/screenshot.sh --monitor", false)
+    end),
+    -- Brightness keys
+    awful.key({}, "XF86MonBrightnessUp", function()
+        awful.spawn("light -A 5", false)
+        awful.spawn.easy_async("light -G", function(stdout, stderr, exitreason, exitcode)
+            brightnessnot = naughty.notify({text = "Brightness: " .. math.floor(stdout + 0.5) .. "%", title = "Screen", replaces_id = brightnessnot}).id
+        end)
+    end),
+    awful.key({}, "XF86MonBrightnessDown", function()
+        awful.spawn("light -U 5", false)
+        awful.spawn.easy_async("light -G", function(stdout, stderr, exitreason, exitcode)
+            brightnessnot = naughty.notify({text = "Brightness: " .. math.floor(stdout + 0.5) .. "%", title = "Screen", replaces_id = brightnessnot}).id
+        end)
     end)
 )
 
