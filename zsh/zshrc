@@ -135,6 +135,10 @@ function installfont () {
     echo --- Done ---
 }
 
+function wifireset () {
+    nmcli con down "$1" && wificonnect "$1"
+}
+
 function lpac () {
     echo --- Native ---
     echo
