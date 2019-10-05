@@ -76,6 +76,7 @@ brightnessnot = nil
 volumenot = nil
 
 -- Startup commands
+awful.util.spawn("compton --config /home/jayden/.config/compton.conf", false)
 awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
 awful.util.spawn("xset r rate 270 35", false)
 
@@ -190,6 +191,30 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = 35})
 
+    local battery_widget = nil
+    if (os.getenv("HOST") == "swift") then
+        battery_widget = require("battery-widget") {
+            ac = "AC",
+            adapter = "BAT1",
+            ac_prefix = "",
+            battery_prefix = "",
+            percent_colors = {
+                { 20, "red"   },
+                { 50, "orange"},
+                {999, "green" },
+            },
+            listen = true,
+            timeout = 30,
+            widget_text = "${AC_BAT}${color_on}${percent}%${color_off}  ",
+            widget_font = "Nimbus Pro 11",
+            tooltip_text = "Battery ${state}${time_est}\nCapacity: ${capacity_percent}%",
+            alert_threshold = 5,
+            alert_timeout = 0,
+            alert_title = "Low battery !",
+            alert_text = "${AC_BAT}${time_est}"
+        }
+    end
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -203,26 +228,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            require("battery-widget") {
-                ac = "AC",
-                adapter = "BAT1",
-                ac_prefix = "",
-                battery_prefix = "",
-                percent_colors = {
-                    { 20, "red"   },
-                    { 50, "orange"},
-                    {999, "green" },
-                },
-                listen = true,
-                timeout = 30,
-                widget_text = "${AC_BAT}${color_on}${percent}%${color_off}  ",
-                widget_font = "Nimbus Pro 11",
-                tooltip_text = "Battery ${state}${time_est}\nCapacity: ${capacity_percent}%",
-                alert_threshold = 5,
-                alert_timeout = 0,
-                alert_title = "Low battery !",
-                alert_text = "${AC_BAT}${time_est}"
-            },
+            battery_widget,
             mytextclock,
         },
     }
@@ -395,7 +401,7 @@ globalkeys = gears.table.join(
         awful.spawn.with_shell("sh " .. scripts .. "/rofi.sh --power", false)
     end),
     -- Lock shortcut
-    awful.key({"Control", modkey}, "l", function()
+    awful.key({superkey}, "l", function()
         awful.spawn("dm-tool lock", false)
     end)
 )
