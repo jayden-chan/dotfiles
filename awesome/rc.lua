@@ -75,13 +75,19 @@ printvol = " | xargs sh -c 'notify-send -h \"int:value:$0\" Sound Volume:'"
 brightnessnot = nil
 volumenot = nil
 
+-- Get hostname of machine
+local f = io.popen ("/bin/hostname")
+hostname = f:read("*a") or ""
+f:close()
+hostname =string.gsub(hostname, "\n$", "")
+
 -- Startup commands
 awful.util.spawn("compton --config /home/jayden/.config/compton.conf", false)
 awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
 awful.util.spawn("xset r rate 270 35", false)
 
 -- Set esc as caps lock on laptop
-if (os.getenv("$HOST") == "swift") then
+if (hostname == "swift") then
     awful.util.spawn("xmodmap -e \"clear lock\"", false)
     awful.util.spawn("xmodmap -e \"keysym Caps_Lock = Escape\"", false)
 end
@@ -192,7 +198,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s, height = 35})
 
     local battery_widget = nil
-    if (os.getenv("HOST") == "swift") then
+    if (hostname == "swift") then
         battery_widget = require("battery-widget") {
             ac = "AC",
             adapter = "BAT1",
