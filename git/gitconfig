@@ -12,4 +12,4 @@
 [core]
     editor = nvim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta --dark --theme="TwoDark"
