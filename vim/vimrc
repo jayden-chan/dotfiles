@@ -288,7 +288,7 @@ filetype off
     let g:NERDTreeExtensionHighlightColor['pdf'] = s:red
 
     let g:prettier#autoformat = 0
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, PrettierAsync
+    " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, PrettierAsync
 
     let g:javascript_plugin_jsdoc = 1
 
@@ -371,8 +371,8 @@ filetype off
     autocmd FileType markdown,tex setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx,html,scss,css,json,toml,sql setlocal shiftwidth=2
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx,html,scss,css,json,toml,sql setlocal softtabstop=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,json,toml,sql setlocal shiftwidth=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,json,toml,sql setlocal softtabstop=2
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
