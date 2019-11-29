@@ -1,12 +1,12 @@
 #!/bin/sh
 
-if [ $(hostname) = "grace" ]; then
-    gspeed=3.8
-    for id in `xinput --list | rg 'Logitech Gaming Mouse G502\s+id=(\d+)\s+\[slave\s+pointer' --only-matching --replace='$1'`; do
-        xinput --set-prop $id 'Coordinate Transformation Matrix' $gspeed 0.0 0.0 0.0 $gspeed 0.0 0.0 0.0 1.0
-        xinput --set-prop $id 'libinput Accel Speed' -1
-    done
+gspeed=3.8
+for id in `xinput --list | rg 'Logitech Gaming Mouse G502\s+id=(\d+)\s+\[slave\s+pointer' --only-matching --replace='$1'`; do
+    xinput --set-prop $id 'Coordinate Transformation Matrix' $gspeed 0.0 0.0 0.0 $gspeed 0.0 0.0 0.0 1.0
+    xinput --set-prop $id 'libinput Accel Speed' -1
+done
 
+if [ $(hostname) = "grace" ]; then
     cspeed=1.5
     xinput --set-prop 'Cooler Master Technology Inc. MM710 Gaming Mouse' 'Coordinate Transformation Matrix' $cspeed 0.0 0.0 0.0 $cspeed 0.0 0.0 0.0 1.0
     xinput --set-prop 'Cooler Master Technology Inc. MM710 Gaming Mouse' 'libinput Accel Speed' -1
