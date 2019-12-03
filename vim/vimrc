@@ -15,6 +15,7 @@ filetype off
     " fs nav
         Plug 'scrooloose/nerdtree'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        Plug 'ryanoasis/vim-devicons'
         Plug 'junegunn/fzf'
         Plug 'junegunn/fzf.vim'
 
@@ -28,18 +29,18 @@ filetype off
 
     " IDE-like
         Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-        " Plugins
-        " -------
-        " coc-tsserver
-        " coc-rls
-        " coc-json
-        " coc-eslint
+        let g:coc_global_extensions = [
+                    \ 'coc-tsserver',
+                    \ 'coc-rls',
+                    \ 'coc-json',
+                    \ 'coc-eslint',
+                    \ 'coc-prettier',
+                    \ ]
 
         Plug 'jiangmiao/auto-pairs'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
-        Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
         Plug 'MarcWeber/vim-addon-mw-utils'
         Plug 'tomtom/tlib_vim'
@@ -273,8 +274,9 @@ filetype off
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'
 
-    let NERDTreeMapOpenSplit='h'
     map <c-n> :NERDTreeToggle<CR>
+    let NERDTreeMapOpenSplit='h'
+    let g:NERDTreeIgnore = ['^node_modules$']
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
@@ -287,8 +289,8 @@ filetype off
     let g:NERDTreeExtensionHighlightColor['tex'] = s:blue
     let g:NERDTreeExtensionHighlightColor['pdf'] = s:red
 
-    let g:prettier#autoformat = 0
-    " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, PrettierAsync
+    command! -nargs=0 Prettier :CocCommand prettier.formatFile
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, Prettier
 
     let g:javascript_plugin_jsdoc = 1
 
@@ -299,6 +301,7 @@ filetype off
     nnoremap <silent> ]c :GitGutterNextHunk<CR>
     nnoremap <silent> [c :GitGutterPrevHunk<CR>
     nnoremap <leader>u   :GitGutterUndoHunk<CR>
+    nnoremap <silent> <leader>hp  :GitGutterPreviewHunk<CR>
 
     let g:goyo_width = 120
 
