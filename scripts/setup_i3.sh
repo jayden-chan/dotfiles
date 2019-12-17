@@ -35,7 +35,6 @@ git-extras
 gotop-bin
 xcolor
 powerline-fonts-git
-neovim-nightly
 "
 
 export apps="
@@ -48,6 +47,7 @@ maim
 vlc
 libreoffice-fresh
 flashplugin
+neovim
 python-neovim
 firefox
 "
@@ -79,15 +79,13 @@ export system="
 arandr
 compton
 cups
-dunst
-i3-gaps
+awesome
 lightdm
 lightdm-gtk-greeter
-perl-anyevent-i3
 numlockx
 pulseaudio
 rofi
-termite
+kitty
 ntp
 fzf
 jq
@@ -95,13 +93,15 @@ ripgrep
 htop
 iputils
 ponymix
+android-file-transfer
+ntfs-g3
 "
 
 export cli="
 curl
 bat
 exa
-lastpass-cli
+transmission-cli
 mlocate
 imagemagick
 texlive-most
@@ -110,6 +110,7 @@ neofetch
 unzip
 which
 openssh
+graphviz
 xclip
 xorg-server
 xorg-xinput
