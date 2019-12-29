@@ -31,7 +31,7 @@ filetype off
         Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
         let g:coc_global_extensions = [
                     \ 'coc-tsserver',
-                    \ 'coc-rust-analyzer',
+                    \ 'coc-rls',
                     \ 'coc-json',
                     \ 'coc-eslint',
                     \ 'coc-prettier',
@@ -51,7 +51,7 @@ filetype off
         Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript'] }
         Plug 'pangloss/vim-javascript'
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-        Plug 'mxw/vim-jsx'
+        " Plug 'mxw/vim-jsx'
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
         Plug 'jayden-chan/rust.vim'
@@ -110,7 +110,7 @@ filetype off
 
     " Fold settings
     set foldlevel=1000
-    set foldmethod=indent
+    set foldmethod=syntax
 
     set undolevels=9001
     set cursorline
