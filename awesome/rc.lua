@@ -64,7 +64,7 @@ superkey = "Mod4"
 
 scripts = "/home/jayden/Documents/Git/dotfiles/scripts"
 
-spotifybasecommand = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player."
+spotifybasecommand = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player."
 
 commandpp = spotifybasecommand .. "PlayPause"
 commandnext = spotifybasecommand .. "Next"
