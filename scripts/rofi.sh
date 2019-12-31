@@ -6,7 +6,7 @@ elif [ "$1" = "--power" ]; then
     RESULT=$(echo -e "logout\nlock\nreboot\nshutdown" | rofi -dmenu -i -p "power:" -theme theme -font "Nimbus Sans 14" -lines 4 -width 25 -disable-history -tokenize)
 
     if [ "$RESULT" = "logout" ]; then
-        i3-msg 'exit'
+        echo 'awesome.quit()' | awesome-client
     elif [ "$RESULT" = "lock" ]; then
         dm-tool lock
     elif [ "$RESULT" = "reboot" ]; then
