@@ -398,15 +398,35 @@ globalkeys = gears.table.join(
     end),
     -- Brightness keys
     awful.key({}, "XF86MonBrightnessUp", function()
-        awful.spawn("light -A 5", false)
         awful.spawn.easy_async("light -G", function(stdout, stderr, exitreason, exitcode)
-            brightnessnot = naughty.notify({text = "Brightness: " .. math.floor(stdout + 0.5) .. "%", title = "Screen", replaces_id = brightnessnot}).id
+            brightness = tonumber(stdout) + 0.5 - (tonumber(stdout) + 0.5) % 1
+            if (brightness < 10) then
+                awful.spawn("light -A 1", false)
+                brightness = brightness + 1
+            elseif (brightness < 25) then
+                awful.spawn("light -A 3", false)
+                brightness = brightness + 3
+            else
+                awful.spawn("light -A 5", false)
+                brightness = brightness + 5
+            end
+            brightnessnot = naughty.notify({text = "Brightness: " .. brightness .. "%", title = "Screen", replaces_id = brightnessnot}).id
         end)
     end),
     awful.key({}, "XF86MonBrightnessDown", function()
-        awful.spawn("light -U 5", false)
         awful.spawn.easy_async("light -G", function(stdout, stderr, exitreason, exitcode)
-            brightnessnot = naughty.notify({text = "Brightness: " .. math.floor(stdout + 0.5) .. "%", title = "Screen", replaces_id = brightnessnot}).id
+            brightness = tonumber(stdout) + 0.5 - (tonumber(stdout) + 0.5) % 1
+            if (brightness <= 10) then
+                awful.spawn("light -U 1", false)
+                brightness = brightness - 1
+            elseif (brightness <= 25) then
+                awful.spawn("light -U 3", false)
+                brightness = brightness - 3
+            else
+                awful.spawn("light -U 5", false)
+                brightness = brightness - 5
+            end
+            brightnessnot = naughty.notify({text = "Brightness: " .. brightness .. "%", title = "Screen", replaces_id = brightnessnot}).id
         end)
     end),
     -- Power menu
