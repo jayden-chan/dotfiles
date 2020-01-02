@@ -369,9 +369,9 @@ globalkeys = gears.table.join(
         awful.spawn.easy_async("ponymix toggle", function(tout, terr, texit, tcode)
             awful.spawn.easy_async("ponymix is-muted", function(mout, merr, mexit, mcode)
                 if (mcode == 0) then
-                    volumenot = naughty.notify({text = "Volume: " .. math.floor(tout + 0.5) .. "%", title = "Sound", replaces_id = volumenot}).id
-                else
                     volumenot = naughty.notify({text = "Volume: Muted", title = "Sound", replaces_id = volumenot}).id
+                else
+                    volumenot = naughty.notify({text = "Volume: " .. math.floor(tout + 0.5) .. "%", title = "Sound", replaces_id = volumenot}).id
                 end
             end)
         end)
