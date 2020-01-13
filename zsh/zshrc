@@ -262,7 +262,10 @@ export FZF_DEFAULT_COMMAND="rg --files"
 # npm global packages config
 export NPM_PATH="$HOME/.npm-global"
 export PATH="$NPM_PATH/bin:$PATH"
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
+
+# Add completions for heroku.sh script
+fpath=(~/Dev/Work/saasquatch/packages/programs $fpath)
 
 # Add cargo binaries
 export PATH="$HOME/.cargo/bin:$PATH"

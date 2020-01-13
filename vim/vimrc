@@ -41,6 +41,7 @@ filetype off
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
+        Plug 'derekwyatt/vim-fswitch'
 
         Plug 'MarcWeber/vim-addon-mw-utils'
         Plug 'tomtom/tlib_vim'
@@ -388,12 +389,16 @@ filetype off
     autocmd FileType go          setlocal noexpandtab
 
     " Easily open corresponding source file (C/C++)
-    autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
+    " autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
+    autocmd FileType c,cpp nmap <silent> <leader>vv :FSSplitRight<CR>
 
     autocmd! BufNewFile,BufRead *.svelte set ft=html
 
     " Don't auto continue single line comments (//)
     autocmd FileType c,cpp,javascript,typescript,go,rust setlocal comments-=:// comments+=f://
+
+    au! BufEnter *.c,*.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '../inc'
+    au! BufEnter *.h,*.hpp let b:fswitchdst = 'cpp,c' | let b:fswitchlocs = '../src'
 
 " Abbreviations
 
