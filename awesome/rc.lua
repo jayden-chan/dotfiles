@@ -406,7 +406,7 @@ globalkeys = gears.table.join(
             elseif (brightness < 25) then
                 awful.spawn("light -A 3", false)
                 brightness = brightness + 3
-            else
+            elseif (brightness < 100) then
                 awful.spawn("light -A 5", false)
                 brightness = brightness + 5
             end
@@ -422,7 +422,7 @@ globalkeys = gears.table.join(
             elseif (brightness <= 25) then
                 awful.spawn("light -U 3", false)
                 brightness = brightness - 3
-            else
+            elseif (brightness > 0) then
                 awful.spawn("light -U 5", false)
                 brightness = brightness - 5
             end
