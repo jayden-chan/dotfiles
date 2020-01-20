@@ -254,6 +254,9 @@ filetype off
     nnoremap <silent> <leader>dd "_dd
     vnoremap <silent> <leader>dd "_dd
 
+    " LaTeX left/right pair macro
+    nnoremap <silent> <leader>m i\left<Right>\right<Esc>5<Left>i
+
     " Prevent x and c from filling buffer
     noremap x "_x
     noremap c "_c
@@ -371,8 +374,8 @@ filetype off
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
     " Set a max line length for LaTeX and Markdown files
-    autocmd FileType markdown,tex setlocal textwidth=89
-    autocmd FileType markdown,tex setlocal colorcolumn=90
+    autocmd FileType markdown setlocal textwidth=89
+    autocmd FileType markdown setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
     autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,json,toml,sql setlocal shiftwidth=2

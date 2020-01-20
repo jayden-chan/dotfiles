@@ -1,31 +1,29 @@
-snippet linearalgebra
-	\documentclass[11pt]{article}
-	\usepackage{amsmath}
-	\usepackage{amssymb}
-	\usepackage{enumerate}
-	\usepackage{systeme}
-	\usepackage{fullpage}
-
-	\title{${1:}}
-	\author{Jayden Chan (V00898517)}
-	\date{${2:}}
-
-	\begin{document}
-	\maketitle
-		${0}
-	\end{document}
-
-snippet calculus
+snippet start
 	\documentclass[11pt]{article}
 	\usepackage{siunitx}
 	\usepackage{amsmath}
 	\usepackage{amssymb}
 	\usepackage{enumerate}
 	\usepackage{systeme}
-	\usepackage{fullpage}
+	\usepackage{mathrsfs}
+	\usepackage{mathtools}
+	\usepackage{times}
+	\usepackage{fancyhdr}
+	\usepackage{graphicx}
+
+	\usepackage[vlined,ruled]{algorithm2e}
+	\usepackage[table]{xcolor}
+
+	\usepackage[
+	  margin=1.5cm,
+	  includefoot,
+	  footskip=30pt,
+	]{geometry}
+	\usepackage{layout}
 
 	\newcommand{\der}[2]{\frac{d#1}{d#2}}
 	\newcommand{\dera}[3]{\frac{d#1}{d#2}\rvert_{#3}}
+	\newcommand{\Lapl}[1]{\mathscr{L}\left\{#1\right\}}
 
 	\title{${1:}}
 	\author{Jayden Chan (V00898517)}
@@ -57,7 +55,7 @@ snippet tt
 	\texttt{${1:}}
 
 snippet der
-	\deriv{${1:}}{${2:}}
+	\der{${1:}}{${2:}}
 
 snippet dera
 	\dera{${1:}}{${2:}}{${3:}}
@@ -93,19 +91,3 @@ snippet amat
 
 snippet vs
 	\vspace{${0}}
-
-snippet ih
-	\hat{i}${0}
-
-snippet jh
-	\hat{j}${0}
-
-snippet kh
-	\hat{k}${0}
-
-snippet qq
-	\item
-		\begin{enumerate}
-			\item[Q:] \textit{${1:}}
-			\item[A:] ${0}
-		\end{enumerate}
