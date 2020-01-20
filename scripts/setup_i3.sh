@@ -126,6 +126,8 @@ papirus-icon-theme
 lightdm-gtk-greeter-settings
 python-pywal
 arc-gtk-theme
+ttf-fira-code
+nerd-fonts-complete
 "
 
 echo Updating system...
