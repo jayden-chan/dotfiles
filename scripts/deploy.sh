@@ -8,6 +8,7 @@ rm -rf $HOME/.config/rofi         2>/dev/null
 rm -rf $HOME/.config/nvim         2>/dev/null
 rm -rf $HOME/.vim                 2>/dev/null
 rm -rf $HOME/.config/alacritty    2>/dev/null
+rm -rf $HOME/.config/kitty        2>/dev/null
 
 mkdir -p $HOME/.vim
 mkdir -p $HOME/.config/nvim/colors
@@ -17,6 +18,7 @@ mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/rofi
 mkdir -p $HOME/.config/alacritty
+mkdir -p $HOME/.config/kitty
 
 cd $HOME
 ln -fs $HOME/Documents/Git/dotfiles/compton/compton.conf    $HOME/.config/compton.conf
@@ -36,3 +38,4 @@ ln -fs $HOME/Documents/Git/dotfiles/zsh/zshrc               $HOME/.zshrc
 ln -fs $HOME/Documents/Git/dotfiles/zsh/zlogout             $HOME/.zlogout
 ln -fs $HOME/Documents/Git/dotfiles/awesome/theme.lua       $HOME/.config/awesome/themes/rainbow/theme.lua
 ln -fs $HOME/Documents/Git/dotfiles/awesome/rc.lua          $HOME/.config/awesome/rc.lua
+ln -fs $HOME/Documents/Git/dotfiles/kitty/kitty.conf        $HOME/.config/kitty/kitty.conf
