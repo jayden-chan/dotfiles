@@ -76,6 +76,7 @@ alias celar='clear'
 alias clare='clear'
 alias claer='clear'
 alias ckear='clear'
+alias Lq='exit'
 
 # Other
 alias please='sudo'
