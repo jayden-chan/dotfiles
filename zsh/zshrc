@@ -213,6 +213,26 @@ function cargo_init() {
     fi
 }
 
+function ts_init() {
+    if [ "$1" = "" ]; then
+        echo "You must specify a project name"
+    else
+        git clone https://github.com/jayden-chan/typescript-template.git $1
+        cd $1
+        touch README.md
+        echo "# $1" > README.md
+
+        if [ "$2" != "" ]; then
+            echo "\n$2" >> README.md
+        fi
+
+        npm i
+
+        echo "Project created, don't forget to update package.json"
+    fi
+
+}
+
 function pach () {
     cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
 }
