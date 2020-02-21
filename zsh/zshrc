@@ -200,8 +200,8 @@ function cargo_init() {
 
         touch Makefile
         echo "build: build-skylake\n" >> Makefile
-        echo "build-general:\n    cargo build --release\n" >> Makefile
-        echo "build-skylake:\n    RUSTFLAGS=\"-Ctarget-cpu-skylake\" cargo build --release\n" >> Makefile
+        echo "build-general:\n\tcargo build --release\n" >> Makefile
+        echo "build-skylake:\n\tRUSTFLAGS=\"-Ctarget-cpu-skylake\" cargo build --release\n" >> Makefile
         echo ".PHONY: build build-general build-skylake" >> Makefile
 
         touch rustfmt.toml
