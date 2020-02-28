@@ -49,9 +49,8 @@ filetype off
 
     " Syntax
         Plug 'plasticboy/vim-markdown'
-        Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript'] }
+        Plug 'HerringtonDarkholme/yats.vim'
         Plug 'pangloss/vim-javascript'
-        Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
         Plug 'mxw/vim-jsx'
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'

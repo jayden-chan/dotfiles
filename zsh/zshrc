@@ -314,4 +314,11 @@ export MANPATH="$NPM_PATH/share/man:$(manpath)"
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
+# Android studio stuff for React Native
+export ANDROID_HOME=$HOME/Dev/Android
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
