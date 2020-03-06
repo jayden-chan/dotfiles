@@ -10,8 +10,8 @@ rm -rf $HOME/.vim                 2>/dev/null
 rm -rf $HOME/.config/alacritty    2>/dev/null
 rm -rf $HOME/.config/kitty        2>/dev/null
 
-mkdir -p $HOME/.vim
 mkdir -p $HOME/.config/nvim/colors
+mkdir -p $HOME/.config/nvim/spell
 mkdir -p $HOME/.config/compton
 mkdir -p $HOME/.config/dunst
 mkdir -p $HOME/.config/i3
@@ -29,7 +29,7 @@ ln -fs $HOME/Documents/Git/dotfiles/latex/latexmkrc         $HOME/.latexmkrc
 ln -fs $HOME/Documents/Git/dotfiles/polybar/config          $HOME/.config/polybar/config
 ln -fs $HOME/Documents/Git/dotfiles/rofi/theme.rasi         $HOME/.config/rofi/theme.rasi
 ln -fs $HOME/Documents/Git/dotfiles/snippets/               $HOME/.config/nvim/
-ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add        $HOME/.vim/en.utf-8.add
+ln -fs $HOME/Documents/Git/dotfiles/vim/en.utf-8.add        $HOME/.config/nvim/spell/en.utf-8.add
 ln -fs $HOME/Documents/Git/dotfiles/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -fs $HOME/Documents/Git/dotfiles/vim/vimrc               $HOME/.config/nvim/init.vim
 ln -fs $HOME/Documents/Git/dotfiles/vscode/settings.json    $HOME/.config/Code/User/settings.json
