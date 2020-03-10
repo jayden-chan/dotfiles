@@ -1,0 +1,9 @@
+{
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.options": { "configFile": "/home/jayden/.eslintrc.json" }
+}
