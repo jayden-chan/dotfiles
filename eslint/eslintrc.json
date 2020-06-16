@@ -1,5 +1,5 @@
 {
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2019,
@@ -8,6 +8,7 @@
       "jsx": true
     }
   },
+  "plugins": ["@typescript-eslint"],
   "env": {
     "node": true,
     "es6": true

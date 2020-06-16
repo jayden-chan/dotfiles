@@ -51,7 +51,7 @@ filetype off
         Plug 'plasticboy/vim-markdown'
         Plug 'HerringtonDarkholme/yats.vim'
         Plug 'pangloss/vim-javascript'
-        Plug 'mxw/vim-jsx'
+        " Plug 'mxw/vim-jsx'
         Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
