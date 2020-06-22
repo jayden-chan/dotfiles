@@ -9,12 +9,18 @@ export EDITOR=nvim
 (cat ~/.cache/wal/sequences &)
 
 # ZSH_THEME="jayden-chan"
-ZSH_THEME="norm"
+# ZSH_THEME="norm"
 DEFAULT_USER="jayden"
-prompt_context() {}
+# prompt_context() {}
 plugins=(git dotenv zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+# initialize z
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# initialize starship prompt
+eval "$(starship init zsh)"
 
 # User configuration
 
