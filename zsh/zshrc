@@ -93,6 +93,7 @@ alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/i
 alias open='feh --auto-zoom --force-aliasing'
 alias o='xdg-open'
 alias x='xset r rate 270 35'
+alias clip='xclip -selection c'
 
 function wallpaper () {
     if [ $HOST = "grace" ]; then
@@ -123,9 +124,6 @@ function wallsolid () {
     else
         nitrogen --set-zoom-fill $p
     fi
-
-    # Nord
-    # echo "{\"special\":{\"background\":\"#2e3440\",\"foreground\":\"#d8dee9\",\"cursor\":\"#d5d5d5\"},\"colors\":{\"color0\":\"#3b4252\",\"color1\":\"#bf616a\",\"color2\":\"#a3be8c\",\"color3\":\"#ebcb8b\",\"color4\":\"#81a1c1\",\"color5\":\"#b48ead\",\"color6\":\"#88c0d0\",\"color7\":\"#e5e9f0\",\"color8\":\"#4c566a\",\"color9\":\"#bf616a\",\"color10\":\"#a3be8c\",\"color11\":\"#ebcb8b\",\"color12\":\"#81a1c1\",\"color13\":\"#b48ead\",\"color14\":\"#8fbcbb\",\"color15\":\"#eceff4\"}}" > $HOME/Documents/Git/dotfiles/termite/solid-theme.json
 
     # Gruvbox dark hard contrast
     echo "{\"special\":{\"background\":\"#1d2021\",\"foreground\":\"#ebdbb2\",\"cursor\":\"#d5d5d5\"},\"colors\":{\"color0\":\"#282828\",\"color1\":\"#cc241d\",\"color2\":\"#98971a\",\"color3\":\"#d79921\",\"color4\":\"#458588\",\"color5\":\"#b16286\",\"color6\":\"#689d6a\",\"color7\":\"#a89984\",\"color8\":\"#928374\",\"color9\":\"#fb4934\",\"color10\":\"#b8bb26\",\"color11\":\"#fabd2f\",\"color12\":\"#83a598\",\"color13\":\"#d3869b\",\"color14\":\"#8ec07c\",\"color15\":\"#ebdbb2\"}}" > $HOME/Documents/Git/dotfiles/termite/solid-theme.json
@@ -174,22 +172,6 @@ function uniqc () {
     fi
 }
 
-function preview() {
-    for file in $(ls -A); do
-        if [[ -f $file ]]; then
-            echo "File: $(tput bold)$file$(tput sgr0)"
-            head -5 $file
-            echo
-        elif [[ -d $file ]]; then
-            echo "Folder: $(tput bold)$file$(tput sgr0)"
-            echo
-        fi
-    done
-
-    echo "Number of files: $(ls -A | wc -l)"
-    echo "Number of unique files: $(ls -A | sort | uniq -u | wc -l)"
-}
-
 function cargo_init() {
     if [ "$1" = "" ]; then
         echo "You must specify a project name"
@@ -224,7 +206,7 @@ function ts_init() {
     else
         mkdir $1
         cd $1
-        git init
+        git status >/dev/null 2>&1 || { git init }
         npm init
         mkdir src
 
@@ -258,38 +240,14 @@ function pach () {
     cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
 }
 
-function up_one_func {
-    cd ..
-    zle reset-prompt
-}
-
 function gst_func {
     echo
     git status
     zle reset-prompt
 }
 
-function mb_func {
-    eval $JBUILD_COMMAND
-    zle reset-prompt
-}
-
-function mr_func {
-    eval $JRUN_COMMAND
-    zle reset-prompt
-}
-
-zle -N up_one_widget up_one_func
-bindkey '^E' up_one_widget
-
 zle -N gst_widget gst_func
 bindkey '^G' gst_widget
-
-zle -N mb_widget mb_func
-bindkey '^B' mb_widget
-
-zle -N mr_widget mr_func
-bindkey '^N' mr_widget
 
 # Opt out of .NET telemetry (yikes...)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -302,12 +260,7 @@ export PATH=$HOME/Dev/Go/bin:$PATH
 export FZF_DEFAULT_COMMAND="rg --files"
 
 # npm global packages config
-export NPM_PATH="$HOME/.npm-global"
-export PATH="$NPM_PATH/bin:$PATH"
 export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
-
-# Add completions for heroku.sh script
-fpath=(~/Dev/Work/saasquatch/packages/programs $fpath)
 
 # Add cargo binaries
 export PATH="$HOME/.cargo/bin:$PATH"
