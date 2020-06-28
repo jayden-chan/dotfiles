@@ -265,6 +265,9 @@ export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
 # Add cargo binaries
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Add other binaries
+export PATH="$HOME/.local/bin:$PATH"
+
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
 
