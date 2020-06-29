@@ -6,3 +6,9 @@ utc_time_offset = "-6"
 [character]
 error_symbol = "✗"
 use_symbol_for_status=true
+
+[package]
+disabled=true
+
+[nodejs]
+disabled=true
