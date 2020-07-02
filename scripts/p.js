@@ -5,15 +5,15 @@
 const { spawn } = require("child_process");
 const { readFileSync, writeFileSync } = require("fs");
 
-const PROGRAMS_PATH = `/home/jayden/Documents/Git/dotfiles/packages.json`;
-const YAY_COMMANDS = ["-S", "-Rsn", "-Yc"];
+const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
+const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu"];
 
 const programs = JSON.parse(readFileSync(PROGRAMS_PATH, { encoding: "utf8" }));
 const command = process.argv[2];
 const args = process.argv.slice(3);
 const progs = args.filter((a) => !a.startsWith("-"));
 
-let yayCommand = "";
+let yayCommand;
 switch (command) {
   case "i":
   case "install":
@@ -27,22 +27,46 @@ switch (command) {
   case "clean":
     yayCommand = YAY_COMMANDS[2];
     break;
+  case "a":
+  case "add":
+    const host = args[0];
+    const packs = args.slice(1);
+    if (!packs.length || !Object.keys(programs).includes(host)) {
+      console.error("Missing package name or host");
+    } else {
+      programs[host].push(...packs);
+      writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+    }
+    break;
+  case "v":
+  case "verify":
+    const progs = readFileSync(0, { encoding: "utf8" })
+      .trim()
+      .split("\n")
+      .filter((p) => Object.values(programs).every((arr) => !arr.includes(p)));
+    console.log(progs.join("\n"));
+    break;
   case "-h":
   case "--help":
     console.log("p - A helper script on top of another helper script");
     console.log();
     console.log("Commands:");
-    console.log("      install (i): install packages");
-    console.log("    uninstall (u): uninstall packages");
-    console.log("        clean (c): clean unused packages");
-    process.exit(0);
+    console.log("      install (i): <package>            install packages");
+    console.log("    uninstall (u): <package>            uninstall packages"); // prettier-ignore
+    console.log("        clean (c):                      clean unused packages"); // prettier-ignore
+    console.log("          add (a): <host> <packages...> add a package to the list"); // prettier-ignore
+    console.log("       verify (v):                      list packages not found in list"); // prettier-ignore
+    break;
+  default:
+    yayCommand = YAY_COMMANDS[3];
 }
+
+if (!yayCommand) process.exit(0);
 
 const yay = spawn("yay", [yayCommand, ...args], {
   stdio: "inherit",
 });
 
-programs.all.splice(programs.all.indexOf("wget"), 1);
 yay.on("close", (code) => {
   if (code !== 0) {
     process.exit(code);
@@ -67,16 +91,19 @@ yay.on("close", (code) => {
 
       process.stdin.on("data", (data) => {
         const key = data.toString("utf8").trim();
-        if (["", "y", "Y"].includes(key)) {
-          programs.all.push(...newProgs);
-          console.log(`${progsString} added to global list`);
-        } else if (["g", "G"].includes(key)) {
-          programs.grace.push(...newProgs);
-          console.log(`${progsString} added to global list`);
-        } else if (["s", "S"].includes(key)) {
-          programs.swift.push(...newProgs);
-          console.log(`${progsString} added to global list`);
-        }
+        const matches = {
+          all: ["", "y", "Y"],
+          grace: ["g", "G"],
+          swift: ["s", "S"],
+        };
+
+        Object.entries(matches).some(([host, arr]) => {
+          if (arr.includes(key)) {
+            programs[host].push(...newProgs);
+            console.log(`${progsString} added to "${host}" list`);
+            return true;
+          }
+        });
 
         writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
         process.exit(code);

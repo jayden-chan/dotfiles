@@ -1,7 +1,5 @@
 {
-  "grace": [
-    "android-studio"
-  ],
+  "grace": ["android-studio", "nvidia", "nvidia-settings"],
   "swift": [
     "alsa-utils",
     "bluez",
@@ -98,6 +96,11 @@
     "gnuplot",
     "traceroute",
     "usbutils",
-    "wget"
+    "wget",
+    "z",
+    "nvm",
+    "starship-bin",
+    "valgrind"
   ]
 }
+
