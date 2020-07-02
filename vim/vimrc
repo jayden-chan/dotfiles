@@ -35,7 +35,6 @@ filetype off
                     \ 'coc-json',
                     \ 'coc-eslint',
                     \ 'coc-prettier',
-                    \ 'coc-sql',
                     \ ]
 
         Plug 'jiangmiao/auto-pairs'
@@ -296,9 +295,6 @@ filetype off
 
     command! -nargs=0 Prettier :CocCommand prettier.formatFile
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, Prettier
-
-    command! -nargs=0 SqlFormat :CocCommand sql.Format
-    autocmd BufWritePre *.sql,*.psql, SqlFormat
 
     let g:javascript_plugin_jsdoc = 1
 
