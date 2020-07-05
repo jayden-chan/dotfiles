@@ -1,5 +1,9 @@
 {
-  "grace": ["android-studio", "nvidia", "nvidia-settings"],
+  "grace": [
+    "android-studio",
+    "nvidia",
+    "nvidia-settings"
+  ],
   "swift": [
     "alsa-utils",
     "bluez",
@@ -100,7 +104,7 @@
     "z",
     "nvm",
     "starship-bin",
-    "valgrind"
+    "valgrind",
+    "pdftk"
   ]
 }
-
