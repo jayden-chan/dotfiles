@@ -249,8 +249,10 @@ function gst_func {
 zle -N gst_widget gst_func
 bindkey '^G' gst_widget
 
+export DO_NOT_TRACK=1
 # Opt out of .NET telemetry (yikes...)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export GATSBY_TELEMETRY_DISABLED=1
 
 # Export gradle path
 export GOPATH=$HOME/Dev/Go
