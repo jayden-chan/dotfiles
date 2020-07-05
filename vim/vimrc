@@ -278,7 +278,7 @@ filetype off
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'
 
-    map <c-n> :NERDTreeToggle<CR>
+    map <silent> <c-n> :NERDTreeToggle<CR>
     let NERDTreeMapOpenSplit='h'
     let g:NERDTreeIgnore = ['^node_modules$']
     let g:NERDTreeFileExtensionHighlightFullName = 1
