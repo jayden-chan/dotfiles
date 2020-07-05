@@ -344,6 +344,15 @@ filetype off
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
+    " Make ripgrep fzf search ignore text from filenames (why isn't this the default...?)
+    command! -bang -nargs=* Rg call
+                \ fzf#vim#grep(
+                \"rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
+                \1,
+                \{'options': '--delimiter : --nth 4..'},
+                \<bang>0
+                \)
+
     let g:sql_type_default = 'pgsql'
 
     let g:tex_conceal = ''
