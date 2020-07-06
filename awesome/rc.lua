@@ -584,6 +584,7 @@ awful.rules.rules = {
           "Wpa_gui",
           "veromix",
           "Nautilus",
+          "Nitrogen",
           "feh",
           "xtightvncviewer"},
 
