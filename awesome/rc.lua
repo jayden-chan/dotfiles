@@ -62,24 +62,22 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod1"
 superkey = "Mod4"
 
+-- {{{ Variables
 scripts = "/home/jayden/Documents/Git/dotfiles/scripts"
-
 spotifybasecommand = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player."
-
 commandpp = spotifybasecommand .. "PlayPause"
 commandnext = spotifybasecommand .. "Next"
 commandprev = spotifybasecommand .. "Previous"
-
 printvol = " | xargs sh -c 'notify-send -h \"int:value:$0\" Sound Volume:'"
-
 brightnessnot = nil
 volumenot = nil
+-- }}}
 
 -- Get hostname of machine
 local f = io.popen ("/bin/hostname")
 hostname = f:read("*a") or ""
 f:close()
-hostname =string.gsub(hostname, "\n$", "")
+hostname = string.gsub(hostname, "\n$", "")
 
 -- Startup commands
 awful.util.spawn("picom --config /home/jayden/.config/picom.conf", false)
@@ -87,6 +85,7 @@ awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
 awful.util.spawn("xset r rate 270 35", false)
 
 -- Set esc as caps lock on laptop
+-- Caps lock is set as escape in keyboard firmware for desktop
 if (hostname == "swift") then
     awful.util.spawn("xmodmap -e \"clear lock\"", false)
     awful.util.spawn("xmodmap -e \"keysym Caps_Lock = Escape\"", false)
