@@ -2,7 +2,7 @@
 // @ts-check
 "use strict";
 
-const { spawn } = require("child_process");
+const { spawn, spawnSync } = require("child_process");
 const { readFileSync, writeFileSync } = require("fs");
 
 const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
@@ -12,6 +12,17 @@ const programs = JSON.parse(readFileSync(PROGRAMS_PATH, { encoding: "utf8" }));
 const command = process.argv[2];
 const args = process.argv.slice(3);
 const progs = args.filter((a) => !a.startsWith("-"));
+
+function removePacks(toRemove) {
+  toRemove.forEach((pack) => {
+    Object.entries(programs).forEach(([host, arr]) => {
+      const found = arr.indexOf(pack);
+      if (found !== -1) {
+        programs[host].splice(found, 1);
+      }
+    });
+  });
+}
 
 let yayCommand;
 switch (command) {
@@ -29,22 +40,36 @@ switch (command) {
     break;
   case "a":
   case "add":
-    const host = args[0];
-    const packs = args.slice(1);
-    if (!packs.length || !Object.keys(programs).includes(host)) {
+    // args[0] = host
+    // remaining args = packages
+    if (!args.slice(1).length || !Object.keys(programs).includes(args[0])) {
       console.error("Missing package name or host");
     } else {
-      programs[host].push(...packs);
+      programs[args[0]].push(...args.slice(1));
+      writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+    }
+    break;
+  case "r":
+  case "remove":
+    if (!args[0]) {
+      console.log("Provide packages to remove");
+    } else {
+      removePacks(args);
       writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
     }
     break;
   case "v":
   case "verify":
-    const progs = readFileSync(0, { encoding: "utf8" })
-      .trim()
-      .split("\n")
-      .filter((p) => Object.values(programs).every((arr) => !arr.includes(p)));
-    console.log(progs.join("\n"));
+    const installed = spawnSync("yay", ["-Qqe"]).stdout.toString().split("\n");
+    Object.entries(programs).forEach(([host, arr]) => {
+      if (host === "all" || process.env.HOST === host) {
+        arr.forEach((p) => {
+          if (!installed.includes(p)) {
+            console.log(p);
+          }
+        });
+      }
+    });
     break;
   case "-h":
   case "--help":

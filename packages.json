@@ -1,10 +1,7 @@
 {
-  "grace": [
-    "android-studio",
-    "nvidia",
-    "nvidia-settings"
-  ],
+  "grace": ["android-studio", "nvidia", "nvidia-settings"],
   "swift": [
+    "ponymix",
     "alsa-utils",
     "bluez",
     "bluez-utils",
@@ -13,7 +10,6 @@
     "light"
   ],
   "all": [
-    "google-cloud-sdk",
     "insomnia",
     "spotify",
     "heroku-cli",
@@ -30,7 +26,6 @@
     "libreoffice-fresh",
     "flashplugin",
     "neovim",
-    "python-neovim",
     "firefox",
     "git",
     "cmake",
@@ -41,9 +36,7 @@
     "make",
     "autoconf",
     "bison",
-    "python",
     "python-pip",
-    "python-pylint",
     "rustup",
     "go",
     "docker",
@@ -51,7 +44,7 @@
     "ctags",
     "postgresql",
     "arandr",
-    "compton",
+    "picom",
     "cups",
     "awesome",
     "lightdm",
@@ -66,16 +59,13 @@
     "ripgrep",
     "htop",
     "iputils",
-    "ponymix",
     "android-file-transfer",
     "ntfs-3g",
-    "curl",
     "bat",
     "exa",
     "transmission-cli",
     "mlocate",
     "imagemagick",
-    "texlive-most",
     "biber",
     "neofetch",
     "unzip",
@@ -105,6 +95,8 @@
     "nvm",
     "starship-bin",
     "valgrind",
-    "pdftk"
+    "pdftk",
+    "texlive-core"
   ]
 }
+

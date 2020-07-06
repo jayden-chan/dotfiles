@@ -82,7 +82,7 @@ f:close()
 hostname =string.gsub(hostname, "\n$", "")
 
 -- Startup commands
-awful.util.spawn("compton --config /home/jayden/.config/compton.conf", false)
+awful.util.spawn("picom --config /home/jayden/.config/picom.conf", false)
 awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
 awful.util.spawn("xset r rate 270 35", false)
 

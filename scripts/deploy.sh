@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -rf $HOME/.config/compton.conf 2>/dev/null
+rm -rf $HOME/.config/picom.conf   2>/dev/null
 rm -rf $HOME/.config/rofi         2>/dev/null
 rm -rf $HOME/.config/nvim         2>/dev/null
 rm -rf $HOME/.vim                 2>/dev/null
@@ -8,12 +8,11 @@ rm -rf $HOME/.config/kitty        2>/dev/null
 
 mkdir -p $HOME/.config/nvim/colors
 mkdir -p $HOME/.config/nvim/spell
-mkdir -p $HOME/.config/compton
 mkdir -p $HOME/.config/rofi
 mkdir -p $HOME/.config/kitty
 
 cd $HOME
-ln -fs $HOME/Documents/Git/dotfiles/compton/compton.conf    $HOME/.config/compton.conf
+ln -fs $HOME/Documents/Git/dotfiles/picom/picom.conf        $HOME/.config/picom.conf
 ln -fs $HOME/Documents/Git/dotfiles/git/gitconfig           $HOME/.gitconfig
 ln -fs $HOME/Documents/Git/dotfiles/latex/latexmkrc         $HOME/.latexmkrc
 ln -fs $HOME/Documents/Git/dotfiles/rofi/theme.rasi         $HOME/.config/rofi/theme.rasi

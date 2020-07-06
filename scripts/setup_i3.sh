@@ -77,7 +77,7 @@ postgresql
 
 export system="
 arandr
-compton
+picom
 cups
 awesome
 lightdm
