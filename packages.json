@@ -1,10 +1,5 @@
 {
-  "grace": [
-    "android-studio",
-    "nvidia",
-    "nvidia-settings",
-    "numlockx"
-  ],
+  "grace": ["android-studio", "nvidia", "nvidia-settings", "numlockx"],
   "swift": [
     "ponymix",
     "alsa-utils",
@@ -99,6 +94,8 @@
     "starship-bin",
     "valgrind",
     "pdftk",
-    "texlive-core"
+    "texlive-core",
+    "watchman"
   ]
 }
+

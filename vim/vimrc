@@ -424,6 +424,7 @@ filetype off
     iab ertnru   return
     iab thsi     this
     iab fcuntoin function
+    iab functoin function
     iab fucntion function
     iab funcotin function
     iab funcoitn function
@@ -431,6 +432,9 @@ filetype off
     iab funciotn function
     iab costn    const
     iab conts    const
+    iab csont    const
+    iab asunyc   async
+    iab asuyuc   async
     iab THe      The
     iab THis     This
     iab !+       !=
