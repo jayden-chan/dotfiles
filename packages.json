@@ -1,5 +1,10 @@
 {
-  "grace": ["android-studio", "nvidia", "nvidia-settings"],
+  "grace": [
+    "android-studio",
+    "nvidia",
+    "nvidia-settings",
+    "numlockx"
+  ],
   "swift": [
     "ponymix",
     "alsa-utils",
@@ -38,7 +43,6 @@
     "bison",
     "python-pip",
     "rustup",
-    "go",
     "docker",
     "diff-so-fancy",
     "ctags",
@@ -49,7 +53,6 @@
     "awesome",
     "lightdm",
     "lightdm-gtk-greeter",
-    "numlockx",
     "pulseaudio",
     "rofi",
     "kitty",
@@ -99,4 +102,3 @@
     "texlive-core"
   ]
 }
-
