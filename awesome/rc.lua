@@ -585,6 +585,7 @@ awful.rules.rules = {
           "veromix",
           "Nautilus",
           "Nitrogen",
+          "hue_ui",
           "feh",
           "xtightvncviewer"},
 

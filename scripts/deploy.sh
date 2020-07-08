@@ -5,11 +5,13 @@ rm -rf $HOME/.config/rofi         2>/dev/null
 rm -rf $HOME/.config/nvim         2>/dev/null
 rm -rf $HOME/.vim                 2>/dev/null
 rm -rf $HOME/.config/kitty        2>/dev/null
+rm -rf $HOME/.config/systemd/     2>/dev/null
 
 mkdir -p $HOME/.config/nvim/colors
 mkdir -p $HOME/.config/nvim/spell
 mkdir -p $HOME/.config/rofi
 mkdir -p $HOME/.config/kitty
+mkdir -p $HOME/.config/systemd/user
 
 cd $HOME
 ln -fs $HOME/Documents/Git/dotfiles/picom/picom.conf        $HOME/.config/picom.conf
@@ -27,3 +29,7 @@ ln -fs $HOME/Documents/Git/dotfiles/awesome/theme.lua       $HOME/.config/awesom
 ln -fs $HOME/Documents/Git/dotfiles/awesome/rc.lua          $HOME/.config/awesome/rc.lua
 ln -fs $HOME/Documents/Git/dotfiles/kitty/kitty.conf        $HOME/.config/kitty/kitty.conf
 ln -fs $HOME/Documents/Git/dotfiles/starship/starship.toml  $HOME/.config/starship.toml
+
+if [ $(hostname) = "grace" ]; then
+    ln -fs $HOME/Documents/Git/dotfiles/systemctl/hue.service $HOME/.config/systemd/user/hue.service
+fi

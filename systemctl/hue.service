@@ -1,0 +1,8 @@
+[Unit]
+Description=NZXT Hue Plus Init
+
+[Service]
+ExecStart=%h/.local/bin/hue profile apply bluepink
+
+[Install]
+WantedBy=default.target
