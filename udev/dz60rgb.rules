@@ -1,0 +1,1 @@
+ACTION=="add", ATTRS{idVendor}=="feed", ATTRS{idProduct}=="1219", RUN+="/home/jayden/Documents/Git/dotfiles/scripts/keyboard.sh"

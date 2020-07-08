@@ -92,7 +92,6 @@ alias l='exa -a'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias open='feh --auto-zoom --force-aliasing'
 alias o='xdg-open'
-alias x='xset r rate 270 35'
 alias clip='xclip -selection c'
 
 function wallpaper () {

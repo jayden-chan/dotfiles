@@ -34,3 +34,5 @@ ln -fs $dots/starship/starship.toml  $config/starship.toml
 if [ $(hostname) = "grace" ]; then
     ln -fs $dots/systemctl/hue.service $config/systemd/user/hue.service
 fi
+
+echo "Finished deployment, don't forget to copy udev rules into /etc/udev/rules.d/"
