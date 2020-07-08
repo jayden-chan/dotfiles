@@ -430,6 +430,7 @@ filetype off
     iab funcoitn function
     iab funciton function
     iab funciotn function
+    iab fcuntion function
     iab costn    const
     iab conts    const
     iab csont    const

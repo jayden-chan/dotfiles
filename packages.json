@@ -1,5 +1,10 @@
 {
-  "grace": ["android-studio", "nvidia", "nvidia-settings", "numlockx"],
+  "grace": [
+    "android-studio",
+    "nvidia",
+    "nvidia-settings",
+    "numlockx"
+  ],
   "swift": [
     "ponymix",
     "alsa-utils",
@@ -38,7 +43,6 @@
     "bison",
     "python-pip",
     "rustup",
-    "docker",
     "diff-so-fancy",
     "ctags",
     "postgresql",
@@ -95,7 +99,7 @@
     "valgrind",
     "pdftk",
     "texlive-core",
-    "watchman"
+    "watchman",
+    "pulseeffects"
   ]
 }
-
