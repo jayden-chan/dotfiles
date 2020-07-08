@@ -91,6 +91,10 @@ if (hostname == "swift") then
     awful.util.spawn("xmodmap -e \"keysym Caps_Lock = Escape\"", false)
 end
 
+if (hostname == "grace") then
+    awful.util.spawn("hue profile apply bluepink", false)
+end
+
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
