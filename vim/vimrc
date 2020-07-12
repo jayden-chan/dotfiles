@@ -420,6 +420,7 @@ filetype off
     iab rerturn  return
     iab rertrun  return
     iab retnru   return
+    iab retunr   return
     iab erturn   return
     iab ertnru   return
     iab thsi     this
@@ -434,6 +435,7 @@ filetype off
     iab costn    const
     iab conts    const
     iab csont    const
+    iab cosnt    const
     iab asunyc   async
     iab asuyuc   async
     iab THe      The
