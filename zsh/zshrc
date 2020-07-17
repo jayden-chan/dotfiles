@@ -32,7 +32,6 @@ setopt extendedglob
 
 # Git alias
 alias gdf='cd $HOME/Documents/Git/dotfiles && git status'
-alias gpf='cd $HOME/Documents/Git/programming-folder && git status'
 alias gc='git commit -v -S'
 alias gcop='git checkout production'
 alias gpuu='git push -u origin $(git symbolic-ref --short HEAD)'
@@ -93,6 +92,7 @@ alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/i
 alias open='feh --auto-zoom --force-aliasing'
 alias o='xdg-open'
 alias clip='xclip -selection c'
+alias x='xset r rate 270 35'
 
 function wallpaper () {
     if [ $HOST = "grace" ]; then
@@ -211,7 +211,7 @@ function ts_init() {
 
         echo "# $1" > README.md
         echo "function main() {\n  console.log(\"Hello world\");\n}\n\nmain();" > src/index.ts
-        echo "dist\nnode_modules\n*.swp" > .gitignore
+        echo "dist\nnode_modules\n*.swp\n*.env" > .gitignore
         echo '{
   "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.json"],
   "compilerOptions": {
