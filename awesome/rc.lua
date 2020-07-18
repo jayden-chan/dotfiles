@@ -81,7 +81,6 @@ hostname = string.gsub(hostname, "\n$", "")
 
 -- Startup commands
 awful.util.spawn("picom --config /home/jayden/.config/picom.conf", false)
-awful.util.spawn("pulseeffects --gapplication-service", false)
 awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
 awful.util.spawn("xset r rate 270 35", false)
 
