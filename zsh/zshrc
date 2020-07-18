@@ -37,9 +37,6 @@ alias gcop='git checkout production'
 alias gpuu='git push -u origin $(git symbolic-ref --short HEAD)'
 
 # Compilation
-alias javc='javac -Xlint:all'
-alias javca='javac -Xlint:all *.java'
-alias javcl='rm *.class'
 alias lcm='latexmk -pvc -pdf'
 alias gr='./gradlew'
 alias god='cd ~/Dev/Go/src/github.com/jayden-chan/'
@@ -253,7 +250,7 @@ export DO_NOT_TRACK=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GATSBY_TELEMETRY_DISABLED=1
 
-# Export gradle path
+# Export Go path
 export GOPATH=$HOME/Dev/Go
 export PATH=$HOME/Dev/Go/bin:$PATH
 
