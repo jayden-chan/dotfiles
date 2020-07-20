@@ -101,6 +101,7 @@
     "texlive-core",
     "watchman",
     "pulseeffects",
-    "nautilus-open-any-terminal"
+    "nautilus-open-any-terminal",
+    "reflector"
   ]
 }
