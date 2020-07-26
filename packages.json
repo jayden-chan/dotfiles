@@ -3,7 +3,8 @@
     "android-studio",
     "nvidia",
     "nvidia-settings",
-    "numlockx"
+    "numlockx",
+    "rpi-imager"
   ],
   "swift": [
     "ponymix",
