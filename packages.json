@@ -4,7 +4,9 @@
     "nvidia",
     "nvidia-settings",
     "numlockx",
-    "rpi-imager"
+    "rpi-imager",
+    "tesseract",
+    "tesseract-data-eng"
   ],
   "swift": [
     "ponymix",
@@ -103,6 +105,8 @@
     "watchman",
     "pulseeffects",
     "nautilus-open-any-terminal",
-    "reflector"
+    "reflector",
+    "deno",
+    "exfat-utils"
   ]
 }
