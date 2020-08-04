@@ -1,0 +1,11 @@
+Host stealthlocal
+    Hostname 192.168.1.118
+    Port 32223
+    IdentityFile ~/.ssh/stealth
+    IdentitiesOnly yes
+
+Host stealth
+    Hostname homepistealth.ddns.net
+    Port 32223
+    IdentityFile ~/.ssh/stealth
+    IdentitiesOnly yes

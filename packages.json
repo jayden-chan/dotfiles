@@ -6,7 +6,8 @@
     "numlockx",
     "rpi-imager",
     "tesseract",
-    "tesseract-data-eng"
+    "tesseract-data-eng",
+    "avahi"
   ],
   "swift": [
     "ponymix",
