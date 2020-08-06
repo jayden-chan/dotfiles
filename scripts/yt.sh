@@ -20,6 +20,7 @@ readarray -t y <<<"$x"
 # y[2] - audio URL
 # y[3] - JSON info
 
-vlc "${y[1]}" --input-slave "${y[2]}" --audio --meta-title="${y[0]}"
+echo "${y[3]}" | jq -c "{script: true, title: (\"Watched \" + .title), titleUrl: (\"https://www.youtube.com/watch?v=\" + .id), subtitles: {name: .uploader, url: .channel_url}, time: \"$(date --utc +'%Y-%m-%dT%H:%M:%S.%3NZ')\"}" >> $historyfile
 
-echo "${y[3]}" | jq -c "{script: true, header: \"YouTube\", title: (\"Watched \" + .title), titleUrl: (\"https://www.youtube.com/watch?v=\" + .id), subtitles: {name: .uploader, url: .channel_url}, time: \"$(date --utc +'%Y-%m-%dT%H:%M:%S.%3NZ')\", products: [\"YouTube\"]}" >> $historyfile
+echo "Opening stream in vlc..."
+vlc "${y[1]}" --input-slave "${y[2]}" --audio --meta-title="${y[0]}" --fullscreen 2>/dev/null
