@@ -108,6 +108,7 @@
     "nautilus-open-any-terminal",
     "reflector",
     "deno",
-    "exfat-utils"
+    "exfat-utils",
+    "iperf3"
   ]
 }
