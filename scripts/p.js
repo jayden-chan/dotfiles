@@ -108,6 +108,8 @@ yay.on("close", (code) => {
         Object.values(programs).every((arr) => !arr.includes(prog))
       );
 
+      if (newProgs.length === 0) process.exit(code);
+
       const progsString =
         newProgs.length === 1
           ? `${newProgs[0]}`
