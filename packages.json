@@ -109,6 +109,7 @@
     "reflector",
     "deno",
     "exfat-utils",
-    "iperf3"
+    "iperf3",
+    "youtube-dl"
   ]
 }

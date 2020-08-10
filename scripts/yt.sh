@@ -23,4 +23,5 @@ readarray -t y <<<"$x"
 echo "${y[3]}" | jq -c "{script: true, title: (\"Watched \" + .title), titleUrl: (\"https://www.youtube.com/watch?v=\" + .id), subtitles: {name: .uploader, url: .channel_url}, time: \"$(date --utc +'%Y-%m-%dT%H:%M:%S.%3NZ')\"}" >> $historyfile
 
 echo "Opening stream in vlc..."
+echo "${y[3]}" | jq -r '"Quality: " + (.requested_formats[0].height|tostring) + "p " + (.requested_formats[0].fps|tostring) + "fps " + (.requested_formats[0].vcodec|tostring) + " " + (.requested_formats[1].acodec|tostring)'
 vlc "${y[1]}" --input-slave "${y[2]}" --audio --meta-title="${y[0]}" --fullscreen 2>/dev/null
