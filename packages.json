@@ -110,6 +110,7 @@
     "deno",
     "exfat-utils",
     "iperf3",
-    "youtube-dl"
+    "youtube-dl",
+    "profile-sync-daemon"
   ]
 }
