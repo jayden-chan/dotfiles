@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 from lirc import RawConnection
 from time import sleep
 from subprocess import run, Popen
@@ -75,6 +74,8 @@ def ProcessIRRemote(conn, mode, mmove):
             key("Up")
         elif (command == "KEY_VOLUMEDOWN"):
             key("Down")
+        elif (command == "KEY_MUTE"):
+            key("m")
         elif (command == "KEY_HOME"):
             key("space")
         elif (command == "KEY_OK"):
