@@ -87,6 +87,10 @@ def ProcessIRRemote(conn, mode, mmove):
             print("Changing to mode " + mode)
         elif (command == "KEY_INFO"):
             key("ctrl+i")
+        elif (command == "KEY_RED"):
+            Popen(["xdg-open", "https://www.youtube.com"])
+        elif (command == "KEY_BLUE"):
+            Popen(["xdg-open", "https://www.twitch.tv/directory/following/live"])
         else:
             print(command)
 
