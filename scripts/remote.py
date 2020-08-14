@@ -74,6 +74,10 @@ def ProcessIRRemote(conn, mode, mmove):
             key("Up")
         elif (command == "KEY_VOLUMEDOWN"):
             key("Down")
+        elif (command == "KEY_PAGEUP"):
+            key("Page_Up")
+        elif (command == "KEY_PAGEDOWN"):
+            key("Page_Down")
         elif (command == "KEY_MUTE"):
             key("m")
         elif (command == "KEY_HOME"):
