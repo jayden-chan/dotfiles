@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from lirc import RawConnection
 from time import sleep
 from subprocess import run, Popen
