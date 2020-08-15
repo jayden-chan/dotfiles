@@ -17,7 +17,7 @@ def click(btn):
 def mousemove(x, y):
     Popen(["xdotool", "mousemove_relative", "--", str(x), str(y)])
 
-def ProcessIRRemote(conn, mode, mmove):
+def ProcessIRRemote(conn, mmove):
     #keypress format = (hexcode, repeat_num, command_key, remote_id)
     try:
         keypress = conn.readline(.0001)
@@ -32,17 +32,17 @@ def ProcessIRRemote(conn, mode, mmove):
 
         # Ignore remotes that we don't care about
         if (remote_id != "XR4000"):
-            return mode, mmove
+            return mmove
 
         # Ignore the first few additional presses after the first one
         # Basically create a key repeat delay of about ~0.3 seconds
-        if (mode == "mouse" and (command == "KEY_LEFT" or command == "KEY_RIGHT" or command == "KEY_UP" or command == "KEY_DOWN")):
+        if (command == "KEY_LEFT" or command == "KEY_RIGHT" or command == "KEY_UP" or command == "KEY_DOWN"):
             if (sequence == 0):
                 mmove = 10
             else:
                 mmove = min(mmove + sequence * 2, 200)
         elif (sequence != 0 and sequence < 5):
-            return mode, mmove
+            return mmove
 
         if (command == "KEY_LEFT"):
             mousemove(-mmove, 0)
@@ -78,6 +78,10 @@ def ProcessIRRemote(conn, mode, mmove):
             key("Page_Up")
         elif (command == "KEY_PAGEDOWN"):
             key("Page_Down")
+        elif (command == "KEY_FASTFORWARD"):
+            key("n")
+        elif (command == "KEY_REWIND"):
+            key("p")
         elif (command == "KEY_MUTE"):
             key("m")
         elif (command == "KEY_HOME"):
@@ -86,12 +90,10 @@ def ProcessIRRemote(conn, mode, mmove):
             click(1)
         elif (command == "KEY_G"):
             key("Right")
+        elif (command == "KEY_BACK"):
+            key("f")
         elif (command == "KEY_TV"):
             key("Left")
-        elif (command == "BTN_MOUSE"):
-            mode = "mouse" if mode == "normal" else "normal"
-            mmove = 50 if mode == "normal" else 5
-            print("Changing to mode " + mode)
         elif (command == "KEY_INFO"):
             key("ctrl+i")
         elif (command == "KEY_RED"):
@@ -101,7 +103,7 @@ def ProcessIRRemote(conn, mode, mmove):
         else:
             print(command)
 
-    return mode, mmove
+    return mmove
 
 class GracefulKiller:
   kill_now = False
@@ -114,12 +116,11 @@ class GracefulKiller:
 
 if __name__ == '__main__':
     print("Starting up")
-    mode = "normal"
     mmove = 50
     conn = RawConnection()
     killer = GracefulKiller()
     print("Listening for remote commands")
     while not killer.kill_now:
-        mode, mmove = ProcessIRRemote(conn, mode, mmove)
+        mmove = ProcessIRRemote(conn, mmove)
 
     print("Exiting")
