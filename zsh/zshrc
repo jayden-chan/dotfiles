@@ -283,4 +283,8 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+# Termite open window in new tab
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi

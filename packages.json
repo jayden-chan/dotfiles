@@ -7,7 +7,8 @@
     "rpi-imager",
     "tesseract",
     "tesseract-data-eng",
-    "avahi"
+    "avahi",
+    "vlc"
   ],
   "swift": [
     "ponymix",
@@ -31,7 +32,6 @@
     "pavucontrol",
     "feh",
     "maim",
-    "vlc",
     "libreoffice-fresh",
     "flashplugin",
     "neovim",

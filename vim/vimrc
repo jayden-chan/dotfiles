@@ -236,6 +236,9 @@ filetype off
     " Make c-p function like c-i since c-i was previously remapped
     nnoremap <c-p> <c-i>
 
+    " <leader><leader> toggles between buffers
+    nnoremap <leader><leader> <c-^>
+
     " Disable Ex mode
     map q: <nop>
     map Q <nop>
