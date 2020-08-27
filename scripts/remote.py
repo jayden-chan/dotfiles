@@ -100,6 +100,9 @@ def ProcessIRRemote(conn, mmove):
             Popen(["xdg-open", "https://www.youtube.com"])
         elif (command == "KEY_BLUE"):
             Popen(["xdg-open", "https://www.twitch.tv/directory/following/live"])
+        elif (command == "KEY_POWER"):
+            with open("/tmp/yt_shutdown", "w") as f:
+                f.write("yes")
         else:
             print(command)
 

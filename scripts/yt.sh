@@ -4,11 +4,13 @@ set -e
 
 historyfile="$HOME/.youtube-history.ndjson"
 
+echo "no" > /tmp/yt_shutdown
+
 url=""
 if [ -z "$1" ]; then
-	url=$(xclip -out -selection clipboard)
+    url=$(xclip -out -selection clipboard)
 else
-	url=$1
+    url=$1
 fi
 
 echo "Fetching streaming information..."
@@ -25,3 +27,10 @@ echo "${y[3]}" | jq -c "{script: true, title: (\"Watched \" + .title), titleUrl:
 echo "Opening stream in vlc..."
 echo "${y[3]}" | jq -r '"Quality: " + (.requested_formats[0].height|tostring) + "p " + (.requested_formats[0].fps|tostring) + "fps " + (.requested_formats[0].vcodec|tostring) + " " + (.requested_formats[1].acodec|tostring)'
 vlc "${y[1]}" --input-slave "${y[2]}" --audio --meta-title="${y[0]}" --fullscreen --play-and-exit 2>/dev/null
+
+should_close=$(</tmp/yt_shutdown)
+if [ "$should_close" = "yes" ]; then
+    for i in $(seq 10); do
+        irsend --device=/var/run/lirc/lircd-tx SEND_ONCE XR4000 KEY_POWER2
+    done
+fi
