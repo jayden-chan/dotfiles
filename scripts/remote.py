@@ -103,6 +103,7 @@ def ProcessIRRemote(conn, mmove):
         elif (command == "KEY_POWER"):
             with open("/tmp/yt_shutdown", "w") as f:
                 f.write("yes")
+                Popen(["notify-send", "remote.py", "Projector will shutdown after video ends", "-i", "display", "-t", "3000"])
         else:
             print(command)
 
