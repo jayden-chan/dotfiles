@@ -17,6 +17,9 @@ def click(btn):
 def mousemove(x, y):
     Popen(["xdotool", "mousemove_relative", "--", str(x), str(y)])
 
+def notify(title, message, icon):
+    Popen(["notify-send", title, message, "-i", icon, "-t", "3000"])
+
 def ProcessIRRemote(conn, mmove):
     #keypress format = (hexcode, repeat_num, command_key, remote_id)
     try:
@@ -101,9 +104,16 @@ def ProcessIRRemote(conn, mmove):
         elif (command == "KEY_BLUE"):
             Popen(["xdg-open", "https://www.twitch.tv/directory/following/live"])
         elif (command == "KEY_POWER"):
-            with open("/tmp/yt_shutdown", "w") as f:
-                f.write("yes")
-                Popen(["notify-send", "remote.py", "Projector will shutdown after video ends", "-i", "display", "-t", "3000"])
+            with open("/tmp/yt_shutdown", "r+") as f:
+                contents = f.read()
+                f.seek(0)
+                if (contents == "yes"):
+                    f.write("no")
+                    notify("remote.py", "Shutdown cancelled", "display");
+                else:
+                    f.write("yes")
+                    notify("remote.py", "Projector will shutdown after video ends", "display");
+                f.truncate()
         else:
             print(command)
 
