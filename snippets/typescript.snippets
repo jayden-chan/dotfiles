@@ -49,16 +49,12 @@ snippet given
 	});
 
 snippet react
-	import React, { Component } from 'react';
+	import React from 'react';
 
-	class ${1:} extends Component {
-	  render() {
-	    return (
-	      <div>
-	        ${0}
-	      </div>
-	    );
-	  }
+	export default function ${1:}() {
+	  return (
+	    <div>
+		  ${0}
+		</div>
+	  )
 	}
-
-	export default $1;
