@@ -14,6 +14,12 @@ def keys(keys):
 def click(btn):
     Popen(["xdotool", "click", str(btn)])
 
+def scroll(direction):
+    if (direction == "down"):
+        Popen(["xdotool", "click", "5", "5", "5", "5", "5"])
+    else:
+        Popen(["xdotool", "click", "4", "4", "4", "4", "4"])
+
 def mousemove(x, y):
     Popen(["xdotool", "mousemove_relative", "--", str(x), str(y)])
 
@@ -77,6 +83,18 @@ def ProcessIRRemote(conn, mmove):
             key("Up")
         elif (command == "KEY_VOLUMEDOWN"):
             key("Down")
+        elif (command == "KEY_CHANNELUP"):
+            run(["xdotool", "click", "4"])
+            run(["xdotool", "click", "4"])
+            run(["xdotool", "click", "4"])
+            run(["xdotool", "click", "4"])
+            run(["xdotool", "click", "4"])
+        elif (command == "KEY_CHANNELDOWN"):
+            run(["xdotool", "click", "5"])
+            run(["xdotool", "click", "5"])
+            run(["xdotool", "click", "5"])
+            run(["xdotool", "click", "5"])
+            run(["xdotool", "click", "5"])
         elif (command == "KEY_PAGEUP"):
             key("Page_Up")
         elif (command == "KEY_PAGEDOWN"):
@@ -95,6 +113,8 @@ def ProcessIRRemote(conn, mmove):
             key("Right")
         elif (command == "KEY_BACK"):
             key("f")
+        elif (command == "KEY_LAST"):
+            key("BackSpace")
         elif (command == "KEY_TV"):
             key("Left")
         elif (command == "KEY_INFO"):
