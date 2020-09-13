@@ -111,6 +111,7 @@
     "exfat-utils",
     "iperf3",
     "youtube-dl",
-    "profile-sync-daemon"
+    "profile-sync-daemon",
+    "paprefs"
   ]
 }
