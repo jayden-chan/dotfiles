@@ -20,6 +20,9 @@ def scroll(direction):
     else:
         Popen(["xdotool", "click", "4", "4", "4", "4", "4"])
 
+def mousejump(x, y):
+    Popen(["xdotool", "mousemove", "--", str(x), str(y)])
+
 def mousemove(x, y):
     Popen(["xdotool", "mousemove_relative", "--", str(x), str(y)])
 
@@ -45,12 +48,7 @@ def ProcessIRRemote(conn, mmove):
 
         # Ignore the first few additional presses after the first one
         # Basically create a key repeat delay of about ~0.3 seconds
-        if (command == "KEY_LEFT" or command == "KEY_RIGHT" or command == "KEY_UP" or command == "KEY_DOWN"):
-            if (sequence == 0):
-                mmove = 10
-            else:
-                mmove = min(mmove + sequence * 2, 200)
-        elif (sequence != 0 and sequence < 5):
+        if (sequence != 0 and sequence < 5):
             return mmove
 
         if (command == "KEY_LEFT"):
@@ -95,6 +93,14 @@ def ProcessIRRemote(conn, mmove):
             run(["xdotool", "click", "5"])
             run(["xdotool", "click", "5"])
             run(["xdotool", "click", "5"])
+        elif (command == "BTN_1"):
+            mousejump(531, 445)
+        elif (command == "BTN_2"):
+            mousejump(915, 445)
+        elif (command == "BTN_3"):
+            mousejump(1312, 445)
+        elif (command == "BTN_4"):
+            mousejump(1700, 445)
         elif (command == "KEY_PAGEUP"):
             key("Page_Up")
         elif (command == "KEY_PAGEDOWN"):
@@ -118,7 +124,10 @@ def ProcessIRRemote(conn, mmove):
         elif (command == "KEY_TV"):
             key("Left")
         elif (command == "KEY_INFO"):
-            key("ctrl+i")
+            if (mmove == 10):
+                mmove = 100
+            else:
+                mmove = 10
         elif (command == "KEY_RED"):
             Popen(["xdg-open", "https://www.youtube.com"])
         elif (command == "KEY_BLUE"):
