@@ -8,7 +8,10 @@
     "tesseract",
     "tesseract-data-eng",
     "avahi",
-    "vlc"
+    "vlc",
+    "cuda",
+    "virtualbox",
+    "virtualbox-host-modules-arch"
   ],
   "swift": [
     "ponymix",
