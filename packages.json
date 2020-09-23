@@ -115,6 +115,7 @@
     "iperf3",
     "youtube-dl",
     "profile-sync-daemon",
-    "paprefs"
+    "paprefs",
+    "yarn"
   ]
 }
