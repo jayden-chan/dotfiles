@@ -406,6 +406,9 @@ globalkeys = gears.table.join(
     awful.key({}, "Print", function()
         awful.util.spawn("sh " .. scripts .. "/screenshot.sh", false)
     end),
+    awful.key({superkey, "Shift"}, "s", function()
+        awful.util.spawn("sh " .. scripts .. "/screenshot.sh", false)
+    end),
     awful.key({"Shift"}, "Print", function()
         awful.util.spawn("sh " .. scripts .. "/screenshot.sh --monitor", false)
     end),

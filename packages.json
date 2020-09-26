@@ -11,7 +11,9 @@
     "vlc",
     "cuda",
     "virtualbox",
-    "virtualbox-host-modules-arch"
+    "virtualbox-host-modules-arch",
+    "arm-none-eabi-newlib",
+    "arm-none-eabi-gcc"
   ],
   "swift": [
     "ponymix",
