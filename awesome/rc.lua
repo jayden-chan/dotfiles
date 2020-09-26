@@ -215,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     local battery_widget = nil
     if (hostname ~= "grace") then
-        battery_widget = require("battery-widget") {
+        battery_widget = wibox.layout.margin(require("battery-widget") {
             ac = "AC",
             adapter = "BAT1",
             ac_prefix = "",
@@ -234,8 +234,11 @@ awful.screen.connect_for_each_screen(function(s)
             alert_timeout = 0,
             alert_title = "Low battery !",
             alert_text = "${AC_BAT}${time_est}"
-        }
+        }.widget, 0, 0, 5, 0)
     end
+
+    local systray = wibox.widget.systray()
+    systray:set_base_size(25)
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -243,16 +246,16 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
+            wibox.layout.margin(s.mytaglist, 0, 0, 3, 0),
+            wibox.layout.margin(s.mypromptbox, 0, 0, 3, 0),
         },
-        spotify_widget, -- Middle widget
+        wibox.layout.margin(spotify_widget, 0, 0, 3, 0), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
+            wibox.layout.margin(systray, 0, 5, 3, 0),
             battery_widget,
-            mytextclock,
-            s.mylayoutbox,
+            wibox.layout.margin(mytextclock, 0, 0, 3, 0),
+            wibox.layout.margin(s.mylayoutbox, 0, 0, 3, 0),
         },
     }
 end)
