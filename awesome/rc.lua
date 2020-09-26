@@ -361,7 +361,7 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ "Control" }, "space", function()
-        awful.spawn.with_shell("sh " .. scripts .. "/rofi.sh --normal", false)
+        awful.spawn.with_shell("bash " .. scripts .. "/rofi.sh --normal", false)
     end,
               {description = "show the menubar", group = "launcher"}),
     -- Volume Keys
@@ -441,7 +441,7 @@ globalkeys = gears.table.join(
     end),
     -- Power menu
     awful.key({"Control", modkey}, "Delete", function()
-        awful.spawn.with_shell("sh " .. scripts .. "/rofi.sh --power", false)
+        awful.spawn.with_shell("bash " .. scripts .. "/rofi.sh --power", false)
     end),
     -- Lock shortcut
     awful.key({superkey}, "l", function()
