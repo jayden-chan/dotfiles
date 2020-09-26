@@ -234,7 +234,7 @@ awful.screen.connect_for_each_screen(function(s)
             alert_timeout = 0,
             alert_title = "Low battery !",
             alert_text = "${AC_BAT}${time_est}"
-        }.widget, 0, 0, 5, 0)
+        }.widget, 0, 0, 3, 0)
     end
 
     local systray = wibox.widget.systray()
@@ -252,7 +252,7 @@ awful.screen.connect_for_each_screen(function(s)
         wibox.layout.margin(spotify_widget, 0, 0, 3, 0), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.layout.margin(systray, 0, 5, 3, 0),
+            wibox.layout.margin(systray, 0, 5, 5, 0),
             battery_widget,
             wibox.layout.margin(mytextclock, 0, 0, 3, 0),
             wibox.layout.margin(s.mylayoutbox, 0, 0, 3, 0),
