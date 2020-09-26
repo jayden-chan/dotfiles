@@ -91,10 +91,8 @@
     "xorg-xrdb",
     "lxappearance",
     "nitrogen",
-    "papirus-icon-theme",
     "lightdm-gtk-greeter-settings",
     "python-pywal",
-    "arc-gtk-theme",
     "nerd-fonts-complete",
     "chromium",
     "flex",
@@ -117,6 +115,8 @@
     "youtube-dl",
     "profile-sync-daemon",
     "paprefs",
-    "yarn"
+    "yarn",
+    "yaru-gtk-theme",
+    "yaru-icon-theme"
   ]
 }
