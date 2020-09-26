@@ -273,9 +273,6 @@ export MANPATH="$NPM_PATH/share/man:$(manpath)"
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
-# set up NVM
-source /usr/share/nvm/init-nvm.sh
-
 # Android studio stuff for React Native
 export ANDROID_HOME=$HOME/Dev/Android
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -290,3 +287,5 @@ if [[ $TERM == xterm-termite ]]; then
 fi
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

@@ -18,6 +18,12 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Get hostname of machine
+local f = io.popen ("/bin/hostname")
+hostname = f:read("*a") or ""
+f:close()
+hostname = string.gsub(hostname, "\n$", "")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -46,11 +52,15 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-chosen_theme = "rainbow"
-beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
+beautiful.init(string.format("%s/.config/awesome/themes/rainbow/theme.lua", os.getenv("HOME")))
 
 -- This is used later as the default terminal and editor to run.
-terminal = "termite"
+terminal = nil
+if (hostname == "swift" or hostname == "grace") then
+    terminal = "termite"
+else
+    terminal = "gnome-terminal"
+end
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -75,12 +85,6 @@ printvol = " | xargs sh -c 'notify-send -h \"int:value:$0\" Sound Volume:'"
 brightnessnot = nil
 volumenot = nil
 -- }}}
-
--- Get hostname of machine
-local f = io.popen ("/bin/hostname")
-hostname = f:read("*a") or ""
-f:close()
-hostname = string.gsub(hostname, "\n$", "")
 
 -- Startup commands
 awful.util.spawn("picom --config /home/jayden/.config/picom.conf", false)
@@ -210,7 +214,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s, height = 35})
 
     local battery_widget = nil
-    if (hostname == "swift") then
+    if (hostname ~= "grace") then
         battery_widget = require("battery-widget") {
             ac = "AC",
             adapter = "BAT1",
@@ -224,7 +228,7 @@ awful.screen.connect_for_each_screen(function(s)
             listen = true,
             timeout = 30,
             widget_text = "${AC_BAT}${color_on}${percent}%${color_off}  ",
-            widget_font = "Nimbus Pro 11",
+            widget_font = "Nimbus Sans 12",
             tooltip_text = "Battery ${state}${time_est}\nCapacity: ${capacity_percent}%",
             alert_threshold = 5,
             alert_timeout = 0,
