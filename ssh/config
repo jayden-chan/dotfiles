@@ -3,9 +3,3 @@ Host stealthlocal
     Port 32223
     IdentityFile ~/.ssh/stealth
     IdentitiesOnly yes
-
-Host stealth
-    Hostname homepistealth.ddns.net
-    Port 32223
-    IdentityFile ~/.ssh/stealth
-    IdentitiesOnly yes
