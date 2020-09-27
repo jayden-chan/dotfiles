@@ -13,6 +13,7 @@ mkdir -p $config/nvim/colors
 mkdir -p $config/nvim/spell
 mkdir -p $config/kitty
 mkdir -p $config/systemd/user
+mkdir -p $config/awesome
 
 cd $HOME
 ln -fs $dots/picom/picom.conf        $config/picom.conf
