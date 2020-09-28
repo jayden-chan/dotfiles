@@ -38,7 +38,6 @@ alias gpuu='git push -u origin $(git symbolic-ref --short HEAD)'
 
 # Compilation
 alias lcm='latexmk -pvc -pdf'
-alias gr='./gradlew'
 alias god='cd ~/Dev/Go/src/github.com/jayden-chan/'
 alias mb='make build'
 alias hh='git push heroku master && heroku logs --tail'
@@ -62,7 +61,6 @@ alias :Wq='exit'
 
 # Editor
 alias vim='nvim'
-alias v='nvim'
 
 # U S E R   E R R O R
 alias cim='vim'
@@ -81,8 +79,6 @@ alias ckear='clear'
 alias Lq='exit'
 
 # Other
-alias please='sudo'
-alias rs='cd && clear'
 alias ls='exa'
 alias l='exa -a'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
@@ -147,25 +143,6 @@ function lpac () {
     echo --- AUR ---
     echo
     pacman -Qqettm
-}
-
-function uniqc () {
-    echo "Unique commands executed: $(history \
-        | rg '\d+\s+(.*)' --only-matching --replace='$1' \
-        | sort \
-        | uniq \
-        | wc -l)"
-
-    if [ "$#" = 1 ]; then
-        echo "Top $1 commands:"
-        echo "$(history \
-            | rg '\d+\s+(.*)' --only-matching --replace='$1' \
-            | sort \
-            | uniq -c \
-            | sort -nr \
-            | head -$1 \
-            | nl)"
-    fi
 }
 
 function cargo_init() {
@@ -257,14 +234,15 @@ export PATH=$HOME/Dev/Go/bin:$PATH
 # Make fzf respect .gitignore
 export FZF_DEFAULT_COMMAND="rg --files"
 
-# npm global packages config
-export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
-
 # Add cargo binaries
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Add other binaries
 export PATH="$HOME/.local/bin:$PATH"
+
+# Volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
@@ -287,5 +265,3 @@ if [[ $TERM == xterm-termite ]]; then
 fi
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
