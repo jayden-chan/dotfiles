@@ -22,7 +22,8 @@
     "bluez-utils",
     "blueman",
     "pulseaudio-bluetooth",
-    "light"
+    "light",
+    "xf86-video-intel"
   ],
   "all": [
     "insomnia",

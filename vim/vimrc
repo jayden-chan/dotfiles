@@ -33,6 +33,7 @@ filetype off
                     \ 'coc-tsserver',
                     \ 'coc-rust-analyzer',
                     \ 'coc-json',
+                    \ 'coc-eslint',
                     \ 'coc-prettier',
                     \ ]
 
