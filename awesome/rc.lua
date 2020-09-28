@@ -102,6 +102,9 @@ if (hostname == "grace") then
     awful.util.spawn("hue profile apply bluepink", false)
 end
 
+if (hostname ~= "grace") then
+    awful.util.spawn("nm-applet", false)
+end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
