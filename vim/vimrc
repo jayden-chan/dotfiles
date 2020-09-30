@@ -32,6 +32,7 @@ filetype off
         let g:coc_global_extensions = [
                     \ 'coc-tsserver',
                     \ 'coc-rust-analyzer',
+                    \ 'coc-clangd',
                     \ 'coc-json',
                     \ 'coc-eslint',
                     \ 'coc-prettier',
@@ -57,6 +58,7 @@ filetype off
         Plug 'jparise/vim-graphql'
         Plug 'jayden-chan/rust.vim'
         Plug 'cespare/vim-toml', { 'for': 'toml' }
+        Plug 'jackguo380/vim-lsp-cxx-highlight'
 
     call plug#end()
 
@@ -299,6 +301,9 @@ filetype off
     command! -nargs=0 Prettier :CocCommand prettier.formatFile
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, Prettier
 
+    command! -nargs=0 ClangFormat :call CocAction('format')
+    autocmd BufWritePre *.c,*.cpp,*.h,*.hpp, ClangFormat
+
     let g:javascript_plugin_jsdoc = 1
 
     " Set git-gutter column to always on
@@ -401,8 +406,8 @@ filetype off
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
     autocmd FileType snippets,go setlocal shiftwidth=4
-    autocmd FileType c,asm       setlocal shiftwidth=8
-    autocmd FileType c,asm       setlocal expandtab
+    autocmd FileType asm         setlocal shiftwidth=8
+    autocmd FileType asm         setlocal expandtab
     autocmd FileType go          setlocal noexpandtab
 
     " Easily open corresponding source file (C/C++)

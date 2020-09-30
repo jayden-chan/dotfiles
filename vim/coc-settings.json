@@ -6,5 +6,5 @@
     "typescriptreact"
   ],
   "eslint.options": { "configFile": "/home/jayden/.eslintrc.json" },
-  "sql.database": "postgresql"
+  "clangd.semanticHighlighting": true
 }

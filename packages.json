@@ -119,6 +119,7 @@
     "yarn",
     "yaru-gtk-theme",
     "yaru-icon-theme",
-    "humanity-icon-theme"
+    "humanity-icon-theme",
+    "clang"
   ]
 }
