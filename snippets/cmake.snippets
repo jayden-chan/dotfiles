@@ -25,25 +25,24 @@ snippet cstart
 	endif()
 
 	set(CMAKE_C_FLAGS "-Wall -Wextra -Wshadow")
-	set(CMAKE_C_FLAGS_DEBUG "-ggdb -DFULLDEBUG -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG")
-	set(CMAKE_C_FLAGS_RELEASE "-O3")
+	set(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb -DFULLDEBUG -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG")
+	set(CMAKE_C_FLAGS_RELEASE "-O3 -flto")
 	set (CMAKE_C_STANDARD 99)
 
 	include_directories(inc)
-
 	file(GLOB SOURCES "src/*.c")
 
 	add_executable(
-		$1
+		${2:executable}
 		${SOURCES}
 	)
 
 	if (CMAKE_BUILD_TYPE STREQUAL "Release")
-		# Add libs if necessary
-		# target_link_libraries($1)
+		# Add libraries here
+		# target_link_libraries($2)
 	endif()
 
 	if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 		add_definitions(-DDEBUG)
-		target_link_libraries($1 -fsanitize=address -fsanitize=undefined)
+		target_link_libraries($2 -fsanitize=address -fsanitize=undefined -rdynamic)
 	endif()
