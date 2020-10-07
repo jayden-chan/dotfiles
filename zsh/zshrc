@@ -211,6 +211,10 @@ function ts_init() {
 
 }
 
+function e () {
+    PACKAGE=ps-$1 make TARGET=X64 $2
+}
+
 function pach () {
     cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
 }
