@@ -1,7 +1,8 @@
 [time]
 disabled = false
-format = "[ %-l:%M:%S ]"
 utc_time_offset = "-6"
+format = "[\\[ $time \\]]($style) "
+time_format = "%-l:%M:%S"
 
 [character]
 error_symbol = "✗"
