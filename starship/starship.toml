@@ -10,9 +10,3 @@ use_symbol_for_status=true
 
 [package]
 disabled=true
-
-[nodejs]
-disabled=true
-
-[rust]
-disabled=true

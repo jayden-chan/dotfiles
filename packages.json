@@ -94,7 +94,6 @@
     "nitrogen",
     "lightdm-gtk-greeter-settings",
     "python-pywal",
-    "nerd-fonts-complete",
     "chromium",
     "flex",
     "gnuplot",
@@ -120,6 +119,8 @@
     "yaru-gtk-theme",
     "yaru-icon-theme",
     "humanity-icon-theme",
-    "clang"
+    "clang",
+    "nerd-fonts-jetbrains-mono",
+    "ttf-twemoji"
   ]
 }
