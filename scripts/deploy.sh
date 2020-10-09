@@ -48,5 +48,6 @@ ln -fs $dots/picom/picom.conf          $config/picom.conf
 ln -fs $dots/starship/starship.toml    $config/starship.toml
 ln -fs $dots/systemd/reflector.timer   $config/systemd/user/reflector.timer
 ln -fs $dots/systemd/reflector.service $config/systemd/user/reflector.service
+ln -fs $dots/kitty/kitty.conf          $config/kitty/kitty.conf
 
 echo "Finished deployment"
