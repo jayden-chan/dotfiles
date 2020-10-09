@@ -3,3 +3,7 @@ Host stealthlocal
     Port 32223
     IdentityFile ~/.ssh/stealth
     IdentitiesOnly yes
+
+Host github.com
+    Hostname github.com
+    IdentityFile ~/.ssh/github
