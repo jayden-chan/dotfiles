@@ -6,7 +6,7 @@ const { spawn, spawnSync } = require("child_process");
 const { readFileSync, writeFileSync } = require("fs");
 
 const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
-const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu"];
+const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
 const programs = JSON.parse(readFileSync(PROGRAMS_PATH, { encoding: "utf8" }));
 const command = process.argv[2];
@@ -37,6 +37,10 @@ switch (command) {
   case "c":
   case "clean":
     yayCommand = YAY_COMMANDS[2];
+    break;
+  case "cc":
+  case "cache":
+    yayCommand = YAY_COMMANDS[4];
     break;
   case "a":
   case "add":
@@ -77,13 +81,14 @@ switch (command) {
     console.log("p - A helper script on top of another helper script");
     console.log();
     console.log("Commands:");
-    console.log("      install (i): <package>            install packages");
-    console.log("    uninstall (u): <package>            uninstall packages"); // prettier-ignore
-    console.log("        clean (c):                      clean unused packages"); // prettier-ignore
-    console.log("          add (a): <host> <packages...> add packages to the list"); // prettier-ignore
-    console.log("       remove (r): <packages...>        remove packages from the list"); // prettier-ignore
-    console.log("       verify (v):                      list packages from list that aren't installed"); // prettier-ignore
-    console.log("         help (h):                      print help"); // prettier-ignore
+    console.log("      install (i ): <package>            install packages");
+    console.log("    uninstall (u ): <package>            uninstall packages"); // prettier-ignore
+    console.log("        clean (c ):                      clean unused packages"); // prettier-ignore
+    console.log("          add (a ): <host> <packages...> add packages to the list"); // prettier-ignore
+    console.log("       remove (r ): <packages...>        remove packages from the list"); // prettier-ignore
+    console.log("       verify (v ):                      list packages from list that aren't installed"); // prettier-ignore
+    console.log("       cache  (cc):                      clear the package cache directories"); // prettier-ignore
+    console.log("         help (h ):                      print help"); // prettier-ignore
     console.log();
     console.log("    Executing with no arguments will perform a system update");
     break;
