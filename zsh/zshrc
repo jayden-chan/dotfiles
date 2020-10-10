@@ -53,6 +53,9 @@ alias nfetch='neofetch --ascii_distro arch_old'
 alias wifilist='nmcli dev wifi list'
 alias wificonnect='nmcli con up'
 
+# Work
+[[ "$HOST" = "jayden-GL63-8RC" ]] && source ~/.work-aliases.sh
+
 # Exit
 alias :q='exit'
 alias :Q='exit'
