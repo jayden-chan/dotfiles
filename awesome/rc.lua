@@ -55,12 +55,7 @@ end
 beautiful.init(string.format("%s/.config/awesome/themes/rainbow/theme.lua", os.getenv("HOME")))
 
 -- This is used later as the default terminal and editor to run.
-terminal = nil
-if (hostname == "swift" or hostname == "grace") then
-    terminal = "termite"
-else
-    terminal = "gnome-terminal"
-end
+terminal = "kitty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
