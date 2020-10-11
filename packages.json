@@ -122,6 +122,8 @@
     "clang",
     "nerd-fonts-jetbrains-mono",
     "ttf-twemoji",
-    "audacity"
+    "audacity",
+    "docker",
+    "docker-compose"
   ]
 }
