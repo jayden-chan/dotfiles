@@ -109,7 +109,7 @@
     "pulseeffects",
     "nautilus-open-any-terminal",
     "reflector",
-    "deno",
+    "deno-bin",
     "exfat-utils",
     "iperf3",
     "youtube-dl",
@@ -127,3 +127,4 @@
     "docker-compose"
   ]
 }
+
