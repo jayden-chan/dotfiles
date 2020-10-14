@@ -5,9 +5,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR=nvim
 
-# Set color scheme from wal
-(cat ~/.cache/wal/sequences &)
-
 # ZSH_THEME="jayden-chan"
 # ZSH_THEME="norm"
 DEFAULT_USER="jayden"
@@ -91,6 +88,7 @@ alias open='feh --auto-zoom'
 alias o='xdg-open'
 alias clip='xclip -selection c'
 alias x='xset r rate 270 35'
+alias ta='tmux attach'
 
 function wallpaper () {
     if [ $HOST = "grace" ]; then

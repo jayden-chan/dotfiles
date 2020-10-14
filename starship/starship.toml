@@ -10,3 +10,6 @@ use_symbol_for_status=true
 
 [package]
 disabled=true
+
+[git_status]
+disabled=false

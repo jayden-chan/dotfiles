@@ -13,7 +13,11 @@
     "virtualbox",
     "virtualbox-host-modules-arch",
     "arm-none-eabi-newlib",
-    "arm-none-eabi-gcc"
+    "arm-none-eabi-gcc",
+    "v4l2loopback-dkms",
+    "linux-headers",
+    "obs-v4l2sink",
+    "ttf-symbola"
   ],
   "swift": [
     "ponymix",

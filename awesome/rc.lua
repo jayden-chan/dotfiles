@@ -55,7 +55,7 @@ end
 beautiful.init(string.format("%s/.config/awesome/themes/rainbow/theme.lua", os.getenv("HOME")))
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = "/usr/local/bin/st"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
