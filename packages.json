@@ -121,7 +121,8 @@
     "ttf-twemoji",
     "audacity",
     "docker",
-    "docker-compose"
+    "docker-compose",
+    "file-roller",
+    "adobe-source-han-sans-otc-fonts"
   ]
 }
-
