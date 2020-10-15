@@ -89,6 +89,7 @@ alias o='xdg-open'
 alias clip='xclip -selection c'
 alias x='xset r rate 270 35'
 alias ta='tmux attach'
+alias t='tmux'
 
 function wallpaper () {
     if [ $HOST = "grace" ]; then

@@ -17,7 +17,8 @@
     "v4l2loopback-dkms",
     "linux-headers",
     "obs-v4l2sink",
-    "ttf-symbola"
+    "ttf-symbola",
+    "avrdude"
   ],
   "swift": [
     "ponymix",
@@ -127,6 +128,7 @@
     "docker",
     "docker-compose",
     "file-roller",
-    "adobe-source-han-sans-otc-fonts"
+    "adobe-source-han-sans-otc-fonts",
+    "powerline"
   ]
 }
