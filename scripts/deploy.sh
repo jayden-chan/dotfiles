@@ -35,6 +35,7 @@ ln -fs $dots/git/gitconfig             $HOME/.gitconfig
 ln -fs $dots/latex/latexmkrc           $HOME/.latexmkrc
 ln -fs $dots/zsh/zshrc                 $HOME/.zshrc
 ln -fs $dots/zsh/zlogout               $HOME/.zlogout
+ln -fs $dots/tmux/tmux.conf            $HOME/.tmux.conf
 ln -fs $dots/rofi/theme.rasi           $config/rofi/theme.rasi
 ln -fs $dots/snippets/                 $config/nvim/
 ln -fs $dots/vim/en.utf-8.add          $config/nvim/spell/en.utf-8.add
@@ -46,8 +47,6 @@ ln -fs $dots/awesome/awesome.png       $config/awesome/themes/rainbow/icons/awes
 ln -fs $dots/awesome/rc.lua            $config/awesome/rc.lua
 ln -fs $dots/picom/picom.conf          $config/picom.conf
 ln -fs $dots/starship/starship.toml    $config/starship.toml
-ln -fs $dots/systemd/reflector.timer   $config/systemd/user/reflector.timer
-ln -fs $dots/systemd/reflector.service $config/systemd/user/reflector.service
-ln -fs $dots/kitty/kitty.conf          $config/kitty/kitty.conf
+ln -fs $dots/termite/config            $config/termite/config
 
 echo "Finished deployment"
