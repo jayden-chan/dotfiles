@@ -9,6 +9,10 @@ const { readFileSync, writeFileSync } = require("fs");
 const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
+/**
+ * @param {String[]} toRemove Packages to remove
+ * @param {Object} programs Programs list
+ */
 function removePacks(toRemove, programs) {
   toRemove.forEach((pack) => {
     Object.entries(programs).forEach(([host, arr]) => {
@@ -37,8 +41,12 @@ function usage() {
   console.log("    Executing with no arguments will perform a system update");
 }
 
+/**
+ * @param {String} question Question to ask
+ * @param {Object} rl readline instance
+ */
 async function yesno(question, rl) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     rl.question(question, (res) => {
       if (res === "N" || res === "n") {
         resolve(false);
@@ -49,6 +57,11 @@ async function yesno(question, rl) {
   });
 }
 
+/**
+ * @param {String} yayCommand Yay command to run
+ * @param {Object} programs Programs list
+ * @param {String[]} args Command line args
+ */
 function handleYayCommand(yayCommand, programs, args) {
   const progs = args.filter((a) => !a.startsWith("-"));
   const yay = spawn("yay", [yayCommand, ...args], {
@@ -119,6 +132,10 @@ function handleYayCommand(yayCommand, programs, args) {
   });
 }
 
+/**
+ * @param {Object} programs Programs list
+ * @param {String[]} args Command line args
+ */
 function addProgram(programs, args) {
   // args[0] = host
   // remaining args = packages
@@ -130,6 +147,10 @@ function addProgram(programs, args) {
   }
 }
 
+/**
+ * @param {Object} programs Programs list
+ * @param {String[]} args Command line args
+ */
 function removeProgram(programs, args) {
   if (!args[0]) {
     console.log("Provide packages to remove");
@@ -139,6 +160,9 @@ function removeProgram(programs, args) {
   }
 }
 
+/**
+ * @param {Object} programs Programs list
+ */
 function verifyPrograms(programs) {
   const installed = spawnSync("yay", ["-Qqe"]).stdout.toString().split("\n");
   Object.entries(programs).forEach(([host, arr]) => {
@@ -152,6 +176,9 @@ function verifyPrograms(programs) {
   });
 }
 
+/**
+ * @param {Object} programs Programs list
+ */
 async function fullClean(programs) {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -187,23 +214,26 @@ async function main() {
   const command = process.argv[2];
   const args = process.argv.slice(3);
 
-  let yayCommand;
+  if (command === undefined) {
+    handleYayCommand(YAY_COMMANDS[3], programs, args);
+  }
+
   switch (command) {
     case "i":
     case "install":
-      yayCommand = YAY_COMMANDS[0];
+      handleYayCommand(YAY_COMMANDS[0], programs, args);
       break;
     case "u":
     case "uninstall":
-      yayCommand = YAY_COMMANDS[1];
+      handleYayCommand(YAY_COMMANDS[1], programs, args);
       break;
     case "c":
     case "clean":
-      yayCommand = YAY_COMMANDS[2];
+      handleYayCommand(YAY_COMMANDS[2], programs, args);
       break;
     case "cc":
     case "cache":
-      yayCommand = YAY_COMMANDS[4];
+      handleYayCommand(YAY_COMMANDS[4], programs, args);
       break;
     case "a":
     case "add":
@@ -227,11 +257,8 @@ async function main() {
       usage();
       break;
     default:
-      yayCommand = YAY_COMMANDS[3];
-  }
-
-  if (yayCommand) {
-    handleYayCommand(yayCommand, programs, args);
+      usage();
+      break;
   }
 }
 
