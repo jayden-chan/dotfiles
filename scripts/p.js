@@ -62,73 +62,77 @@ async function yesno(question, rl) {
  * @param {Object} programs Programs list
  * @param {String[]} args Command line args
  */
-function handleYayCommand(yayCommand, programs, args) {
-  const progs = args.filter((a) => !a.startsWith("-"));
-  const yay = spawn("yay", [yayCommand, ...args], {
-    stdio: "inherit",
-  });
+async function handleYayCommand(yayCommand, programs, args) {
+  return new Promise((resolve) => {
+    const progs = args.filter((a) => !a.startsWith("-"));
+    const yay = spawn("yay", [yayCommand, ...args], {
+      stdio: "inherit",
+    });
 
-  yay.on("close", (code) => {
-    if (code !== 0) {
-      process.exit(code);
-    }
+    yay.on("close", (code) => {
+      if (code !== 0) {
+        resolve(code);
+      }
 
-    switch (yayCommand) {
-      case YAY_COMMANDS[0]:
-        const newProgs = progs.filter((prog) =>
-          Object.values(programs).every((arr) => !arr.includes(prog))
-        );
+      switch (yayCommand) {
+        case YAY_COMMANDS[0]:
+          const newProgs = progs.filter((prog) =>
+            Object.values(programs).every((arr) => !arr.includes(prog))
+          );
 
-        if (newProgs.length === 0) process.exit(code);
+          if (newProgs.length === 0) resolve(code);
 
-        const progsString =
-          newProgs.length === 1
-            ? `${newProgs[0]}`
-            : newProgs.length === 2
-            ? `${newProgs[0]} and ${newProgs[1]}`
-            : `${newProgs.join(", ")}`;
+          const progsString =
+            newProgs.length === 1
+              ? `${newProgs[0]}`
+              : newProgs.length === 2
+              ? `${newProgs[0]} and ${newProgs[1]}`
+              : `${newProgs.join(", ")}`;
 
-        process.stdout.write(
-          `\nDo you want to add ${progsString} to the programs list? [g/s/y/n]: `
-        );
+          process.stdout.write(
+            `\nDo you want to add ${progsString} to the programs list? [g/s/y/n]: `
+          );
 
-        process.stdin.on("data", (data) => {
-          const key = data.toString("utf8").trim();
-          const matches = {
-            all: ["", "y", "Y"],
-            grace: ["g", "G"],
-            swift: ["s", "S"],
-          };
+          process.stdin.on("data", (data) => {
+            const key = data.toString("utf8").trim();
+            const matches = {
+              all: ["", "y", "Y"],
+              grace: ["g", "G"],
+              swift: ["s", "S"],
+            };
 
-          Object.entries(matches).some(([host, arr]) => {
-            if (arr.includes(key)) {
-              programs[host].push(...newProgs);
-              console.log(`${progsString} added to "${host}" list`);
-              return true;
-            }
-          });
-
-          writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
-          process.exit(code);
-        });
-        break;
-
-      case YAY_COMMANDS[1]:
-        progs
-          .filter((prog) =>
-            Object.values(programs).some((arr) => arr.includes(prog))
-          )
-          .forEach((prog) => {
-            Object.values(programs).forEach((arr) => {
-              if (arr.includes(prog)) {
-                arr.splice(arr.indexOf(prog), 1);
+            Object.entries(matches).some(([host, arr]) => {
+              if (arr.includes(key)) {
+                programs[host].push(...newProgs);
+                console.log(`${progsString} added to "${host}" list`);
+                return true;
               }
             });
-          });
 
-        writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
-        process.exit(code);
-    }
+            writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+            resolve(code);
+          });
+          break;
+
+        case YAY_COMMANDS[1]:
+          progs
+            .filter((prog) =>
+              Object.values(programs).some((arr) => arr.includes(prog))
+            )
+            .forEach((prog) => {
+              Object.values(programs).forEach((arr) => {
+                if (arr.includes(prog)) {
+                  arr.splice(arr.indexOf(prog), 1);
+                }
+              });
+            });
+
+          writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+          resolve(code);
+        default:
+          resolve(code);
+      }
+    });
   });
 }
 
@@ -215,51 +219,50 @@ async function main() {
   const args = process.argv.slice(3);
 
   if (command === undefined) {
-    handleYayCommand(YAY_COMMANDS[3], programs, args);
+    return await handleYayCommand(YAY_COMMANDS[3], programs, args);
   }
 
   switch (command) {
     case "i":
     case "install":
-      handleYayCommand(YAY_COMMANDS[0], programs, args);
-      break;
+      return await handleYayCommand(YAY_COMMANDS[0], programs, args);
     case "u":
     case "uninstall":
-      handleYayCommand(YAY_COMMANDS[1], programs, args);
-      break;
+      return await handleYayCommand(YAY_COMMANDS[1], programs, args);
     case "c":
     case "clean":
-      handleYayCommand(YAY_COMMANDS[2], programs, args);
-      break;
+      return await handleYayCommand(YAY_COMMANDS[2], programs, args);
     case "cc":
     case "cache":
-      handleYayCommand(YAY_COMMANDS[4], programs, args);
-      break;
+      return await handleYayCommand(YAY_COMMANDS[4], programs, args);
     case "a":
     case "add":
       addProgram(programs, args);
-      break;
+      return 0;
     case "r":
     case "remove":
       removeProgram(programs, args);
-      break;
+      return 0;
     case "v":
     case "verify":
       verifyPrograms(programs);
-      break;
+      return 0;
     case "fc":
     case "fullclean":
       await fullClean(programs);
-      break;
+      return 0;
     case "h":
     case "-h":
     case "--help":
       usage();
-      break;
+      return 0;
     default:
       usage();
-      break;
+      return 0;
   }
 }
 
-main();
+(async () => {
+  const code = await main();
+  process.exit(code);
+})();
