@@ -269,14 +269,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Add other binaries
 export PATH="$HOME/.local/bin:$PATH"
 
-# Volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# This is a bit of a bodge but it will have to do until Volta properly supports
-# non-binary global packages
-export NODE_PATH="$VOLTA_HOME/tools/image/node/$(volta list | rg "runtime node@(.*) " --only-matching --replace '$1')/lib/node_modules"
-
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
 
@@ -296,5 +288,3 @@ if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh
   __vte_osc7
 fi
-
-[[ $TMUX = "" ]] && export TERM="xterm-256color"

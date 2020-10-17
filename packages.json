@@ -129,6 +129,7 @@
     "docker-compose",
     "file-roller",
     "adobe-source-han-sans-otc-fonts",
-    "powerline"
+    "powerline",
+    "nodejs-lts-erbium"
   ]
 }
