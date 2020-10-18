@@ -33,7 +33,6 @@
   "all": [
     "insomnia",
     "spotify",
-    "heroku-cli",
     "git-extras",
     "xcolor",
     "evince",
@@ -129,7 +128,7 @@
     "docker-compose",
     "file-roller",
     "adobe-source-han-sans-otc-fonts",
-    "powerline",
-    "nodejs-lts-erbium"
+    "nodejs-lts-erbium",
+    "heroku-cli-bin"
   ]
 }
