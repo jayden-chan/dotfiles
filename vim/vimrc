@@ -139,6 +139,9 @@ filetype off
     " Enable mouse
     set mouse=a
 
+    " Make LaTeX live preview & gitgutter smoother
+    set updatetime=300
+
     " Change cursor to bar and underscore for different modes
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[4 q"
@@ -399,7 +402,7 @@ filetype off
     autocmd FileType c,cpp nmap <silent> <leader>v :CocCommand clangd.switchSourceHeader<CR>
 
     " Restore cursor style when exiting Vim
-    autocmd VimLeave * set guicursor=a:ver25-blinkon50
+    autocmd VimLeave * set guicursor=a:block-blinkon50
 
     au! BufEnter *.c,*.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '../inc'
     au! BufEnter *.h,*.hpp let b:fswitchdst = 'cpp,c' | let b:fswitchlocs = '../src'
