@@ -396,7 +396,7 @@ filetype off
     autocmd FileType go          setlocal noexpandtab
 
     " Easily open corresponding source file (C/C++)
-    autocmd FileType c,cpp nmap <silent> <leader>vv :CocCommand clangd.switchSourceHeader<CR>
+    autocmd FileType c,cpp nmap <silent> <leader>v :CocCommand clangd.switchSourceHeader<CR>
 
     " Restore cursor style when exiting Vim
     autocmd VimLeave * set guicursor=a:ver25-blinkon50
