@@ -269,6 +269,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Add other binaries
 export PATH="$HOME/.local/bin:$PATH"
 
+# NPM global
+export PATH=~/.npm-global/bin:$PATH
+
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
 
