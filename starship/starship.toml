@@ -5,7 +5,8 @@ format = "[\\[ $time \\]]($style) "
 time_format = "%-l:%M:%S"
 
 [character]
-error_symbol = "✗"
+error_symbol = "[✗](bold red) "
+success_symbol = "[\\$](bold green)"
 use_symbol_for_status=true
 
 [package]
