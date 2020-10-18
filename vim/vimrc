@@ -10,12 +10,10 @@ filetype off
         Plug 'jayden-chan/gruvbox'
         Plug 'Yggdroot/indentline'
         Plug 'vim-airline/vim-airline'
-        Plug 'junegunn/goyo.vim'
 
     " fs nav
         Plug 'scrooloose/nerdtree'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-        Plug 'ryanoasis/vim-devicons'
         Plug 'junegunn/fzf'
         Plug 'junegunn/fzf.vim'
 
@@ -42,7 +40,6 @@ filetype off
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
-        Plug 'derekwyatt/vim-fswitch'
 
         Plug 'MarcWeber/vim-addon-mw-utils'
         Plug 'tomtom/tlib_vim'
@@ -73,7 +70,7 @@ filetype off
     set t_ut=
     set termguicolors
 
-    set guifont="Fira Code":h14
+    set guifont="JetBrainsMono Nerd Font":h14
 
     " Set dark gruvbox theme
     set background=dark
@@ -138,9 +135,6 @@ filetype off
 
     " Unix file line endings
     set fileformat=unix
-
-    " Make LaTeX live preview smoother
-    set updatetime=300
 
     " Enable mouse
     set mouse=a
@@ -259,9 +253,6 @@ filetype off
     nnoremap <silent> <leader>dd "_dd
     vnoremap <silent> <leader>dd "_dd
 
-    " LaTeX left/right pair macro
-    nnoremap <silent> <leader>m i\left<Right>\right<Esc>5<Left>i
-
     " Prevent x and c from filling buffer
     noremap x "_x
     noremap c "_c
@@ -315,8 +306,6 @@ filetype off
     nnoremap <leader>u   :GitGutterUndoHunk<CR>
     nnoremap <silent> <leader>hp  :GitGutterPreviewHunk<CR>
 
-    let g:goyo_width = 120
-
     let g:indentLine_char = '│'
 
     let g:rustfmt_autosave = 1
@@ -343,10 +332,10 @@ filetype off
     endfunction
 
     " Prevent coc from auto assigning these to stupid binds
-    vmap <silent> <leader>F13 <Plug>(coc-funcobj-i)
-    vmap <silent> <leader>F14 <Plug>(coc-funcobj-a)
-    omap <silent> <leader>F15 <Plug>(coc-funcobj-i)
-    omap <silent> <leader>F16 <Plug>(coc-funcobj-a)
+    vmap <silent> <leader>F21 <Plug>(coc-funcobj-i)
+    vmap <silent> <leader>F22 <Plug>(coc-funcobj-a)
+    omap <silent> <leader>F23 <Plug>(coc-funcobj-i)
+    omap <silent> <leader>F24 <Plug>(coc-funcobj-a)
 
     let $FZF_DEFAULT_COMMAND = 'rg --files'
 
@@ -364,8 +353,6 @@ filetype off
     let g:tex_conceal = ''
     let g:vim_markdown_conceal = 0
     let g:vim_markdown_conceal_code_blocks = 0
-
-    vmap <silent> <leader>t :Tabularize /|
 
 " Commands
 
@@ -395,8 +382,8 @@ filetype off
     autocmd FileType markdown setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,json,toml,sql setlocal shiftwidth=2
-    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,json,toml,sql setlocal softtabstop=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql setlocal shiftwidth=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql setlocal softtabstop=2
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
@@ -409,13 +396,10 @@ filetype off
     autocmd FileType go          setlocal noexpandtab
 
     " Easily open corresponding source file (C/C++)
-    " autocmd FileType c,cpp nmap <silent> <leader>vv :vs ../src/%<.*<CR>
-    autocmd FileType c,cpp nmap <silent> <leader>vv :FSSplitRight<CR>
+    autocmd FileType c,cpp nmap <silent> <leader>vv :CocCommand clangd.switchSourceHeader<CR>
 
-    autocmd! BufNewFile,BufRead *.svelte set ft=html
-
-    " Don't auto continue single line comments (//)
-    autocmd FileType c,cpp,javascript,typescript,go,rust setlocal comments-=:// comments+=f://
+    " Restore cursor style when exiting Vim
+    autocmd VimLeave * set guicursor=a:ver25-blinkon50
 
     au! BufEnter *.c,*.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '../inc'
     au! BufEnter *.h,*.hpp let b:fswitchdst = 'cpp,c' | let b:fswitchlocs = '../src'
