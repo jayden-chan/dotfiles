@@ -279,7 +279,7 @@ filetype off
 
     map <silent> <c-n> :NERDTreeToggle<CR>
     let NERDTreeMapOpenSplit='h'
-    let g:NERDTreeIgnore = ['^node_modules$']
+    let g:NERDTreeIgnore = ['node_modules', 'package-lock.json', 'yarn.lock']
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
