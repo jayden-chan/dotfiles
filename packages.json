@@ -67,7 +67,6 @@
     "lightdm-gtk-greeter",
     "pulseaudio",
     "rofi",
-    "kitty",
     "ntp",
     "fzf",
     "jq",
@@ -129,6 +128,7 @@
     "file-roller",
     "adobe-source-han-sans-otc-fonts",
     "nodejs-lts-erbium",
-    "heroku-cli-bin"
+    "heroku-cli-bin",
+    "tmux"
   ]
 }
