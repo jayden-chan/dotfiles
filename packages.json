@@ -11,7 +11,7 @@
     "vlc",
     "cuda",
     "virtualbox",
-    "virtualbox-host-modules-arch",
+    "virtualbox-host-dkms",
     "arm-none-eabi-newlib",
     "arm-none-eabi-gcc",
     "v4l2loopback-dkms",
@@ -132,3 +132,4 @@
     "tmux"
   ]
 }
+
