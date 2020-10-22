@@ -72,6 +72,7 @@ async function handleYayCommand(yayCommand, programs, args) {
     yay.on("close", (code) => {
       if (code !== 0) {
         resolve(code);
+        return;
       }
 
       switch (yayCommand) {
@@ -80,7 +81,10 @@ async function handleYayCommand(yayCommand, programs, args) {
             Object.values(programs).every((arr) => !arr.includes(prog))
           );
 
-          if (newProgs.length === 0) resolve(code);
+          if (newProgs.length === 0) {
+            resolve(code);
+            return;
+          }
 
           const progsString =
             newProgs.length === 1
@@ -111,6 +115,7 @@ async function handleYayCommand(yayCommand, programs, args) {
 
             writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
             resolve(code);
+            return;
           });
           break;
 
@@ -129,8 +134,10 @@ async function handleYayCommand(yayCommand, programs, args) {
 
           writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
           resolve(code);
+          return;
         default:
           resolve(code);
+          return;
       }
     });
   });
