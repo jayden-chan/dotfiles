@@ -14,7 +14,7 @@ filetype off
     " fs nav
         Plug 'scrooloose/nerdtree'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-        Plug 'junegunn/fzf'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
 
     " Git
@@ -51,7 +51,6 @@ filetype off
         Plug 'HerringtonDarkholme/yats.vim'
         Plug 'pangloss/vim-javascript'
         Plug 'mxw/vim-jsx'
-        Plug 'mboughaba/i3config.vim'
         Plug 'jparise/vim-graphql'
         Plug 'jayden-chan/rust.vim'
         Plug 'cespare/vim-toml', { 'for': 'toml' }
@@ -380,13 +379,13 @@ filetype off
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
 
-    " Set a max line length for LaTeX and Markdown files
+    " Set a max line length for Markdown files
     autocmd FileType markdown setlocal textwidth=89
     autocmd FileType markdown setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql setlocal shiftwidth=2
-    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql setlocal softtabstop=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql,yml,yaml setlocal shiftwidth=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql,yml,yaml setlocal softtabstop=2
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
@@ -403,9 +402,6 @@ filetype off
 
     " Restore cursor style when exiting Vim
     autocmd VimLeave * set guicursor=a:block-blinkon50
-
-    au! BufEnter *.c,*.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '../inc'
-    au! BufEnter *.h,*.hpp let b:fswitchdst = 'cpp,c' | let b:fswitchlocs = '../src'
 
 " Abbreviations
 
