@@ -390,6 +390,8 @@ filetype off
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
 
+    au BufRead,BufNewFile *.tdg set filetype=tdg
+
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
     autocmd FileType snippets,go setlocal shiftwidth=4

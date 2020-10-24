@@ -17,7 +17,6 @@
     "v4l2loopback-dkms",
     "linux-headers",
     "obs-v4l2sink",
-    "ttf-symbola",
     "avrdude"
   ],
   "swift": [
@@ -120,7 +119,7 @@
     "humanity-icon-theme",
     "clang",
     "nerd-fonts-jetbrains-mono",
-    "ttf-twemoji",
+    "ttf-symbola",
     "audacity",
     "docker",
     "docker-compose",
@@ -132,3 +131,4 @@
     "eog"
   ]
 }
+
