@@ -39,7 +39,6 @@
     "gimp",
     "nautilus",
     "pavucontrol",
-    "feh",
     "maim",
     "libreoffice-fresh",
     "flashplugin",
@@ -129,7 +128,7 @@
     "adobe-source-han-sans-otc-fonts",
     "nodejs-lts-erbium",
     "heroku-cli-bin",
-    "tmux"
+    "tmux",
+    "eog"
   ]
 }
-
