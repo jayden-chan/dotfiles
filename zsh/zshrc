@@ -55,7 +55,7 @@ alias wificonnect='nmcli con up'
 
 # Work
 [[ "$HOST" = "jayden-GL63-8RC" ]] && source ~/.work-aliases.sh
-alias twork='tmux -L work new-session -c $LC_PATH_DISP \; source-file ~/Documents/Git/dotfiles/tmux/work.conf'
+alias twork='tmux new-session -c $LC_PATH_DISP \; source-file ~/Documents/Git/dotfiles/tmux/work.conf'
 
 # Exit
 alias :q='exit'
