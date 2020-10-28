@@ -128,7 +128,8 @@
     "nodejs-lts-erbium",
     "heroku-cli-bin",
     "tmux",
-    "eog"
+    "eog",
+    "entr"
   ]
 }
 
