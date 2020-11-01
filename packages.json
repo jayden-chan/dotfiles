@@ -1,7 +1,7 @@
 {
   "grace": [
     "android-studio",
-    "nvidia",
+    "nvidia-lts",
     "nvidia-settings",
     "numlockx",
     "rpi-imager",
@@ -15,7 +15,7 @@
     "arm-none-eabi-newlib",
     "arm-none-eabi-gcc",
     "v4l2loopback-dkms",
-    "linux-headers",
+    "linux-lts-headers",
     "obs-v4l2sink",
     "avrdude"
   ],
@@ -66,7 +66,6 @@
     "pulseaudio",
     "rofi",
     "ntp",
-    "fzf",
     "jq",
     "ripgrep",
     "htop",
@@ -132,4 +131,3 @@
     "entr"
   ]
 }
-

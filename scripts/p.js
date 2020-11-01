@@ -5,6 +5,7 @@
 const { spawn, spawnSync } = require("child_process");
 const readline = require("readline");
 const { readFileSync, writeFileSync } = require("fs");
+const HOST = readFileSync("/etc/hostname", { encoding: "utf8" }).trim();
 
 const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
@@ -175,9 +176,9 @@ function removeProgram(programs, args) {
  * @param {Object} programs Programs list
  */
 function verifyPrograms(programs) {
-  const installed = spawnSync("yay", ["-Qqe"]).stdout.toString().split("\n");
+  const installed = spawnSync("yay", ["-Qq"]).stdout.toString().split("\n");
   Object.entries(programs).forEach(([host, arr]) => {
-    if (host === "all" || process.env.HOST === host) {
+    if (host === "all" || HOST === host) {
       arr.forEach((p) => {
         if (!installed.includes(p)) {
           console.log(p);
@@ -200,7 +201,7 @@ async function fullClean(programs) {
   const programsEntries = Object.entries(programs);
   for (let i = 0; i < programsEntries.length; i++) {
     const [host, arr] = programsEntries[i];
-    if (host === "all" || process.env.HOST === host) {
+    if (host === "all" || HOST === host) {
       for (let j = 0; j < arr.length; j++) {
         const p = arr[j];
         const res = await yesno(`Keep ${p}? [y/n]: `, rl);
