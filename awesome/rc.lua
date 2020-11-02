@@ -23,6 +23,7 @@ local f = io.popen ("/bin/hostname")
 hostname = f:read("*a") or ""
 f:close()
 hostname = string.gsub(hostname, "\n$", "")
+xset = "xset r rate 270 35"
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -84,7 +85,7 @@ volumenot = nil
 -- Startup commands
 awful.util.spawn("picom --config /home/jayden/.config/picom.conf", false)
 awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
-awful.util.spawn("xset r rate 270 35", false)
+awful.util.spawn(xset, false)
 
 -- Set esc as caps lock on laptop
 -- Caps lock is set as escape in keyboard firmware for desktop
@@ -333,6 +334,9 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
+    awful.key({ modkey,           }, "i",     function () awful.util.spawn(xset, false)       end,
+              {description = "set keyboard repeat delay and rate", group = "awesome"}),
+
 
     awful.key({ modkey, "Control" }, "n",
               function ()
