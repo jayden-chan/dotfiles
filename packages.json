@@ -17,7 +17,8 @@
     "v4l2loopback-dkms",
     "linux-lts-headers",
     "obs-v4l2sink",
-    "avrdude"
+    "avrdude",
+    "freecad"
   ],
   "swift": [
     "ponymix",
@@ -128,6 +129,7 @@
     "heroku-cli-bin",
     "tmux",
     "eog",
-    "entr"
+    "entr",
+    "go"
   ]
 }

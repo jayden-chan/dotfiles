@@ -165,13 +165,14 @@ function ts_init() {
     "resolveJsonModule": true,
     "outDir": "dist",
     "module": "commonjs",
+    "lib": ["es2020"],
     "target": "ES6",
     "inlineSourceMap": true,
     "strict": true
   }
 }' > tsconfig.json
 
-        npm i -D typescript @types/node
+        yarn add -D typescript @types/node
 
         if [ "$2" != "" ]; then
             echo "\n$2" >> README.md

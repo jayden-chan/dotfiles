@@ -55,6 +55,7 @@ filetype off
         Plug 'jayden-chan/rust.vim'
         Plug 'cespare/vim-toml', { 'for': 'toml' }
         Plug 'jackguo380/vim-lsp-cxx-highlight'
+        Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
     call plug#end()
 
