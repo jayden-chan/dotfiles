@@ -153,7 +153,7 @@ function ts_init() {
         mkdir $1
         cd $1
         git status >/dev/null 2>&1 || { git init }
-        npm init
+        yarn init
         mkdir src
 
         echo "# $1" > README.md

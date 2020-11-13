@@ -7,3 +7,8 @@ Host stealthlocal
 Host github.com
     Hostname github.com
     IdentityFile ~/.ssh/github
+
+Host homepistealth.ddns.net
+    Port 32223
+    IdentityFile ~/.ssh/homepistealth_gitlab
+    IdentitiesOnly yes
