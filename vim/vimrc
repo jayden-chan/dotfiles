@@ -24,6 +24,7 @@ filetype off
 
     " Util
         Plug 'godlygeek/tabular'
+        Plug 'editorconfig/editorconfig-vim'
 
     " IDE-like
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -291,6 +292,9 @@ filetype off
     let g:NERDTreeExtensionHighlightColor['tsx'] = s:blue
     let g:NERDTreeExtensionHighlightColor['tex'] = s:blue
     let g:NERDTreeExtensionHighlightColor['pdf'] = s:red
+
+    let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+    au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
 
     command! -nargs=0 Prettier :CocCommand prettier.formatFile
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, Prettier
