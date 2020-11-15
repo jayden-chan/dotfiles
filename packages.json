@@ -75,7 +75,6 @@
     "ntfs-3g",
     "bat",
     "exa",
-    "transmission-cli",
     "mlocate",
     "imagemagick",
     "biber",
@@ -130,6 +129,8 @@
     "tmux",
     "eog",
     "entr",
-    "go"
+    "go",
+    "deluge",
+    "deluge-gtk"
   ]
 }
