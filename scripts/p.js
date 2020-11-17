@@ -34,7 +34,6 @@ function usage() {
   console.log("        clean (c ):                      clean unused packages"); // prettier-ignore
   console.log("    fullclean (fc):                      remove unused packages from packages.json"); // prettier-ignore
   console.log("          add (a ): <host> <packages...> add packages to the list"); // prettier-ignore
-  console.log("       remove (r ): <packages...>        remove packages from the list"); // prettier-ignore
   console.log("       verify (v ):                      list packages from list that aren't installed"); // prettier-ignore
   console.log("        cache (cc):                      clear the package cache directories"); // prettier-ignore
   console.log("         help (h ):                      print help"); // prettier-ignore
@@ -161,19 +160,6 @@ function addProgram(programs, args) {
 
 /**
  * @param {Object} programs Programs list
- * @param {String[]} args Command line args
- */
-function removeProgram(programs, args) {
-  if (!args[0]) {
-    console.log("Provide packages to remove");
-  } else {
-    removePacks(args, programs);
-    writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
-  }
-}
-
-/**
- * @param {Object} programs Programs list
  */
 function verifyPrograms(programs) {
   const installed = spawnSync("yay", ["-Qq"]).stdout.toString().split("\n");
@@ -246,10 +232,6 @@ async function main() {
     case "a":
     case "add":
       addProgram(programs, args);
-      return 0;
-    case "r":
-    case "remove":
-      removeProgram(programs, args);
       return 0;
     case "v":
     case "verify":
