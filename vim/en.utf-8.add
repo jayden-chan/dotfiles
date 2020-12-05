@@ -98,3 +98,4 @@ UML
 timestamp
 mutex
 condvar
+XSS
