@@ -11,6 +11,13 @@ const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
 /**
+ * @param {Object} programs Programs list
+ */
+function writeProgramsList(programs) {
+  writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2) + "\n");
+}
+
+/**
  * @param {String[]} toRemove Packages to remove
  * @param {Object} programs Programs list
  */
@@ -113,7 +120,7 @@ async function handleYayCommand(yayCommand, programs, args) {
               }
             });
 
-            writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+            writeProgramsList(programs);
             resolve(code);
             return;
           });
@@ -132,7 +139,7 @@ async function handleYayCommand(yayCommand, programs, args) {
               });
             });
 
-          writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+          writeProgramsList(programs);
           resolve(code);
           return;
         default:
@@ -154,7 +161,7 @@ function addProgram(programs, args) {
     console.error("Missing package name or host");
   } else {
     programs[args[0]].push(...args.slice(1));
-    writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+    writeProgramsList(programs);
   }
 }
 
@@ -201,7 +208,7 @@ async function fullClean(programs) {
   }
 
   console.log(`To uninstall removed programs: p u ${toUninstall.join(" ")}`);
-  writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2));
+  writeProgramsList(programs);
   rl.close();
 }
 

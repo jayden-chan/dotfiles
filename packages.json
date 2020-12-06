@@ -124,13 +124,14 @@
     "docker-compose",
     "file-roller",
     "adobe-source-han-sans-otc-fonts",
-    "nodejs-lts-erbium",
+    "nodejs-lts-fermium",
     "heroku-cli-bin",
     "tmux",
     "eog",
     "entr",
     "go",
-    "deluge",
-    "deluge-gtk"
+    "discord",
+    "hexyl"
   ]
 }
+
