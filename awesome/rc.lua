@@ -18,6 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Enable remove control with awesome-client
+require("awful.remote")
+
 -- Get hostname of machine
 local f = io.popen ("/bin/hostname")
 hostname = f:read("*a") or ""
