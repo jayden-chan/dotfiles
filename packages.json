@@ -10,15 +10,17 @@
     "avahi",
     "vlc",
     "cuda",
-    "virtualbox",
-    "virtualbox-host-dkms",
     "arm-none-eabi-newlib",
     "arm-none-eabi-gcc",
     "v4l2loopback-dkms",
     "linux-lts-headers",
     "obs-v4l2sink",
     "avrdude",
-    "freecad"
+    "freecad",
+    "arduino-avr-core",
+    "jre-openjdk",
+    "jre-openjdk-headless",
+    "arduino"
   ],
   "swift": [
     "ponymix",
@@ -131,7 +133,8 @@
     "entr",
     "go",
     "discord",
-    "hexyl"
+    "hexyl",
+    "gnu-netcat",
+    "xdotool"
   ]
 }
-
