@@ -297,7 +297,7 @@ filetype off
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
 
     command! -nargs=0 Prettier :CocCommand prettier.formatFile
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json, Prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json,*.html, Prettier
 
     command! -nargs=0 ClangFormat :call CocAction('format')
     autocmd BufWritePre *.c,*.cpp,*.h,*.hpp, ClangFormat
