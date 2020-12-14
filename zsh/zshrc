@@ -96,6 +96,10 @@ alias x='xset r rate 270 35'
 alias ta='tmux attach'
 alias t='tmux'
 
+function vpn () {
+    sudo openvpn --config $1 --auth-user-pass /home/jayden/Documents/pia/pass.txt
+}
+
 function installfont () {
     sudo echo --- Installing font ---
     cp $1 $HOME/.local/share/fonts
