@@ -23,7 +23,8 @@
     "docker",
     "docker-compose",
     "discord",
-    "arduino"
+    "arduino",
+    "websocat-bin"
   ],
   "swift": [
     "ponymix",

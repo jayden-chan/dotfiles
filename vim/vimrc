@@ -25,6 +25,7 @@ filetype off
     " Util
         Plug 'godlygeek/tabular'
         Plug 'editorconfig/editorconfig-vim'
+        Plug 'AndrewRadev/splitjoin.vim'
 
     " IDE-like
         Plug 'neoclide/coc.nvim', {'branch': 'release'}

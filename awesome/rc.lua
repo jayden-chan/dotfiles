@@ -598,6 +598,7 @@ awful.rules.rules = {
           "pinentry",
         },
         class = {
+          "piwheel-display",
           "Arandr",
           "Blueman-manager",
           "Gpick",
