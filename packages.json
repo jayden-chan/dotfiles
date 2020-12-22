@@ -136,7 +136,7 @@
     "entr",
     "go",
     "hexyl",
-    "gnu-netcat",
-    "xdotool"
+    "xdotool",
+    "openbsd-netcat"
   ]
 }
