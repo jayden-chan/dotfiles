@@ -415,7 +415,7 @@ globalkeys = gears.table.join(
         awful.util.spawn("sh " .. scripts .. "/screenshot.sh", false)
     end),
     awful.key({"Shift"}, "Print", function()
-        awful.util.spawn("sh " .. scripts .. "/screenshot.sh --monitor", false)
+        awful.util.spawn("sh " .. scripts .. "/screenshot.sh --window", false)
     end),
     -- Brightness keys
     awful.key({}, "XF86MonBrightnessUp", function()
@@ -598,7 +598,7 @@ awful.rules.rules = {
           "pinentry",
         },
         class = {
-          "piwheel-display",
+          "pw-display",
           "Arandr",
           "Blueman-manager",
           "Gpick",
