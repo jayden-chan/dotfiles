@@ -24,7 +24,8 @@
     "docker-compose",
     "discord",
     "arduino",
-    "websocat-bin"
+    "websocat-bin",
+    "gimp-plugin-resynthesizer"
   ],
   "swift": [
     "ponymix",
@@ -38,7 +39,7 @@
     "vulkan-intel"
   ],
   "all": [
-    "insomnia",
+    "insomnia-bin",
     "spotify",
     "git-extras",
     "xcolor",
