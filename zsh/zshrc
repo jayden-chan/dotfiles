@@ -93,6 +93,7 @@ alias x='xset r rate 270 35'
 alias ta='tmux attach'
 alias t='tmux'
 alias myip='curl https://ipinfo.io/ip'
+alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 
 function vpn () {
     sudo openvpn --config $1 --auth-user-pass /home/jayden/Documents/pia/pass.txt
