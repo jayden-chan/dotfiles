@@ -86,7 +86,7 @@ volumenot = nil
 -- }}}
 
 -- Startup commands
-awful.util.spawn("picom --config /home/jayden/.config/picom.conf", false)
+awful.spawn.with_shell("killall picom; sleep 0.3; picom --config /home/jayden/.config/picom.conf", false)
 awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
 awful.util.spawn(xset, false)
 
@@ -102,7 +102,8 @@ if (hostname == "grace") then
 end
 
 if (hostname ~= "grace") then
-    awful.util.spawn("nm-applet", false)
+    awful.spawn.with_shell("killall nm-applet; sleep 0.3; nm-applet", false)
+    awful.spawn.with_shell("killall pasystray; sleep 0.3; pasystray", false)
 end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -599,6 +600,7 @@ awful.rules.rules = {
         },
         class = {
           "pw-display",
+          "Eog",
           "Arandr",
           "Blueman-manager",
           "Gpick",
