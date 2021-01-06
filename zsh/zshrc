@@ -210,6 +210,40 @@ function dev () {
     find ${@:2} -type f | entr yarn --silent $1
 }
 
+function show_tag () {
+    read -r -d '' code << EOF
+local awful = require("awful")
+local screen = awful.screen.focused()
+local tag = screen.tags[$1]
+if tag then
+    tag:view_only()
+end
+EOF
+
+    awesome-client "$code"
+}
+
+function bgc () {
+    if [ "$1" = "--help" ]; then
+        echo "background command"
+        echo "bgc <min seconds> <before command> <after command> <command>"
+        return
+    fi
+
+    eval $2
+    s_time=$SECONDS
+    eval $4
+
+    e_time=$SECONDS
+    duration=$(( e_time - s_time ))
+
+    if (( duration < $1 )); then
+        sleep $(( $1 - duration ))
+    fi
+
+    eval $3
+}
+
 bindkey '^H' backward-kill-word
 
 export DO_NOT_TRACK=1
