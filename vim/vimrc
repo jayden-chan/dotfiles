@@ -195,10 +195,14 @@ filetype off
     noremap i gk
 
     " Various other cursor control maps
-    noremap L g$
-    noremap J g^
-    noremap I 12<c-u>
-    noremap K 12<c-d>
+    nnoremap L g$
+    nnoremap J g^
+    vnoremap L $
+    vnoremap J ^
+    nnoremap I 12<c-u>
+    nnoremap K 12<c-d>
+    vnoremap I 12<up>
+    vnoremap K 12<down>
     nnoremap <leader>c J
 
     " Split line, inverse of J
