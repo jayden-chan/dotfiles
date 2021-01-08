@@ -1,68 +1,48 @@
+extends c
 snippet cppstart
-	#include <iostream>
+#include <iostream>
 
-	using namespace std;
+using namespace std;
 
-	int main()
-	{
-		cout << "Hello World!" << endl;
+int main()
+{
+	cout << "Hello World!" << endl;
 
-		return 0;
-	}
-
-snippet comment
-	/*
-		Author: Jayden Chan
-		Date Created: ${1:}
-		Last Modified: ${2:}
-		File Name: ${3:}
-	*/
+	return 0;
+}
+endsnippet
 
 snippet header
-	#ifndef ${1:}_H
-	#define $1_H
+#ifndef ${1:}_H
+#define $1_H
 
-	class ${2:}
-	{
-		public:
-			$2();
-		protected:
-		private:
-	};
+class ${2:}
+{
+	public:
+		$2();
+	protected:
+	private:
+};
 
-	#endif // $1_H
+#endif // $1_H
+endsnippet
 
 snippet source
-	#include <iostream>
-	#include "${1:}.h"
+#include <iostream>
+#include "${1:}.h"
 
-	using namespace std;
+using namespace std;
 
-	$1::$1(${2:})
-	{
-		${0}
-	}
-
-snippet for
-	for(int ${1:} = 0; $1 < ${2:}; $1++)
-	{
-		${0}
-	}
-
-snippet forr
-	for(int ${1:} = ${2:}; $1 > 0; $1--)
-	{
-		${0}
-	}
+$1::$1(${2:})
+{
+	${0}
+}
+endsnippet
 
 snippet cout
-	cout << "${1:}"${0};
+cout << "${1:}"${0};
+endsnippet
 
 snippet coutl
-	cout << "${1:}" << endl;
-
-snippet pf
-	printf("${0}");
-
-snippet pl
-	printf("${1:}\n"${0});
+cout << "${1:}" << endl;
+endsnippet

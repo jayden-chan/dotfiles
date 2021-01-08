@@ -1,45 +1,57 @@
 snippet pl
-	println!("${1:}"${0});
+println!("${1:}"${0});
+endsnippet
 
 snippet pf
-	print!("${1:}"${0});
+print!("${1:}"${0});
+endsnippet
 
 snippet ep
-	eprintln!("${1:}"${0});
+eprintln!("${1:}"${0});
+endsnippet
 
 snippet ase
-	assert_eq!(${0});
+assert_eq!(${0});
+endsnippet
 
 snippet as
-	assert!(${0});
+assert!(${0});
+endsnippet
 
 snippet asn
-	assert_ne!(${0});
+assert_ne!(${0});
+endsnippet
 
 snippet der
-	#[derive(${0})]
+#[derive(${0})]
+endsnippet
 
 snippet re
-	Result<${1}, ${2}>${0}
+Result<${1}, ${2}>${0}
+endsnippet
 
 snippet op
-	Option<${1}>${0}
+Option<${1}>${0}
+endsnippet
 
 snippet test
-	#[test]
-	fn test_${1:}() {
-	    ${0}
-	}
+#[test]
+fn test_${1:}() {
+	${0}
+}
+endsnippet
 
 snippet bench
-	#[bench]
-	fn bench_${1:}() {
-	    ${0}
-	}
+#[bench]
+fn bench_${1:}() {
+	${0}
+}
+endsnippet
 
 snippet testmod
-	#[cfg(test)]
-	mod tests {
-	    use super::*;
-		${0}
-	}
+#[cfg(test)]
+mod tests {
+	use super::*;
+${0}
+}
+endsnippet

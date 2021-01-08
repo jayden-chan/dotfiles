@@ -1,48 +1,50 @@
 snippet cppstart
-	cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.10)
 
-	project(${1:name})
+project(${1:name})
 
-	set(CMAKE_BUILD_TPYE Debug)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_BUILD_TPYE Debug)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-	include_directories(include)
+include_directories(include)
 
-	file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "src/*.cpp")
 
-	add_executable(
-		$1
-		${SOURCES}
-	)
+add_executable(
+	$1
+	${SOURCES}
+)
+endsnippet
 
 snippet cstart
-	cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.10)
 
-	project(${1:name})
+project(${1:name})
 
-	if(NOT CMAKE_BUILD_TYPE)
-	  set(CMAKE_BUILD_TYPE Release)
-	endif()
+if(NOT CMAKE_BUILD_TYPE)
+	set(CMAKE_BUILD_TYPE Release)
+endif()
 
-	set(CMAKE_C_FLAGS "-Wall -Wextra -Wpedantic -Wshadow -Wconversion")
-	set(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb -DFULLDEBUG -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG")
-	set(CMAKE_C_FLAGS_RELEASE "-O3 -flto")
-	set (CMAKE_C_STANDARD 99)
+set(CMAKE_C_FLAGS "-Wall -Wextra -Wpedantic -Wshadow -Wconversion")
+set(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb -DFULLDEBUG -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG")
+set(CMAKE_C_FLAGS_RELEASE "-O3 -flto")
+set(CMAKE_C_STANDARD 99)
 
-	include_directories(inc)
-	file(GLOB SOURCES "src/*.c")
+include_directories(inc)
+file(GLOB SOURCES "src/*.c")
 
-	add_executable(
-		${2:executable}
-		${SOURCES}
-	)
+add_executable(
+	${2:executable}
+	${SOURCES}
+)
 
-	if (CMAKE_BUILD_TYPE STREQUAL "Release")
-		# Add libraries here
-		# target_link_libraries($2)
-	endif()
+if (CMAKE_BUILD_TYPE STREQUAL "Release")
+	# Add libraries here
+	# target_link_libraries($2)
+endif()
 
-	if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-		add_definitions(-DDEBUG)
-		target_link_libraries($2 -fsanitize=address -fsanitize=undefined -rdynamic)
-	endif()
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+	add_definitions(-DDEBUG)
+	target_link_libraries($2 -fsanitize=address -fsanitize=undefined -rdynamic)
+endif()
+endsnippet

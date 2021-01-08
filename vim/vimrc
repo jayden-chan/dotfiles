@@ -43,9 +43,7 @@ filetype off
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
 
-        Plug 'MarcWeber/vim-addon-mw-utils'
-        Plug 'tomtom/tlib_vim'
-        Plug 'garbas/vim-snipmate'
+        Plug 'SirVer/ultisnips'
 
     " Syntax
         Plug 'plasticboy/vim-markdown'
@@ -272,9 +270,8 @@ filetype off
 
 " Plugin specific settings
 
-    let g:snipMate = get(g:, 'snipMate', {})
-    let g:snipMate = {}
-    let g:snipMate.no_default_aliases = 1
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
 
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'

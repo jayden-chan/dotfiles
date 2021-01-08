@@ -1,81 +1,98 @@
 snippet th
-	this.${0}
+this.${0}
+endsnippet
 
 snippet log
-	console.log(${0});
+console.log(${0});
+endsnippet
 
 snippet er
-	console.error(${0});
+console.error(${0});
+endsnippet
 
 snippet deb
-	logger.debug(${0});
+logger.debug(${0});
+endsnippet
 
 snippet info
-	logger.info(${0});
+logger.info(${0});
+endsnippet
 
 snippet warn
-	logger.warn(${0});
+logger.warn(${0});
+endsnippet
 
 snippet err
-	logger.error(${0});
+logger.error(${0});
+endsnippet
 
 snippet cclass
-	class ${0} {
-		constructor() {
-
-		}
+class ${0} {
+	constructor() {
+		
 	}
+}
+endsnippet
 
 snippet for
-	for(let ${1:} = ${2:}; $1 < ${3:}; $1++) {
-	  ${0}
-	}
+for(let ${1:} = ${2:}; $1 < ${3:}; $1++) {
+	${0}
+}
+endsnippet
 
 snippet main
-	function main() {
-	    ${0}
-	}
+function main() {
+	${0}
+}
+endsnippet
 
 snippet try
-	try {
-		${0}
-	} catch (e) {
-	    
-	}
+try {
+	${0}
+} catch (e) {
+	
+}
+endsnippet
 
 snippet <>
-	<${1:}>
-	  ${0}
-	</$1>
+<${1:}>
+	${0}
+</$1>
+endsnippet
 
 snippet react
-	import React from 'react';
+import React from 'react';
 
-	export default function ${1:}() {
-	  return (
-	    <div>
-		  ${0}
+export default function ${1:}() {
+	return (
+		<div>
+			${0}
 		</div>
-	  )
-	}
+	)
+}
+endsnippet
 
 snippet then
-	Then('${1}', function(this: World${2}) {
-	  ${0}
-	});
+Then('${1}', function(this: World${2}) {
+	${0}
+});
+endsnippet
 
 snippet when
-	When('${1}', function(this: World${2}) {
-	  ${0}
-	});
+When('${1}', function(this: World${2}) {
+	${0}
+});
+endsnippet
 
 snippet given
-	Given('${1}', function(this: World${2}) {
-	  ${0}
-	});
+Given('${1}', function(this: World${2}) {
+	${0}
+});
+endsnippet
 
 snippet handler
-	exports.${1:} = function(args, callback) {
-	  ${0}
-	  callback();
-	}
+exports.${1:} = function(args, callback) {
+	${0}
+	callback();
+}
+endsnippet

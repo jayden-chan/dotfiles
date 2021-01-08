@@ -1,112 +1,128 @@
 snippet func
-	// $1
-	func ${1:}(${2:}) ${3:}{
-		${0}
-	}
+// $1
+func ${1:}(${2:}) ${3:}{
+	${0}
+}
+endsnippet
 
 snippet meth
-	// $2
-	func (${1:}) ${2:}(${3:}) ${4:}{
-		${0}
-	}
+// $2
+func (${1:}) ${2:}(${3:}) ${4:}{
+	${0}
+}
+endsnippet
 
 snippet pf
-	fmt.Printf(${1})
+fmt.Printf(${1})
+endsnippet
 
 snippet cw
-	fmt.Println(${1})
+fmt.Println(${1})
+endsnippet
 
 snippet lf
-	log.Printf(${1})
+log.Printf(${1})
+endsnippet
 
 snippet lw
-	log.Println(${1})
+log.Println(${1})
+endsnippet
 
 snippet imp
-	"github.com/jayden-chan/${0}"
+"github.com/jayden-chan/${0}"
+endsnippet
 
 snippet for
-	for ${1:} := 0; $1 < ${2:}; $1++ {
-		${0}
-	}
+for ${1:} := 0; $1 < ${2:}; $1++ {
+	${0}
+}
+endsnippet
 
 snippet forr
-	for ${1:} := ${2:}; $1 > 0; $1-- {
-		${0}
-	}
+for ${1:} := ${2:}; $1 > 0; $1-- {
+	${0}
+}
+endsnippet
 
 snippet fore
-	for ${1}, ${2} := range ${3} {
-		${0}
-	}
+for ${1}, ${2} := range ${3} {
+	${0}
+}
+endsnippet
 
 snippet route
-	// Path: ${1:}
-	func ${2:}(res http.ResponseWriter, req *http.Request) {
-		${0}
-	}
+// Path: ${1:}
+func ${2:}(res http.ResponseWriter, req *http.Request) {
+	${0}
+}
+endsnippet
 
 snippet raw
-	data, err := ioutil.ReadAll(req.Body)
-	if err != nil {
-		util.HTTPRes(res, "Malformed request data", http.StatusBadRequest)
-		return
-	}
+data, err := ioutil.ReadAll(req.Body)
+if err != nil {
+	util.HTTPRes(res, "Malformed request data", http.StatusBadRequest)
+	return
+}
+endsnippet
 
 snippet auth
-	authSuccess, customer := util.Authenticate(req)
-	if !authSuccess {
-		util.HTTPRes(res, "Customer authorization failed.", http.StatusUnauthorized)
-		return
-	}
+authSuccess, customer := util.Authenticate(req)
+if !authSuccess {
+	util.HTTPRes(res, "Customer authorization failed.", http.StatusUnauthorized)
+	return
+}
+endsnippet
 
 snippet autha
-	authSuccess, user, access := util.Authenticate(req)
-	if !authSuccess {
-		util.HTTPRes(res, "Customer authorization failed.", http.StatusUnauthorized)
-		return
-	}
+authSuccess, user, access := util.Authenticate(req)
+if !authSuccess {
+	util.HTTPRes(res, "Customer authorization failed.", http.StatusUnauthorized)
+	return
+}
+endsnippet
 
 snippet json
-	var (
-		${1}
-	)
-	paths := [][]string{
-		${2}
-	}
-	jsonparser.EachKey(data, func(idx int, value []byte, vt jsonparser.ValueType, err error) {
-		switch idx {
+var (
+	${1}
+)
+paths := [][]string{
+	${2}
+}
+jsonparser.EachKey(data, func(idx int, value []byte, vt jsonparser.ValueType, err error) {
+	switch idx {
 		${0}
-		}
-	}, paths...)
+	}
+}, paths...)
+endsnippet
 
 snippet db
-	rows, err := db.Query("${1:}"${2:})
-	if err != nil {
-		log.Println(err)
-		util.HTTPRes(res, "An internal server error occurred.", http.StatusInternalServerError)
-		return
-	}
-	defer rows.Close()
+rows, err := db.Query("${1:}"${2:})
+if err != nil {
+	log.Println(err)
+	util.HTTPRes(res, "An internal server error occurred.", http.StatusInternalServerError)
+	return
+}
+defer rows.Close()
 
-	type row struct {
-		${3:}
-	}
+type row struct {
+	${3:}
+}
 
-	type results struct {
-		Results []row \`json:"${4:}"\`
-	}
+type results struct {
+	Results []row \`json:"${4:}"\`
+}
 
-	var ret results
-	for rows.Next() {
-		var r row
-		rows.Scan(&r.${0})
-		ret.Results = append(ret.Results, r)
-	}
+var ret results
+for rows.Next() {
+	var r row
+	rows.Scan(&r.${0})
+	ret.Results = append(ret.Results, r)
+}
+endsnippet
 
 snippet err
-	if err != nil {
-		log.Println(err)
-		util.HTTPRes(res, "An internal server error has occurred", http.StatusInternalServerError)
-		return
-	}
+if err != nil {
+	log.Println(err)
+	util.HTTPRes(res, "An internal server error has occurred", http.StatusInternalServerError)
+	return
+}

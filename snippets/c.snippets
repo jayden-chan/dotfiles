@@ -1,31 +1,37 @@
 snippet cstart
-	/*
-		Author: Jayden Chan
-		Date: ${1:}
-	*/
-	#include <stdio.h>
-	#include <stdlib.h>
+/*
+	Author: Jayden Chan
+	Date: ${1:}
+*/
+#include <stdio.h>
+#include <stdlib.h>
 
-	int main() {
-		${0}
-		return EXIT_SUCCESS;
-	}
+int main() {
+	${0}
+	return EXIT_SUCCESS;
+}
+endsnippet
 
 snippet in
-	#include ${0}
+#include ${0}
+endsnippet
 
 snippet for
-	for (int ${1:} = 0; $1 < ${2:}; $1++) {
-	        ${0}
-	}
+for (int ${1:} = 0; $1 < ${2:}; $1++) {
+	${0}
+}
+endsnippet
 
 snippet forr
-	for (int ${1:} = ${2:}-1; $1 >= 0; $1--) {
-	        ${0}
-	}
+for (int ${1:} = ${2:}-1; $1 >= 0; $1--) {
+	${0}
+}
+endsnippet
 
 snippet pf
-	printf("${0}");
+printf("${0}");
+endsnippet
 
 snippet pl
-	printf("${1:}\n"${0});
+printf("${1:}\n"${0});
+endsnippet
