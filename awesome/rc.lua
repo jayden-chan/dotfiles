@@ -395,6 +395,10 @@ globalkeys = gears.table.join(
             end)
         end)
     end),
+    -- Color picker
+    awful.key({modkey}, "c", function()
+        awful.spawn.with_shell("xcolor | tr -d '\\n' | xclip -selection c", false)
+    end),
     -- Media Keys
     awful.key({}, "XF86AudioPlay", function()
         awful.util.spawn(commandpp, false)
