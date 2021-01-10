@@ -79,7 +79,6 @@
     "ripgrep",
     "htop",
     "iputils",
-    "android-file-transfer",
     "ntfs-3g",
     "bat",
     "exa",
@@ -138,6 +137,7 @@
     "go",
     "hexyl",
     "xdotool",
-    "openbsd-netcat"
+    "openbsd-netcat",
+    "gvfs-mtp"
   ]
 }
