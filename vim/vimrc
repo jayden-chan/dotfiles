@@ -430,6 +430,10 @@ filetype off
     iab funciton function
     iab funciotn function
     iab fcuntion function
+    iab versoin  version
+    iab veison   version
+    iab vreison  version
+    iab vierson  version
     iab costn    const
     iab conts    const
     iab csont    const
