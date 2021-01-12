@@ -37,7 +37,7 @@ ln -fs $dots/zsh/zshrc                 $HOME/.zshrc
 ln -fs $dots/zsh/zlogout               $HOME/.zlogout
 ln -fs $dots/tmux/tmux.conf            $HOME/.tmux.conf
 ln -fs $dots/rofi/theme.rasi           $config/rofi/theme.rasi
-ln -fs $dots/snippets/                 $config/nvim/UltiSnips/
+ln -fs $dots/snippets/                 $config/nvim/UltiSnips
 ln -fs $dots/vim/en.utf-8.add          $config/nvim/spell/en.utf-8.add
 ln -fs $dots/vim/vimrc                 $config/nvim/init.vim
 ln -fs $dots/vscode/settings.json      $config/Code/User/settings.json
