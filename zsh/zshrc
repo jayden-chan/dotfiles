@@ -90,10 +90,13 @@ alias o='xdg-open'
 alias op='nautilus . & disown'
 alias clip='xclip -selection c'
 alias x='xset r rate 270 35'
-alias ta='tmux attach'
 alias t='tmux'
 alias myip='curl https://ipinfo.io/ip'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
+
+function ta () {
+    if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi
+}
 
 function vpn () {
     sudo openvpn --config $1 --auth-user-pass /home/jayden/Documents/pia/pass.txt
