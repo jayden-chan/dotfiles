@@ -3,6 +3,8 @@
 # Author:   Nicholas Feldman, Jayden Chan
 # Based on: https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh
 
+max_chars=150
+
 main() {
     if ! pgrep -x spotify >/dev/null; then
         echo ""; exit
@@ -23,8 +25,8 @@ main() {
 
     if [ "$status" = "" ]; then
         echo Paused
-    elif [ ${#title} -gt 57 ]; then
-        echo $artist - $(echo $title | cut -c -54)...
+    elif [ $((${#title}+${#artist})) -gt $max_chars ]; then
+        echo $(echo $artist - $title | cut -c -$max_chars)...
     else
         echo $artist - $title
     fi
