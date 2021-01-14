@@ -79,20 +79,23 @@ alias claer='clear'
 alias ckear='clear'
 alias Lq='exit'
 
-# Other
-alias ls='exa'
+# One letter
 alias l='exa -a'
 alias y='yarn'
+alias o='xdg-open'
+alias x='xset r rate 270 35'
+alias t='tmux'
+
+# Other
+alias ls='exa'
 alias la='exa -lah'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias open='feh --auto-zoom'
-alias o='xdg-open'
 alias op='nautilus . </dev/null &>/dev/null & disown'
 alias clip='xclip -selection c'
-alias x='xset r rate 270 35'
-alias t='tmux'
 alias myip='curl https://ipinfo.io/ip'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
+alias ncl='nc -l 0.0.0.0 4334'
 
 function ta () {
     if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi
