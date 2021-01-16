@@ -1,12 +1,12 @@
 Host stealthlocal
     Hostname 192.168.1.118
     Port 32223
-    User ubuntu
+    User pi
     IdentityFile ~/.ssh/stealth
     IdentitiesOnly yes
 
 Host piwheel
-    Hostname 192.168.1.81
+    Hostname 192.168.1.73
     User pi
     Port 22
     ControlPath ~/.ssh/piwheel.socket
