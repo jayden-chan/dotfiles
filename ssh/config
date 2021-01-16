@@ -1,5 +1,5 @@
-Host stealthlocal
-    Hostname 192.168.1.118
+Host stealth
+    Hostname homepistealth.ddns.net
     Port 32223
     User pi
     IdentityFile ~/.ssh/stealth
@@ -16,8 +16,3 @@ Host piwheel
 Host github.com
     Hostname github.com
     IdentityFile ~/.ssh/github
-
-Host homepistealth.ddns.net
-    Port 32223
-    IdentityFile ~/.ssh/homepistealth_gitlab
-    IdentitiesOnly yes

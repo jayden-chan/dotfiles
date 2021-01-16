@@ -6,7 +6,7 @@ export EDITOR=nvim
 # ZSH_THEME="norm"
 DEFAULT_USER="jayden"
 # prompt_context() {}
-plugins=(git dotenv zsh-syntax-highlighting)
+plugins=(git dotenv zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,7 +93,7 @@ alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/i
 alias open='feh --auto-zoom'
 alias op='nautilus . </dev/null &>/dev/null & disown'
 alias clip='xclip -selection c'
-alias myip='curl https://ipinfo.io/ip'
+alias myip='curl https://ipinfo.io/ip && echo'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 alias ncl='nc -l 0.0.0.0 4334'
 alias sd='sudoedit'
@@ -261,6 +261,9 @@ export DO_NOT_TRACK=1
 # Opt out of .NET telemetry (yikes...)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GATSBY_TELEMETRY_DISABLED=1
+
+# async suggestions
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # Export Go path
 export GOPATH=$HOME/Dev/Go
