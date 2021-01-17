@@ -1,6 +1,6 @@
 [time]
 disabled = false
-utc_time_offset = "-6"
+utc_time_offset = "local"
 format = "[\\[ $time \\]]($style) "
 time_format = "%-l:%M:%S"
 
