@@ -6,7 +6,7 @@ export EDITOR=nvim
 # ZSH_THEME="norm"
 DEFAULT_USER="jayden"
 # prompt_context() {}
-plugins=(git dotenv zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git dotenv zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
