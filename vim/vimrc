@@ -288,6 +288,9 @@ filetype off
     let g:NERDTreePatternMatchHighlightFullName = 1
     let NERDTreeAutoDeleteBuffer = 1
 
+    " Mirror NERDTree when file is opened in new window
+    autocmd BufWinEnter *.* silent NERDTreeMirror
+
     let s:blue = "689FB6"
     let s:red = "AE403F"
     let g:NERDTreeExtensionHighlightColor = {}
@@ -379,9 +382,6 @@ filetype off
 
     " Remove all spaces and newlines
     command! Minify :%s/\s// | :%s/\n//
-
-    " Mirror NERDTree when file is opened in new window
-    autocmd BufWinEnter *.* silent NERDTreeMirror
 
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex setlocal spell
