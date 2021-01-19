@@ -6,12 +6,9 @@ export EDITOR=nvim
 # ZSH_THEME="norm"
 DEFAULT_USER="jayden"
 # prompt_context() {}
-plugins=(git dotenv zsh-syntax-highlighting)
+plugins=(git dotenv zsh-z zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
-# initialize z
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # initialize starship prompt
 eval "$(starship init zsh)"
