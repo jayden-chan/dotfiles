@@ -25,7 +25,8 @@
     "discord",
     "arduino",
     "websocat-bin",
-    "gimp-plugin-resynthesizer"
+    "gimp-plugin-resynthesizer",
+    "zoom"
   ],
   "swift": [
     "ponymix",
@@ -65,7 +66,6 @@
     "rustup",
     "diff-so-fancy",
     "ctags",
-    "postgresql",
     "arandr",
     "picom",
     "cups",
