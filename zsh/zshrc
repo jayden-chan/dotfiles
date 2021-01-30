@@ -100,7 +100,7 @@ function ta () {
 }
 
 function tunnel () {
-    ssh -L $1:localhost:$2 $3
+    ssh -L $1\:localhost:$2 $3
 }
 
 function vpn () {
