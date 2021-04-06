@@ -42,7 +42,7 @@
   ],
   "all": [
     "insomnia-bin",
-    "spotify",
+    "spotify-dev",
     "git-extras",
     "xcolor",
     "evince",
