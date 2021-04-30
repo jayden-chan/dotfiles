@@ -7,7 +7,6 @@ time_format = "%-l:%M:%S"
 [character]
 error_symbol = "[✗](bold red)"
 success_symbol = "[\\$](bold green)"
-use_symbol_for_status=true
 
 [package]
 disabled=true

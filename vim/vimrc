@@ -440,6 +440,7 @@ filetype off
     iab csont    const
     iab cosnt    const
     iab asunyc   async
+    iab asunc    async
     iab asuyuc   async
     iab THe      The
     iab THis     This

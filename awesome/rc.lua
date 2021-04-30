@@ -92,7 +92,7 @@ awful.util.spawn(xset, false)
 
 -- Set esc as caps lock on laptop
 -- Caps lock is set as escape in keyboard firmware for desktop
-if (hostname == "swift") then
+if (hostname == "swift" or hostname == "purple-heron") then
     awful.util.spawn("xmodmap -e \"clear lock\"", false)
     awful.util.spawn("xmodmap -e \"keysym Caps_Lock = Escape\"", false)
 end
@@ -218,9 +218,16 @@ awful.screen.connect_for_each_screen(function(s)
 
     local battery_widget = nil
     if (hostname ~= "grace") then
+        local adapter_name = nil
+        if (hostname == "swift") then
+            adapter_name = "BAT1"
+        elseif (hostname == "purple-heron") then
+            adapter_name = "BAT0"
+        end
+
         battery_widget = wibox.layout.margin(require("battery-widget") {
             ac = "AC",
-            adapter = "BAT1",
+            adapter = adapter_name,
             ac_prefix = "",
             battery_prefix = "",
             percent_colors = {
