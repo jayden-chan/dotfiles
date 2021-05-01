@@ -26,8 +26,7 @@
     "arduino",
     "websocat-bin",
     "gimp-plugin-resynthesizer",
-    "zoom",
-    "libdvdcss"
+    "zoom"
   ],
   "swift": [
     "ponymix",

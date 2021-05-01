@@ -17,21 +17,6 @@ function writeProgramsList(programs) {
   writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2) + "\n");
 }
 
-/**
- * @param {String[]} toRemove Packages to remove
- * @param {Object} programs Programs list
- */
-function removePacks(toRemove, programs) {
-  toRemove.forEach((pack) => {
-    Object.entries(programs).forEach(([host, arr]) => {
-      const found = arr.indexOf(pack);
-      if (found !== -1) {
-        programs[host].splice(found, 1);
-      }
-    });
-  });
-}
-
 function usage() {
   console.log("p - A helper script on top of another helper script");
   console.log();
