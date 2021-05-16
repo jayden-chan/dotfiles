@@ -4,6 +4,7 @@ Host stealth
     User pi
     IdentityFile ~/.ssh/stealth
     IdentitiesOnly yes
+    ForwardX11 no
 
 Host piwheel
     Hostname 192.168.1.73
@@ -12,7 +13,21 @@ Host piwheel
     ControlPath ~/.ssh/piwheel.socket
     ControlMaster auto
     ControlPersist 300m
+    ForwardX11 no
 
 Host github.com
     Hostname github.com
     IdentityFile ~/.ssh/github
+    ForwardX11 no
+
+Host git.engr.uvic.ca
+    Hostname git.engr.uvic.ca
+    IdentityFile ~/.ssh/engr_gitlab
+    ForwardX11 no
+
+Host homepistealth.ddns.net
+    Port 32223
+    User git
+    IdentityFile ~/.ssh/homepistealth_gitlab
+    IdentitiesOnly yes
+    ForwardX11 no
