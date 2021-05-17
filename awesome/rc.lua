@@ -247,8 +247,9 @@ awful.screen.connect_for_each_screen(function(s)
         }.widget, 0, 0, 3, 0)
     end
 
+    beautiful.systray_icon_spacing = 10
     local systray = wibox.widget.systray()
-    systray:set_base_size(25)
+    systray:set_base_size(20)
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -262,7 +263,7 @@ awful.screen.connect_for_each_screen(function(s)
         wibox.layout.margin(spotify_widget, 0, 0, 3, 0), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.layout.margin(systray, 0, 5, 5, 0),
+            wibox.layout.margin(systray, 0, 20, 5, 0),
             battery_widget,
             wibox.layout.margin(mytextclock, 0, 0, 3, 0),
             wibox.layout.margin(s.mylayoutbox, 0, 0, 3, 0),
