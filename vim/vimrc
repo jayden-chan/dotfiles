@@ -384,7 +384,7 @@ filetype off
     command! Minify :%s/\s// | :%s/\n//
 
     " Enable spell check for certain file types
-    autocmd FileType gitcommit,text,markdown,tex setlocal spell
+    autocmd FileType gitcommit,text,markdown,tex,cucumber setlocal spell
 
     " Set a max line length for Markdown files
     autocmd FileType markdown setlocal textwidth=89
