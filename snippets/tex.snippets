@@ -47,6 +47,10 @@ snippet fr
 \frac{${1:}}{${2:}}
 endsnippet
 
+snippet $fr
+$\frac{${1:}}{${2:}}
+endsnippet
+
 snippet b
 \textbf{${1:}}
 endsnippet
@@ -117,9 +121,11 @@ snippet vs
 \vspace{${0}}
 endsnippet
 
-snippet qa
-\begin{itemize}
-\item [\textbf{Q:}] ${0}
-\item [\textbf{A:}]
-\end{itemize}
+snippet tab
+\begin{center}
+	\begin{tabularx}{ ${1} }
+		\hline
+		${0}
+	\end{tabularx}
+\end{center}
 endsnippet
