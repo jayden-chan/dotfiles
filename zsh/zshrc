@@ -102,8 +102,13 @@ function ta () {
 function cpr() {
   rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh "$@"
 }
+
 function mvr() {
   rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh "$@"
+}
+
+function randstring() {
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1
 }
 
 function tunnel () {
