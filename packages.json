@@ -41,7 +41,6 @@
   ],
   "all": [
     "insomnia-bin",
-    "spotify-dev",
     "git-extras",
     "xcolor",
     "evince",
@@ -137,6 +136,7 @@
     "hexyl",
     "xdotool",
     "openbsd-netcat",
-    "gvfs-mtp"
+    "gvfs-mtp",
+    "spotify"
   ]
 }
