@@ -392,13 +392,14 @@ filetype off
     autocmd FileType markdown setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql,yml,yaml setlocal shiftwidth=2
-    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql,yml,yaml setlocal softtabstop=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql,yml,yaml,groovy setlocal shiftwidth=2
+    autocmd FileType javascript,javascript.jsx,typescript,typescriptreact,typescript.tsx,html,scss,css,less,json,toml,sql,yml,yaml,groovy setlocal softtabstop=2
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
 
-    au BufRead,BufNewFile *.tdg set filetype=tdg
+    au BufRead,BufNewFile *.tdg setf tdg
+    au BufRead,BufNewFile Jenkinsfile setf groovy
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
@@ -441,6 +442,7 @@ filetype off
     iab csont    const
     iab cosnt    const
     iab asunyc   async
+    iab ascyn    async
     iab asunc    async
     iab asuyuc   async
     iab THe      The
