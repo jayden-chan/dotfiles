@@ -31,15 +31,14 @@
   "swift": [
     "ponymix",
     "alsa-utils",
-    "bluez",
-    "bluez-utils",
-    "blueman",
-    "pulseaudio-bluetooth",
     "light",
     "xf86-video-intel",
     "vulkan-intel"
   ],
   "all": [
+    "bluez",
+    "bluez-utils",
+    "blueman",
     "insomnia-bin",
     "git-extras",
     "xcolor",
