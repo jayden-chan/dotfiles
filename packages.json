@@ -68,7 +68,7 @@
     "awesome",
     "lightdm",
     "lightdm-gtk-greeter",
-    "pulseaudio",
+    "pipewire",
     "rofi",
     "ntp",
     "jq",
