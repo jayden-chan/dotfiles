@@ -18,7 +18,6 @@
     "avrdude",
     "freecad",
     "arduino-avr-core",
-    "jre-openjdk",
     "jre-openjdk-headless",
     "docker",
     "docker-compose",
@@ -56,7 +55,6 @@
     "fakeroot",
     "gcc",
     "gdb",
-    "jdk8-openjdk",
     "make",
     "autoconf",
     "bison",
@@ -136,6 +134,8 @@
     "xdotool",
     "openbsd-netcat",
     "gvfs-mtp",
-    "spotify"
+    "spotify",
+    "jre11-openjdk",
+    "jdk11-openjdk"
   ]
 }
