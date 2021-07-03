@@ -197,7 +197,6 @@ async function fullClean(programs) {
         const p = arr[j];
         const res = await yesno(`Keep ${p}? [y/n]: `, rl);
         if (res === false) {
-          programs[host].splice(programs[host].indexOf(p), 1);
           toUninstall.push(p);
           console.log(`Removed ${p} from packages list.`);
         }
@@ -206,7 +205,6 @@ async function fullClean(programs) {
   }
 
   console.log(`To uninstall removed programs: p u ${toUninstall.join(" ")}`);
-  writeProgramsList(programs);
   rl.close();
 }
 
