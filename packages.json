@@ -25,7 +25,10 @@
     "arduino",
     "websocat-bin",
     "gimp-plugin-resynthesizer",
-    "zoom"
+    "zoom",
+    "handbrake",
+    "simplescreenrecorder",
+    "wkhtmltopdf"
   ],
   "swift": [
     "ponymix",
@@ -136,6 +139,8 @@
     "gvfs-mtp",
     "spotify",
     "jre11-openjdk",
-    "jdk11-openjdk"
+    "jdk11-openjdk",
+    "inotify-tools",
+    "python-pynvim"
   ]
 }
