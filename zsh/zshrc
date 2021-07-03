@@ -47,10 +47,6 @@ alias nfetch='neofetch --ascii_distro arch_old'
 alias wifilist='nmcli dev wifi list'
 alias wificonnect='nmcli con up'
 
-# Work
-[[ "$HOST" = "jayden-GL63-8RC" ]] && source ~/.work-aliases.sh
-alias twork='tmux new-session -c $LC_PATH_DISP \; source-file ~/Documents/Git/dotfiles/tmux/work.conf'
-
 # Exit
 alias :q='exit'
 alias :Q='exit'
@@ -128,10 +124,6 @@ function installfont () {
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---
-}
-
-function wifireset () {
-    nmcli con down "$1" && wificonnect "$1"
 }
 
 function lpac () {
@@ -273,9 +265,6 @@ export DO_NOT_TRACK=1
 # Opt out of .NET telemetry (yikes...)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GATSBY_TELEMETRY_DISABLED=1
-
-# async suggestions
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # Export Go path
 export GOPATH=$HOME/Dev/Go

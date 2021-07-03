@@ -25,7 +25,6 @@ filetype off
     " Util
         Plug 'godlygeek/tabular'
         Plug 'editorconfig/editorconfig-vim'
-        Plug 'AndrewRadev/splitjoin.vim'
 
     " IDE-like
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -42,7 +41,6 @@ filetype off
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
-
         Plug 'SirVer/ultisnips'
 
     " Syntax

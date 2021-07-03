@@ -1,10 +1,4 @@
 {
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
   "rust-analyzer.inlayHints.enable": false,
   "rust-analyzer.inlayHints.typeHints": false,
   "rust-analyzer.inlayHints.chainingHints": false,
