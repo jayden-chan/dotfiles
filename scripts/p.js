@@ -27,6 +27,7 @@ function usage() {
   console.log("    fullclean (fc):                      remove unused packages from packages.json"); // prettier-ignore
   console.log("          add (a ): <host> <packages...> add packages to the list"); // prettier-ignore
   console.log("       verify (v ):                      list packages from list that aren't installed"); // prettier-ignore
+  console.log("     unlisted (ul):                      list packages that are installed but not in package.json"); // prettier-ignore
   console.log("        cache (cc):                      clear the package cache directories"); // prettier-ignore
   console.log("         help (h ):                      print help"); // prettier-ignore
   console.log();
@@ -169,6 +170,18 @@ function verifyPrograms(programs) {
 /**
  * @param {Object} programs Programs list
  */
+function showUnlisted(programs) {
+  const installed = spawnSync("yay", ["-Qqettn"]).stdout.toString().split("\n");
+  // @ts-ignore -- ES2019 but I'm too lazy to configure tsserver
+  const listed = Object.values(programs).flat();
+  installed
+    .filter((p) => !listed.includes(p))
+    .forEach((notListed) => console.log(notListed));
+}
+
+/**
+ * @param {Object} programs Programs list
+ */
 async function fullClean(programs) {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -228,6 +241,10 @@ async function main() {
     case "v":
     case "verify":
       verifyPrograms(programs);
+      return 0;
+    case "ul":
+    case "unlisted":
+      showUnlisted(programs);
       return 0;
     case "fc":
     case "fullclean":
