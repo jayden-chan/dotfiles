@@ -79,6 +79,10 @@ alias o='xdg-open'
 alias x='xset r rate 270 35'
 alias t='tmux'
 
+# Good compression settings
+alias compress='tar c -I"xz -T 8 -9" -f'
+alias decompress='tar xfJ'
+
 # Other
 alias ls='exa'
 alias la='exa -lah'
