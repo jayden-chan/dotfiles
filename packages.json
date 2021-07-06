@@ -135,6 +135,8 @@
     "jre11-openjdk",
     "jdk11-openjdk",
     "inotify-tools",
-    "python-pynvim"
+    "python-pynvim",
+    "fd",
+    "webp-pixbuf-loader"
   ]
 }
