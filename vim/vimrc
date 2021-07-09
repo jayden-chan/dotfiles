@@ -379,9 +379,6 @@ filetype off
 
     command! RustDocs :silent !rustup doc --std
 
-    " Remove all spaces and newlines
-    command! Minify :%s/\s// | :%s/\n//
-
     " Enable spell check for certain file types
     autocmd FileType gitcommit,text,markdown,tex,cucumber setlocal spell
 
