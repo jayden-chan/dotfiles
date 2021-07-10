@@ -12,8 +12,6 @@ filetype off
         Plug 'vim-airline/vim-airline'
 
     " fs nav
-        Plug 'scrooloose/nerdtree'
-        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
 
@@ -35,6 +33,7 @@ filetype off
                     \ 'coc-json',
                     \ 'coc-eslint',
                     \ 'coc-prettier',
+                    \ 'coc-explorer',
                     \ ]
 
         Plug 'jiangmiao/auto-pairs'
@@ -280,23 +279,7 @@ filetype off
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = '%t'
 
-    map <silent> <c-n> :NERDTreeToggle<CR>
-    let NERDTreeMapOpenSplit='h'
-    let g:NERDTreeIgnore = ['node_modules', 'package-lock.json', 'yarn.lock']
-    let g:NERDTreeFileExtensionHighlightFullName = 1
-    let g:NERDTreeExactMatchHighlightFullName = 1
-    let g:NERDTreePatternMatchHighlightFullName = 1
-    let NERDTreeAutoDeleteBuffer = 1
-
-    " Mirror NERDTree when file is opened in new window
-    autocmd BufWinEnter *.* silent NERDTreeMirror
-
-    let s:blue = "689FB6"
-    let s:red = "AE403F"
-    let g:NERDTreeExtensionHighlightColor = {}
-    let g:NERDTreeExtensionHighlightColor['tsx'] = s:blue
-    let g:NERDTreeExtensionHighlightColor['tex'] = s:blue
-    let g:NERDTreeExtensionHighlightColor['pdf'] = s:red
+    map <silent> <c-n> :CocCommand explorer<CR>
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
