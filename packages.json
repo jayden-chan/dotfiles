@@ -133,6 +133,7 @@
     "inotify-tools",
     "python-pynvim",
     "fd",
-    "webp-pixbuf-loader"
+    "webp-pixbuf-loader",
+    "tree"
   ]
 }
