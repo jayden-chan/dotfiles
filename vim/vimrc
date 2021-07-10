@@ -55,6 +55,7 @@ filetype off
         Plug 'jackguo380/vim-lsp-cxx-highlight'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+        Plug 'mustache/vim-mustache-handlebars'
 
     call plug#end()
 
