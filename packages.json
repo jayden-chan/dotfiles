@@ -30,6 +30,7 @@
     "ponymix",
     "alsa-utils",
     "light",
+    "arandr",
     "xf86-video-intel",
     "vulkan-intel"
   ],
@@ -61,7 +62,6 @@
     "rustup",
     "diff-so-fancy",
     "ctags",
-    "arandr",
     "picom",
     "cups",
     "awesome",
