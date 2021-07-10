@@ -23,7 +23,8 @@
     "zoom",
     "handbrake",
     "simplescreenrecorder",
-    "wkhtmltopdf"
+    "wkhtmltopdf",
+    "borg"
   ],
   "swift": [
     "ponymix",
@@ -103,7 +104,7 @@
     "pdftk",
     "texlive-core",
     "watchman",
-    "pulseeffects",
+    "easyeffects",
     "reflector",
     "exfat-utils",
     "iperf3",
@@ -131,6 +132,7 @@
     "python-pynvim",
     "fd",
     "webp-pixbuf-loader",
-    "tree"
+    "tree",
+    "python-llfuse"
   ]
 }
