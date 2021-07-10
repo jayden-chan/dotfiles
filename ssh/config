@@ -15,6 +15,13 @@ Host piwheel
     ControlPersist 300m
     ForwardX11 no
 
+Host rsyncnet
+    Hostname de1397.rsync.net
+    User de1397
+    IdentityFile ~/.ssh/rsync_net
+    IdentitiesOnly yes
+    ForwardX11 no
+
 Host github.com
     Hostname github.com
     IdentityFile ~/.ssh/github
