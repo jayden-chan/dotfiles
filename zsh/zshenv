@@ -1,28 +1,69 @@
-export EDITOR="nvim"
-export TERMINAL="st"
-export BROWSER="firefox"
+# XDG Base Directory
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_STATE_HOME="$HOME"/.local/state
 
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_STATE_HOME="$HOME/.local/state"
-
+# Clean up home directory
 export LESSHISTFILE="-"
-export WGETRC="$HOME/.config/wget/wgetrc"
-export ZDOTDIR="$HOME/.config/zsh"
+export WGETRC="$HOME"/.config/wget/wgetrc
+export ZDOTDIR="$HOME"/.config/zsh
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
-export GRIPHOME="$XDG_CONFIG_HOME/grip"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GRIPHOME="$XDG_CONFIG_HOME"/grip
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export _Z_DATA="$XDG_DATA_HOME/z"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export _Z_DATA="$XDG_DATA_HOME"/z
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
+
+# Config
+export EDITOR="nvim"
+export TERMINAL="st"
+export BROWSER="firefox"
+
+export DO_NOT_TRACK=1
+# Opt out of .NET telemetry (yikes...)
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export GATSBY_TELEMETRY_DISABLED=1
+
+# Export Go path
+export GOPATH=$HOME/Dev/Go
+export PATH=$HOME/Dev/Go/bin:$PATH
+
+# Make fzf respect .gitignore
+export FZF_DEFAULT_COMMAND="rg --files"
+
+# Add cargo binaries
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Add other binaries
+export PATH="$HOME/.local/bin:$PATH"
+
+# NPM global
+export PATH=~/.local/share/npm/bin:$PATH
+
+# Yarn global
+export PATH=~/.yarn/bin:$PATH
+
+unset MANPATH
+export MANPATH="$NPM_PATH/share/man:$(manpath)"
+
+# Ensure GPG sign prompt shows on correct screen
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# Android studio stuff for React Native
+export ANDROID_HOME=$HOME/Dev/Android
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
