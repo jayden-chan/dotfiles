@@ -3,32 +3,41 @@
 dots=$HOME/Documents/Git/dotfiles
 config=$HOME/.config
 
-rm -rf $config/rofi       2>/dev/null
-rm -rf $config/nvim       2>/dev/null
-rm -rf $config/kitty      2>/dev/null
-rm -rf $config/systemd    2>/dev/null
+rm -rf $config/rofi    2>/dev/null
+rm -rf $config/nvim    2>/dev/null
+rm -rf $config/systemd 2>/dev/null
+rm -rf $config/latexmk 2>/dev/null
+rm -rf $config/tmux    2>/dev/null
+rm -rf $config/zsh     2>/dev/null
+rm -rf $config/npm     2>/dev/null
 
 mkdir -p $config/rofi
 mkdir -p $config/nvim/colors
 mkdir -p $config/nvim/spell
-mkdir -p $config/kitty
+mkdir -p $config/systemd
+mkdir -p $config/latexmk
+mkdir -p $config/tmux
+mkdir -p $config/zsh
+mkdir -p $config/npm
 mkdir -p $config/systemd/user
 mkdir -p $config/awesome
 mkdir -p $HOME/.local/bin
 
-echo "Installing vim-plugged"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if [ "$1" = "--full" ]; then
+    echo "Installing vim-plugged"
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-echo "Installing awesome themes"
-git clone --recursive https://github.com/lcpz/awesome-copycats.git
-mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
+    echo "Installing awesome themes"
+    git clone --recursive https://github.com/lcpz/awesome-copycats.git
+    mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
 
-echo "Installing awesome battery widget"
-if [ $(hostname) = "grace" ]; then
-    echo "Desktop detected, not installing battery widget"
-else
-    git clone https://github.com/deficient/battery-widget.git ~/.config/awesome/battery-widget
+    echo "Installing awesome battery widget"
+    if [ $(hostname) = "grace" ]; then
+        echo "Desktop detected, not installing battery widget"
+    else
+        git clone https://github.com/deficient/battery-widget.git ~/.config/awesome/battery-widget
+    fi
 fi
 
 cd $HOME
@@ -46,6 +55,7 @@ ln -fs $dots/termite/config          $config/termite/config
 ln -fs $dots/tmux/tmux.conf          $config/tmux/tmux.conf
 ln -fs $dots/vim/en.utf-8.add        $config/nvim/spell/en.utf-8.add
 ln -fs $dots/vim/vimrc               $config/nvim/init.vim
+ln -fs $dots/vim/coc-settings.json   $config/nvim/coc-settings.json
 ln -fs $dots/vscode/keybindings.json $config/Code/User/keybindings.json
 ln -fs $dots/vscode/settings.json    $config/Code/User/settings.json
 ln -fs $dots/zsh/zlogout             $config/zsh/.zlogout
