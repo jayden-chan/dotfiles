@@ -133,6 +133,7 @@
     "fd",
     "webp-pixbuf-loader",
     "tree",
-    "python-llfuse"
+    "python-llfuse",
+    "rust-analyzer"
   ]
 }

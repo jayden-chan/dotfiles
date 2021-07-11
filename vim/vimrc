@@ -43,17 +43,11 @@ filetype off
         Plug 'SirVer/ultisnips'
 
     " Syntax
+        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         Plug 'plasticboy/vim-markdown'
         Plug 'lifepillar/pgsql.vim'
-        Plug 'HerringtonDarkholme/yats.vim'
-        Plug 'pangloss/vim-javascript'
-        Plug 'mxw/vim-jsx'
-        Plug 'jparise/vim-graphql'
         Plug 'jayden-chan/rust.vim'
-        Plug 'cespare/vim-toml', { 'for': 'toml' }
-        Plug 'jackguo380/vim-lsp-cxx-highlight'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-        Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
         Plug 'mustache/vim-mustache-handlebars'
 
     call plug#end()
@@ -109,7 +103,8 @@ filetype off
 
     " Fold settings
     set foldlevel=1000
-    set foldmethod=syntax
+    set foldmethod=expr
+    set foldexpr=nvim_treesitter#foldexpr()
 
     set undolevels=9001
     set cursorline
@@ -273,6 +268,30 @@ filetype off
 
 " Plugin specific settings
 
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { 
+    "typescript",
+    "javascript",
+    "tsx",
+    "graphql",
+    "rust",
+    "toml",
+    "c",
+    "cpp",
+    "css",
+    "python",
+    "yaml",
+    "java",
+    "html",
+    "dockerfile",
+  },
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
 
@@ -379,6 +398,7 @@ filetype off
 
     au BufRead,BufNewFile *.tdg setf tdg
     au BufRead,BufNewFile Jenkinsfile setf groovy
+    au BufRead,BufNewFile *.graphql setf graphql
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
