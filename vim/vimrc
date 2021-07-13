@@ -444,7 +444,7 @@ filetype off
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 
+  ensure_installed = {
     "typescript",
     "javascript",
     "tsx",
@@ -460,9 +460,7 @@ require'nvim-treesitter.configs'.setup {
     "html",
     "dockerfile",
   },
-  highlight = {
-    enable = true,
-  },
+  highlight = {enable = true},
 }
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback

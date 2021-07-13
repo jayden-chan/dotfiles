@@ -91,6 +91,7 @@ alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/i
 alias open='feh --auto-zoom'
 alias op='nautilus . </dev/null &>/dev/null & disown'
 alias clip='xclip -selection c'
+alias pasteimg='xclip -selection clipboard -t image/png -o'
 alias myip='curl https://ipinfo.io/ip && echo'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 alias ncl='nc -l 0.0.0.0 4334'

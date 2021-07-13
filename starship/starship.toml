@@ -6,10 +6,13 @@ time_format = "%-l:%M:%S"
 
 [character]
 error_symbol = "[✗](bold red)"
-success_symbol = "[\\$](bold green)"
+success_symbol = "[➜](bold green)"
 
 [package]
 disabled=true
 
 [git_status]
+disabled=false
+
+[git_commit]
 disabled=false
