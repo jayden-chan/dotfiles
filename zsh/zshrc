@@ -97,6 +97,10 @@ alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 alias ncl='nc -l 0.0.0.0 4334'
 alias sd='sudoedit'
 
+function gpl () {
+    curl https://www.gnu.org/licenses/gpl-3.0.txt
+}
+
 function ta () {
     if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi
 }
