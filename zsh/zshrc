@@ -2,10 +2,7 @@
 export ZSH=$XDG_CONFIG_HOME/oh-my-zsh
 export EDITOR=nvim
 
-# ZSH_THEME="jayden-chan"
-# ZSH_THEME="norm"
 DEFAULT_USER="jayden"
-# prompt_context() {}
 plugins=(git dotenv zsh-z zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -162,7 +159,7 @@ function cargo_init() {
         touch Makefile
         echo "build: build-skylake\n" >> Makefile
         echo "build-general:\n\tcargo build --release\n" >> Makefile
-        echo "build-skylake:\n\tRUSTFLAGS=\"-Ctarget-cpu-skylake\" cargo build --release\n" >> Makefile
+        echo "build-native:\n\tRUSTFLAGS=\"-Ctarget-cpu-native\" cargo build --release\n" >> Makefile
         echo ".PHONY: build build-general build-skylake" >> Makefile
 
         touch rustfmt.toml
@@ -229,44 +226,6 @@ function exit () {
 
 function pach () {
     cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
-}
-
-function dev () {
-    find ${@:2} -type f | entr yarn --silent $1
-}
-
-function show_tag () {
-    read -r -d '' code << EOF
-local awful = require("awful")
-local screen = awful.screen.focused()
-local tag = screen.tags[$1]
-if tag then
-    tag:view_only()
-end
-EOF
-
-    awesome-client "$code"
-}
-
-function bgc () {
-    if [ "$1" = "--help" ]; then
-        echo "background command"
-        echo "bgc <min seconds> <before command> <after command> <command>"
-        return
-    fi
-
-    eval $2
-    s_time=$SECONDS
-    eval $4
-
-    e_time=$SECONDS
-    duration=$(( e_time - s_time ))
-
-    if (( duration < $1 )); then
-        sleep $(( $1 - duration ))
-    fi
-
-    eval $3
 }
 
 bindkey '^H' backward-kill-word
