@@ -3,38 +3,32 @@ Host stealth
     Port 32223
     User pi
     IdentityFile ~/.ssh/stealth
-    IdentitiesOnly yes
-    ForwardX11 no
 
 Host piwheel
     Hostname 192.168.1.73
     User pi
     Port 22
+    IdentitiesOnly no
     ControlPath ~/.ssh/piwheel.socket
     ControlMaster auto
     ControlPersist 300m
-    ForwardX11 no
 
 Host rsyncnet
     Hostname de1397.rsync.net
     User de1397
     IdentityFile ~/.ssh/rsync_net
-    IdentitiesOnly yes
-    ForwardX11 no
 
 Host github.com
-    Hostname github.com
     IdentityFile ~/.ssh/github
-    ForwardX11 no
 
 Host git.engr.uvic.ca
-    Hostname git.engr.uvic.ca
     IdentityFile ~/.ssh/engr_gitlab
-    ForwardX11 no
 
 Host homepistealth.ddns.net
     Port 32223
     User git
     IdentityFile ~/.ssh/homepistealth_gitlab
-    IdentitiesOnly yes
+
+Host *
     ForwardX11 no
+    IdentitiesOnly yes
