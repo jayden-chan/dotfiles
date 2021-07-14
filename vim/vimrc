@@ -23,7 +23,7 @@ filetype off
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-rhubarb'
 
-    " Util
+    " Misc
         Plug 'godlygeek/tabular'
         Plug 'editorconfig/editorconfig-vim'
 
@@ -451,8 +451,6 @@ require'nvim-treesitter.configs'.setup {
     "graphql",
     "rust",
     "toml",
-    "c",
-    "cpp",
     "css",
     "python",
     "yaml",
