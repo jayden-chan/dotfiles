@@ -89,23 +89,23 @@ volumenot = nil
 
 -- Startup commands
 awful.spawn.with_shell("killall picom; sleep 0.3; picom --config /home/jayden/.config/picom.conf", false)
-awful.util.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
-awful.util.spawn(xset, false)
+awful.spawn("sh " .. scripts .. "/mouseaccel.sh", false)
+awful.spawn(xset, false)
 
 -- Set esc as caps lock on laptop
 -- Caps lock is set as escape in keyboard firmware for desktop
 if (hostname == "swift" or hostname == "purple-heron") then
-    awful.util.spawn("xmodmap -e \"clear lock\"", false)
-    awful.util.spawn("xmodmap -e \"keysym Caps_Lock = Escape\"", false)
+    awful.spawn("xmodmap -e \"clear lock\"", false)
+    awful.spawn("xmodmap -e \"keysym Caps_Lock = Escape\"", false)
 end
 
 if (hostname == "grace") then
-    awful.util.spawn("hue profile apply bluepink", false)
+    awful.spawn("hue profile apply bluepink", false)
 end
 
 if (hostname ~= "grace") then
-    awful.spawn.with_shell("killall nm-applet; sleep 0.3; nm-applet", false)
-    awful.spawn.with_shell("killall pasystray; sleep 0.3; pasystray", false)
+    awful.with_shell("killall nm-applet; sleep 0.3; nm-applet", false)
+    awful.with_shell("killall pasystray; sleep 0.3; pasystray", false)
 end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -175,7 +175,7 @@ local taglist_buttons = gears.table.join(
                 )
 
 local function set_wallpaper(s)
-    awful.util.spawn("nitrogen --restore", false)
+    awful.spawn("nitrogen --restore", false)
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -348,7 +348,7 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
-    awful.key({ modkey,           }, "i",     function () awful.util.spawn(xset, false)       end,
+    awful.key({ modkey,           }, "i",     function () awful.spawn(xset, false)            end,
               {description = "set keyboard repeat delay and rate", group = "awesome"}),
 
 
@@ -411,26 +411,26 @@ globalkeys = gears.table.join(
     end),
     -- Media Keys
     awful.key({}, "XF86AudioPlay", function()
-        awful.util.spawn(commandpp, false)
+        awful.spawn(commandpp, false)
     end),
     awful.key({superkey}, "space", function()
-        awful.util.spawn(commandpp, false)
+        awful.spawn(commandpp, false)
     end),
     awful.key({}, "XF86AudioNext", function()
-        awful.util.spawn(commandnext, false)
+        awful.spawn(commandnext, false)
     end),
     awful.key({}, "XF86AudioPrev", function()
-        awful.util.spawn(commandprev, false)
+        awful.spawn(commandprev, false)
     end),
     -- Screenshots
     awful.key({}, "Print", function()
-        awful.util.spawn("sh " .. scripts .. "/screenshot.sh", false)
+        awful.spawn("sh " .. scripts .. "/screenshot.sh", false)
     end),
     awful.key({superkey, "Shift"}, "s", function()
-        awful.util.spawn("sh " .. scripts .. "/screenshot.sh", false)
+        awful.spawn("sh " .. scripts .. "/screenshot.sh", false)
     end),
     awful.key({"Shift"}, "Print", function()
-        awful.util.spawn("sh " .. scripts .. "/screenshot.sh --window", false)
+        awful.spawn("sh " .. scripts .. "/screenshot.sh --window", false)
     end),
     -- Brightness keys
     awful.key({}, "XF86MonBrightnessUp", function()
