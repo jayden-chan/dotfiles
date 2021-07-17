@@ -75,6 +75,7 @@ alias y='yarn'
 alias o='xdg-open'
 alias x='xset r rate 270 35'
 alias t='tmux'
+alias c='cargo'
 
 # Good compression/archive settings
 alias compress='tar c -I"xz -T 0 -7" -f'

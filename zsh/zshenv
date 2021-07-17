@@ -7,7 +7,6 @@ export XDG_STATE_HOME="$HOME"/.local/state
 # Clean up home directory
 export LESSHISTFILE="-"
 export WGETRC="$HOME"/.config/wget/wgetrc
-export ZDOTDIR="$HOME"/.config/zsh
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
@@ -29,6 +28,7 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
+export DOT="/home/jayden/Documents/Git/dotfiles"
 
 export DO_NOT_TRACK=1
 # Opt out of .NET telemetry (yikes...)
@@ -43,7 +43,7 @@ export PATH=$HOME/Dev/Go/bin:$PATH
 export FZF_DEFAULT_COMMAND="rg --files"
 
 # Add cargo binaries
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
 # Add other binaries
 export PATH="$HOME/.local/bin:$PATH"
@@ -67,3 +67,4 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ZDOTDIR="$HOME"/.config/zsh

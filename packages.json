@@ -24,7 +24,8 @@
     "handbrake",
     "simplescreenrecorder",
     "wkhtmltopdf",
-    "borg"
+    "borg",
+    "perf"
   ],
   "swift": [
     "ponymix",
