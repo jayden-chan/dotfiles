@@ -12,9 +12,8 @@ filetype off
         Plug 'vim-airline/vim-airline'
 
     " fs nav
-        Plug 'nvim-lua/popup.nvim'
-        Plug 'nvim-lua/plenary.nvim'
-        Plug 'nvim-telescope/telescope.nvim'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
         Plug 'kyazdani42/nvim-web-devicons'
         Plug 'kyazdani42/nvim-tree.lua'
 
@@ -181,8 +180,8 @@ filetype off
     noremap <silent> <c-q> :ccl<bar>pcl<bar>lcl<CR>
 
     " Fuzzy finding
-    nnoremap <silent> <leader>f <cmd>Telescope find_files<cr>
-    nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
+    nnoremap <silent> <leader>f :FZ<CR>
+    nnoremap <silent> <leader>r :Rg<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -495,17 +494,5 @@ vim.g.nvim_tree_bindings = {
   { key = "<BS>",        cb = tree_cb("dir_up") },
   { key = "q",           cb = tree_cb("close") },
   { key = "g?",          cb = tree_cb("toggle_help") },
-}
-
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    layout_strategy = "vertical",
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close
-      },
-    },
-  },
 }
 EOF
