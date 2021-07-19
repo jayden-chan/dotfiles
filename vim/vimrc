@@ -175,6 +175,7 @@ filetype off
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
     noremap <leader>tt mtgg=G`tzz
+    noremap <silent> <leader>ta :Tabularize /<bar><CR>
 
     " Close quickfix/preview/location
     noremap <silent> <c-q> :ccl<bar>pcl<bar>lcl<CR>
@@ -267,7 +268,11 @@ filetype off
     " Fix 'I' behaviour in V-block
     vnoremap H I
 
+    " Select whole function
     map <silent> <leader>V V/^}<CR>
+
+    " Toggle highlight search
+    map <silent> <leader>h :set hls!<CR>
 
 " Plugin specific settings
 
@@ -286,6 +291,7 @@ filetype off
     let g:nvim_tree_ignore = [
         \ '.git',
         \ 'node_modules',
+        \ 'dist',
         \ 'package-lock.json',
         \ 'yarn.lock',
         \ 'target',
@@ -310,7 +316,7 @@ filetype off
     nnoremap <silent> ]c :GitGutterNextHunk<CR>
     nnoremap <silent> [c :GitGutterPrevHunk<CR>
     nnoremap <leader>u   :GitGutterUndoHunk<CR>
-    nnoremap <silent> <leader>hp  :GitGutterPreviewHunk<CR>
+    nnoremap <silent> <leader>q :GitGutterPreviewHunk<CR>
 
     let g:indentLine_char = '│'
 
