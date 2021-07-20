@@ -31,13 +31,14 @@ filetype off
         let g:coc_global_extensions = [
                     \ 'coc-tsserver',
                     \ 'coc-rust-analyzer',
+                    \ 'coc-discord-rpc',
                     \ 'coc-clangd',
                     \ 'coc-json',
                     \ 'coc-eslint',
                     \ 'coc-prettier',
                     \ ]
 
-        Plug 'jiangmiao/auto-pairs'
+        " Plug 'jiangmiao/auto-pairs'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'gcmt/taboo.vim'
@@ -172,6 +173,11 @@ filetype off
     inoremap ,, <Esc>A,
     nnoremap ,, <Esc>A,<Esc>
 
+    " auto-pairs only when creating a new line
+    inoremap {<CR>  {<CR>}<Esc>O
+    inoremap [<CR>  [<CR>]<Esc>O
+    inoremap (<CR>  (<CR>)<Esc>O
+
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
     noremap <leader>tt mtgg=G`tzz
@@ -304,8 +310,9 @@ filetype off
     command! -nargs=0 Prettier :CocCommand prettier.formatFile
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json,*.html, Prettier
 
-    command! -nargs=0 ClangFormat :call CocAction('format')
-    autocmd BufWritePre *.c,*.cpp,*.h,*.hpp, ClangFormat
+    command! -nargs=0 AutoFormat :call CocAction('format')
+    autocmd BufWritePre *.c,*.cpp,*.h,*.hpp, AutoFormat
+    autocmd BufWritePre *.rust AutoFormat
 
     let g:javascript_plugin_jsdoc = 1
 
@@ -328,6 +335,7 @@ filetype off
     nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
     nmap <silent> <leader>n <Plug>(coc-references)
     nmap <silent> <leader>R <Plug>(coc-rename)
+    nmap <silent> <leader>a <Plug>(coc-codeaction)
 
     nnoremap <silent> <leader>I :CocList diagnostics<CR>
     nnoremap <silent> <leader>b :CocList -I symbols<CR>
@@ -349,7 +357,7 @@ filetype off
     omap <silent> <leader>F23 <Plug>(coc-funcobj-i)
     omap <silent> <leader>F24 <Plug>(coc-funcobj-a)
 
-    let $FZF_DEFAULT_COMMAND = 'rg --files'
+    let $FZF_DEFAULT_COMMAND = 'fd --type f'
 
     " Make ripgrep fzf search ignore text from filenames (why isn't this the default...?)
     command! -bang -nargs=* Rg call
@@ -458,6 +466,7 @@ require'nvim-treesitter.configs'.setup {
     "graphql",
     "rust",
     "toml",
+    "go",
     "css",
     "python",
     "yaml",
