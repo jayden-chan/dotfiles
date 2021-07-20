@@ -7,7 +7,6 @@
     "rpi-imager",
     "avahi",
     "vlc",
-    "cuda",
     "arm-none-eabi-newlib",
     "arm-none-eabi-gcc",
     "v4l2loopback-dkms",
@@ -93,7 +92,6 @@
     "nitrogen",
     "lightdm-gtk-greeter-settings",
     "chromium",
-    "flex",
     "gnuplot",
     "traceroute",
     "usbutils",
@@ -133,6 +131,7 @@
     "webp-pixbuf-loader",
     "tree",
     "python-llfuse",
-    "rust-analyzer"
+    "rust-analyzer",
+    "code"
   ]
 }
