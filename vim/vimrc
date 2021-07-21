@@ -12,10 +12,10 @@ filetype off
         Plug 'vim-airline/vim-airline'
 
     " fs nav
-        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
         Plug 'kyazdani42/nvim-web-devicons'
         Plug 'kyazdani42/nvim-tree.lua'
+        Plug 'airblade/vim-rooter'
 
     " Git
         Plug 'airblade/vim-gitgutter'
@@ -31,17 +31,15 @@ filetype off
         let g:coc_global_extensions = [
                     \ 'coc-tsserver',
                     \ 'coc-rust-analyzer',
-                    \ 'coc-discord-rpc',
                     \ 'coc-clangd',
                     \ 'coc-json',
                     \ 'coc-eslint',
                     \ 'coc-prettier',
                     \ ]
 
-        " Plug 'jiangmiao/auto-pairs'
+        Plug 'jiangmiao/auto-pairs'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
-        Plug 'gcmt/taboo.vim'
         Plug 'SirVer/ultisnips'
 
     " Syntax
@@ -117,6 +115,9 @@ filetype off
     " Hide ugly completion messages
     set shortmess+=c
 
+    " Set git-gutter column to always on
+    set signcolumn=yes
+
     " Don't let the cursor reach the top/bottom 8 lines of text
     set scrolloff=8
 
@@ -172,11 +173,6 @@ filetype off
     nnoremap ;; <Esc>A;<Esc>
     inoremap ,, <Esc>A,
     nnoremap ,, <Esc>A,<Esc>
-
-    " auto-pairs only when creating a new line
-    inoremap {<CR>  {<CR>}<Esc>O
-    inoremap [<CR>  [<CR>]<Esc>O
-    inoremap (<CR>  (<CR>)<Esc>O
 
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
@@ -310,10 +306,9 @@ filetype off
     command! -nargs=0 AutoFormat :call CocAction('format')
     autocmd BufWritePre *.c,*.cpp,*.h,*.hpp, AutoFormat
 
-    let g:javascript_plugin_jsdoc = 1
+    let g:rooter_patterns = ['.git']
+    let g:rooter_manual_only = 1
 
-    " Set git-gutter column to always on
-    set signcolumn=yes
     let g:gitgutter_map_keys = 0
 
     nnoremap <silent> ]c :GitGutterNextHunk<CR>
@@ -352,8 +347,6 @@ filetype off
     vmap <silent> <leader>F22 <Plug>(coc-funcobj-a)
     omap <silent> <leader>F23 <Plug>(coc-funcobj-i)
     omap <silent> <leader>F24 <Plug>(coc-funcobj-a)
-
-    let $FZF_DEFAULT_COMMAND = 'fd --type f'
 
     " Make ripgrep fzf search ignore text from filenames (why isn't this the default...?)
     command! -bang -nargs=* Rg call
@@ -411,9 +404,6 @@ filetype off
 
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>v :CocCommand clangd.switchSourceHeader<CR>
-
-    " Restore cursor style when exiting Vim
-    autocmd VimLeave * set guicursor=a:block-blinkon50
 
 " Abbreviations
 

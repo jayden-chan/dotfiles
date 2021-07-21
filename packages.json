@@ -127,6 +127,7 @@
     "webp-pixbuf-loader",
     "python-llfuse",
     "rust-analyzer",
-    "code"
+    "code",
+    "fzf"
   ]
 }
