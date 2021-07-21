@@ -21,15 +21,15 @@ function usage() {
   console.log("p - A helper script on top of another helper script");
   console.log();
   console.log("Commands:");
-  console.log("      install (i ): <package>            install packages");
-  console.log("    uninstall (u ): <package>            uninstall packages"); // prettier-ignore
-  console.log("        clean (c ):                      clean unused packages"); // prettier-ignore
+  console.log("      install  (i): <package>            install packages");
+  console.log("    uninstall  (u): <package>            uninstall packages"); // prettier-ignore
+  console.log("        clean  (c):                      clean unused packages"); // prettier-ignore
   console.log("    fullclean (fc):                      remove unused packages from packages.json"); // prettier-ignore
-  console.log("          add (a ): <host> <packages...> add packages to the list"); // prettier-ignore
-  console.log("       verify (v ):                      list packages from list that aren't installed"); // prettier-ignore
+  console.log("          add  (a): <host> <packages...> add packages to the list"); // prettier-ignore
+  console.log("       verify  (v):                      list packages from list that aren't installed"); // prettier-ignore
   console.log("     unlisted (ul):                      list packages that are installed but not in package.json"); // prettier-ignore
   console.log("        cache (cc):                      clear the package cache directories"); // prettier-ignore
-  console.log("         help (h ):                      print help"); // prettier-ignore
+  console.log("         help  (h):                      print help"); // prettier-ignore
   console.log();
   console.log("    Executing with no arguments will perform a system update");
 }

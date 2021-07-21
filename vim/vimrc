@@ -65,7 +65,7 @@ filetype off
     set t_ut=
     set termguicolors
 
-    set guifont="JetBrainsMono Nerd Font":h14
+    set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h12
 
     " Set dark gruvbox theme
     set background=dark
@@ -205,10 +205,7 @@ filetype off
     nnoremap K 12<c-d>
     vnoremap I 12<up>
     vnoremap K 12<down>
-    nnoremap <leader>c J
-
-    " Split line, inverse of J
-    nnoremap <leader>C i<CR><esc>k:s/\s\+$//e<CR>j:noh<CR>
+    nnoremap U J
 
     " Make X and Y behave like C and D
     nnoremap Y y$
