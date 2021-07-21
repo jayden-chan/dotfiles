@@ -205,10 +205,10 @@ filetype off
     nnoremap K 12<c-d>
     vnoremap I 12<up>
     vnoremap K 12<down>
-    nnoremap <leader>c J
+    nnoremap U J
 
-    " Split line, inverse of J
-    nnoremap <leader>C i<CR><esc>k:s/\s\+$//e<CR>j:noh<CR>
+    " Open project config file (package.json, Cargo.toml etc)
+    nnoremap <silent> <leader>C :lua open_project_config_file()<CR>
 
     " Make X and Y behave like C and D
     nnoremap Y y$
@@ -457,6 +457,46 @@ filetype off
 " Lua plugins config
 
 lua <<EOF
+function open_project_config_file()
+  local cmd = "ls"
+  local did_open = false
+  local project_configs = {
+      "package.json",
+      "Cargo.toml",
+      "CMakeLists.txt",
+      "go.mod",
+      "build.gradle",
+  }
+
+  local function on_event(job_id, data, event)
+    if event == "stdout" or event == "stderr" then
+      if data and not did_open then
+          for k,v in pairs(data) do
+              local file = data[k]
+              for i,f in ipairs(project_configs) do
+                  if file == f then
+                      vim.api.nvim_command("e " .. data[k])
+                      did_open = true
+                  end
+              end
+          end
+      end
+    end
+  end
+
+  local job_id =
+    vim.fn.jobstart(
+    cmd,
+    {
+      on_stderr = on_event,
+      on_stdout = on_event,
+      on_exit = on_event,
+      stdout_buffered = true,
+      stderr_buffered = true,
+    }
+  )
+end
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "typescript",
