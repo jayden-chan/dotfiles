@@ -14,6 +14,7 @@
     "docker",
     "docker-compose",
     "discord",
+    "python-llfuse",
     "arduino",
     "gimp-plugin-resynthesizer",
     "zoom",
@@ -125,7 +126,6 @@
     "python-pynvim",
     "fd",
     "webp-pixbuf-loader",
-    "python-llfuse",
     "rust-analyzer",
     "code",
     "fzf"

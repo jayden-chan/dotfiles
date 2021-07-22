@@ -104,8 +104,8 @@ if (hostname == "grace") then
 end
 
 if (hostname ~= "grace") then
-    awful.with_shell("killall nm-applet; sleep 0.3; nm-applet", false)
-    awful.with_shell("killall pasystray; sleep 0.3; pasystray", false)
+    awful.spawn.with_shell("killall nm-applet; sleep 0.3; nm-applet", false)
+    awful.spawn.with_shell("killall pasystray; sleep 0.3; pasystray", false)
 end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
