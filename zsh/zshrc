@@ -103,6 +103,10 @@ function gpl () {
     curl https://www.gnu.org/licenses/gpl-3.0.txt
 }
 
+function agpl () {
+    curl https://www.gnu.org/licenses/agpl-3.0.txt
+}
+
 function ta () {
     if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi
 }

@@ -40,7 +40,7 @@ export GOPATH="$XDG_DATA_HOME"/go
 export PATH=$GOPATH/bin:$PATH
 
 # Make fzf use fd
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --type f --exclude Cargo.lock --exclude package-lock.json --exclude yarn.lock'
 
 # Add cargo binaries
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"

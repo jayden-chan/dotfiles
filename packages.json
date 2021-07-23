@@ -128,6 +128,7 @@
     "webp-pixbuf-loader",
     "rust-analyzer",
     "code",
-    "fzf"
+    "fzf",
+    "rsync"
   ]
 }

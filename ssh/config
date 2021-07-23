@@ -4,6 +4,12 @@ Host stealth
     User pi
     IdentityFile ~/.ssh/stealth
 
+Host stealthgit
+    Hostname homepistealth.ddns.net
+    Port 32223
+    User git
+    IdentityFile ~/.ssh/pi_git
+
 Host piwheel
     Hostname 192.168.1.73
     User pi
@@ -23,11 +29,6 @@ Host github.com
 
 Host git.engr.uvic.ca
     IdentityFile ~/.ssh/engr_gitlab
-
-Host homepistealth.ddns.net
-    Port 32223
-    User git
-    IdentityFile ~/.ssh/homepistealth_gitlab
 
 Host *
     ForwardX11 no
