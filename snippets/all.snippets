@@ -3,7 +3,7 @@
 snippet gpl
 Copyright © ${1:year} ${2:author}. All rights reserved.
 
-${3:programname} is free software: you can redistribute it and/or modify
+${3:program} is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 3
 as published by the Free Software Foundation.
 
@@ -19,7 +19,7 @@ endsnippet
 snippet agpl
 Copyright © ${1:year} ${2:author}. All rights reserved.
 
-${3:programname} is free software: you can redistribute it and/or modify
+${3:program} is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License version 3
 as published by the Free Software Foundation.
 
@@ -32,6 +32,42 @@ You should have received a copy of the GNU Affero General Public License
 along with $3. If not, see <https://www.gnu.org/licenses/>.
 endsnippet
 
+snippet cgpl
+/*
+ * Copyright © ${1:year} ${2:author}. All rights reserved.
+ * 
+ * ${3:program} is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3
+ * as published by the Free Software Foundation.
+ * 
+ * $3 is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with $3. If not, see <https://www.gnu.org/licenses/>.
+ */
+endsnippet
+
+snippet cagpl
+/*
+ * Copyright © ${1:year} ${2:author}. All rights reserved.
+ * 
+ * ${3:program} is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License version 3
+ * as published by the Free Software Foundation.
+ * 
+ * $3 is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Affero General Public License
+ * along with $3. If not, see <https://www.gnu.org/licenses/>.
+ */
+endsnippet
+
 snippet com
 /**
  * ${0}
@@ -39,11 +75,14 @@ snippet com
 endsnippet
 
 snippet coml
-/*${0}*/
+/* ${0} */
 endsnippet
 
 snippet thicc
 /********************************************************/
-/*${0}*/
+/*`!p import math
+snip.rv = ' ' * int((54 - len(t[1])) / 2)`$1`!p import math
+snip.rv = ' ' * int(math.ceil((54 - len(t[1])) / 2))`*/
 /********************************************************/
+$0
 endsnippet
