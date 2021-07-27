@@ -129,6 +129,7 @@
     "rust-analyzer",
     "code",
     "fzf",
-    "rsync"
+    "rsync",
+    "dino"
   ]
 }
