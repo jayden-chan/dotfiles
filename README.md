@@ -16,6 +16,6 @@ installation. It also includes some configs for other programs/games.
 
 ## Screenshots
 
-![alt text](/img/busy.png "Busy")
-![alt text](/img/vim.png "Vim")
-![alt text](/img/rofi.png "Rofi")
+![alt text](https://i.imgur.com/52tENAt.png "Busy")
+![alt text](https://i.imgur.com/QE4UfLT.png "Vim")
+![alt text](https://i.imgur.com/8FjzCXc.png "Rofi")
