@@ -5,8 +5,8 @@
 const { spawn, spawnSync } = require("child_process");
 const readline = require("readline");
 const { readFileSync, writeFileSync } = require("fs");
-const HOST = readFileSync("/etc/hostname", { encoding: "utf8" }).trim();
 
+const HOST = readFileSync("/etc/hostname", { encoding: "utf8" }).trim();
 const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
@@ -18,20 +18,22 @@ function writeProgramsList(programs) {
 }
 
 function usage() {
-  console.log("p - A helper script on top of another helper script");
-  console.log();
-  console.log("Commands:");
-  console.log("      install  (i): <package>            install packages");
-  console.log("    uninstall  (u): <package>            uninstall packages"); // prettier-ignore
-  console.log("        clean  (c):                      clean unused packages"); // prettier-ignore
-  console.log("    fullclean (fc):                      remove unused packages from packages.json"); // prettier-ignore
-  console.log("          add  (a): <host> <packages...> add packages to the list"); // prettier-ignore
-  console.log("       verify  (v):                      list packages from list that aren't installed"); // prettier-ignore
-  console.log("     unlisted (ul):                      list packages that are installed but not in package.json"); // prettier-ignore
-  console.log("        cache (cc):                      clear the package cache directories"); // prettier-ignore
-  console.log("         help  (h):                      print help"); // prettier-ignore
-  console.log();
-  console.log("    Executing with no arguments will perform a system update");
+  console.log(
+    `p - A helper script on top of another helper script
+
+Commands:
+      install  (i): <package>  install packages
+    uninstall  (u): <package>  uninstall packages
+        clean  (c):            clean orphaned packages
+    fullclean (fc):            audit packages.json
+       verify  (v):            show packages from list that aren't installed
+     unlisted (ul):            show packages that are installed but not in packages.json
+         list  (l):            list installed packages
+        cache (cc):            clear the package cache directories
+         help  (h):            print help
+
+    Executing with no arguments will perform a system update`
+  );
 }
 
 /**
@@ -71,7 +73,9 @@ async function handleYayCommand(yayCommand, programs, args) {
       switch (yayCommand) {
         case YAY_COMMANDS[0]:
           const newProgs = progs.filter((prog) =>
-            Object.values(programs).every((arr) => !arr.includes(prog))
+            Object.values(programs.installed).every(
+              (arr) => !arr.includes(prog)
+            )
           );
 
           if (newProgs.length === 0) {
@@ -100,7 +104,7 @@ async function handleYayCommand(yayCommand, programs, args) {
 
             Object.entries(matches).some(([host, arr]) => {
               if (arr.includes(key)) {
-                programs[host].push(...newProgs);
+                programs.installed[host].push(...newProgs);
                 console.log(`${progsString} added to "${host}" list`);
                 return true;
               }
@@ -115,10 +119,12 @@ async function handleYayCommand(yayCommand, programs, args) {
         case YAY_COMMANDS[1]:
           progs
             .filter((prog) =>
-              Object.values(programs).some((arr) => arr.includes(prog))
+              Object.values(programs.installed).some((arr) =>
+                arr.includes(prog)
+              )
             )
             .forEach((prog) => {
-              Object.values(programs).forEach((arr) => {
+              Object.values(programs.installed).forEach((arr) => {
                 if (arr.includes(prog)) {
                   arr.splice(arr.indexOf(prog), 1);
                 }
@@ -138,25 +144,10 @@ async function handleYayCommand(yayCommand, programs, args) {
 
 /**
  * @param {Object} programs Programs list
- * @param {String[]} args Command line args
- */
-function addProgram(programs, args) {
-  // args[0] = host
-  // remaining args = packages
-  if (!args.slice(1).length || !Object.keys(programs).includes(args[0])) {
-    console.error("Missing package name or host");
-  } else {
-    programs[args[0]].push(...args.slice(1));
-    writeProgramsList(programs);
-  }
-}
-
-/**
- * @param {Object} programs Programs list
  */
 function verifyPrograms(programs) {
   const installed = spawnSync("yay", ["-Qq"]).stdout.toString().split("\n");
-  Object.entries(programs).forEach(([host, arr]) => {
+  Object.entries(programs.installed).forEach(([host, arr]) => {
     if (host === "all" || HOST === host) {
       arr.forEach((p) => {
         if (!installed.includes(p)) {
@@ -172,11 +163,21 @@ function verifyPrograms(programs) {
  */
 function showUnlisted(programs) {
   const installed = spawnSync("yay", ["-Qqettn"]).stdout.toString().split("\n");
+  const ignored = programs.ignored;
   // @ts-ignore -- ES2019 but I'm too lazy to configure tsserver
-  const listed = Object.values(programs).flat();
+  const listed = Object.values(programs.installed).flat();
   installed
-    .filter((p) => !listed.includes(p))
+    .filter((p) => !listed.includes(p) && !ignored.includes(p))
     .forEach((notListed) => console.log(notListed));
+}
+
+function list() {
+  const native = spawnSync("yay", ["-Qqettn"]).stdout.toString().trim();
+  const aur = spawnSync("yay", ["-Qqettm"]).stdout.toString().trim();
+  console.log("Native\n");
+  console.log(native);
+  console.log("\nAUR\n");
+  console.log(aur);
 }
 
 /**
@@ -189,7 +190,7 @@ async function fullClean(programs) {
   });
 
   const toUninstall = [];
-  const programsEntries = Object.entries(programs);
+  const programsEntries = Object.entries(programs.installed);
   for (let i = 0; i < programsEntries.length; i++) {
     const [host, arr] = programsEntries[i];
     if (host === "all" || HOST === host) {
@@ -232,10 +233,6 @@ async function main() {
     case "cc":
     case "cache":
       return await handleYayCommand(YAY_COMMANDS[4], programs, args);
-    case "a":
-    case "add":
-      addProgram(programs, args);
-      return 0;
     case "v":
     case "verify":
       verifyPrograms(programs);
@@ -247,6 +244,10 @@ async function main() {
     case "fc":
     case "fullclean":
       await fullClean(programs);
+      return 0;
+    case "l":
+    case "list":
+      list();
       return 0;
     case "h":
     case "-h":
