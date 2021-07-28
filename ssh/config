@@ -11,13 +11,13 @@ Host stealthgit
     IdentityFile ~/.ssh/pi_git
 
 Host airgit
-    Hostname jaydenchan.xyz
+    Hostname 144.202.14.150
     Port 32223
     User git
     IdentityFile ~/.ssh/pi_git
 
 Host air
-    Hostname jaydenchan.xyz
+    Hostname 144.202.14.150
     Port 32223
     User jayden
     IdentityFile ~/.ssh/air
