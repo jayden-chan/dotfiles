@@ -72,10 +72,11 @@ async function handleYayCommand(yayCommand, programs, args) {
 
       switch (yayCommand) {
         case YAY_COMMANDS[0]:
-          const newProgs = progs.filter((prog) =>
-            Object.values(programs.installed).every(
-              (arr) => !arr.includes(prog)
-            )
+          const newProgs = progs.filter(
+            (prog) =>
+              Object.values(programs.installed).every(
+                (arr) => !arr.includes(prog)
+              ) && !programs.ignored.includes(prog)
           );
 
           if (newProgs.length === 0) {
@@ -162,7 +163,10 @@ function verifyPrograms(programs) {
  * @param {Object} programs Programs list
  */
 function showUnlisted(programs) {
-  const installed = spawnSync("yay", ["-Qqettn"]).stdout.toString().split("\n");
+  const installed = spawnSync("yay", ["-Qqettn"])
+    .stdout.toString()
+    .trim()
+    .split("\n");
   const ignored = programs.ignored;
   // @ts-ignore -- ES2019 but I'm too lazy to configure tsserver
   const listed = Object.values(programs.installed).flat();

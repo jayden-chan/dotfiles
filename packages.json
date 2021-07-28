@@ -134,8 +134,7 @@
       "evolution",
       "yaru-colors-gtk-theme",
       "yaru-colors-icon-theme",
-      "gsfonts",
-      "mpv"
+      "gsfonts"
     ]
   },
   "ignored": [
