@@ -268,7 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.layout.margin(systray, 0, 20, 5, 0),
             battery_widget,
             wibox.layout.margin(mytextclock, 0, 0, 3, 0),
-            wibox.layout.margin(s.mylayoutbox, 0, 0, 3, 0),
+            wibox.layout.margin(s.mylayoutbox, 0, 5, 3, 0),
         },
     }
 end)
