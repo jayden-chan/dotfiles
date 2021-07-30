@@ -1,5 +1,6 @@
+// vim: ft=css
 * {
-    backgroundcolor: #2d2d2dcf;
+    backgroundcolor: #242424cf;
     backgroundcoloralternate: #2d2d2d00;
     separatorcolor: #3b425200;
     scrollbarcolor: #3b425200;
@@ -8,7 +9,9 @@
     selectioncolor: #88888866;
 
     font-size: 1px;
+    width: 800px;
     border-color: @separatorcolor;
+    border-radius: 20px;
     background-color: #ffffff00;
     text-color: @foregroundcolor;
     margin: 0;
@@ -17,6 +20,7 @@
 
 #listview {
     spacing: 0;
+    border-radius: 0px;
     margin: 0;
     dynamic: true;
 }
@@ -81,6 +85,10 @@
 
 #entry {
     padding: 16;
+}
+
+#element-icon {
+  size: 20px;
 }
 
 #scrollbar {
