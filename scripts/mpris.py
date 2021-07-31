@@ -10,15 +10,8 @@ from dbus.mainloop.glib import DBusGMainLoop
 from gi.repository import GLib
 DBusGMainLoop(set_as_default=True)
 
-
-FORMAT_STRING = '{artist} - {title}'
-FORMAT_REGEX = re.compile(r'(\{:(?P<tag>.*?)(:(?P<format>[wt])(?P<formatlen>\d+))?:(?P<text>.*?):\})', re.I)
-SAFE_TAG_REGEX = re.compile(r'[{}]')
-
 class PlayerManager:
-    def __init__(self, filter_list, block_mode = True, connect = True):
-        self.filter_list = filter_list
-        self.block_mode = block_mode
+    def __init__(self, connect = True):
         self._connect = connect
         self._session_bus = dbus.SessionBus()
         self.players = {}
@@ -76,12 +69,7 @@ class PlayerManager:
                 return player_bus_name
 
     def busNameIsAPlayer(self, bus_name):
-        if bus_name.startswith('org.mpris.MediaPlayer2') is False:
-            return False
-        name = bus_name.split('.')[3]
-        if self.block_mode is True:
-            return name not in self.filter_list
-        return name in self.filter_list
+        return bus_name.startswith('org.mpris.MediaPlayer2')
 
     def refreshPlayerList(self):
         player_bus_names = [ bus_name for bus_name in self._session_bus.list_names() if self.busNameIsAPlayer(bus_name) ]
@@ -160,17 +148,15 @@ class Player:
         self._disconnecting = False
         self.__print = _print
 
-        self.metadata = {
-            'artist' : '',
-            'title'  : ''
-        }
-
+        self.metadata = { 'artist': '', 'title': '' }
         self._metadata = None
+
         self.status = 'stopped'
         if owner is not None:
             self.owner = owner
         else:
             self.owner = self._session_bus.get_name_owner(bus_name)
+
         self._obj = self._session_bus.get_object(self.bus_name, '/org/mpris/MediaPlayer2')
         self._properties_interface = dbus.Interface(self._obj, dbus_interface='org.freedesktop.DBus.Properties')
         self._introspect_interface = dbus.Interface(self._obj, dbus_interface='org.freedesktop.DBus.Introspectable')
@@ -223,11 +209,24 @@ class Player:
     def _parseMetadata(self):
         if self._metadata != None:
             # Obtain properties from _metadata
-            _artist     = _getProperty(self._metadata, 'xesam:artist', [''])
-            _title      = _getProperty(self._metadata, 'xesam:title', '')
+            _artist = _getProperty(self._metadata, 'xesam:artist', [''])
+            _title  = _getProperty(self._metadata, 'xesam:title', '')
+
             # Update metadata
-            self.metadata['artist'] = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_artist))
-            self.metadata['title']  = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_title))
+            _artist_clean = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_artist))
+            _title_clean  = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_title))
+
+            # if the artist field is empty but the title field is in the form "* - *" we
+            # will split the title on " - " and use those parts for artist/title. This
+            # usually happens when there's something playing in a browser tab, the
+            # artist field is empty and the title field contains both artist/title
+            if len(_artist_clean.strip()) == 0 and _title_clean.count(' - ') == 1:
+                _parts = _title_clean.rsplit(' - ')
+                _artist_clean = _parts[0]
+                _title_clean = _parts[1]
+
+            self.metadata['artist'] = _artist_clean
+            self.metadata['title']  = _title_clean
 
     def onMetadataChanged(self, track_id, metadata):
         self.refreshMetadata()
@@ -322,10 +321,6 @@ class CleanSafeDict(dict):
         return '{{{}}}'.format(key)
 
 
-"""
-Seems to assure print() actually prints when no terminal is connected
-"""
-
 _last_status = ''
 def _printFlush(status, **kwargs):
     global _last_status
@@ -334,7 +329,7 @@ def _printFlush(status, **kwargs):
         sys.stdout.flush()
         _last_status = status
 
-
+FORMAT_REGEX = re.compile(r'(\{:(?P<tag>.*?)(:(?P<format>[wt])(?P<formatlen>\d+))?:(?P<text>.*?):\})', re.I)
+SAFE_TAG_REGEX = re.compile(r'[{}]')
 FORMAT_STRING = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', '{artist} - {title}')
-
-PlayerManager(filter_list = [], block_mode = True)
+PlayerManager()
