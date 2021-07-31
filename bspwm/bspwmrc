@@ -3,7 +3,6 @@
 SCRIPTS=$HOME/Documents/Git/dotfiles/scripts
 HOSTNAME=$(hostname)
 
-pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x dunst > /dev/null || dunst &
 pgrep -x picom > /dev/null || picom --config $HOME/.config/picom.conf &
 
@@ -31,6 +30,7 @@ for monitor in $(bspc query -M); do
     bspc monitor $monitor -d 1 2 3 4 5 6 7 8 9
 done
 
+pgrep -x sxhkd > /dev/null || sxhkd &
 bspc config border_width        1
 
 bspc config window_gap          24
