@@ -1,4 +1,5 @@
 #!/bin/zsh
+# vim: ft=sh
 
 tmp_dir=$(mktemp -d -t xcolor-XXXXXX)
 color=$(xcolor | tr -d '\n' | xclip -selection c -filter)
