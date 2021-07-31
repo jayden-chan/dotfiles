@@ -6,19 +6,16 @@ alt + Return
     /usr/local/bin/st
 
 ctrl + space
-    /home/jayden/Documents/Git/dotfiles/scripts/rofi.sh --normal
+    $HOME/Documents/Git/dotfiles/scripts/rofi.sh --normal
 
 ctrl + alt + Delete
-    /home/jayden/Documents/Git/dotfiles/scripts/rofi.sh --power
+    $HOME/Documents/Git/dotfiles/scripts/rofi.sh --power
 
 # reload sxhkd
 super + Escape
     pkill -USR1 -x sxhkd
 
 # reload polybar
-super + Escape
-    pkill -USR1 -x sxhkd
-
 super + ctrl + Escape
     polybar-msg cmd restart
 
@@ -26,17 +23,13 @@ alt + u
     xset r rate 270 35
 
 alt + c
-    /home/jayden/Documents/Git/dotfiles/scripts/xcolor.sh
-
+    $HOME/Documents/Git/dotfiles/scripts/xcolor.sh
 
 super + shift + s
-    /home/jayden/Documents/Git/dotfiles/scripts/screenshot.sh
-
-Print
-    /home/jayden/Documents/Git/dotfiles/scripts/screenshot.sh
+    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh
 
 shift + Print
-    /home/jayden/Documents/Git/dotfiles/scripts/screenshot.sh --window
+    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --window
 
 super + l
     dm-tool lock

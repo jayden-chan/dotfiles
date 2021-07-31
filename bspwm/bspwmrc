@@ -3,8 +3,9 @@
 SCRIPTS=$HOME/Documents/Git/dotfiles/scripts
 HOSTNAME=$(hostname)
 
-pgrep -x dunst > /dev/null || dunst &
-pgrep -x picom > /dev/null || picom --config $HOME/.config/picom.conf &
+##########################################################
+#                        Startup                         #
+##########################################################
 
 # If sxhkd is already running it probably means we're restarting bspwm.
 # These items only need to be run on login, so don't run them again
@@ -31,28 +32,33 @@ for monitor in $(bspc query -M); do
 done
 
 pgrep -x sxhkd > /dev/null || sxhkd &
-bspc config border_width        1
+pgrep -x dunst > /dev/null || dunst &
+pgrep -x picom > /dev/null || picom --config $HOME/.config/picom.conf &
 
-bspc config window_gap          24
-bspc config top_padding         0
-bspc config bottom_padding      0
-bspc config left_padding        0
-bspc config right_padding       0
+##########################################################
+#                      bspc config                       #
+##########################################################
 
-bspc config active_border_color '#474645'
-
+bspc config window_gap                 24
+bspc config active_border_color        '#474645'
+bspc config border_width               1
 bspc config split_ratio                0.50
+
 bspc config borderless_monocle         false
 bspc config gapless_monocle            false
+bspc config single_monocle             false
+
 bspc config focus_follows_pointer      true
-bspc config history_aware_focus        true
+bspc config click_to_focus             true
+bspc config pointer_follows_monitor    false
+bspc config history_aware_focus        false
+
 bspc config remove_disabled_monitors   true
 bspc config merge_overlapping_monitors false
-bspc config single_monocle             false
+
 bspc config pointer_modifier           mod1
 bspc config pointer_action2            resize_corner
 bspc config pointer_action1            move
-bspc config click_to_focus             true
 
 bspc rule -a Nitrogen           state=floating
 bspc rule -a Org.gnome.Nautilus state=floating

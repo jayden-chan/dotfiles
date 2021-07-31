@@ -74,7 +74,6 @@ inherit = bar/base
 
 modules-left = arch-logo bspwm mpris
 modules-right = memory cpu weather date
-padding-right = 0
 
 tray-position = right
 tray-padding = 5
@@ -121,13 +120,13 @@ format-margin = 3
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = "%a %b %e"
 date-alt = " %Y-%m-%d"
 
 time = %l:%M
-time-alt = %H:%M:%S
+time-alt = %l:%M:%S
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
@@ -167,6 +166,8 @@ tail = true
 [module/weather]
 type = custom/script
 exec = ~/Documents/Git/dotfiles/scripts/weather.sh
+
+click-left = ~/Documents/Git/dotfiles/scripts/weather.sh --open
 
 format-underline = ${colors.ram}
 format-margin = 3
