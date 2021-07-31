@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -e "$HOME/.config/ENV" ] && source $HOME/.config/ENV
+[ -e "$HOME/.config/ENV" ] && . $HOME/.config/ENV
 
 if [ -z "$WEATHER_TOKEN" ]; then echo "No token"; exit 1; fi
 
