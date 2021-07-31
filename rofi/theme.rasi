@@ -11,7 +11,7 @@
     font-size: 1px;
     width: 800px;
     border-color: @separatorcolor;
-    border-radius: 20px;
+    border-radius: 0px;
     background-color: #ffffff00;
     text-color: @foregroundcolor;
     margin: 0;
