@@ -10,12 +10,13 @@ installation. It also includes some configs for other programs/games.
 **Editor**: [neovim](https://neovim.io)<br/>
 **Browser**: [Firefox](https://firefox.com)<br/>
 **OS**: [Arch Linux](https://archlinux.org/)<br/>
-**Window Manager**: [awesome](https://awesomewm.org/)<br/>
+**Window Manager**: [bspwm](https://github.com/baskerville/bspwm)<br/>
+**Bar**: [polybar](https://polybar.github.io/)<br/>
 **Mono Font**: [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/Ligatures/Regular)<br/>
 **Sans Font**: [Nimbus Sans](https://github.com/ArtifexSoftware/urw-base35-fonts)<br/>
 
 ## Screenshots
 
-![alt text](https://i.imgur.com/52tENAt.png "Busy")
-![alt text](https://i.imgur.com/QE4UfLT.png "Vim")
-![alt text](https://i.imgur.com/8FjzCXc.png "Rofi")
+![alt text](https://i.imgur.com/QG5vW10.png "Busy")
+![alt text](https://i.imgur.com/Sma4O2A.png "Vim")
+![alt text](https://i.imgur.com/OnIqae1.png "Rofi")
