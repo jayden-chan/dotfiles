@@ -112,7 +112,7 @@ format-background = ${colors.module-background}
 format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.ram}
-format-margin = 4
+format-margin = 3
 
 label = %percentage_used%%
 
@@ -170,7 +170,7 @@ exec = ~/Documents/Git/dotfiles/scripts/weather.sh
 
 format-underline = ${colors.ram}
 format-background = ${colors.module-background}
-format-margin = 4
+format-margin = 3
 
 interval = 600
 
