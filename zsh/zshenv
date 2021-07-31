@@ -25,6 +25,9 @@ export SSB_HOME="$XDG_DATA_HOME"/zoom
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
+# Private vars (mostly tokens)
+[ -e "/home/jayden/.config/ENV" ] && source /home/jayden/.config/ENV
+
 # Config
 export EDITOR="nvim"
 export TERMINAL="st"
