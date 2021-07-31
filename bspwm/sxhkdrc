@@ -1,0 +1,148 @@
+##########################################################
+#                 wm independent hotkeys                 #
+##########################################################
+
+alt + Return
+    /usr/local/bin/st
+
+ctrl + space
+    /home/jayden/Documents/Git/dotfiles/scripts/rofi.sh --normal
+
+ctrl + alt + Delete
+    /home/jayden/Documents/Git/dotfiles/scripts/rofi.sh --power
+
+# reload sxhkd
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# reload polybar
+super + Escape
+    pkill -USR1 -x sxhkd
+
+super + ctrl + Escape
+    polybar-msg cmd restart
+
+alt + u
+    xset r rate 270 35
+
+alt + c
+    /home/jayden/Documents/Git/dotfiles/scripts/xcolor.sh
+
+
+super + shift + s
+    /home/jayden/Documents/Git/dotfiles/scripts/screenshot.sh
+
+Print
+    /home/jayden/Documents/Git/dotfiles/scripts/screenshot.sh
+
+shift + Print
+    /home/jayden/Documents/Git/dotfiles/scripts/screenshot.sh --window
+
+super + l
+    dm-tool lock
+
+
+##########################################################
+#                        Spotify                         #
+##########################################################
+
+XF86AudioPrev
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+XF86AudioNext
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPlay
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+
+##########################################################
+#                     bspwm hotkeys                      #
+##########################################################
+
+# restart bspwm
+ctrl + alt + r
+    bspc wm -r
+
+# close and kill
+{alt,super} + shift + q
+    bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+    bspc desktop -l next
+
+##########################################################
+#                      state/flags                       #
+##########################################################
+#
+
+# set the window state
+alt + {t,shift + t,f,s}
+    bspc node -t {tiled,pseudo_tiled,fullscreen,floating}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+    bspc node -g {marked,locked,sticky,private}
+
+
+##########################################################
+#                       focus/swap                       #
+##########################################################
+
+# focus the node in the given direction
+alt + {_,shift + }{j,k,i,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+    bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+    bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+    bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+alt + {Escape,Tab}
+    bspc {desktop,node} -f last
+
+# focus the given desktop
+alt + shift + {1-9,0}
+    bspc desktop --focus {1-9,10}.local
+
+# send to the given desktop
+super + shift + {1-9,0}
+    bspc node -d {1-9,10}.local
+
+# focus next/prev monitor
+ctrl + alt + {j,l}
+    bspc monitor --focus {prev,next}
+
+# send node to next/prev monitor
+alt + {o,p}
+    bspc node --to-monitor {prev,next} --follow
+
+
+##########################################################
+#                       preselect                        #
+##########################################################
+
+# preselect the direction
+super + ctrl + {j,k,i,l}
+    bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel

@@ -134,7 +134,12 @@
       "evolution",
       "yaru-colors-gtk-theme",
       "yaru-colors-icon-theme",
-      "gsfonts"
+      "gsfonts",
+      "ufw",
+      "polybar",
+      "bspwm",
+      "sxhkd",
+      "dunst"
     ]
   },
   "ignored": [

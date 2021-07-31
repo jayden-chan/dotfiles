@@ -1,0 +1,177 @@
+; ##########################################################
+; #                     Configuration                      #
+; ##########################################################
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #222
+background-alt = #444
+module-background = #222
+transparent = #00222222
+;foreground = ${xrdb:color7:#222}
+foreground = #bbbbbb
+foreground-alt = #555
+primary = #0086ff
+secondary = #e60053
+alert = #bbbbbb
+date  = #bbbbbb
+cpu   = #bbbbbb
+ram   = #bbbbbb
+line  = #bbb
+
+arch = #0086ff
+ubuntu = #de4815
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; ##########################################################
+; #                          Bars                          #
+; ##########################################################
+
+[bar/base]
+width = 100%
+height = 35
+radius = 0
+fixed-center = false
+
+enable-ipc = true
+
+monitor = ${env:MONITOR:DP-0}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = ${colors.line}
+
+border-size = 0
+border-color = #000000ff
+
+padding-left = 2
+padding-right = 2
+
+wm-restack = bspwm
+
+font-0 = fixed:pixelsize=12:antialias=true;1
+font-1 = unifont:fontformat=truetype:size=30:antialias=true;5
+font-2 = siji:pixelsize=12;1
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+modules-left = arch-logo bspwm
+modules-center =
+modules-right = date
+
+[bar/center]
+inherit = bar/base
+
+modules-left = arch-logo bspwm mpris
+modules-right = memory cpu weather date
+padding-right = 0
+
+tray-position = right
+tray-padding = 5
+
+; ##########################################################
+; #                        Modules                         #
+; ##########################################################
+
+[module/arch-logo]
+type = custom/text
+content = 
+content-foreground = ${colors.arch}
+content-padding = 0
+
+[module/ubuntu-logo]
+type = custom/text
+content = 
+content-foreground = ${colors.ubuntu}
+content-padding = 0
+format-ubuntu-logo-margin-right = 0
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-background = ${colors.module-background}
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.cpu}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format-background = ${colors.module-background}
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.ram}
+format-margin = 4
+
+label = %percentage_used%%
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%a %b %e"
+date-alt = " %Y-%m-%d"
+
+time = %l:%M
+time-alt = %H:%M:%S
+
+format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.date}
+format-background = ${colors.module-background}
+
+label = %date% %time%
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+; label-focused-background = ${colors.background-alt}
+label-focused-foreground = #fff
+label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+label-occupied = %index%
+label-occupied-padding = 1
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty =
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+format-margin = 2
+
+[module/mpris]
+type = custom/script
+exec = ~/Documents/Git/dotfiles/scripts/mpris.py -f '{artist} - {title}'
+
+format-background = ${colors.module-background}
+format-margin = 1
+
+tail = true
+
+[module/weather]
+type = custom/script
+exec = ~/Documents/Git/dotfiles/scripts/weather.sh
+
+format-underline = ${colors.ram}
+format-background = ${colors.module-background}
+format-margin = 4
+
+interval = 600
+
+; vim:ft=dosini
