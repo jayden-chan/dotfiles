@@ -140,7 +140,9 @@
       "bspwm",
       "sxhkd",
       "dunst",
-      "xdo"
+      "xdo",
+      "dash",
+      "dashbinsh"
     ]
   },
   "ignored": [
