@@ -90,6 +90,10 @@ alias pasteimg='xclip -selection clipboard -t image/png -o'
 alias myip='curl https://ipinfo.io/ip && echo'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 
+function manp () {
+    evince =(man -Tpdf $1)
+}
+
 function gpl () {
     curl https://www.gnu.org/licenses/gpl-3.0.txt
 }

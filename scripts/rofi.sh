@@ -7,7 +7,7 @@ elif [ "$1" = "--power" ]; then
 
     case $RESULT in
         logout)
-            echo 'awesome.quit()' | awesome-client
+            bspc quit
             ;;
         lock)
             dm-tool lock

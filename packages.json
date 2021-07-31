@@ -139,7 +139,8 @@
       "polybar",
       "bspwm",
       "sxhkd",
-      "dunst"
+      "dunst",
+      "xdo"
     ]
   },
   "ignored": [

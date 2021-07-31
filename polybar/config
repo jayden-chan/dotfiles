@@ -1,3 +1,4 @@
+; vim:ft=dosini
 ; ##########################################################
 ; #                     Configuration                      #
 ; ##########################################################
@@ -6,7 +7,6 @@
 ;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
-module-background = #222
 transparent = #00222222
 ;foreground = ${xrdb:color7:#222}
 foreground = #bbbbbb
@@ -58,8 +58,9 @@ padding-right = 2
 wm-restack = bspwm
 
 font-0 = fixed:pixelsize=12:antialias=true;1
-font-1 = unifont:fontformat=truetype:size=30:antialias=true;5
+font-1 = unifont:fontformat=truetype:size=12:antialias=true;3
 font-2 = siji:pixelsize=12;1
+font-3 = unifont:fontformat=truetype:size=30:antialias=true;7
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -82,39 +83,41 @@ tray-padding = 5
 ; #                        Modules                         #
 ; ##########################################################
 
-[module/arch-logo]
+[module/logo-base]
 type = custom/text
+content-padding = 0
+content-font = 4
+
+[module/arch-logo]
+inherit = module/logo-base
 content = 
 content-foreground = ${colors.arch}
-content-padding = 0
 
 [module/ubuntu-logo]
-type = custom/text
+inherit = module/logo-base
 content = 
 content-foreground = ${colors.ubuntu}
-content-padding = 0
-format-ubuntu-logo-margin-right = 0
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-background = ${colors.module-background}
-format-prefix = ""
+
+label = %percentage:2%%
+
+format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.cpu}
-label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 
-format-background = ${colors.module-background}
-format-prefix = ""
+label = %percentage_used%%
+
+format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.ram}
 format-margin = 3
-
-label = %percentage_used%%
 
 [module/date]
 type = internal/date
@@ -129,7 +132,6 @@ time-alt = %H:%M:%S
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.date}
-format-background = ${colors.module-background}
 
 label = %date% %time%
 
@@ -137,7 +139,6 @@ label = %date% %time%
 type = internal/bspwm
 
 label-focused = %index%
-; label-focused-background = ${colors.background-alt}
 label-focused-foreground = #fff
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
@@ -159,9 +160,8 @@ format-margin = 2
 type = custom/script
 exec = ~/Documents/Git/dotfiles/scripts/mpris.py -f '{artist} - {title}'
 
-format-background = ${colors.module-background}
+click-left = xdo activate -n spotify
 format-margin = 1
-
 tail = true
 
 [module/weather]
@@ -169,9 +169,6 @@ type = custom/script
 exec = ~/Documents/Git/dotfiles/scripts/weather.sh
 
 format-underline = ${colors.ram}
-format-background = ${colors.module-background}
 format-margin = 3
 
 interval = 600
-
-; vim:ft=dosini
