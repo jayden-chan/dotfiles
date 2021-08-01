@@ -84,42 +84,28 @@ alias decompress='tar xfJ'
 alias ls='exa'
 alias la='exa -lah'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
-alias op='nautilus . </dev/null &>/dev/null & disown'
 alias clip='xclip -selection c'
 alias pasteimg='xclip -selection clipboard -t image/png -o'
 alias myip='curl https://ipinfo.io/ip && echo'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
+alias gpl='curl https://www.gnu.org/licenses/gpl-3.0.txt'
+alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
 
-function manp () {
-    evince =(man -Tpdf $1)
-}
+function op         () { nautilus ${1:-.}       </dev/null &>/dev/null & disown }
+function manp       () { evince =(man -Tpdf $1) </dev/null &>/dev/null & disown }
+function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
+function cpr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh "$@" }
+function mvr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh "$@" }
+function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
+function tunnel     () { ssh -g -L $1\:localhost:$2 -N $3 }
+function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
 
-function gpl () {
-    curl https://www.gnu.org/licenses/gpl-3.0.txt
-}
-
-function agpl () {
-    curl https://www.gnu.org/licenses/agpl-3.0.txt
-}
-
-function ta () {
-    if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi
-}
-
-function cpr() {
-  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh "$@"
-}
-
-function mvr() {
-  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh "$@"
-}
-
-function randstring() {
-    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1
-}
-
-function tunnel () {
-    ssh -g -L $1\:localhost:$2 -N $3
+function manh () {
+    tmp_dir=$(mktemp -d -t manh-XXXXXX)
+    man -Thtml $1 > $tmp_dir/manual.html
+    xdg-open $tmp_dir/manual.html
+    sleep 1
+    rm -rf $tmp_dir
 }
 
 function vpn () {
@@ -135,16 +121,6 @@ function installfont () {
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---
-}
-
-function lpac () {
-    echo --- Native ---
-    echo
-    pacman -Qqettn
-    echo
-    echo --- AUR ---
-    echo
-    pacman -Qqettm
 }
 
 function cargo_init() {
@@ -226,10 +202,6 @@ function exit () {
         fi
     fi
     builtin exit
-}
-
-function pach () {
-    cat /var/log/pacman.log | grep -iE 'installed|upgraded|removed' | tail -$1
 }
 
 bindkey '^H' backward-kill-word
