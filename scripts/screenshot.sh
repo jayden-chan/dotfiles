@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 if [ "$1" = "--window" ]; then
     maim --noopengl | xclip -selection clipboard -t image/png

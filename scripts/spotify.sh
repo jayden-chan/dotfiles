@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 # Author:   Nicholas Feldman, Jayden Chan
 # Based on: https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh

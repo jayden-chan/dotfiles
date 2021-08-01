@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 dots=$HOME/Documents/Git/dotfiles
 config=$HOME/.config

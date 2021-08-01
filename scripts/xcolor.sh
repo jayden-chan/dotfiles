@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 tmp_dir=$(mktemp -d -t xcolor-XXXXXX)
 color=$(xcolor | tr -d '\n' | xclip -selection c -filter)

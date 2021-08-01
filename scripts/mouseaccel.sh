@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 gspeed=3.8
 for id in `xinput --list | rg 'Logitech Gaming Mouse G502\s+id=(\d+)\s+\[slave\s+pointer' --only-matching --replace='$1'`; do

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 [ -e "$HOME/.config/ENV" ] && . $HOME/.config/ENV
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 font="Nimbus Sans 14"
 
