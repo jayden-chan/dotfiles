@@ -47,6 +47,7 @@ filetype off
         Plug 'plasticboy/vim-markdown'
         Plug 'lifepillar/pgsql.vim'
         Plug 'jayden-chan/rust.vim'
+        Plug 'baskerville/vim-sxhkdrc'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         Plug 'mustache/vim-mustache-handlebars'
 
