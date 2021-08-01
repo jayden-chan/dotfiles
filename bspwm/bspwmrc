@@ -49,9 +49,7 @@ bspc config gapless_monocle            false
 bspc config single_monocle             false
 
 bspc config focus_follows_pointer      true
-bspc config click_to_focus             true
 bspc config pointer_follows_monitor    false
-bspc config history_aware_focus        false
 
 bspc config remove_disabled_monitors   true
 bspc config merge_overlapping_monitors false

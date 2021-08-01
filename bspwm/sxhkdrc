@@ -139,3 +139,11 @@ super + ctrl + space
 # cancel the preselection for the focused desktop
 super + ctrl + shift + space
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# expand window
+super + alt + {j,k,i,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract window
+super + alt + shift + {j,k,i,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}

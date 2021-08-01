@@ -11,8 +11,6 @@ if [ $(hostname) = "grace" ]; then
     cspeed=1.5
     xinput --set-prop 'Glorious Model O' 'Coordinate Transformation Matrix' $cspeed 0.0 0.0 0.0 $cspeed 0.0 0.0 0.0 1.0
     xinput --set-prop 'Glorious Model O' 'libinput Accel Speed' -1
-    xinput --set-prop 'Glorious Model D' 'Coordinate Transformation Matrix' $cspeed 0.0 0.0 0.0 $cspeed 0.0 0.0 0.0 1.0
-    xinput --set-prop 'Glorious Model D' 'libinput Accel Speed' -1
 else
     xinput --set-prop 'SYNA2B2C:01 06CB:7F27 Touchpad' 'libinput Natural Scrolling Enabled' 0
     xinput --set-prop 'SYNA2B2C:01 06CB:7F27 Touchpad' 'libinput Tapping Enabled' 1
