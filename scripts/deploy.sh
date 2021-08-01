@@ -7,17 +7,25 @@ rm -rf $config/rofi    2>/dev/null
 rm -rf $config/nvim    2>/dev/null
 rm -rf $config/latexmk 2>/dev/null
 rm -rf $config/tmux    2>/dev/null
+rm -rf $config/bspwm   2>/dev/null
+rm -rf $config/sxhkd   2>/dev/null
 rm -rf $config/zsh     2>/dev/null
 rm -rf $config/npm     2>/dev/null
+rm -rf $config/polybar 2>/dev/null
+rm -rf $config/dunst   2>/dev/null
 
 mkdir -p $config/rofi
 mkdir -p $config/nvim/colors
 mkdir -p $config/nvim/spell
 mkdir -p $config/latexmk
 mkdir -p $config/tmux
+mkdir -p $config/bspwm
+mkdir -p $config/sxhkd
 mkdir -p $config/zsh
 mkdir -p $config/npm
 mkdir -p $config/awesome
+mkdir -p $config/polybar
+mkdir -p $config/dunst
 mkdir -p $HOME/.local/bin
 
 if [ "$1" = "--full" ]; then
@@ -56,7 +64,12 @@ ln -fs $dots/zsh/zlogout             $config/zsh/.zlogout
 ln -fs $dots/zsh/zshrc               $config/zsh/.zshrc
 ln -fs $dots/zsh/zshenv              $HOME/.zshenv
 ln -fs $dots/npm/npmrc               $config/npm/npmrc
+ln -fs $dots/bspwm/bspwmrc           $config/bspwm/bspwmrc
+ln -fs $dots/bspwm/sxhkdrc           $config/bspwm/sxhkdrc
+ln -fs $dots/polybar/config          $config/polybar/config
+ln -fs $dots/dunst/dunstrc           $config/dunst/dunstrc
 
 cp $dots/font/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf ~/.local/share/fonts/
+sudo fc-cache -fv
 
 echo "Finished deployment"
