@@ -141,8 +141,7 @@
       "sxhkd",
       "dunst",
       "xdo",
-      "dash",
-      "dashbinsh"
+      "dash"
     ]
   },
   "ignored": [
