@@ -4,17 +4,15 @@
 ; ##########################################################
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
 transparent = #00222222
-;foreground = ${xrdb:color7:#222}
 foreground = #bbbbbb
 foreground-alt = #555
 primary = #0086ff
 secondary = #e60053
 alert = #bbbbbb
-date  = #bbbbbb
+date  = #0086ff
 cpu   = #bbbbbb
 ram   = #bbbbbb
 line  = #bbb
@@ -157,7 +155,7 @@ format-margin = 2
 
 [module/mpris]
 type = custom/script
-exec = ~/Documents/Git/dotfiles/scripts/mpris.py -f '{artist} - {title}'
+exec = ~/Documents/Git/dotfiles/scripts/mpris.py
 
 click-left = xdo activate -n spotify
 format-margin = 1

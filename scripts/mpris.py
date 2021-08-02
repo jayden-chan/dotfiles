@@ -211,22 +211,8 @@ class Player:
             # Obtain properties from _metadata
             _artist = _getProperty(self._metadata, 'xesam:artist', [''])
             _title  = _getProperty(self._metadata, 'xesam:title', '')
-
-            # Update metadata
-            _artist_clean = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_artist))
-            _title_clean  = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_title))
-
-            # if the artist field is empty but the title field is in the form "* - *" we
-            # will split the title on " - " and use those parts for artist/title. This
-            # usually happens when there's something playing in a browser tab, the
-            # artist field is empty and the title field contains both artist/title
-            if len(_artist_clean.strip()) == 0 and _title_clean.count(' - ') == 1:
-                _parts = _title_clean.rsplit(' - ')
-                _artist_clean = _parts[0]
-                _title_clean = _parts[1]
-
-            self.metadata['artist'] = _artist_clean
-            self.metadata['title']  = _title_clean
+            self.metadata['artist'] = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_artist))
+            self.metadata['title']  = re.sub(SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_title))
 
     def onMetadataChanged(self, track_id, metadata):
         self.refreshMetadata()
@@ -257,8 +243,10 @@ class Player:
     def printStatus(self):
         if self.status == 'playing':
             metadata = { **self.metadata }
-            # replace metadata tags in text
-            text = re.sub(FORMAT_REGEX, '', FORMAT_STRING)
+
+            fmt_string = FORMAT_STRING_ALT if len(metadata['artist'].strip()) == 0 else FORMAT_STRING
+            text = re.sub(FORMAT_REGEX, '', fmt_string)
+
             # restore polybar tag formatting and replace any remaining metadata tags after that
             try:
                 text = re.sub(r'􏿿p􏿿(.*?)􏿿p􏿿(.*?)􏿿p􏿿(.*?)􏿿p􏿿', r'%{\1}\2%{\3}', text.format_map(CleanSafeDict(**metadata)))
@@ -332,4 +320,5 @@ def _printFlush(status, **kwargs):
 FORMAT_REGEX = re.compile(r'(\{:(?P<tag>.*?)(:(?P<format>[wt])(?P<formatlen>\d+))?:(?P<text>.*?):\})', re.I)
 SAFE_TAG_REGEX = re.compile(r'[{}]')
 FORMAT_STRING = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', '{artist} - {title}')
+FORMAT_STRING_ALT = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', '{title}')
 PlayerManager()
