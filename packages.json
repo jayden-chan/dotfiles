@@ -145,7 +145,8 @@
       "sxhkd",
       "dunst",
       "xdo",
-      "dash"
+      "dash",
+      "zsh-syntax-highlighting"
     ]
   },
   "ignored": [

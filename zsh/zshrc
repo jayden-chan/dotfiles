@@ -1,207 +1,110 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$XDG_CONFIG_HOME/oh-my-zsh
-
 DEFAULT_USER="jayden"
-plugins=(git dotenv zsh-z zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
 
 # initialize starship prompt
 eval "$(starship init zsh)"
 
-# User configuration
-
-stty stop undef
-stty start undef
-
 # Enable extended file globs
 setopt extendedglob
 
-# Git alias
-alias gdf='cd $DOT && git status'
-alias gc='git commit -v -S'
-alias gcop='git checkout production'
-alias gpuu='git push -u origin $(git symbolic-ref --short HEAD)'
-# Stop activating ghostscript by accident
-alias gs='git status'
-alias gro='cd $(git rev-parse --show-toplevel)'
+setopt interactivecomments
 
-# Compilation
-alias lcm='latexmk -pvc -pdf'
-alias god='cd $GOPATH/src/github.com/jayden-chan/'
-alias hh='git push heroku master && heroku logs --tail'
+##########################################################
+#                       completion                       #
+##########################################################
 
-# dotfile editing
-alias vimrc='vim $DOT/vim/vimrc'
-alias zshrc='vim $DOT/zsh/zshrc'
+unsetopt menu_complete
+unsetopt flowcontrol
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
 
-# Info
-alias nfetch='neofetch --ascii_distro arch_old'
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USERNAME -o pid,user,comm -w -w"
 
-# Exit
-alias :q='exit'
-alias :Q='exit'
-alias :wq='exit'
-alias :Wq='exit'
+autoload -U +X bashcompinit && bashcompinit
 
-# Editor
-alias vim='nvim'
+##########################################################
+#                        plugins                         #
+##########################################################
 
-# Fuzzy cd/vim
-alias zz='cd `fd . ~ --type d | fzf`'
-alias ed='vim `fd . ~ --type f | fzf`'
+source $HOME/.local/share/zsh-z.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# U S E R   E R R O R
-alias cim='vim'
-alias vom='vim'
-alias vun='vim'
-alias ivm='vim'
-alias bim='vim'
-alias dw='cd'
-alias cs='cd'
-alias clear='clear -x'
-alias clera='clear'
-alias celar='clear'
-alias clare='clear'
-alias claer='clear'
-alias ckear='clear'
-alias Lq='exit'
+autoload -Uz compinit
+zmodload zsh/complist
+compinit
 
-# One letter
-alias l='exa -a'
-alias y='yarn'
-alias o='xdg-open'
-alias x='xset r rate 270 35'
-alias t='tmux'
-alias c='cargo'
+##########################################################
+#                        history                         #
+##########################################################
 
-# Good compression/archive settings
-alias compress='tar c -I"xz -T 0 -7" -f'
-alias archive='tar c -I"xz -T 0 -0" -f'
-alias decompress='tar xfJ'
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
 
-# Other
-alias ls='exa'
-alias la='exa -lah'
-alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
-alias clip='xclip -selection c'
-alias pasteimg='xclip -selection clipboard -t image/png -o'
-alias myip='curl https://ipinfo.io/ip && echo'
-alias nodes='node --enable-source-maps --unhandled-rejections=strict'
-alias gpl='curl https://www.gnu.org/licenses/gpl-3.0.txt'
-alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
+HISTSIZE=50000
+SAVEHIST=10000
 
-function op         () { nautilus ${1:-.}       </dev/null &>/dev/null & disown }
-function manp       () { evince =(man -Tpdf $1) </dev/null &>/dev/null & disown }
-function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
-function cpr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh "$@" }
-function mvr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh "$@" }
-function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
-function tunnel     () { ssh -g -L $1\:localhost:$2 -N $3 }
-function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
+##########################################################
+#                       key binds                        #
+##########################################################
 
-function manh () {
-    tmp_dir=$(mktemp -d -t manh-XXXXXX)
-    man -Thtml $1 > $tmp_dir/manual.html
-    xdg-open $tmp_dir/manual.html
-    sleep 1
-    rm -rf $tmp_dir
-}
-
-function vpn () {
-    sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-    sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-    sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
-    sudo openvpn --config $1 --auth-user-pass /home/jayden/Documents/pia/pass.txt
-}
-
-function installfont () {
-    sudo echo --- Installing font ---
-    cp $1 $HOME/.local/share/fonts
-    echo --- Refreshing font cache ---
-    sudo fc-cache -fv
-    echo --- Done ---
-}
-
-function cargo_init() {
-    if [ "$1" = "" ]; then
-        echo "You must specify a project name"
-    else
-        cargo init $1
-        cd $1
-        touch README.md
-        echo "# $1" > README.md
-
-        if [ "$2" != "" ]; then
-            echo "\n$2" >> README.md
-        fi
-
-        touch Makefile
-        echo "build: build-skylake\n" >> Makefile
-        echo "build-general:\n\tcargo build --release\n" >> Makefile
-        echo "build-native:\n\tRUSTFLAGS=\"-Ctarget-cpu-native\" cargo build --release\n" >> Makefile
-        echo ".PHONY: build build-general build-skylake" >> Makefile
-
-        touch rustfmt.toml
-        echo "max_width = 80" > rustfmt.toml
-
-        touch LICENSE
-
-        echo "Project creation finished, don't forget to add a license"
-    fi
-}
-
-function ts_init() {
-    if [ "$1" = "" ]; then
-        echo "You must specify a project name"
-    else
-        mkdir $1
-        cd $1
-        git status >/dev/null 2>&1 || { git init }
-        yarn init
-        mkdir src
-
-        echo "# $1" > README.md
-        echo "function main() {\n  console.log(\"Hello world\");\n}\n\nmain();" > src/index.ts
-        echo "dist\nnode_modules\n*.swp\n*.env" > .gitignore
-        echo '{
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.json"],
-  "compilerOptions": {
-    "resolveJsonModule": true,
-    "outDir": "dist",
-    "module": "commonjs",
-    "lib": ["es2020"],
-    "target": "ES6",
-    "inlineSourceMap": true,
-    "strict": true
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
+    echoti smkx
   }
-}' > tsconfig.json
+  function zle-line-finish() {
+    echoti rmkx
+  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
 
-        yarn add -D typescript @types/node
+bindkey -e
 
-        if [ "$2" != "" ]; then
-            echo "\n$2" >> README.md
-        fi
+# Start typing + [Up-Arrow] - fuzzy find history forward
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey -M emacs "${terminfo[kcuu1]}" up-line-or-beginning-search
 
-        echo "Project created, don't forget to update package.json"
-    fi
+# Start typing + [Down-Arrow] - fuzzy find history backward
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey -M emacs "${terminfo[kcud1]}" down-line-or-beginning-search
 
-}
+# [Backspace] - delete backward
+bindkey -M emacs '^?' backward-delete-char
+# [Ctrl-RightArrow] - move forward one word
+bindkey -M emacs '^[[1;5C' forward-word
+# [Ctrl-LeftArrow] - move backward one word
+bindkey -M emacs '^[[1;5D' backward-word
 
-# try not to exit the terminal with un-pushed git commits
-function exit () {
-    gitlog=$(git log @{upstream}.. 2>/dev/null)
-    if [[ $? -ne 0 ]]; then builtin exit; fi
-    if [[ $(printf '%s' "$gitlog" | wc -c) -ne 0 ]]; then
-        echo "Oops! You forgot to push your commits to the upstream repo."
-        echo -n "Would you like to push them before exiting? [Y/n] "
-        read answer
+bindkey '^r' history-incremental-search-backward
+bindkey ' ' magic-space
 
-        if [ "$answer" != "${answer#[Yy]}" ]; then
-            git push || return -1
-        fi
-    fi
-    builtin exit
-}
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 
 bindkey '^H' backward-kill-word
+
+# unbind ctrl-s
+stty stop undef
+stty start undef
+
+##########################################################
+#                     personal conf                      #
+##########################################################
+
+source $DOT/zsh/dir.zsh
+source $DOT/zsh/git.zsh
+source $DOT/zsh/aliases.zsh
+source $DOT/zsh/functions.zsh
+source $DOT/zsh/dotenv.zsh
