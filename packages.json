@@ -24,7 +24,10 @@
       "simplescreenrecorder",
       "wkhtmltopdf",
       "borg",
-      "perf"
+      "perf",
+      "qemu",
+      "libvirt",
+      "gnome-boxes"
     ],
     "swift": [
       "ponymix",
@@ -97,7 +100,7 @@
       "traceroute",
       "usbutils",
       "wget",
-      "starship-bin",
+      "starship",
       "valgrind",
       "pdftk",
       "texlive-core",
@@ -113,6 +116,7 @@
       "ttf-symbola",
       "file-roller",
       "nodejs-lts-fermium",
+      "npm",
       "tmux",
       "eog",
       "entr",
