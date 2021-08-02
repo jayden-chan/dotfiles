@@ -22,10 +22,13 @@ mkdir -p $config/tmux
 mkdir -p $config/bspwm
 mkdir -p $config/sxhkd
 mkdir -p $config/zsh
+mkdir -p $config/git
 mkdir -p $config/npm
 mkdir -p $config/awesome
 mkdir -p $config/polybar
 mkdir -p $config/dunst
+
+mkdir -p $HOME/.local/share/fonts
 mkdir -p $HOME/.local/bin
 
 if [ "$1" = "--full" ]; then
@@ -52,7 +55,7 @@ ln -fs $dots/awesome/theme.lua       $config/awesome/themes/rainbow/theme.lua
 ln -fs $dots/git/gitconfig           $config/git/config
 ln -fs $dots/latex/latexmkrc         $config/latexmk/latexmkrc
 ln -fs $dots/picom/picom.conf        $config/picom.conf
-ln -fs $dots/rofi/theme.rasi         $config/rofi/theme.rasi
+ln -fs $dots/rofi/theme.rasi         $config/rofi/default.rasi
 ln -fs $dots/scripts/p.js            $HOME/.local/bin/p
 ln -fs $dots/snippets/               $config/nvim/UltiSnips
 ln -fs $dots/starship/starship.toml  $config/starship.toml
