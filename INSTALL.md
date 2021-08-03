@@ -2,9 +2,9 @@
 
 # 1. Install Arch Linux
 Follow the [official instructions](https://wiki.archlinux.org/title/installation_guide)
-for installing Arch Linux. When performing the pacstrap step choose the following
-packages: `base base-devel linux-lts linux-firmware linux-lts-headers git networkmanager
-vi zsh tmux nodejs-lts-fermium`.
+for installing Arch Linux. When performing the `pacstrap` step choose the following
+packages: `base base-devel linux-lts linux-firmware git networkmanager vi zsh tmux
+nodejs-lts-fermium`.
 
 **Stop before the final step of rebooting.**
 
