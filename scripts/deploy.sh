@@ -24,9 +24,6 @@ mkdir -p $HOME/.local/share/fonts
 mkdir -p $HOME/.local/bin
 
 cd $HOME
-ln -fs $dots/awesome/awesome.png     $config/awesome/themes/rainbow/icons/awesome.png
-ln -fs $dots/awesome/rc.lua          $config/awesome/rc.lua
-ln -fs $dots/awesome/theme.lua       $config/awesome/themes/rainbow/theme.lua
 ln -fs $dots/git/gitconfig           $config/git/config
 ln -fs $dots/latex/latexmkrc         $config/latexmk/latexmkrc
 ln -fs $dots/rofi/theme.rasi         $config/rofi/default.rasi
