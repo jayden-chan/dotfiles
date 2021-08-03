@@ -1,12 +1,7 @@
 DEFAULT_USER="jayden"
 
-# initialize starship prompt
-eval "$(starship init zsh)"
-
-# Enable extended file globs
-setopt extendedglob
-
-setopt interactivecomments
+# zsh-z, must be loaded before completion stuff
+source $HOME/.local/share/zsh-z.plugin.zsh
 
 ##########################################################
 #                       completion                       #
@@ -24,23 +19,20 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USERNAME -o pid,user,comm -w -w"
+zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
+
+autoload -Uz compinit
+zmodload -i zsh/complist
+compinit
 
 autoload -U +X bashcompinit && bashcompinit
 
 ##########################################################
-#                        plugins                         #
-##########################################################
-
-source $HOME/.local/share/zsh-z.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-autoload -Uz compinit
-zmodload zsh/complist
-compinit
-
-##########################################################
 #                        history                         #
 ##########################################################
+
+HISTSIZE=50000
+SAVEHIST=10000
 
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -49,8 +41,7 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
 
-HISTSIZE=50000
-SAVEHIST=10000
+alias history='builtin fc -l 1'
 
 ##########################################################
 #                       key binds                        #
@@ -93,6 +84,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
+WORDCHARS=''
 bindkey '^H' backward-kill-word
 
 # unbind ctrl-s
@@ -103,8 +95,21 @@ stty start undef
 #                     personal conf                      #
 ##########################################################
 
-source $DOT/zsh/dir.zsh
-source $DOT/zsh/git.zsh
+setopt extendedglob
+
+# Syntax highlight comments while using prompt
+setopt interactivecomments
+
 source $DOT/zsh/aliases.zsh
 source $DOT/zsh/functions.zsh
+
+# oh-my-zsh plugins (but without oh-my-zsh bloat)
+source $DOT/zsh/dir.zsh
+source $DOT/zsh/git.zsh
 source $DOT/zsh/dotenv.zsh
+
+# syntax highlighting, must be loaded last
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# initialize starship prompt
+eval "$(starship init zsh)"
