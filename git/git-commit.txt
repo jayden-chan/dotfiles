@@ -5,7 +5,7 @@ JC:
 
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
 # Explain why this change is being made
-# Provide links or keys to any relevant tickets, articles or other resources
+# Provide links to any relevant tickets, articles or other resources
 # Example: Github issue #23
 
 # --- COMMIT END ---
