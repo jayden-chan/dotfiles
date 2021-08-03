@@ -25,7 +25,6 @@ Commands:
       install  (i): <package>  install packages
     uninstall  (u): <package>  uninstall packages
         clean  (c):            clean orphaned packages
-    fullclean (fc):            audit packages.json
        verify  (v):            show packages from list that aren't installed
      unlisted (ul):            show packages that are installed but not in packages.json
          list  (l):            list installed packages
@@ -184,35 +183,6 @@ function list() {
   console.log(aur);
 }
 
-/**
- * @param {Object} programs Programs list
- */
-async function fullClean(programs) {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
-  const toUninstall = [];
-  const programsEntries = Object.entries(programs.installed);
-  for (let i = 0; i < programsEntries.length; i++) {
-    const [host, arr] = programsEntries[i];
-    if (host === "all" || HOST === host) {
-      for (let j = 0; j < arr.length; j++) {
-        const p = arr[j];
-        const res = await yesno(`Keep ${p}? [y/n]: `, rl);
-        if (res === false) {
-          toUninstall.push(p);
-          console.log(`Removed ${p} from packages list.`);
-        }
-      }
-    }
-  }
-
-  console.log(`To uninstall removed programs: p u ${toUninstall.join(" ")}`);
-  rl.close();
-}
-
 async function main() {
   const programs = JSON.parse(
     readFileSync(PROGRAMS_PATH, { encoding: "utf8" })
@@ -244,10 +214,6 @@ async function main() {
     case "ul":
     case "unlisted":
       showUnlisted(programs);
-      return 0;
-    case "fc":
-    case "fullclean":
-      await fullClean(programs);
       return 0;
     case "l":
     case "list":
