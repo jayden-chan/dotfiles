@@ -7,14 +7,14 @@
 background = #222
 background-alt = #444
 transparent = #00222222
-foreground = #bbbbbb
-foreground-alt = #555
+foreground = #bbb
+foreground-alt = #666
 primary = #0086ff
-secondary = #e60053
-alert = #bbbbbb
+alert = #fff
+alert-fg = #222
 date  = #0086ff
-cpu   = #bbbbbb
-ram   = #bbbbbb
+cpu   = #0086ff
+ram   = #0086ff
 line  = #bbb
 
 arch = #0086ff
@@ -44,7 +44,7 @@ monitor = ${env:MONITOR:DP-0}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 1
 line-color = ${colors.line}
 
 border-size = 0
@@ -57,8 +57,9 @@ wm-restack = bspwm
 
 font-0 = fixed:pixelsize=12:antialias=true;1
 font-1 = unifont:fontformat=truetype:size=12:antialias=true;3
-font-2 = siji:pixelsize=12;1
-font-3 = unifont:fontformat=truetype:size=30:antialias=true;7
+font-2 = unifont:fontformat=truetype:size=30:antialias=true;7
+font-3 = unifont:fontformat=truetype:size=18:antialias=true;4
+font-4 = siji:pixelsize=12;1
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -83,7 +84,7 @@ tray-padding = 5
 [module/logo-base]
 type = custom/text
 content-padding = 0
-content-font = 4
+content-font = 3
 
 [module/arch-logo]
 inherit = module/logo-base
@@ -99,9 +100,9 @@ content-foreground = ${colors.ubuntu}
 type = internal/cpu
 interval = 2
 
-label = %percentage:2%%
+label = "  %percentage:2%%"
 
-format-prefix =
+format-prefix = "勤"
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.cpu}
 
@@ -109,9 +110,9 @@ format-underline = ${colors.cpu}
 type = internal/memory
 interval = 2
 
-label = %percentage_used%%
+label = "  %percentage_used%%"
 
-format-prefix =
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.ram}
 format-margin = 3
@@ -126,25 +127,27 @@ date-alt = " %Y-%m-%d"
 time = %l:%M
 time-alt = %l:%M:%S
 
-format-prefix =
+format-prefix-font = 4
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.date}
 
-label = %date% %time%
+label = "  %date% %time%"
 
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
-label-focused-foreground = #fff
+label-focused = ""
+; label-focused-foreground = #ddd
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
-label-occupied = %index%
+label-occupied = ""
 label-occupied-padding = 1
 
-label-urgent = %index%!
+label-urgent = ""
 label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.alert-fg}
 label-urgent-padding = 1
 
 label-empty =
@@ -158,7 +161,13 @@ type = custom/script
 exec = ~/Documents/Git/dotfiles/scripts/mpris.py
 
 click-left = xdo activate -n spotify
+
 format-margin = 1
+format-prefix-font = 4
+format-prefix = "ﱘ"
+format-prefix-foreground = ${colors.foreground-alt}
+; format-underline = ${colors.date}
+
 tail = true
 
 [module/weather]
@@ -167,7 +176,10 @@ exec = ~/Documents/Git/dotfiles/scripts/weather.sh
 
 click-left = ~/Documents/Git/dotfiles/scripts/weather.sh --open
 
+format-prefix = "摒"
+format-prefix-font = 4
 format-underline = ${colors.ram}
+format-prefix-foreground = ${colors.foreground-alt}
 format-margin = 3
 
 interval = 600
