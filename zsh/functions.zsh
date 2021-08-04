@@ -1,6 +1,6 @@
 function op         () { nautilus ${1:-.}       </dev/null &>/dev/null & disown }
 function manp       () { evince =(man -Tpdf $1) </dev/null &>/dev/null & disown }
-function manv       () { man $1 | vim "+runtime! syntax/man.vim" }
+function manv       () { man $1 | vim "+runtime! syntax/man.vim" "+set nonumber" "+set norelativenumber" }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function cpr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh "$@" }
 function mvr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh "$@" }

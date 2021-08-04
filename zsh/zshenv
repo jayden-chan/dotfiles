@@ -7,6 +7,7 @@ export XDG_STATE_HOME="$HOME"/.local/state
 
 # Clean up home directory
 export LESSHISTFILE="-"
+export LESS="-RX"
 export WGETRC="$HOME"/.config/wget/wgetrc
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
@@ -24,6 +25,7 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export ZDOTDIR="$HOME"/.config/zsh
 
 # Private vars (mostly tokens)
 [ -e "/home/jayden/.config/ENV" ] && source /home/jayden/.config/ENV
@@ -71,4 +73,3 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export ZDOTDIR="$HOME"/.config/zsh

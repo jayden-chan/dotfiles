@@ -36,7 +36,8 @@ ln -fs $dots/vim/coc-settings.json   $config/nvim/coc-settings.json
 ln -fs $dots/vim/vimrc               $config/nvim/init.vim
 ln -fs $dots/zsh/zlogout             $config/zsh/.zlogout
 ln -fs $dots/zsh/zshrc               $config/zsh/.zshrc
-ln -fs $dots/zsh/zshenv              $HOME/.zshenv
+ln -fs $dots/zsh/zshenv              $config/zsh/.zshenv
+ln -fs $dots/zsh/zshenv              $HOME/.xprofile
 ln -fs $dots/scripts/p.js            $HOME/.local/bin/p
 
 cp $dots/font/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf ~/.local/share/fonts/
