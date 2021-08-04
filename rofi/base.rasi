@@ -1,0 +1,127 @@
+// vim: ft=css
+configuration {
+    font:                           "Nimbus Sans 14";
+    show-icons:                     true;
+    icon-theme:                     "Yaru-Blue";
+    display-drun:                   "";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+    hide-scrollbar:                 true;
+    sidebar-mode:                   false;
+}
+
+prompt {
+    enabled:                         true;
+    padding:                         0% 1% 0% 0%;
+    background-color:                @background;
+    text-color:                      @foreground;
+}
+
+entry {
+    background-color:               @background;
+    text-color:                     @foreground;
+    placeholder-color:              #888;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search Applications";
+    padding:                        0.15% 0% 0% 0%;
+    blink:                          true;
+}
+
+inputbar {
+    background-color:               @background;
+    text-color:                     @foreground;
+    expand:                         false;
+    border:                         0 0 2px 0;
+    border-radius:                  0px;
+    border-color:                   @border;
+    margin:                         0% 17% 0% 0%;
+    padding:                        1%;
+    position:                       center;
+    children:                       [ prompt, entry ];
+}
+
+listview {
+    background-color:               @background;
+    columns:                        4;
+    spacing:                        1%;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
+    fixed-columns:                  true;
+}
+
+mainbox {
+    background-color:               @background;
+    border:                         0% 0% 0% 1.5%;
+    border-radius:                  0% 0% 0% 2.5%;
+    border-color:                   @stripe;
+    spacing:                        2%;
+    padding:                        2.5% 2% 2.5% 2%;
+    children:                       [ inputbar, listview ];
+}
+
+element {
+    background-color:               @background;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  0%;
+    padding:                        2% 0% 2% 0%;
+}
+
+element-icon {
+    size:                           64px;
+    border:                         0px;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 1% 0% 1%;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+    border-radius:                  1%;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+}
+
+element selected {
+    background-color:               @selected;
+    text-color:                     @foreground;
+    border:                         0% 0% 0.3% 0.2%;
+    border-radius:                  1.5% 1.0% 1.5% 1.5%;
+    border-color:                   @border;
+}
+
+element selected.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+}
+
+element selected.active {
+    background-color:               @background-alt;
+    color:                          @foreground;
+}
+
+* {
+    background:                     #242424ff;
+    background-alt:                 #242424ff;
+    foreground:                     #FFFCFFff;
+    stripe:                         #0086ffff;
+    stripe-alt:                     #333333ff;
+    border:                         #0086ffff;
+    border-alt:                     #b76666ff;
+    search:                         #333333ff;
+    selected:                       #333333ff;
+    urgent:                         #DA4453FF;
+}

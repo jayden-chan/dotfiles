@@ -1,0 +1,16 @@
+// vim: ft=css
+@import "base.rasi"
+
+window {
+    transparency:                   "real";
+    background-color:               @background;
+    text-color:                     @foreground;
+    border:                         0% 0% 0% 1.5%;
+    border-color:                   @stripe-alt;
+    border-radius:                  0% 0% 0% 2.5%;
+    height:                         51.5%;
+    width:                          50%;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
+}

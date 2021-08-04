@@ -24,15 +24,17 @@ mkdir -p $HOME/.local/share/fonts
 mkdir -p $HOME/.local/bin
 
 cd $HOME
-ln -fs $dots/bspwm/bspwmrc           $config/bspwm/bspwmrc
+ln -fs $dots/bspwm/bspwmrc           $config/bspwm/
 ln -fs $dots/git/gitconfig           $config/git/config
-ln -fs $dots/latex/latexmkrc         $config/latexmk/latexmkrc
-ln -fs $dots/npm/npmrc               $config/npm/npmrc
-ln -fs $dots/rofi/theme.rasi         $config/rofi/default.rasi
+ln -fs $dots/latex/latexmkrc         $config/latexmk/
+ln -fs $dots/npm/npmrc               $config/npm/
+ln -fs $dots/rofi/base.rasi          $config/rofi/
+ln -fs $dots/rofi/drun.rasi          $config/rofi/
+ln -fs $dots/rofi/power.rasi         $config/rofi/
 ln -fs $dots/snippets/               $config/nvim/UltiSnips
-ln -fs $dots/starship/starship.toml  $config/starship.toml
-ln -fs $dots/tmux/tmux.conf          $config/tmux/tmux.conf
-ln -fs $dots/vim/coc-settings.json   $config/nvim/coc-settings.json
+ln -fs $dots/starship/starship.toml  $config/
+ln -fs $dots/tmux/tmux.conf          $config/tmux/
+ln -fs $dots/vim/coc-settings.json   $config/nvim/
 ln -fs $dots/vim/vimrc               $config/nvim/init.vim
 ln -fs $dots/zsh/zlogout             $config/zsh/.zlogout
 ln -fs $dots/zsh/zshrc               $config/zsh/.zshrc
