@@ -55,15 +55,15 @@ XF86AudioPlay
 
 # restart bspwm
 ctrl + alt + r
-    bspc wm -r
+    bspc wm --restart
 
 # close and kill
 {alt,super} + shift + q
-    bspc node -{c,k}
+    bspc node --{close,kill}
 
 # alternate between the tiled and monocle layout
 super + m
-    bspc desktop -l next
+    bspc desktop --layout next
 
 ##########################################################
 #                      state/flags                       #
@@ -72,11 +72,11 @@ super + m
 
 # set the window state
 alt + {t,shift + t,f,s}
-    bspc node -t {tiled,pseudo_tiled,fullscreen,floating}
+    bspc node --state {tiled,pseudo_tiled,fullscreen,floating}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
-    bspc node -g {marked,locked,sticky,private}
+    bspc node --flag {marked,locked,sticky,private}
 
 
 ##########################################################
@@ -85,19 +85,15 @@ super + ctrl + {m,x,y,z}
 
 # focus the node in the given direction
 alt + {_,shift + }{j,k,i,l}
-    bspc node -{f,s} {west,south,north,east}
+    bspc node --{focus,swap} {west,south,north,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
-    bspc node -f @{parent,brother,first,second}
+    bspc node --focus @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
-    bspc node -f {next,prev}.local.!hidden.window
-
-# focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-    bspc desktop -f {prev,next}.local
+    bspc node --focus {next,prev}.local.!hidden.window
 
 # focus the last node/desktop
 alt + {Escape,Tab}
@@ -109,7 +105,7 @@ alt + shift + {1-9,0}
 
 # send to the given desktop
 super + shift + {1-9,0}
-    bspc node -d {1-9,10}.local
+    bspc node --to-desktop {1-9,10}.local
 
 # focus next/prev monitor
 ctrl + alt + {j,l}
@@ -130,20 +126,16 @@ super + ctrl + {j,k,i,l}
 
 # preselect the ratio
 super + ctrl + {1-9}
-    bspc node -o 0.{1-9}
+    bspc node --presel-ratio 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
-    bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+    bspc node --presel-dir cancel
 
 # expand window
 super + alt + {j,k,i,l}
-    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+    bspc node --resize {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract window
 super + alt + shift + {j,k,i,l}
-    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node --resize {right -20 0,top 0 20,bottom 0 -20,left 20 0}
