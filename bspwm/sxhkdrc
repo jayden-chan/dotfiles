@@ -95,8 +95,13 @@ super + {p,b,comma,period}
 super + {_,shift + }c
     bspc node --focus {next,prev}.local.!hidden.window
 
+# if no hidden window, hide current window
+# else un-hide hidden window
+alt + Escape
+    $HOME/Documents/Git/dotfiles/scripts/toggle-hide.sh
+
 # focus the last node/desktop
-alt + {Escape,Tab}
+alt + {grave,Tab}
     bspc {desktop,node} -f last.local
 
 # focus the given desktop
