@@ -101,7 +101,7 @@ super + bracket{left,right}
 
 # focus the last node/desktop
 alt + {Escape,Tab}
-    bspc {desktop,node} -f last
+    bspc {desktop,node} -f last.local
 
 # focus the given desktop
 alt + shift + {1-9,0}
