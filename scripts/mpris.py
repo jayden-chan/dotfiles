@@ -254,7 +254,7 @@ class Player:
                 print("Invalid format string")
             self._print(text)
         elif self.status == 'paused':
-            self._print('Paused')
+            self._print(PADDING + 'Paused')
         else:
             self._print('')
 
@@ -317,8 +317,9 @@ def _printFlush(status, **kwargs):
         sys.stdout.flush()
         _last_status = status
 
+PADDING = "  "
 FORMAT_REGEX = re.compile(r'(\{:(?P<tag>.*?)(:(?P<format>[wt])(?P<formatlen>\d+))?:(?P<text>.*?):\})', re.I)
 SAFE_TAG_REGEX = re.compile(r'[{}]')
-FORMAT_STRING = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', '  {artist} - {title}')
-FORMAT_STRING_ALT = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', '  {title}')
+FORMAT_STRING = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', PADDING + '{artist} - {title}')
+FORMAT_STRING_ALT = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', PADDING + '{title}')
 PlayerManager()
