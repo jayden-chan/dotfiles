@@ -1,5 +1,8 @@
 # Linux System Setup Instructions
 
+These install instructions are for me to set up an installation of my own Linux config,
+it is not a guide for deploying my dotfiles on your own machine.
+
 # 1. Install Arch Linux
 Follow the [official instructions](https://wiki.archlinux.org/title/installation_guide)
 for installing Arch Linux. When performing the `pacstrap` step choose the following

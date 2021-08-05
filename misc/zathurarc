@@ -29,8 +29,9 @@ set recolor-lightcolor          "#1e1e1e"
 set recolor-darkcolor           "#ebdbb2"
 
 set recolor true
-
 set selection-clipboard clipboard
+set statusbar-home-tilde true
+set guioptions none
 
 map j scroll left
 map i scroll up
