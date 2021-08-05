@@ -117,13 +117,12 @@ element selected.active {
 }
 
 * {
-    background:                     #242424ff;
-    background-alt:                 #242424ff;
+    background:                     #222222ff;
+    background-alt:                 #222222ff;
     foreground:                     #FFFCFFff;
     stripe:                         #0086ffff;
     stripe-alt:                     #333333ff;
     border:                         #0086ffff;
-    border-alt:                     #b76666ff;
     search:                         #333333ff;
     selected:                       #333333ff;
     urgent:                         #DA4453FF;
