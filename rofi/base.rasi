@@ -1,14 +1,17 @@
 // vim: ft=css
-configuration {
-    font:                           "Nimbus Sans 14";
-    show-icons:                     true;
-    icon-theme:                     "Yaru-Blue";
-    display-drun:                   "";
-    drun-display-format:            "{name}";
-    disable-history:                false;
-    fullscreen:                     false;
-    hide-scrollbar:                 true;
-    sidebar-mode:                   false;
+
+window {
+    transparency:                   "real";
+    background-color:               @background;
+    text-color:                     @foreground;
+    border:                         0% 0% 0% 1.5%;
+    border-color:                   @stripe-alt;
+    border-radius:                  0% 0% 0% 2.5%;
+    height:                         51.5%;
+    width:                          50%;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
 }
 
 prompt {
@@ -24,7 +27,7 @@ entry {
     placeholder-color:              #888;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search Applications";
+    placeholder:                    "Search applications";
     padding:                        0.15% 0% 0% 0%;
     blink:                          true;
 }
@@ -99,7 +102,7 @@ element selected {
     background-color:               @selected;
     text-color:                     @foreground;
     border:                         0% 0% 0.3% 0.2%;
-    border-radius:                  1.5% 1.0% 1.5% 1.5%;
+    border-radius:                  19px;
     border-color:                   @border;
 }
 

@@ -1,0 +1,30 @@
+// vim: ft=css
+
+configuration {
+    font:                           "JetBrainsMono Nerd Font Mono 11";
+    disable-history:                true;
+    fullscreen:                     false;
+    tokenize:                       true;
+    hide-scrollbar:                 true;
+    sidebar-mode:                   false;
+    scroll-method:                  1;
+}
+
+@import "base.rasi"
+//;
+
+entry {
+    placeholder:                    "";
+}
+
+listview {
+    columns:                        1;
+}
+
+element {
+    padding:                        1% 0% 2% 0%;
+}
+
+element-icon {
+    size:                           0px;
+}

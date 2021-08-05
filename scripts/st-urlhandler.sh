@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/dash
 
 # Based on:
 # https://github.com/LukeSmithxyz/st/blob/0af4782a47cc1b0918bdc41fb61b1a5d358f75f6/st-urlhandler
@@ -11,14 +11,12 @@ urls="$(sed 's/.*│//g' | tr -d '\n' | # First remove linebreaks and mutt sideb
 	sed "s/\(\.\|,\|;\|\!\\|\?\)$//;
 	s/^www./http:\/\/www\./")" # xdg-open will not detect url without http
 
-# chosen="$(echo "$urls" | dmenu -i -p 'Follow which url?' -l 10)"
-
 [ -z "$urls" ] && exit 1
 
 while getopts "hoc" o; do case "${o}" in
 	h) printf "Optional arguments for custom use:\\n  -c: copy\\n  -o: xdg-open\\n  -h: Show this message\\n" && exit 1 ;;
-	o) chosen="$(echo "$urls" | rofi -dmenu -i -p "follow url:" -theme default -font "Nimbus Sans 14" -lines 5 -width 25 -disable-history -tokenize -scroll-method 1)"
+	o) chosen="$(echo "$urls" | rofi -dmenu -i -p "follow url:" -theme links)"
 	setsid xdg-open "$chosen" >/dev/null 2>&1 & ;;
-	c) echo "$urls" | rofi -dmenu -i -p "copy url:" -theme default -font "Nimbus Sans 14" -lines 5 -width 25 -disable-history -tokenize -scroll-method 1 | tr -d '\n' | xclip -selection clipboard ;;
+	c) echo "$urls" | rofi -dmenu -i -p "copy url:" -theme links | tr -d '\n' | xclip -selection clipboard ;;
 	*) printf "Invalid option: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done

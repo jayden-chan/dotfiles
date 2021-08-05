@@ -1,27 +1,23 @@
 // vim: ft=css
 
+configuration {
+    font:                           "Nimbus Sans 11";
+    show-icons:                     true;
+    disable-history:                true;
+    fullscreen:                     false;
+    tokenize:                       true;
+    hide-scrollbar:                 true;
+    sidebar-mode:                   false;
+    scroll-method:                  0;
+}
+
 @import "base.rasi"
+//;
 
 window {
-    transparency:                   "real";
-    background-color:               @background;
-    text-color:                     @foreground;
-    border:                         0% 0% 0% 1.5%;
-    border-color:                   @stripe-alt;
-    border-radius:                  0% 0% 0% 2.5%;
     height:                         18.5%;
-    width:                          50%;
-    location:                       center;
-    x-offset:                       0;
-    y-offset:                       0;
 }
 
 mainbox {
-    background-color:               @background;
-    border:                         0% 0% 0% 1.5%;
-    border-radius:                  0% 0% 0% 2.5%;
-    border-color:                   @stripe;
-    spacing:                        2%;
-    padding:                        2.5% 2% 2.5% 2%;
     children:                       [ listview ];
 }
