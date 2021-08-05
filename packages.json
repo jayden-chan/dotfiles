@@ -1,7 +1,6 @@
 {
   "installed": {
     "grace": [
-      "android-studio",
       "nvidia-lts",
       "dfu-programmer",
       "dfu-util",
@@ -24,10 +23,7 @@
       "simplescreenrecorder",
       "wkhtmltopdf",
       "borg",
-      "perf",
-      "qemu",
-      "libvirt",
-      "gnome-boxes"
+      "perf"
     ],
     "swift": [
       "ponymix",
@@ -142,7 +138,8 @@
       "zsh-syntax-highlighting",
       "bind",
       "patch",
-      "inetutils"
+      "inetutils",
+      "jupyter-notebook"
     ]
   },
   "ignored": [
