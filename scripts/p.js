@@ -25,7 +25,7 @@ Commands:
       install  (i): <package>  install packages
     uninstall  (u): <package>  uninstall packages
         clean  (c):            clean orphaned packages
-       verify  (v):            show packages from list that aren't installed
+      missing  (m):            show packages from list that aren't installed
      unlisted (ul):            show packages that are installed but not in packages.json
          list  (l):            list installed packages
         cache (cc):            clear the package cache directories

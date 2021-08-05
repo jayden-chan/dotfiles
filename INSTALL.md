@@ -1,4 +1,4 @@
-# Arch Installation Instructions
+# Linux System Setup Instructions
 
 # 1. Install Arch Linux
 Follow the [official instructions](https://wiki.archlinux.org/title/installation_guide)
@@ -27,11 +27,20 @@ passwd jayden
 # 3. Configuring the system
 After rebooting login as the new user with the password that was set.
 
-1. Install some dependencies:
+1. Set up the home directory and dotfiles:
 ```bash
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir -p Documents/Git Downloads Videos Pictures
+cd Documents/Git
 
+git clone https://github.com/jayden-chan/dotfiles
+cd dotfiles
+
+# Make sure our env vars are set up correctly for the next steps
+./scripts/deploy.sh --env
+```
+
+2. Install some dependencies:
+```bash
 # rust (toolchain needs to be set up before installing programs)
 yay -S rustup
 rustup toolchain install stable
@@ -42,18 +51,15 @@ cd st
 sudo make clean install
 ```
 
-2. Set up the home directory and dotfiles:
+3. Install programs:
 ```bash
-mkdir Documents Downloads Videos Pictures
-mkdir Documents/Git
-cd Documents/Git
-git clone https://github.com/jayden-chan/dotfiles
-cd dotfiles
 yay -Sy
-yay -S $(./scripts/p.js verify | tr '\n' ' ')
+yay -S $(./scripts/p.js missing | tr '\n' ' ')
 ```
 
 3. Enable LightDM so we can actually log in
 ```
 systemctl enable lightdm
 ```
+
+4. Reboot the system. Nearly everything should be set up now.
