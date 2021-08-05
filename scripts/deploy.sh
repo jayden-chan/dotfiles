@@ -38,7 +38,7 @@ ln -fs $dots/rofi/drun.rasi         $config/rofi/
 ln -fs $dots/rofi/power.rasi        $config/rofi/
 ln -fs $dots/snippets/              $config/nvim/UltiSnips
 ln -fs $dots/misc/starship.toml     $config/
-ln -fs $dots/tmux/tmux.conf         $config/tmux/
+ln -fs $dots/misc/tmux.conf         $config/tmux/
 ln -fs $dots/vim/coc-settings.json  $config/nvim/
 ln -fs $dots/vim/vimrc              $config/nvim/init.vim
 ln -fs $dots/zsh/zlogout            $config/zsh/.zlogout
