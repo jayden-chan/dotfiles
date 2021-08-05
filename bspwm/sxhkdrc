@@ -34,6 +34,9 @@ shift + Print
 super + l
     dm-tool lock
 
+super + shift + k
+    zathura $HOME/Dev/Personal/DZ60-gen/keymap.pdf
+
 
 ##########################################################
 #                        Spotify                         #

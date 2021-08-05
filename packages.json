@@ -135,7 +135,10 @@
       "zsh-syntax-highlighting",
       "bind",
       "inetutils",
-      "jupyter-notebook"
+      "jupyter-notebook",
+      "zathura",
+      "zathura-ps",
+      "zathura-pdf-mupdf"
     ]
   },
   "ignored": [
