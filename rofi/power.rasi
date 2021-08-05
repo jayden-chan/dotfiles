@@ -15,7 +15,7 @@ configuration {
 //;
 
 window {
-    height:                         18.5%;
+    height:                         200px;
 }
 
 mainbox {

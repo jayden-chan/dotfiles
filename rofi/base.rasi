@@ -7,8 +7,8 @@ window {
     border:                         0% 0% 0% 1.5%;
     border-color:                   @stripe-alt;
     border-radius:                  0% 0% 0% 2.5%;
-    height:                         51.5%;
-    width:                          50%;
+    height:                         556px;
+    width:                          960px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
