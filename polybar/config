@@ -137,15 +137,15 @@ label = "  %date% %time%"
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = ""
-; label-focused-foreground = #ddd
+label-focused = %index%
+label-focused-foreground = #ddd
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
-label-occupied = ""
+label-occupied = %index%
 label-occupied-padding = 1
 
-label-urgent = ""
+label-urgent = %index%!
 label-urgent-background = ${colors.alert}
 label-urgent-foreground = ${colors.alert-fg}
 label-urgent-padding = 1
