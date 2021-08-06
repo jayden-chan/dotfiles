@@ -40,7 +40,6 @@
       "insomnia-bin",
       "git-extras",
       "xcolor",
-      "evince",
       "gimp",
       "nautilus",
       "pavucontrol",
@@ -138,7 +137,8 @@
       "jupyter-notebook",
       "zathura",
       "zathura-ps",
-      "zathura-pdf-mupdf"
+      "zathura-pdf-mupdf",
+      "playerctl"
     ]
   },
   "ignored": [

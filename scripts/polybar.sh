@@ -1,4 +1,5 @@
 #!/bin/bash
+# bash is necessary for disowning the processes
 
 # Terminate already running bar instances
 killall -q polybar

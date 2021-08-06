@@ -1,3 +1,5 @@
+# vim: ft=sh
+
 # XDG Base Directory
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_DESKTOP_HOME="$HOME"/.local/desktop
@@ -35,6 +37,7 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export DOT="/home/jayden/Documents/Git/dotfiles"
+export SXHKD_SHELL="/bin/dash"
 
 export DO_NOT_TRACK=1
 # Opt out of .NET telemetry (yikes...)

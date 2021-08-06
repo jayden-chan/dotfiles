@@ -19,21 +19,25 @@ super + Escape
 super + ctrl + Escape
     polybar-msg cmd restart
 
+# set the key repeat rate and delay
 alt + u
     xset r rate 270 35
 
 alt + c
     $HOME/Documents/Git/dotfiles/scripts/xcolor.sh
 
+# screenshot selection or window
 super + shift + s
-    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh
+    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --select
 
-shift + Print
-    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --window
+# screenshot all screens
+Print
+    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh
 
 super + l
     dm-tool lock
 
+# show the keyboard firmware keymaps
 super + shift + k
     zathura $HOME/Dev/Personal/DZ60-gen/keymap.pdf
 
@@ -42,15 +46,8 @@ super + shift + k
 #                        Spotify                         #
 ##########################################################
 
-XF86AudioPrev
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-
-XF86AudioNext
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-
-XF86AudioPlay
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-
+{XF86AudioPlay, XF86AudioPrev, XF86AudioNext}
+    playerctl {play-pause,previous,next}
 
 ##########################################################
 #                     bspwm hotkeys                      #
@@ -77,6 +74,13 @@ super + m
 alt + {t,shift + t,f,s}
     bspc node --state {tiled,pseudo_tiled,fullscreen,floating}
 
+# toggle borderless mode
+alt + shift + f
+    case $(bspc config window_gap) in \
+      0) bspc config window_gap 24 ;; \
+      *) bspc config window_gap 0  ;; \
+    esac
+
 # set the node flags
 super + ctrl + {m,x,y,z}
     bspc node --flag {marked,locked,sticky,private}
@@ -90,10 +94,6 @@ super + ctrl + {m,x,y,z}
 alt + {_,shift + }{j,k,i,l}
     bspc node --{focus,swap} {west,south,north,east}
 
-# focus the node for the given path jump
-super + {p,b,comma,period}
-    bspc node --focus @{parent,brother,first,second}
-
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
     bspc node --focus {next,prev}.local.!hidden.window
@@ -101,7 +101,11 @@ super + {_,shift + }c
 # if no hidden window, hide current window
 # else un-hide hidden window
 alt + Escape
-    $HOME/Documents/Git/dotfiles/scripts/toggle-hide.sh
+    hidden=$(bspc query -N -n .hidden.local.window); \
+    case $? in \
+      0) bspc node $hidden --flag hidden=off --focus ;; \
+      1) bspc node --flag hidden=on ;; \
+    esac
 
 # focus the last node/desktop
 alt + {grave,Tab}
