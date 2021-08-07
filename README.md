@@ -17,6 +17,8 @@ installation. It also includes some configs for other programs/games.
 
 ## Screenshots
 
-![alt text](https://i.imgur.com/QG5vW10.png "Busy")
-![alt text](https://i.imgur.com/Sma4O2A.png "Vim")
-![alt text](https://i.imgur.com/OnIqae1.png "Rofi")
+![Busy](https://i.imgur.com/zWfATjn.png "Busy")
+![Vim](https://i.imgur.com/JLfyz24.png "Vim")
+![LaTeX](https://i.imgur.com/WavuSKo.png "LaTeX")
+![Rofi](https://i.imgur.com/BSlE4nu.png "Rofi")
+![Power Menu](https://i.imgur.com/b132hzI.png "Power Menu")
