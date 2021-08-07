@@ -4,12 +4,6 @@ Host stealth
     User pi
     IdentityFile ~/.ssh/stealth
 
-Host stealthgit
-    Hostname homepistealth.ddns.net
-    Port 32223
-    User git
-    IdentityFile ~/.ssh/pi_git
-
 Host airgit
     Hostname 144.202.14.150
     Port 32223
