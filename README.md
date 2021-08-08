@@ -1,7 +1,7 @@
 # dotfiles
 
-![Busy](https://i.imgur.com/zWfATjn.png "Busy")
-![Vim](https://i.imgur.com/JLfyz24.png "Vim")
-![LaTeX](https://i.imgur.com/WavuSKo.png "LaTeX")
-![Rofi](https://i.imgur.com/BSlE4nu.png "Rofi")
-![Power Menu](https://i.imgur.com/b132hzI.png "Power Menu")
+![Busy](https://i.imgur.com/n3yBxYE.png "Busy")
+![Vim](https://i.imgur.com/OrGMn7F.png "Vim")
+![LaTeX](https://i.imgur.com/P97rNcI.png "LaTeX")
+![Rofi](https://i.imgur.com/T8sKzy8.png "Rofi")
+![Power Menu](https://i.imgur.com/o2NMI08.png "Power Menu")
