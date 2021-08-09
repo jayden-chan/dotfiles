@@ -30,9 +30,13 @@ alt + c
 super + shift + s
     $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --select
 
+super + shift + a
+    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --qr
+
 # screenshot all screens
 Print
     $HOME/Documents/Git/dotfiles/scripts/screenshot.sh
+
 
 super + l
     dm-tool lock

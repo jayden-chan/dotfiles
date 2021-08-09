@@ -6,7 +6,7 @@ window {
     text-color:                     @foreground;
     border:                         0% 0% 0% 1.5%;
     border-color:                   @stripe-alt;
-    border-radius:                  0% 0% 0% 2.5%;
+    border-radius:                  0% 0% 0% 0%;
     height:                         556px;
     width:                          960px;
     location:                       center;
@@ -58,7 +58,7 @@ listview {
 mainbox {
     background-color:               @background;
     border:                         0% 0% 0% 1.5%;
-    border-radius:                  0% 0% 0% 2.5%;
+    border-radius:                  0% 0% 0% 0%;
     border-color:                   @stripe;
     spacing:                        2%;
     padding:                        2.5% 2% 2.5% 2%;
@@ -117,13 +117,13 @@ element selected.active {
 }
 
 * {
-    background:                     #222222ff;
-    background-alt:                 #222222ff;
-    foreground:                     #FFFCFFff;
-    stripe:                         #0086ffff;
-    stripe-alt:                     #333333ff;
-    border:                         #0086ffff;
-    search:                         #333333ff;
-    selected:                       #333333ff;
-    urgent:                         #DA4453FF;
+    background:                     #222222;
+    background-alt:                 #222222;
+    foreground:                     #FFFCFF;
+    stripe:                         #ebdbb2;
+    stripe-alt:                     #333333;
+    border:                         #ebdbb2;
+    search:                         #333333;
+    selected:                       #333333;
+    urgent:                         #DA4453;
 }
