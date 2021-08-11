@@ -30,13 +30,13 @@ alt + c
 super + shift + s
     $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --select
 
+# scan a QR code
 super + shift + a
     $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --qr
 
 # screenshot all screens
 Print
     $HOME/Documents/Git/dotfiles/scripts/screenshot.sh
-
 
 super + l
     dm-tool lock
@@ -51,7 +51,7 @@ super + shift + k
 ##########################################################
 
 {XF86AudioPlay, XF86AudioPrev, XF86AudioNext}
-    playerctl {play-pause,previous,next}
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.{PlayPause,Previous,Next}
 
 ##########################################################
 #                     bspwm hotkeys                      #
