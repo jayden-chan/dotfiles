@@ -1,4 +1,5 @@
 #!/bin/dash
+# vim: ft=sh
 
 DOTS=$HOME/Documents/Git/dotfiles
 SCRIPTS=$DOTS/scripts
@@ -32,9 +33,10 @@ for monitor in $(bspc query -M); do
     bspc monitor $monitor -d 1 2 3 4 5 6 7 8 9
 done
 
-pgrep -x sxhkd > /dev/null || sxhkd -c $DOTS/bspwm/sxhkdrc &
-pgrep -x dunst > /dev/null || dunst -config $DOTS/misc/dunstrc &
-pgrep -x picom > /dev/null || picom --config $DOTS/misc/picom.conf &
+pgrep -x sxhkd      > /dev/null || sxhkd -c $DOTS/bspwm/sxhkdrc &
+pgrep -x dunst      > /dev/null || dunst -config $DOTS/misc/dunstrc &
+pgrep -x picom      > /dev/null || picom --config $DOTS/misc/picom.conf &
+pgrep -x flashfocus > /dev/null || flashfocus &
 
 ##########################################################
 #                      bspc config                       #
@@ -43,7 +45,7 @@ pgrep -x picom > /dev/null || picom --config $DOTS/misc/picom.conf &
 bspc config window_gap                 24
 bspc config active_border_color        '#474645'
 bspc config presel_feedback_color      '#717e88'
-bspc config border_width               1
+bspc config border_width               0
 
 bspc config borderless_monocle         false
 bspc config gapless_monocle            false

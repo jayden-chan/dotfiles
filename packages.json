@@ -137,11 +137,11 @@
       "zathura",
       "zathura-ps",
       "zathura-pdf-mupdf",
-      "playerctl",
       "qrencode",
       "sxiv",
       "pfetch",
-      "zbar"
+      "zbar",
+      "flashfocus-git"
     ]
   },
   "ignored": [
