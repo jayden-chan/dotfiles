@@ -32,6 +32,7 @@ filetype off
     " Misc
         Plug 'godlygeek/tabular'
         Plug 'editorconfig/editorconfig-vim'
+        Plug 'vimwiki/vimwiki'
 
     " IDE-like
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -172,6 +173,7 @@ filetype off
     " Spell check
     map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/Documents/Git/dotfiles/vim/en.utf-8.add
+    inoremap <C-k> <c-g>u<Esc>[s1z=`]a<c-g>u
 
     " Make Esc work in terminal mode, but not for fzf or rg
     tnoremap <Esc> <C-\><C-n>
@@ -283,6 +285,22 @@ filetype off
     map <silent> <leader>h :set hls!<CR>
 
 " Plugin specific settings
+
+    let myWiki = {}
+    let myWiki.path = '~/Documents/Git/wiki/wiki'
+    let myWiki.path_html = '~/Documents/Git/wiki/html'
+    let myWiki.automatic_nested_syntaxes = 1
+    let myWiki.auto_export = 1
+    let myWiki.auto_toc = 1
+    let g:vimwiki_list = [myWiki]
+
+    nmap <Leader>wi <Plug>VimwikiIndex
+    nmap <Leader>F  <Plug>VimwikiToggleListItem
+    vmap hl         <Plug>VimwikiTextObjListSingleV
+    vmap hc         <Plug>VimwikiTextObjColumnInnerV
+    vmap h\         <Plug>VimwikiTextObjTableCellInnerV
+    vmap hH         <Plug>VimwikiTextObjHeaderSubContentV
+    vmap hh         <Plug>VimwikiTextObjHeaderContentV
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"

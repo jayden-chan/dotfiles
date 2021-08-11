@@ -10,6 +10,7 @@ alias hh='git push heroku master && heroku logs --tail'
 alias gdf='cd $DOT && git status'
 alias vimrc='vim $DOT/vim/vimrc'
 alias zshrc='vim $DOT/zsh/zshrc'
+alias wup='git add --all && git commit -m "[$(date)] JC: Update" && git push && exit'
 
 # Info
 alias nfetch='neofetch --ascii_distro arch_old'

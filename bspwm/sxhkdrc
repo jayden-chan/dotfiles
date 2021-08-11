@@ -45,6 +45,10 @@ super + l
 super + shift + k
     zathura $HOME/Dev/Personal/DZ60-gen/keymap.pdf
 
+# open the wiki
+super + w
+    /usr/local/bin/st -e nvim +VimwikiIndex "+cd ~/Documents/Git/wiki"
+
 
 ##########################################################
 #                        Spotify                         #
