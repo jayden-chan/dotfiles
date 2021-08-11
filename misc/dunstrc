@@ -192,7 +192,7 @@
     min_icon_size = 0
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 75
+    max_icon_size = 80
 
     # Paths to default icons.
     icon_path = /usr/share/icons/Yaru-Blue/256x256/status/:/usr/share/icons/Yaru-Blue/256x256/devices/:/usr/share/icons/Yaru-Blue/256x256/legacy/

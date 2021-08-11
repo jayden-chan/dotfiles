@@ -1,17 +1,18 @@
 #!/usr/bin/dash
 
-alias maimselect='maim --noopengl --capturebackground --select --hidecursor --color=0.1,0.1,0.1,0.6 --highlight'
+alias maimselect='maim --noopengl --capturebackground --select --hidecursor --color=0.1,0.1,0.1,0.4 --highlight'
 alias clip='xclip -selection c -filter'
+
+tmp_file=$(mktemp -t maimscript-XXXXXX)
 
 case "$1" in
     # select a region to screenshot (or click to screenshot window)
     --select)
-        maimselect | clip -t image/png
-        notify-send "Maim" "Screenshot taken"
+        maimselect | clip -t image/png > "$tmp_file"
+        notify-send -i "$tmp_file" "Maim" "Screenshot taken"
         ;;
     # scan a QR code
     --qr)
-        tmp_file=$(mktemp -t maimscript-XXXXXX)
         maimselect > "$tmp_file"
         scanresult=$(zbarimg --quiet --raw "$tmp_file" | tr -d '\n')
 
@@ -19,7 +20,6 @@ case "$1" in
             notify-send "Maim" "No scan data found"
         else
             echo "$scanresult" | clip
-            convert $tmp_file -resize 75x75 "$tmp_file"
             notify-send -i "$tmp_file" "Maim" "$scanresult\n(copied to clipboard)"
         fi
 
@@ -27,7 +27,9 @@ case "$1" in
         ;;
     # screenshot the entire desktop
     *)
-        maim --noopengl | clip -t image/png
-        notify-send "Maim" "Screenshot taken"
+        maim --noopengl | clip -t image/png > "$tmp_file"
+        notify-send -i "$tmp_file" "Maim" "Screenshot taken"
         ;;
 esac
+
+rm -f "$tmp_file"
