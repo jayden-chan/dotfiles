@@ -39,3 +39,6 @@ map k scroll down
 
 map K navigate next
 map I navigate previous
+
+map <Right> navigate next
+map <Left> navigate previous
