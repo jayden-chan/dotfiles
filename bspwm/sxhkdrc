@@ -45,9 +45,13 @@ super + l
 super + shift + k
     zathura $HOME/Dev/Personal/DZ60-gen/keymap.pdf
 
-# open the wiki
+# open the wiki for editing
 super + w
     /usr/local/bin/st -e nvim +VimwikiIndex "+cd ~/Documents/Git/wiki"
+
+# open the wiki html for viewing
+super + shift + w
+    firefox ~/Documents/Git/wiki/html/index.html
 
 
 ##########################################################

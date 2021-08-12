@@ -291,7 +291,7 @@ filetype off
     let myWiki.path_html = '~/Documents/Git/wiki/html'
     let myWiki.automatic_nested_syntaxes = 1
     let myWiki.auto_export = 1
-    let myWiki.auto_toc = 1
+    let myWiki.auto_toc = 0
     let g:vimwiki_list = [myWiki]
 
     nmap <Leader>wi <Plug>VimwikiIndex
