@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = none
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -29,7 +29,8 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "400x10-12+47"
+    geometry = "400x10+760+20"
+    #geometry = "400x10-12+47"
 
     # Turn on the progess bar
     progress_bar = true
@@ -81,10 +82,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#474645"
+    frame_color = "#ffffff"
 
     # Define a color for the separator.
     # possible values are:
@@ -328,7 +329,6 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
-    frame_color = "#222222"
     foreground = "#aaaaaa"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
@@ -336,7 +336,6 @@
 
 [urgency_normal]
     background = "#222222"
-    frame_color = "#222222"
     foreground = "#aaaaaa"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable

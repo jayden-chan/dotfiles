@@ -6,6 +6,9 @@
 [colors]
 background = #222
 background-alt = #444
+accent = #fff
+; icons = #ccc
+icons = #222
 transparent = #00222222
 foreground = #bbb
 foreground-alt = #666
@@ -16,6 +19,7 @@ date  = #0086ff
 cpu   = #0086ff
 ram   = #0086ff
 line  = #bbb
+padding = 3
 
 arch = #0086ff
 ubuntu = #de4815
@@ -32,30 +36,31 @@ margin-bottom = 0
 ; ##########################################################
 
 [bar/base]
-width = 100%
 height = 35
 radius = 0
-fixed-center = false
+offset-y = 10
+offset-x = 16
+fixed-center = true
 
 enable-ipc = true
 
 monitor = ${env:MONITOR:DP-0}
 
-background = ${colors.background}
+background = ${colors.transparent}
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size = 0
 line-color = ${colors.line}
 
 border-size = 0
 border-color = #000000ff
 
 padding-left = 2
-padding-right = 2
+padding-right = 3
 
 wm-restack = bspwm
 
-font-0 = fixed:pixelsize=12:antialias=true;1
+font-0 = fixed:pixelsize=12:antialias=true;3
 font-1 = unifont:fontformat=truetype:size=12:antialias=true;3
 font-2 = unifont:fontformat=truetype:size=30:antialias=true;7
 font-3 = unifont:fontformat=truetype:size=18:antialias=true;4
@@ -64,32 +69,56 @@ font-4 = siji:pixelsize=12;1
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-modules-left = arch-logo bspwm
+modules-left = padding arch-logo padding bspwm padding
 modules-center =
 modules-right = date
 
+[bar/left]
+inherit = bar/base
+width = 1891
+
+[bar/right]
+inherit = bar/base
+width = 1251
+
 [bar/center]
 inherit = bar/base
+width = 1879
 
-modules-left = arch-logo bspwm mpris
+modules-left = padding arch-logo padding bspwm padding mpris
 modules-right = memory cpu weather date
 
 tray-position = right
-tray-padding = 5
+tray-padding = 0
+tray-background = ${colors.background}
 
 ; ##########################################################
 ; #                        Modules                         #
 ; ##########################################################
 
+[module/padding]
+type = custom/text
+content = "..."
+content-font = 0
+content-background = ${colors.background}
+content-foreground = ${colors.background}
+content-padding = 0
+
+[module/paddingmar]
+inherit = module/padding
+content-margin = 3
+
 [module/logo-base]
 type = custom/text
 content-padding = 0
+content-background = ${colors.background}
 content-font = 3
 
 [module/arch-logo]
 inherit = module/logo-base
 content = 
-content-foreground = ${colors.arch}
+; content-foreground = ${colors.arch}
+content-foreground = ${colors.accent}
 
 [module/ubuntu-logo]
 inherit = module/logo-base
@@ -100,22 +129,33 @@ content-foreground = ${colors.ubuntu}
 type = internal/cpu
 interval = 2
 
-label = "  %percentage:2%%"
+label = "%percentage:2%%"
 
-format-prefix = "勤"
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " 勤 "
+format-prefix-font = 4
+format-prefix-foreground = ${colors.icons}
+format-prefix-background = ${colors.accent}
+format-prefix-padding = 0
 format-underline = ${colors.cpu}
+label-background = ${colors.background}
+label-padding = ${colors.padding}
 
 [module/memory]
 type = internal/memory
 interval = 2
 
-label = "  %percentage_used%%"
+label = "%percentage_used%%"
 
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = "  "
+format-prefix-font = 4
 format-underline = ${colors.ram}
 format-margin = 3
+
+format-prefix-foreground = ${colors.icons}
+format-prefix-background = ${colors.accent}
+format-prefix-padding = 0
+label-background = ${colors.background}
+label-padding = ${colors.padding}
 
 [module/date]
 type = internal/date
@@ -128,11 +168,15 @@ time = %l:%M
 time-alt = %l:%M:%S
 
 format-prefix-font = 4
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.date}
+format-prefix = "  "
+format-prefix-foreground = ${colors.icons}
+format-prefix-background = ${colors.accent}
+format-prefix-padding = 0
+format-underline = ${colors.cpu}
+label-background = ${colors.background}
+label-padding = ${colors.padding}
 
-label = "  %date% %time%"
+label = "%date% %time%"
 
 [module/bspwm]
 type = internal/bspwm
@@ -140,10 +184,12 @@ type = internal/bspwm
 label-focused = ""
 ; label-focused = %index%
 label-focused-foreground = #ddd
+label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
 label-occupied = ""
+label-occupied-background = ${colors.background}
 ; label-occupied = %index%
 label-occupied-padding = 1
 
@@ -157,7 +203,8 @@ label-empty =
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
 
-format-margin = 2
+format-margin = 0
+format-label-focused-padding = ${colors.padding}
 
 [module/mpris]
 type = custom/script
@@ -165,11 +212,15 @@ exec = ~/Documents/Git/dotfiles/scripts/mpris.py
 
 click-left = xdo activate -n spotify
 
-format-margin = 1
+format-margin = 3
 format-prefix-font = 4
 format-prefix = "ﱘ"
-format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = ${colors.date}
+format-prefix-foreground = ${colors.icons}
+format-prefix-background = ${colors.accent}
+format-prefix-padding = ${colors.padding}
+format-underline = ${colors.cpu}
+label-background = ${colors.background}
+label-padding = ${colors.padding}
 
 tail = true
 
@@ -182,7 +233,12 @@ click-left = ~/Documents/Git/dotfiles/scripts/weather.sh --open
 format-prefix = "摒"
 format-prefix-font = 4
 format-underline = ${colors.ram}
-format-prefix-foreground = ${colors.foreground-alt}
 format-margin = 3
+
+format-prefix-foreground = ${colors.icons}
+format-prefix-background = ${colors.accent}
+format-prefix-padding = ${colors.padding}
+label-background = ${colors.background}
+label-padding = ${colors.padding}
 
 interval = 600
