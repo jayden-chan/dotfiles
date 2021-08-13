@@ -244,6 +244,16 @@ class Player:
         if self.status == 'playing':
             metadata = { **self.metadata }
 
+            # Spotify has changed their mpris output to be "playing: Spotify -- <playlist>"
+            # when the music is paused...
+            if metadata['title'].startswith("Spotify –"):
+                self._print(PADDING + 'Paused')
+                return
+            elif metadata['title'].count('·') == 1:
+                split_string = metadata['title'].split('·')
+                metadata['artist'] = split_string[0].strip()
+                metadata['title'] = split_string[1].strip()
+
             fmt_string = FORMAT_STRING_ALT if len(metadata['artist'].strip()) == 0 else FORMAT_STRING
             text = re.sub(FORMAT_REGEX, '', fmt_string)
 
@@ -317,7 +327,7 @@ def _printFlush(status, **kwargs):
         sys.stdout.flush()
         _last_status = status
 
-PADDING = "  "
+PADDING = ""
 FORMAT_REGEX = re.compile(r'(\{:(?P<tag>.*?)(:(?P<format>[wt])(?P<formatlen>\d+))?:(?P<text>.*?):\})', re.I)
 SAFE_TAG_REGEX = re.compile(r'[{}]')
 FORMAT_STRING = re.sub(r'%\{(.*?)\}(.*?)%\{(.*?)\}', r'􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿', PADDING + '{artist} - {title}')
