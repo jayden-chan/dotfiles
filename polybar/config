@@ -89,7 +89,7 @@ modules-left = padding arch-logo padding bspwm padding mpris
 modules-right = memory cpu weather date
 
 tray-position = right
-tray-padding = 0
+tray-padding = 1
 tray-background = ${colors.background}
 
 ; ##########################################################
