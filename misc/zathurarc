@@ -1,4 +1,4 @@
-set default-bg                  "#ebdbb2"
+set default-bg                  "#000000"
 set default-fg                  "#1e1e1e"
 
 set statusbar-fg                "#1e1e1e"
@@ -28,10 +28,10 @@ set completion-highlight-bg     "#83a598"
 set recolor-lightcolor          "#1e1e1e"
 set recolor-darkcolor           "#ebdbb2"
 
-set recolor true
 set selection-clipboard clipboard
 set statusbar-home-tilde true
 set guioptions none
+set page-padding 8
 
 map j scroll left
 map i scroll up
