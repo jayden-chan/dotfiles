@@ -17,6 +17,7 @@ filetype off
         Plug 'jayden-chan/gruvbox'
         Plug 'Yggdroot/indentline'
         Plug 'vim-airline/vim-airline'
+        Plug 'franbach/miramare'
 
     " fs nav
         Plug 'junegunn/fzf.vim'
@@ -87,7 +88,13 @@ filetype off
     let g:gruvbox_invert_selection=0
     let g:gruvbox_italicize_strings=1
 
-    colorscheme gruvbox
+    let g:miramare_enable_italic = 0
+    let g:miramare_disable_italic_comment = 0
+    let g:miramare_enable_italic_string = 1
+
+    let g:airline_theme = 'miramare'
+    colorscheme miramare
+    " colorscheme gruvbox
 
     " Tab settings
     set expandtab
@@ -173,7 +180,7 @@ filetype off
     " Spell check
     map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/Documents/Git/dotfiles/vim/en.utf-8.add
-    inoremap <C-k> <c-g>u<Esc>[s1z=`]a<c-g>u
+    inoremap <c-o> <c-g>u<Esc>[s1z=`]a<c-g>u
 
     " Make Esc work in terminal mode, but not for fzf or rg
     tnoremap <Esc> <C-\><C-n>
@@ -219,7 +226,7 @@ filetype off
     nnoremap X v$<Left>"_x
 
     " Open a new terminal window
-    nnoremap <leader>e :below new<bar>terminal<CR>
+    nnoremap <silent> <leader>e :below new<bar>terminal<CR>
 
     " F10 shows the color group of the symbol below the cursor
     map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
