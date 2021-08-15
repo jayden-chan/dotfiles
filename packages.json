@@ -141,7 +141,8 @@
       "sxiv",
       "pfetch",
       "zbar",
-      "flashfocus-git"
+      "flashfocus-git",
+      "git-delta"
     ]
   },
   "ignored": [

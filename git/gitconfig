@@ -12,6 +12,36 @@
 [core]
     editor = nvim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    pager = diff-so-fancy | less --tabs=4
 [pull]
 	rebase = false
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive --true-color=always
+
+[delta]
+    features = decorations
+    side-by-side = true
+    syntax-theme = DarkNeon
+    plus-style = syntax bold auto
+    minus-style = syntax bold auto
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
+
+[delta "line-numbers"]
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = 124
+    line-numbers-plus-style = 28
