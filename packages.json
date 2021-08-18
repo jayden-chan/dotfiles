@@ -19,7 +19,6 @@
       "discord",
       "python-llfuse",
       "arduino",
-      "zoom",
       "simplescreenrecorder",
       "wkhtmltopdf",
       "borg",
@@ -142,7 +141,8 @@
       "pfetch",
       "zbar",
       "flashfocus-git",
-      "git-delta"
+      "git-delta",
+      "python-dbus"
     ]
   },
   "ignored": [
