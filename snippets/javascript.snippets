@@ -2,28 +2,40 @@ snippet th
 this.${0}
 endsnippet
 
-snippet log
+snippet log "console log" w
 console.log(${0});
 endsnippet
 
-snippet er
+snippet er "console error" w
 console.error(${0});
 endsnippet
 
-snippet deb
+snippet deb "logger debug" w
 logger.debug(${0});
 endsnippet
 
-snippet info
+snippet info "logger info" w
 logger.info(${0});
 endsnippet
 
-snippet warn
+snippet warn "logger warn" w
 logger.warn(${0});
 endsnippet
 
-snippet err
+snippet err "logger error" w
 logger.error(${0});
+endsnippet
+
+snippet ttl "Make selection a tagged template literal" i
+\`\${${VISUAL}}\`
+endsnippet
+
+snippet tt "Wrap text for use in tagged template literal" i
+\${${VISUAL}}
+endsnippet
+
+snippet rcom "React comment" i
+{/* ${VISUAL} */}
 endsnippet
 
 snippet cclass
