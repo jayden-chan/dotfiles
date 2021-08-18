@@ -17,7 +17,6 @@ filetype off
         Plug 'jayden-chan/gruvbox'
         Plug 'Yggdroot/indentline'
         Plug 'vim-airline/vim-airline'
-        Plug 'franbach/miramare'
 
     " fs nav
         Plug 'junegunn/fzf.vim'
@@ -88,13 +87,7 @@ filetype off
     let g:gruvbox_invert_selection=0
     let g:gruvbox_italicize_strings=1
 
-    let g:miramare_enable_italic = 0
-    let g:miramare_disable_italic_comment = 0
-    let g:miramare_enable_italic_string = 1
-
-    let g:airline_theme = 'miramare'
-    colorscheme miramare
-    " colorscheme gruvbox
+    colorscheme gruvbox
 
     " Tab settings
     set expandtab
@@ -509,7 +502,7 @@ vim.g.nvim_tree_bindings = {
   { key = "<",           cb = tree_cb("prev_sibling") },
   { key = ">",           cb = tree_cb("next_sibling") },
   { key = "U",           cb = tree_cb("parent_node") },
-  { key = "x",      cb = tree_cb("close_node") },
+  { key = "x",           cb = tree_cb("close_node") },
   { key = "<Tab>",       cb = tree_cb("preview") },
   { key = "J",           cb = tree_cb("last_sibling") },
   { key = "H",           cb = tree_cb("toggle_dotfiles") },
@@ -526,7 +519,7 @@ vim.g.nvim_tree_bindings = {
   { key = "gy",          cb = tree_cb("copy_absolute_path") },
   { key = "[c",          cb = tree_cb("prev_git_item") },
   { key = "]c",          cb = tree_cb("next_git_item") },
-  { key = "<BS>",        cb = tree_cb("dir_up") },
+  { key = "u",           cb = tree_cb("dir_up") },
   { key = "q",           cb = tree_cb("close") },
   { key = "g?",          cb = tree_cb("toggle_help") },
 }
