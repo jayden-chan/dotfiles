@@ -12,8 +12,6 @@ alias vimrc='vim $DOT/vim/vimrc'
 alias zshrc='vim $DOT/zsh/zshrc'
 alias wup='git add --all && git commit -m "[$(date)] JC: Update" && git push && exit'
 
-# Info
-alias nfetch='neofetch --ascii_distro arch_old'
 
 # Exit
 alias :q='exit'
@@ -67,3 +65,4 @@ alias myip='curl https://ipinfo.io/ip && echo'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 alias gpl='curl https://www.gnu.org/licenses/gpl-3.0.txt'
 alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
+alias sc='jq .scripts package.json'
