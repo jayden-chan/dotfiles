@@ -1,0 +1,15 @@
+# Generic Playlist Download
+
+--ignore-errors
+--add-metadata
+--all-subs
+--embed-subs
+--embed-thumbnail
+--write-thumbnail
+--write-sub
+--sub-lang en
+--write-info-json
+--format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+--merge-output-format mkv
+--output "/run/media/jayden/Seagate External/Backup/YouTube/Files/LithiumFrost Liked Videos/%(autonumber)s -- %(title)s [%(id)s].%(ext)s"
+-r 20M
