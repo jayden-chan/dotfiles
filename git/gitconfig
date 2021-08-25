@@ -8,7 +8,7 @@
     helper = store
 [commit]
     gpgsign = true
-    template = /home/jayden/Documents/Git/dotfiles/git/git-commit.txt
+    template = ~/Documents/Git/dotfiles/git/git-commit.txt
 [core]
     editor = nvim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol

@@ -6,7 +6,7 @@
   "rust-analyzer.diagnostics.disabled": ["mismatched-arg-count"],
   "coc.preferences.semanticTokensHighlights": false,
   "eslint.options": {
-    "configFile": "/home/jayden/Documents/Git/dotfiles/misc/eslintrc.json"
+    "configFile": "~/Documents/Git/dotfiles/misc/eslintrc.json"
   },
   "clangd.semanticHighlighting": true
 }

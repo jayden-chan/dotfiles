@@ -30,13 +30,13 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export ZDOTDIR="$HOME"/.config/zsh
 
 # Private vars (mostly tokens)
-[ -e "/home/jayden/.config/ENV" ] && source /home/jayden/.config/ENV
+[ -e "$HOME/.config/ENV" ] && source $HOME/.config/ENV
 
 # Config
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
-export DOT="/home/jayden/Documents/Git/dotfiles"
+export DOT="$HOME/Documents/Git/dotfiles"
 export SXHKD_SHELL="/bin/dash"
 
 export DO_NOT_TRACK=1
