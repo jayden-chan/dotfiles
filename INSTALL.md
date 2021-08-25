@@ -33,13 +33,14 @@ After rebooting login as the new user with the password that was set.
 1. Set up the home directory and dotfiles:
 ```bash
 mkdir -p Documents/Git Downloads Videos Pictures
-cd Documents/Git
+cd .config
 
 git clone https://github.com/jayden-chan/dotfiles
 cd dotfiles
 
 # Make sure our env vars are set up correctly for the next steps
 ./scripts/deploy.sh --env
+# Log out and log back in now
 ```
 
 2. Install some dependencies:
