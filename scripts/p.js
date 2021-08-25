@@ -7,7 +7,7 @@ const readline = require("readline");
 const { readFileSync, writeFileSync } = require("fs");
 
 const HOST = readFileSync("/etc/hostname", { encoding: "utf8" }).trim();
-const PROGRAMS_PATH = "/home/jayden/Documents/Git/dotfiles/packages.json";
+const PROGRAMS_PATH = "/home/jayden/.config/dotfiles/packages.json";
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
 /**

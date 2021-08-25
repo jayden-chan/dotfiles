@@ -172,7 +172,7 @@ filetype off
 
     " Spell check
     map <F6> :setlocal spell! spelllang=en_us<CR>
-    set spellfile=$HOME/Documents/Git/dotfiles/vim/en.utf-8.add
+    set spellfile=$HOME/.config/dotfiles/vim/en.utf-8.add
     inoremap <c-o> <c-g>u<Esc>[s1z=`]a<c-g>u
 
     " Make Esc work in terminal mode, but not for fzf or rg

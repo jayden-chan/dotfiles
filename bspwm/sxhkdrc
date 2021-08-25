@@ -6,10 +6,10 @@ alt + Return
     /usr/local/bin/st
 
 ctrl + space
-    $HOME/Documents/Git/dotfiles/scripts/rofi.sh --normal
+    $HOME/.config/dotfiles/scripts/rofi.sh --normal
 
 ctrl + alt + Delete
-    $HOME/Documents/Git/dotfiles/scripts/rofi.sh --power
+    $HOME/.config/dotfiles/scripts/rofi.sh --power
 
 # reload sxhkd
 super + Escape
@@ -24,19 +24,19 @@ alt + u
     xset r rate 270 35
 
 alt + c
-    $HOME/Documents/Git/dotfiles/scripts/xcolor.sh
+    $HOME/.config/dotfiles/scripts/xcolor.sh
 
 # screenshot selection or window
 super + shift + s
-    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --select
+    $HOME/.config/dotfiles/scripts/screenshot.sh --select
 
 # scan a QR code
 super + shift + a
-    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh --qr
+    $HOME/.config/dotfiles/scripts/screenshot.sh --qr
 
 # screenshot all screens
 Print
-    $HOME/Documents/Git/dotfiles/scripts/screenshot.sh
+    $HOME/.config/dotfiles/scripts/screenshot.sh
 
 super + l
     dm-tool lock

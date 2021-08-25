@@ -7,7 +7,7 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-config_path=$HOME/Documents/Git/dotfiles/polybar/config
+config_path=$HOME/.config/dotfiles/polybar/config
 
 if [ "$(hostname)" = "swift" ]; then
     echo "---" | tee -a /tmp/polybar1.log

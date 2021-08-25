@@ -208,7 +208,7 @@ format-label-focused-padding = ${colors.padding}
 
 [module/mpris]
 type = custom/script
-exec = ~/Documents/Git/dotfiles/scripts/mpris.py
+exec = ~/.config/dotfiles/scripts/mpris.py
 
 click-left = xdo activate -n spotify
 
@@ -226,9 +226,9 @@ tail = true
 
 [module/weather]
 type = custom/script
-exec = ~/Documents/Git/dotfiles/scripts/weather.sh
+exec = ~/.config/dotfiles/scripts/weather.sh
 
-click-left = ~/Documents/Git/dotfiles/scripts/weather.sh --open
+click-left = ~/.config/dotfiles/scripts/weather.sh --open
 
 format-prefix = "摒"
 format-prefix-font = 4
