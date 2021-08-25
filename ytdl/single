@@ -1,0 +1,15 @@
+# Generic Single Video Download
+
+--ignore-errors
+--add-metadata
+--all-subs
+--embed-subs
+--embed-thumbnail
+--write-thumbnail
+--write-sub
+--sub-lang en
+--write-info-json
+--format 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'
+--merge-output-format mkv
+--output "%(id)s.%(ext)s"
+-r 20M

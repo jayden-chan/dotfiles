@@ -142,7 +142,9 @@
       "zbar",
       "flashfocus-git",
       "git-delta",
-      "python-dbus"
+      "python-dbus",
+      "libreoffice-fresh",
+      "zoom"
     ]
   },
   "ignored": [
