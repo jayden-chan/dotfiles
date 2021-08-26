@@ -13,6 +13,7 @@ rm -rf ~/.config/nvim    2>/dev/null
 rm -rf ~/.config/rofi    2>/dev/null
 rm -rf ~/.config/tmux    2>/dev/null
 rm -rf ~/.config/zsh     2>/dev/null
+rm -rf ~/.config/mpv     2>/dev/null
 
 mkdir -p ~/.config/bspwm
 mkdir -p ~/.config/git
@@ -22,6 +23,7 @@ mkdir -p ~/.config/nvim/colors
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/tmux
 mkdir -p ~/.config/zsh
+mkdir -p ~/.config/mpv/scripts
 
 mkdir -p ~/.local/share/fonts
 mkdir -p ~/.local/bin
@@ -41,6 +43,8 @@ ln -fs ~/.config/dotfiles/vim/vimrc              ~/.config/nvim/init.vim
 ln -fs ~/.config/dotfiles/zsh/zlogout            ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc              ~/.config/zsh/.zshrc
 ln -fs ~/.config/dotfiles/scripts/p.js           ~/.local/bin/p
+ln -fs ~/.config/dotfiles/mpv/input.conf         ~/.config/mpv/
+ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
 
 cp ~/.config/dotfiles/misc/npmrc                 ~/.config/npm/
 

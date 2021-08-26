@@ -144,7 +144,8 @@
       "git-delta",
       "python-dbus",
       "libreoffice-fresh",
-      "zoom"
+      "zoom",
+      "mpv"
     ]
   },
   "ignored": [
