@@ -72,4 +72,5 @@ bspc rule -a Org.gnome.Nautilus state=floating
 bspc rule -a pw-display         state=floating
 bspc rule -a Eog                state=floating
 bspc rule -a Blueman-manager    state=floating
+bspc rule -a Sxiv               state=floating
 bspc rule -a Zathura            state=tiled
