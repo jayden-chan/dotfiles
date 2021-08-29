@@ -1,8 +1,8 @@
 # dotfiles
 
-![Busy](https://i.imgur.com/2k9yIXV.png "Busy")
-![Vim](https://i.imgur.com/icKscG3.png "Vim")
-![Rofi](https://i.imgur.com/iKOEJbd.png "Rofi")
+![Busy](https://i.imgur.com/1A3VSa8.png "Busy")
+![Vim](https://i.imgur.com/FggoAOR.png "Vim")
+![Rofi](https://i.imgur.com/MG5dyU0.png "Rofi")
 
 ## Previous Iterations
 
