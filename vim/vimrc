@@ -293,6 +293,7 @@ filetype off
     let myWiki.auto_export = 1
     let myWiki.auto_toc = 0
     let g:vimwiki_list = [myWiki]
+    let g:vimwiki_global_ext = 0
 
     nmap <Leader>wi <Plug>VimwikiIndex
     nmap <Leader>F  <Plug>VimwikiToggleListItem
