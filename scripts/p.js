@@ -207,8 +207,8 @@ async function main() {
     case "cc":
     case "cache":
       return await handleYayCommand(YAY_COMMANDS[4], programs, args);
-    case "v":
-    case "verify":
+    case "m":
+    case "missing":
       verifyPrograms(programs);
       return 0;
     case "ul":
