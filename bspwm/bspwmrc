@@ -24,7 +24,7 @@ if [ "$HOSTNAME" = "swift" ]; then
     xmodmap -e "keysym Caps_Lock = Escape" &
 fi
 
-sh $DOTS/scripts/mouseaccel.sh &
+sh $DOTS/scripts/inputs.sh &
 sh $DOTS/scripts/polybar.sh &
 xset r rate 270 35 &
 

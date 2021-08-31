@@ -21,7 +21,7 @@ super + ctrl + Escape
 
 # set the key repeat rate and delay
 alt + u
-    xset r rate 270 35
+    $HOME/.config/dotfiles/scripts/inputs.sh
 
 alt + c
     $HOME/.config/dotfiles/scripts/xcolor.sh
