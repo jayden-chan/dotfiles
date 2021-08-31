@@ -1,7 +1,7 @@
 #!/usr/bin/dash
 
-tmp_dir=$(mktemp -d -t xcolor-XXXXXX)
+tmp_file=$(mktemp -t xcolor-XXXXXX.png)
 color=$(xcolor | tr -d '\n' | xclip -selection c -filter)
-convert -size 75x75 xc:$color $tmp_dir/icon.png
-notify-send -i $tmp_dir/icon.png -t 3000 "Color picker" $color
-rm -rf $tmp_dir
+convert -size 75x75 "xc:$color" "$tmp_file"
+notify-send -i "$tmp_file" -t 3000 "Color picker" "$color"
+rm "$tmp_file"

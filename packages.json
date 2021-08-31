@@ -145,7 +145,8 @@
       "python-dbus",
       "libreoffice-fresh",
       "zoom",
-      "mpv"
+      "mpv",
+      "exfatprogs"
     ]
   },
   "ignored": [
