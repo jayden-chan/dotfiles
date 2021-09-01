@@ -29,8 +29,9 @@
       "alsa-utils",
       "light",
       "arandr",
-      "xf86-video-intel",
-      "vulkan-intel"
+      "vulkan-intel",
+      "pasystray",
+      "network-manager-applet"
     ],
     "all": [
       "bluez",
