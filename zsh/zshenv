@@ -1,5 +1,7 @@
 # vim: ft=sh
 
+hostname="$(hostname)"
+
 # XDG Base Directory
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_DESKTOP_HOME="$HOME"/.local/desktop
@@ -57,6 +59,15 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 # Add other binaries
 export PATH="$HOME/.local/bin:$PATH"
 
+if [ "$hostname" = "Jaydens-MacBook-Pro.local" ]; then
+    export PATH="$HOME/Dev/dyspatch:$PATH"
+    export PATH="/usr/local/opt/node@14/bin:$PATH"
+else
+    # Ensure GPG sign prompt shows on correct screen
+    export GPG_TTY=$(tty)
+    gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
+
 # NPM global
 export PATH=~/.local/share/npm/bin:$PATH
 
@@ -65,10 +76,6 @@ export PATH=~/.yarn/bin:$PATH
 
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"
-
-# Ensure GPG sign prompt shows on correct screen
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # Android studio stuff for React Native
 export ANDROID_HOME=$HOME/Dev/Android
