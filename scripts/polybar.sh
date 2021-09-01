@@ -11,7 +11,7 @@ config_path=$HOME/.config/dotfiles/misc/polybar
 
 if [ "$(hostname)" = "swift" ]; then
     echo "---" | tee -a /tmp/polybar1.log
-    MONITOR=eDP-1 polybar --config="$config_path" center 2>&1 | tee -a /tmp/polybar1.log & disown
+    MONITOR=eDP-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
 else
     echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log /tmp/polybar3.log
     MONITOR=HDMI-0  polybar --config="$config_path" left   2>&1 | tee -a /tmp/polybar1.log & disown
