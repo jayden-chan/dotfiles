@@ -17,8 +17,4 @@ hspeed=1.8
 xinput --set-prop 'HP HP Link-5 micro dongle Mouse' 'Coordinate Transformation Matrix' $hspeed 0.0 0.0 0.0 $hspeed 0.0 0.0 0.0 1.0
 xinput --set-prop 'HP HP Link-5 micro dongle Mouse' 'libinput Accel Speed' -1
 
-zspeed=1.5
-xinput --set-prop 'Kingsis Peripherals ZOWIE Gaming mouse' 'Coordinate Transformation Matrix' $zspeed 0.0 0.0 0.0 $zspeed 0.0 0.0 0.0 1.0
-xinput --set-prop 'Kingsis Peripherals ZOWIE Gaming mouse' 'libinput Accel Speed' -1
-
 xset r rate 270 35
