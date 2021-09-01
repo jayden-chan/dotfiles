@@ -28,7 +28,6 @@ export SSB_HOME="$XDG_DATA_HOME"/zoom
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export ZDOTDIR="$HOME"/.config/zsh
-export ERRFILE="$XDG_STATE_HOME/xsession-errors"
 
 # Private vars (mostly tokens)
 [ -e "$HOME/.config/ENV" ] && source $HOME/.config/ENV
