@@ -25,7 +25,6 @@
       "perf"
     ],
     "swift": [
-      "ponymix",
       "alsa-utils",
       "light",
       "arandr",
@@ -147,7 +146,8 @@
       "libreoffice-fresh",
       "zoom",
       "mpv",
-      "exfatprogs"
+      "exfatprogs",
+      "pipewire-pulse"
     ]
   },
   "ignored": [
