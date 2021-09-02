@@ -12,7 +12,6 @@ alias vimrc='vim $DOT/vim/vimrc'
 alias zshrc='vim $DOT/zsh/zshrc'
 alias wup='git add --all && git commit -m "[$(date)] JC: Update" && git push && exit'
 
-
 # Exit
 alias :q='exit'
 alias :Q='exit'
@@ -43,7 +42,6 @@ alias ckear='clear'
 alias Lq='exit'
 
 # One letter
-alias l='exa -a'
 alias y='yarn'
 alias o='xdg-open'
 alias x='xset r rate 270 35'
@@ -55,9 +53,13 @@ alias compress='tar c -I"xz -T 0 -7" -f'
 alias archive='tar c -I"xz -T 0 -0" -f'
 alias decompress='tar xfJ'
 
-# Other
+# ls
+alias l='exa -a'
 alias ls='exa'
 alias la='exa -lah'
+alias ll='exa -lh'
+
+# Other
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias clip='xclip -selection c'
 alias pasteimg='xclip -selection clipboard -t image/png -o'
