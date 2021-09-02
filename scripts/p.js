@@ -3,7 +3,6 @@
 "use strict";
 
 const { spawn, spawnSync } = require("child_process");
-const readline = require("readline");
 const { readFileSync, writeFileSync } = require("fs");
 
 const HOST = readFileSync("/etc/hostname", { encoding: "utf8" }).trim();
@@ -33,22 +32,6 @@ Commands:
 
     Executing with no arguments will perform a system update`
   );
-}
-
-/**
- * @param {String} question Question to ask
- * @param {Object} rl readline instance
- */
-async function yesno(question, rl) {
-  return new Promise((resolve) => {
-    rl.question(question, (res) => {
-      if (res === "N" || res === "n") {
-        resolve(false);
-      } else {
-        resolve(true);
-      }
-    });
-  });
 }
 
 /**
