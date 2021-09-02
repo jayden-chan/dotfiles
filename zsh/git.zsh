@@ -41,6 +41,13 @@ function git_main_branch () {
   echo master
 }
 
+function gp () {
+  git push
+  if git config remote.gitea.url > /dev/null; then
+    git push gitea
+  fi
+}
+
 #
 # Aliases
 # (sorted alphabetically)
@@ -143,7 +150,6 @@ alias gmom='git merge origin/$(git_main_branch)'
 alias gmt='git mergetool --no-prompt'
 alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
 alias gmum='git merge upstream/$(git_main_branch)'
-alias gp='git push'
 alias gpd='git push --dry-run'
 alias gpf!='git push --force'
 alias gpf='git push --force-with-lease'
