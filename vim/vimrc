@@ -20,6 +20,7 @@ filetype off
 
     " fs nav
         Plug 'junegunn/fzf.vim'
+        Plug 'junegunn/fzf'
         Plug 'kyazdani42/nvim-web-devicons'
         Plug 'kyazdani42/nvim-tree.lua'
         Plug 'airblade/vim-rooter'
