@@ -6,7 +6,7 @@ for id in `xinput --list | rg 'Logitech Gaming Mouse G502\s+id=(\d+)\s+\[slave\s
     xinput --set-prop $id 'libinput Accel Speed' -1
 done
 
-cspeed=1.5
+cspeed=1.8
 xinput --set-prop 'Glorious Model O' 'Coordinate Transformation Matrix' $cspeed 0.0 0.0 0.0 $cspeed 0.0 0.0 0.0 1.0
 xinput --set-prop 'Glorious Model O' 'libinput Accel Speed' -1
 
