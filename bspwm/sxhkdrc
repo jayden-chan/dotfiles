@@ -23,21 +23,6 @@ super + ctrl + Escape
 alt + u
     $HOME/.config/dotfiles/scripts/inputs.sh
 
-alt + c
-    $HOME/.config/dotfiles/scripts/xcolor.sh
-
-# screenshot selection or window
-super + shift + s
-    $HOME/.config/dotfiles/scripts/screenshot.sh --select
-
-# scan a QR code
-super + shift + a
-    $HOME/.config/dotfiles/scripts/screenshot.sh --qr
-
-# screenshot all screens
-Print
-    $HOME/.config/dotfiles/scripts/screenshot.sh
-
 super + l
     dm-tool lock
 
@@ -55,11 +40,36 @@ super + shift + w
 
 
 ##########################################################
-#                        Spotify                         #
+#                      Screenshots                       #
 ##########################################################
 
+# screenshot selection or window
+super + shift + s
+    $HOME/.config/dotfiles/scripts/screenshot.sh --select
+
+# scan a QR code
+super + shift + a
+    $HOME/.config/dotfiles/scripts/screenshot.sh --qr
+
+# screenshot all screens
+Print
+    $HOME/.config/dotfiles/scripts/screenshot.sh
+
+alt + c
+    $HOME/.config/dotfiles/scripts/xcolor.sh
+
+
+##########################################################
+#                          XF86                          #
+##########################################################
 {XF86AudioPlay, XF86AudioPrev, XF86AudioNext}
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.{PlayPause,Previous,Next}
+    $HOME/.config/dotfiles/scripts/xf86.sh media {PlayPause,Previous,Next}
+
+{XF86AudioRaiseVolume, XF86AudioLowerVolume, XF86AudioMute}
+    $HOME/.config/dotfiles/scripts/xf86.sh vol {up,down,mute}
+
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+    $HOME/.config/dotfiles/scripts/xf86.sh light {up,down}
 
 ##########################################################
 #                     bspwm hotkeys                      #
