@@ -146,8 +146,8 @@
       "libreoffice-fresh",
       "zoom",
       "mpv",
-      "exfatprogs",
-      "pipewire-pulse"
+      "pipewire-pulse",
+      "youtube-dlp"
     ]
   },
   "ignored": [
