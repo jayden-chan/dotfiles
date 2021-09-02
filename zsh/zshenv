@@ -62,6 +62,7 @@ export PATH="$HOME/.local/bin:$PATH"
 if [ "$hostname" = "Jaydens-MacBook-Pro.local" ]; then
     export PATH="$HOME/Dev/dyspatch:$PATH"
     export PATH="/usr/local/opt/node@14/bin:$PATH"
+    export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 else
     # Ensure GPG sign prompt shows on correct screen
     export GPG_TTY=$(tty)
