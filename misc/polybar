@@ -162,14 +162,9 @@ label-background = ${colors.background}
 label-padding = ${colors.padding}
 
 [module/date]
-type = internal/date
+type = custom/script
+exec = ~/.config/dotfiles/scripts/date.sh
 interval = 1
-
-date = "%a %b %e"
-date-alt = " %Y-%m-%d"
-
-time = %l:%M
-time-alt = %l:%M:%S
 
 format-prefix-font = 4
 format-prefix = "  "
@@ -180,7 +175,7 @@ format-underline = ${colors.cpu}
 label-background = ${colors.background}
 label-padding = ${colors.padding}
 
-label = "%date% %time%"
+click-left = ~/Dev/Personal/cal/main
 
 [module/bspwm]
 type = internal/bspwm

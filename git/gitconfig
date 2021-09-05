@@ -6,6 +6,9 @@
     default = simple
 [credential]
     helper = store
+[init]
+    # compatibility purposes
+    defaultBranch = master
 [commit]
     gpgsign = true
     template = ~/.config/dotfiles/git/git-commit.txt

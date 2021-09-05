@@ -60,6 +60,7 @@ filetype off
         Plug 'baskerville/vim-sxhkdrc'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         Plug 'mustache/vim-mustache-handlebars'
+        Plug 'arrufat/vala.vim'
 
     call plug#end()
 

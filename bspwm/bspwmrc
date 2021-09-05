@@ -74,3 +74,4 @@ bspc rule -a Eog                state=floating
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a Sxiv               state=floating
 bspc rule -a Zathura            state=tiled
+bspc rule -a *:*:xyz.jaydenchan.cal state=floating

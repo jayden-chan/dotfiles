@@ -22,7 +22,8 @@
       "simplescreenrecorder",
       "wkhtmltopdf",
       "borg",
-      "perf"
+      "perf",
+      "vala"
     ],
     "swift": [
       "alsa-utils",
@@ -147,7 +148,8 @@
       "zoom",
       "mpv",
       "pipewire-pulse",
-      "youtube-dlp"
+      "youtube-dlp",
+      "wireguard-tools"
     ]
   },
   "ignored": [
