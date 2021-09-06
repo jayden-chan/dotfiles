@@ -1,8 +1,5 @@
 [time]
-disabled = false
-utc_time_offset = "local"
-format = "[\\[ $time \\]]($style) "
-time_format = "%-l:%M:%S"
+disabled = true
 
 [character]
 error_symbol = "[✗](bold red)"
