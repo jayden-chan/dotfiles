@@ -9,7 +9,7 @@
 --write-sub
 --sub-lang en
 --write-info-json
---format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+--format-sort 'height:1080'
 --merge-output-format mkv
 --output "/run/media/jayden/Seagate External/Backup/YouTube/Files/Liked Videos/%(title)s [%(id)s].%(ext)s"
 --download-archive "/run/media/jayden/Seagate External/Backup/YouTube/liked_videos.log"
