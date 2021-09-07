@@ -42,9 +42,9 @@ function git_main_branch () {
 }
 
 function gp () {
-  git push
+  git push "$@"
   if git config remote.gitea.url > /dev/null; then
-    git push gitea
+    git push gitea "$@"
   fi
 }
 
