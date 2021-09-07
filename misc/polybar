@@ -121,7 +121,6 @@ content-font = 3
 [module/arch-logo]
 inherit = module/logo-base
 content = 
-; content-foreground = ${colors.arch}
 content-foreground = ${colors.accent}
 
 [module/ubuntu-logo]
