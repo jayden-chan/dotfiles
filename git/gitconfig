@@ -17,6 +17,8 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [pull]
 	rebase = false
+[diff]
+    colorMoved = default
 
 [pager]
     diff = delta
@@ -30,7 +32,7 @@
 [delta]
     features = decorations
     side-by-side = true
-    syntax-theme = DarkNeon
+    syntax-theme = Nord
     plus-style = syntax bold auto
     minus-style = syntax bold auto
 
@@ -42,9 +44,3 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-decoration-style = cyan box ul
-
-[delta "line-numbers"]
-    line-numbers-left-style = cyan
-    line-numbers-right-style = cyan
-    line-numbers-minus-style = 124
-    line-numbers-plus-style = 28
