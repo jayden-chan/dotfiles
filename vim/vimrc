@@ -34,6 +34,7 @@ filetype off
         Plug 'godlygeek/tabular'
         Plug 'editorconfig/editorconfig-vim'
         Plug 'vimwiki/vimwiki'
+        Plug 'christoomey/vim-tmux-navigator'
 
     " IDE-like
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -229,20 +230,20 @@ filetype off
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
     " Change splits
-    nnoremap <leader>j <C-w>h
-    nnoremap <leader>k <C-w>j
-    nnoremap <leader>i <C-w>k
-    nnoremap <leader>l <C-w>l
+    " nnoremap <leader>j <C-w>h
+    " nnoremap <leader>k <C-w>j
+    " nnoremap <leader>i <C-w>k
+    " nnoremap <leader>l <C-w>l
 
     " Move the cursor more easily while in insert mode
     inoremap <c-j> <Left>
     inoremap <c-l> <Right>
 
     " Easily resize splits
-    nnoremap <c-i> :resize -2<CR>
-    nnoremap <c-k> :resize +2<CR>
-    nnoremap <c-j> :vertical resize +5<CR>
-    nnoremap <c-l> :vertical resize -5<CR>
+    nnoremap <leader>j :vertical resize +5<CR>
+    nnoremap <leader>k :resize +2<CR>
+    nnoremap <leader>i :resize -2<CR>
+    nnoremap <leader>l :vertical resize -5<CR>
 
     " Make c-p function like c-i since c-i was previously remapped
     nnoremap <c-p> <c-i>
@@ -394,6 +395,13 @@ filetype off
     let g:tex_conceal = ''
     let g:vim_markdown_conceal = 0
     let g:vim_markdown_conceal_code_blocks = 0
+
+    let g:tmux_navigator_no_mappings = 1
+
+    nnoremap <silent> <c-j> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <c-k> :TmuxNavigateDown<cr>
+    nnoremap <silent> <c-i> :TmuxNavigateUp<cr>
+    nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " Commands
 
