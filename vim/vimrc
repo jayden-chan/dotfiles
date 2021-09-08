@@ -398,10 +398,10 @@ filetype off
 
     let g:tmux_navigator_no_mappings = 1
 
-    nnoremap <silent> <c-j> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <c-k> :TmuxNavigateDown<cr>
-    nnoremap <silent> <c-i> :TmuxNavigateUp<cr>
-    nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+    nnoremap <silent> <M-j> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <M-k> :TmuxNavigateDown<cr>
+    nnoremap <silent> <M-i> :TmuxNavigateUp<cr>
+    nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 
 " Commands
 
