@@ -255,9 +255,6 @@ filetype off
     map q: <nop>
     map Q <nop>
 
-    " Used for centering text in the 'thicc' comments
-    map <c-m> ^f*a<Space><Esc>f*h<Space><Esc>^
-
     " New line no insert mode
     map go o<Esc>
 
@@ -280,9 +277,6 @@ filetype off
 
     " Fix 'I' behaviour in V-block
     vnoremap H I
-
-    " Select whole function
-    map <silent> <leader>V V/^}<CR>
 
     " Toggle highlight search
     map <silent> <leader>h :set hls!<CR>
@@ -334,7 +328,7 @@ filetype off
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
 
     command! -nargs=0 Prettier :CocCommand prettier.formatFile
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json,*.html, Prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json,*.html,*.graphql Prettier
 
     command! -nargs=0 AutoFormat :call CocAction('format')
     autocmd BufWritePre *.c,*.cpp,*.h,*.hpp, AutoFormat
@@ -425,8 +419,8 @@ filetype off
     autocmd FileType markdown setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy setlocal shiftwidth=2
-    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy setlocal softtabstop=2
+    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy,graphql setlocal shiftwidth=2
+    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy,graphql setlocal softtabstop=2
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
