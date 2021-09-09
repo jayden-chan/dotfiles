@@ -23,7 +23,7 @@ super + ctrl + Escape
 alt + u
     $HOME/.config/dotfiles/scripts/inputs.sh
 
-super + l
+super + shift + l
     dm-tool lock
 
 # show the keyboard firmware keymaps
@@ -113,7 +113,7 @@ super + ctrl + {m,x,y,z}
 ##########################################################
 
 # focus the node in the given direction
-alt + {_,shift + }{j,k,i,l}
+super + {_,shift + }{j,k,i,l}
     bspc node --{focus,swap} {west,south,north,east}
 
 # focus the next/previous window in the current desktop
