@@ -3,9 +3,7 @@
 configuration {
     font:                           "JetBrainsMono Nerd Font Mono 11";
     disable-history:                true;
-    fullscreen:                     false;
     tokenize:                       true;
-    hide-scrollbar:                 true;
     sidebar-mode:                   false;
     scroll-method:                  1;
 }
