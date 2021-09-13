@@ -22,7 +22,8 @@
       "wkhtmltopdf",
       "borg",
       "perf",
-      "vala"
+      "vala",
+      "android-studio"
     ],
     "swift": [
       "alsa-utils",
