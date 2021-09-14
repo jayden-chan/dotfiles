@@ -62,6 +62,7 @@ filetype off
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         Plug 'mustache/vim-mustache-handlebars'
         Plug 'arrufat/vala.vim'
+        Plug 'towolf/vim-helm'
 
     call plug#end()
 
