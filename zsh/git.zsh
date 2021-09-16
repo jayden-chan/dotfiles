@@ -105,7 +105,7 @@ alias gcs='git commit -S'
 alias gcsm='git commit -s -m'
 alias gcss='git commit -S -s'
 alias gcssm='git commit -S -s -m'
-alias gd='git diff'
+alias gdfull='git diff'
 alias gdca='git diff --cached'
 alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
 alias gdcw='git diff --cached --word-diff'
@@ -217,10 +217,10 @@ alias gupv='git pull --rebase -v'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
 
-function gdnolock() {
+function gd() {
   git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
 }
-compdef _git gdnolock=git-diff
+compdef _git gd=git-diff
 
 function gdv() { git diff -w "$@" | view - }
 compdef _git gdv=git-diff
