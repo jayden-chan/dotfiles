@@ -1,6 +1,5 @@
 # custom
 alias gc='git commit -v -S'
-alias gcop='git checkout production'
 
 ##########################################################
 #                  oh-my-zsh git alias                   #
@@ -32,7 +31,7 @@ function work_in_progress () {
 function git_main_branch () {
   command git rev-parse --git-dir &>/dev/null || return
   local branch
-  for branch in main trunk; do
+  for branch in main trunk production; do
     if command git show-ref -q --verify refs/heads/$branch; then
       echo $branch
       return
