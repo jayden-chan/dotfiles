@@ -75,6 +75,8 @@ function ts_init() {
         echo '{
   "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.json"],
   "compilerOptions": {
+    "incremental": true,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
     "outDir": "dist",
     "module": "commonjs",
