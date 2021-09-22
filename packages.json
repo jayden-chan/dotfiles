@@ -23,7 +23,10 @@
       "borg",
       "perf",
       "vala",
-      "android-studio"
+      "android-studio",
+      "sane",
+      "imagescan",
+      "iscan-plugin-gt-x820"
     ],
     "swift": [
       "alsa-utils",
@@ -142,11 +145,11 @@
       "flashfocus-git",
       "git-delta",
       "python-dbus",
-      "zoom",
       "mpv",
       "pipewire-pulse",
       "youtube-dlp",
-      "wireguard-tools"
+      "wireguard-tools",
+      "img2pdf"
     ]
   },
   "ignored": [

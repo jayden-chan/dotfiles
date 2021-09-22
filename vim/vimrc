@@ -356,7 +356,7 @@ filetype off
     nmap <silent> <leader>R <Plug>(coc-rename)
     nmap <silent> <leader>a <Plug>(coc-codeaction)
 
-    nnoremap <silent> <leader>I :CocList diagnostics<CR>
+    nnoremap <silent> <leader>I :CocCommand tsserver.organizeImports<CR>
     nnoremap <silent> <leader>b :CocList -I symbols<CR>
 
     " Show documentation in preview window
@@ -436,6 +436,7 @@ filetype off
     autocmd FileType asm         setlocal shiftwidth=8
     autocmd FileType asm         setlocal expandtab
     autocmd FileType go          setlocal noexpandtab
+    autocmd FileType makefile    setlocal noexpandtab
 
     " Easily open corresponding source file (C/C++)
     autocmd FileType c,cpp nmap <silent> <leader>v :CocCommand clangd.switchSourceHeader<CR>
