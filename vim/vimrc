@@ -63,6 +63,7 @@ filetype off
         Plug 'mustache/vim-mustache-handlebars'
         Plug 'arrufat/vala.vim'
         Plug 'towolf/vim-helm'
+        Plug 'chr4/nginx.vim'
 
     call plug#end()
 
@@ -122,6 +123,9 @@ filetype off
 
     set undolevels=9001
     set cursorline
+
+    " Wrap
+    set wrap
 
     " No command bar
     set noshowmode
