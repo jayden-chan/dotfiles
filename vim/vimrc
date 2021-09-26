@@ -316,6 +316,8 @@ filetype off
     nnoremap <silent> <C-n> :NvimTreeToggle<CR>
     highlight NvimTreeIndentMarker guifg='#665c54'
     let g:nvim_tree_hide_dotfiles = 1
+    let g:nvim_tree_group_empty = 1
+    let g:nvim_tree_auto_resize = 0
     let g:nvim_tree_disable_default_keybindings = 1
     let g:nvim_tree_indent_markers = 1
     let g:nvim_tree_width = 35
