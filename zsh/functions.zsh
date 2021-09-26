@@ -10,9 +10,9 @@ function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|rem
 
 function zcustomfunc () {
     local BOOKMARKS_FILE="$HOME/.cache/bookmarks"
-    local tmp_file=$(mktemp)
     if [[ "$1" = "bookmark" ]]; then
         if [[ "$2" != "" ]]; then
+            local tmp_file=$(mktemp)
             echo "$2 $PWD" >> $BOOKMARKS_FILE
             cat "$BOOKMARKS_FILE" | sort | uniq > $tmp_file
             cat "$tmp_file" > $BOOKMARKS_FILE
