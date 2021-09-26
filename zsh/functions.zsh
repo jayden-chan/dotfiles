@@ -8,6 +8,31 @@ function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | he
 function tunnel     () { ssh -g -L $1\:localhost:$2 -N $3 }
 function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
 
+function zcustomfunc () {
+    local BOOKMARKS_FILE="$HOME/.cache/bookmarks"
+    local tmp_file=$(mktemp)
+    if [[ "$1" = "bookmark" ]]; then
+        if [[ "$2" != "" ]]; then
+            echo "$2 $PWD" >> $BOOKMARKS_FILE
+            cat "$BOOKMARKS_FILE" | sort | uniq > $tmp_file
+            cat "$tmp_file" > $BOOKMARKS_FILE
+            rm "$tmp_file"
+        else
+            cat "$BOOKMARKS_FILE"
+        fi
+    elif [[ "$1" != "" ]]; then
+        local bookmark=$(rg "^$1 (.*?)\$" "$BOOKMARKS_FILE" --only-matching --replace '$1')
+        if [[ $? -ne 0 ]]; then
+            zshz 2>&1 "$@"
+        else
+            cd "$bookmark"
+        fi
+    else
+        zshz 2>&1 "$@"
+    fi
+}
+alias z="zcustomfunc"
+
 function manh () {
     tmp_dir=$(mktemp -d -t manh-XXXXXX)
     man -Thtml $1 > $tmp_dir/manual.html
