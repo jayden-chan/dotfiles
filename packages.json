@@ -26,7 +26,8 @@
       "android-studio",
       "sane",
       "imagescan",
-      "iscan-plugin-gt-x820"
+      "iscan-plugin-gt-x820",
+      "tftp-hpa"
     ],
     "swift": [
       "alsa-utils",

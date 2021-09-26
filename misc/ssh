@@ -4,18 +4,6 @@ Host stealth
     User pi
     IdentityFile ~/.ssh/stealth
 
-Host airgit
-    Hostname 144.202.14.150
-    Port 32223
-    User git
-    IdentityFile ~/.ssh/pi_git
-
-Host air
-    Hostname 144.202.14.150
-    Port 32223
-    User jayden
-    IdentityFile ~/.ssh/air
-
 Host piwheel
     Hostname 192.168.1.73
     User pi

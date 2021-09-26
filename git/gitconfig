@@ -4,8 +4,8 @@
     signingkey = 831C294F75648D2CD15C15F44F1A3E4490A56A14
 [push]
     default = simple
-[credential]
-    helper = store
+[credential "https://git.jayden.codes"]
+    helper = store --file ~/.config/git/credentials
 [init]
     # compatibility purposes
     defaultBranch = master
