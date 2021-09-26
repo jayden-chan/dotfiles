@@ -22,7 +22,7 @@ function zcustomfunc () {
         fi
     elif [[ "$1" != "" ]]; then
         local bookmark=$(rg "^$1 (.*?)\$" "$BOOKMARKS_FILE" --only-matching --replace '$1')
-        if [[ $? -ne 0 ]]; then
+        if [[ "$bookmark" == "" ]]; then
             zshz 2>&1 "$@"
         else
             cd "$bookmark"
