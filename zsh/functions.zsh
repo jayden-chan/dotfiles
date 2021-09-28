@@ -4,8 +4,7 @@ function manv       () { man $@ | vim "+runtime! syntax/man.vim" "+set nonumber"
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function cpr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh "$@" }
 function mvr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh "$@" }
-function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
-function tunnel     () { ssh -g -L $1\:localhost:$2 -N $3 }
+function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9<>/?"~!#$%^&*()=-' | fold -w $1 | head -n 1 }
 function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
 
 function zcustomfunc () {
@@ -39,13 +38,6 @@ function manh () {
     xdg-open $tmp_dir/manual.html
     sleep 1
     rm -rf $tmp_dir
-}
-
-function vpn () {
-    sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-    sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-    sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
-    sudo openvpn --config $1 --auth-user-pass $HOME/Documents/pia/pass.txt
 }
 
 function installfont () {
