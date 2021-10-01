@@ -1,8 +1,14 @@
 Host stealth
-    Hostname homepistealth.ddns.net
+    Hostname 192.168.1.119
     Port 32223
     User pi
     IdentityFile ~/.ssh/stealth
+
+Host homelab
+    Hostname 192.168.1.118
+    Port 32223
+    User jayden
+    IdentityFile ~/.ssh/homelab
 
 Host piwheel
     Hostname 192.168.1.73
