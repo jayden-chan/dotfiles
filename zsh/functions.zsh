@@ -7,6 +7,14 @@ function mvr        () { rsync --archive -hh --partial --info=stats1,progress2 -
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9<>/?"~!#$%^&*()=-' | fold -w $1 | head -n 1 }
 function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
 
+function gotify-send () {
+    if [[ "$GOTIFY_TOKEN" = "" ]]; then
+        echo "no token"
+    else
+        curl "https://gotify.jayden.codes/message?token=$GOTIFY_TOKEN" -F "title=$1" -F "message=$2" -F "priority=5"
+    fi
+}
+
 function zcustomfunc () {
     local BOOKMARKS_FILE="$HOME/.cache/bookmarks"
     if [[ "$1" = "bookmark" ]]; then
