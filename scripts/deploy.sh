@@ -6,27 +6,30 @@ if [ "$1" = "--env" ]; then
     exit
 fi
 
-rm -rf ~/.config/bspwm   2>/dev/null
-rm -rf ~/.config/latexmk 2>/dev/null
-rm -rf ~/.config/npm     2>/dev/null
-rm -rf ~/.config/nvim    2>/dev/null
-rm -rf ~/.config/rofi    2>/dev/null
-rm -rf ~/.config/tmux    2>/dev/null
-rm -rf ~/.config/zsh     2>/dev/null
-rm -rf ~/.config/mpv     2>/dev/null
+if [ "$1" = "--full" ]; then
+    rm -rf ~/.config/bspwm   2>/dev/null
+    rm -rf ~/.config/latexmk 2>/dev/null
+    rm -rf ~/.config/npm     2>/dev/null
+    rm -rf ~/.config/nvim    2>/dev/null
+    rm -rf ~/.config/rofi    2>/dev/null
+    rm -rf ~/.config/tmux    2>/dev/null
+    rm -rf ~/.config/zsh     2>/dev/null
+    rm -rf ~/.config/mpv     2>/dev/null
 
-mkdir -p ~/.config/bspwm
-mkdir -p ~/.config/git
-mkdir -p ~/.config/latexmk
-mkdir -p ~/.config/npm
-mkdir -p ~/.config/nvim/colors
-mkdir -p ~/.config/rofi
-mkdir -p ~/.config/tmux
-mkdir -p ~/.config/zsh
-mkdir -p ~/.config/mpv/scripts
+    mkdir -p ~/.config/bspwm
+    mkdir -p ~/.config/git
+    mkdir -p ~/.config/latexmk
+    mkdir -p ~/.config/npm
+    mkdir -p ~/.config/nvim/colors
+    mkdir -p ~/.config/rofi
+    mkdir -p ~/.config/tmux
+    mkdir -p ~/.config/zsh
+    mkdir -p ~/.config/mpv/scripts
+    mkdir -p ~/.config/mpv/script-opts
 
-mkdir -p ~/.local/share/fonts
-mkdir -p ~/.local/bin
+    mkdir -p ~/.local/share/fonts
+    mkdir -p ~/.local/bin
+fi
 
 cd ~
 ln -fs ~/.config/dotfiles/bspwm/bspwmrc          ~/.config/bspwm/
@@ -44,12 +47,16 @@ ln -fs ~/.config/dotfiles/zsh/zlogout            ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc              ~/.config/zsh/.zshrc
 ln -fs ~/.config/dotfiles/scripts/p.js           ~/.local/bin/p
 ln -fs ~/.config/dotfiles/mpv/input.conf         ~/.config/mpv/
+ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
+ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
 
-cp ~/.config/dotfiles/misc/npmrc                 ~/.config/npm/
+if [ "$1" = "--full" ]; then
+    cp ~/.config/dotfiles/misc/npmrc                 ~/.config/npm/
 
-cp ~/.config/dotfiles/font/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf ~/.local/share/fonts/
-sudo fc-cache -fv
+    cp ~/.config/dotfiles/font/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf ~/.local/share/fonts/
+    sudo fc-cache -fv
+fi
 
 echo
 echo "Finished deployment"
