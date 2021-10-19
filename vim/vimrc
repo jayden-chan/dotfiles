@@ -41,6 +41,7 @@ filetype off
         let g:coc_global_extensions = [
                     \ 'coc-tsserver',
                     \ 'coc-rust-analyzer',
+                    \ 'coc-go',
                     \ 'coc-clangd',
                     \ 'coc-json',
                     \ 'coc-eslint',
