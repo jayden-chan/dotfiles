@@ -28,7 +28,6 @@
       "imagescan",
       "iscan-plugin-gt-x820",
       "joplin-desktop",
-      "pandoc",
       "scrcpy"
     ],
     "swift": [
@@ -137,7 +136,6 @@
       "zsh-syntax-highlighting",
       "bind",
       "inetutils",
-      "jupyter-notebook",
       "zathura",
       "zathura-ps",
       "zathura-pdf-mupdf",
