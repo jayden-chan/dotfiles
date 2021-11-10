@@ -28,7 +28,8 @@
       "imagescan",
       "iscan-plugin-gt-x820",
       "joplin-desktop",
-      "scrcpy"
+      "scrcpy",
+      "yt-dlp"
     ],
     "swift": [
       "alsa-utils",
@@ -148,7 +149,6 @@
       "python-dbus",
       "mpv",
       "pipewire-pulse",
-      "youtube-dlp",
       "wireguard-tools",
       "img2pdf"
     ]
