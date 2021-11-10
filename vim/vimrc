@@ -316,18 +316,8 @@ filetype off
 
     nnoremap <silent> <C-n> :NvimTreeToggle<CR>
     highlight NvimTreeIndentMarker guifg='#665c54'
-    let g:nvim_tree_hide_dotfiles = 1
     let g:nvim_tree_group_empty = 1
     let g:nvim_tree_indent_markers = 1
-    let g:nvim_tree_ignore = [
-        \ '.git',
-        \ 'node_modules',
-        \ 'dist',
-        \ 'package-lock.json',
-        \ 'yarn.lock',
-        \ 'target',
-        \ 'Cargo.lock',
-        \ ]
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
@@ -518,7 +508,19 @@ require'nvim-tree'.setup {
   },
   hijack_cursor       = false,
   update_cwd          = false,
-  lsp_diagnostics     = false,
+  filters = {
+    dotfiles = true,
+    custom   = {
+      '.git',
+      'node_modules',
+      'dist',
+      'package-lock.json',
+      'yarn.lock',
+      'target',
+      'Cargo.lock',
+    },
+  },
+  hide_dotfiles       = true,
   update_focused_file = {
     enable      = false,
     update_cwd  = false,
