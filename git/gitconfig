@@ -17,7 +17,7 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     abbrev = 8
 [pull]
-	rebase = false
+	rebase = true
 [diff]
     colorMoved = default
 
