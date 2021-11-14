@@ -15,6 +15,18 @@ function gotify-send () {
     fi
 }
 
+function setwall () {
+    chosen_wall=$(sudo fd . -e png -e jpg -e jpeg -e webp | sxiv - -t -o)
+    if [ "$chosen_wall" = "" ]; then
+        echo "no image chosen"
+    else
+        nitrogen --set-zoom-fill "$chosen_wall" --head=0
+        nitrogen --set-zoom-fill "$chosen_wall" --head=1
+        nitrogen --set-zoom-fill "$chosen_wall" --head=2
+        sudo cp "$chosen_wall" /usr/share/backgrounds/wall
+    fi
+}
+
 function zcustomfunc () {
     local BOOKMARKS_FILE="$HOME/.cache/bookmarks"
     if [[ "$1" = "bookmark" ]]; then
