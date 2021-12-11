@@ -23,9 +23,6 @@ super + ctrl + Escape
 alt + u
     $HOME/.config/dotfiles/scripts/inputs.sh
 
-super + shift + l
-    dm-tool lock
-
 # show the keyboard firmware keymaps
 super + shift + k
     zathura $HOME/Dev/Personal/DZ60-gen/keymap.pdf

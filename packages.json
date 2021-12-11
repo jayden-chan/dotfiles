@@ -29,7 +29,8 @@
       "iscan-plugin-gt-x820",
       "joplin-desktop",
       "scrcpy",
-      "yt-dlp"
+      "yt-dlp",
+      "minecraft-launcher"
     ],
     "swift": [
       "alsa-utils",

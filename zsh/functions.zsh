@@ -20,9 +20,9 @@ function setwall () {
     if [ "$chosen_wall" = "" ]; then
         echo "no image chosen"
     else
-        nitrogen --set-zoom-fill "$chosen_wall" --head=0
-        nitrogen --set-zoom-fill "$chosen_wall" --head=1
-        nitrogen --set-zoom-fill "$chosen_wall" --head=2
+        nitrogen --set-zoom-fill --save "$chosen_wall" --head=0
+        nitrogen --set-zoom-fill --save "$chosen_wall" --head=1
+        nitrogen --set-zoom-fill --save "$chosen_wall" --head=2
         sudo cp "$chosen_wall" /usr/share/backgrounds/wall
     fi
 }
