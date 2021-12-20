@@ -8,12 +8,17 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 config_path=$HOME/.config/dotfiles/misc/polybar
+monitors=($(polybar -M | cut -d ':' -f 1))
 
 if [ "$(hostname)" = "swift" ]; then
-    echo "---" | tee -a /tmp/polybar1.log
-    MONITOR=eDP-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
+    echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
+    if [[ "${#monitors[@]}" = "1" ]]; then
+        MONITOR=eDP-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
+    else
+        MONITOR=eDP-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
+        MONITOR=HDMI-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar2.log & disown
+    fi
 else
-    monitors=($(polybar -M | cut -d ':' -f 1))
     if [[ "${#monitors[@]}" = "1" ]]; then
         echo "---" | tee -a /tmp/polybar1.log
         MONITOR="${monitors[0]}" polybar --config="$config_path" center 2>&1 | tee -a /tmp/polybar1.log & disown

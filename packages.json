@@ -151,7 +151,8 @@
       "mpv",
       "pipewire-pulse",
       "wireguard-tools",
-      "img2pdf"
+      "img2pdf",
+      "openresolv"
     ]
   },
   "ignored": [
