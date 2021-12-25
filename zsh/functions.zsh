@@ -6,12 +6,39 @@ function cpr        () { rsync --archive -hh --partial --info=stats1,progress2 -
 function mvr        () { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh "$@" }
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9<>/?"~!#$%^&*()=-' | fold -w $1 | head -n 1 }
 function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
+function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 
 function gotify-send () {
     if [[ "$GOTIFY_TOKEN" = "" ]]; then
         echo "no token"
     else
         curl "https://gotify.jayden.codes/message?token=$GOTIFY_TOKEN" -F "title=$1" -F "message=$2" -F "priority=5"
+    fi
+}
+
+function bwg () {
+    # unlock the vault if it's not already unlocked
+    if [ "$BW_SESSION" = "" ]; then
+        export BW_SESSION="$(bw unlock --raw)"
+        bw sync
+    fi
+
+    items=$(bw list items --search $1)
+    usernames=($(jq '.[].login.username' --raw-output <<< "$items"))
+
+    if [ "$2" = "u" ]; then
+        results=($(jq '.[].login.username' --raw-output <<< "$items"))
+    else
+        results=($(jq '.[].login.password' --raw-output <<< "$items"))
+    fi
+
+    if [ "${#usernames[@]}" = "1" ]; then
+        echo -n "${results[1]}" | xclip -selection clipboard
+    else
+        select opt in "${usernames[@]}"; do
+            echo -n "${results[$REPLY]}" | xclip -selection clipboard
+            break
+        done
     fi
 }
 

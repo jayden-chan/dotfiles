@@ -154,7 +154,8 @@
       "pipewire-pulse",
       "wireguard-tools",
       "img2pdf",
-      "openresolv"
+      "openresolv",
+      "bitwarden-cli"
     ]
   },
   "ignored": [
