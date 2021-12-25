@@ -38,7 +38,9 @@
       "arandr",
       "vulkan-intel",
       "pasystray",
-      "network-manager-applet"
+      "network-manager-applet",
+      "intel-media-driver",
+      "intel-gpu-tools"
     ],
     "all": [
       "bluez",
