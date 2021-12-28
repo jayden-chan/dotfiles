@@ -27,7 +27,6 @@
       "sane",
       "imagescan",
       "iscan-plugin-gt-x820",
-      "joplin-desktop",
       "scrcpy",
       "yt-dlp",
       "minecraft-launcher"
@@ -54,6 +53,7 @@
       "pavucontrol",
       "maim",
       "neovim",
+      "joplin-desktop",
       "firefox",
       "cmake",
       "fakeroot",
