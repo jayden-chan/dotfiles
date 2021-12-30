@@ -9,6 +9,24 @@ const HOST = readFileSync("/etc/hostname", { encoding: "utf8" }).trim();
 const PROGRAMS_PATH = "/home/jayden/.config/dotfiles/packages.json";
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
+function usage() {
+  console.log(
+    `p - A helper script on top of another helper script
+
+Commands:
+      install  (i): <package> install packages
+    uninstall  (u): <package> uninstall packages
+        clean  (c):           clean orphaned packages
+      missing  (m):           show packages from list that aren't installed
+     unlisted (ul):           show packages that are installed but not in packages.json
+         list  (l):           list installed packages
+        cache (cc):           clear the package cache directories
+         help  (h):           print help
+
+    Executing with no arguments will perform a system update`
+  );
+}
+
 /**
  * @param {Object} programs Programs list
  */
@@ -18,7 +36,7 @@ function writeProgramsList(programs) {
 
 function checkBootMount() {
   const mountInfo = readFileSync("/proc/mounts", { encoding: "ascii" });
-  const isMounted = /\/dev\/sd\d \/boot/.test(mountInfo);
+  const isMounted = /\/dev\/sd\w\d \/boot/.test(mountInfo);
   return new Promise((resolve) => {
     if (isMounted) {
       resolve(true);
@@ -36,24 +54,6 @@ function checkBootMount() {
       }
     });
   });
-}
-
-function usage() {
-  console.log(
-    `p - A helper script on top of another helper script
-
-Commands:
-      install  (i): <package> install packages
-    uninstall  (u): <package> uninstall packages
-        clean  (c):           clean orphaned packages
-      missing  (m):           show packages from list that aren't installed
-     unlisted (ul):           show packages that are installed but not in packages.json
-         list  (l):           list installed packages
-        cache (cc):           clear the package cache directories
-         help  (h):           print help
-
-    Executing with no arguments will perform a system update`
-  );
 }
 
 /**
