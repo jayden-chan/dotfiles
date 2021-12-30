@@ -52,7 +52,7 @@ ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
 
 if [ "$1" = "--full" ]; then
-    cp ~/.config/dotfiles/misc/npmrc                 ~/.config/npm/
+    cp ~/.config/dotfiles/misc/npmrc             ~/.config/npm/
 
     cp ~/.config/dotfiles/font/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf ~/.local/share/fonts/
     sudo fc-cache -fv
