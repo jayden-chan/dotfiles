@@ -16,19 +16,41 @@ function writeProgramsList(programs) {
   writeFileSync(PROGRAMS_PATH, JSON.stringify(programs, null, 2) + "\n");
 }
 
+function checkBootMount() {
+  const mountInfo = readFileSync("/proc/mounts", { encoding: "ascii" });
+  const isMounted = /\/dev\/sd\d \/boot/.test(mountInfo);
+  return new Promise((resolve) => {
+    if (isMounted) {
+      resolve(true);
+      return;
+    }
+
+    process.stdout.write(`Warning: /boot is not mounted. Continue? [Y/n] `);
+    process.stdin.on("data", (data) => {
+      const key = data.toString("utf8").trim();
+      const matches = ["", "y", "Y"];
+      if (matches.includes(key)) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
+  });
+}
+
 function usage() {
   console.log(
     `p - A helper script on top of another helper script
 
 Commands:
-      install  (i): <package>  install packages
-    uninstall  (u): <package>  uninstall packages
-        clean  (c):            clean orphaned packages
-      missing  (m):            show packages from list that aren't installed
-     unlisted (ul):            show packages that are installed but not in packages.json
-         list  (l):            list installed packages
-        cache (cc):            clear the package cache directories
-         help  (h):            print help
+      install  (i): <package> install packages
+    uninstall  (u): <package> uninstall packages
+        clean  (c):           clean orphaned packages
+      missing  (m):           show packages from list that aren't installed
+     unlisted (ul):           show packages that are installed but not in packages.json
+         list  (l):           list installed packages
+        cache (cc):           clear the package cache directories
+         help  (h):           print help
 
     Executing with no arguments will perform a system update`
   );
@@ -40,6 +62,11 @@ Commands:
  * @param {String[]} args Command line args
  */
 async function handleYayCommand(yayCommand, programs, args) {
+  // if our boot partition is not mounted it probably isn't safe to continue
+  if (!(await checkBootMount())) {
+    return Promise.resolve(1);
+  }
+
   return new Promise((resolve) => {
     const progs = args.filter((a) => !a.startsWith("-"));
     const yay = spawn("yay", [yayCommand, ...args], {
@@ -214,6 +241,11 @@ async function main() {
 }
 
 (async () => {
-  const code = await main();
+  let code;
+  try {
+    code = await main();
+  } catch (e) {
+    code = e;
+  }
   process.exit(code);
 })();
