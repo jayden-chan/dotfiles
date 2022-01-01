@@ -289,4 +289,4 @@ format-full = <label-full>
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
-label-full = %percentage%
+label-full = %percentage%%
