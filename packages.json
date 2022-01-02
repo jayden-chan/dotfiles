@@ -31,7 +31,8 @@
       "iscan-plugin-gt-x820",
       "scrcpy",
       "yt-dlp",
-      "minecraft-launcher"
+      "minecraft-launcher",
+      "pandoc"
     ],
     "swift": [
       "alsa-utils",
