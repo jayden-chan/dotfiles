@@ -56,7 +56,6 @@
       "pavucontrol",
       "maim",
       "neovim",
-      "joplin-desktop",
       "firefox",
       "cmake",
       "fakeroot",
@@ -156,7 +155,8 @@
       "pipewire-pulse",
       "wireguard-tools",
       "openresolv",
-      "bitwarden-cli"
+      "bitwarden-cli",
+      "joplin-desktop-bin"
     ]
   },
   "ignored": [

@@ -13,6 +13,12 @@ elif [ "$1" = "--power" ]; then
     esac
 elif [ "$1" = "--save-screenshot" ]; then
     result=$(rofi -dmenu -i -theme screenshot -p "file name:")
+
+    if [ "$result" = "" ]; then
+        notify-send "Maim" "Screenshot not saved"
+        exit
+    fi
+
     file="~/Pictures/Screenshots/$result.png"
 
     if [ -f "$file" ]; then
