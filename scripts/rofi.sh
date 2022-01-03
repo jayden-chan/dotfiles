@@ -11,4 +11,14 @@ elif [ "$1" = "--power" ]; then
         reboot)   shutdown --reboot now ;;
         shutdown) shutdown --poweroff now ;;
     esac
+elif [ "$1" = "--save-screenshot" ]; then
+    result=$(rofi -dmenu -i -theme screenshot -p "file name:")
+    file="~/Pictures/Screenshots/$result.png"
+
+    if [ -f "$file" ]; then
+        notify-send "Error" "File $result.png already exists"
+    else
+        xclip -selection clipboard -t image/png -o > "$file"
+        notify-send -i "$file" "Maim" "Screenshot saved to $result.png"
+    fi
 fi

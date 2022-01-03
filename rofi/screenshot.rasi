@@ -1,0 +1,30 @@
+// vim: ft=css
+
+configuration {
+    font:                           "Nimbus Sans 11";
+    show-icons:                     true;
+    icon-theme:                     "Yaru-Blue";
+    display-drun:                   "";
+    drun-display-format:            "{name}";
+
+    disable-history:                true;
+    tokenize:                       true;
+    sidebar-mode:                   false;
+    scroll-method:                  1;
+}
+
+@import "base.rasi"
+//;
+
+window {
+  height: 113px;
+  width: 550px;
+}
+
+inputbar {
+  margin: 0 0 0 0;
+}
+
+entry {
+  placeholder: "";
+}

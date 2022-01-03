@@ -38,6 +38,7 @@ ln -fs ~/.config/dotfiles/misc/latexmkrc         ~/.config/latexmk/
 ln -fs ~/.config/dotfiles/rofi/base.rasi         ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/drun.rasi         ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/power.rasi        ~/.config/rofi/
+ln -fs ~/.config/dotfiles/rofi/screenshot.rasi   ~/.config/rofi/
 ln -fs ~/.config/dotfiles/snippets/              ~/.config/nvim/UltiSnips
 ln -fs ~/.config/dotfiles/misc/starship.toml     ~/.config/
 ln -fs ~/.config/dotfiles/misc/tmux.conf         ~/.config/tmux/
