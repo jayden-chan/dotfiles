@@ -25,6 +25,11 @@ function bwg () {
 
     items=$(bw list items --search $1)
     usernames=($(jq '.[].login.username' --raw-output <<< "$items"))
+    if ! command -v xclip; then
+        copy_command="pbcopy"
+    else
+        copy_command="xclip -selection clipboard"
+    fi
 
     if [ "$2" = "u" ]; then
         results=($(jq '.[].login.username' --raw-output <<< "$items"))
@@ -33,10 +38,10 @@ function bwg () {
     fi
 
     if [ "${#usernames[@]}" = "1" ]; then
-        echo -n "${results[1]}" | xclip -selection clipboard
+        echo -n "${results[1]}" | $copy_command
     else
         select opt in "${usernames[@]}"; do
-            echo -n "${results[$REPLY]}" | xclip -selection clipboard
+            echo -n "${results[$REPLY]}" | $copy_command
             break
         done
     fi
