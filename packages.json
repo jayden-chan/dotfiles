@@ -41,6 +41,7 @@
       "vulkan-intel",
       "pasystray",
       "network-manager-applet",
+      "openresolv",
       "intel-media-driver",
       "intel-gpu-tools"
     ],
@@ -127,7 +128,6 @@
       "code",
       "fzf",
       "rsync",
-      "evolution",
       "yaru-colors-gtk-theme",
       "yaru-colors-icon-theme",
       "gsfonts",
@@ -154,7 +154,6 @@
       "mpv",
       "pipewire-pulse",
       "wireguard-tools",
-      "openresolv",
       "bitwarden-cli",
       "joplin-desktop-bin"
     ]
