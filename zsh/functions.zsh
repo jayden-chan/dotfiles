@@ -94,7 +94,7 @@ function manh () {
 
 function installfont () {
     sudo echo --- Installing font ---
-    cp $1 $HOME/.local/share/fonts
+    cp $@ $HOME/.local/share/fonts
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---
