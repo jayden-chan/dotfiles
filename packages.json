@@ -32,7 +32,9 @@
       "scrcpy",
       "yt-dlp",
       "minecraft-launcher",
-      "pandoc"
+      "pandoc",
+      "discord-chat-exporter-cli",
+      "zoom"
     ],
     "swift": [
       "alsa-utils",
