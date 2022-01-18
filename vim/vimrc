@@ -326,7 +326,7 @@ filetype off
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json,*.html,*.graphql Prettier
 
     command! -nargs=0 AutoFormat :call CocAction('format')
-    autocmd BufWritePre *.c,*.cpp,*.h,*.hpp, AutoFormat
+    autocmd BufWritePre *.c,*.cpp,*.h,*.hpp,*.go, AutoFormat
 
     let g:rooter_patterns = ['.git']
     let g:rooter_manual_only = 1
