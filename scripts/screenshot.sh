@@ -1,6 +1,6 @@
 #!/usr/bin/dash
 
-alias maimselect='maim --noopengl --capturebackground --select --hidecursor --color=0.1,0.1,0.1,0.4'
+alias maimselect='maim --noopengl --capturebackground --select --hidecursor  --color=1.0,1.0,0.1,1.0'
 alias clip='xclip -selection c -filter'
 
 tmp_file=$(mktemp -t maimscript-XXXXXX)

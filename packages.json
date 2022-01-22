@@ -157,7 +157,8 @@
       "pipewire-pulse",
       "wireguard-tools",
       "bitwarden-cli",
-      "joplin-desktop-bin"
+      "joplin-desktop-bin",
+      "sshfs"
     ]
   },
   "ignored": [
