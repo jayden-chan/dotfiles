@@ -5,6 +5,5 @@
   "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
   "rust-analyzer.diagnostics.disabled": ["mismatched-arg-count"],
   "coc.preferences.semanticTokensHighlights": false,
-  "clangd.semanticHighlighting": true,
-  "rpc.enabled": false
+  "clangd.semanticHighlighting": true
 }

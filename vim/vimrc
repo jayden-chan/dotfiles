@@ -35,6 +35,7 @@ filetype off
         Plug 'editorconfig/editorconfig-vim'
         Plug 'vimwiki/vimwiki'
         Plug 'christoomey/vim-tmux-navigator'
+        Plug 'andweeb/presence.nvim'
 
     " IDE-like
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -157,6 +158,10 @@ filetype off
 
     " Make LaTeX live preview & gitgutter smoother
     set updatetime=300
+
+    " Per-project config files
+    set secure
+    set exrc
 
     " Change cursor to bar and underscore for different modes
     let &t_SI = "\<Esc>[6 q"
@@ -489,10 +494,34 @@ require'nvim-treesitter.configs'.setup {
     "toml",
     "tsx",
     "typescript",
+    "c",
+    "cpp",
     "yaml",
   },
   highlight = {enable = true},
 }
+
+require("presence"):setup({
+    -- General options
+    auto_update         = true,
+    neovim_image_text   = "hyperextensible Vim-based text editor",
+    main_image          = "neovim",
+    client_id           = "793271441293967371",
+    log_level           = nil,
+    debounce_timeout    = 10,
+    enable_line_number  = false,
+    blacklist           = {},
+    buttons             = false,
+    file_assets         = {},
+
+    editing_text        = "Editing %s",
+    file_explorer_text  = "Browsing file tree",
+    git_commit_text     = "Writing a Git commit",
+    plugin_manager_text = "Managing plugins",
+    reading_text        = "Reading %s",
+    workspace_text      = "Working on %s",
+    line_number_text    = "Line %s/%s",
+})
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require'nvim-tree'.setup {

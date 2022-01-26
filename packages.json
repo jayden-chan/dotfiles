@@ -34,7 +34,8 @@
       "minecraft-launcher",
       "pandoc",
       "discord-chat-exporter-cli",
-      "zoom"
+      "zoom",
+      "meshlab-appimage"
     ],
     "swift": [
       "alsa-utils",
