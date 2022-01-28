@@ -10,6 +10,12 @@ Host homelab
     User jayden
     IdentityFile ~/.ssh/homelab
 
+Host grace
+    Hostname 192.168.1.225
+    Port 32223
+    User jayden
+    IdentityFile ~/.ssh/grace
+
 Host piwheel
     Hostname 192.168.1.73
     User pi
