@@ -10,7 +10,6 @@ alias hh='git push heroku master && heroku logs --tail'
 alias gdf='cd $DOT && git status'
 alias vimrc='vim $DOT/vim/vimrc'
 alias zshrc='vim $DOT/zsh/zshrc'
-alias wup='git add --all && git commit -m "[$(date)] JC: Update" && git push && exit'
 
 # Exit
 alias :q='exit'
@@ -53,6 +52,10 @@ alias compress='tar c -I"xz -T 0 -7" -f'
 alias archive='tar c -I"xz -T 0 -0" -f'
 alias decompress='tar xfJ'
 
+# rsync
+alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
+alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh'
+
 # ls
 alias l='exa -a'
 alias ls='exa'
@@ -70,3 +73,4 @@ alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
 alias sc='jq .scripts package.json'
 alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}\t{{.Image}}"'
 alias drs='docker-compose up -d --force-recreate'
+alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 comment "Comment"'
