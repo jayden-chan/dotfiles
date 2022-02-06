@@ -28,6 +28,14 @@ snippet lw
 log.Println(${1})
 endsnippet
 
+snippet ep
+fmt.Fprintln(os.Stderr, ${1})
+endsnippet
+
+snippet ef
+fmt.Fprintf(os.Stderr, ${1})
+endsnippet
+
 snippet imp
 "github.com/jayden-chan/${0}"
 endsnippet
