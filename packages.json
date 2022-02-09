@@ -34,7 +34,8 @@
       "minecraft-launcher",
       "discord-chat-exporter-cli",
       "zoom",
-      "meshlab-appimage"
+      "meshlab-appimage",
+      "dive"
     ],
     "swift": [
       "alsa-utils",

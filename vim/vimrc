@@ -147,6 +147,10 @@ filetype off
     " Don't open preview windows
     set completeopt-=preview
 
+    " unload and delete the buffer once there are no more 
+    " windows referencing it
+    set nohidden
+
     " Set .tex files to LaTeX syntax
     let g:tex_flavor="latex"
 
@@ -210,6 +214,7 @@ filetype off
     " Fuzzy finding
     nnoremap <silent> <leader>f :FZ<CR>
     nnoremap <silent> <leader>r :Rg<CR>
+    nnoremap <silent> <leader>b :Buffers<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
@@ -239,12 +244,6 @@ filetype off
     map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-    " Change splits
-    " nnoremap <leader>j <C-w>h
-    " nnoremap <leader>k <C-w>j
-    " nnoremap <leader>i <C-w>k
-    " nnoremap <leader>l <C-w>l
 
     " Move the cursor more easily while in insert mode
     inoremap <c-j> <Left>
@@ -356,7 +355,6 @@ filetype off
     nmap <silent> <leader>a <Plug>(coc-codeaction)
 
     nnoremap <silent> <leader>I :CocCommand tsserver.organizeImports<CR>
-    nnoremap <silent> <leader>b :CocList -I symbols<CR>
 
     " Show documentation in preview window
     nnoremap <silent> <leader>g :call <SID>show_documentation()<CR>
@@ -424,6 +422,9 @@ filetype off
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
+
+    " Jump to last known cursor position when opening files
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
     au BufRead,BufNewFile *.tdg setf tdg
     au BufRead,BufNewFile Jenkinsfile setf groovy
