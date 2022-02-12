@@ -22,6 +22,7 @@ snippet start
 	linkcolor=blue,
 	filecolor=magenta,
 	urlcolor=cyan,
+	citecolor=black,
 }
 
 \usepackage[
@@ -30,6 +31,16 @@ snippet start
 	footskip=30pt,
 ]{geometry}
 \usepackage{layout}
+
+% Bibliography
+% (\printbibliography to print at the end)
+%\usepackage[
+%	backend=biber,
+%	style=ieee,
+%	%style=mla,
+%	sorting=ynt
+%]{biblatex}
+%\addbibresource{bibliography.bib}
 
 \newcommand{\der}[2]{\frac{d#1}{d#2}}
 \newcommand{\dera}[3]{\frac{d#1}{d#2}\rvert_{#3}}
