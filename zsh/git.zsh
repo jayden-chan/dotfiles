@@ -218,7 +218,7 @@ alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
 
 function gd() {
-  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
+  git diff "$@" ":(exclude)*package-lock.json" ":(exclude)*.lock" ":(exclude)*go.sum"
 }
 compdef _git gd=git-diff
 
