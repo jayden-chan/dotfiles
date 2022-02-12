@@ -18,28 +18,26 @@ function bwg () {
     # unlock the vault if it's not already unlocked
     if [ "$BW_SESSION" = "" ]; then
         export BW_SESSION="$(bw unlock --raw)"
-        bw sync
+        bw sync 1>&2
     fi
 
     items=$(bw list items --search $1)
     usernames=($(jq '.[].login.username' --raw-output <<< "$items"))
-    if ! command -v xclip; then
-        copy_command="pbcopy"
-    else
-        copy_command="xclip -selection clipboard"
-    fi
-
     if [ "$2" = "u" ]; then
         results=($(jq '.[].login.username' --raw-output <<< "$items"))
     else
         results=($(jq '.[].login.password' --raw-output <<< "$items"))
     fi
 
+    if [ "$results" = "null" ]; then
+        results=($(jq '.[].notes' --raw-output <<< "$items"))
+    fi
+
     if [ "${#usernames[@]}" = "1" ]; then
-        echo -n "${results[1]}" | $copy_command
+        echo -n "${results[1]}"
     else
         select opt in "${usernames[@]}"; do
-            echo -n "${results[$REPLY]}" | $copy_command
+            echo -n "${results[$REPLY]}"
             break
         done
     fi
