@@ -33,7 +33,6 @@ filetype off
     " Misc
         Plug 'godlygeek/tabular'
         Plug 'editorconfig/editorconfig-vim'
-        Plug 'vimwiki/vimwiki'
         Plug 'christoomey/vim-tmux-navigator'
         Plug 'andweeb/presence.nvim'
 
@@ -163,10 +162,6 @@ filetype off
     " Make LaTeX live preview & gitgutter smoother
     set updatetime=300
 
-    " Per-project config files
-    set secure
-    set exrc
-
     " Change cursor to bar and underscore for different modes
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[4 q"
@@ -292,23 +287,6 @@ filetype off
     map <silent> <leader>h :set hls!<CR>
 
 " Plugin specific settings
-
-    let myWiki = {}
-    let myWiki.path = '~/Documents/Git/wiki/wiki'
-    let myWiki.path_html = '~/Documents/Git/wiki/html'
-    let myWiki.automatic_nested_syntaxes = 1
-    let myWiki.auto_export = 1
-    let myWiki.auto_toc = 0
-    let g:vimwiki_list = [myWiki]
-    let g:vimwiki_global_ext = 0
-
-    nmap <Leader>wi <Plug>VimwikiIndex
-    nmap <Leader>F  <Plug>VimwikiToggleListItem
-    vmap hl         <Plug>VimwikiTextObjListSingleV
-    vmap hc         <Plug>VimwikiTextObjColumnInnerV
-    vmap h\         <Plug>VimwikiTextObjTableCellInnerV
-    vmap hH         <Plug>VimwikiTextObjHeaderSubContentV
-    vmap hh         <Plug>VimwikiTextObjHeaderContentV
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
