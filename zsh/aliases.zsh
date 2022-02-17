@@ -52,9 +52,14 @@ alias compress='tar c -I"xz -T 0 -7" -f'
 alias archive='tar c -I"xz -T 0 -0" -f'
 alias decompress='tar xfJ'
 
-# rsync
+# networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
 alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh'
+alias wgr='sudo wg-quick down wg0 && sudo wg-quick up wg0'
+alias nfsup='sudo mount -t nfs -o vers=4 192.168.1.118:/ /mnt/homelab'
+alias nfsdown='sudo umount -R /mnt/homelab'
+alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 comment "Comment"'
+alias myip='curl https://ipinfo.io/ip && echo'
 
 # ls
 alias l='exa -a'
@@ -66,11 +71,9 @@ alias ll='exa -lh'
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias clip='xclip -selection c'
 alias pasteimg='xclip -selection clipboard -t image/png -o'
-alias myip='curl https://ipinfo.io/ip && echo'
 alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 alias gpl='curl https://www.gnu.org/licenses/gpl-3.0.txt'
 alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
 alias sc='jq .scripts package.json'
 alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}\t{{.Image}}"'
 alias drs='docker-compose up -d --force-recreate --remove-orphans'
-alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 comment "Comment"'
