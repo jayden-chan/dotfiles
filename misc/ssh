@@ -36,6 +36,9 @@ Host github.com
 Host git.engr.uvic.ca
     IdentityFile ~/.ssh/engr_gitlab
 
+Host gitlab.csc.uvic.ca
+    IdentityFile ~/.ssh/engr_gitlab
+
 Host *
     ForwardX11 no
     IdentitiesOnly yes

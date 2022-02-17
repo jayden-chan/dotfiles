@@ -130,8 +130,6 @@ endsnippet
 
 snippet err
 if err != nil {
-	log.Println(err)
-	util.HTTPRes(res, "An internal server error has occurred", http.StatusInternalServerError)
-	return
+	return err
 }
 endsnippet

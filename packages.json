@@ -159,7 +159,8 @@
       "wireguard-tools",
       "bitwarden-cli",
       "joplin-desktop-bin",
-      "sshfs"
+      "sshfs",
+      "nfs-utils"
     ]
   },
   "ignored": [
