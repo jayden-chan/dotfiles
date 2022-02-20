@@ -5,39 +5,6 @@ DOTS=$HOME/.config/dotfiles
 HOSTNAME=$(hostname)
 
 ##########################################################
-#                        Startup                         #
-##########################################################
-
-# If sxhkd is already running it probably means we're restarting bspwm.
-# These items only need to be run on login, so don't run them again
-pgrep -x sxhkd > /dev/null || nitrogen --restore &
-
-if [ "$HOSTNAME" = "grace" ]; then
-    pgrep -x sxhkd > /dev/null || hue profile apply bluepink &
-else
-    (killall nm-applet; sleep 0.3; nm-applet) &
-    (killall pasystray; sleep 0.3; pasystray) &
-fi
-
-if [ "$HOSTNAME" = "swift" ]; then
-    xmodmap -e "clear lock" &
-    xmodmap -e "keysym Caps_Lock = Escape" &
-fi
-
-sh $DOTS/scripts/inputs.sh &
-sh $DOTS/scripts/polybar.sh &
-xset r rate 270 35 &
-
-for monitor in $(bspc query -M); do
-    bspc monitor $monitor -d 1 2 3 4 5 6 7 8 9
-done
-
-pgrep -x sxhkd      > /dev/null || sxhkd -c $DOTS/bspwm/sxhkdrc &
-pgrep -x dunst      > /dev/null || dunst -config $DOTS/misc/dunstrc &
-pgrep -x picom      > /dev/null || picom --config $DOTS/misc/picom.conf &
-pgrep -x flashfocus > /dev/null || flashfocus &
-
-##########################################################
 #                      bspc config                       #
 ##########################################################
 
@@ -67,11 +34,50 @@ bspc config pointer_modifier           mod1
 bspc config pointer_action2            resize_corner
 bspc config pointer_action1            move
 
-bspc rule -a Nitrogen           state=floating
-bspc rule -a Org.gnome.Nautilus state=floating
-bspc rule -a pw-display         state=floating
-bspc rule -a Eog                state=floating
-bspc rule -a Blueman-manager    state=floating
-bspc rule -a Sxiv               state=floating
-bspc rule -a Zathura            state=tiled
+bspc rule -a Nitrogen               state=floating
+bspc rule -a Org.gnome.Nautilus     state=floating
+bspc rule -a pw-display             state=floating
+bspc rule -a Eog                    state=floating
+bspc rule -a Blueman-manager        state=floating
+bspc rule -a Sxiv                   state=floating
+bspc rule -a Zathura                state=tiled
 bspc rule -a *:*:xyz.jaydenchan.cal state=floating
+
+if [ "$HOSTNAME" = "grace" ]; then
+    bspc rule -a easyeffects desktop='DVI-D-0:^9'
+    bspc rule -a discord desktop='HDMI-0:^1'
+fi
+
+##########################################################
+#                        Startup                         #
+##########################################################
+
+# If sxhkd is already running it probably means we're restarting bspwm.
+# These items only need to be run on login, so don't run them again
+pgrep -x sxhkd > /dev/null || nitrogen --restore &
+
+if [ "$HOSTNAME" = "grace" ]; then
+    pgrep -x Discord     > /dev/null || discord &
+    pgrep -x easyeffects > /dev/null || easyeffects &
+else
+    (killall nm-applet; sleep 0.3; nm-applet) &
+    (killall pasystray; sleep 0.3; pasystray) &
+fi
+
+if [ "$HOSTNAME" = "swift" ]; then
+    xmodmap -e "clear lock" &
+    xmodmap -e "keysym Caps_Lock = Escape" &
+fi
+
+sh $DOTS/scripts/inputs.sh &
+sh $DOTS/scripts/polybar.sh &
+xset r rate 270 35 &
+
+for monitor in $(bspc query -M); do
+    bspc monitor $monitor -d 1 2 3 4 5 6 7 8 9
+done
+
+pgrep -x sxhkd      > /dev/null || sxhkd -c $DOTS/bspwm/sxhkdrc &
+pgrep -x dunst      > /dev/null || dunst -config $DOTS/misc/dunstrc &
+pgrep -x picom      > /dev/null || picom --config $DOTS/misc/picom.conf &
+pgrep -x flashfocus > /dev/null || flashfocus &
