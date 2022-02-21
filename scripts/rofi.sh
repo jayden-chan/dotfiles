@@ -19,7 +19,7 @@ elif [ "$1" = "--save-screenshot" ]; then
         exit
     fi
 
-    file="~/Pictures/Screenshots/$result.png"
+    file="$HOME/Pictures/Screenshots/$result.png"
 
     if [ -f "$file" ]; then
         notify-send "Error" "File $result.png already exists"
