@@ -119,8 +119,7 @@ filetype off
 
     " Fold settings
     set foldlevel=1000
-    set foldmethod=expr
-    set foldexpr=nvim_treesitter#foldexpr()
+    set foldmethod=indent
 
     set undolevels=9001
     set cursorline
