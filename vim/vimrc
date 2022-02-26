@@ -303,11 +303,10 @@ filetype off
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
 
-    command! -nargs=0 Prettier :CocCommand prettier.formatFile
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json,*.html,*.graphql Prettier
-
     command! -nargs=0 AutoFormat :call CocAction('format')
-    autocmd BufWritePre *.c,*.cpp,*.h,*.hpp,*.go, AutoFormat
+    autocmd FileType c,cpp,go autocmd BufWritePre <buffer> AutoFormat
+    autocmd FileType javascript,typescript,javascriptreact,typescriptreact autocmd BufWritePre <buffer> AutoFormat
+    autocmd FileType css,scss,json,html,graphql autocmd BufWritePre <buffer> AutoFormat
 
     let g:rooter_patterns = ['.git']
     let g:rooter_manual_only = 1
@@ -420,39 +419,40 @@ filetype off
 
 " Abbreviations
 
-    iab retrun   return
-    iab rerturn  return
-    iab rertrun  return
-    iab retnru   return
-    iab retunr   return
-    iab erturn   return
-    iab ertnru   return
-    iab thsi     this
-    iab fcuntoin function
-    iab functoin function
-    iab fucntion function
-    iab funcotin function
-    iab funcoitn function
-    iab funciton function
-    iab funciotn function
-    iab fcuntion function
-    iab fynction function
-    iab versoin  version
-    iab veison   version
-    iab vreison  version
-    iab vierson  version
-    iab costn    const
-    iab conts    const
-    iab csont    const
-    iab cosnt    const
-    iab asunyc   async
-    iab ascyn    async
-    iab asunc    async
-    iab asuyuc   async
-    iab THe      The
-    iab THis     This
-    iab !+       !=
-    iab +>       =>
+    iab retrun    return
+    iab rerturn   return
+    iab rertrun   return
+    iab retnru    return
+    iab retunr    return
+    iab erturn    return
+    iab ertnru    return
+    iab thsi      this
+    iab fcuntoin  function
+    iab functoin  function
+    iab fucntion  function
+    iab funcotin  function
+    iab funcoitn  function
+    iab funciton  function
+    iab funciotn  function
+    iab fcuntion  function
+    iab fynction  function
+    iab fuynction function
+    iab versoin   version
+    iab veison    version
+    iab vreison   version
+    iab vierson   version
+    iab costn     const
+    iab conts     const
+    iab csont     const
+    iab cosnt     const
+    iab asunyc    async
+    iab ascyn     async
+    iab asunc     async
+    iab asuyuc    async
+    iab THe       The
+    iab THis      This
+    iab !+        !=
+    iab +>        =>
 
 " Lua plugins config
 
