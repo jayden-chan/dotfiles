@@ -73,13 +73,13 @@ endsnippet
 snippet react
 import React from 'react';
 
-export default function ${1:}() {
+export const ${1:} = (props: {}) => {
 	return (
 		<div>
 			${0}
 		</div>
 	)
-}
+};
 endsnippet
 
 snippet then
@@ -100,11 +100,9 @@ Given('${1}', function(this: World${2}) {
 });
 endsnippet
 
-snippet handler
-exports.${1:} = function(args, callback) {
-	${0}
-	callback();
-}
+snippet cap
+export const capitalize = (input: string): string =>
+	input.charAt(0).toUpperCase() + input.slice(1);
 endsnippet
 
 snippet st
