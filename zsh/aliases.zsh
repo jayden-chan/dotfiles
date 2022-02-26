@@ -60,6 +60,7 @@ alias nfsup='sudo mount -t nfs -o vers=4 192.168.1.118:/ /mnt/homelab'
 alias nfsdown='sudo umount -R /mnt/homelab'
 alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 comment "Comment"'
 alias myip='curl https://ipinfo.io/ip && echo'
+alias ip='ip -c'
 
 # ls
 alias l='exa -a'

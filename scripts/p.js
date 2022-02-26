@@ -176,9 +176,10 @@ function showUnlisted(programs) {
     .stdout.toString()
     .trim()
     .split("\n");
+
   const ignored = programs.ignored;
-  // @ts-ignore -- ES2019 but I'm too lazy to configure tsserver
   const listed = Object.values(programs.installed).flat();
+
   installed
     .filter((p) => !listed.includes(p) && !ignored.includes(p))
     .forEach((notListed) => console.log(notListed));
