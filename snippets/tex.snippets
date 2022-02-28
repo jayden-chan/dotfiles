@@ -5,10 +5,12 @@ snippet start
 \usepackage{amssymb}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
+\usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
+\usepackage{minted}
 \usepackage{siunitx}
 \usepackage{systeme}
 \usepackage{tabularx}
@@ -16,6 +18,13 @@ snippet start
 
 \usepackage[vlined,ruled]{algorithm2e}
 \usepackage[table]{xcolor}
+
+\usepackage[
+	margin=1in,
+	includefoot,
+	footskip=30pt,
+]{geometry}
+\usepackage{layout}
 
 \hypersetup{
 	colorlinks=true,
@@ -25,12 +34,10 @@ snippet start
 	citecolor=black,
 }
 
-\usepackage[
-	margin=1in,
-	includefoot,
-	footskip=30pt,
-]{geometry}
-\usepackage{layout}
+\setmainfont{Nimbus Roman}
+\setmonofont{JetBrainsMono Nerd Font Mono}[
+	Scale=MatchLowercase
+]
 
 % Bibliography
 % (\printbibliography to print at the end)
@@ -150,10 +157,10 @@ snippet tab
 endsnippet
 
 snippet fig
-		\begin{figure}[H]
-			\begin{center}
-				\caption{${1}}
-				\includegraphics[scale=1.00]{${2}}
-			\end{center}
-		\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\caption{${1}}
+		\includegraphics[width=1.0\textwidth]{${2}}
+	\end{center}
+\end{figure}
 endsnippet
