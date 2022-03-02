@@ -62,11 +62,12 @@ alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 c
 alias myip='curl https://ipinfo.io/ip && echo'
 alias ip='ip -c'
 
-# ls
+# better coreutils
 alias l='exa -a'
 alias ls='exa'
 alias la='exa -lah'
 alias ll='exa -lh'
+alias cat='bat'
 
 # Other
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'

@@ -2,7 +2,7 @@
     "input": {
         "blocklist": [],
         "equalizer": {
-            "input-gain": 0.0,
+            "input-gain": -2.2,
             "left": {
                 "band0": {
                     "frequency": 29.952623149688797,
@@ -16,7 +16,7 @@
                 },
                 "band1": {
                     "frequency": 59.763340205038524,
-                    "gain": 1.25,
+                    "gain": 2.1,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.5047602375372453,
@@ -107,7 +107,7 @@
             },
             "mode": "IIR",
             "num-bands": 10,
-            "output-gain": -2.2,
+            "output-gain": 0.0,
             "right": {
                 "band0": {
                     "frequency": 29.952623149688797,
@@ -121,7 +121,7 @@
                 },
                 "band1": {
                     "frequency": 59.763340205038524,
-                    "gain": 1.25,
+                    "gain": 2.1,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.5047602375372453,
