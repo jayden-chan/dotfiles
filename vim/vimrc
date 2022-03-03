@@ -145,7 +145,7 @@ filetype off
     " Don't open preview windows
     set completeopt-=preview
 
-    " unload and delete the buffer once there are no more 
+    " unload and delete the buffer once there are no more
     " windows referencing it
     set nohidden
 
