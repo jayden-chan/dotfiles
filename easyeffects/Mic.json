@@ -2,7 +2,7 @@
     "input": {
         "blocklist": [],
         "equalizer": {
-            "input-gain": -2.2,
+            "input-gain": 0.2,
             "left": {
                 "band0": {
                     "frequency": 29.952623149688797,
@@ -212,21 +212,7 @@
             },
             "split-channels": false
         },
-        "gate": {
-            "attack": 5.0,
-            "detection": "RMS",
-            "input-gain": 0.0,
-            "knee": 9.0,
-            "makeup": 0.0,
-            "output-gain": 0.0,
-            "range": -95.0,
-            "ratio": 5.0,
-            "release": 230.0,
-            "stereo-link": "Maximum",
-            "threshold": -45.0
-        },
         "plugins_order": [
-            "gate",
             "equalizer"
         ]
     }

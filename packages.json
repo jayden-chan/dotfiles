@@ -34,8 +34,10 @@
       "minecraft-launcher",
       "discord-chat-exporter-cli",
       "zoom",
-      "meshlab-appimage",
-      "dive"
+      "dive",
+      "wireshark-qt",
+      "gnome-sound-recorder",
+      "inkscape"
     ],
     "swift": [
       "alsa-utils",
