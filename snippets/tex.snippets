@@ -48,10 +48,6 @@ snippet start
 %]{biblatex}
 %\addbibresource{bibliography.bib}
 
-\newcommand{\der}[2]{\frac{d#1}{d#2}}
-\newcommand{\dera}[3]{\frac{d#1}{d#2}\rvert_{#3}}
-\newcommand{\Lapl}[1]{\mathscr{L}\left\{#1\right\}}
-
 \title{${1:}}
 \author{Jayden Chan (V00898517)}
 \date{${2:}}
@@ -68,12 +64,8 @@ ${0}
 \end{$1}
 endsnippet
 
-snippet fr
+snippet fr "fraction" i
 \frac{${1:}}{${2:}}
-endsnippet
-
-snippet $fr
-$\frac{${1:}}{${2:}}
 endsnippet
 
 snippet b
@@ -84,20 +76,12 @@ snippet i
 \textit{${0}}
 endsnippet
 
-snippet rm
+snippet rm "normal text" i
 \text{${1:}}
 endsnippet
 
-snippet tt
+snippet tt "monospace text" i
 \texttt{${1:}}
-endsnippet
-
-snippet der
-\der{${1:}}{${2:}}
-endsnippet
-
-snippet dera
-\dera{${1:}}{${2:}}{${3:}}
 endsnippet
 
 snippet fl
@@ -133,8 +117,14 @@ snippet ve
 \cvec{${1:}}
 endsnippet
 
-snippet ml
+snippet ml "math mode" i
 $${0}$
+endsnippet
+
+snippet ma "math block" i
+\[
+	${0}
+\]
 endsnippet
 
 snippet amat
