@@ -58,6 +58,7 @@ filetype off
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         Plug 'plasticboy/vim-markdown'
         Plug 'lifepillar/pgsql.vim'
+        Plug 'jayden-chan/timing-diagram-generator', { 'branch': 'vim-plugin' }
         Plug 'jayden-chan/rust.vim'
         Plug 'baskerville/vim-sxhkdrc'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -402,7 +403,6 @@ filetype off
     " Jump to last known cursor position when opening files
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-    au BufRead,BufNewFile *.tdg setf tdg
     au BufRead,BufNewFile Jenkinsfile setf groovy
     au BufRead,BufNewFile *.graphql setf graphql
 
