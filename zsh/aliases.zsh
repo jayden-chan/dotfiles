@@ -68,6 +68,7 @@ alias ls='exa'
 alias la='exa -lah'
 alias ll='exa -lh'
 alias cat='bat'
+alias bc='bc -l'
 
 # Other
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'

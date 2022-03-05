@@ -59,6 +59,7 @@ filetype off
         Plug 'plasticboy/vim-markdown'
         Plug 'lifepillar/pgsql.vim'
         Plug 'jayden-chan/timing-diagram-generator', { 'branch': 'vim-plugin' }
+        " Plug '~/Dev/Personal/timing-diagram-generator'
         Plug 'jayden-chan/rust.vim'
         Plug 'baskerville/vim-sxhkdrc'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -306,8 +307,10 @@ filetype off
 
     command! -nargs=0 AutoFormat :call CocAction('format')
     autocmd FileType c,cpp,go autocmd BufWritePre <buffer> AutoFormat
-    autocmd FileType javascript,typescript,javascriptreact,typescriptreact autocmd BufWritePre <buffer> AutoFormat
-    autocmd FileType css,scss,json,html,graphql autocmd BufWritePre <buffer> AutoFormat
+
+    command! -nargs=0 Prettier :CocCommand prettier.formatFile
+    autocmd FileType javascript,typescript,javascriptreact,typescriptreact autocmd BufWritePre <buffer> Prettier
+    autocmd FileType css,scss,json,html,graphql autocmd BufWritePre <buffer> Prettier
 
     let g:rooter_patterns = ['.git']
     let g:rooter_manual_only = 1
