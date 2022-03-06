@@ -181,6 +181,14 @@ filetype off
     nmap <c-s> :wa<CR>
     imap <c-s> <Esc>:wa<CR>
 
+    " 'very magic' mode by default
+    nnoremap / /\v
+    vnoremap / /\v
+    cnoremap %s/ %smagic/
+    cnoremap \>s/ \>smagic/
+    nnoremap :g/ :g/\v
+    nnoremap :g// :g//
+
     " Spell check
     map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/.config/dotfiles/vim/en.utf-8.add
