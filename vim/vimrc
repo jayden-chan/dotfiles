@@ -45,6 +45,7 @@ filetype off
         Plug 'hrsh7th/cmp-cmdline'
         Plug 'hrsh7th/nvim-cmp'
         Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+        Plug 'onsails/lspkind-nvim'
 
         Plug 'jiangmiao/auto-pairs'
         Plug 'tpope/vim-commentary'
@@ -141,7 +142,7 @@ filetype off
     " Don't automatically update working dir
     set noautochdir
 
-    " Don't open preview windows
+    " Completion menu settings
     set completeopt=menu,menuone,noselect
 
     " unload and delete the buffer once there are no more
@@ -463,17 +464,61 @@ local on_attach = function(client, bufnr)
   buf_key('n', '<space>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local cmp = require'cmp'
-
 ---             ---
 --- completions ---
 ---             ---
+
+local cmp = require'cmp'
+local lspkind = require'lspkind'
+local kind_icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "ﰠ",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "塞",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "פּ",
+  Event = "",
+  Operator = "",
+  TypeParameter = ""
+}
 
 cmp.setup({
   snippet = {
     expand = function(args)
       vim.fn["UltiSnips#Anon"](args.body)
     end,
+  },
+  preselect = cmp.PreselectMode.None,
+  formatting = {
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      -- Source
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        ultisnips = "[UltiSnips]",
+        buffer = "[Buffer]",
+        cmp_git = "[Git]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end
   },
   mapping = {
     -- Enter immediately completes. C-n/C-p to select.
