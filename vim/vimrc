@@ -37,16 +37,15 @@ filetype off
         Plug 'andweeb/presence.nvim'
 
     " IDE-like
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        let g:coc_global_extensions = [
-                    \ 'coc-tsserver',
-                    \ 'coc-rust-analyzer',
-                    \ 'coc-go',
-                    \ 'coc-clangd',
-                    \ 'coc-json',
-                    \ 'coc-eslint',
-                    \ 'coc-prettier',
-                    \ ]
+        " LSP
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'hrsh7th/cmp-nvim-lsp'
+        Plug 'hrsh7th/cmp-buffer'
+        Plug 'hrsh7th/cmp-git'
+        Plug 'hrsh7th/cmp-path'
+        Plug 'hrsh7th/cmp-cmdline'
+        Plug 'hrsh7th/nvim-cmp'
+        Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
         Plug 'jiangmiao/auto-pairs'
         Plug 'tpope/vim-commentary'
@@ -145,7 +144,7 @@ filetype off
     set noautochdir
 
     " Don't open preview windows
-    set completeopt-=preview
+    set completeopt=menu,menuone,noselect
 
     " unload and delete the buffer once there are no more
     " windows referencing it
@@ -305,12 +304,13 @@ filetype off
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
 
-    command! -nargs=0 AutoFormat :call CocAction('format')
+    command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()
     autocmd FileType c,cpp,go autocmd BufWritePre <buffer> AutoFormat
 
-    command! -nargs=0 Prettier :CocCommand prettier.formatFile
-    autocmd FileType javascript,typescript,javascriptreact,typescriptreact autocmd BufWritePre <buffer> Prettier
-    autocmd FileType css,scss,json,html,graphql autocmd BufWritePre <buffer> Prettier
+    autocmd FileType javascript,typescript,javascriptreact,typescriptreact autocmd BufWritePre <buffer> AutoFormat
+    autocmd FileType css,scss,json,html,graphql autocmd BufWritePre <buffer> AutoFormat
+
+    command! -nargs=0 TSOrganizeImports :lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})
 
     let g:rooter_patterns = ['.git']
     let g:rooter_manual_only = 1
@@ -325,33 +325,6 @@ filetype off
     let g:indentLine_char = '│'
 
     let g:rustfmt_autosave = 1
-
-    nmap <silent> ]e <Plug>(coc-diagnostic-next)
-    nmap <silent> [e <Plug>(coc-diagnostic-prev)
-    nmap <silent> <leader>o <Plug>(coc-definition)
-    nmap <silent> <leader>O :vs<CR><Plug>(coc-definition)
-    nmap <silent> <leader>n <Plug>(coc-references)
-    nmap <silent> <leader>R <Plug>(coc-rename)
-    nmap <silent> <leader>a <Plug>(coc-codeaction)
-
-    nnoremap <silent> <leader>I :CocCommand tsserver.organizeImports<CR>
-
-    " Show documentation in preview window
-    nnoremap <silent> <leader>g :call <SID>show_documentation()<CR>
-
-    function! s:show_documentation()
-        if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-        else
-            call CocAction('doHover')
-        endif
-    endfunction
-
-    " Prevent coc from auto assigning these to stupid binds
-    vmap <silent> <leader>F21 <Plug>(coc-funcobj-i)
-    vmap <silent> <leader>F22 <Plug>(coc-funcobj-a)
-    omap <silent> <leader>F23 <Plug>(coc-funcobj-i)
-    omap <silent> <leader>F24 <Plug>(coc-funcobj-a)
 
     " Make ripgrep fzf search ignore text from filenames (why isn't this the default...?)
     command! -bang -nargs=* Rg call
@@ -417,9 +390,6 @@ filetype off
     autocmd FileType go          setlocal noexpandtab
     autocmd FileType makefile    setlocal noexpandtab
 
-    " Easily open corresponding source file (C/C++)
-    autocmd FileType c,cpp nmap <silent> <leader>v :CocCommand clangd.switchSourceHeader<CR>
-
 " Abbreviations
 
     iab retrun    return
@@ -460,6 +430,181 @@ filetype off
 " Lua plugins config
 
 lua <<EOF
+
+---     ---
+--- LSP ---
+---     ---
+
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<space>H', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_key(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  -- buf_key('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_key('n', '<space>o', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_key('n', '<space>O', '<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_key('n', '<space>g', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  -- buf_key('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  -- buf_key('n', '<space>g', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  -- buf_key('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_key('n', '<space>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_key('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_key('n', '<space>n', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_key('n', '<space>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+end
+
+local cmp = require'cmp'
+
+---             ---
+--- completions ---
+---             ---
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  mapping = {
+    -- Enter immediately completes. C-n/C-p to select.
+    ['<CR>'] = cmp.mapping.confirm({ select = true })
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'ultisnips' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspconfig = require'lspconfig'
+
+---                       ---
+--- Language Server Setup ---
+---                       ---
+
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client, bufnr)
+  end,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+local prettier = {{formatCommand = 'prettierd "${INPUT}"', formatStdin = true}}
+
+lspconfig.efm.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  init_options = {documentFormatting = true},
+  filetypes = {
+      'javascript',
+      'typescript',
+      'html',
+      'css',
+      'scss',
+      'less',
+      'graphql',
+      'markdown',
+      'yaml',
+      'json'
+  },
+  settings = {
+      rootMarkers = {".git/"},
+      languages = {
+        javascript = prettier,
+        typescript = prettier,
+        html = prettier,
+        css = prettier,
+        scss = prettier,
+        less = prettier,
+        graphql = prettier,
+        markdown = prettier,
+        yaml = prettier,
+        json = prettier
+      }
+  }
+}
+
+lspconfig.gopls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+lspconfig.clangd.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+lspconfig.rust_analyzer.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+      completion = {
+        postfix = {
+          enable = false,
+        },
+      },
+    },
+  }
+}
+
+---            ---
+--- Treesitter ---
+---            ---
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash",
@@ -482,10 +627,14 @@ require'nvim-treesitter.configs'.setup {
   highlight = {enable = true},
 }
 
+---                  ---
+--- Discord Presence ---
+---                  ---
+
 require("presence"):setup({
     -- General options
     auto_update         = true,
-    neovim_image_text   = "hyperextensible Vim-based text editor",
+    neovim_image_text   = "extensible Vim-based text editor",
     main_image          = "neovim",
     client_id           = "793271441293967371",
     log_level           = nil,
@@ -503,6 +652,10 @@ require("presence"):setup({
     workspace_text      = "Working on %s",
     line_number_text    = "Line %s/%s",
 })
+
+---           ---
+--- nvim-tree ---
+---           ---
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require'nvim-tree'.setup {

@@ -162,7 +162,11 @@
       "bitwarden-cli",
       "joplin-desktop-bin",
       "sshfs",
-      "nfs-utils"
+      "nfs-utils",
+      "efm-langserver",
+      "typescript-language-server-bin",
+      "prettierd",
+      "gopls"
     ]
   },
   "ignored": [
