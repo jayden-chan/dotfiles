@@ -186,8 +186,6 @@ filetype off
     vnoremap / /\v
     cnoremap %s/ %smagic/
     cnoremap \>s/ \>smagic/
-    nnoremap :g/ :g/\v
-    nnoremap :g// :g//
 
     " Spell check
     map <F6> :setlocal spell! spelllang=en_us<CR>
@@ -545,6 +543,8 @@ lspconfig.efm.setup {
   filetypes = {
       'javascript',
       'typescript',
+      'javascriptreact',
+      'typescriptreact',
       'html',
       'css',
       'scss',
@@ -559,6 +559,8 @@ lspconfig.efm.setup {
       languages = {
         javascript = prettier,
         typescript = prettier,
+        javascriptreact = prettier,
+        typescriptreact = prettier,
         html = prettier,
         css = prettier,
         scss = prettier,
