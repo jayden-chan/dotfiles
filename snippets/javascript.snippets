@@ -109,27 +109,38 @@ snippet st
 const [${1}, set${1/\w+/\u$0/}] = useState(${0});
 endsnippet
 
+snippet htmlEscape
+export function htmlEscape(text: string): string {
+	return text
+		.replace(/&$/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
+}
+endsnippet
+
 snippet hvc
 import React, { useState } from "react";
 
 interface Props {}
 
 const use$1 = (props: Props) => {
-  return {
-    states: {},
-    callbacks: {},
-    data: {},
-    slots: {},
-  };
+	return {
+		states: {},
+		callbacks: {},
+		data: {},
+		slots: {},
+	};
 };
 
 export const $1View = (props: ReturnType<typeof use$1>) => {
-  return (
-    <div>${0}</div>
-  );
+	return (
+		<div>${0}</div>
+	);
 };
 
 export const ${1} = (props: Props) => {
-  return <$1View {...use$1(props)} />;
+	return <$1View {...use$1(props)} />;
 };
 endsnippet
