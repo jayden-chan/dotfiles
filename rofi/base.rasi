@@ -126,9 +126,9 @@ element selected.active {
     background:                     #222222;
     background-alt:                 #222222;
     foreground:                     #FFFCFF;
-    stripe:                         #0f5d9f;
+    stripe:                         #a35a64;
+    border:                         #a35a64;
     stripe-alt:                     #333333;
-    border:                         #0f5d9f;
     search:                         #333333;
     selected:                       #333333;
     urgent:                         #DA4453;
