@@ -1,7 +1,8 @@
 // vim: ft=css
 
 configuration {
-    font:                           "JetBrainsMono Nerd Font Mono 11";
+    /* font:                           "JetBrainsMono Nerd Font Mono 11"; */
+    font:                           "Iosevka Nerd Font Mono 13";
     disable-history:                true;
     tokenize:                       true;
     sidebar-mode:                   false;

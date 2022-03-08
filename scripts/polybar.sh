@@ -13,9 +13,9 @@ monitors=($(polybar -M | cut -d ':' -f 1))
 if [ "$(hostname)" = "swift" ]; then
     echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
     if [[ "${#monitors[@]}" = "1" ]]; then
-        MONITOR=eDP-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
+        MONITOR=eDP-1  polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
     else
-        MONITOR=eDP-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
+        MONITOR=eDP-1  polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar1.log & disown
         MONITOR=HDMI-1 polybar --config="$config_path" laptop 2>&1 | tee -a /tmp/polybar2.log & disown
     fi
 else
