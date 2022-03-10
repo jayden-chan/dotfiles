@@ -2,3 +2,45 @@ snippet zsh
 #!/bin/zsh
 # vim: ft=sh
 endsnippet
+# vim: ft=snippets
+
+snippet argparse
+while test $# -gt 0
+do
+	case "$1" in
+		--flag) echo "flag"
+			;;
+		*) echo "parameter"
+			;;
+	esac
+	shift
+done
+endsnippet
+
+snippet nodes
+node --enable-source-maps --unhandled-rejections=strict
+endsnippet
+
+snippet cpr
+rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh
+endsnippet
+
+snippet mvr
+rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh
+endsnippet
+
+snippet path
+path="/path/to/the/file.txt"
+echo ${path:h}
+# /path/to/the
+echo ${path:t}
+# file.txt
+echo ${path:r}
+# /path/to/the/file
+echo ${path:e}
+# txt
+echo ${path:t:r}
+# file
+echo ${path:s/the/some}
+# /path/to/some/file.txt
+endsnippet

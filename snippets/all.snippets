@@ -68,6 +68,81 @@ snippet cagpl
  */
 endsnippet
 
+snippet today "Current date"
+`date +%Y-%m-%d`
+endsnippet
+
+snippet now "Current date and time"
+`date '+%Y-%m-%d %l:%M:%S %p' | sed -E 's/\s\s+/ /'`
+endsnippet
+
+snippet months
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+endsnippet
+
+snippet monthsshort
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+endsnippet
+
+snippet days
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+endsnippet
+
+snippet daysshort
+Sun
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+endsnippet
+
+snippet "(\d+)(\.{2}\.?)(\d+)" "Number range" r
+`!p
+startN = int(match.group(1))
+endN = int(match.group(3))
+inc = len(match.group(2)) - 2
+ret = ""
+if startN >= (endN + inc):
+	snip.rv = ""
+else:
+	for i in range(startN, endN + inc):
+		ret += str(i)
+		ret += ", "
+
+snip.rv = ret[:-2]
+`
+endsnippet
+
 snippet com "block comment" w
 /**
  * ${0}
