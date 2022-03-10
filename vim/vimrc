@@ -47,7 +47,8 @@ filetype off
         Plug 'quangnguyen30192/cmp-nvim-ultisnips'
         Plug 'onsails/lspkind-nvim'
 
-        Plug 'jiangmiao/auto-pairs'
+        Plug 'windwp/nvim-autopairs'
+        " Plug 'jiangmiao/auto-pairs'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'SirVer/ultisnips'
@@ -464,9 +465,29 @@ local on_attach = function(client, bufnr)
   buf_key('n', '<space>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+  virtual_text = {
+    severity = vim.diagnostic.severity.ERROR
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
 ---             ---
 --- completions ---
 ---             ---
+
+require'nvim-autopairs'.setup{
+  ignored_next_char = ""
+}
 
 local cmp = require'cmp'
 local lspkind = require'lspkind'
