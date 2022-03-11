@@ -4,17 +4,17 @@
 ; ##########################################################
 
 [colors]
-background = #222
+background = #151515
 background-alt = #444
 accent = #fff
 ; icons = #ccc
-icons = #222
+icons = #151515
 transparent = #00222222
 foreground = #bbb
 foreground-alt = #666
 primary = #0086ff
 alert = #fff
-alert-fg = #222
+alert-fg = #151515
 date  = #0086ff
 cpu   = #0086ff
 ram   = #0086ff

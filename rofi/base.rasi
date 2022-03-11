@@ -123,8 +123,8 @@ element selected.active {
 }
 
 * {
-    background:                     #222222;
-    background-alt:                 #222222;
+    background:                     #151515;
+    background-alt:                 #151515;
     foreground:                     #FFFCFF;
     stripe:                         #a35a64;
     border:                         #a35a64;
