@@ -1,10 +1,11 @@
-function op         () { nautilus ${1:-.}       </dev/null &>/dev/null & disown }
+function op         () { nautilus ${1:-.}        </dev/null &>/dev/null & disown }
 function manp       () { zathura =(man -Tpdf $@) </dev/null &>/dev/null & disown }
 function manv       () { man $@ | vim "+runtime! syntax/man.vim" "+set nonumber" "+set norelativenumber" }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
 function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
+function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 
 function gotify-send () {
     if [[ "$GOTIFY_TOKEN" = "" ]]; then
