@@ -32,7 +32,6 @@ alias ivm='vim'
 alias bim='vim'
 alias dw='cd'
 alias cs='cd'
-alias clear='clear -x'
 alias clera='clear'
 alias celar='clear'
 alias clare='clear'
@@ -43,7 +42,6 @@ alias Lq='exit'
 # One letter
 alias y='yarn'
 alias o='xdg-open'
-alias x='xset r rate 270 35'
 alias t='tmux'
 alias c='cargo'
 
@@ -58,15 +56,17 @@ alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window
 alias wgr='sudo wg-quick down wg0 && sudo wg-quick up wg0'
 alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 comment "Comment"'
 alias myip='curl https://ipinfo.io/ip && echo'
-alias ip='ip -c'
 
-# better coreutils
+# better defaults
+alias clear='clear -x'
 alias l='exa -a'
 alias ls='exa'
 alias la='exa -lah'
 alias ll='exa -lh'
 alias cat='bat'
 alias bc='bc -l'
+alias ip='ip -c'
+alias sxiv='sxiv -b'
 
 # Other
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
