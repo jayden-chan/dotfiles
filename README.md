@@ -1,10 +1,13 @@
 # dotfiles
 
-![Busy](https://i.imgur.com/1A3VSa8.png "Busy")
-![Vim](https://i.imgur.com/FggoAOR.png "Vim")
-![Rofi](https://i.imgur.com/MG5dyU0.png "Rofi")
+![Busy](https://i.imgur.com/1hIRJVi.png "Busy")
+![Vim](https://i.imgur.com/V3IAv4G.png "Vim")
+![Rofi](https://i.imgur.com/G5k4le1.png "Rofi")
 
 ## Previous Iterations
+
+### [dab54f2](https://github.com/jayden-chan/dotfiles/tree/dab54f2bf518226d44020d16a69af66e6a36f892)
+![dab54f2](https://i.imgur.com/1A3VSa8.png "dab54f2")
 
 ### [7f4ab02](https://github.com/jayden-chan/dotfiles/tree/7f4ab0257604a52b3f5befe73cf21a5f95a19f54)
 ![7f4ab02](https://i.imgur.com/n3yBxYE.png "7f4ab02")
