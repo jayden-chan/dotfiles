@@ -23,7 +23,6 @@ filetype off
         Plug 'junegunn/fzf'
         Plug 'kyazdani42/nvim-web-devicons'
         Plug 'kyazdani42/nvim-tree.lua'
-        Plug 'airblade/vim-rooter'
 
     " Git
         Plug 'airblade/vim-gitgutter'
@@ -54,7 +53,7 @@ filetype off
         Plug 'SirVer/ultisnips'
 
     " Syntax
-        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+        Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
         Plug 'plasticboy/vim-markdown'
         Plug 'lifepillar/pgsql.vim'
         Plug 'jayden-chan/timing-diagram-generator', { 'branch': 'vim-plugin' }
@@ -134,7 +133,7 @@ filetype off
     " Hide ugly completion messages
     set shortmess+=c
 
-    " Set git-gutter column to always on
+    " Leave signcolumn on so it's not toggling all the time
     set signcolumn=yes
 
     " Don't let the cursor reach the top/bottom 8 lines of text
@@ -186,8 +185,7 @@ filetype off
     " 'very magic' mode by default
     nnoremap / /\v
     vnoremap / /\v
-    cnoremap %s/ %smagic/
-    cnoremap \>s/ \>smagic/
+    cnoremap s/ s/\v
 
     " Spell check
     map <F6> :setlocal spell! spelllang=en_us<CR>
@@ -197,12 +195,6 @@ filetype off
     " Make Esc work in terminal mode, but not for fzf or rg
     tnoremap <Esc> <C-\><C-n>
     autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
-
-    " ez semicolons & commas (perhaps the greatest binds in this entire config)
-    inoremap ;; <Esc>A;
-    nnoremap ;; <Esc>A;<Esc>
-    inoremap ,, <Esc>A,
-    nnoremap ,, <Esc>A,<Esc>
 
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
@@ -302,6 +294,7 @@ filetype off
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
 
+    " nvim-tree
     nnoremap <silent> <C-n> :NvimTreeToggle<CR>
     highlight NvimTreeIndentMarker guifg='#665c54'
     let g:nvim_tree_group_empty = 1
@@ -310,19 +303,16 @@ filetype off
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
 
+    " LSP auto formatting stuff
     command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()
     autocmd FileType c,cpp,go autocmd BufWritePre <buffer> AutoFormat
-
     autocmd FileType javascript,typescript,javascriptreact,typescriptreact autocmd BufWritePre <buffer> AutoFormat
     autocmd FileType css,scss,json,html,graphql autocmd BufWritePre <buffer> AutoFormat
 
     command! -nargs=0 TSOrganizeImports :lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})
 
-    let g:rooter_patterns = ['.git']
-    let g:rooter_manual_only = 1
-
+    " Git gutter
     let g:gitgutter_map_keys = 0
-
     nnoremap <silent> ]c :GitGutterNextHunk<CR>
     nnoremap <silent> [c :GitGutterPrevHunk<CR>
     nnoremap <leader>u   :GitGutterUndoHunk<CR>
@@ -347,8 +337,8 @@ filetype off
     let g:vim_markdown_conceal = 0
     let g:vim_markdown_conceal_code_blocks = 0
 
+    " Tmux
     let g:tmux_navigator_no_mappings = 1
-
     nnoremap <silent> <M-j> :TmuxNavigateLeft<cr>
     nnoremap <silent> <M-k> :TmuxNavigateDown<cr>
     nnoremap <silent> <M-i> :TmuxNavigateUp<cr>
