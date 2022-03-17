@@ -143,6 +143,14 @@ snip.rv = ret[:-2]
 `
 endsnippet
 
+snippet bc "Compute expression with bc" i
+`!p
+import subprocess
+result = subprocess.run(["bc", "-l"], stdout=subprocess.PIPE, text=True, input=snip.v.text)
+snip.rv = result.stdout
+`
+endsnippet
+
 snippet com "block comment" w
 /**
  * ${0}
