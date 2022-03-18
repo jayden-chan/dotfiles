@@ -146,8 +146,11 @@ endsnippet
 snippet bc "Compute expression with bc" i
 `!p
 import subprocess
-result = subprocess.run(["bc", "-l"], stdout=subprocess.PIPE, text=True, input=snip.v.text)
-snip.rv = result.stdout
+result = subprocess.run(["bc", "-l"], capture_output=True, text=True, input=snip.v.text + "\n")
+if result.stderr != "":
+	snip.rv = result.stderr.strip()
+else:
+	snip.rv = snip.v.text + " = " + result.stdout.strip()
 `
 endsnippet
 
