@@ -64,6 +64,9 @@ if [ "$hostname" = "Jaydens-MacBook-Pro.local" ]; then
     export PATH="/usr/local/opt/node@14/bin:$PATH"
     export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 else
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+
     # Ensure GPG sign prompt shows on correct screen
     export GPG_TTY=$(tty)
     gpg-connect-agent updatestartuptty /bye >/dev/null

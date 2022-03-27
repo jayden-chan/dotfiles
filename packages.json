@@ -35,7 +35,8 @@
       "zoom",
       "dive",
       "wireshark-qt",
-      "inkscape"
+      "inkscape",
+      "gnome-keyring"
     ],
     "swift": [
       "alsa-utils",
