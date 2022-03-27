@@ -1,4 +1,4 @@
-#!/usr/bin/dash
+#!/bin/zsh
 
 # https://unix.stackexchange.com/questions/491531/how-to-avoid-mouse-cursor-jumping-while-using-xinput-coordinate-transformation-m
 #
@@ -39,8 +39,8 @@ function mouse_sens () {
     x="2880"
     y="540"
 
-    sx=$(echo "(1 - $s) * $x" | bc -l)
-    sy=$(echo "(1 - $s) * $y" | bc -l)
+    sx=$(bc -l <<< "(1 - $s) * $x")
+    sy=$(bc -l <<< "(1 - $s) * $y")
     xinput --set-prop "$id" 'Coordinate Transformation Matrix' "$s" 0 "$sx" 0 "$s" "$sy" 0 0 1
     xinput --set-prop "$id" 'libinput Accel Speed' -1
 }
