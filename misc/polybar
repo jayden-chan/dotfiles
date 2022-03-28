@@ -79,6 +79,7 @@ width = 1891
 
 [bar/right]
 inherit = bar/base
+modules-left = padding arch-logo padding bspwm padding mpris
 width = 1251
 
 [bar/center]
