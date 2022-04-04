@@ -24,6 +24,7 @@
       "borg",
       "perf",
       "vala",
+      "code",
       "android-studio",
       "sane",
       "imagescan",
@@ -34,8 +35,7 @@
       "discord-chat-exporter-cli",
       "zoom",
       "dive",
-      "inkscape",
-      "gnome-keyring"
+      "inkscape"
     ],
     "swift": [
       "alsa-utils",
@@ -130,7 +130,6 @@
       "fd",
       "webp-pixbuf-loader",
       "rust-analyzer",
-      "code",
       "fzf",
       "rsync",
       "yaru-colors-gtk-theme",
@@ -166,7 +165,8 @@
       "efm-langserver",
       "typescript-language-server-bin",
       "prettierd",
-      "gopls"
+      "gopls",
+      "gnome-keyring"
     ]
   },
   "ignored": [
