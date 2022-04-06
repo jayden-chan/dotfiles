@@ -34,7 +34,7 @@
       "minecraft-launcher",
       "discord-chat-exporter-cli",
       "zoom",
-      "dive",
+      "dive-bin",
       "inkscape"
     ],
     "swift": [
@@ -154,7 +154,7 @@
       "zbar",
       "flashfocus",
       "git-delta",
-      "python-dbus",
+      "dbus-python",
       "mpv",
       "pipewire-pulse",
       "wireguard-tools",
