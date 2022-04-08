@@ -30,15 +30,17 @@ set recolor-darkcolor           "#ebdbb2"
 
 set selection-clipboard clipboard
 set statusbar-home-tilde true
-set guioptions none
+set guioptions vh
+set scroll-step 100
+set scroll-page-aware true
 set page-padding 8
 
 map j scroll left
 map i scroll up
 map k scroll down
 
-map K navigate next
-map I navigate previous
+map K scroll half-down
+map I scroll half-up
 
 map <Right> navigate next
 map <Left> navigate previous
