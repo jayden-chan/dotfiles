@@ -34,6 +34,7 @@ filetype off
         Plug 'editorconfig/editorconfig-vim'
         Plug 'christoomey/vim-tmux-navigator'
         Plug 'andweeb/presence.nvim'
+        Plug 'mbbill/undotree'
 
     " IDE-like
         Plug 'neovim/nvim-lspconfig'
@@ -208,6 +209,9 @@ filetype off
     nnoremap <silent> <leader>f :FZ<CR>
     nnoremap <silent> <leader>r :Rg<CR>
     nnoremap <silent> <leader>b :Buffers<CR>
+
+    " Undo tree
+    nnoremap <silent> <leader>U :UndotreeToggle<CR>
 
     " Remap cursor movement keys because I'm a scrub and don't use the default
     noremap h i
