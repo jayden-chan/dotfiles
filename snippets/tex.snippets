@@ -58,6 +58,33 @@ ${0}
 \end{document}
 endsnippet
 
+snippet titlepage
+\begin{titlepage}
+	% ${1:institution}
+	% ${2:faculty}
+	% ${3:topic}
+	% ${4:project}
+	% ${5:title}
+	% ${6:author}
+	% ${7:author line 2}
+	% ${8:date}
+	\centering
+	{\scshape\huge ${1/.*/\U$0\E/}\par}
+	\vspace{1cm}
+	{\scshape\LARGE ${2/.*/\U$0\E/}\par}
+	{\Large $3\par}
+	\vspace{1.5cm}
+	{\Large $4\par}
+	\vspace{2cm}
+	{\huge\bfseries \emph{$5}\par}
+	\vspace{2cm}
+	{\Large\itshape $6\par}
+	{\Large $7\par}
+	\vfill
+	{\large $8\par}
+\end{titlepage}
+endsnippet
+
 snippet beg
 \begin{${1:}}
 ${0}
