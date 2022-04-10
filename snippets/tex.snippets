@@ -73,7 +73,40 @@ snippet titlepage
 	\centering
 	{\scshape\huge ${1/.*/\U$0\E/}\par}
 	\vspace{1cm}
-	{\scshape\LARGE ${2/.*/\U$0\E/}\par}
+	`!p
+ret = ""
+acc = ""
+for char in t[2]:
+	if char == " ":
+		if acc != "":
+			if acc[0].islower():
+				ret += "{\Large " + acc.upper() + "}"
+			elif acc[0].isupper():
+				ret += "{\LARGE " + acc.upper() + "}"
+			acc = ""
+
+		ret += " "
+	elif char.islower():
+		if acc != "" and acc[0].isupper():
+			ret += "{\LARGE " + acc.upper() + "}"
+			acc = ""
+
+		acc += char
+	else:
+		if acc != "" and acc[0].islower():
+			ret += "{\Large " + acc.upper() + "}"
+			acc = ""
+
+		acc += char
+
+if acc != "":
+	if acc[0].islower():
+		ret += "{\Large " + acc.upper() + "}"
+	elif acc[0].isupper():
+		ret += "{\LARGE " + acc.upper() + "}"
+ret += '\par'
+snip.rv = ret
+	`
 	{\Large $3\par}
 	\vspace{1.5cm}
 	{\Large $4\par}
