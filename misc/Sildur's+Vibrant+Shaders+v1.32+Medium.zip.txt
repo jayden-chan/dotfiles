@@ -1,0 +1,26 @@
+#Sun Apr 17 23:39:52 PDT 2022
+shadowDistance=70.0
+smoothDof=false
+Waving_Entities=false
+emissive_R=1.10
+waves_amplitude=1.25
+Godrays_Density=2.3
+morningFog=true
+waterA=4.5
+Waving_Vines=false
+waveSize=1.5
+Waving_Grass=false
+uwatertint=false
+waterCG=0.0
+waterCB=0.0
+Waving_Lilypads=false
+iceRefl=false
+bloom_strength=0.5
+Rain_Drops=false
+TAA=false
+Waving_Lanterns=false
+Underwater_Fog=false
+Waving_Leaves=false
+Waving_Tallgrass=false
+emissive_B=0.185
+emissive_G=0.55
