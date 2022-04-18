@@ -12,7 +12,6 @@
       "arm-none-eabi-gcc",
       "img2pdf",
       "linux-lts-headers",
-      "jre-openjdk-headless",
       "docker",
       "docker-compose",
       "obs-studio",
@@ -35,7 +34,10 @@
       "discord-chat-exporter-cli",
       "zoom",
       "dive-bin",
-      "inkscape"
+      "inkscape",
+      "ttf-ibm-plex",
+      "pandoc",
+      "evince"
     ],
     "swift": [
       "alsa-utils",
@@ -123,8 +125,6 @@
       "openbsd-netcat",
       "gvfs-mtp",
       "spotify",
-      "jre11-openjdk",
-      "jdk11-openjdk",
       "inotify-tools",
       "python-pynvim",
       "fd",
@@ -166,7 +166,10 @@
       "typescript-language-server-bin",
       "prettierd",
       "gopls",
-      "gnome-keyring"
+      "gnome-keyring",
+      "jre-openjdk-headless",
+      "jre-openjdk",
+      "jdk-openjdk"
     ]
   },
   "ignored": [
