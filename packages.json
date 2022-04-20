@@ -169,7 +169,8 @@
       "gnome-keyring",
       "jre-openjdk-headless",
       "jre-openjdk",
-      "jdk-openjdk"
+      "jdk-openjdk",
+      "bottom"
     ]
   },
   "ignored": [
