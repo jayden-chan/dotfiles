@@ -37,7 +37,9 @@
       "inkscape",
       "ttf-ibm-plex",
       "pandoc",
-      "evince"
+      "evince",
+      "libva-vdpau-driver-chromium",
+      "steam"
     ],
     "swift": [
       "alsa-utils",

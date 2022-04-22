@@ -58,8 +58,14 @@ fi
 pgrep -x sxhkd > /dev/null || nitrogen --restore &
 
 if [ "$HOSTNAME" = "grace" ]; then
-    pgrep -x Discord     > /dev/null || discord &
     pgrep -x easyeffects > /dev/null || easyeffects &
+    pgrep -x Discord     > /dev/null || discord \
+        --ignore-gpu-blocklist \
+        --disable-features=UseOzonePlatform \
+        --enable-features=VaapiVideoDecoder \
+        --use-gl=desktop \
+        --enable-gpu-rasterization \
+        --enable-zero-copy &
 else
     (killall nm-applet; sleep 0.3; nm-applet) &
     (killall pasystray; sleep 0.3; pasystray) &
