@@ -172,7 +172,8 @@
       "jre-openjdk-headless",
       "jre-openjdk",
       "jdk-openjdk",
-      "bottom"
+      "bottom",
+      "shellcheck"
     ]
   },
   "ignored": [

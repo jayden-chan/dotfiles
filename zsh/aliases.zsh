@@ -45,11 +45,6 @@ alias o='xdg-open'
 alias t='tmux'
 alias c='cargo'
 
-# Good compression/archive settings
-alias compress='tar c -I"xz -T 0 -7" -f'
-alias archive='tar c -I"xz -T 0 -0" -f'
-alias decompress='tar xfJ'
-
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
 alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh'

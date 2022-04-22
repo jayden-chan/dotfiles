@@ -7,6 +7,11 @@ function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|rem
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 
+# Good compression/archive settings
+function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
+function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
+alias decompress='tar xfJ'
+
 function gotify-send () {
     if [[ "$GOTIFY_TOKEN" = "" ]]; then
         echo "no token"

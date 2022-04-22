@@ -1,6 +1,6 @@
 #!/usr/bin/dash
 
-is_minecraft=$(xdotool getwindowname $(xdotool getwindowfocus) | rg --ignore-case "minecraft")
+is_minecraft=$(xdotool getwindowname $(xdotool getwindowfocus) | rg --ignore-case "(minecraft)|(Team Fortress 2)")
 
 # don't open rofi while in minecraft
 if [ "$is_minecraft" != "" ]; then
