@@ -43,6 +43,7 @@ bspc rule -a Sxiv                   state=floating
 bspc rule -a Zathura                state=tiled
 bspc rule -a *:*:xyz.jaydenchan.cal state=floating
 bspc rule -a mpv                    state=floating
+bspc rule -a origin.exe             state=floating
 
 if [ "$HOSTNAME" = "grace" ]; then
     bspc rule -a easyeffects desktop='DVI-D-0:^9'

@@ -1,12 +1,5 @@
 #!/usr/bin/dash
 
-is_minecraft=$(xdotool getwindowname $(xdotool getwindowfocus) | rg --ignore-case "(minecraft)|(Team Fortress 2)")
-
-# don't open rofi while in minecraft
-if [ "$is_minecraft" != "" ]; then
-    exit
-fi
-
 if [ "$1" = "--normal" ]; then
     rofi -modi drun -show drun -theme drun
 elif [ "$1" = "--power" ]; then

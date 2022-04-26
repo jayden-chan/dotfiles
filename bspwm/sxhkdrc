@@ -5,7 +5,7 @@
 alt + Return
     /usr/local/bin/st
 
-ctrl + ~space
+alt + space
     $HOME/.config/dotfiles/scripts/rofi.sh --normal
 
 ctrl + alt + Delete

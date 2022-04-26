@@ -39,7 +39,12 @@
       "pandoc",
       "evince",
       "libva-vdpau-driver-chromium",
-      "steam"
+      "steam",
+      "lutris",
+      "wine",
+      "wine-gecko",
+      "wine-mono",
+      "dxvk-bin"
     ],
     "swift": [
       "alsa-utils",
