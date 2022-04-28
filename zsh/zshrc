@@ -3,7 +3,7 @@ DEFAULT_USER="jayden"
 hostname="$(hostname)"
 
 # zsh-z, must be loaded before completion stuff
-[[ "$hostname" != "Jaydens-MacBook-Pro.local" ]] && source $HOME/.local/share/zsh-z.plugin.zsh
+source $HOME/.local/share/zsh-z.plugin.zsh
 
 ##########################################################
 #                       completion                       #
@@ -114,11 +114,7 @@ source $DOT/zsh/git.zsh
 source $DOT/zsh/dotenv.zsh
 
 # syntax highlighting, must be loaded last
-if [ "$hostname" != "Jaydens-MacBook-Pro.local" ]; then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # initialize starship prompt
 eval "$(starship init zsh)"
