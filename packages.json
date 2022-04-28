@@ -32,7 +32,6 @@
       "yt-dlp",
       "minecraft-launcher",
       "discord-chat-exporter-cli",
-      "zoom",
       "dive-bin",
       "inkscape",
       "ttf-ibm-plex",
@@ -44,7 +43,8 @@
       "wine",
       "wine-gecko",
       "wine-mono",
-      "dxvk-bin"
+      "dxvk-bin",
+      "proton-ge-custom-bin"
     ],
     "swift": [
       "alsa-utils",
@@ -178,7 +178,8 @@
       "jre-openjdk",
       "jdk-openjdk",
       "bottom",
-      "shellcheck"
+      "shellcheck",
+      "wireplumber"
     ]
   },
   "ignored": [
