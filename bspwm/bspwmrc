@@ -59,7 +59,6 @@ fi
 pgrep -x sxhkd > /dev/null || nitrogen --restore &
 
 if [ "$HOSTNAME" = "grace" ]; then
-    pgrep -x easyeffects > /dev/null || easyeffects &
     pgrep -x Discord     > /dev/null || discord \
         --ignore-gpu-blocklist \
         --disable-features=UseOzonePlatform \
@@ -79,7 +78,7 @@ fi
 
 sh $DOTS/scripts/inputs.sh &
 sh $DOTS/scripts/polybar.sh &
-xset r rate 270 35 &
+sh $DOTS/scripts/eq.sh &
 
 for monitor in $(bspc query -M); do
     bspc monitor $monitor -d 1 2 3 4 5 6 7 8 9
