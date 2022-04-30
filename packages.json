@@ -44,7 +44,8 @@
       "wine-gecko",
       "wine-mono",
       "dxvk-bin",
-      "proton-ge-custom-bin"
+      "proton-ge-custom-bin",
+      "pipewire-jack"
     ],
     "swift": [
       "alsa-utils",
@@ -179,7 +180,8 @@
       "jdk-openjdk",
       "bottom",
       "shellcheck",
-      "wireplumber"
+      "wireplumber",
+      "helvum"
     ]
   },
   "ignored": [
