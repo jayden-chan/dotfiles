@@ -3,7 +3,7 @@
 if [ "$1" = "--normal" ]; then
     rofi -modi drun -show drun -theme drun
 elif [ "$1" = "--power" ]; then
-    result=$(cat $HOME/.config/dotfiles/rofi/powermenu | rofi -dmenu -i -theme power)
+    result=$(< "$HOME/.config/dotfiles/rofi/powermenu" rofi -dmenu -i -theme power)
 
     case $result in
         logout)   bspc quit ;;
@@ -27,4 +27,20 @@ elif [ "$1" = "--save-screenshot" ]; then
         xclip -selection clipboard -t image/png -o > "$file"
         notify-send -i "$file" "Maim" "Screenshot saved to $result.png"
     fi
+elif [ "$1" = "--eq" ]; then
+    result=$(
+            ls "$HOME/.config/dotfiles/pipewire" |
+            sed -E 's|.conf||g' |
+            sed -E 's|_| |g' |
+            rofi -dmenu -i -theme eq -p "Select EQ Profile:"
+        )
+
+    if [ "$result" = "" ]; then
+        exit
+    fi
+
+    notify-send "Pipewire EQ" "Activiating EQ profile: $result"
+
+    final_result=$(echo "$result" | sed -E 's| |_|g')
+    "$HOME/.config/dotfiles/scripts/eq.sh" "$final_result"
 fi

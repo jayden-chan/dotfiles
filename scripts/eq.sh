@@ -1,5 +1,13 @@
 #!/usr/bin/dash
 
+prev="None"
+prev_file="$HOME/.local/state/eq.txt"
+if [ -f "$prev_file" ]; then
+    prev=$(cat "$prev_file" | tr -d '\n')
+fi
+
+eq=${1:-$prev}
+
 existing_pid=$(ps -ax | rg "(\d+) (?:.*) pipewire -c /home/jayden/\.config/dotfiles/pipewire/(.*)\.conf" --only-matching --replace='$1')
 
 if [ "$existing_pid" != "" ]; then
@@ -9,12 +17,13 @@ if [ "$existing_pid" != "" ]; then
     sleep 0.2
 fi
 
-echo "Starting EQ $1"
-pipewire -c ~/.config/dotfiles/pipewire/"$1".conf &
+echo "Starting EQ $eq"
+pipewire -c ~/.config/dotfiles/pipewire/"$eq".conf &
 sleep 0.2
 pactl set-default-sink "effect_input.eq"
+echo "$eq" > $prev_file
 
-hostname=$(hostname)
+# hostname=$(hostname)
 
 # if [ "$hostname" = "grace" ]; then
 #     echo "Linking EQ -> FiiO E10 USB DAC"

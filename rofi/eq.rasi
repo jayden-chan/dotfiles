@@ -1,0 +1,28 @@
+// vim: ft=css
+
+configuration {
+    font:                           "Nimbus Sans 11";
+    disable-history:                true;
+    tokenize:                       true;
+    sidebar-mode:                   false;
+    scroll-method:                  1;
+}
+
+@import "base.rasi"
+//;
+
+entry {
+    placeholder:                    "";
+}
+
+listview {
+    columns:                        1;
+}
+
+element {
+    padding:                        1% 0% 2% 0%;
+}
+
+element-icon {
+    size:                           0px;
+}
