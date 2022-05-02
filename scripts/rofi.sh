@@ -29,7 +29,8 @@ elif [ "$1" = "--save-screenshot" ]; then
     fi
 elif [ "$1" = "--eq" ]; then
     result=$(
-            ls "$HOME/.config/dotfiles/pipewire" |
+            ls "$HOME"/.config/dotfiles/pipewire/sink-* |
+            sed -E 's|.*sink-||g' |
             sed -E 's|.conf||g' |
             sed -E 's|_| |g' |
             rofi -dmenu -i -theme eq -p "Select EQ Profile:"

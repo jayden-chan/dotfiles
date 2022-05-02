@@ -119,7 +119,6 @@
       "pdftk",
       "texlive-core",
       "watchman-bin",
-      "easyeffects",
       "reflector",
       "iperf3",
       "clang",
@@ -181,7 +180,8 @@
       "bottom",
       "shellcheck",
       "wireplumber",
-      "helvum"
+      "helvum",
+      "tap-plugins"
     ]
   },
   "ignored": [

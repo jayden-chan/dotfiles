@@ -41,7 +41,7 @@ context.modules = [
 
     { name = libpipewire-module-session-manager }
 
-        { name = libpipewire-module-filter-chain
+    { name = libpipewire-module-filter-chain
         args = {
             node.description = "${process.argv[3]} Equalizer Sink"
             media.name       = "${process.argv[3]} Equalizer Sink"
