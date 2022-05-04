@@ -183,7 +183,8 @@
       "wireplumber",
       "helvum",
       "tap-plugins",
-      "gedit"
+      "gedit",
+      "xorg-xauth"
     ]
   },
   "ignored": [
