@@ -82,6 +82,10 @@ snippet now "Current date and time"
 `date '+%Y-%m-%d %l:%M:%S %p' | sed -E 's/\s\s+/ /'`
 endsnippet
 
+snippet rand "Random string" i
+`< /dev/random tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`
+endsnippet
+
 snippet months
 January
 February
