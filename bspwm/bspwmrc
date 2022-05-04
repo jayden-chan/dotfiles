@@ -65,7 +65,9 @@ if [ "$HOSTNAME" = "grace" ]; then
         --enable-features=VaapiVideoDecoder \
         --use-gl=desktop \
         --enable-gpu-rasterization \
-        --enable-zero-copy & > /tmp/discord-stdout.log
+        --enable-zero-copy > /tmp/discord-stdout.log 2>&1 &
+
+    sh $DOTS/scripts/eq.sh --mic &
 else
     (killall nm-applet; sleep 0.3; nm-applet) &
     (killall pasystray; sleep 0.3; pasystray) &
