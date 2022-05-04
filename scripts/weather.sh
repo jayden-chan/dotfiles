@@ -8,9 +8,13 @@ browser=${BROWSER:-firefox}
 
 if [ "$1" = "--open" ]; then $browser https://openweathermap.org/city/$city; exit; fi
 if [ -z "$WEATHER_TOKEN" ]; then echo "No weather token"; exit 1; fi
-if [ -z "$HA_TOKEN" ]; then echo "No HA token"; exit 1; fi
+
+if [ -z "$HA_TOKEN" ]; then
+    indoor_temp=""
+else
+    indoor_temp=" ($(ha desk_temp) C)"
+fi
 
 url="api.openweathermap.org/data/2.5/weather?id=$city&units=metric&appid=$WEATHER_TOKEN"
 weather=$(curl --silent "$url" | jq -r '"\(.weather[0].description), \(.main.feels_like | round)C"')
-indoor_temp=$(ha desk_temp)
-echo "$weather ($indoor_temp C)"
+echo "$weather$indoor_temp"

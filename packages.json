@@ -45,7 +45,8 @@
       "wine-mono",
       "dxvk-bin",
       "proton-ge-custom-bin",
-      "pipewire-jack"
+      "pipewire-jack",
+      "thunderbird"
     ],
     "swift": [
       "alsa-utils",
