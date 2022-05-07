@@ -45,8 +45,7 @@
       "wine-mono",
       "dxvk-bin",
       "proton-ge-custom-bin",
-      "pipewire-jack",
-      "thunderbird"
+      "pipewire-jack"
     ],
     "swift": [
       "alsa-utils",
@@ -184,7 +183,8 @@
       "helvum",
       "tap-plugins",
       "gedit",
-      "xorg-xauth"
+      "xorg-xauth",
+      "thunderbird"
     ]
   },
   "ignored": [

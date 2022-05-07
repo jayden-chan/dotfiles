@@ -302,7 +302,6 @@ filetype off
     nnoremap <silent> <C-n> :NvimTreeToggle<CR>
     highlight NvimTreeIndentMarker guifg='#665c54'
     let g:nvim_tree_group_empty = 1
-    let g:nvim_tree_indent_markers = 1
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
@@ -731,7 +730,6 @@ require'nvim-tree'.setup {
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
-  auto_close          = false,
   open_on_tab         = false,
   update_to_buf_dir   = {
     enable = true,
@@ -739,6 +737,20 @@ require'nvim-tree'.setup {
   },
   hijack_cursor       = false,
   update_cwd          = false,
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+    }
+  },
   filters = {
     dotfiles = true,
     custom   = {
@@ -751,7 +763,6 @@ require'nvim-tree'.setup {
       'Cargo.lock',
     },
   },
-  hide_dotfiles       = true,
   update_focused_file = {
     enable      = false,
     update_cwd  = false,
@@ -761,7 +772,6 @@ require'nvim-tree'.setup {
     cmd  = nil,
     args = {}
   },
-
   view = {
     width = 35,
     height = 30,
