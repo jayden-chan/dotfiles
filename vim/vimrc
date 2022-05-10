@@ -534,10 +534,10 @@ cmp.setup({
       return vim_item
     end
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     -- Enter immediately completes. C-n/C-p to select.
     ['<CR>'] = cmp.mapping.confirm({ select = false })
-  },
+  }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
