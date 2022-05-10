@@ -39,6 +39,14 @@ Host git.engr.uvic.ca
 Host gitlab.csc.uvic.ca
     IdentityFile ~/.ssh/engr_gitlab
 
+Host engrlab
+    Hostname ugls41.ece.uvic.ca
+    User jaydenc7
+    ForwardX11 yes
+    ControlPath ~/.ssh/engrlab.socket
+    ControlMaster auto
+    ControlPersist 300m
+
 Host *
     ForwardX11 no
     IdentitiesOnly yes
