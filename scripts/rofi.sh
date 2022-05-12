@@ -1,9 +1,17 @@
 #!/usr/bin/dash
 
+[ -e "$HOME/.config/ENV" ] && . $HOME/.config/ENV
+
+if [ "$STRIPE_COLOR" != "" ] && [ "$BORDER_COLOR" != "" ]; then
+    rofi_theme="* { stripe: $STRIPE_COLOR; border: $BORDER_COLOR; }"
+else
+    rofi_theme=""
+fi
+
 if [ "$1" = "--normal" ]; then
-    rofi -modi drun -show drun -theme drun
+    rofi -modi drun -show drun -theme drun -theme-str "$rofi_theme"
 elif [ "$1" = "--power" ]; then
-    result=$(< "$HOME/.config/dotfiles/rofi/powermenu" rofi -dmenu -i -theme power)
+    result=$(< "$HOME/.config/dotfiles/rofi/powermenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme")
 
     case $result in
         logout)   bspc quit ;;
@@ -12,7 +20,7 @@ elif [ "$1" = "--power" ]; then
         shutdown) shutdown --poweroff now ;;
     esac
 elif [ "$1" = "--save-screenshot" ]; then
-    result=$(rofi -dmenu -i -theme screenshot -p "file name:")
+    result=$(rofi -dmenu -i -theme screenshot -p "file name:" -theme-str "$rofi_theme")
 
     if [ "$result" = "" ]; then
         notify-send "Maim" "Screenshot not saved"
@@ -33,7 +41,7 @@ elif [ "$1" = "--eq" ]; then
             sed -E 's|.*sink-||g' |
             sed -E 's|.conf||g' |
             sed -E 's|_| |g' |
-            rofi -dmenu -i -theme eq -p "Select EQ Profile:"
+            rofi -dmenu -i -theme eq -p "Select EQ Profile:" -theme-str "$rofi_theme"
         )
 
     if [ "$result" = "" ]; then
