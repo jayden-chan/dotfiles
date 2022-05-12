@@ -48,7 +48,8 @@
       "pipewire-jack",
       "boost",
       "cgal",
-      "lcov"
+      "lcov",
+      "zoom"
     ],
     "swift": [
       "alsa-utils",
@@ -187,7 +188,8 @@
       "tap-plugins",
       "gedit",
       "xorg-xauth",
-      "thunderbird"
+      "thunderbird",
+      "hyperfine"
     ]
   },
   "ignored": [
