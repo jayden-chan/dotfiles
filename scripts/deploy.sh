@@ -53,9 +53,6 @@ ln -fs ~/.config/dotfiles/mpv/input.conf         ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
-ln -fs ~/.config/dotfiles/easyeffects/HE400.json ~/.config/easyeffects/output/HE400i\ oratory1900.json
-ln -fs ~/.config/dotfiles/easyeffects/QC35.json  ~/.config/easyeffects/output/QC35\ Wired\ Active.json
-ln -fs ~/.config/dotfiles/easyeffects/Mic.json   ~/.config/easyeffects/input/Mic.json
 
 if [ "$1" = "--full" ]; then
     cp ~/.config/dotfiles/misc/npmrc             ~/.config/npm/
