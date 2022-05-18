@@ -68,6 +68,10 @@ snippet cagpl
  */
 endsnippet
 
+snippet lic
+`cat "$(git rev-parse --show-toplevel || echo .)"/.lic`
+endsnippet
+
 snippet js
 #!/usr/bin/env node
 // vim: foldmethod=marker

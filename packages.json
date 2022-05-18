@@ -45,7 +45,6 @@
       "dxvk-bin",
       "proton-ge-custom-bin",
       "pipewire-jack",
-      "boost",
       "cgal",
       "lcov",
       "zoom"
@@ -68,6 +67,7 @@
       "insomnia-bin",
       "git-extras",
       "xcolor",
+      "boost",
       "gimp",
       "go",
       "nautilus",
