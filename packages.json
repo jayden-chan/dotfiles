@@ -1,7 +1,6 @@
 {
   "installed": {
     "grace": [
-      "nvidia-lts",
       "dfu-programmer",
       "dfu-util",
       "nvidia-settings",
@@ -47,7 +46,8 @@
       "pipewire-jack",
       "cgal",
       "lcov",
-      "zoom"
+      "zoom",
+      "nvidia-dkms"
     ],
     "swift": [
       "alsa-utils",
