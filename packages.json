@@ -96,6 +96,7 @@
       "exa",
       "imagemagick",
       "biber",
+      "lld",
       "unzip",
       "openssh",
       "graphviz",
