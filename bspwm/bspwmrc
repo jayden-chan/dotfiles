@@ -89,4 +89,3 @@ done
 pgrep -x sxhkd      > /dev/null || sxhkd -c $DOTS/bspwm/sxhkdrc &
 pgrep -x dunst      > /dev/null || dunst -config $DOTS/misc/dunstrc &
 pgrep -x picom      > /dev/null || picom --config $DOTS/misc/picom.conf &
-pgrep -x flashfocus > /dev/null || flashfocus &
