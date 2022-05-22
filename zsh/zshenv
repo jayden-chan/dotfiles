@@ -16,6 +16,7 @@ export WGETRC="$HOME"/.config/wget/wgetrc
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRIPHOME="$XDG_CONFIG_HOME"/grip
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
@@ -28,6 +29,7 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export ZDOTDIR="$HOME"/.config/zsh
 
@@ -60,8 +62,10 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 if [ "$hostname" = "swift" ] || [ "$hostname" = "grace" ]; then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
+    if [ -n "$DESKTOP_SESSION" ];then
+        eval $(gnome-keyring-daemon --start 2>/dev/null)
+        export SSH_AUTH_SOCK
+    fi
 
     # Ensure GPG sign prompt shows on correct screen
     export GPG_TTY=$(tty)
