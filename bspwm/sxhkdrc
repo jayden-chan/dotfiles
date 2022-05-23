@@ -36,6 +36,9 @@ super + shift + k
 super + w
     $HOME/Downloads/mc/gold_craft.sh
 
+# Mute mic
+alt + e
+    xdotool key F13
 
 ##########################################################
 #                      Screenshots                       #

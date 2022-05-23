@@ -35,7 +35,7 @@
       "libva-vdpau-driver-chromium",
       "steam",
       "lutris",
-      "wine",
+      "wine-staging",
       "wine-gecko",
       "wine-mono",
       "dxvk-bin",
