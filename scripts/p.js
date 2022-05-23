@@ -36,7 +36,7 @@ function writeProgramsList(programs) {
 
 function checkBootMount() {
   const mountInfo = readFileSync("/proc/mounts", { encoding: "ascii" });
-  const isMounted = /\/dev\/sd\w\d \/boot/.test(mountInfo);
+  const isMounted = /\/dev\/\w+ \/boot /.test(mountInfo);
   return new Promise((resolve) => {
     if (isMounted) {
       resolve(true);

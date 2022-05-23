@@ -1,6 +1,7 @@
 #!/usr/bin/dash
 
 if [ "$1" = "--env" ]; then
+    mkdir -p ~/.config/zsh
     ln -fs ~/.config/dotfiles/zsh/zshenv ~/.config/zsh/.zshenv
     ln -fs ~/.config/dotfiles/zsh/zshenv ~/.xprofile
     exit

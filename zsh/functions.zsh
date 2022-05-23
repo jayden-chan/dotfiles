@@ -50,14 +50,15 @@ function bwg () {
 }
 
 function setwall () {
-    chosen_wall=$(sudo fd . ${1:-.} -e png -e jpg -e jpeg -e webp | sxiv - -t -o)
+    chosen_wall=$(fd . ${1:-.} -e png -e jpg -e jpeg -e webp | sxiv - -t -o)
     if [ "$chosen_wall" = "" ]; then
         echo "no image chosen"
     else
         nitrogen --set-zoom-fill --save "$chosen_wall" --head=0 2>/dev/null
         nitrogen --set-zoom-fill --save "$chosen_wall" --head=1 2>/dev/null
         nitrogen --set-zoom-fill --save "$chosen_wall" --head=2 2>/dev/null
-        sudo cp "$chosen_wall" /usr/share/backgrounds/wall
+        cp "$chosen_wall" /usr/share/backgrounds/wall
+        chmod 777 /usr/share/backgrounds/wall
     fi
 }
 
