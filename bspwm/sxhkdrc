@@ -97,8 +97,14 @@ alt + {t,shift + t,f,s}
 # toggle borderless mode
 alt + shift + f
     case $(bspc config window_gap) in \
-      0) bspc config window_gap 24 ;; \
-      *) bspc config window_gap 0  ;; \
+      0) bspc config window_gap 10; \
+         bspc config right_padding 14; \
+         bspc config bottom_padding 14; \
+         bspc config left_padding 14 ;; \
+      *) bspc config window_gap 0; \
+         bspc config right_padding 0; \
+         bspc config bottom_padding 0; \
+         bspc config left_padding 0 ;; \
     esac
 
 # set the node flags
