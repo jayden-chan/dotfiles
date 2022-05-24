@@ -118,6 +118,16 @@
       "valgrind",
       "pdftk",
       "texlive-core",
+      "texlive-bibtexextra",
+      "texlive-fontsextra",
+      "texlive-formatsextra",
+      "texlive-games",
+      "texlive-humanities",
+      "texlive-music",
+      "texlive-pictures",
+      "texlive-pstricks",
+      "texlive-publishers",
+      "texlive-science",
       "watchman-bin",
       "reflector",
       "iperf3",
@@ -185,7 +195,8 @@
       "man-db",
       "man-pages",
       "hyperfine",
-      "gnu-free-fonts"
+      "gnu-free-fonts",
+      "python-grip"
     ]
   },
   "ignored": [
@@ -221,16 +232,6 @@
     "nano",
     "networkmanager",
     "refind",
-    "texlive-bibtexextra",
-    "texlive-fontsextra",
-    "texlive-formatsextra",
-    "texlive-games",
-    "texlive-humanities",
-    "texlive-music",
-    "texlive-pictures",
-    "texlive-pstricks",
-    "texlive-publishers",
-    "texlive-science",
     "vi",
     "yarn",
     "zsh"
