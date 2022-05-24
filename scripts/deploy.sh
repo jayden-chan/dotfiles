@@ -16,6 +16,7 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/tmux    2>/dev/null
     rm -rf ~/.config/zsh     2>/dev/null
     rm -rf ~/.config/mpv     2>/dev/null
+    rm -rf ~/.config/wget    2>/dev/null
 
     mkdir -p ~/.config/bspwm
     mkdir -p ~/.config/git
@@ -27,9 +28,25 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/zsh
     mkdir -p ~/.config/mpv/scripts
     mkdir -p ~/.config/mpv/script-opts
+    mkdir -p ~/.config/wget
 
     mkdir -p ~/.local/share/fonts
     mkdir -p ~/.local/bin
+
+    # /home cleanup directories
+    mkdir -p ~/.local/share/zsh
+    mkdir -p ~/.local/share/cargo
+    mkdir -p ~/.local/share/gradle
+    mkdir -p ~/.local/share/gnupg
+    mkdir -p ~/.config/grip
+    mkdir -p ~/.config/jupyter
+    mkdir -p ~/.config/java
+    mkdir -p ~/.config/npm
+    mkdir -p ~/.cache/nv
+    mkdir -p ~/.local/share/rustup
+    mkdir -p ~/.local/share/zoom
+    mkdir -p ~/.cache/texlive
+    mkdir -p ~/.config/docker
 fi
 
 cd ~
@@ -54,6 +71,7 @@ ln -fs ~/.config/dotfiles/mpv/input.conf         ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
+ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
 
 if [ "$1" = "--full" ]; then
     cp ~/.config/dotfiles/misc/npmrc             ~/.config/npm/
