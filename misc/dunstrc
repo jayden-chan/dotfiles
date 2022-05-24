@@ -30,7 +30,7 @@
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     width = 400
-    offset = "760x20"
+    offset = "40x72"
 
     # Turn on the progess bar
     progress_bar = true
@@ -102,7 +102,7 @@
 
     ### Text ###
 
-    font = Sans 12
+    font = Sans 14
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -309,14 +309,14 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
+    background = "#151515"
     foreground = "#aaaaaa"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#222222"
+    background = "#151515"
     foreground = "#aaaaaa"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
