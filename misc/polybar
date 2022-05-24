@@ -60,7 +60,7 @@ padding-right = 3
 
 wm-restack = bspwm
 
-font-0 = "Nimbus Sans:pixelsize=12:antialias=true;3"
+font-0 = "Sans:pixelsize=12:antialias=true;3"
 font-1 = "JetBrainsMono Nerd Font Mono:fontformat=truetype:size=12:antialias=true;3"
 font-2 = "JetBrainsMono Nerd Font Mono:fontformat=truetype:size=30:antialias=true;7"
 font-3 = "JetBrainsMono Nerd Font Mono:fontformat=truetype:size=18:antialias=true;4"

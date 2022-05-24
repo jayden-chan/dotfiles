@@ -184,7 +184,8 @@
       "thunderbird",
       "man-db",
       "man-pages",
-      "hyperfine"
+      "hyperfine",
+      "gnu-free-fonts"
     ]
   },
   "ignored": [

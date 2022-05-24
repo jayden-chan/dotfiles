@@ -1,7 +1,7 @@
 // vim: ft=css
 
 configuration {
-    font:                           "Nimbus Sans 11";
+    font:                           "Sans 11";
     disable-history:                true;
     tokenize:                       true;
     sidebar-mode:                   false;
