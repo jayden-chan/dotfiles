@@ -78,7 +78,7 @@ if [ "$1" = "--full" ]; then
     cp ~/.config/dotfiles/misc/npmrc             ~/.config/npm/
 
     cp ~/.config/dotfiles/font/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf ~/.local/share/fonts/
-    sudo fc-cache -fv
+    sudo fc-cache -fv && fc-cache -fv
 fi
 
 echo
