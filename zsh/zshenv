@@ -16,6 +16,7 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GRIPHOME="$XDG_CONFIG_HOME"/grip
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter

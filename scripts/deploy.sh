@@ -34,19 +34,20 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.local/bin
 
     # /home cleanup directories
-    mkdir -p ~/.local/share/zsh
-    mkdir -p ~/.local/share/cargo
-    mkdir -p ~/.local/share/gradle
-    mkdir -p ~/.local/share/gnupg
-    mkdir -p ~/.config/grip
-    mkdir -p ~/.config/jupyter
-    mkdir -p ~/.config/java
-    mkdir -p ~/.config/npm
     mkdir -p ~/.cache/nv
-    mkdir -p ~/.local/share/rustup
-    mkdir -p ~/.local/share/zoom
     mkdir -p ~/.cache/texlive
     mkdir -p ~/.config/docker
+    mkdir -p ~/.config/grip
+    mkdir -p ~/.config/gtk-2.0
+    mkdir -p ~/.config/java
+    mkdir -p ~/.config/jupyter
+    mkdir -p ~/.config/npm
+    mkdir -p ~/.local/share/cargo
+    mkdir -p ~/.local/share/gnupg
+    mkdir -p ~/.local/share/gradle
+    mkdir -p ~/.local/share/rustup
+    mkdir -p ~/.local/share/zoom
+    mkdir -p ~/.local/share/zsh
 fi
 
 cd ~
