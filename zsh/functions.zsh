@@ -49,21 +49,12 @@ function bwg () {
     fi
 }
 
-function setwall () {
-    chosen_wall=$(fd . ${1:-.} -e png -e jpg -e jpeg -e webp | sxiv - -t -o)
-    if [ "$chosen_wall" = "" ]; then
-        echo "no image chosen"
-    else
-        nitrogen --set-zoom-fill --save "$chosen_wall" --head=0 2>/dev/null
-        nitrogen --set-zoom-fill --save "$chosen_wall" --head=1 2>/dev/null
-        nitrogen --set-zoom-fill --save "$chosen_wall" --head=2 2>/dev/null
-        cp "$chosen_wall" /usr/share/backgrounds/wall
-        chmod 777 /usr/share/backgrounds/wall
-    fi
-}
-
 function zcustomfunc () {
     local BOOKMARKS_FILE="$HOME/.cache/bookmarks"
+    if [ ! -f "$FILE" ]; then
+        touch "$BOOKMARKS_FILE"
+    fi
+
     if [[ "$1" = "bookmark" ]]; then
         if [[ "$2" != "" ]]; then
             local tmp_file=$(mktemp)

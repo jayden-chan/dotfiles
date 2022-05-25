@@ -31,6 +31,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/wget
 
     mkdir -p ~/.local/share/fonts
+    mkdir -p ~/.local/share/applications
     mkdir -p ~/.local/bin
 
     # /home cleanup directories
@@ -73,6 +74,8 @@ ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
+
+ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
 
 if [ "$1" = "--full" ]; then
     cp ~/.config/dotfiles/misc/npmrc             ~/.config/npm/

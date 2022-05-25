@@ -1,0 +1,9 @@
+[Desktop Entry]
+# Can't use $HOME or ~ here unfortunately
+Exec=/home/jayden/.config/dotfiles/scripts/wallpaper/wallpaper.sh /home/jayden/Pictures/Wallpapers/Single\ Screen
+Type=Application
+Version=1.0
+Name=Wallpaper
+Comment=Set the wallpaper for the desktop and login manager
+Icon=/home/jayden/.config/dotfiles/scripts/wallpaper/wallpaper-ico.png
+Terminal=false
