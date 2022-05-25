@@ -198,7 +198,8 @@
       "gnu-free-fonts",
       "ttf-iosevka-nerd",
       "python-grip",
-      "pv"
+      "pv",
+      "vrms-arch-git"
     ]
   },
   "ignored": [
