@@ -196,7 +196,8 @@
       "man-pages",
       "hyperfine",
       "gnu-free-fonts",
-      "python-grip"
+      "python-grip",
+      "pv"
     ]
   },
   "ignored": [
