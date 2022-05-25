@@ -42,6 +42,7 @@ bspc rule -a Blueman-manager        state=floating
 bspc rule -a Sxiv                   state=floating
 bspc rule -a Zathura                state=tiled
 bspc rule -a Gedit                  state=floating
+bspc rule -a File-roller            state=floating
 bspc rule -a *:*:xyz.jaydenchan.cal state=floating
 bspc rule -a mpv                    state=floating
 bspc rule -a origin.exe             state=floating
