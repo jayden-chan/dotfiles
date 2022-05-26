@@ -59,6 +59,9 @@ Print
 alt + c
     $HOME/.config/dotfiles/scripts/xcolor.sh
 
+shift + alt + c
+    $HOME/.config/dotfiles/scripts/xcolor.sh --theme-pick
+
 
 ##########################################################
 #                          XF86                          #
