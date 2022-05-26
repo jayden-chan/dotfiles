@@ -29,6 +29,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/mpv/scripts
     mkdir -p ~/.config/mpv/script-opts
     mkdir -p ~/.config/wget
+    mkdir -p ~/.config/zathura
 
     mkdir -p ~/.local/share/fonts
     mkdir -p ~/.local/share/applications
@@ -74,6 +75,7 @@ ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
+ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
 
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
 
