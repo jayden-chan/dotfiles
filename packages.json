@@ -199,7 +199,8 @@
       "ttf-iosevka-nerd",
       "python-grip",
       "pv",
-      "vrms-arch-git"
+      "vrms-arch-git",
+      "yalc"
     ]
   },
   "ignored": [
