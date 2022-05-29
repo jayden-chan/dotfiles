@@ -301,7 +301,6 @@ filetype off
     " nvim-tree
     nnoremap <silent> <C-n> :NvimTreeToggle<CR>
     highlight NvimTreeIndentMarker guifg='#665c54'
-    let g:nvim_tree_group_empty = 1
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
@@ -739,6 +738,7 @@ require'nvim-tree'.setup {
   hijack_cursor       = false,
   update_cwd          = false,
   renderer = {
+    group_empty = true,
     indent_markers = {
       enable = true,
       icons = {
