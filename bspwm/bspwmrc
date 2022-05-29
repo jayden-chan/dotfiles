@@ -48,7 +48,7 @@ bspc rule -a mpv                    state=floating
 bspc rule -a origin.exe             state=floating
 
 if [ "$HOSTNAME" = "grace" ]; then
-    bspc rule -a discord desktop='HDMI-0:^1'
+    bspc rule -a discord desktop='DVI-D-0:^1'
 fi
 
 ##########################################################
