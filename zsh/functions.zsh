@@ -20,6 +20,23 @@ function gotify-send () {
     fi
 }
 
+function syc () {
+    alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
+    if [ "$1" = "up" ]; then
+        echo "syncing up"
+        cpr ~/Documents/ homelab:Documents/cloud/
+        cpr ~/Pictures/  homelab:Pictures/cloud/
+        cpr ~/Videos/    homelab:Videos/cloud/
+        return
+    elif [ "$1" = "down" ]; then
+        echo "syncing down"
+        cpr homelab:Documents/cloud/ ~/Documents/ 
+        cpr homelab:Pictures/cloud/  ~/Pictures/  
+        cpr homelab:Videos/cloud/    ~/Videos/    
+        return
+    fi
+}
+
 function bwg () {
     # unlock the vault if it's not already unlocked
     if [ "$BW_SESSION" = "" ]; then
