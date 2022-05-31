@@ -167,7 +167,7 @@ function ts_init() {
   }
 }' > tsconfig.json
 
-        yarn add -D @types/node
+        yarn add -D @types/node@16
 
         if [ "$2" != "" ]; then
             echo "\n$2" >> README.md
