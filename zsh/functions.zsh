@@ -30,9 +30,9 @@ function syc () {
         return
     elif [ "$1" = "down" ]; then
         echo "syncing down"
-        cpr homelab:Documents/cloud/ ~/Documents/ 
-        cpr homelab:Pictures/cloud/  ~/Pictures/  
-        cpr homelab:Videos/cloud/    ~/Videos/    
+        cpr homelab:Documents/cloud/ ~/Documents/
+        cpr homelab:Pictures/cloud/  ~/Pictures/
+        cpr homelab:Videos/cloud/    ~/Videos/
         return
     fi
 }
@@ -176,6 +176,36 @@ function ts_init() {
         echo "Project created, don't forget to update package.json"
     fi
 
+}
+
+function mullvad_ns () {
+    NS="mullvad"
+    WGIF="wg0"
+
+    command="$1"
+    shift
+
+    if [ "$command" = "up" ]; then
+        conf="$1"
+        addr=$(< "$conf" rg 'Address = (\d+\.\d+\.\d+\.\d+/\d+)' --only-matching --replace='$1')
+
+        sudo ip netns add $NS
+        sudo ip link add $WGIF type wireguard
+        sudo wg setconf $WGIF $conf
+        sudo ip link set $WGIF netns $NS
+        sudo ip -n $NS addr add $addr dev $WGIF
+        sudo ip -n $NS link set lo up
+        sudo ip -n $NS link set $WGIF up
+        sudo ip -n $NS route add default dev $WGIF
+    fi
+
+    if [ "$command" = "down" ]; then
+        sudo ip netns delete $NS
+    fi
+
+    if [ "$command" = "exec" ]; then
+        firejail --noprofile --netns=$NS "$@"
+    fi
 }
 
 # try not to exit the terminal with un-pushed git commits
