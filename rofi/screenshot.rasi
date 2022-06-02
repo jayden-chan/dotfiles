@@ -18,11 +18,11 @@ configuration {
 
 window {
   height: 113px;
-  width: 550px;
+  width: 570px;
 }
 
 inputbar {
-  margin: 0 0 0 0;
+  margin: 14px 0 0 40px;
 }
 
 entry {
