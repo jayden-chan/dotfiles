@@ -368,8 +368,8 @@ filetype off
     autocmd FileType markdown setlocal colorcolumn=90
 
     " Set indentation to 2 spaces for certain files
-    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy,graphql setlocal shiftwidth=2
-    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy,graphql setlocal softtabstop=2
+    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy,graphql,cpp setlocal shiftwidth=2
+    autocmd FileType javascript,typescript,typescriptreact,html,scss,css,less,json,toml,sql,yml,yaml,groovy,graphql,cpp setlocal softtabstop=2
 
     " Enter insert mode automatically when entering terminal
     autocmd BufWinEnter,WinEnter term://* startinsert
@@ -754,13 +754,13 @@ require'nvim-tree'.setup {
   filters = {
     dotfiles = true,
     custom   = {
-      '.git',
-      'node_modules',
-      'dist',
-      'package-lock.json',
-      'yarn.lock',
-      'target',
-      'Cargo.lock',
+      '^\\.git$',
+      '^node_modules$',
+      '^dist$',
+      '^package-lock\\.json$',
+      '^yarn\\.lock$',
+      '^target$',
+      '^Cargo.lock$',
     },
   },
   update_focused_file = {
