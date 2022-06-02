@@ -201,7 +201,8 @@
       "pv",
       "vrms-arch-git",
       "yalc",
-      "firejail"
+      "firejail",
+      "catch2"
     ]
   },
   "ignored": [
