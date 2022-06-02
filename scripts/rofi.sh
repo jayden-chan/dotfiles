@@ -36,12 +36,27 @@ elif [ "$1" = "--save-screenshot" ]; then
         notify-send -i "$file" "Maim" "Screenshot saved to $result.png"
     fi
 elif [ "$1" = "--eq" ]; then
+    prev="None"
+    prev_file="$HOME/.local/state/eq.txt"
+    eqs=$(ls "$HOME"/.config/dotfiles/pipewire/sink-*)
+    if [ -f "$prev_file" ]; then
+        prev=$(< "$prev_file" tr -d '\n')
+    fi
+
+    preselect=$(echo "$eqs" | rg "sink-$prev" --line-number | cut -d':' -f1)
+
     result=$(
-            ls "$HOME"/.config/dotfiles/pipewire/sink-* |
+            echo "$eqs" |
             sed -E 's|.*sink-||g' |
             sed -E 's|.conf||g' |
             sed -E 's|_| |g' |
-            rofi -dmenu -i -theme eq -p "Select EQ Profile:" -theme-str "$rofi_theme"
+            rofi \
+                -dmenu \
+                -i \
+                -theme "eq" \
+                -selected-row "$(( preselect - 1))" \
+                -p "Select EQ Profile:" \
+                -theme-str "$rofi_theme"
         )
 
     if [ "$result" = "" ]; then
