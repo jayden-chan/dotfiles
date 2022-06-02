@@ -52,7 +52,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.local/share/zsh
 fi
 
-cd ~
+cd ~ || exit
 ln -fs ~/.config/dotfiles/bspwm/bspwmrc          ~/.config/bspwm/
 ln -fs ~/.config/dotfiles/git/gitconfig          ~/.config/git/config
 ln -fs ~/.config/dotfiles/misc/latexmkrc         ~/.config/latexmk/

@@ -1,6 +1,6 @@
 #!/usr/bin/dash
 
-[ -e "$HOME/.config/ENV" ] && . $HOME/.config/ENV
+[ -e "$HOME/.config/ENV" ] && . "$HOME"/.config/ENV
 
 if [ "$STRIPE_COLOR" != "" ] && [ "$BORDER_COLOR" != "" ]; then
     rofi_theme="* { stripe: $STRIPE_COLOR; border: $BORDER_COLOR; }"
