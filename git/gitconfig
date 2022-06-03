@@ -12,6 +12,7 @@
     defaultBranch = master
 [commit]
     gpgsign = true
+    verbose = true
     template = ~/.config/dotfiles/git/git-commit.txt
 [core]
     editor = nvim
