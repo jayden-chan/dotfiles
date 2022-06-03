@@ -62,6 +62,18 @@ alt + c
 shift + alt + c
     $HOME/.config/dotfiles/scripts/xcolor.sh --theme-pick
 
+##########################################################
+#                     Dunst actions                      #
+##########################################################
+
+# re-display last notification
+ctrl + grave
+    dunstctl history-pop
+
+# show the context menu for the current notification
+ctrl + shift + period
+    dunstctl context
+
 
 ##########################################################
 #                          XF86                          #
