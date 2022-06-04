@@ -1,7 +1,7 @@
 #!/bin/dash
 # vim: ft=sh
 
-DOTS=$HOME/.config/dotfiles
+DOTS="$HOME"/.config/dotfiles
 HOSTNAME=$(hostname)
 
 ##########################################################
@@ -34,18 +34,18 @@ bspc config pointer_modifier           mod1
 bspc config pointer_action2            resize_corner
 bspc config pointer_action1            move
 
-bspc rule -a Nitrogen               state=floating
-bspc rule -a Org.gnome.Nautilus     state=floating
-bspc rule -a pw-display             state=floating
-bspc rule -a Eog                    state=floating
-bspc rule -a Blueman-manager        state=floating
-bspc rule -a Sxiv                   state=floating
-bspc rule -a Zathura                state=tiled
-bspc rule -a Gedit                  state=floating
-bspc rule -a File-roller            state=floating
-bspc rule -a *:*:xyz.jaydenchan.cal state=floating
-bspc rule -a mpv                    state=floating
-bspc rule -a origin.exe             state=floating
+bspc rule -a Nitrogen                 state=floating
+bspc rule -a Org.gnome.Nautilus       state=floating
+bspc rule -a pw-display               state=floating
+bspc rule -a Eog                      state=floating
+bspc rule -a Blueman-manager          state=floating
+bspc rule -a Sxiv                     state=floating
+bspc rule -a Zathura                  state=tiled
+bspc rule -a Gedit                    state=floating
+bspc rule -a File-roller              state=floating
+bspc rule -a '*:*:xyz.jaydenchan.cal' state=floating
+bspc rule -a mpv                      state=floating
+bspc rule -a origin.exe               state=floating
 
 if [ "$HOSTNAME" = "grace" ]; then
     bspc rule -a discord desktop='DVI-D-0:^1'
@@ -68,7 +68,7 @@ if [ "$HOSTNAME" = "grace" ]; then
         --enable-gpu-rasterization \
         --enable-zero-copy > /tmp/discord-stdout.log 2>&1 &
 
-    sh $DOTS/scripts/eq.sh --mic &
+    sh "$DOTS"/scripts/eq.sh --mic &
 else
     (killall nm-applet; sleep 0.3; nm-applet) &
     (killall pasystray; sleep 0.3; pasystray) &
@@ -79,14 +79,17 @@ if [ "$HOSTNAME" = "swift" ]; then
     xmodmap -e "keysym Caps_Lock = Escape" &
 fi
 
-sh $DOTS/scripts/inputs.sh &
-sh $DOTS/scripts/polybar.sh &
-sh $DOTS/scripts/eq.sh &
+sh "$DOTS"/scripts/inputs.sh &
+sh "$DOTS"/scripts/polybar.sh &
+sh "$DOTS"/scripts/eq.sh &
 
 for monitor in $(bspc query -M); do
-    bspc monitor $monitor -d 1 2 3 4 5 6 7 8 9
+    bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9
 done
 
-pgrep -x sxhkd > /dev/null || sxhkd -c $DOTS/bspwm/sxhkdrc &
-pgrep -x dunst > /dev/null || dunst -config $DOTS/misc/dunstrc &
-pgrep -x picom > /dev/null || picom --config $DOTS/misc/picom.conf &
+pgrep -x sxhkd > /dev/null || sxhkd -c "$DOTS"/bspwm/sxhkdrc &
+pgrep -x dunst > /dev/null || dunst -config "$DOTS"/misc/dunstrc &
+pgrep -x picom > /dev/null || picom --config "$DOTS"/misc/picom.conf &
+
+# remove the old xsession-errors file
+rm -f "$HOME/.xsession-errors.old"
