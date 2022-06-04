@@ -79,7 +79,7 @@ alias gbsg='git bisect good'
 alias gbsr='git bisect reset'
 alias gbss='git bisect start'
 alias gc!='git commit -v --amend'
-alias gc='git commit -v -s'
+alias gc='git commit -v'
 function gcat { GIT_COMMITTER_DATE="$1" git commit -v --date="$1" }
 alias gca!='git commit -v -a --amend'
 alias gca='git commit -v -a'
