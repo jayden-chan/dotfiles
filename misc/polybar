@@ -39,7 +39,7 @@ margin-bottom = 0
 height = 35
 radius = 0
 offset-y = 10
-offset-x = 16
+offset-x = 24
 fixed-center = true
 
 enable-ipc = true
@@ -49,14 +49,14 @@ monitor = ${env:MONITOR:DP-0}
 background = ${colors.transparent}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = ${colors.line}
+line-size =
+line-color =
 
-border-size = 0
-border-color = #000000ff
+border-size =
+border-color =
 
-padding-left = 2
-padding-right = 3
+padding-left = 0
+padding-right = 0
 
 wm-restack = bspwm
 
@@ -75,16 +75,16 @@ modules-right = date
 
 [bar/left]
 inherit = bar/base
-width = 1891
+width = 1872
 
 [bar/right]
 inherit = bar/base
 modules-left = padding arch-logo padding bspwm padding mpris
-width = 1251
+width = 1232
 
 [bar/center]
 inherit = bar/base
-width = 1879
+width = 1872
 
 modules-left = padding arch-logo padding bspwm padding mpris
 modules-right = memory cpu weather date
@@ -108,10 +108,6 @@ content-font = 0
 content-background = ${colors.background}
 content-foreground = ${colors.background}
 content-padding = 0
-
-[module/paddingmar]
-inherit = module/padding
-content-margin = 3
 
 [module/logo-base]
 type = custom/text
