@@ -43,7 +43,7 @@ elif [ "$1" = "--eq" ]; then
         prev=$(< "$prev_file" tr -d '\n')
     fi
 
-    preselect=$(echo "$eqs" | rg "sink-$prev" --line-number | cut -d':' -f1)
+    preselect=$(echo "$eqs" | rg "sink-$prev.conf" --line-number | cut -d':' -f1)
 
     result=$(
             echo "$eqs" |
