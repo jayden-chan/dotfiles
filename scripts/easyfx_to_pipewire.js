@@ -9,7 +9,13 @@ if (!process.argv[2] || !process.argv[3]) {
 
 const file = JSON.parse(readFileSync(process.argv[2], { encoding: "utf8" }));
 const eq = file.output.equalizer;
-const bands = eq.left;
+const bands = Object.fromEntries(
+  Object.entries(eq.left).sort((a, b) => {
+    return a[1].frequency - b[1].frequency;
+  })
+);
+
+// const bands = eq.left;
 
 // prettier-ignore
 console.log(
