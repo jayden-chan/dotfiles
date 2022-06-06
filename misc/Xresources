@@ -1,0 +1,46 @@
+#define _color0 #2c2f30
+#define _color1 #ec6b64
+#define _color2 #a9b665
+#define _color3 #e0c080
+#define _color4 #7daea3
+#define _color5 #d3869b
+#define _color6 #86b17f
+#define _color7 #c0b196
+#define _color8 #2c2f30
+#define _color9 #ec6b64
+#define _color10 #a9b665
+#define _color11 #e0c080
+#define _color12 #7daea3
+#define _color13 #d3869b
+#define _color14 #86b17f
+#define _color15 #c0b196
+#define _color16 #d65d0e
+
+#define _cursorColor #b5b1a4
+#define _background #1e2122
+#define _foreground #c0b196
+
+st.font: Iosevka Nerd Font Mono:pixelsize=18:antialias=true:autohint=false:fonthashint=true
+st.cwscale: 1.0
+st.chscale: 0.91
+st.borderpx: 11
+st.color0: _color0
+st.color1: _color1
+st.color2: _color2
+st.color3: _color3
+st.color4: _color4
+st.color5: _color5
+st.color6: _color6
+st.color7: _color7
+st.color8: _color8
+st.color9: _color9
+st.color10: _color10
+st.color11: _color11
+st.color12: _color12
+st.color13: _color13
+st.color14: _color14
+st.color15: _color15
+
+st.cursorColor: _cursorColor
+st.background: _background
+st.foreground: _foreground
