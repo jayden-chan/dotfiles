@@ -16,7 +16,8 @@ filetype off
     " Theme
         Plug 'jayden-chan/gruvbox'
         Plug 'Yggdroot/indentline'
-        Plug 'vim-airline/vim-airline'
+        Plug 'nvim-lualine/lualine.nvim'
+        Plug '~/Dev/Personal/base46.nvim'
 
     " fs nav
         Plug 'junegunn/fzf.vim'
@@ -25,7 +26,7 @@ filetype off
         Plug 'kyazdani42/nvim-tree.lua'
 
     " Git
-        Plug 'airblade/vim-gitgutter'
+        Plug 'lewis6991/gitsigns.nvim'
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-rhubarb'
 
@@ -48,7 +49,6 @@ filetype off
         Plug 'onsails/lspkind-nvim'
 
         Plug 'windwp/nvim-autopairs'
-        " Plug 'jiangmiao/auto-pairs'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-surround'
         Plug 'SirVer/ultisnips'
@@ -58,7 +58,6 @@ filetype off
         Plug 'plasticboy/vim-markdown'
         Plug 'lifepillar/pgsql.vim'
         Plug 'jayden-chan/timing-diagram-generator', { 'branch': 'vim-plugin' }
-        " Plug '~/Dev/Personal/timing-diagram-generator'
         Plug 'jayden-chan/rust.vim'
         Plug 'baskerville/vim-sxhkdrc'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -94,7 +93,7 @@ filetype off
     let g:gruvbox_invert_selection=0
     let g:gruvbox_italicize_strings=1
 
-    colorscheme gruvbox
+    " colorscheme gruvbox
 
     " Tab settings
     set expandtab
@@ -812,5 +811,127 @@ require'nvim-tree'.setup {
       }
     }
   }
+}
+
+---               ---
+--- gitsigns.nvim ---
+---               ---
+
+require('gitsigns').setup{
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '[c', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    -- Actions
+    map({'n', 'v'}, '<leader>u', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>hR', gs.reset_buffer)
+    map('n', '<leader>q', gs.preview_hunk)
+    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+    map('n', '<leader>tb', gs.toggle_current_line_blame)
+
+    -- Text object
+    map({'o', 'x'}, 'hh', ':<C-U>Gitsigns select_hunk<CR>')
+  end
+}
+
+---        ---
+--- base46 ---
+---        ---
+
+local present, base46 = pcall(require, "base46")
+if not present then
+   return
+end
+local theme_opts = {
+   base = "base46",
+   theme = "gruvchad",
+   transparency = false,
+}
+base46.load_theme(theme_opts)
+
+---         ---
+--- lualine ---
+---         ---
+
+local lualine_colors = base46.get_colors("base46", "gruvchad")
+local lualine_theme = {
+  normal = {
+    a = {bg = lualine_colors.red, fg = lualine_colors.black, gui = 'bold'},
+    b = {bg = lualine_colors.one_bg, fg = lualine_colors.white},
+    c = {bg = lualine_colors.black2, fg = lualine_colors.gray}
+  },
+  insert = {
+    a = {bg = lualine_colors.blue, fg = lualine_colors.black, gui = 'bold'},
+    b = {bg = lualine_colors.one_bg, fg = lualine_colors.white},
+    c = {bg = lualine_colors.black2, fg = lualine_colors.white}
+  },
+  visual = {
+    a = {bg = lualine_colors.dark_purple, fg = lualine_colors.black, gui = 'bold'},
+    b = {bg = lualine_colors.one_bg, fg = lualine_colors.white},
+    c = {bg = lualine_colors.black2, fg = lualine_colors.white}
+  },
+  replace = {
+    a = {bg = lualine_colors.red, fg = lualine_colors.black, gui = 'bold'},
+    b = {bg = lualine_colors.one_bg, fg = lualine_colors.white},
+    c = {bg = lualine_colors.black, fg = lualine_colors.white}
+  },
+  command = {
+    a = {bg = lualine_colors.green, fg = lualine_colors.black, gui = 'bold'},
+    b = {bg = lualine_colors.one_bg, fg = lualine_colors.white},
+    c = {bg = lualine_colors.black2, fg = lualine_colors.white}
+  },
+  inactive = {
+    a = {bg = lualine_colors.black, fg = lualine_colors.gray, gui = 'bold'},
+    b = {bg = lualine_colors.black, fg = lualine_colors.gray},
+    c = {bg = lualine_colors.black, fg = lualine_colors.gray}
+  }
+}
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = lualine_theme,
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+    globalstatus = false,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {'nvim-tree', 'fugitive', 'fzf'}
 }
 EOF
