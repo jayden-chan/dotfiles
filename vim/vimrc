@@ -860,9 +860,10 @@ local present, base46 = pcall(require, "base46")
 if not present then
    return
 end
+local theme = "gruvchad"
 local theme_opts = {
    base = "base46",
-   theme = "gruvchad",
+   theme = theme,
    transparency = false,
 }
 base46.load_theme(theme_opts)
@@ -871,7 +872,7 @@ base46.load_theme(theme_opts)
 --- lualine ---
 ---         ---
 
-local lualine_colors = base46.get_colors("base46", "gruvchad")
+local lualine_colors = base46.get_colors("base46", theme)
 local lualine_theme = {
   normal = {
     a = {bg = lualine_colors.red, fg = lualine_colors.black, gui = 'bold'},
