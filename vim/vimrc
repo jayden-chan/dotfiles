@@ -14,8 +14,7 @@ filetype off
     call plug#begin('~/.local/share/nvim/plugged')
 
     " Theme
-        Plug 'jayden-chan/gruvbox'
-        Plug 'Yggdroot/indentline'
+        Plug 'lukas-reineke/indent-blankline.nvim'
         Plug 'nvim-lualine/lualine.nvim'
         Plug '~/Dev/Personal/base46.nvim'
 
@@ -63,7 +62,6 @@ filetype off
         Plug 'baskerville/vim-sxhkdrc'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         Plug 'mustache/vim-mustache-handlebars'
-        Plug 'arrufat/vala.vim'
         Plug 'towolf/vim-helm'
         Plug 'chr4/nginx.vim'
 
@@ -81,20 +79,7 @@ filetype off
     set termguicolors
 
     set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h12
-
-    " Set dark gruvbox theme
     set background=dark
-
-    " gruvbox settings
-    let g:gruvbox_contrast_dark='hard'
-    let g:gruvbox_sign_column='bg0'
-    let g:gruvbox_italic=1
-    let g:gruvbox_bold=1
-    let g:gruvbox_underline=1
-    let g:gruvbox_invert_selection=0
-    let g:gruvbox_italicize_strings=1
-
-    " colorscheme gruvbox
 
     " Tab settings
     set expandtab
@@ -191,6 +176,7 @@ filetype off
     " Spell check
     map <F6> :setlocal spell! spelllang=en_us<CR>
     set spellfile=$HOME/.config/dotfiles/vim/en.utf-8.add
+    " ctrl-o corrects previous spelling mistake while in insert mode
     inoremap <c-o> <c-g>u<Esc>[s1z=`]a<c-g>u
 
     " Make Esc work in terminal mode, but not for fzf or rg
@@ -296,17 +282,12 @@ filetype off
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
 
-    let g:airline_powerline_fonts = 1
-    let g:airline_section_c = '%t'
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-
     " nvim-tree
     nnoremap <silent> <C-n> :NvimTreeToggle<CR>
     highlight NvimTreeIndentMarker guifg='#665c54'
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-    au FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
+    autocmd FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1
 
     " LSP auto formatting stuff
     command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()
@@ -316,26 +297,7 @@ filetype off
 
     command! -nargs=0 TSOrganizeImports :lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})
 
-    " Git gutter
-    let g:gitgutter_map_keys = 0
-    nnoremap <silent> ]c :GitGutterNextHunk<CR>
-    nnoremap <silent> [c :GitGutterPrevHunk<CR>
-    nnoremap <leader>u   :GitGutterUndoHunk<CR>
-    nnoremap <silent> <leader>q :GitGutterPreviewHunk<CR>
-
-    let g:indentLine_char = '│'
-
     let g:rustfmt_autosave = 1
-
-    " Make ripgrep fzf search ignore text from filenames (why isn't this the default...?)
-    command! -bang -nargs=* Rg call
-                \ fzf#vim#grep(
-                \"rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
-                \1,
-                \{'options': '--delimiter : --nth 4..'},
-                \<bang>0
-                \)
-
     let g:sql_type_default = 'pgsql'
 
     let g:tex_conceal = ''
@@ -380,8 +342,8 @@ filetype off
     " Jump to last known cursor position when opening files
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-    au BufRead,BufNewFile Jenkinsfile setf groovy
-    au BufRead,BufNewFile *.graphql setf graphql
+    autocmd BufRead,BufNewFile Jenkinsfile setf groovy
+    autocmd BufRead,BufNewFile *.graphql setf graphql
 
     " Set indentation to hard tabs for some files
     autocmd FileType snippets,go setlocal tabstop=4
@@ -471,14 +433,16 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
----             ---
---- completions ---
----             ---
-
+---            ---
+--- auto pairs ---
+---            ---
 require'nvim-autopairs'.setup{
   ignored_next_char = ""
 }
 
+---             ---
+--- completions ---
+---             ---
 local cmp = require'cmp'
 local lspkind = require'lspkind'
 local kind_icons = {
@@ -576,7 +540,6 @@ local lspconfig = require'lspconfig'
 ---                       ---
 --- Language Server Setup ---
 ---                       ---
-
 lspconfig.tsserver.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -669,10 +632,11 @@ lspconfig.rust_analyzer.setup {
 ---            ---
 --- Treesitter ---
 ---            ---
-
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash",
+    "c",
+    "cpp",
     "css",
     "dockerfile",
     "go",
@@ -684,8 +648,6 @@ require'nvim-treesitter.configs'.setup {
     "toml",
     "tsx",
     "typescript",
-    "c",
-    "cpp",
     "yaml",
   },
   highlight = {enable = true},
@@ -694,7 +656,6 @@ require'nvim-treesitter.configs'.setup {
 ---                  ---
 --- Discord Presence ---
 ---                  ---
-
 require("presence"):setup({
     -- General options
     auto_update         = true,
@@ -720,7 +681,6 @@ require("presence"):setup({
 ---           ---
 --- nvim-tree ---
 ---           ---
-
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require'nvim-tree'.setup {
   disable_netrw       = true,
@@ -815,7 +775,6 @@ require'nvim-tree'.setup {
 ---               ---
 --- gitsigns.nvim ---
 ---               ---
-
 require('gitsigns').setup{
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
@@ -854,7 +813,6 @@ require('gitsigns').setup{
 ---        ---
 --- base46 ---
 ---        ---
-
 local present, base46 = pcall(require, "base46")
 if not present then
    return
@@ -870,7 +828,6 @@ base46.load_theme(theme_opts)
 ---         ---
 --- lualine ---
 ---         ---
-
 local lualine_colors = base46.get_colors("base46", theme)
 local lualine_theme = {
   normal = {
@@ -933,5 +890,13 @@ require('lualine').setup {
   },
   tabline = {},
   extensions = {'nvim-tree', 'fugitive', 'fzf'}
+}
+
+---                  ---
+--- indent_blankline ---
+---                  ---
+require("indent_blankline").setup {
+    show_current_context = false,
+    show_current_context_start = false,
 }
 EOF
