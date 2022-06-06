@@ -20,8 +20,8 @@ filetype off
         Plug '~/Dev/Personal/base46.nvim'
 
     " fs nav
-        Plug 'junegunn/fzf.vim'
-        Plug 'junegunn/fzf'
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-telescope/telescope.nvim'
         Plug 'kyazdani42/nvim-web-devicons'
         Plug 'kyazdani42/nvim-tree.lua'
 
@@ -206,9 +206,12 @@ filetype off
     noremap <silent> <c-q> :ccl<bar>pcl<bar>lcl<CR>
 
     " Fuzzy finding
-    nnoremap <silent> <leader>f :FZ<CR>
-    nnoremap <silent> <leader>r :Rg<CR>
-    nnoremap <silent> <leader>b :Buffers<CR>
+    nnoremap <silent> <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
+    nnoremap <silent> <leader>r <cmd>lua require('telescope.builtin').live_grep()<cr>
+    nnoremap <silent> <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
+    nnoremap <silent> <leader>hh <cmd>lua require('telescope.builtin').help_tags()<cr>
+    nnoremap <silent> <leader>n <cmd>lua require('telescope.builtin').lsp_references()<cr>
+    nnoremap <silent> <leader>z <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 
     " Undo tree
     nnoremap <silent> <leader>U :UndotreeToggle<CR>
@@ -444,16 +447,11 @@ vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', op
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_key(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  -- buf_key('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_key('n', '<space>o', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_key('n', '<space>O', '<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_key('n', '<space>g', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  -- buf_key('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_key('n', '<space>g', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- buf_key('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_key('n', '<space>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_key('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_key('n', '<space>n', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_key('n', '<space>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
