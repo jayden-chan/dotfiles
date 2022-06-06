@@ -36,6 +36,7 @@ filetype off
         Plug 'christoomey/vim-tmux-navigator'
         Plug 'andweeb/presence.nvim'
         Plug 'mbbill/undotree'
+        Plug 'tpope/vim-repeat'
 
     " IDE-like
         Plug 'neovim/nvim-lspconfig'
