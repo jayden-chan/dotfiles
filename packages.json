@@ -147,7 +147,6 @@
       "fd",
       "webp-pixbuf-loader",
       "rust-analyzer",
-      "fzf",
       "rsync",
       "yaru-colors-gtk-theme",
       "yaru-colors-icon-theme",

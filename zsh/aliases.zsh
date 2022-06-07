@@ -20,10 +20,6 @@ alias :Wq='exit'
 # Editor
 alias vim='nvim'
 
-# Fuzzy cd/vim
-alias zz='cd `fd . ~ --type d | fzf`'
-alias ed='vim `fd . ~ --type f | fzf`'
-
 # U S E R   E R R O R
 alias cim='vim'
 alias vom='vim'
