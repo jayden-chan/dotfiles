@@ -4,68 +4,73 @@ filetype off
 
 " Plugins
 
-    " Auto install vim-plugged if not already installed
-    let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-    if empty(glob(data_dir . '/autoload/plug.vim'))
-        silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
+lua <<EOF
+-- auto-bootstrap packer
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
 
-    call plug#begin('~/.local/share/nvim/plugged')
+require('packer').startup(function()
+-- Use Packer itself
+    use 'wbthomason/packer.nvim'
 
-    " Theme
-        Plug 'lukas-reineke/indent-blankline.nvim'
-        Plug 'nvim-lualine/lualine.nvim'
-        Plug '~/Dev/Personal/base46.nvim'
+-- Theme
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'nvim-lualine/lualine.nvim'
+    use '~/Dev/Personal/base46.nvim'
 
-    " fs nav
-        Plug 'nvim-lua/plenary.nvim'
-        Plug 'nvim-telescope/telescope.nvim'
-        Plug 'kyazdani42/nvim-web-devicons'
-        Plug 'kyazdani42/nvim-tree.lua'
+-- fs nav
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-telescope/telescope.nvim'
+    use 'kyazdani42/nvim-web-devicons'
+    use 'kyazdani42/nvim-tree.lua'
 
-    " Git
-        Plug 'lewis6991/gitsigns.nvim'
-        Plug 'tpope/vim-fugitive'
-        Plug 'tpope/vim-rhubarb'
+-- Git
+    use 'lewis6991/gitsigns.nvim'
+    use 'tpope/vim-fugitive'
+    use 'tpope/vim-rhubarb'
 
-    " Misc
-        Plug 'godlygeek/tabular'
-        Plug 'editorconfig/editorconfig-vim'
-        Plug 'christoomey/vim-tmux-navigator'
-        Plug 'andweeb/presence.nvim'
-        Plug 'mbbill/undotree'
-        Plug 'tpope/vim-repeat'
+-- Misc
+    use 'godlygeek/tabular'
+    use 'editorconfig/editorconfig-vim'
+    use 'christoomey/vim-tmux-navigator'
+    use 'andweeb/presence.nvim'
+    use 'mbbill/undotree'
+    use 'tpope/vim-repeat'
 
-    " IDE-like
-        Plug 'neovim/nvim-lspconfig'
-        Plug 'hrsh7th/cmp-nvim-lsp'
-        Plug 'hrsh7th/cmp-buffer'
-        Plug 'hrsh7th/cmp-git'
-        Plug 'hrsh7th/cmp-path'
-        Plug 'hrsh7th/cmp-cmdline'
-        Plug 'hrsh7th/nvim-cmp'
-        Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-        Plug 'onsails/lspkind-nvim'
+-- IDE-like
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-git'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'quangnguyen30192/cmp-nvim-ultisnips'
+    use 'onsails/lspkind-nvim'
 
-        Plug 'windwp/nvim-autopairs'
-        Plug 'tpope/vim-commentary'
-        Plug 'tpope/vim-surround'
-        Plug 'SirVer/ultisnips'
+    use 'windwp/nvim-autopairs'
+    use 'tpope/vim-commentary'
+    use 'tpope/vim-surround'
+    use 'SirVer/ultisnips'
 
-    " Syntax
-        Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-        Plug 'plasticboy/vim-markdown'
-        Plug 'lifepillar/pgsql.vim'
-        Plug 'jayden-chan/timing-diagram-generator', { 'branch': 'vim-plugin' }
-        Plug 'jayden-chan/rust.vim'
-        Plug 'baskerville/vim-sxhkdrc'
-        Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-        Plug 'mustache/vim-mustache-handlebars'
-        Plug 'towolf/vim-helm'
-        Plug 'chr4/nginx.vim'
+-- Syntax
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'plasticboy/vim-markdown', ft={'markdown'}}
+    use {'lifepillar/pgsql.vim', ft = {'psql'}}
+    use {'jayden-chan/timing-diagram-generator', branch = 'vim-plugin'}
+    use {'jayden-chan/rust.vim', ft = {'rust'}}
+    use {'baskerville/vim-sxhkdrc', ft = {'sxhdkrc'}}
+    use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
+    use {'chr4/nginx.vim', ft = {'nginx'}}
 
-    call plug#end()
+if packer_bootstrap then
+    require('packer').sync()
+end
+end)
+EOF
 
 " Behaviour
 
