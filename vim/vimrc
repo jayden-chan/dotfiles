@@ -831,48 +831,18 @@ if not present then
    return
 end
 local theme = "gruvchad"
+local color_base = "base46"
 local theme_opts = {
-   base = "base46",
+   base = color_base,
    theme = theme,
    transparency = false,
 }
 base46.load_theme(theme_opts)
+local colors = base46.get_colors(color_base, theme)
 
 ---         ---
 --- lualine ---
 ---         ---
-local colors = base46.get_colors("base46", theme)
-local default_b = {bg = colors.one_bg, fg = colors.white}
-local default_c = {bg = colors.black2, fg = colors.white}
-local lualine_theme = {
-  normal = {
-    a = {bg = colors.red, fg = colors.black, gui = 'bold'},
-    b = default_b, c = default_c,
-    z = {bg = colors.teal, fg = colors.black, gui = 'bold'}
-  },
-  insert = {
-    a = {bg = colors.blue, fg = colors.black, gui = 'bold'},
-    b = default_b, c = default_c
-  },
-  visual = {
-    a = {bg = colors.dark_purple, fg = colors.black, gui = 'bold'},
-    b = default_b, c = default_c
-  },
-  replace = {
-    a = {bg = colors.red, fg = colors.black, gui = 'bold'},
-    b = default_b, c = default_c
-  },
-  command = {
-    a = {bg = colors.green, fg = colors.black, gui = 'bold'},
-    b = default_b, c = default_c
-  },
-  inactive = {
-    a = {bg = colors.black, fg = colors.gray, gui = 'bold'},
-    b = {bg = colors.black, fg = colors.gray},
-    c = {bg = colors.black, fg = colors.gray}
-  }
-}
-
 local function diff_source()
   local gitsigns = vim.b.gitsigns_status_dict
   if gitsigns then
@@ -921,7 +891,7 @@ end
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = lualine_theme,
+    theme = base46.get_lualine_theme("base46", theme),
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     always_divide_middle = true,
