@@ -58,6 +58,7 @@ require('packer').startup(function()
 
 -- Syntax
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use 'lewis6991/spellsitter.nvim'
     use {'plasticboy/vim-markdown', ft={'markdown'}}
     use {'lifepillar/pgsql.vim', ft = {'psql'}}
     use {'jayden-chan/timing-diagram-generator', branch = 'vim-plugin'}
@@ -665,6 +666,7 @@ require'nvim-treesitter.configs'.setup {
   },
   highlight = {enable = true},
 }
+require('spellsitter').setup()
 
 ---                  ---
 --- Discord Presence ---
