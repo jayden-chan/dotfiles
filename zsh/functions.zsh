@@ -125,16 +125,13 @@ function cargo_init() {
         fi
 
         touch Makefile
-        echo "build: build-skylake\n" >> Makefile
+        echo "build: build-native\n" >> Makefile
         echo "build-general:\n\tcargo build --release\n" >> Makefile
         echo "build-native:\n\tRUSTFLAGS=\"-Ctarget-cpu-native\" cargo build --release\n" >> Makefile
-        echo ".PHONY: build build-general build-skylake" >> Makefile
+        echo ".PHONY: build build-general build-native" >> Makefile
 
         touch rustfmt.toml
         echo "max_width = 80" > rustfmt.toml
-
-        touch LICENSE
-
         echo "Project creation finished, don't forget to add a license"
     fi
 }
