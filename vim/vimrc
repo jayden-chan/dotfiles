@@ -293,7 +293,6 @@ EOF
     \   'rgba',
     \   'hsl',
     \   'hsla',
-    \   'colour_names'
     \ ]
 
     " nvim-tree

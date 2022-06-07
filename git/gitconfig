@@ -36,9 +36,9 @@
 [delta]
     features = decorations
     side-by-side = true
-    syntax-theme = Nord
-    plus-style = syntax bold auto
-    minus-style = syntax bold auto
+    syntax-theme = ansi
+    plus-style = syntax auto
+    minus-style = syntax auto
     paging = always
 
 [delta "interactive"]
@@ -47,5 +47,5 @@
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
-    file-decoration-style = none
+    file-decoration-style = bold red box ul
     hunk-header-decoration-style = cyan box ul
