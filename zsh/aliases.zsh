@@ -59,6 +59,7 @@ alias bc='bc -l'
 alias ip='ip -c'
 alias sxiv='sxiv -b'
 alias yalc='yalc --store-folder ~/.local/share/yalc'
+alias make='make --no-print-directory'
 
 # Other
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
