@@ -84,9 +84,6 @@ EOF
     set t_ut=
     set termguicolors
 
-    set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h12
-    set background=dark
-
     " Tab settings
     set expandtab
     set shiftwidth=4
@@ -94,9 +91,6 @@ EOF
     set tabstop=4
     set smarttab
     set smartindent
-
-    " Use backspace
-    set backspace=indent,eol,start
 
     " Search settings
     set gdefault           " Global by default
@@ -141,17 +135,11 @@ EOF
     " windows referencing it
     set nohidden
 
-    " Set .tex files to LaTeX syntax
-    let g:tex_flavor="latex"
-
     " Unix file line endings
     set fileformat=unix
 
     " Enable mouse
     set mouse=a
-
-    " Make LaTeX live preview & gitgutter smoother
-    set updatetime=300
 
     " Change cursor to bar and underscore for different modes
     let &t_SI = "\<Esc>[6 q"
@@ -190,7 +178,6 @@ EOF
 
     " Formatting (remove whitespace and reindent)
     noremap <leader>ww :%s/\s\+$//e<CR>
-    noremap <leader>tt mtgg=G`tzz
     noremap <silent> <leader>ta :Tabularize /<bar><CR>
 
     " Close quickfix/preview/location
@@ -227,14 +214,6 @@ EOF
     " Make X and Y behave like C and D
     nnoremap Y y$
     nnoremap X v$<Left>"_x
-
-    " Open a new terminal window
-    nnoremap <silent> <leader>e :below new<bar>terminal<CR>
-
-    " F10 shows the color group of the symbol below the cursor
-    map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
     " Move the cursor more easily while in insert mode
     inoremap <c-j> <Left>
@@ -314,6 +293,7 @@ EOF
     let g:rustfmt_autosave = 1
     let g:sql_type_default = 'pgsql'
 
+    let g:tex_flavor="latex"
     let g:tex_conceal = ''
     let g:vim_markdown_conceal = 0
     let g:vim_markdown_conceal_code_blocks = 0
@@ -417,7 +397,6 @@ local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>H', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
--- vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -450,15 +429,15 @@ vim.diagnostic.config({
 ---            ---
 --- auto pairs ---
 ---            ---
-require'nvim-autopairs'.setup{
+require('nvim-autopairs').setup({
   ignored_next_char = ""
-}
+})
 
 ---             ---
 --- completions ---
 ---             ---
-local cmp = require'cmp'
-local lspkind = require'lspkind'
+local cmp = require('cmp')
+local lspkind = require('lspkind')
 local kind_icons = {
   Text = "",
   Method = "",
@@ -549,12 +528,12 @@ cmp.setup.cmdline(':', {
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lspconfig = require'lspconfig'
+local lspconfig = require('lspconfig')
 
 ---                       ---
 --- Language Server Setup ---
 ---                       ---
-lspconfig.tsserver.setup {
+lspconfig.tsserver.setup({
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
@@ -563,11 +542,11 @@ lspconfig.tsserver.setup {
   flags = {
     debounce_text_changes = 150,
   }
-}
+})
 
 local prettier = {{formatCommand = 'prettierd "${INPUT}"', formatStdin = true}}
 
-lspconfig.efm.setup {
+lspconfig.efm.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
@@ -605,25 +584,25 @@ lspconfig.efm.setup {
         json = prettier
       }
   }
-}
+})
 
-lspconfig.gopls.setup {
+lspconfig.gopls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
   }
-}
+})
 
-lspconfig.clangd.setup {
+lspconfig.clangd.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
   }
-}
+})
 
-lspconfig.rust_analyzer.setup {
+lspconfig.rust_analyzer.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
@@ -641,12 +620,12 @@ lspconfig.rust_analyzer.setup {
       },
     },
   }
-}
+})
 
 ---            ---
 --- Treesitter ---
 ---            ---
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
   ensure_installed = {
     "bash",
     "c",
@@ -665,13 +644,13 @@ require'nvim-treesitter.configs'.setup {
     "yaml",
   },
   highlight = {enable = true},
-}
+})
 require('spellsitter').setup()
 
 ---                  ---
 --- Discord Presence ---
 ---                  ---
-require("presence"):setup({
+require('presence'):setup({
     -- General options
     auto_update         = true,
     neovim_image_text   = "extensible Vim-based text editor",
@@ -696,8 +675,8 @@ require("presence"):setup({
 ---           ---
 --- nvim-tree ---
 ---           ---
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-require'nvim-tree'.setup {
+local tree_cb = require('nvim-tree.config').nvim_tree_callback
+require('nvim-tree').setup({
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
@@ -785,12 +764,12 @@ require'nvim-tree'.setup {
       }
     }
   }
-}
+})
 
 ---               ---
 --- gitsigns.nvim ---
 ---               ---
-require('gitsigns').setup{
+require('gitsigns').setup({
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -823,17 +802,17 @@ require('gitsigns').setup{
     -- Text object
     map({'o', 'x'}, 'hh', ':<C-U>Gitsigns select_hunk<CR>')
   end
-}
+})
 
 ---        ---
 --- base46 ---
 ---        ---
-local present, base46 = pcall(require, "base46")
+local present, base46 = pcall(require, 'base46')
 if not present then
    return
 end
-local theme = "gruvchad"
-local color_base = "base46"
+local theme = 'gruvchad'
+local color_base = 'base46'
 local theme_opts = {
    base = color_base,
    theme = theme,
@@ -890,10 +869,10 @@ local function mix_indent()
   end
 end
 
-require('lualine').setup {
+require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = base46.get_lualine_theme("base46", theme),
+    theme = base46.get_lualine_theme('base46', theme),
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     always_divide_middle = true,
@@ -921,15 +900,15 @@ require('lualine').setup {
   },
   tabline = {},
   extensions = {'nvim-tree', 'fugitive'}
-}
+})
 
 ---                  ---
 --- indent_blankline ---
 ---                  ---
-require("indent_blankline").setup {
+require('indent_blankline').setup({
     show_current_context = false,
     show_current_context_start = false,
-}
+})
 
 ---           ---
 --- telescope ---
