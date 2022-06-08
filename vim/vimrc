@@ -1,15 +1,13 @@
 set nocompatible
-
-filetype off
+filetype on
 
 " Plugins
 
 lua <<EOF
 -- auto-bootstrap packer
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 require('packer').startup(function()
@@ -63,7 +61,7 @@ require('packer').startup(function()
     use {'lifepillar/pgsql.vim', ft = {'psql'}}
     use {'jayden-chan/timing-diagram-generator', branch = 'vim-plugin'}
     use {'jayden-chan/rust.vim', ft = {'rust'}}
-    use {'baskerville/vim-sxhkdrc', ft = {'sxhdkrc'}}
+    use {'baskerville/vim-sxhkdrc'}
     use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
     use {'chr4/nginx.vim', ft = {'nginx'}}
 
@@ -804,6 +802,26 @@ require('gitsigns').setup({
   end
 })
 
+---                  ---
+--- indent_blankline ---
+---                  ---
+require('indent_blankline').setup({
+    show_current_context = false,
+    show_current_context_start = false,
+})
+
+---           ---
+--- telescope ---
+---           ---
+require('telescope').setup({
+  defaults = {
+    layout_strategy = 'vertical',
+    layout_config = {
+      vertical = { width = 0.8 }
+    }
+  }
+})
+
 ---        ---
 --- base46 ---
 ---        ---
@@ -900,25 +918,5 @@ require('lualine').setup({
   },
   tabline = {},
   extensions = {'nvim-tree', 'fugitive'}
-})
-
----                  ---
---- indent_blankline ---
----                  ---
-require('indent_blankline').setup({
-    show_current_context = false,
-    show_current_context_start = false,
-})
-
----           ---
---- telescope ---
----           ---
-require('telescope').setup({
-  defaults = {
-    layout_strategy = 'vertical',
-    layout_config = {
-      vertical = { width = 0.8 }
-    }
-  }
 })
 EOF
