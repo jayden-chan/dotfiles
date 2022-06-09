@@ -13,3 +13,8 @@ disabled=false
 
 [git_commit]
 disabled=false
+
+[custom.gwip]
+command = "git log -n 1 2>/dev/null | rg -q -c \"\\-\\-wip\\-\\-\" && echo '[WORK IN PROGRESS]'"
+detect_folders = [".git"]
+format = "[$output](bold red)"
