@@ -818,7 +818,12 @@ require('telescope').setup({
     layout_strategy = 'vertical',
     layout_config = {
       vertical = { width = 0.8 }
-    }
+    },
+    mappings = {
+      i = {
+        ["<esc>"] = require('telescope.actions').close,
+      },
+    },
   }
 })
 
