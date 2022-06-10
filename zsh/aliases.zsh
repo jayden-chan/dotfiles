@@ -19,6 +19,7 @@ alias :Wq='exit'
 
 # Editor
 alias vim='nvim'
+alias ngit='nvim -c "Neogit kind=replace"'
 
 # U S E R   E R R O R
 alias cim='vim'
