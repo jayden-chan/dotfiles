@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-chosen_wall=$(fd . ${1:-.} -e png -e jpg -e jpeg -e webp | sxiv - -t -o -g 1600x900)
+chosen_wall=$(fd . ${1:-.} -e png -e jpg -e jpeg -e webp | sxiv - -t -b -o -g 1600x900)
 if [ "$chosen_wall" = "" ]; then
     echo "no image chosen"
 else

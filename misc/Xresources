@@ -44,3 +44,5 @@ st.color15: _color15
 st.cursorColor: _cursorColor
 st.background: _background
 st.foreground: _foreground
+
+Sxiv.background: _background
