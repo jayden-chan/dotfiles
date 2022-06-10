@@ -21,6 +21,7 @@ require('packer').startup(function()
 
 -- fs nav
     use 'nvim-lua/plenary.nvim'
+    use 'TimUntersberger/neogit'
     use 'nvim-telescope/telescope.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
@@ -429,6 +430,14 @@ vim.diagnostic.config({
 ---            ---
 require('nvim-autopairs').setup({
   ignored_next_char = ""
+})
+
+---        ---
+--- neogit ---
+---        ---
+local neogit = require('neogit')
+neogit.setup({
+  disable_commit_confirmation = true,
 })
 
 ---             ---
