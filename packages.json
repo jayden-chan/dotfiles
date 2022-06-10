@@ -202,7 +202,8 @@
       "yalc",
       "firejail",
       "catch2",
-      "tokei"
+      "tokei",
+      "pacman-contrib"
     ]
   },
   "ignored": [
