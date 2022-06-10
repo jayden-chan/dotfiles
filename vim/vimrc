@@ -193,6 +193,9 @@ EOF
     nnoremap <silent> <leader>n <cmd>lua require('telescope.builtin').lsp_references()<cr>
     nnoremap <silent> <leader>z <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 
+    " Neogit
+    nnoremap <silent> <leader>N <cmd>lua require('neogit').open({ kind = 'replace' })<cr>
+
     " Undo tree
     nnoremap <silent> <leader>U :UndotreeToggle<CR>
 
