@@ -203,7 +203,8 @@
       "firejail",
       "catch2",
       "tokei",
-      "pacman-contrib"
+      "pacman-contrib",
+      "dnsmasq"
     ]
   },
   "ignored": [

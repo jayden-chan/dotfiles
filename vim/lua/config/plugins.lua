@@ -6,64 +6,68 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function()
+    function mirror(name)
+        return 'https://git.jayden.codes/mirrors/' .. name
+    end
+
     -- Use Packer itself
-    use 'wbthomason/packer.nvim'
+    use(mirror('packer.nvim'))
 
     -- Theme
-    use 'lukas-reineke/indent-blankline.nvim'
-    use 'nvim-lualine/lualine.nvim'
+    use(mirror('indent-blankline.nvim'))
+    use(mirror('lualine.nvim'))
     use '~/Dev/Personal/base46.nvim'
 
     -- fs nav
-    use 'nvim-lua/plenary.nvim'
-    use 'TimUntersberger/neogit'
-    use 'nvim-telescope/telescope.nvim'
-    use 'kyazdani42/nvim-web-devicons'
-    use 'kyazdani42/nvim-tree.lua'
+    use(mirror('plenary.nvim'))
+    use(mirror('neogit'))
+    use(mirror('telescope.nvim'))
+    use(mirror('nvim-web-devicons'))
+    use(mirror('nvim-tree.lua'))
 
     -- Git
-    use 'lewis6991/gitsigns.nvim'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-rhubarb'
+    use(mirror('gitsigns.nvim'))
+    use(mirror('vim-fugitive'))
+    use(mirror('vim-rhubarb'))
 
     -- Misc
-    use 'godlygeek/tabular'
-    use 'editorconfig/editorconfig-vim'
-    use 'christoomey/vim-tmux-navigator'
-    use 'andweeb/presence.nvim'
-    use 'mbbill/undotree'
-    use 'tpope/vim-repeat'
+    use(mirror('tabular'))
+    use(mirror('editorconfig-vim'))
+    use(mirror('vim-tmux-navigator'))
+    use(mirror('presence.nvim'))
+    use(mirror('undotree'))
+    use(mirror('vim-repeat'))
 
     -- IDE-like
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-git'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
-    use 'onsails/lspkind-nvim'
+    use(mirror('nvim-lspconfig'))
+    use(mirror('cmp-nvim-lsp'))
+    use(mirror('cmp-buffer'))
+    use(mirror('cmp-git'))
+    use(mirror('cmp-path'))
+    use(mirror('cmp-cmdline'))
+    use(mirror('nvim-cmp'))
+    use(mirror('cmp-nvim-ultisnips'))
+    use(mirror('lspkind-nvim'))
 
-    use 'windwp/nvim-autopairs'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-surround'
-    use 'SirVer/ultisnips'
+    use(mirror('nvim-autopairs'))
+    use(mirror('vim-commentary'))
+    use(mirror('vim-surround'))
+    use(mirror('ultisnips'))
 
     -- Syntax
     use {
-        {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
-        {'nvim-treesitter/nvim-treesitter-textobjects'},
-        {'lewis6991/spellsitter.nvim'},
-        {'SmiteshP/nvim-gps'},
+        {mirror('nvim-treesitter'), run = ':TSUpdate'},
+        {mirror('nvim-treesitter-textobjects')},
+        {mirror('spellsitter.nvim')},
+        {mirror('nvim-gps')},
     }
-    use {'plasticboy/vim-markdown', ft={'markdown'}}
-    use {'lifepillar/pgsql.vim', ft = {'psql'}}
-    use {'jayden-chan/timing-diagram-generator', branch = 'vim-plugin'}
-    use {'jayden-chan/rust.vim', ft = {'rust'}}
-    use {'baskerville/vim-sxhkdrc'}
-    use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
-    use {'chr4/nginx.vim', ft = {'nginx'}}
+    use {mirror('vim-markdown'), ft={'markdown'}}
+    use {mirror('pgsql.vim'), ft = {'psql'}}
+    use {mirror('timing-diagram-generator'), branch = 'vim-plugin'}
+    use {mirror('rust.vim'), ft = {'rust'}}
+    use {mirror('vim-sxhkdrc')}
+    use {mirror('vim-hexokinase'), run = 'make hexokinase'}
+    use {mirror('nginx.vim'), ft = {'nginx'}}
 
     if packer_bootstrap then
         require('packer').sync()
