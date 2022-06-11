@@ -10,14 +10,14 @@ end
 map('n', '<F9>', '<cmd>set rnu!<cr>')
 
 -- Reload vimrc
-map('n', '<leader>ss', '<cmd>so $MYVIMRC<cr>', { silent = false })
+map('n', '<leader>ss', ':so $MYVIMRC<cr>', { silent = false })
 
 -- Map Ctrl-s to save
-map('n', '<c-s>', '<cmd>wa<cr>', { silent = false })
-map('i', '<c-s>', '<esc><cmd>wa<cr>', { silent = false })
+map('n', '<c-s>', ':wa<cr>', { silent = false })
+map('i', '<c-s>', '<esc>:wa<cr>', { silent = false })
 
 -- Spell check
-map('n', '<F6>', '<cr>setlocal spell! spelllang=en_us<cr>', { silent = false })
+map('n', '<F6>', ':setlocal spell! spelllang=en_us<cr>', { silent = false })
 
 -- ctrl-o corrects previous spelling mistake while in insert mode
 map('i', '<c-o>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
@@ -26,7 +26,7 @@ map('i', '<c-o>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
 map('t', '<esc>', [[<C-\><C-n>]])
 
 -- Formatting (remove whitespace and reindent)
-map('n', '<leader>ww', [[<cmd>%s/\s\+$//e<cr>]])
+map('n', '<leader>ww', [[<cmd>%s/\s\+$//e<cr>]], { silent = false })
 map('n', '<leader>ta', '<cmd>Tabularize /<bar><cr>')
 
 -- Close quickfix/preview/location
@@ -72,16 +72,16 @@ map('i', '<c-j>', '<Left>')
 map('i', '<c-l>', '<Right>')
 
 -- Easily resize splits
-map('n', '<leader>j', '<cmd>vertical resize +5<CR>')
-map('n', '<leader>k', '<cmd>resize +2<CR>')
-map('n', '<leader>i', '<cmd>resize -2<CR>')
-map('n', '<leader>l', '<cmd>vertical resize -5<CR>')
+map('n', '<leader>j', '<cmd>vertical resize +5<CR>', { silent = false })
+map('n', '<leader>k', '<cmd>resize +2<CR>', { silent = false })
+map('n', '<leader>i', '<cmd>resize -2<CR>', { silent = false })
+map('n', '<leader>l', '<cmd>vertical resize -5<CR>', { silent = false })
 
 -- Make c-p function like c-i since c-i was previously remapped
 map('n', '<c-p>', '<c-i>')
 
 -- <leader><leader> toggles between buffers
-map('n', '<leader><leader>', '<c-^>')
+map('n', '<leader><leader>', '<c-^>', { silent = false })
 
 -- Disable Ex mode
 map('', 'q:', '<nop>')
@@ -104,14 +104,14 @@ cmd([[noremap c "_c]])
 cmd([[noremap cc "_cc]])
 
 -- Tab switching
-map('n', '<tab>j', '<cmd>tabprevious<CR>')
-map('n', '<tab>l', '<cmd>tabnext<CR>')
+map('n', '<tab>j', ':tabprevious<CR>', { silent = false })
+map('n', '<tab>l', ':tabnext<CR>', { silent = false })
 
 -- Fix 'I' behaviour in V-block
 map('v', 'H', 'I')
 
 -- Toggle highlight search
-map('n', '<leader>h', ':set hls!<CR>')
+map('n', '<leader>h', ':set hls!<CR>', { silent = false })
 
 -- nvim-tree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
