@@ -8,7 +8,6 @@ alias hh='git push heroku master && heroku logs --tail'
 
 # dotfile editing
 alias gdf='cd $DOT && git status'
-alias vimrc='vim $DOT/vim/vimrc'
 alias zshrc='vim $DOT/zsh/zshrc'
 
 # Exit
