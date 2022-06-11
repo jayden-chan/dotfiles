@@ -40,6 +40,14 @@ map('n', '<leader>hh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 map('n', '<leader>n', '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
 map('n', '<leader>z', '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
 
+cmd([[
+com! CheckHighlightUnderCursor echo {l,c,n ->
+        \   'hi<'    . synIDattr(synID(l, c, 1), n)             . '> '
+        \  .'trans<' . synIDattr(synID(l, c, 0), n)             . '> '
+        \  .'lo<'    . synIDattr(synIDtrans(synID(l, c, 1)), n) . '> '
+        \ }(line("."), col("."), "name")
+]])
+
 -- Neogit
 map('n', '<leader>N', '<cmd>lua require("neogit").open({ kind = "replace" })<cr>')
 
