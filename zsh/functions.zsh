@@ -37,6 +37,51 @@ function syc () {
     fi
 }
 
+function gitea_mirror () {
+    gitea_token=$(bwg "Gitea Mirror Account OAuth Token")
+    github_token=$(bwg "Gitea Mirror Account Pull Token")
+
+    if [ "$1" = "" ]; then
+        echo "usage: gitea_mirror https://github.com/user/repo"
+        return
+    fi
+
+    setopt localoptions shwordsplit
+
+    url="$1"
+
+    saveIFS="$IFS"
+    IFS='/'
+    a=(${url})
+    IFS="$saveIFS"
+
+    name="${a[${#a[@]}]}"
+
+    echo "mirroring: $url [$name]"
+
+    curl --request POST \
+      --url https://git.jayden.codes/api/v1/repos/migrate \
+      --header "Authorization: token $gitea_token" \
+      --header 'Content-Type: application/json' \
+      --data "{
+        \"clone_addr\": \"$url\",
+        \"repo_name\": \"$name\",
+        \"auth_token\": \"$github_token\",
+        \"issues\": false,
+        \"labels\": false,
+        \"lfs\": false,
+        \"milestones\": false,
+        \"mirror\": true,
+        \"mirror_interval\": \"36h00m00s\",
+        \"private\": false,
+        \"pull_requests\": false,
+        \"releases\": false,
+        \"service\": \"github\",
+        \"wiki\": false
+    }"
+
+}
+
 function bwg () {
     # unlock the vault if it's not already unlocked
     if [ "$BW_SESSION" = "" ]; then
