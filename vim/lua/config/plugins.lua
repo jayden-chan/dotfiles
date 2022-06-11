@@ -51,7 +51,7 @@ require('packer').startup(function()
     use(mirror('telescope-ui-select.nvim'))
 
     use(mirror('nvim-autopairs'))
-    use(mirror('vim-commentary'))
+    use(mirror('Comment.nvim'))
     use(mirror('vim-surround'))
     use(mirror('ultisnips'))
 

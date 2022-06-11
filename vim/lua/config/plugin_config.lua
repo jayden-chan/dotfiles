@@ -5,6 +5,8 @@ require('nvim-autopairs').setup({
   ignored_next_char = ""
 })
 
+require('Comment').setup()
+
 ---        ---
 --- neogit ---
 ---        ---
