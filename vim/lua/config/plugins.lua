@@ -55,6 +55,7 @@ require('packer').startup(function()
         {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
         {'nvim-treesitter/nvim-treesitter-textobjects'},
         {'lewis6991/spellsitter.nvim'},
+        {'SmiteshP/nvim-gps'},
     }
     use {'plasticboy/vim-markdown', ft={'markdown'}}
     use {'lifepillar/pgsql.vim', ft = {'psql'}}

@@ -63,6 +63,8 @@ local function mix_indent()
   end
 end
 
+local gps = require('nvim-gps')
+gps.setup()
 require('lualine').setup({
   options = {
     icons_enabled = true,
@@ -75,7 +77,7 @@ require('lualine').setup({
   sections = {
     lualine_a = {'mode'},
     lualine_b = {{'b:gitsigns_head', icon = ''}, {'diff', source = diff_source}, 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {'filename', { gps.get_location, cond = gps.is_available }},
     lualine_x = {'encoding', 'fileformat'},
     lualine_y = {'filetype'},
     lualine_z = {
