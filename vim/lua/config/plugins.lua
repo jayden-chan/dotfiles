@@ -16,7 +16,7 @@ require('packer').startup(function()
     -- Theme
     use(mirror('indent-blankline.nvim'))
     use(mirror('lualine.nvim'))
-    use '~/Dev/Personal/base46.nvim'
+    use(mirror('base46.nvim'))
 
     -- fs nav
     use(mirror('plenary.nvim'))
@@ -48,6 +48,7 @@ require('packer').startup(function()
     use(mirror('nvim-cmp'))
     use(mirror('cmp-nvim-ultisnips'))
     use(mirror('lspkind-nvim'))
+    use(mirror('telescope-ui-select.nvim'))
 
     use(mirror('nvim-autopairs'))
     use(mirror('vim-commentary'))
