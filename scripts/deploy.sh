@@ -22,7 +22,6 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/git
     mkdir -p ~/.config/latexmk
     mkdir -p ~/.config/npm
-    mkdir -p ~/.config/nvim/colors
     mkdir -p ~/.config/rofi
     mkdir -p ~/.config/tmux
     mkdir -p ~/.config/zsh
@@ -62,11 +61,9 @@ ln -fs ~/.config/dotfiles/rofi/power.rasi        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/screenshot.rasi   ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/links.rasi        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/eq.rasi           ~/.config/rofi/
-ln -fs ~/.config/dotfiles/snippets/              ~/.config/nvim/UltiSnips
+ln -fs ~/.config/dotfiles/vim/init.lua           ~/.config/nvim/
 ln -fs ~/.config/dotfiles/misc/starship.toml     ~/.config/
 ln -fs ~/.config/dotfiles/misc/tmux.conf         ~/.config/tmux/
-ln -fs ~/.config/dotfiles/vim/coc-settings.json  ~/.config/nvim/
-ln -fs ~/.config/dotfiles/vim/vimrc              ~/.config/nvim/init.vim
 ln -fs ~/.config/dotfiles/zsh/zlogout            ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc              ~/.config/zsh/.zshrc
 ln -fs ~/.config/dotfiles/scripts/p.js           ~/.local/bin/p
@@ -78,6 +75,12 @@ ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
 ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
 
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
+
+# symlinked folders need to be removed before linking
+rm -rf ~/.config/nvim/UltiSnips/
+rm -rf ~/.config/nvim/lua/
+ln -fs ~/.config/dotfiles/snippets/              ~/.config/nvim/UltiSnips
+ln -fs ~/.config/dotfiles/vim/lua/               ~/.config/nvim/lua
 
 # set default apps
 xdg-mime default org.pwmt.zathura.desktop     application/pdf
