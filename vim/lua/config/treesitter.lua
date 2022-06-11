@@ -5,6 +5,7 @@ require('nvim-treesitter.configs').setup({
   ensure_installed = {
     "bash",
     "c",
+    "cmake",
     "cpp",
     "css",
     "dockerfile",
@@ -12,6 +13,8 @@ require('nvim-treesitter.configs').setup({
     "graphql",
     "java",
     "javascript",
+    "lua",
+    "make",
     "python",
     "rust",
     "toml",
