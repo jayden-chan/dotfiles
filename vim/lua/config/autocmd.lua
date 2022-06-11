@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local new_command = vim.api.nvim_create_user_command
 
 cmd([[autocmd FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1]])
-cmd([[command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()]]);
+cmd([[command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()]])
 
 local auto_fmt_langs = {
     'c',

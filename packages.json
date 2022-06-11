@@ -71,7 +71,6 @@
       "nautilus",
       "pavucontrol",
       "maim",
-      "neovim",
       "firefox",
       "cmake",
       "fakeroot",
@@ -204,7 +203,9 @@
       "catch2",
       "tokei",
       "pacman-contrib",
-      "dnsmasq"
+      "dnsmasq",
+      "ninja",
+      "tree-sitter"
     ]
   },
   "ignored": [
