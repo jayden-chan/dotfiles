@@ -20,7 +20,7 @@ local auto_fmt_langs = {
     'typescriptreact',
 }
 
-for _,v in ipairs(auto_fmt_langs) do
+for _, v in ipairs(auto_fmt_langs) do
     cmd('autocmd FileType ' .. v .. ' autocmd BufWritePre <buffer> AutoFormat')
 end
 
@@ -32,7 +32,7 @@ local spell_langs = {
     'cucumber',
 }
 
-for _,v in ipairs(spell_langs) do
+for _, v in ipairs(spell_langs) do
     cmd('autocmd FileType ' .. v .. ' setlocal spell')
 end
 
@@ -59,7 +59,7 @@ local two_spc_files = {
     'yml',
 }
 
-for _,v in ipairs(two_spc_files) do
+for _, v in ipairs(two_spc_files) do
     cmd('autocmd FileType ' .. v .. ' setlocal shiftwidth=2')
     cmd('autocmd FileType ' .. v .. ' setlocal softtabstop=2')
 end
@@ -83,7 +83,8 @@ cmd([[autocmd FileType makefile    setlocal noexpandtab]])
 
 new_command(
     'TSOrganizeImports',
-    '<cmd>lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})',
+    '<cmd>lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})'
+    ,
     { nargs = 0 }
 )
 

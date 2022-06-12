@@ -1,12 +1,12 @@
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     packer_bootstrap = vim.fn.system(
-    {'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path}
+        { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
     )
 end
 
-require('packer').startup(function()
-    function mirror(name)
+require('packer').startup(function(use)
+    local function mirror(name)
         return 'https://git.jayden.codes/mirrors/' .. name
     end
 
@@ -57,18 +57,18 @@ require('packer').startup(function()
 
     -- Syntax
     use {
-        {mirror('nvim-treesitter'), run = ':TSUpdate'},
-        {mirror('nvim-treesitter-textobjects')},
-        {mirror('spellsitter.nvim')},
-        {mirror('nvim-gps')},
+        { mirror('nvim-treesitter'), run = ':TSUpdate' },
+        { mirror('nvim-treesitter-textobjects') },
+        { mirror('spellsitter.nvim') },
+        { mirror('nvim-gps') },
     }
-    use {mirror('vim-markdown'), ft={'markdown'}}
-    use {mirror('pgsql.vim'), ft = {'psql'}}
-    use {mirror('timing-diagram-generator'), branch = 'vim-plugin'}
-    use {mirror('rust.vim'), ft = {'rust'}}
-    use {mirror('vim-sxhkdrc')}
-    use {mirror('vim-hexokinase'), run = 'make hexokinase'}
-    use {mirror('nginx.vim'), ft = {'nginx'}}
+    use { mirror('vim-markdown'), ft = { 'markdown' } }
+    use { mirror('pgsql.vim'), ft = { 'psql' } }
+    use { mirror('timing-diagram-generator'), branch = 'vim-plugin' }
+    use { mirror('rust.vim'), ft = { 'rust' } }
+    use { mirror('vim-sxhkdrc') }
+    use { mirror('vim-hexokinase'), run = 'make hexokinase' }
+    use { mirror('nginx.vim'), ft = { 'nginx' } }
 
     if packer_bootstrap then
         require('packer').sync()

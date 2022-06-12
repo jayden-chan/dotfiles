@@ -17,12 +17,12 @@ opt.smarttab = true
 opt.smartindent = true
 
 -- Search settings
-opt.gdefault        = true  -- Global by default
-opt.ignorecase      = true  -- Ignore case
-opt.smartcase       = true  -- Override ignorecase if search contains capitals
-opt.incsearch       = true  -- Search incrementally
-opt.hls             = false -- Don't highlight after Enter is pressed
-opt.inccommand = 'nosplit'  -- Show find/replace as it is typed
+opt.gdefault   = true -- Global by default
+opt.ignorecase = true -- Ignore case
+opt.smartcase  = true -- Override ignorecase if search contains capitals
+opt.incsearch  = true -- Search incrementally
+opt.hls        = false -- Don't highlight after Enter is pressed
+opt.inccommand = 'nosplit' -- Show find/replace as it is typed
 
 -- Open new splits on the right
 opt.splitright = true

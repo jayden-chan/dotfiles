@@ -47,7 +47,7 @@ require('spellsitter').setup()
 
 -- We can enable spell checking for any language that has
 -- treesitter since it will only check the comments and not the code
-for i,v in ipairs(treesitter_langs) do
+for _, v in ipairs(treesitter_langs) do
     cmd('autocmd FileType ' .. v .. ' setlocal spell')
 end
 
