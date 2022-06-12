@@ -48,7 +48,7 @@ require('spellsitter').setup()
 -- We can enable spell checking for any language that has
 -- treesitter since it will only check the comments and not the code
 for _, v in ipairs(treesitter_langs) do
-    cmd('autocmd FileType ' .. v .. ' setlocal spell')
+    cmd('autocmd FileType ' .. v .. ' setlocal spell spelllang=en_us')
 end
 
 require('nvim-treesitter.configs').setup({

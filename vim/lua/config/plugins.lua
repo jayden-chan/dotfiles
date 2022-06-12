@@ -16,7 +16,8 @@ require('packer').startup(function(use)
     -- Theme
     use(mirror('indent-blankline.nvim'))
     use(mirror('lualine.nvim'))
-    use(mirror('base46.nvim'))
+    -- use(mirror('base46.nvim'))
+    use '~/Dev/Personal/base46.nvim'
 
     -- fs nav
     use(mirror('plenary.nvim'))
@@ -60,7 +61,6 @@ require('packer').startup(function(use)
         { mirror('nvim-treesitter'), run = ':TSUpdate' },
         { mirror('nvim-treesitter-textobjects') },
         { mirror('spellsitter.nvim') },
-        { mirror('nvim-gps') },
     }
     use { mirror('vim-markdown'), ft = { 'markdown' } }
     use { mirror('pgsql.vim'), ft = { 'psql' } }

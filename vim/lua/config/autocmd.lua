@@ -33,7 +33,7 @@ local spell_langs = {
 }
 
 for _, v in ipairs(spell_langs) do
-    cmd('autocmd FileType ' .. v .. ' setlocal spell')
+    cmd('autocmd FileType ' .. v .. ' setlocal spell spelllang=en_us')
 end
 
 -- Set a max line length for Markdown files
