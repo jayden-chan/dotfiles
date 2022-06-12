@@ -3,7 +3,7 @@ local g = vim.g
 local opt = vim.opt
 
 opt.encoding = 'UTF-8'
-opt.spellfile = '~/.config/dotfiles/vim/en.utf-8.add'
+opt.spellfile = os.getenv("HOME") .. '/.config/dotfiles/vim/en.utf-8.add'
 
 -- 256 colors
 opt.termguicolors = true
