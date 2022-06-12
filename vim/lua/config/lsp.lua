@@ -15,7 +15,7 @@ local on_attach = function(client, bufnr)
   buf_key('n', '<leader>o', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_key('n', '<leader>O', '<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_key('n', '<leader>g', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_key('n', '<leaderR', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_key('n', '<leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_key('n', '<leader>e', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_key('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
@@ -223,4 +223,15 @@ lspconfig.rust_analyzer.setup({
       },
     },
   }
+})
+
+require('lspconfig').sumneko_lua.setup({
+    settings = {
+        Lua = {
+            runtime = { version = 'LuaJIT', },
+            diagnostics = { globals = {'vim'}, },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true), },
+            telemetry = { enable = false, },
+        },
+    },
 })

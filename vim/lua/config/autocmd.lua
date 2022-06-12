@@ -7,19 +7,20 @@ cmd([[command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()]])
 local auto_fmt_langs = {
     'c',
     'cpp',
-    'go',
-    'javascript',
-    'typescript',
-    'javascriptreact',
-    'typescriptreact',
     'css',
-    'scss',
-    'json',
-    'html',
+    'go',
     'graphql',
+    'html',
+    'javascript',
+    'javascriptreact',
+    'json',
+    'lua',
+    'scss',
+    'typescript',
+    'typescriptreact',
 }
 
-for i,v in ipairs(auto_fmt_langs) do
+for _,v in ipairs(auto_fmt_langs) do
     cmd('autocmd FileType ' .. v .. ' autocmd BufWritePre <buffer> AutoFormat')
 end
 
@@ -31,7 +32,7 @@ local spell_langs = {
     'cucumber',
 }
 
-for i,v in ipairs(spell_langs) do
+for _,v in ipairs(spell_langs) do
     cmd('autocmd FileType ' .. v .. ' setlocal spell')
 end
 
@@ -41,24 +42,24 @@ cmd([[autocmd FileType markdown setlocal colorcolumn=90]])
 
 -- Set indentation to 2 spaces for certain files
 local two_spc_files = {
+    'cpp',
+    'css',
+    'graphql',
+    'groovy',
+    'html',
     'javascript',
+    'json',
+    'less',
+    'scss',
+    'sql',
+    'toml',
     'typescript',
     'typescriptreact',
-    'html',
-    'scss',
-    'css',
-    'less',
-    'json',
-    'toml',
-    'sql',
-    'yml',
     'yaml',
-    'groovy',
-    'graphql',
-    'cpp',
+    'yml',
 }
 
-for i,v in ipairs(two_spc_files) do
+for _,v in ipairs(two_spc_files) do
     cmd('autocmd FileType ' .. v .. ' setlocal shiftwidth=2')
     cmd('autocmd FileType ' .. v .. ' setlocal softtabstop=2')
 end

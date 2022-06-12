@@ -205,7 +205,8 @@
       "pacman-contrib",
       "dnsmasq",
       "ninja",
-      "tree-sitter"
+      "tree-sitter",
+      "lua-language-server"
     ]
   },
   "ignored": [

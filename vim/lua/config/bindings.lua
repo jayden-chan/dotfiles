@@ -9,9 +9,6 @@ end
 -- Relative line number toggle, toggle w/ F9
 map('n', '<F9>', '<cmd>set rnu!<cr>')
 
--- Reload vimrc
-map('n', '<leader>ss', ':so $MYVIMRC<cr>', { silent = false })
-
 -- Map Ctrl-s to save
 map('n', '<c-s>', ':wa<cr>', { silent = false })
 map('i', '<c-s>', '<esc>:wa<cr>', { silent = false })
