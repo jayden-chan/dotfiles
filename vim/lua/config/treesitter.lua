@@ -13,6 +13,7 @@ local treesitter_langs = {
     "go",
     "graphql",
     "java",
+    "jsonc",
     "javascript",
     "lua",
     "make",

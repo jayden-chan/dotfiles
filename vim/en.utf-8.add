@@ -152,3 +152,5 @@ MERCHANTABILITY
 Lambertian
 hpp
 vec3
+albedo
+emittance
