@@ -133,7 +133,8 @@ lspconfig.efm.setup({
         'graphql',
         'markdown',
         'yaml',
-        'json'
+        'json',
+        'jsonc'
     },
     settings = {
         rootMarkers = { ".git/" },
@@ -149,7 +150,8 @@ lspconfig.efm.setup({
             graphql = prettier,
             markdown = prettier,
             yaml = prettier,
-            json = prettier
+            json = prettier,
+            jsonc = prettier
         }
     }
 })

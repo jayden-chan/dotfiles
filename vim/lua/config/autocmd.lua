@@ -49,6 +49,7 @@ local two_spc_files = {
     'html',
     'javascript',
     'json',
+    'jsonc',
     'less',
     'scss',
     'sql',
