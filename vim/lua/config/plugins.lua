@@ -35,7 +35,6 @@ require('packer').startup(function(use)
     use(mirror('tabular'))
     use(mirror('editorconfig-vim'))
     use(mirror('vim-tmux-navigator'))
-    use(mirror('presence.nvim'))
     use(mirror('undotree'))
     use(mirror('vim-repeat'))
 
