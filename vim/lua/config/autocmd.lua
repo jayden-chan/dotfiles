@@ -26,6 +26,7 @@ end
 
 local spell_langs = {
     'gitcommit',
+    'NeogitCommitMessage',
     'text',
     'markdown',
     'tex',

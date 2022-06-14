@@ -154,3 +154,4 @@ hpp
 vec3
 albedo
 emittance
+multithreaded

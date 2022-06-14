@@ -27,11 +27,15 @@ class ${2:}
 #endif // $1_H
 endsnippet
 
+snippet ns
+namespace ${1:} {
+
+} // namespace $1
+endsnippet
+
 snippet source
 #include <iostream>
 #include "${1:}.h"
-
-using namespace std;
 
 $1::$1(${2:})
 {
@@ -44,5 +48,5 @@ cout << "${1:}"${0};
 endsnippet
 
 snippet coutl
-cout << "${1:}" << endl;
+std::cout << "${1:}" << '\n';
 endsnippet

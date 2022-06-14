@@ -44,7 +44,8 @@
       "cgal",
       "lcov",
       "zoom",
-      "nvidia-dkms"
+      "nvidia-dkms",
+      "heroku-cli"
     ],
     "swift": [
       "alsa-utils",
