@@ -1,9 +1,9 @@
 ---            ---
 --- auto pairs ---
 ---            ---
-require('nvim-autopairs').setup({
-    ignored_next_char = ""
-})
+-- require('nvim-autopairs').setup({
+--     ignored_next_char = ""
+-- })
 
 require('Comment').setup()
 

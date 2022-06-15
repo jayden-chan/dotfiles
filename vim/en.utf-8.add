@@ -155,3 +155,5 @@ vec3
 albedo
 emittance
 multithreaded
+sanitizer
+sanitizers

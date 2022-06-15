@@ -6,6 +6,10 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- "auto pairs"
+map('i', '(', '()<Left>');
+map('i', '{<cr>', '{<cr>}<esc><up>o');
+
 -- Relative line number toggle, toggle w/ F9
 map('n', '<F9>', '<cmd>set rnu!<cr>')
 
