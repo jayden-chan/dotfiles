@@ -157,7 +157,7 @@ snip.rv = ret[:-2]
 `
 endsnippet
 
-snippet bc "Compute expression with bc" i
+snippet bce "Compute expression with bc (including original exp)" i
 `!p
 import subprocess
 result = subprocess.run(["bc", "-l"], capture_output=True, text=True, input=snip.v.text + "\n")
@@ -165,6 +165,17 @@ if result.stderr != "":
 	snip.rv = result.stderr.strip()
 else:
 	snip.rv = snip.v.text + " = " + result.stdout.strip()
+`
+endsnippet
+
+snippet bc "Compute expression with bc" i
+`!p
+import subprocess
+result = subprocess.run(["bc", "-l"], capture_output=True, text=True, input=snip.v.text + "\n")
+if result.stderr != "":
+	snip.rv = result.stderr.strip()
+else:
+	snip.rv = result.stdout.strip()
 `
 endsnippet
 
