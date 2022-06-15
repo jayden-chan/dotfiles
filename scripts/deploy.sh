@@ -88,6 +88,7 @@ xdg-mime default org.gnome.eog.desktop        image/png
 xdg-mime default org.gnome.eog.desktop        image/jpg
 xdg-mime default org.gnome.eog.desktop        image/jpeg
 xdg-mime default org.gnome.eog.desktop        image/webp
+xdg-mime default org.gnome.eog.desktop        image/x-portable-pixmap
 xdg-mime default org.gnome.gedit.desktop      text/plain
 xdg-mime default org.gnome.gedit.desktop      text/csv
 xdg-mime default org.gnome.gedit.desktop      text/xml
