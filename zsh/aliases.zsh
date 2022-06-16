@@ -15,6 +15,10 @@ alias :q='exit'
 alias :Q='exit'
 alias :wq='exit'
 alias :Wq='exit'
+alias :q!='builtin exit'
+alias :Q!='builtin exit'
+alias :wq!='builtin exit'
+alias :Wq!='builtin exit'
 
 # Editor
 alias vim='nvim'
