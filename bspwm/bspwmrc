@@ -13,6 +13,8 @@ bspc config top_padding                0
 bspc config right_padding              14
 bspc config bottom_padding             14
 bspc config left_padding               14
+# Add extra padding for Plank lol
+bspc config -m primary bottom_padding  67
 
 bspc config border_width               0
 bspc config focused_border_color       '#ffffff'
@@ -91,6 +93,7 @@ done
 pgrep -x sxhkd > /dev/null || sxhkd -c "$DOTS"/bspwm/sxhkdrc &
 pgrep -x dunst > /dev/null || dunst -config "$DOTS"/misc/dunstrc &
 pgrep -x picom > /dev/null || picom --config "$DOTS"/misc/picom.conf &
+pgrep -x plank > /dev/null || plank &
 
 # remove the old xsession-errors file
 rm -f "$HOME/.xsession-errors.old"

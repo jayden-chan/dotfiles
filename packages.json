@@ -207,7 +207,8 @@
       "dnsmasq",
       "ninja",
       "tree-sitter",
-      "lua-language-server"
+      "lua-language-server",
+      "plank"
     ]
   },
   "ignored": [
