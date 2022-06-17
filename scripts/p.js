@@ -56,6 +56,22 @@ function checkBootMount() {
   });
 }
 
+async function paccache() {
+  if (!(await checkBootMount())) {
+    return Promise.resolve(1);
+  }
+
+  return new Promise((resolve) => {
+    const yay = spawn("paccache", ["-r"], {
+      stdio: "inherit",
+    });
+
+    yay.on("close", (code) => {
+      resolve(code);
+    });
+  });
+}
+
 /**
  * @param {String} yayCommand Yay command to run
  * @param {Object} programs Programs list
@@ -202,7 +218,13 @@ async function main() {
   const args = process.argv.slice(3);
 
   if (command === undefined) {
-    return await handleYayCommand(YAY_COMMANDS[3], programs, args);
+    const yayCode = await handleYayCommand(YAY_COMMANDS[3], programs, args);
+    if (yayCode !== 0) {
+      return yayCode;
+    }
+
+    // Only keep the last three versions of packages in the cache
+    return await paccache();
   }
 
   switch (command) {
@@ -217,7 +239,11 @@ async function main() {
       return await handleYayCommand(YAY_COMMANDS[2], programs, args);
     case "cc":
     case "cache":
-      return await handleYayCommand(YAY_COMMANDS[4], programs, args);
+      const cacheCode = await handleYayCommand(YAY_COMMANDS[4], programs, args);
+      if (cacheCode !== 0) {
+        return cacheCode;
+      }
+      return await paccache();
     case "m":
     case "missing":
       verifyPrograms(programs);
