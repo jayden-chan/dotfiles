@@ -52,6 +52,15 @@ if [ "$1" = "--full" ]; then
 fi
 
 cd ~ || exit
+
+# symlinked folders need to be removed before linking
+rm -rf ~/.config/nvim/UltiSnips
+rm -rf ~/.config/nvim/lua
+rm -rf ~/.config/nvim/init.lua
+ln -fs ~/.config/dotfiles/vim/snippets           ~/.config/nvim/UltiSnips
+ln -fs ~/.config/dotfiles/vim/lua                ~/.config/nvim/lua
+ln -fs ~/.config/dotfiles/vim/init.lua           ~/.config/nvim/
+
 ln -fs ~/.config/dotfiles/bspwm/bspwmrc          ~/.config/bspwm/
 ln -fs ~/.config/dotfiles/git/gitconfig          ~/.config/git/config
 ln -fs ~/.config/dotfiles/misc/latexmkrc         ~/.config/latexmk/
@@ -61,7 +70,6 @@ ln -fs ~/.config/dotfiles/rofi/power.rasi        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/screenshot.rasi   ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/links.rasi        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/eq.rasi           ~/.config/rofi/
-ln -fs ~/.config/dotfiles/vim/init.lua           ~/.config/nvim/
 ln -fs ~/.config/dotfiles/misc/starship.toml     ~/.config/
 ln -fs ~/.config/dotfiles/misc/tmux.conf         ~/.config/tmux/
 ln -fs ~/.config/dotfiles/zsh/zlogout            ~/.config/zsh/.zlogout
@@ -75,12 +83,6 @@ ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
 ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
 
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
-
-# symlinked folders need to be removed before linking
-rm -rf ~/.config/nvim/UltiSnips/
-rm -rf ~/.config/nvim/lua/
-ln -fs ~/.config/dotfiles/snippets/              ~/.config/nvim/UltiSnips
-ln -fs ~/.config/dotfiles/vim/lua/               ~/.config/nvim/lua
 
 # set default apps
 xdg-mime default org.pwmt.zathura.desktop     application/pdf
