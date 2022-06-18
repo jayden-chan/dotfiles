@@ -149,7 +149,6 @@
       "rust-analyzer",
       "rsync",
       "yaru-colors-gtk-theme",
-      "yaru-colors-icon-theme",
       "gsfonts",
       "ufw",
       "polybar",
@@ -208,7 +207,8 @@
       "ninja",
       "tree-sitter",
       "lua-language-server",
-      "plank"
+      "plank",
+      "numix-circle-icon-theme-git"
     ]
   },
   "ignored": [
