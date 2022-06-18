@@ -1,7 +1,7 @@
 local cmd = vim.cmd
 local new_command = vim.api.nvim_create_user_command
 
-cmd([[autocmd FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1]])
+cmd([[autocmd FileType gitcommit,NeogitCommitMessage,text,markdown,tex let b:EditorConfig_disable = 1]])
 cmd([[command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()]])
 
 local auto_fmt_langs = {
@@ -71,19 +71,19 @@ cmd([[autocmd BufWinEnter,WinEnter term://* startinsert]])
 
 -- Jump to last known cursor position when opening files
 cmd(
-	[[autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+	[[autocmd BufReadPost * if &filetype != "gitcommit" && &filetype != "NeogitCommitMessage" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 )
 
 cmd([[autocmd BufRead,BufNewFile Jenkinsfile setf groovy]])
 cmd([[autocmd BufRead,BufNewFile *.graphql setf graphql]])
 
 -- Set indentation to hard tabs for some files
-cmd([[autocmd FileType snippets,go setlocal tabstop=4]])
-cmd([[autocmd FileType snippets,go setlocal shiftwidth=4]])
-cmd([[autocmd FileType asm         setlocal shiftwidth=8]])
-cmd([[autocmd FileType asm         setlocal expandtab]])
-cmd([[autocmd FileType go          setlocal noexpandtab]])
-cmd([[autocmd FileType makefile    setlocal noexpandtab]])
+cmd([[autocmd FileType snippets,go,lua setlocal tabstop=4]])
+cmd([[autocmd FileType snippets,go,lua setlocal shiftwidth=4]])
+cmd([[autocmd FileType asm             setlocal shiftwidth=8]])
+cmd([[autocmd FileType asm             setlocal expandtab]])
+cmd([[autocmd FileType go,lua          setlocal noexpandtab]])
+cmd([[autocmd FileType makefile        setlocal noexpandtab]])
 
 new_command(
 	"TSOrganizeImports",
