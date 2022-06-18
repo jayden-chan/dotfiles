@@ -161,10 +161,16 @@ lspconfig.sumneko_lua.setup({
 	},
 })
 
-local nullls = require("null-ls")
-nullls.setup({
+local null_ls = require("null-ls")
+null_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	flags = default_flags,
 	sources = {
-		nullls.builtins.formatting.prettierd,
-		nullls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.shellcheck,
+		null_ls.builtins.code_actions.shellcheck,
+		null_ls.builtins.diagnostics.cppcheck,
 	},
 })

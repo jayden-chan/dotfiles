@@ -208,7 +208,8 @@
       "lua-language-server",
       "plank",
       "numix-circle-icon-theme-git",
-      "stylua"
+      "stylua",
+      "cppcheck"
     ]
   },
   "ignored": [
