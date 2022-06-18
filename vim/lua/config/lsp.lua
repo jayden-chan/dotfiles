@@ -52,11 +52,23 @@ cmp.setup({
 		end,
 	},
 	preselect = cmp.PreselectMode.None,
+	window = {
+		completion = {
+			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = -3,
+			side_padding = 0,
+		},
+	},
 	formatting = {
-		format = lspkind.cmp_format({
-			mode = "symbol", -- show only symbol annotations
-			maxwidth = 60, -- prevent the popup from showing more than provided characters
-		}),
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. strings[1] .. " "
+			kind.menu = "    (" .. strings[2] .. ")"
+
+			return kind
+		end,
 	},
 	mapping = cmp.mapping.preset.insert({
 		-- Enter immediately completes. C-n/C-p to select.
