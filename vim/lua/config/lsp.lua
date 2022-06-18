@@ -55,7 +55,7 @@ cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
 			mode = "symbol", -- show only symbol annotations
-			maxwidth = 60, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			maxwidth = 60, -- prevent the popup from showing more than provided characters
 		}),
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -73,39 +73,33 @@ cmp.setup({
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
-	sources = cmp.config.sources({
-		{ name = "cmp_git" },
-	}, {
-		{ name = "buffer" },
-	}),
+	sources = cmp.config.sources({ { name = "cmp_git" } }, { { name = "buffer" } }),
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
-	sources = {
-		{ name = "buffer" },
-	},
+	sources = { { name = "buffer" } },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
-	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
-		{ name = "cmdline" },
-	}),
+	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 })
 
 -- Setup lspconfig.
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require("lspconfig")
 local default_flags = { debounce_text_changes = 150 }
+local on_init = function(client)
+	client.offset_encoding = "utf-8"
+end
 
 ---                       ---
 --- Language Server Setup ---
 ---                       ---
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
+	on_init = on_init,
 	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		on_attach(client, bufnr)
@@ -115,18 +109,21 @@ lspconfig.tsserver.setup({
 
 lspconfig.gopls.setup({
 	capabilities = capabilities,
+	on_init = on_init,
 	on_attach = on_attach,
 	flags = default_flags,
 })
 
 lspconfig.clangd.setup({
 	capabilities = capabilities,
+	on_init = on_init,
 	on_attach = on_attach,
 	flags = default_flags,
 })
 
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
+	on_init = on_init,
 	on_attach = on_attach,
 	flags = default_flags,
 	settings = {
@@ -145,6 +142,7 @@ lspconfig.rust_analyzer.setup({
 
 lspconfig.sumneko_lua.setup({
 	capabilities = capabilities,
+	on_init = on_init,
 	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		on_attach(client, bufnr)
@@ -164,6 +162,7 @@ lspconfig.sumneko_lua.setup({
 local null_ls = require("null-ls")
 null_ls.setup({
 	capabilities = capabilities,
+	on_init = on_init,
 	on_attach = on_attach,
 	flags = default_flags,
 	sources = {
