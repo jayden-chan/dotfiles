@@ -175,7 +175,6 @@
       "bitwarden-cli",
       "sshfs",
       "nfs-utils",
-      "efm-langserver",
       "typescript-language-server",
       "prettierd",
       "gopls",
@@ -208,7 +207,8 @@
       "tree-sitter",
       "lua-language-server",
       "plank",
-      "numix-circle-icon-theme-git"
+      "numix-circle-icon-theme-git",
+      "stylua"
     ]
   },
   "ignored": [

@@ -50,6 +50,7 @@ require('packer').startup(function(use)
     use(mirror('cmp-nvim-ultisnips'))
     use(mirror('lspkind-nvim'))
     use(mirror('telescope-ui-select.nvim'))
+	use("jose-elias-alvarez/null-ls.nvim")
 
     -- use(mirror('nvim-autopairs'))
     use(mirror('Comment.nvim'))

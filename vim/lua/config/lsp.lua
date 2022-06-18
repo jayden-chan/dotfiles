@@ -97,6 +97,7 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require('lspconfig')
+local default_flags = { debounce_text_changes = 150 }
 
 ---                       ---
 --- Language Server Setup ---
@@ -107,77 +108,25 @@ lspconfig.tsserver.setup({
         client.resolved_capabilities.document_formatting = false
         on_attach(client, bufnr)
     end,
-    flags = {
-        debounce_text_changes = 150,
-    }
-})
-
-local prettier = { { formatCommand = 'prettierd "${INPUT}"', formatStdin = true } }
-
-lspconfig.efm.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    init_options = { documentFormatting = true },
-    filetypes = {
-        'javascript',
-        'typescript',
-        'javascriptreact',
-        'typescriptreact',
-        'html',
-        'css',
-        'scss',
-        'less',
-        'graphql',
-        'markdown',
-        'yaml',
-        'json',
-        'jsonc'
-    },
-    settings = {
-        rootMarkers = { ".git/" },
-        languages = {
-            javascript = prettier,
-            typescript = prettier,
-            javascriptreact = prettier,
-            typescriptreact = prettier,
-            html = prettier,
-            css = prettier,
-            scss = prettier,
-            less = prettier,
-            graphql = prettier,
-            markdown = prettier,
-            yaml = prettier,
-            json = prettier,
-            jsonc = prettier
-        }
-    }
+    flags = default_flags,
 })
 
 lspconfig.gopls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    }
+    flags = default_flags,
 })
 
 lspconfig.clangd.setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    }
+    flags = default_flags,
 })
 
 lspconfig.rust_analyzer.setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    },
+    flags = default_flags,
     settings = {
         ["rust-analyzer"] = {
             cargo = {
@@ -192,13 +141,28 @@ lspconfig.rust_analyzer.setup({
     }
 })
 
-require('lspconfig').sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
+    end,
+    flags = default_flags,
     settings = {
         Lua = {
-            runtime = { version = 'LuaJIT', },
-            diagnostics = { globals = { 'vim' }, },
-            workspace = { library = vim.api.nvim_get_runtime_file("", true), },
-            telemetry = { enable = false, },
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+            telemetry = { enable = false },
+            format = { enable = false },
         },
+    },
+})
+
+local nullls = require("null-ls")
+nullls.setup({
+    sources = {
+        nullls.builtins.formatting.prettierd,
+        nullls.builtins.formatting.stylua,
     },
 })
