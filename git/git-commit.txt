@@ -1,16 +1,22 @@
-JC: 
+
 # |<----  Using a Maximum Of 50 Characters  ---->|
-# (If applied, this commit will...) (Max 50 char)
+# <type>[optional scope]: <description>
+#
+# fix: a commit of the type fix patches a bug in your codebase
+# feat: a commit of the type feat introduces a new feature to the codebase
+#
+# BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appends a !
+# after the type/scope, introduces a breaking API change. A BREAKING CHANGE can
+# be part of commits of any type.
+#
+# other types: build, chore, ci, docs, style, refactor, perf, test
 
 
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
-# Explain why this change is being made
-# Provide links to any relevant tickets, articles or other resources
-# Example: Github issue #23
 
 # --- COMMIT END ---
 # Remember to
 #    Capitalize, imperative, no period, blank line between subject
 #    Use the body to explain what and why vs. how
-# Can use multiple lines with "-" for bullet points in body
+# Can use multiple lines with "-" or "*" for bullet points in body
 # -----------------
