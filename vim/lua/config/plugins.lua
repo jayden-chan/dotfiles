@@ -22,6 +22,7 @@ require('packer').startup(function(use)
     -- fs nav
     use(mirror('plenary.nvim'))
     use(mirror('neogit'))
+    use(mirror('diffview.nvim'))
     use(mirror('telescope.nvim'))
     use(mirror('nvim-web-devicons'))
     use(mirror('nvim-tree.lua'))

@@ -5,6 +5,8 @@ local opt = vim.opt
 opt.encoding = 'UTF-8'
 opt.spellfile = os.getenv("HOME") .. '/.config/dotfiles/vim/en.utf-8.add'
 
+cmd([[set fillchars+=diff:\ ]])
+
 -- 256 colors
 opt.termguicolors = true
 
