@@ -64,6 +64,14 @@ cmp.setup({
 		format = function(entry, vim_item)
 			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
 			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+
+			-- Handle un-implemented case in lspkind
+			-- https://github.com/onsails/lspkind.nvim/issues/12
+			if strings[1] == "TypeParameter" then
+				strings[1] = ""
+				strings[2] = "Type Parameter"
+			end
+
 			kind.kind = " " .. strings[1] .. " "
 			kind.menu = "    (" .. strings[2] .. ")"
 
