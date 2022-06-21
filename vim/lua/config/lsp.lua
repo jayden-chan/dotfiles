@@ -92,8 +92,13 @@ cmp.setup({
 })
 
 -- Set configuration for specific filetype.
+require("cmp_git").setup()
 cmp.setup.filetype("gitcommit", {
-	sources = cmp.config.sources({ { name = "cmp_git" } }, { { name = "buffer" } }),
+	sources = cmp.config.sources({ { name = "git" } }, { { name = "buffer" } }),
+})
+
+cmp.setup.filetype("NeogitCommitMessage", {
+	sources = cmp.config.sources({ { name = "git" } }, { { name = "buffer" } }),
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

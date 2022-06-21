@@ -1,6 +1,9 @@
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local packer_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	packer_bootstrap = vim.fn.system({
+	print("cloning packer...")
+	packer_bootstrap = true
+	vim.fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -35,13 +38,11 @@ require("packer").startup(function(use)
 	-- Git
 	use(mirror("gitsigns.nvim"))
 	use(mirror("vim-fugitive"))
-	use(mirror("vim-rhubarb"))
 
 	-- Misc
 	use(mirror("tabular"))
 	use(mirror("editorconfig-vim"))
 	use(mirror("vim-tmux-navigator"))
-	use(mirror("undotree"))
 	use(mirror("vim-repeat"))
 
 	-- IDE-like
@@ -54,7 +55,6 @@ require("packer").startup(function(use)
 	use(mirror("nvim-cmp"))
 	use(mirror("cmp-nvim-ultisnips"))
 	use(mirror("lspkind-nvim"))
-	use(mirror("telescope-ui-select.nvim"))
 	use(mirror("null-ls.nvim"))
 
 	use(mirror("Comment.nvim"))
