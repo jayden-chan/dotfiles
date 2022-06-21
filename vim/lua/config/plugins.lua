@@ -29,14 +29,14 @@ require("packer").startup(function(use)
 
 	-- fs nav
 	use(mirror("plenary.nvim"))
-	use(mirror("neogit"))
-	use(mirror("diffview.nvim"))
 	use(mirror("telescope.nvim"))
 	use(mirror("nvim-web-devicons"))
 	use(mirror("nvim-tree.lua"))
 
 	-- Git
 	use(mirror("gitsigns.nvim"))
+	use(mirror("neogit"))
+	use(mirror("diffview.nvim"))
 	use(mirror("vim-fugitive"))
 
 	-- Misc
@@ -44,6 +44,9 @@ require("packer").startup(function(use)
 	use(mirror("editorconfig-vim"))
 	use(mirror("vim-tmux-navigator"))
 	use(mirror("vim-repeat"))
+	use(mirror("Comment.nvim"))
+	use(mirror("vim-surround"))
+	use(mirror("ultisnips"))
 
 	-- IDE-like
 	use(mirror("nvim-lspconfig"))
@@ -56,10 +59,7 @@ require("packer").startup(function(use)
 	use(mirror("cmp-nvim-ultisnips"))
 	use(mirror("lspkind-nvim"))
 	use(mirror("null-ls.nvim"))
-
-	use(mirror("Comment.nvim"))
-	use(mirror("vim-surround"))
-	use(mirror("ultisnips"))
+	use("j-hui/fidget.nvim")
 
 	-- Syntax
 	use({
