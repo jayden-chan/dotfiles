@@ -87,7 +87,7 @@ cmd([[autocmd FileType makefile        setlocal noexpandtab]])
 
 new_command(
 	"TSOrganizeImports",
-	'<cmd>lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})',
+	'lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})',
 	{ nargs = 0 }
 )
 
