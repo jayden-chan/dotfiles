@@ -21,7 +21,6 @@
       "borg",
       "perf",
       "vala",
-      "code",
       "android-studio",
       "sane",
       "imagescan",
@@ -209,7 +208,8 @@
       "plank",
       "numix-circle-icon-theme-git",
       "stylua",
-      "cppcheck"
+      "cppcheck",
+      "cargo-flamegraph"
     ]
   },
   "ignored": [
