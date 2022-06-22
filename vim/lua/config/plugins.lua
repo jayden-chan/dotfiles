@@ -47,6 +47,7 @@ require("packer").startup(function(use)
 	use(mirror("Comment.nvim"))
 	use(mirror("vim-surround"))
 	use(mirror("ultisnips"))
+	use(mirror("nvim-autopairs"))
 
 	-- IDE-like
 	use(mirror("nvim-lspconfig"))
@@ -59,7 +60,7 @@ require("packer").startup(function(use)
 	use(mirror("cmp-nvim-ultisnips"))
 	use(mirror("lspkind-nvim"))
 	use(mirror("null-ls.nvim"))
-	use("j-hui/fidget.nvim")
+	use(mirror("fidget.nvim"))
 
 	-- Syntax
 	use({

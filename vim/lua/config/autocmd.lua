@@ -14,6 +14,7 @@ local auto_fmt_langs = {
 	"javascript",
 	"javascriptreact",
 	"json",
+	"jsonc",
 	"lua",
 	"scss",
 	"typescript",

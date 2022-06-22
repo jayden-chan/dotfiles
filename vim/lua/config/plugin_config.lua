@@ -1,9 +1,10 @@
 ---            ---
 --- auto pairs ---
 ---            ---
--- require('nvim-autopairs').setup({
---     ignored_next_char = ""
--- })
+require("nvim-autopairs").setup({
+	ignored_next_char = "",
+	check_ts = true,
+})
 
 require("Comment").setup()
 require("fidget").setup()
