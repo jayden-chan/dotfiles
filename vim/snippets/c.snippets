@@ -35,3 +35,13 @@ endsnippet
 snippet pl
 printf("${1:}\n"${0});
 endsnippet
+
+snippet c2
+#include <catch2/catch.hpp>
+endsnippet
+
+snippet tc
+TEST_CASE("${1}", "${2}") {
+	${0}
+}
+endsnippet
