@@ -195,4 +195,33 @@ require("telescope").setup({
 			},
 		},
 	},
+	pickers = {
+		find_files = {
+			hidden = true,
+			find_command = {
+				"fd",
+				"--type",
+				"f",
+				"--strip-cwd-prefix",
+				-- it's better to include the ignored extensions here since fd will be doing
+				-- the filtering instead of Telescope doing it in Lua
+				"--exclude",
+				"*.png",
+				"--exclude",
+				"*.jpg",
+				"--exclude",
+				"*.jpeg",
+				"--exclude",
+				"*.exe",
+				"--exclude",
+				"*.ppm",
+				"--exclude",
+				"*.pdf",
+				"--exclude",
+				"*.webp",
+				"--exclude",
+				".git/*",
+			},
+		},
+	},
 })
