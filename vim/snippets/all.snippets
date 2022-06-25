@@ -157,6 +157,17 @@ snip.rv = ret[:-2]
 `
 endsnippet
 
+snippet sh "Shell command" i
+`!p
+import subprocess
+result = subprocess.run(["zsh", "-c", snip.v.text], capture_output=True, text=True)
+if result.stderr != "":
+	snip.rv = result.stderr.strip()
+else:
+	snip.rv = result.stdout.strip()
+`
+endsnippet
+
 snippet bce "Compute expression with bc (including original exp)" i
 `!p
 import subprocess
