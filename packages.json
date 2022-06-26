@@ -17,7 +17,6 @@
       "python-llfuse",
       "arduino",
       "simplescreenrecorder",
-      "wkhtmltopdf",
       "borg",
       "perf",
       "vala",
