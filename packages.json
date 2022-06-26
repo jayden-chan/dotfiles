@@ -209,7 +209,8 @@
       "numix-circle-icon-theme-git",
       "stylua",
       "cppcheck",
-      "cargo-flamegraph"
+      "cargo-flamegraph",
+      "eslint_d"
     ]
   },
   "ignored": [
