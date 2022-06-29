@@ -13,7 +13,7 @@ if [ "$1" = "--mic" ]; then
 
     pipewire -c ~/.config/dotfiles/pipewire/source-Mic.conf &
     sleep 0.5
-    pactl set-default-source effect_output.noisegate
+    pactl set-default-source effect_output.at2040
     exit
 fi
 
