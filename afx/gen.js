@@ -15,8 +15,8 @@ function main() {
       const contents = JSON.parse(readFileSync(p, { encoding: "utf8" }));
 
       const outFile = `${contents.type}-${contents.name.replace(/\s+/g, "_")}`;
-      const pwOutPath = `./pipewire/${outFile}.conf`;
 
+      const pwOutPath = `./pipewire/${outFile}.conf`;
       const pwOutput = genPipewire(contents);
       writeFileSync(pwOutPath, pwOutput);
 
