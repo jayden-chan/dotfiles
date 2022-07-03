@@ -70,7 +70,7 @@ if [ "$HOSTNAME" = "grace" ]; then
         --enable-gpu-rasterization \
         --enable-zero-copy > /tmp/discord-stdout.log 2>&1 &
 
-    sh "$DOTS"/scripts/eq.sh --mic &
+    sh "$DOTS"/scripts/eq.sh --at2040 &
 else
     (killall nm-applet; sleep 0.3; nm-applet) &
     (killall pasystray; sleep 0.3; pasystray) &
