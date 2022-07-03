@@ -1,0 +1,100 @@
+{
+  "name": "Companion 2",
+  "pw_name": "eq",
+  "type": "sink",
+  "output": "FL FR",
+  "effects": [
+    {
+      "type": "eq",
+      "settings": {
+        "preamp": -5.0,
+        "bands": [
+          {
+            "type": "peaking",
+            "freq": 26.379,
+            "Q": 2.068,
+            "gain": 1.27
+          },
+          {
+            "type": "peaking",
+            "freq": 48.0,
+            "Q": 2.068,
+            "gain": 0.07
+          },
+          {
+            "type": "peaking",
+            "freq": 68.0,
+            "Q": 2.068,
+            "gain": -5.07
+          },
+          {
+            "type": "peaking",
+            "freq": 115.908,
+            "Q": 2.068,
+            "gain": -3.17
+          },
+          {
+            "type": "peaking",
+            "freq": 189.845,
+            "Q": 2.068,
+            "gain": -0.21
+          },
+          {
+            "type": "peaking",
+            "freq": 310.947,
+            "Q": 2.068,
+            "gain": 0.52
+          },
+          {
+            "type": "peaking",
+            "freq": 509.298,
+            "Q": 2.068,
+            "gain": 1.42
+          },
+          {
+            "type": "peaking",
+            "freq": 834.175,
+            "Q": 2.068,
+            "gain": 1.57
+          },
+          {
+            "type": "peaking",
+            "freq": 1366.29,
+            "Q": 2.068,
+            "gain": 1.57
+          },
+          {
+            "type": "peaking",
+            "freq": 2237.838,
+            "Q": 2.068,
+            "gain": 2.32
+          },
+          {
+            "type": "peaking",
+            "freq": 3665.341,
+            "Q": 2.068,
+            "gain": 1.57
+          },
+          {
+            "type": "peaking",
+            "freq": 5000.0,
+            "Q": 2.068,
+            "gain": 0.07
+          },
+          {
+            "type": "peaking",
+            "freq": 9832.996,
+            "Q": 2.07,
+            "gain": -2.32
+          },
+          {
+            "type": "peaking",
+            "freq": 14000.0,
+            "Q": 2.068,
+            "gain": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

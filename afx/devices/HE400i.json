@@ -1,0 +1,70 @@
+{
+  "name": "HE400i",
+  "pw_name": "eq",
+  "type": "sink",
+  "output": "FL FR",
+  "effects": [
+    {
+      "type": "eq",
+      "settings": {
+        "preamp": -8.0,
+        "bands": [
+          {
+            "type": "peaking",
+            "freq": 25.0,
+            "Q": 1.0,
+            "gain": 3.96
+          },
+          {
+            "type": "lowshelf",
+            "freq": 105.0,
+            "Q": 0.71,
+            "gain": 3.2
+          },
+          {
+            "type": "peaking",
+            "freq": 700.0,
+            "Q": 1.0,
+            "gain": 1.0
+          },
+          {
+            "type": "peaking",
+            "freq": 1050.0,
+            "Q": 2.0,
+            "gain": -1.8
+          },
+          {
+            "type": "peaking",
+            "freq": 1900.0,
+            "Q": 1.2,
+            "gain": 5.7
+          },
+          {
+            "type": "peaking",
+            "freq": 2900.0,
+            "Q": 2.0,
+            "gain": -2.8
+          },
+          {
+            "type": "peaking",
+            "freq": 6100.0,
+            "Q": 1.4,
+            "gain": 3.0
+          },
+          {
+            "type": "peaking",
+            "freq": 6750.0,
+            "Q": 4.5,
+            "gain": -4.7
+          },
+          {
+            "type": "peaking",
+            "freq": 8450.0,
+            "Q": 4.0,
+            "gain": -2.9
+          }
+        ]
+      }
+    }
+  ]
+}

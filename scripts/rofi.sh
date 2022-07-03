@@ -38,7 +38,7 @@ elif [ "$1" = "--save-screenshot" ]; then
 elif [ "$1" = "--eq" ]; then
     prev="None"
     prev_file="$HOME/.local/state/eq.txt"
-    eqs=$(ls "$HOME"/.config/dotfiles/pipewire/sink-*)
+    eqs=$(ls "$HOME"/.config/dotfiles/afx/pipewire/sink-*)
     if [ -f "$prev_file" ]; then
         prev=$(< "$prev_file" tr -d '\n')
     fi

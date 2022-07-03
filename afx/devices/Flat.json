@@ -1,0 +1,22 @@
+{
+  "name": "Flat",
+  "pw_name": "eq",
+  "type": "sink",
+  "output": "FL FR",
+  "effects": [
+    {
+      "type": "eq",
+      "settings": {
+        "preamp": 0.0,
+        "bands": [
+          {
+            "type": "peaking",
+            "freq": 10000.0,
+            "Q": 1.0,
+            "gain": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}
