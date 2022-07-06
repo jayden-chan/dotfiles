@@ -43,7 +43,9 @@
       "lcov",
       "zoom",
       "nvidia-dkms",
-      "heroku-cli"
+      "lmms",
+      "gnome-sound-recorder",
+      "guitarix"
     ],
     "swift": [
       "alsa-utils",
@@ -209,7 +211,10 @@
       "stylua",
       "cppcheck",
       "cargo-flamegraph",
-      "eslint_d"
+      "eslint_d",
+      "mullvad-vpn-bin",
+      "realtime-privileges",
+      "rtkit"
     ]
   },
   "ignored": [
