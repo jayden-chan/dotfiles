@@ -13,7 +13,7 @@ if [ "$1" = "--at2040" ]; then
 
     pipewire -c ~/.config/dotfiles/afx/pipewire/source-AT2040.conf &
     # give the pipewire process higher priority
-    renice -n -5 -p $!
+    renice -n -11 -p $!
 
     sleep 0.5
     pactl set-default-source effect_output.at2040
@@ -55,11 +55,7 @@ echo "Starting EQ $eq"
 
 pipewire -c ~/.config/dotfiles/afx/pipewire/sink-"$eq".conf &
 # give the pipewire process higher priority
-renice -n -5 -p $!
-pipewire_pid=$(ps -ax | rg "(\d+) .*? \d+:\d+ /usr/bin/pipewire$" --only-matching --replace='$1')
-pipewire_pulse_pid=$(ps -ax | rg "(\d+) .*? \d+:\d+ /usr/bin/pipewire-pulse$" --only-matching --replace='$1')
-renice -n -5 -p "$pipewire_pid"
-renice -n -5 -p "$pipewire_pulse_pid"
+renice -n -11 -p $!
 
 sleep 0.5
 pactl set-default-sink effect_input.eq
