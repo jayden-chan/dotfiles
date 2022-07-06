@@ -14,6 +14,8 @@ const formatNode = (node, depth) => {
       const valFormat =
         typeof val === "object"
           ? formatNode(val, depth + 1).trimStart()
+          : typeof val === "number"
+          ? val.toFixed(5)
           : `${val}`;
       str += " ".repeat((depth + 1) * 4) + `${keyFormat} = ${valFormat}\n`;
     });

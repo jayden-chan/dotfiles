@@ -13,13 +13,13 @@
             "type": "peaking",
             "freq": 25.0,
             "Q": 1.0,
-            "gain": 3.96
+            "gain": 4.96
           },
           {
             "type": "lowshelf",
             "freq": 105.0,
             "Q": 0.71,
-            "gain": 3.2
+            "gain": 3.55
           },
           {
             "type": "peaking",

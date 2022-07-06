@@ -47,15 +47,6 @@
           }
         ]
       }
-    },
-    {
-      "type": "noisegate",
-      "settings": {
-        "attack": 4.0,
-        "release": 250.0,
-        "offset_gain": 6.75,
-        "makeup_gain": 0.0
-      }
     }
   ]
 }
