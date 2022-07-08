@@ -43,9 +43,11 @@
       "lcov",
       "zoom",
       "nvidia-dkms",
-      "lmms",
       "gnome-sound-recorder",
-      "guitarix"
+      "guitarix",
+      "wmname",
+      "cheese",
+      "calf"
     ],
     "swift": [
       "alsa-utils",
@@ -214,7 +216,9 @@
       "eslint_d",
       "mullvad-vpn-bin",
       "realtime-privileges",
-      "rtkit"
+      "rtkit",
+      "carla",
+      "lsp-plugins"
     ]
   },
   "ignored": [

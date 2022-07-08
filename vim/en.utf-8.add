@@ -159,3 +159,7 @@ sanitizer
 sanitizers
 renderer
 suboptimal
+Unsatisfiable
+Satisfiable
+satisfiable
+unsatisfiable

@@ -11,7 +11,7 @@ if [ "$1" = "--at2040" ]; then
         sleep 0.2
     fi
 
-    pipewire -c ~/.config/dotfiles/afx/pipewire/source-AT2040.conf &
+    pipewire -c ~/.config/dotfiles/afx/pipewire/source-AT2040.conf > /tmp/pipewire-source.log 2>&1 &
     # give the pipewire process higher priority
     renice -n -11 -p $!
 
@@ -53,7 +53,7 @@ fi
 
 echo "Starting EQ $eq"
 
-pipewire -c ~/.config/dotfiles/afx/pipewire/sink-"$eq".conf &
+pipewire -c ~/.config/dotfiles/afx/pipewire/sink-"$eq".conf > /tmp/pipewire-sink.log 2>&1 &
 # give the pipewire process higher priority
 renice -n -11 -p $!
 

@@ -24,7 +24,17 @@ const formatNode = (node, depth) => {
   return str;
 };
 
-const eqToNodes = (eq) => {
+const qToBw = (Q) => {
+  const l2 = 2 / Math.LN2;
+  const l1 = 1 / Q + Math.sqrt(1 / (Q * Q) + 4);
+  const l3 = Math.log(0.5 * l1);
+  const bw = l2 * l3;
+  return bw;
+};
+
+exports.qToBw = qToBw;
+
+const eqToNodesBuiltin = (eq) => {
   let nodes = [
     {
       __input_name: "In",
@@ -83,7 +93,7 @@ const noisegateToNodes = (ng) => {
 exports.genPipewire = (contents) => {
   const nodes = contents.effects.flatMap((e) => {
     if (e.type === "eq") {
-      return eqToNodes(e.settings);
+      return eqToNodesBuiltin(e.settings);
     } else if (e.type === "noisegate") {
       return noisegateToNodes(e.settings);
     }
@@ -129,7 +139,7 @@ exports.genPipewire = (contents) => {
 ### Generated automatically by json_to_pipewire.js
 ###
 context.properties = {
-    log.level = 0
+    log.level = 3
 }
 
 context.spa-libs = {
