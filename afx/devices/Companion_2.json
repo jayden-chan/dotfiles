@@ -7,7 +7,7 @@
     {
       "type": "eq",
       "settings": {
-        "preamp": -5.0,
+        "preamp": -5,
         "bands": [
           {
             "type": "peaking",
@@ -17,13 +17,13 @@
           },
           {
             "type": "peaking",
-            "freq": 48.0,
+            "freq": 48,
             "Q": 2.068,
             "gain": 0.17
           },
           {
             "type": "peaking",
-            "freq": 68.0,
+            "freq": 68,
             "Q": 2.068,
             "gain": -5.07
           },
@@ -77,7 +77,7 @@
           },
           {
             "type": "peaking",
-            "freq": 5000.0,
+            "freq": 5000,
             "Q": 2.068,
             "gain": 0.07
           },
@@ -89,9 +89,9 @@
           },
           {
             "type": "peaking",
-            "freq": 14000.0,
+            "freq": 14000,
             "Q": 2.068,
-            "gain": 0.0
+            "gain": 0
           }
         ]
       }

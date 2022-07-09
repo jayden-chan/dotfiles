@@ -47,23 +47,8 @@ exports.apoToJson = (contents) => {
       return a.freq - b.freq;
     });
 
-  return JSON.stringify(
-    {
-      name: "",
-      pw_name: "",
-      type: "",
-      output: "FR FL",
-      effects: [
-        {
-          type: "eq",
-          settings: {
-            preamp: Number(preamp),
-            bands,
-          },
-        },
-      ],
-    },
-    null,
-    2
-  );
+  return {
+    preamp: Number(preamp),
+    bands,
+  };
 };

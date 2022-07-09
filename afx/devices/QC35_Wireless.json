@@ -19,7 +19,7 @@
             "type": "peaking",
             "freq": 102,
             "Q": 0.73,
-            "gain": -2.0
+            "gain": -2
           },
           {
             "type": "peaking",
