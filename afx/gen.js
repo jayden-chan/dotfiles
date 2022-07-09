@@ -17,8 +17,7 @@ const qToBw = (Q) => {
 function main() {
   const arg = process.argv[2];
   if (arg === "all") {
-    const base = process.argv[3] ?? ".";
-    const path = `${base}/devices`;
+    const path = `${__dirname}/devices`;
     const files = readdirSync(path);
 
     files.forEach((f) => {
@@ -27,22 +26,21 @@ function main() {
 
       const outFile = `${contents.type}-${contents.name.replace(/\s+/g, "_")}`;
 
-      const apoOutPath = `${base}/apo/${outFile}.txt`;
+      const apoOutPath = `${__dirname}/apo/${outFile}.txt`;
       const apoOutput = genEqualizerAPO(contents);
       writeFileSync(apoOutPath, apoOutput);
 
-      const lspOutPath = `${base}/lsp/${outFile}.cfg`;
+      const lspOutPath = `${__dirname}/lsp/${outFile}.cfg`;
       const lspOutput = genLSP(contents);
       writeFileSync(lspOutPath, lspOutput);
     });
   }
 
   if (arg === "lspRevSync") {
-    const base = process.argv[3] ?? ".";
-    const path = `${base}/lsp`;
+    const path = `${__dirname}/lsp`;
     const files = readdirSync(path);
 
-    const devicesPath = `${base}/devices`;
+    const devicesPath = `${__dirname}/devices`;
     const devicesFiles = readdirSync(devicesPath);
     const deviceFileNames = Object.fromEntries(
       devicesFiles.map((f) => {
