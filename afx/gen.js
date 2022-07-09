@@ -1,12 +1,18 @@
 #!/usr/bin/env node
 
 const { readFileSync, writeFileSync, readdirSync } = require("fs");
-const { genPipewire, qToBw } = require("./json_to_pipewire.js");
 const { genEqualizerAPO } = require("./json_to_eqapo.js");
 const { genLSP } = require("./json_to_lsp");
 const { apoToJson } = require("./apo_to_json.js");
 const { lspToJson } = require("./lsp_to_json.js");
-const { json } = require("stream/consumers");
+
+const qToBw = (Q) => {
+  const l2 = 2 / Math.LN2;
+  const l1 = 1 / Q + Math.sqrt(1 / (Q * Q) + 4);
+  const l3 = Math.log(0.5 * l1);
+  const bw = l2 * l3;
+  return bw;
+};
 
 function main() {
   const arg = process.argv[2];
@@ -20,10 +26,6 @@ function main() {
       const contents = JSON.parse(readFileSync(p, { encoding: "utf8" }));
 
       const outFile = `${contents.type}-${contents.name.replace(/\s+/g, "_")}`;
-
-      const pwOutPath = `${base}/pipewire/${outFile}.conf`;
-      const pwOutput = genPipewire(contents);
-      writeFileSync(pwOutPath, pwOutput);
 
       const apoOutPath = `${base}/apo/${outFile}.txt`;
       const apoOutput = genEqualizerAPO(contents);
@@ -73,12 +75,6 @@ function main() {
       jsonContents.effects[effectToEdit].settings.bands = bands;
       writeFileSync(fullPath, JSON.stringify(jsonContents, null, 2));
     });
-  }
-
-  if (arg === "pw") {
-    const path = process.argv[3];
-    const contents = JSON.parse(readFileSync(path, { encoding: "utf8" }));
-    console.log(genPipewire(contents));
   }
 
   if (arg === "bw") {
