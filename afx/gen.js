@@ -4,6 +4,7 @@ const { readFileSync, writeFileSync, readdirSync } = require("fs");
 const { genPipewire, qToBw } = require("./json_to_pipewire.js");
 const { genEqualizerAPO } = require("./json_to_eqapo.js");
 const { genLSP } = require("./json_to_lsp");
+const { apoToJson } = require("./apo_to_json.js");
 
 function main() {
   const arg = process.argv[2];
@@ -59,6 +60,12 @@ function main() {
     const path = process.argv[3];
     const contents = JSON.parse(readFileSync(path, { encoding: "utf8" }));
     console.log(genEqualizerAPO(contents));
+  }
+
+  if (arg === "apoToJson") {
+    const path = process.argv[3];
+    const contents = readFileSync(path, { encoding: "utf8" });
+    console.log(apoToJson(contents));
   }
 
   if (arg === "lsp") {
