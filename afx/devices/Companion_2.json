@@ -1,6 +1,5 @@
 {
   "name": "Companion 2",
-  "pw_name": "eq",
   "type": "sink",
   "output": "FL FR",
   "effects": [

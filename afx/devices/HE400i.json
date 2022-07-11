@@ -1,6 +1,5 @@
 {
   "name": "HE400i",
-  "pw_name": "eq",
   "type": "sink",
   "output": "FL FR",
   "effects": [

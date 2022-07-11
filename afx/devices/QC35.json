@@ -1,6 +1,5 @@
 {
   "name": "QC35",
-  "pw_name": "eq",
   "type": "sink",
   "output": "FL FR",
   "effects": [

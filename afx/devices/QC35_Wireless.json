@@ -1,6 +1,5 @@
 {
   "name": "QC35 Wireless",
-  "pw_name": "eq",
   "type": "sink",
   "output": "FL FR",
   "effects": [

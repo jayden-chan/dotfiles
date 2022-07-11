@@ -46,11 +46,9 @@
       "gnome-sound-recorder",
       "guitarix",
       "wmname",
-      "cheese",
-      "calf"
+      "cheese"
     ],
     "swift": [
-      "alsa-utils",
       "light",
       "arandr",
       "vulkan-intel",
@@ -188,7 +186,6 @@
       "shellcheck",
       "wireplumber",
       "helvum",
-      "tap-plugins",
       "gedit",
       "thunderbird",
       "man-db",

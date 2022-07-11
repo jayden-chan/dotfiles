@@ -1,6 +1,5 @@
 {
   "name": "Flat",
-  "pw_name": "eq",
   "type": "sink",
   "output": "FL FR",
   "effects": [

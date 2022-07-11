@@ -1,6 +1,5 @@
 {
   "name": "AT2040",
-  "pw_name": "at2040",
   "type": "source",
   "output": "MONO",
   "effects": [
@@ -23,9 +22,9 @@
           },
           {
             "type": "peaking",
-            "freq": 97.2,
+            "freq": 99.442,
             "Q": 0.5,
-            "gain": 8.81
+            "gain": 9.54
           },
           {
             "type": "peaking",
