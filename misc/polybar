@@ -236,7 +236,7 @@ format-prefix-padding = ${colors.padding}
 label-background = ${colors.background}
 label-padding = ${colors.padding}
 
-interval = 600
+interval = 30
 
 [module/battery]
 type = internal/battery
