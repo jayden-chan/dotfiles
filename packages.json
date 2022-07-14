@@ -46,7 +46,8 @@
       "gnome-sound-recorder",
       "guitarix",
       "wmname",
-      "cheese"
+      "cheese",
+      "aether.lv2"
     ],
     "swift": [
       "light",
