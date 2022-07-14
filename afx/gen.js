@@ -55,7 +55,7 @@ const lspReverseSync = () => {
   files.forEach((f) => {
     const p = `${path}/${f}`;
     const contents = readFileSync(p, { encoding: "utf8" });
-    const { preamp, bands } = lspToJson(contents);
+    const { preamp, zoom, bands } = lspToJson(contents);
 
     const info = deviceFileNames[f];
     if (info === undefined) {
@@ -67,6 +67,7 @@ const lspReverseSync = () => {
     const effectToEdit = jsonContents.effects.findIndex((e) => e.type === "eq");
     jsonContents.effects[effectToEdit].settings.preamp = preamp;
     jsonContents.effects[effectToEdit].settings.bands = bands;
+    jsonContents.effects[effectToEdit].settings.zoom = zoom;
     writeFileSync(fullPath, JSON.stringify(jsonContents, null, 2));
   });
 };

@@ -3,6 +3,7 @@ const typeRe = /^ft_(?:\d+) = (\d+)$/;
 const gainRe = /^g_(?:\d+) = ((?:\d|\.|\+|-)+) db$/;
 const qRe = /^q_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
 const freqRe = /^f_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
+const zoomRe = /^zoom = ((?:\d|\.|\+|-)+) db$/;
 
 const lspBandToJsonBand = (band) => {
   switch (band) {
@@ -25,6 +26,7 @@ exports.lspToJson = (contents) => {
     .filter((l) => l.length !== 0 && !l.trim().startsWith("#"));
 
   const [, preamp] = lines.find((l) => preampRe.test(l)).match(preampRe);
+  const [, zoom] = lines.find((l) => zoomRe.test(l)).match(zoomRe);
 
   const types = lines
     .map((l) => l.match(typeRe))
@@ -64,14 +66,15 @@ exports.lspToJson = (contents) => {
 
     bands.push({
       type: lspBandToJsonBand(types[i]),
-      freq: freqs[i],
-      Q: qs[i],
-      gain: gains[i],
+      freq: Number(freqs[i].toFixed(3)),
+      Q: Number(qs[i].toFixed(3)),
+      gain: Number(gains[i].toFixed(3)),
     });
   }
 
   return {
-    preamp: Number(preamp),
+    preamp: Number(Number(preamp).toFixed(3)),
+    zoom: Number(Number(zoom).toFixed(3)),
     bands,
   };
 };
