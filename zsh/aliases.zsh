@@ -48,7 +48,6 @@ alias c='cargo'
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
 alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh'
-alias wgr='sudo wg-quick down wg0 && sudo wg-quick up wg0'
 alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 comment "Comment"'
 alias myip='curl https://ipinfo.io/ip && echo'
 

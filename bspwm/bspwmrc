@@ -69,8 +69,6 @@ if [ "$HOSTNAME" = "grace" ]; then
         --use-gl=desktop \
         --enable-gpu-rasterization \
         --enable-zero-copy > /tmp/discord-stdout.log 2>&1 &
-
-    # sh "$DOTS"/scripts/eq.sh --at2040 &
 else
     (killall nm-applet; sleep 0.3; nm-applet) &
     (killall pasystray; sleep 0.3; pasystray) &
@@ -83,7 +81,6 @@ fi
 
 sh "$DOTS"/scripts/inputs.sh &
 sh "$DOTS"/scripts/polybar.sh &
-# sh "$DOTS"/scripts/eq.sh &
 xrdb -merge ~/.config/dotfiles/misc/Xresources
 
 for monitor in $(bspc query -M); do
