@@ -7,7 +7,7 @@
       "type": "eq",
       "settings": {
         "preamp": 0,
-        "zoom": 0,
+        "zoom": -24.87,
         "bands": [
           {
             "type": "highpass",
@@ -17,15 +17,15 @@
           },
           {
             "type": "peaking",
-            "freq": 70.5,
+            "freq": 67.092,
             "Q": 1.34,
-            "gain": -18.24
+            "gain": -18.55
           },
           {
             "type": "peaking",
-            "freq": 99.442,
+            "freq": 98.536,
             "Q": 0.5,
-            "gain": 9.54
+            "gain": 9.34
           },
           {
             "type": "peaking",
