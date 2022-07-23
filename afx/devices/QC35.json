@@ -11,60 +11,80 @@
         "bands": [
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 44,
             "Q": 0.68,
             "gain": -1.5
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 120,
             "Q": 1.09,
             "gain": -1.3
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 510,
             "Q": 1.42,
             "gain": 1.5
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 1237,
             "Q": 2.02,
             "gain": 0.6
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 1256,
             "Q": 0.68,
             "gain": -1.1
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 1557,
             "Q": 2.19,
             "gain": 1.2
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 1575,
             "Q": 2.67,
             "gain": 0.8
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 2796,
             "Q": 4.04,
             "gain": -3.4
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 6178,
             "Q": 4.39,
             "gain": -6.1
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 7282,
             "Q": 1.28,
             "gain": 2.8

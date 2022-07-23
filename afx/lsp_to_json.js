@@ -1,5 +1,7 @@
 const preampRe = /^g_in = ((?:\d|\.|\+|-)+) db$/;
 const typeRe = /^ft_(?:\d+) = (\d+)$/;
+const modeRe = /^fm_(?:\d+) = (\d+)$/;
+const slopeRe = /^s_(?:\d+) = (\d+)$/;
 const gainRe = /^g_(?:\d+) = ((?:\d|\.|\+|-)+) db$/;
 const qRe = /^q_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
 const freqRe = /^f_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
@@ -20,6 +22,25 @@ const lspBandToJsonBand = (band) => {
   }
 };
 
+const lspModeToJsonMode = (type) => {
+  switch (type) {
+    case 0:
+      return "RLC_BT";
+    case 1:
+      return "RLC_MT";
+    case 2:
+      return "BWC_BT";
+    case 3:
+      return "BWC_MT";
+    case 4:
+      return "LRX_BT";
+    case 5:
+      return "LRX_MT";
+    case 6:
+      return "APO_DR";
+  }
+};
+
 exports.lspToJson = (contents) => {
   const lines = contents
     .split(/\r?\n/g)
@@ -30,6 +51,14 @@ exports.lspToJson = (contents) => {
 
   const types = lines
     .map((l) => l.match(typeRe))
+    .filter((m) => m !== null)
+    .map((m) => Number(m[1]));
+  const modes = lines
+    .map((l) => l.match(modeRe))
+    .filter((m) => m !== null)
+    .map((m) => Number(m[1]));
+  const slopes = lines
+    .map((l) => l.match(slopeRe))
     .filter((m) => m !== null)
     .map((m) => Number(m[1]));
   const gains = lines
@@ -48,12 +77,14 @@ exports.lspToJson = (contents) => {
   if (
     !(
       types.length === gains.length &&
+      types.length === modes.length &&
+      types.length === slopes.length &&
       types.length === qs.length &&
       types.length === freqs.length
     )
   ) {
     throw new Error(
-      `types/gains/qs/freqs lengths don't match (${types.length}, ${gains.length}, ${qs.length}, ${freqs.length})`
+      `types/gains/modes/qs/freqs lengths don't match (${types.length}, ${gains.length}, ${qs.length}, ${freqs.length})`
     );
   }
 
@@ -66,6 +97,8 @@ exports.lspToJson = (contents) => {
 
     bands.push({
       type: lspBandToJsonBand(types[i]),
+      mode: lspModeToJsonMode(modes[i]),
+      slope: Number(slopes[i].toFixed(3)),
       freq: Number(freqs[i].toFixed(3)),
       Q: Number(qs[i].toFixed(3)),
       gain: Number(gains[i].toFixed(3)),

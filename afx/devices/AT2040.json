@@ -11,36 +11,40 @@
         "bands": [
           {
             "type": "highpass",
-            "freq": 72.4,
-            "Q": 6,
+            "mode": "LRX_MT",
+            "slope": 3,
+            "freq": 50.936,
+            "Q": 0,
             "gain": -35.48
           },
           {
             "type": "peaking",
-            "freq": 67.092,
-            "Q": 1.34,
-            "gain": -18.55
-          },
-          {
-            "type": "peaking",
-            "freq": 98.536,
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 97.638,
             "Q": 0.5,
-            "gain": 9.34
+            "gain": 1.5
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 1201.6,
             "Q": 3.91,
             "gain": -2.46
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 2806.847,
             "Q": 5.41,
-            "gain": -8.4
+            "gain": -9.16
           },
           {
             "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
             "freq": 10875,
             "Q": 0.1,
             "gain": 0.8

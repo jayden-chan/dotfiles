@@ -96,14 +96,37 @@ const jsonBandToLSPBand = (band, idx) => {
   //   4: LRX (BT)
   //   5: LRX (MT)
   //   6: APO (DR)
-  const mode = 0;
+  let mode = 0;
+  switch (band.mode) {
+    case "RLC_BT":
+      mode = 0;
+      break;
+    case "RLC_MT":
+      mode = 1;
+      break;
+    case "BWC_BT":
+      mode = 2;
+      break;
+    case "BWC_MT":
+      mode = 3;
+      break;
+    case "LRX_BT":
+      mode = 4;
+      break;
+    case "LRX_MT":
+      mode = 5;
+      break;
+    case "APO_DR":
+      mode = 6;
+      break;
+  }
 
   // Filter slope 0: 0..3
   //   0: x1
   //   1: x2
   //   2: x3
   //   3: x4
-  const slope = 0;
+  const slope = band.slope ?? 0;
 
   const solo = false;
   const mute = false;
