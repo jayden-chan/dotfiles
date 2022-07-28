@@ -47,7 +47,10 @@
       "guitarix",
       "wmname",
       "cheese",
-      "aether.lv2"
+      "aether.lv2",
+      "alsa-utils",
+      "ardour",
+      "midish"
     ],
     "swift": [
       "light",

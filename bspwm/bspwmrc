@@ -48,6 +48,7 @@ bspc rule -a File-roller              state=floating
 bspc rule -a '*:*:xyz.jaydenchan.cal' state=floating
 bspc rule -a mpv                      state=floating
 bspc rule -a origin.exe               state=floating
+bspc rule -a BigMeter                 state=floating
 
 if [ "$HOSTNAME" = "grace" ]; then
     bspc rule -a discord desktop='DVI-D-0:^1'

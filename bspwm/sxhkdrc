@@ -37,6 +37,9 @@ super + w
 alt + e
     xdotool key F13
 
+XF86TouchpadToggle
+    node $HOME/Dev/Personal/pipewire-orchestrator/dist/index.js swap_amps
+
 ##########################################################
 #                      Screenshots                       #
 ##########################################################
