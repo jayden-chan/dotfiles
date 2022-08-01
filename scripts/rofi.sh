@@ -35,36 +35,4 @@ elif [ "$1" = "--save-screenshot" ]; then
         xclip -selection clipboard -t image/png -o > "$file"
         notify-send -i "$file" "Maim" "Screenshot saved to $result.png"
     fi
-elif [ "$1" = "--eq" ]; then
-    prev="None"
-    prev_file="$HOME/.local/state/eq.txt"
-    eqs=$(ls "$HOME"/.config/dotfiles/afx/pipewire/sink-*)
-    if [ -f "$prev_file" ]; then
-        prev=$(< "$prev_file" tr -d '\n')
-    fi
-
-    preselect=$(echo "$eqs" | rg "sink-$prev.conf" --line-number | cut -d':' -f1)
-
-    result=$(
-            echo "$eqs" |
-            sed -E 's|.*sink-||g' |
-            sed -E 's|.conf||g' |
-            sed -E 's|_| |g' |
-            rofi \
-                -dmenu \
-                -i \
-                -theme "eq" \
-                -selected-row "$(( preselect - 1))" \
-                -p "Select EQ Profile:" \
-                -theme-str "$rofi_theme"
-        )
-
-    if [ "$result" = "" ]; then
-        exit
-    fi
-
-    notify-send "Pipewire EQ" "Activiating EQ profile: $result"
-
-    final_result=$(echo "$result" | sed -E 's| |_|g')
-    "$HOME/.config/dotfiles/scripts/eq.sh" "$final_result"
 fi
