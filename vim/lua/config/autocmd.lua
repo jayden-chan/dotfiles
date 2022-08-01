@@ -21,10 +21,6 @@ local auto_fmt_langs = {
 	"typescriptreact",
 }
 
-for _, v in ipairs(auto_fmt_langs) do
-	cmd("autocmd FileType " .. v .. " autocmd BufWritePre <buffer> AutoFormat")
-end
-
 local spell_langs = {
 	"gitcommit",
 	"NeogitCommitMessage",
