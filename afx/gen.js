@@ -1,8 +1,16 @@
 #!/usr/bin/env node
 
-const { readFileSync, writeFileSync, readdirSync } = require("fs");
+const {
+  readFileSync,
+  writeFileSync,
+  readdirSync,
+  existsSync,
+  rmdirSync,
+  mkdirSync,
+} = require("fs");
 const { genEqualizerAPO } = require("./json_to_eqapo.js");
 const { genLSP } = require("./json_to_lsp");
+const { genLV2 } = require("./json_to_lv2");
 const { apoToJson } = require("./apo_to_json.js");
 const { lspToJson } = require("./lsp_to_json.js");
 
@@ -31,6 +39,16 @@ const syncAll = () => {
     const lspOutPath = `${__dirname}/lsp/${outFile}.cfg`;
     const lspOutput = genLSP(contents);
     writeFileSync(lspOutPath, lspOutput);
+
+    const lv2OutDir = `${__dirname}/lv2/${outFile}.preset.lv2`;
+    const [lv2Manifest, lv2Preset] = genLV2(contents, outFile);
+    if (existsSync(lv2OutDir)) {
+      rmdirSync(lv2OutDir);
+    }
+
+    mkdirSync(lv2OutDir);
+    writeFileSync(`${lv2OutDir}/manifest.ttl`, lv2Manifest);
+    writeFileSync(`${lv2OutDir}/${outFile}.ttl`, lv2Preset);
   });
 };
 

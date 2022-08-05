@@ -6,10 +6,10 @@ const hues = [
 exports.genLSP = (contents) => {
   const eq = contents.effects.find((e) => e.type === "eq");
   const bands = eq.settings.bands.map((b, i) => jsonBandToLSPBand(b, i));
-  const fillterBands = [...Array(16 - bands.length).keys()].map((e) => {
+  const fillerBands = [...Array(16 - bands.length).keys()].map((e) => {
     return defaultLSPBand(e + bands.length);
   });
-  const finalBands = [...bands, ...fillterBands];
+  const finalBands = [...bands, ...fillerBands];
 
   return `bypass = false
 g_in = ${eq.settings.preamp.toFixed(4)} db
@@ -54,6 +54,7 @@ const defaultLSPBand = (idx) => {
     idx,
   };
 };
+exports.defaultLSPBand = defaultLSPBand;
 
 const jsonBandToLSPBand = (band, idx) => {
   let bandType = 0;
@@ -142,3 +143,4 @@ const jsonBandToLSPBand = (band, idx) => {
     idx,
   };
 };
+exports.jsonBandToLSPBand = jsonBandToLSPBand;
