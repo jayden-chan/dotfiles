@@ -9,7 +9,6 @@
       "arm-none-eabi-newlib",
       "arm-none-eabi-gcc",
       "img2pdf",
-      "linux-lts-headers",
       "docker",
       "docker-compose",
       "obs-studio",
@@ -50,7 +49,9 @@
       "aether.lv2",
       "alsa-utils",
       "ardour",
-      "midish"
+      "midish",
+      "linux-zen",
+      "linux-zen-headers"
     ],
     "swift": [
       "light",
