@@ -120,8 +120,8 @@ map("v", "H", "I")
 -- Toggle highlight search
 map("n", "<leader>h", ":set hls!<CR>", { silent = false })
 
--- nvim-tree
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
+-- neo-tree
+map("n", "<C-n>", "<cmd>Neotree toggle<CR>")
 
 -- tmux navigator
 map("n", "<M-j>", "<cmd>TmuxNavigateLeft<cr>")

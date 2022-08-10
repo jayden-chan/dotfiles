@@ -31,7 +31,11 @@ require("packer").startup(function(use)
 	use(mirror("plenary.nvim"))
 	use(mirror("telescope.nvim"))
 	use(mirror("nvim-web-devicons"))
-	use(mirror("nvim-tree.lua"))
+	use(mirror("nui.nvim"))
+	use({
+		mirror("neo-tree.nvim"),
+		branch = "v2.x",
+	})
 
 	-- Git
 	use(mirror("gitsigns.nvim"))
