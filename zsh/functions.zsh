@@ -7,10 +7,31 @@ function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|rem
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 
+
 # Good compression/archive settings
 function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
 function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
 alias decompress='tar xfJ'
+
+function gig () {
+    if [[ "$1" == "ls" ]]; then
+        curl --silent https://api.github.com/repos/github/gitignore/contents/ | jq '.[].name' -r | rg "\.gitignore" --replace=''
+        return
+    fi
+
+    code=$(curl \
+        --silent \
+        --write-out "%{http_code}" \
+        --output /tmp/gig.txt \
+        https://raw.githubusercontent.com/github/gitignore/main/$1.gitignore)
+
+    if [[ "$code" == "200" ]]; then
+        cat /tmp/gig.txt >> .gitignore
+    else
+        echo "Error: No gitignore template for $1 exists"
+    fi
+    rm -f /tmp/gig.txt
+}
 
 function gotify-send () {
     if [[ "$GOTIFY_TOKEN" = "" ]]; then

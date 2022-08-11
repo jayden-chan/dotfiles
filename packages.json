@@ -51,7 +51,8 @@
       "ardour",
       "midish",
       "linux-zen",
-      "linux-zen-headers"
+      "linux-zen-headers",
+      "gperftools"
     ],
     "swift": [
       "light",
@@ -219,7 +220,8 @@
       "realtime-privileges",
       "rtkit",
       "carla",
-      "lsp-plugins"
+      "lsp-plugins",
+      "qpwgraph"
     ]
   },
   "ignored": [
