@@ -9,13 +9,6 @@ require("neo-tree").setup({
 	enable_diagnostics = true,
 	sort_case_insensitive = false, -- used when sorting files and directories in the tree
 	sort_function = nil, -- use a custom function for sorting files and directories in the tree
-	-- sort_function = function (a,b)
-	--       if a.type == b.type then
-	--           return a.path > b.path
-	--       else
-	--           return a.type > b.type
-	--       end
-	--   end , -- this sorts files and directories descendantly
 	default_component_configs = {
 		container = {
 			enable_character_fade = true,
@@ -122,6 +115,8 @@ require("neo-tree").setup({
 	filesystem = {
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
+			force_visible_in_empty_folder = true, -- when true, hidden files will be shown if the root folder is otherwise empty
+			show_hidden_count = false, -- when true, the number of hidden items in each folder will be shown as the last entry
 			hide_dotfiles = true,
 			hide_gitignored = true,
 			hide_hidden = true, -- only works on Windows for hidden files/directories
@@ -133,6 +128,7 @@ require("neo-tree").setup({
 				"*.swp",
 				"*.bin",
 				"*.exe",
+				"*.lock",
 			},
 			always_show = { -- remains visible even if other settings would normally hide it
 				".gitignore",
@@ -158,7 +154,6 @@ require("neo-tree").setup({
 				["C"] = "set_root",
 				["H"] = "toggle_hidden",
 				["/"] = "fuzzy_finder",
-				["D"] = "fuzzy_finder_directory",
 				["f"] = "filter_on_submit",
 				["<c-x>"] = "clear_filter",
 				["[g"] = "prev_git_modified",
