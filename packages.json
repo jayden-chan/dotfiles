@@ -221,7 +221,8 @@
       "rtkit",
       "carla",
       "lsp-plugins",
-      "qpwgraph"
+      "qpwgraph",
+      "x42-plugins"
     ]
   },
   "ignored": [
