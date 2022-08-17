@@ -94,7 +94,8 @@ require("neo-tree").setup({
 			["D"] = "delete",
 			["R"] = "rename",
 			["c"] = "copy_to_clipboard",
-			["x"] = "cut_to_clipboard",
+			["X"] = "cut_to_clipboard",
+			["x"] = "close_node",
 			["p"] = "paste_from_clipboard",
 			["y"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
 			-- ["c"] = {

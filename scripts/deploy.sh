@@ -1,4 +1,4 @@
-#!/usr/bin/dash
+#!/usr/bin/env bash
 
 if [ "$1" = "--env" ]; then
     mkdir -p ~/.config/zsh
@@ -43,6 +43,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/java
     mkdir -p ~/.config/jupyter
     mkdir -p ~/.config/npm
+    mkdir -p ~/.config/nvim
     mkdir -p ~/.local/share/cargo
     mkdir -p ~/.local/share/gnupg
     mkdir -p ~/.local/share/gradle
@@ -86,23 +87,25 @@ ln -fs ~/.config/dotfiles/misc/st.desktop        ~/.local/share/applications/
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
 
 # set default apps
-xdg-mime default org.pwmt.zathura.desktop     application/pdf
-xdg-mime default org.gnome.eog.desktop        image/png
-xdg-mime default org.gnome.eog.desktop        image/jpg
-xdg-mime default org.gnome.eog.desktop        image/jpeg
-xdg-mime default org.gnome.eog.desktop        image/webp
-xdg-mime default org.gnome.eog.desktop        image/x-portable-pixmap
-xdg-mime default org.gnome.gedit.desktop      text/plain
-xdg-mime default org.gnome.gedit.desktop      text/csv
-xdg-mime default org.gnome.gedit.desktop      text/xml
-xdg-mime default org.gnome.gedit.desktop      application/json
-xdg-mime default org.gnome.FileRoller.desktop application/zip
-xdg-mime default mpv.desktop                  audio/mpeg
-xdg-mime default mpv.desktop                  image/gif
-xdg-mime default mpv.desktop                  audio/flac
-xdg-mime default mpv.desktop                  audio/x-aiff
-xdg-mime default mpv.desktop                  video/x-matroska
-xdg-mime default mpv.desktop                  video/mp4
+if [ "$(hostname)" != "Yellow-Lion.local" ]; then
+    xdg-mime default org.pwmt.zathura.desktop     application/pdf
+    xdg-mime default org.gnome.eog.desktop        image/png
+    xdg-mime default org.gnome.eog.desktop        image/jpg
+    xdg-mime default org.gnome.eog.desktop        image/jpeg
+    xdg-mime default org.gnome.eog.desktop        image/webp
+    xdg-mime default org.gnome.eog.desktop        image/x-portable-pixmap
+    xdg-mime default org.gnome.gedit.desktop      text/plain
+    xdg-mime default org.gnome.gedit.desktop      text/csv
+    xdg-mime default org.gnome.gedit.desktop      text/xml
+    xdg-mime default org.gnome.gedit.desktop      application/json
+    xdg-mime default org.gnome.FileRoller.desktop application/zip
+    xdg-mime default mpv.desktop                  audio/mpeg
+    xdg-mime default mpv.desktop                  image/gif
+    xdg-mime default mpv.desktop                  audio/flac
+    xdg-mime default mpv.desktop                  audio/x-aiff
+    xdg-mime default mpv.desktop                  video/x-matroska
+    xdg-mime default mpv.desktop                  video/mp4
+fi
 
 if [ "$1" = "--full" ]; then
     cp ~/.config/dotfiles/misc/npmrc             ~/.config/npm/

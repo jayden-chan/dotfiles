@@ -114,7 +114,11 @@ source $DOT/zsh/git.zsh
 source $DOT/zsh/dotenv.zsh
 
 # syntax highlighting, must be loaded last
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ "$hostname" = "Yellow-Lion.local" ]; then
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # initialize starship prompt
 eval "$(starship init zsh)"

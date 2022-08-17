@@ -113,7 +113,7 @@ function bwg () {
 
 function zcustomfunc () {
     local BOOKMARKS_FILE="$HOME/.cache/bookmarks"
-    if [ ! -f "$FILE" ]; then
+    if [ ! -f "$BOOKMARKS_FILE" ]; then
         touch "$BOOKMARKS_FILE"
     fi
 
