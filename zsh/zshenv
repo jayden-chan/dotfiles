@@ -60,15 +60,15 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 # Add other binaries
 export PATH="$HOME/.local/bin:$PATH"
 
+# Ensure GPG sign prompt shows on correct screen
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
 if [ "$hostname" = "swift" ] || [ "$hostname" = "grace" ]; then
     if [ -n "$DESKTOP_SESSION" ];then
         eval $(gnome-keyring-daemon --start 2>/dev/null)
         export SSH_AUTH_SOCK
     fi
-
-    # Ensure GPG sign prompt shows on correct screen
-    export GPG_TTY=$(tty)
-    gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
 # work laptop stuff
