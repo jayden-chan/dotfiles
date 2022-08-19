@@ -60,6 +60,13 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 # Add other binaries
 export PATH="$HOME/.local/bin:$PATH"
 
+# work laptop stuff
+if [ "$hostname" = "Yellow-Lion.local" ]; then
+    export PATH="$PATH:/opt/homebrew/bin"
+    export VOLTA_HOME="$HOME/.local/share/volta"
+    export PATH="$VOLTA_HOME/bin:$PATH"
+fi
+
 # Ensure GPG sign prompt shows on correct screen
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -69,13 +76,6 @@ if [ "$hostname" = "swift" ] || [ "$hostname" = "grace" ]; then
         eval $(gnome-keyring-daemon --start 2>/dev/null)
         export SSH_AUTH_SOCK
     fi
-fi
-
-# work laptop stuff
-if [ "$hostname" = "Yellow-Lion.local" ]; then
-    export PATH="$PATH:/opt/homebrew/bin"
-    export VOLTA_HOME="$HOME/.local/share/volta"
-    export PATH="$VOLTA_HOME/bin:$PATH"
 fi
 
 # NPM global
