@@ -52,7 +52,8 @@ bspc rule -a BigMeter                 state=floating
 bspc rule -a Jalv.gtk3                state=floating
 
 if [ "$HOSTNAME" = "grace" ]; then
-    bspc rule -a discord desktop='DVI-D-0:^1'
+    bspc rule -a discord desktop='HDMI-0:^1'
+    bspc rule -a carla desktop='DVI-D-0:^2'
 fi
 
 ##########################################################
@@ -71,6 +72,8 @@ if [ "$HOSTNAME" = "grace" ]; then
         --use-gl=desktop \
         --enable-gpu-rasterization \
         --enable-zero-copy > /tmp/discord-stdout.log 2>&1 &
+
+    pgrep -x carla > /dev/null || carla ~/Documents/Default.carxp > /tmp/carla.log 2>&1 &
 else
     (killall nm-applet; sleep 0.3; nm-applet) &
     (killall pasystray; sleep 0.3; pasystray) &
