@@ -80,6 +80,7 @@ width = 1872
 [bar/right]
 inherit = bar/base
 modules-left = padding arch-logo padding bspwm padding mpris
+modules-right = weather date
 width = 1232
 
 [bar/center]
