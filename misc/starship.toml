@@ -15,6 +15,6 @@ disabled=false
 disabled=false
 
 [custom.gwip]
-command = "git log -n 1 2>/dev/null | rg -q -c \"\\-\\-wip\\-\\-\" && echo '[WORK IN PROGRESS]'"
-detect_folders = [".git"]
+command = "git log -n 1 2>/dev/null | rg --quiet --count --regexp \"--wip--\" && echo '[WORK IN PROGRESS]'"
+when = "git rev-parse --is-inside-work-tree 2>/dev/null"
 format = "[$output](bold red)"
