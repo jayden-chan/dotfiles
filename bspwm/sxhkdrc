@@ -74,6 +74,13 @@ ctrl + grave
 ctrl + shift + period
     dunstctl context
 
+# mouse5
+button9
+    bspc node --state floating
+
+# mouse4
+button8
+    bspc node --close
 
 ##########################################################
 #                          XF86                          #
