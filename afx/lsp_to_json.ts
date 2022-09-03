@@ -1,3 +1,5 @@
+import { Band } from "./gen.ts";
+
 const preampRe = /^g_in = ((?:\d|\.|\+|-)+) db$/;
 const typeRe = /^ft_(?:\d+) = (\d+)$/;
 const modeRe = /^fm_(?:\d+) = (\d+)$/;
@@ -7,7 +9,7 @@ const qRe = /^q_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
 const freqRe = /^f_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
 const zoomRe = /^zoom = ((?:\d|\.|\+|-)+) db$/;
 
-const lspBandToJsonBand = (band) => {
+const lspBandToJsonBand = (band: number) => {
   switch (band) {
     case 1:
       return "peaking";
@@ -19,10 +21,12 @@ const lspBandToJsonBand = (band) => {
       return "lowpass";
     case 5:
       return "lowshelf";
+    default:
+      throw new Error("unknown LSP band type detected");
   }
 };
 
-const lspModeToJsonMode = (type) => {
+const lspModeToJsonMode = (type: number) => {
   switch (type) {
     case 0:
       return "RLC_BT";
@@ -38,41 +42,47 @@ const lspModeToJsonMode = (type) => {
       return "LRX_MT";
     case 6:
       return "APO_DR";
+    default:
+      throw new Error("unknown LSP band mode detected");
   }
 };
 
-exports.lspToJson = (contents) => {
+export function lspToJson(contents: string): {
+  preamp: number;
+  zoom: number;
+  bands: Band[];
+} {
   const lines = contents
     .split(/\r?\n/g)
     .filter((l) => l.length !== 0 && !l.trim().startsWith("#"));
 
-  const [, preamp] = lines.find((l) => preampRe.test(l)).match(preampRe);
-  const [, zoom] = lines.find((l) => zoomRe.test(l)).match(zoomRe);
+  const [, preamp] = lines.find((l) => preampRe.test(l))?.match(preampRe) ?? [];
+  const [, zoom] = lines.find((l) => zoomRe.test(l))?.match(zoomRe) ?? [];
 
   const types = lines
     .map((l) => l.match(typeRe))
     .filter((m) => m !== null)
-    .map((m) => Number(m[1]));
+    .map((m) => Number(m![1]));
   const modes = lines
     .map((l) => l.match(modeRe))
     .filter((m) => m !== null)
-    .map((m) => Number(m[1]));
+    .map((m) => Number(m![1]));
   const slopes = lines
     .map((l) => l.match(slopeRe))
     .filter((m) => m !== null)
-    .map((m) => Number(m[1]));
+    .map((m) => Number(m![1]));
   const gains = lines
     .map((l) => l.match(gainRe))
     .filter((m) => m !== null)
-    .map((m) => Number(m[1]));
+    .map((m) => Number(m![1]));
   const qs = lines
     .map((l) => l.match(qRe))
     .filter((m) => m !== null)
-    .map((m) => Number(m[1]));
+    .map((m) => Number(m![1]));
   const freqs = lines
     .map((l) => l.match(freqRe))
     .filter((m) => m !== null)
-    .map((m) => Number(m[1]));
+    .map((m) => Number(m![1]));
 
   if (
     !(
@@ -110,4 +120,4 @@ exports.lspToJson = (contents) => {
     zoom: Number(Number(zoom).toFixed(3)),
     bands,
   };
-};
+}

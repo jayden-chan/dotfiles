@@ -1,17 +1,18 @@
-const { jsonBandToLSPBand, defaultLSPBand } = require("./json_to_lsp");
+import { Contents } from "./gen.ts";
+import { jsonBandToLSPBand, defaultLSPBand, LSPBand } from "./json_to_lsp.ts";
 
-const unBoolean = (val) => {
+const unBoolean = (val: boolean) => {
   if (typeof val === "boolean") {
     return val ? 1 : 0;
   }
   return val;
 };
 
-const fixGain = (gain) => {
+const fixGain = (gain: number) => {
   return 1.122 ** gain;
 };
 
-const LSPBandToLV2Params = (lspBand) => {
+const LSPBandToLV2Params = (lspBand: LSPBand) => {
   return {
     [`ft_${lspBand.idx}`]: lspBand.bandType,
     [`fm_${lspBand.idx}`]: lspBand.mode,
@@ -25,7 +26,9 @@ const LSPBandToLV2Params = (lspBand) => {
   };
 };
 
-const manifest = (name) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+const manifest = (
+  name: string
+) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -38,7 +41,9 @@ const manifest = (name) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 \ta pset:Preset ;
 \trdfs:seeAlso <${name}.ttl> .`;
 
-const header = (name) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+const header = (
+  name: string
+) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -221,12 +226,17 @@ const validControls = [
   "zoom",
 ];
 
-exports.genLV2 = (contents, name) => {
+export function genLV2(contents: Contents, name: string) {
   const eq = contents.effects.find((e) => e.type === "eq");
+  if (eq === undefined) {
+    throw new Error("couldn't find EQ effect in effects list");
+  }
+
   const bands = eq.settings.bands.map(jsonBandToLSPBand);
   const fillerBands = [...Array(16 - bands.length).keys()].map((e) => {
     return defaultLSPBand(e + bands.length);
   });
+
   const finalBands = [...bands, ...fillerBands].map(LSPBandToLV2Params);
   let params = {
     bypass: 0,
@@ -260,4 +270,4 @@ exports.genLV2 = (contents, name) => {
     .join(" , ");
 
   return [manifest(name), `${header(name)} ${ports} ;${footer}`];
-};
+}

@@ -2,7 +2,7 @@ const filterRe =
   /^Filter (\d+): ON (\w+) Fc ((?:\d|\.|-)+) Hz Gain ((?:\d|\.|-)+) dB Q ((?:\d|\.|-)+)$/;
 const preampRe = /^Preamp: ((?:\d|\.|-)+) dB$/;
 
-const apoTypeToJsonType = (apoType) => {
+function apoTypeToJsonType(apoType: string) {
   switch (apoType) {
     case "PK":
       return "peaking";
@@ -17,9 +17,9 @@ const apoTypeToJsonType = (apoType) => {
     case "HS":
       return "lowshelf";
   }
-};
+}
 
-exports.apoToJson = (contents) => {
+export function apoToJson(contents: string) {
   const lines = contents.split(/\r?\n/g);
   if (lines.length === 0) {
     throw new Error("no lines in input file");
@@ -29,7 +29,7 @@ exports.apoToJson = (contents) => {
   const bands = lines
     .slice(1)
     .map((l, i) => {
-      const matchResults = l.match(filterRe);
+      const matchResults = l.match(filterRe) ?? [];
       const [didMatch, , filterType, freq, gain, q] = matchResults;
 
       if (!didMatch) {
@@ -51,4 +51,4 @@ exports.apoToJson = (contents) => {
     preamp: Number(preamp),
     bands,
   };
-};
+}
