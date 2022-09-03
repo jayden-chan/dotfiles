@@ -7,47 +7,55 @@
       "type": "eq",
       "settings": {
         "preamp": 0,
-        "zoom": -25.04,
+        "zoom": -36,
         "bands": [
           {
             "type": "highpass",
-            "mode": "LRX_MT",
+            "mode": "BWC_BT",
             "slope": 3,
-            "freq": 50.936,
+            "freq": 45,
             "Q": 0,
-            "gain": -35.48
+            "gain": 0
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 96.749,
-            "Q": 0.5,
-            "gain": 1.83
+            "freq": 68.934,
+            "Q": 0,
+            "gain": 1.14
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 1201.6,
-            "Q": 3.91,
-            "gain": -2.46
+            "freq": 251.183,
+            "Q": 2.4,
+            "gain": -0.94
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 2806.847,
-            "Q": 4.66,
-            "gain": -9.16
+            "freq": 1035.169,
+            "Q": 4.1,
+            "gain": -1.23
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 10875,
-            "Q": 0.1,
-            "gain": 0.8
+            "freq": 2905.615,
+            "Q": 4.2,
+            "gain": -5.81
+          },
+          {
+            "type": "highshelf",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 6051.412,
+            "Q": 1.6,
+            "gain": -0.35
           }
         ]
       }

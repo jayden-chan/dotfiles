@@ -87,8 +87,8 @@ const lspReverseSync = () => {
   const devicesPath = `${__dirname}/devices`;
   const devicesFiles = Deno.readDirSync(devicesPath);
   const deviceFileNames = Object.fromEntries(
-    Array(devicesFiles).map((f) => {
-      const p = `${devicesPath}/${f}`;
+    [...devicesFiles].map((file) => {
+      const p = `${devicesPath}/${file.name}`;
       const contents = JSON.parse(Deno.readTextFileSync(p));
       const outFile = `${contents.type}-${contents.name.replace(
         /\s+/g,
