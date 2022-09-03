@@ -212,7 +212,8 @@
       "lsp-plugins",
       "qpwgraph",
       "x42-plugins",
-      "jalv"
+      "jalv",
+      "deno"
     ]
   },
   "ignored": [

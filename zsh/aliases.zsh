@@ -44,6 +44,7 @@ alias y='yarn'
 alias o='xdg-open'
 alias t='tmux'
 alias c='cargo'
+alias p='~/.config/dotfiles/scripts/p.ts'
 
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'

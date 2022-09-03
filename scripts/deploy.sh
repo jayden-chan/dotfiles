@@ -75,7 +75,6 @@ ln -fs ~/.config/dotfiles/misc/starship.toml     ~/.config/
 ln -fs ~/.config/dotfiles/misc/tmux.conf         ~/.config/tmux/
 ln -fs ~/.config/dotfiles/zsh/zlogout            ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc              ~/.config/zsh/.zshrc
-ln -fs ~/.config/dotfiles/scripts/p.js           ~/.local/bin/p
 ln -fs ~/.config/dotfiles/mpv/input.conf         ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
