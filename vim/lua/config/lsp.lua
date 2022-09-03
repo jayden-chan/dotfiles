@@ -138,6 +138,19 @@ end
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
 	on_init = on_init,
+	root_dir = require("lspconfig/util").root_pattern("package.json"),
+	on_attach = function(client, bufnr)
+		client.resolved_capabilities.document_formatting = false
+		on_attach(client, bufnr)
+	end,
+	flags = default_flags,
+})
+
+lspconfig.denols.setup({
+	capabilities = capabilities,
+	on_init = on_init,
+	filetypes = { "typescript" },
+	root_dir = require("lspconfig/util").root_pattern("deno.json", "deno.jsonc"),
 	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		on_attach(client, bufnr)
