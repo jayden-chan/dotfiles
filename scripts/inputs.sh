@@ -41,8 +41,10 @@ function mouse_sens () {
 
     sx=$(bc -l <<< "(1 - $s) * $x")
     sy=$(bc -l <<< "(1 - $s) * $y")
-    xinput --set-prop "$id" 'Coordinate Transformation Matrix' "$s" 0 "$sx" 0 "$s" "$sy" 0 0 1
-    xinput --set-prop "$id" 'libinput Accel Speed' -1
+    # xinput --set-prop "$id" 'Coordinate Transformation Matrix' "$s" 0 "$sx" 0 "$s" "$sy" 0 0 1
+    # xinput --set-prop "$id" 'Coordinate Transformation Matrix' "1" 0 "1" 0 "1" "1" 0 0 1
+    xinput --set-prop "$id" 'libinput Accel Profile Enabled' 0 1
+    xinput --set-prop "$id" 'libinput Accel Speed' 0
 }
 
 gspeed=3.8
