@@ -27,7 +27,8 @@ const LSPBandToLV2Params = (lspBand: LSPBand) => {
 };
 
 const manifest = (
-  name: string
+  name: string,
+  appliesTo: string
 ) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
@@ -37,12 +38,13 @@ const manifest = (
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://lv2.jayden.codes/presets/${name}>
-\tlv2:appliesTo <http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo> ;
+\tlv2:appliesTo <${appliesTo}> ;
 \ta pset:Preset ;
 \trdfs:seeAlso <${name}.ttl> .`;
 
 const header = (
-  name: string
+  name: string,
+  appliesTo: string
 ) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
@@ -53,13 +55,13 @@ const header = (
 
 <https://lv2.jayden.codes/presets/${name}>
 \ta pset:Preset ;
-\tlv2:appliesTo <http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo> ;
+\tlv2:appliesTo <${appliesTo}> ;
 \trdfs:label "${name}" ;
 \tlv2:port`;
 
-const footer = `
+const footer = (appliesTo: string) => `
 \tstate:state [
-\t\t<http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo/KVT> [
+\t\t<${appliesTo}/KVT> [
 \t\t\ta atom:Tuple ;
 \t\t\trdf:value ()
 \t\t]
@@ -226,8 +228,17 @@ const validControls = [
   "zoom",
 ];
 
+function getAppliesTo(outputType: string): string {
+  if (outputType === "MONO") {
+    return "http://lsp-plug.in/plugins/lv2/para_equalizer_x16_mono";
+  } else {
+    return "http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo";
+  }
+}
+
 export function genLV2(contents: Contents, name: string) {
   const eq = contents.effects.find((e) => e.type === "eq");
+  const appliesTo = getAppliesTo(contents.output);
   if (eq === undefined) {
     throw new Error("couldn't find EQ effect in effects list");
   }
@@ -269,5 +280,8 @@ export function genLV2(contents: Contents, name: string) {
     })
     .join(" , ");
 
-  return [manifest(name), `${header(name)} ${ports} ;${footer}`];
+  return [
+    manifest(name, appliesTo),
+    `${header(name, appliesTo)} ${ports} ;${footer(appliesTo)}`,
+  ];
 }

@@ -7,6 +7,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://lv2.jayden.codes/presets/source-AT2040>
-	lv2:appliesTo <http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo> ;
+	lv2:appliesTo <http://lsp-plug.in/plugins/lv2/para_equalizer_x16_mono> ;
 	a pset:Preset ;
 	rdfs:seeAlso <source-AT2040.ttl> .

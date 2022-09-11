@@ -8,7 +8,7 @@
 
 <https://lv2.jayden.codes/presets/source-AT2040>
 	a pset:Preset ;
-	lv2:appliesTo <http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo> ;
+	lv2:appliesTo <http://lsp-plug.in/plugins/lv2/para_equalizer_x16_mono> ;
 	rdfs:label "source-AT2040" ;
 	lv2:port [
 		lv2:symbol "bal" ;
@@ -483,7 +483,7 @@
 		pset:value 0.015858
 	] ;
 	state:state [
-		<http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo/KVT> [
+		<http://lsp-plug.in/plugins/lv2/para_equalizer_x16_mono/KVT> [
 			a atom:Tuple ;
 			rdf:value ()
 		]
