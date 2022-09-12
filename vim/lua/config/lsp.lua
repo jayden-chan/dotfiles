@@ -202,8 +202,14 @@ lspconfig.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			runtime = { version = "LuaJIT" },
-			diagnostics = { globals = { "vim" } },
-			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+			diagnostics = { globals = { "vim", "awesome", "client", "root", "screen" } },
+			workspace = {
+				library = {
+					["/usr/local/share/nvim/runtime/lua"] = true,
+					["/usr/local/share/nvim/runtime/lua/vim/lsp"] = true,
+					["/usr/share/awesome/lib"] = true,
+				},
+			},
 			telemetry = { enable = false },
 			format = { enable = false },
 		},
