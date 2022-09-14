@@ -15,12 +15,15 @@ function apoTypeToJsonType(apoType: string) {
     case "LS":
       return "lowshelf";
     case "HS":
-      return "lowshelf";
+      return "highshelf";
   }
 }
 
 export function apoToJson(contents: string) {
-  const lines = contents.split(/\r?\n/g);
+  const lines = contents
+    .split(/\r?\n/g)
+    .map((l) => l.trim())
+    .filter((l) => l.length > 0);
   if (lines.length === 0) {
     throw new Error("no lines in input file");
   }

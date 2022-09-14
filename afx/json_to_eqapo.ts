@@ -10,10 +10,17 @@ function bandToAPOLine(band: Band) {
       return highshelfToAPO(band);
     case "peaking":
       return peakingToAPO(band);
+    case "lowpass":
+      return lowpassToAPO(band);
+    default:
+      console.error(
+        `Warning: unknown/unsupported filter type "${band.type}" detected`
+      );
   }
 }
 
 const highpassToAPO = (band: Band) => `ON HPQ Fc ${band.freq} Hz Q ${band.Q}`;
+const lowpassToAPO = (band: Band) => `ON LPQ Fc ${band.freq} Hz Q ${band.Q}`;
 
 const lowshelfToAPO = (band: Band) =>
   `ON LSC Fc ${band.freq} Hz Gain ${band.gain} dB Q ${band.Q}`;
