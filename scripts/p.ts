@@ -120,7 +120,7 @@ async function handleYayCommand(
           : `${newProgs.join(", ")}`;
 
       const response = prompt(
-        `\nDo you want to add ${progsString} to the packages list? [g/s/y/n]: `
+        `\nDo you want to add ${progsString} to the packages list? [g/s/y/n]:`
       );
       const matches = {
         all: ["", "y", "Y"],
