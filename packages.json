@@ -49,7 +49,9 @@
       "flatpak",
       "lib32-nvidia-utils",
       "redshift",
-      "audacity"
+      "audacity",
+      "awesome",
+      "replay-sorcery"
     ],
     "swift": [
       "light",
@@ -213,7 +215,9 @@
       "qpwgraph",
       "x42-plugins",
       "jalv",
-      "deno"
+      "deno",
+      "lain-git",
+      "kdenlive"
     ]
   },
   "ignored": [
