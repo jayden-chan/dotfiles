@@ -6,17 +6,9 @@
     {
       "type": "eq",
       "settings": {
-        "preamp": -0.9,
+        "preamp": 0,
         "zoom": -36,
         "bands": [
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 603.285,
-            "Q": 0.25,
-            "gain": -0.75
-          },
           {
             "type": "peaking",
             "mode": "RLC_BT",
@@ -37,17 +29,25 @@
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 2152.592,
-            "Q": 2.25,
-            "gain": 0.1
+            "freq": 133.275,
+            "Q": 0.75,
+            "gain": -4.76
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 133.275,
-            "Q": 0.75,
-            "gain": -4.76
+            "freq": 603.285,
+            "Q": 0.25,
+            "gain": -0.75
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 2152.592,
+            "Q": 2.25,
+            "gain": 0.1
           },
           {
             "type": "peaking",
