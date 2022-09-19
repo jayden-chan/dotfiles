@@ -6,6 +6,7 @@ const modeRe = /^fm_(?:\d+) = (\d+)$/;
 const slopeRe = /^s_(?:\d+) = (\d+)$/;
 const gainRe = /^g_(?:\d+) = ((?:\d|\.|\+|-)+) db$/;
 const qRe = /^q_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
+const muteRe = /^xm_(?:\d+) = (true|false)$/;
 const freqRe = /^f_(?:\d+) = ((?:\d|\.|\+|-)+)$/;
 const zoomRe = /^zoom = ((?:\d|\.|\+|-)+) db$/;
 
@@ -67,6 +68,10 @@ export function lspToJson(contents: string): {
     .map((l) => l.match(modeRe))
     .filter((m) => m !== null)
     .map((m) => Number(m![1]));
+  const mutes = lines
+    .map((l) => l.match(muteRe))
+    .filter((m) => m !== null)
+    .map((m) => m![1] === "true");
   const slopes = lines
     .map((l) => l.match(slopeRe))
     .filter((m) => m !== null)
@@ -88,20 +93,21 @@ export function lspToJson(contents: string): {
     !(
       types.length === gains.length &&
       types.length === modes.length &&
+      types.length === mutes.length &&
       types.length === slopes.length &&
       types.length === qs.length &&
       types.length === freqs.length
     )
   ) {
     throw new Error(
-      `types/gains/modes/qs/freqs lengths don't match (${types.length}, ${gains.length}, ${qs.length}, ${freqs.length})`
+      `types/gains/modes/mutes/qs/freqs lengths don't match (${types.length}, ${gains.length}, ${qs.length}, ${freqs.length})`
     );
   }
 
   const bands = [];
   for (let i = 0; i < types.length; i++) {
     // band is disabled
-    if (types[i] === 0) {
+    if (types[i] === 0 || mutes[i] === true) {
       continue;
     }
 
@@ -114,6 +120,8 @@ export function lspToJson(contents: string): {
       gain: Number(gains[i].toFixed(3)),
     });
   }
+
+  bands.sort((a, b) => a.freq - b.freq);
 
   return {
     preamp: Number(Number(preamp).toFixed(3)),
