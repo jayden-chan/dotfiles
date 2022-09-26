@@ -34,8 +34,8 @@ export function genLSP(contents: Contents) {
 g_in = ${eq.settings.preamp.toFixed(4)} db
 g_out = 0.00 db
 mode = 0
-fft = 0
-react = 0.20000
+fft = 2
+react = 0.10000
 shift = 0.00 db
 zoom = ${eq.settings.zoom.toFixed(3)} db
 fsel = 0
