@@ -297,13 +297,13 @@
 		pset:value 0.600000
 	] , [
 		lv2:symbol "q_13" ;
-		pset:value 0.000000
+		pset:value 1.410000
 	] , [
 		lv2:symbol "q_14" ;
-		pset:value 0.000000
+		pset:value 1.410000
 	] , [
 		lv2:symbol "q_15" ;
-		pset:value 0.000000
+		pset:value 1.410000
 	] , [
 		lv2:symbol "q_2" ;
 		pset:value 1.400000

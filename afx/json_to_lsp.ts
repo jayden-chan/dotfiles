@@ -20,7 +20,6 @@ const hues = [
 
 const hueFromIdx = (idx: number, total: number): number => {
   const increment = 1 / total;
-  console.error(idx, total, idx * increment);
   return idx * increment;
 };
 
@@ -76,7 +75,7 @@ export function defaultLSPBand(idx: number) {
     solo: false,
     mute: false,
     freq: 500,
-    Q: 0.0,
+    Q: 1.41,
     gain: 0.0,
     hue: hues[idx],
     idx,
