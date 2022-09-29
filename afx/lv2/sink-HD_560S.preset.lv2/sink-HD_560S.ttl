@@ -234,16 +234,16 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "hue_1" ;
-		pset:value 0.062500
+		pset:value 0.076923
 	] , [
 		lv2:symbol "hue_10" ;
-		pset:value 0.625000
+		pset:value 0.769231
 	] , [
 		lv2:symbol "hue_11" ;
-		pset:value 0.687500
+		pset:value 0.846154
 	] , [
 		lv2:symbol "hue_12" ;
-		pset:value 0.750000
+		pset:value 0.923077
 	] , [
 		lv2:symbol "hue_13" ;
 		pset:value 0.812500
@@ -255,28 +255,28 @@
 		pset:value 0.937500
 	] , [
 		lv2:symbol "hue_2" ;
-		pset:value 0.125000
+		pset:value 0.153846
 	] , [
 		lv2:symbol "hue_3" ;
-		pset:value 0.187500
+		pset:value 0.230769
 	] , [
 		lv2:symbol "hue_4" ;
-		pset:value 0.250000
+		pset:value 0.307692
 	] , [
 		lv2:symbol "hue_5" ;
-		pset:value 0.312500
+		pset:value 0.384615
 	] , [
 		lv2:symbol "hue_6" ;
-		pset:value 0.375000
+		pset:value 0.461538
 	] , [
 		lv2:symbol "hue_7" ;
-		pset:value 0.437500
+		pset:value 0.538462
 	] , [
 		lv2:symbol "hue_8" ;
-		pset:value 0.500000
+		pset:value 0.615385
 	] , [
 		lv2:symbol "hue_9" ;
-		pset:value 0.562500
+		pset:value 0.692308
 	] , [
 		lv2:symbol "mode" ;
 		pset:value 0.000000

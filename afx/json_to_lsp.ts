@@ -18,13 +18,22 @@ const hues = [
   0.6875, 0.75, 0.8125, 0.875, 0.9375,
 ];
 
+const hueFromIdx = (idx: number, total: number): number => {
+  const increment = 1 / total;
+  console.error(idx, total, idx * increment);
+  return idx * increment;
+};
+
 export function genLSP(contents: Contents) {
   const eq = contents.effects.find((e) => e.type === "eq");
   if (eq === undefined) {
     throw new Error("couldn't find EQ effect in effects list");
   }
 
-  const bands = eq.settings.bands.map((b, i) => jsonBandToLSPBand(b, i));
+  const bands = eq.settings.bands.map((b, i) =>
+    jsonBandToLSPBand(b, i, eq.settings.bands.length)
+  );
+
   const fillerBands = [...Array(16 - bands.length).keys()].map((e) => {
     return defaultLSPBand(e + bands.length);
   });
@@ -74,7 +83,7 @@ export function defaultLSPBand(idx: number) {
   };
 }
 
-export function jsonBandToLSPBand(band: Band, idx: number) {
+export function jsonBandToLSPBand(band: Band, idx: number, totalBands: number) {
   let bandType = 0;
 
   // Filter type 0: 0..8
@@ -157,7 +166,7 @@ export function jsonBandToLSPBand(band: Band, idx: number) {
     slope,
     solo,
     mute,
-    hue: hues[idx],
+    hue: hueFromIdx(idx, totalBands),
     idx,
   };
 }

@@ -243,7 +243,10 @@ export function genLV2(contents: Contents, name: string) {
     throw new Error("couldn't find EQ effect in effects list");
   }
 
-  const bands = eq.settings.bands.map(jsonBandToLSPBand);
+  const bands = eq.settings.bands.map((b, i) =>
+    jsonBandToLSPBand(b, i, eq.settings.bands.length)
+  );
+
   const fillerBands = [...Array(16 - bands.length).keys()].map((e) => {
     return defaultLSPBand(e + bands.length);
   });
