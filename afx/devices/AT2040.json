@@ -12,8 +12,8 @@
           {
             "type": "highpass",
             "mode": "BWC_BT",
-            "slope": 0,
-            "freq": 55.392,
+            "slope": 1,
+            "freq": 50.326,
             "Q": 0,
             "gain": 0
           },
@@ -21,17 +21,9 @@
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 83.509,
-            "Q": 0.1,
-            "gain": 0.6
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
             "freq": 250,
-            "Q": 2.4,
-            "gain": -1
+            "Q": 1.2,
+            "gain": -0.65
           },
           {
             "type": "peaking",
@@ -39,15 +31,15 @@
             "slope": 0,
             "freq": 1035.169,
             "Q": 4.1,
-            "gain": -2.82
+            "gain": -2.61
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
             "freq": 2905.615,
-            "Q": 3.4,
-            "gain": -8.5
+            "Q": 4.4,
+            "gain": -6.77
           }
         ]
       }
