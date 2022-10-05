@@ -56,11 +56,13 @@ cd ~ || exit
 
 # symlinked folders need to be removed before linking
 rm -rf ~/.config/nvim/UltiSnips
+rm -rf ~/.config/awesome
 rm -rf ~/.config/nvim/lua
 rm -rf ~/.config/nvim/init.lua
 ln -fs ~/.config/dotfiles/vim/snippets           ~/.config/nvim/UltiSnips
 ln -fs ~/.config/dotfiles/vim/lua                ~/.config/nvim/lua
 ln -fs ~/.config/dotfiles/vim/init.lua           ~/.config/nvim/
+ln -fs ~/.config/dotfiles/awesome                ~/.config/awesome
 
 ln -fs ~/.config/dotfiles/bspwm/bspwmrc          ~/.config/bspwm/
 ln -fs ~/.config/dotfiles/git/gitconfig          ~/.config/git/config
