@@ -22,8 +22,9 @@ local on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				vim.lsp.buf.formatting_sync()
+				vim.lsp.buf.format({
+					bufnr = bufnr,
+				})
 			end,
 		})
 	end
@@ -140,7 +141,7 @@ lspconfig.tsserver.setup({
 	on_init = on_init,
 	root_dir = require("lspconfig/util").root_pattern("package.json"),
 	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
 		on_attach(client, bufnr)
 	end,
 	flags = default_flags,
@@ -152,7 +153,7 @@ lspconfig.denols.setup({
 	filetypes = { "typescript" },
 	root_dir = require("lspconfig/util").root_pattern("deno.json", "deno.jsonc"),
 	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
 		on_attach(client, bufnr)
 	end,
 	flags = default_flags,
@@ -195,7 +196,7 @@ lspconfig.sumneko_lua.setup({
 	capabilities = capabilities,
 	on_init = on_init,
 	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
 		on_attach(client, bufnr)
 	end,
 	flags = default_flags,
