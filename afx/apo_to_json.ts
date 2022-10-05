@@ -19,11 +19,26 @@ function apoTypeToJsonType(apoType: string) {
   }
 }
 
+function apoModeToJsonMode(apoType: string) {
+  switch (apoType) {
+    case "LP":
+    case "LPQ":
+    case "HP":
+    case "HPQ":
+    case "LS":
+    case "HS":
+      return "APO_DR";
+    default:
+      return "RLC_BT";
+  }
+}
+
 export function apoToJson(contents: string) {
   const lines = contents
     .split(/\r?\n/g)
     .map((l) => l.trim())
     .filter((l) => l.length > 0);
+
   if (lines.length === 0) {
     throw new Error("no lines in input file");
   }
@@ -41,6 +56,7 @@ export function apoToJson(contents: string) {
 
       return {
         type: apoTypeToJsonType(filterType),
+        mode: apoModeToJsonMode(filterType),
         freq: Number(freq),
         Q: Number(q),
         gain: Number(gain),
