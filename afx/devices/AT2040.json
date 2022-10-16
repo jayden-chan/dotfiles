@@ -21,9 +21,9 @@
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 250,
-            "Q": 1.2,
-            "gain": -0.65
+            "freq": 184.523,
+            "Q": 0.44,
+            "gain": -0.51
           },
           {
             "type": "peaking",
@@ -39,7 +39,7 @@
             "slope": 0,
             "freq": 2905.615,
             "Q": 4.4,
-            "gain": -6.77
+            "gain": -6
           }
         ]
       }

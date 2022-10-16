@@ -53,17 +53,17 @@
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 4255.707,
-            "Q": 0.25,
-            "gain": -2.67
+            "freq": 4395.048,
+            "Q": 0.2,
+            "gain": -1.45
           },
           {
-            "type": "lowpass",
+            "type": "highshelf",
             "mode": "RLC_BT",
             "slope": 0,
             "freq": 12533.066,
-            "Q": 0,
-            "gain": 0
+            "Q": 0.25,
+            "gain": -4.63
           }
         ]
       }
