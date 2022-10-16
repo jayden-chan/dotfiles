@@ -50,7 +50,10 @@
       "redshift",
       "audacity",
       "awesome",
-      "bottles"
+      "bottles",
+      "noise-repellent",
+      "ardour",
+      "xzoom"
     ],
     "swift": [
       "light",
@@ -211,7 +214,8 @@
       "jalv",
       "deno",
       "lain-git",
-      "kdenlive"
+      "kdenlive",
+      "websocat"
     ]
   },
   "ignored": [
