@@ -1,0 +1,96 @@
+{
+  "name": "Focal Clear",
+  "type": "sink",
+  "output": "FL FR",
+  "effects": [
+    {
+      "type": "eq",
+      "settings": {
+        "preamp": -6,
+        "zoom": -36,
+        "bands": [
+          {
+            "type": "lowshelf",
+            "mode": "APO_DR",
+            "slope": 0,
+            "freq": 32,
+            "Q": 0.69,
+            "gain": 2.68
+          },
+          {
+            "type": "lowshelf",
+            "mode": "APO_DR",
+            "slope": 0,
+            "freq": 98.497,
+            "Q": 0.71,
+            "gain": 1.18
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 570,
+            "Q": 0.8,
+            "gain": 1.92
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 1350,
+            "Q": 1.7,
+            "gain": -1.32
+          },
+          {
+            "type": "highshelf",
+            "mode": "APO_DR",
+            "slope": 0,
+            "freq": 1800,
+            "Q": 0.71,
+            "gain": 4.75
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 3030,
+            "Q": 2.8,
+            "gain": -2.9
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 3630,
+            "Q": 4.8,
+            "gain": -2.2
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 5900,
+            "Q": 6,
+            "gain": -5.3
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 7000,
+            "Q": 1,
+            "gain": 2
+          },
+          {
+            "type": "highshelf",
+            "mode": "APO_DR",
+            "slope": 0,
+            "freq": 10000,
+            "Q": 0.71,
+            "gain": -5
+          }
+        ]
+      }
+    }
+  ]
+}
