@@ -250,8 +250,10 @@ function mullvad_ns () {
 
     if [ "$command" = "up" ]; then
         conf="$1"
-        addr=$(< "$conf" rg 'Address = (\d+\.\d+\.\d+\.\d+/\d+)' --only-matching --replace='$1')
+        addr=$(< "$conf" rg 'Address\s+=\s+(\d+\.\d+\.\d+\.\d+/\d+)' --only-matching --replace='$1')
+        dns=$(< "$conf" rg 'DNS\s+=\s+(\d+\.\d+\.\d+\.\d+)' --only-matching --replace='$1')
 
+        set -x
         sudo ip netns add $NS
         sudo ip link add $WGIF type wireguard
         sudo wg setconf $WGIF $conf
@@ -260,10 +262,14 @@ function mullvad_ns () {
         sudo ip -n $NS link set lo up
         sudo ip -n $NS link set $WGIF up
         sudo ip -n $NS route add default dev $WGIF
+        sudo mkdir -p /etc/netns/$NS
+        echo "nameserver $dns" | sudo tee /etc/netns/$NS/resolv.conf
+        set +x
     fi
 
     if [ "$command" = "down" ]; then
         sudo ip netns delete $NS
+        sudo rm -rf /etc/netns/$NS
     fi
 
     if [ "$command" = "exec" ]; then
