@@ -12,7 +12,10 @@ if [ -z "$WEATHER_TOKEN" ]; then echo "No weather token"; exit 1; fi
 if [ -z "$HA_TOKEN" ]; then
     indoor_temp=""
 else
-    indoor_temp=" ($(ha desk_temp)C)"
+    ha_temp="$(ha desk_temp)"
+    if [ -n "$ha_temp" ]; then
+        indoor_temp=" (${ha_temp}C)"
+    fi
 fi
 
 url="api.openweathermap.org/data/2.5/weather?id=$city&units=metric&appid=$WEATHER_TOKEN"
