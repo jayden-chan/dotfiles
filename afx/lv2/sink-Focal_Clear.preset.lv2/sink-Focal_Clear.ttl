@@ -177,10 +177,10 @@
 		pset:value 3.000000
 	] , [
 		lv2:symbol "g_0" ;
-		pset:value 1.361385
+		pset:value 1.447028
 	] , [
 		lv2:symbol "g_1" ;
-		pset:value 1.145491
+		pset:value 1.173519
 	] , [
 		lv2:symbol "g_10" ;
 		pset:value 1.000000

@@ -61,7 +61,7 @@
             "type": "highshelf",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 12533.066,
+            "freq": 8959.508,
             "Q": 0.25,
             "gain": -4.63
           }

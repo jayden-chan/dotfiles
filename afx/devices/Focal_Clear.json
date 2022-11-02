@@ -15,7 +15,7 @@
             "slope": 0,
             "freq": 32,
             "Q": 0.69,
-            "gain": 2.68
+            "gain": 3.21
           },
           {
             "type": "lowshelf",
@@ -23,7 +23,7 @@
             "slope": 0,
             "freq": 98.497,
             "Q": 0.71,
-            "gain": 1.18
+            "gain": 1.39
           },
           {
             "type": "peaking",
