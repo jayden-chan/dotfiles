@@ -63,3 +63,5 @@ xinput --set-prop 'HP HP Link-5 micro dongle Mouse' 'Coordinate Transformation M
 xinput --set-prop 'HP HP Link-5 micro dongle Mouse' 'libinput Accel Speed' -1
 
 xset r rate 270 35
+xmodmap -e "clear lock" &
+xmodmap -e "keysym Caps_Lock = Escape" &
