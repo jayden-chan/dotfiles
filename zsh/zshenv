@@ -48,6 +48,7 @@ export DO_NOT_TRACK=1
 # Opt out of .NET telemetry (yikes...)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GATSBY_TELEMETRY_DISABLED=1
+export DENO_NO_UPDATE_CHECK=1
 export GOPROXY=direct
 
 # Export Go path
