@@ -1,25 +1,7 @@
 local cmd = vim.cmd
-local new_command = vim.api.nvim_create_user_command
+local user_cmd = vim.api.nvim_create_user_command
 
 cmd([[autocmd FileType gitcommit,NeogitCommitMessage,text,markdown,tex let b:EditorConfig_disable = 1]])
-cmd([[command! -nargs=0 AutoFormat :lua vim.lsp.buf.formatting_sync()]])
-
-local auto_fmt_langs = {
-	"c",
-	"cpp",
-	"css",
-	"go",
-	"graphql",
-	"html",
-	"javascript",
-	"javascriptreact",
-	"json",
-	"jsonc",
-	"lua",
-	"scss",
-	"typescript",
-	"typescriptreact",
-}
 
 local spell_langs = {
 	"gitcommit",
@@ -82,20 +64,18 @@ cmd([[autocmd FileType asm             setlocal expandtab]])
 cmd([[autocmd FileType go,lua          setlocal noexpandtab]])
 cmd([[autocmd FileType makefile        setlocal noexpandtab]])
 
-new_command(
-	"TSOrganizeImports",
-	'lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})',
-	{ nargs = 0 }
-)
+user_cmd("TSOrganizeImports", function()
+	vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
+end, { nargs = 0 })
+
+user_cmd("RustDocs", ":silent !rustup doc --std", {})
 
 -- Make leaving easier in case of typos
-cmd([[command! -bang Q :q<bang>]])
-cmd([[command! Wq :wq]])
-cmd([[command! WQ :wq]])
-cmd([[command! Wqa :wqa]])
-cmd([[command! WQa :wqa]])
-cmd([[command! WQA :wqa]])
-cmd([[command! -bang Qa :qa<bang>]])
-cmd([[command! -bang QA :qa<bang>]])
-
-cmd([[command! RustDocs :silent !rustup doc --std]])
+user_cmd("Q", ":q<bang>", { bang = true })
+user_cmd("Qa", ":qa<bang>", { bang = true })
+user_cmd("QA", ":qa<bang>", { bang = true })
+user_cmd("Wq", ":wq", {})
+user_cmd("WQ", ":wq", {})
+user_cmd("Wqa", ":wqa", {})
+user_cmd("WQa", ":wqa", {})
+user_cmd("WQA", ":wqa", {})
