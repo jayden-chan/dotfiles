@@ -715,6 +715,7 @@ awful.rules.rules = {
 				"origin.exe",
 				"pw-display",
 				"veromix",
+				"Thunar",
 				"xtightvncviewer",
 			},
 			name = {
@@ -750,6 +751,89 @@ client.connect_signal("manage", function(c)
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
 	end
+
+	if not c.maximized and not c.fullscreen then
+		if c.floating then
+			awful.titlebar.show(c)
+		else
+			awful.titlebar.hide(c)
+		end
+	end
+end)
+
+client.connect_signal("property::floating", function(c)
+	if not c.maximized and not c.fullscreen then
+		if c.floating then
+			awful.titlebar.show(c)
+		else
+			awful.titlebar.hide(c)
+		end
+	end
+end)
+
+-- Add a titlebar if titlebars_enabled is set to true in the rules.
+client.connect_signal("request::titlebars", function(c)
+	-- buttons for the titlebar
+	local buttons = gears.table.join(
+		awful.button({}, 1, function()
+			c:emit_signal("request::activate", "titlebar", { raise = true })
+			awful.mouse.client.move(c)
+		end),
+		awful.button({}, 3, function()
+			c:emit_signal("request::activate", "titlebar", { raise = true })
+			awful.mouse.client.resize(c)
+		end)
+	)
+
+	local titlebar = awful.titlebar(c, {
+		size = 25,
+	})
+
+	titlebar:setup({
+		{
+			{ -- Left
+				awful.titlebar.widget.iconwidget(c),
+				buttons = buttons,
+				layout = wibox.layout.fixed.horizontal,
+			},
+			left = 5,
+			right = 5,
+			top = 5,
+			bottom = 5,
+			layout = wibox.container.margin,
+		},
+		{ -- Middle
+			{ -- Title
+				align = "center",
+				widget = awful.titlebar.widget.titlewidget(c),
+			},
+			buttons = buttons,
+			layout = wibox.layout.flex.horizontal,
+		},
+		{
+			{ -- Right
+				{
+					awful.titlebar.widget.stickybutton(c),
+					right = 3,
+					layout = wibox.container.margin,
+				},
+				{
+					awful.titlebar.widget.maximizedbutton(c),
+					left = 3,
+					right = 3,
+					layout = wibox.container.margin,
+				},
+				{ awful.titlebar.widget.closebutton(c), left = 3, layout = wibox.container.margin },
+				layout = wibox.layout.fixed.horizontal(),
+			},
+			left = 5,
+			right = 5,
+			top = 5,
+			bottom = 5,
+			layout = wibox.container.margin,
+		},
+		layout = wibox.layout.align.horizontal,
+	})
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
