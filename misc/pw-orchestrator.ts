@@ -274,6 +274,7 @@ const config = {
       { node: "re:.*bf4\\.exe.*", mixerChannel: "round_robin" },
       { node: "re:.*Battlefield 4.*", mixerChannel: "round_robin" },
       { node: "re:.*Overwatch\\.exe.*", mixerChannel: "round_robin" },
+      { node: "Chromium", mixerChannel: "round_robin" },
       { node: "re:(F|f)irefox.*", mixerChannel: 5 },
       { node: "re:csgo_linux64*", mixerChannel: 6 },
       { node: "WEBRTC VoiceEngine", mixerChannel: 7 },
@@ -375,40 +376,6 @@ const config = {
       defaultLEDState: "ON",
       onPress: { actions: [{ type: "command", command: "xdotool key Enter" }] },
     },
-    "Button 9": {
-      type: "button",
-      defaultLEDState: "OFF",
-      onPress: {
-        actions: [
-          { type: LINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
-          { type: LINK, src: CLEAN_AMP_L, dest: MIXER_L(6) },
-          { type: LINK, src: CLEAN_AMP_R, dest: MIXER_R(6) },
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
-        ],
-      },
-    },
-    "Button 10": {
-      type: "button",
-      defaultLEDState: "OFF",
-      onLongPress: {
-        actions: [
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
-          { type: UNLINK, src: METAL_AMP_L, dest: MIXER_L(6) },
-          { type: UNLINK, src: METAL_AMP_R, dest: MIXER_R(6) },
-          { type: UNLINK, src: CLEAN_AMP_L, dest: MIXER_L(6) },
-          { type: UNLINK, src: CLEAN_AMP_R, dest: MIXER_R(6) },
-        ],
-      },
-      onPress: {
-        actions: [
-          { type: LINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
-          { type: LINK, src: METAL_AMP_L, dest: MIXER_L(6) },
-          { type: LINK, src: METAL_AMP_R, dest: MIXER_R(6) },
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
-        ],
-      },
-    },
     "Button 7": {
       type: "button",
       defaultLEDState: "RED",
@@ -460,6 +427,63 @@ const config = {
               ],
             ],
           },
+        ],
+      },
+    },
+    "Button 9": {
+      type: "button",
+      defaultLEDState: "GREEN",
+      onPress: {
+        actions: [
+          {
+            type: "command",
+            command:
+              "picom --config /home/jayden/.config/dotfiles/misc/picom.conf",
+          },
+          { type: "led::set", button: "Button 9", color: "GREEN" },
+        ],
+      },
+      onLongPress: {
+        actions: [
+          {
+            type: "command",
+            command: "killall picom",
+          },
+          { type: "led::set", button: "Button 9", color: "AMBER" },
+        ],
+      },
+    },
+    "Button 10": {
+      type: "button",
+      defaultLEDState: "AMBER",
+      onPress: {
+        actions: [
+          { type: LINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
+          { type: LINK, src: CLEAN_AMP_L, dest: MIXER_L(6) },
+          { type: LINK, src: CLEAN_AMP_R, dest: MIXER_R(6) },
+          { type: UNLINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
+        ],
+      },
+    },
+    "Button 11": {
+      type: "button",
+      defaultLEDState: "AMBER",
+      onLongPress: {
+        actions: [
+          { type: UNLINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
+          { type: UNLINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
+          { type: UNLINK, src: METAL_AMP_L, dest: MIXER_L(6) },
+          { type: UNLINK, src: METAL_AMP_R, dest: MIXER_R(6) },
+          { type: UNLINK, src: CLEAN_AMP_L, dest: MIXER_L(6) },
+          { type: UNLINK, src: CLEAN_AMP_R, dest: MIXER_R(6) },
+        ],
+      },
+      onPress: {
+        actions: [
+          { type: LINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
+          { type: LINK, src: METAL_AMP_L, dest: MIXER_L(6) },
+          { type: LINK, src: METAL_AMP_R, dest: MIXER_R(6) },
+          { type: UNLINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
         ],
       },
     },
