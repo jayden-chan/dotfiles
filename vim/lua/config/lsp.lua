@@ -34,7 +34,6 @@ local on_attach = function(client, bufnr)
 	buf_key("n", "<leader>g", "<cmd>Lspsaga hover_doc<CR>", opts)
 	buf_key("n", "<leader>R", "<cmd>Lspsaga rename<CR>", opts)
 	buf_key("n", "<leader>e", "<cmd>Lspsaga code_action<CR>", opts)
-	buf_key("n", "<leader>F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

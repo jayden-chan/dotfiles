@@ -83,7 +83,6 @@ require("neo-tree").setup({
 			["t"] = "open_tabnew",
 			["w"] = "open_with_window_picker",
 			["z"] = "close_all_nodes",
-			--["Z"] = "expand_all_nodes",
 			["a"] = {
 				"add",
 				-- some commands may take optional config options, see `:h neo-tree-mappings` for details
@@ -99,12 +98,6 @@ require("neo-tree").setup({
 			["x"] = "close_node",
 			["p"] = "paste_from_clipboard",
 			["y"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
-			-- ["c"] = {
-			--  "copy",
-			--  config = {
-			--    show_path = "none" -- "none", "relative", "absolute"
-			--  }
-			--}
 			["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
 			["q"] = "close_window",
 			["r"] = "refresh",

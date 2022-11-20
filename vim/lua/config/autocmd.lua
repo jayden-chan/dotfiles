@@ -44,9 +44,6 @@ for _, v in ipairs(two_spc_files) do
 	vim.cmd("autocmd FileType " .. v .. " setlocal softtabstop=2")
 end
 
--- Enter insert mode automatically when entering terminal
-vim.cmd([[autocmd BufWinEnter,WinEnter term://* startinsert]])
-
 -- Jump to last known cursor position when opening files
 vim.cmd(
 	[[autocmd BufReadPost * if &filetype != "gitcommit" && &filetype != "NeogitCommitMessage" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
