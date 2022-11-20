@@ -65,6 +65,7 @@ require("packer").startup(function(use)
 	use(mirror("lspkind-nvim"))
 	use(mirror("null-ls.nvim"))
 	use(mirror("fidget.nvim"))
+	use({ mirror("lspsaga.nvim"), branch = "main" })
 
 	-- Syntax
 	use({

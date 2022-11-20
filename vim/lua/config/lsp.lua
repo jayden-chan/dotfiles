@@ -5,8 +5,8 @@
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-vim.api.nvim_set_keymap("n", "[e", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-vim.api.nvim_set_keymap("n", "]e", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+vim.api.nvim_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -31,9 +31,9 @@ local on_attach = function(client, bufnr)
 
 	buf_key("n", "<leader>o", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_key("n", "<leader>O", "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_key("n", "<leader>g", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	buf_key("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	buf_key("n", "<leader>e", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+	buf_key("n", "<leader>g", "<cmd>Lspsaga hover_doc<CR>", opts)
+	buf_key("n", "<leader>R", "<cmd>Lspsaga rename<CR>", opts)
+	buf_key("n", "<leader>e", "<cmd>Lspsaga code_action<CR>", opts)
 	buf_key("n", "<leader>F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
@@ -242,3 +242,6 @@ null_ls.setup({
 		}),
 	},
 })
+
+local saga = require("lspsaga")
+saga.init_lsp_saga({})
