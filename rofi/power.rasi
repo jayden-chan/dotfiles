@@ -1,5 +1,3 @@
-// vim: ft=css
-
 configuration {
     font:                           "Sans 11";
     show-icons:                     true;
