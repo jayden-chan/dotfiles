@@ -59,6 +59,20 @@ vim.diagnostic.config({
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
+local buffer_cmp = {
+	name = "buffer",
+	option = {
+		-- get buffer completions from all visible buffers
+		get_bufnrs = function()
+			local bufs = {}
+			for _, win in ipairs(vim.api.nvim_list_wins()) do
+				bufs[vim.api.nvim_win_get_buf(win)] = true
+			end
+			return vim.tbl_keys(bufs)
+		end,
+	},
+}
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -101,23 +115,23 @@ cmp.setup({
 		{ name = "ultisnips" },
 		{ name = "path" },
 	}, {
-		{ name = "buffer" },
+		buffer_cmp,
 	}),
 })
 
 -- Set configuration for specific filetype.
 require("cmp_git").setup()
 cmp.setup.filetype("gitcommit", {
-	sources = cmp.config.sources({ { name = "git" } }, { { name = "buffer" } }),
+	sources = cmp.config.sources({ { name = "git" } }, { buffer_cmp }),
 })
 
 cmp.setup.filetype("NeogitCommitMessage", {
-	sources = cmp.config.sources({ { name = "git" } }, { { name = "buffer" } }),
+	sources = cmp.config.sources({ { name = "git" } }, { buffer_cmp }),
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
-	sources = { { name = "buffer" } },
+	sources = { buffer_cmp },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
