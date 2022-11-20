@@ -1,114 +1,13 @@
 ---            ---
 --- auto pairs ---
 ---            ---
-require("nvim-autopairs").setup({
-	ignored_next_char = "",
-	check_ts = true,
-})
+-- require("nvim-autopairs").setup({
+-- 	ignored_next_char = "",
+-- 	check_ts = true,
+-- })
 
 require("Comment").setup()
 require("fidget").setup()
-
-local actions = require("diffview.actions")
-require("diffview").setup({
-	diff_binaries = false, -- Show diffs for binaries
-	enhanced_diff_hl = true, -- See ':h diffview-config-enhanced_diff_hl'
-	use_icons = true, -- Requires nvim-web-devicons
-	icons = { -- Only applies when use_icons is true.
-		folder_closed = "",
-		folder_open = "",
-	},
-	signs = {
-		fold_closed = "",
-		fold_open = "",
-	},
-	file_panel = {
-		listing_style = "tree", -- One of 'list' or 'tree'
-		tree_options = { -- Only applies when listing_style is 'tree'
-			flatten_dirs = true, -- Flatten dirs that only contain one single dir
-			folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
-		},
-		win_config = { -- See ':h diffview-config-win_config'
-			position = "bottom",
-			height = 10,
-		},
-	},
-	file_history_panel = {
-		log_options = { -- See ':h diffview-config-log_options'
-			single_file = {
-				diff_merges = "combined",
-			},
-			multi_file = {
-				diff_merges = "first-parent",
-			},
-		},
-		win_config = { -- See ':h diffview-config-win_config'
-			position = "bottom",
-			height = 16,
-		},
-	},
-	commit_log_panel = {
-		win_config = {}, -- See ':h diffview-config-win_config'
-	},
-	default_args = { -- Default args prepended to the arg-list for the listed commands
-		DiffviewOpen = {},
-		DiffviewFileHistory = {},
-	},
-	hooks = {}, -- See ':h diffview-config-hooks'
-	keymaps = {
-		disable_defaults = false, -- Disable the default keymaps
-		view = {
-			["<tab>"] = actions.select_next_entry, -- Open the diff for the next file
-		},
-		file_panel = {
-			["k"] = actions.next_entry, -- Bring the cursor to the next file entry
-			["<down>"] = actions.next_entry,
-			["i"] = actions.prev_entry, -- Bring the cursor to the previous file entry.
-			["<up>"] = actions.prev_entry,
-			["<cr>"] = actions.select_entry, -- Open the diff for the selected entry.
-			["o"] = actions.select_entry,
-			["<2-LeftMouse>"] = actions.select_entry,
-			["s"] = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
-			["S"] = actions.stage_all, -- Stage all entries.
-			["U"] = actions.unstage_all, -- Unstage all entries.
-			["X"] = actions.restore_entry, -- Restore entry to the state on the left side.
-			["R"] = actions.refresh_files, -- Update stats and entries in the file list.
-			["L"] = actions.open_commit_log, -- Open the commit log panel.
-			["<tab>"] = actions.select_next_entry,
-			["<s-tab>"] = actions.select_prev_entry,
-			["gf"] = actions.goto_file,
-			["<C-w><C-f>"] = actions.goto_file_split,
-			["<C-w>gf"] = actions.goto_file_tab,
-			["f"] = actions.toggle_flatten_dirs, -- Flatten empty subdirectories in tree listing style.
-		},
-		file_history_panel = {
-			["g!"] = actions.options, -- Open the option panel
-			["<C-A-d>"] = actions.open_in_diffview, -- Open the entry under the cursor in a diffview
-			["y"] = actions.copy_hash, -- Copy the commit hash of the entry under the cursor
-			["L"] = actions.open_commit_log,
-			["zR"] = actions.open_all_folds,
-			["zM"] = actions.close_all_folds,
-			["k"] = actions.next_entry,
-			["<down>"] = actions.next_entry,
-			["i"] = actions.prev_entry,
-			["<up>"] = actions.prev_entry,
-			["<cr>"] = actions.select_entry,
-			["o"] = actions.select_entry,
-			["<2-LeftMouse>"] = actions.select_entry,
-			["<tab>"] = actions.select_next_entry,
-			["<s-tab>"] = actions.select_prev_entry,
-			["gf"] = actions.goto_file,
-			["<C-w><C-f>"] = actions.goto_file_split,
-			["<C-w>gf"] = actions.goto_file_tab,
-			["<leader>e"] = actions.focus_files,
-			["<leader>b"] = actions.toggle_files,
-		},
-		option_panel = {
-			["<tab>"] = actions.select_entry,
-			["q"] = actions.close,
-		},
-	},
-})
 
 ---        ---
 --- neogit ---
@@ -116,9 +15,6 @@ require("diffview").setup({
 local neogit = require("neogit")
 neogit.setup({
 	disable_commit_confirmation = true,
-	integrations = {
-		diffview = true,
-	},
 	commit_popup = {
 		kind = "vsplit",
 	},
@@ -191,6 +87,7 @@ require("indent_blankline").setup({
 ---           ---
 --- telescope ---
 ---           ---
+local telescope_actions = require("telescope.actions")
 require("telescope").setup({
 	defaults = {
 		layout_strategy = "vertical",
@@ -199,7 +96,8 @@ require("telescope").setup({
 		},
 		mappings = {
 			i = {
-				["<esc>"] = require("telescope.actions").close,
+				["<esc>"] = telescope_actions.close,
+				["<c-u>"] = false,
 			},
 		},
 	},

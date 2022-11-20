@@ -40,7 +40,6 @@ require("packer").startup(function(use)
 	-- Git
 	use(mirror("gitsigns.nvim"))
 	use(mirror("neogit"))
-	use(mirror("diffview.nvim"))
 	use(mirror("vim-fugitive"))
 
 	-- Misc
@@ -51,7 +50,9 @@ require("packer").startup(function(use)
 	use(mirror("Comment.nvim"))
 	use(mirror("vim-surround"))
 	use(mirror("ultisnips"))
-	use(mirror("nvim-autopairs"))
+	-- use(mirror("nvim-autopairs"))
+	use("cohama/lexima.vim")
+	use(mirror("impatient.nvim"))
 
 	-- IDE-like
 	use(mirror("nvim-lspconfig"))
@@ -72,13 +73,11 @@ require("packer").startup(function(use)
 		{ mirror("nvim-treesitter"), run = ":TSUpdate" },
 		{ mirror("nvim-treesitter-textobjects") },
 		{ mirror("spellsitter.nvim") },
-		{ "nvim-treesitter/playground" },
+		{ mirror("playground") },
 	})
 	use({ mirror("vim-markdown"), ft = { "markdown" } })
-	use({ mirror("pgsql.vim"), ft = { "psql" } })
 	use({ mirror("timing-diagram-generator"), branch = "vim-plugin" })
 	use({ mirror("rust.vim"), ft = { "rust" } })
-	use({ mirror("vim-sxhkdrc") })
 	use({ mirror("vim-hexokinase"), run = "make hexokinase" })
 	use({ mirror("nginx.vim"), ft = { "nginx" } })
 
@@ -86,3 +85,5 @@ require("packer").startup(function(use)
 		require("packer").sync()
 	end
 end)
+
+pcall(require("impatient"))
