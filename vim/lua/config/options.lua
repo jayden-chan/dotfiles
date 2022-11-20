@@ -1,11 +1,10 @@
-local cmd = vim.cmd
 local g = vim.g
 local opt = vim.opt
 
 opt.encoding = "UTF-8"
 opt.spellfile = os.getenv("HOME") .. "/.config/dotfiles/vim/en.utf-8.add"
 
-cmd([[set fillchars+=diff:\ ]])
+vim.cmd([[set fillchars+=diff:\ ]])
 
 -- 256 colors
 opt.termguicolors = true
@@ -43,7 +42,7 @@ opt.wrap = true
 opt.showmode = false
 
 -- Hide ugly completion messages
-cmd("set shortmess+=c")
+vim.cmd("set shortmess+=c")
 
 -- Leave signcolumn on so it's not toggling all the time
 opt.signcolumn = "yes"
@@ -72,12 +71,12 @@ opt.relativenumber = true
 opt.mouse = "a"
 
 -- Change cursor to bar and underscore for different modes
-cmd([[let &t_SI = "\<Esc>[6 q"]])
-cmd([[let &t_SR = "\<Esc>[4 q"]])
-cmd([[let &t_EI = "\<Esc>[2 q"]])
+vim.cmd([[let &t_SI = "\<Esc>[6 q"]])
+vim.cmd([[let &t_SR = "\<Esc>[4 q"]])
+vim.cmd([[let &t_EI = "\<Esc>[2 q"]])
 
 -- Leader
-cmd([[let mapleader = "\<Space>"]])
+vim.cmd([[let mapleader = "\<Space>"]])
 
 g.UltiSnipsExpandTrigger = "<tab>"
 g.UltiSnipsJumpForwardTrigger = "<tab>"

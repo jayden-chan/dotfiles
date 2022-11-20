@@ -1,5 +1,3 @@
-local cmd = vim.cmd
-
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
 	if opts then
@@ -38,14 +36,6 @@ map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers()<cr>')
 map("n", "<leader>hh", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 map("n", "<leader>n", '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
 map("n", "<leader>z", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
-
-cmd([[
-com! CheckHighlightUnderCursor echo {l,c,n ->
-        \   'hi<'    . synIDattr(synID(l, c, 1), n)             . '> '
-        \  .'trans<' . synIDattr(synID(l, c, 0), n)             . '> '
-        \  .'lo<'    . synIDattr(synIDtrans(synID(l, c, 1)), n) . '> '
-        \ }(line("."), col("."), "name")
-]])
 
 -- Neogit
 map("n", "<leader>N", '<cmd>lua require("neogit").open({ kind = "replace" })<cr>')
@@ -98,17 +88,17 @@ map("", "Q", "<nop>")
 map("n", "go", "o<Esc>")
 
 -- Copy Paste etc from system clipboard
-cmd([[map <silent> <leader>p "+p]])
-cmd([[map <silent> <leader>y "+y]])
+vim.cmd([[map <silent> <leader>p "+p]])
+vim.cmd([[map <silent> <leader>y "+y]])
 
 -- Delete line without filling yank buffer
-cmd([[nnoremap <silent> <leader>dd "_dd]])
-cmd([[vnoremap <silent> <leader>dd "_dd]])
+vim.cmd([[nnoremap <silent> <leader>dd "_dd]])
+vim.cmd([[vnoremap <silent> <leader>dd "_dd]])
 
 -- Prevent x and c from filling buffer
-cmd([[noremap x "_x]])
-cmd([[noremap c "_c]])
-cmd([[noremap cc "_cc]])
+vim.cmd([[noremap x "_x]])
+vim.cmd([[noremap c "_c]])
+vim.cmd([[noremap cc "_cc]])
 
 -- Tab switching
 map("n", "<tab>j", ":tabprevious<CR>", { silent = false })

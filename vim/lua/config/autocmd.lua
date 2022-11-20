@@ -1,7 +1,6 @@
-local cmd = vim.cmd
 local user_cmd = vim.api.nvim_create_user_command
 
-cmd([[autocmd FileType gitcommit,NeogitCommitMessage,text,markdown,tex let b:EditorConfig_disable = 1]])
+vim.cmd([[autocmd FileType gitcommit,NeogitCommitMessage,text,markdown,tex let b:EditorConfig_disable = 1]])
 
 local spell_langs = {
 	"gitcommit",
@@ -13,12 +12,12 @@ local spell_langs = {
 }
 
 for _, v in ipairs(spell_langs) do
-	cmd("autocmd FileType " .. v .. " setlocal spell spelllang=en_us")
+	vim.cmd("autocmd FileType " .. v .. " setlocal spell spelllang=en_us")
 end
 
 -- Set a max line length for Markdown files
-cmd([[autocmd FileType markdown setlocal textwidth=89]])
-cmd([[autocmd FileType markdown setlocal colorcolumn=90]])
+vim.cmd([[autocmd FileType markdown setlocal textwidth=89]])
+vim.cmd([[autocmd FileType markdown setlocal colorcolumn=90]])
 
 -- Set indentation to 2 spaces for certain files
 local two_spc_files = {
@@ -41,28 +40,28 @@ local two_spc_files = {
 }
 
 for _, v in ipairs(two_spc_files) do
-	cmd("autocmd FileType " .. v .. " setlocal shiftwidth=2")
-	cmd("autocmd FileType " .. v .. " setlocal softtabstop=2")
+	vim.cmd("autocmd FileType " .. v .. " setlocal shiftwidth=2")
+	vim.cmd("autocmd FileType " .. v .. " setlocal softtabstop=2")
 end
 
 -- Enter insert mode automatically when entering terminal
-cmd([[autocmd BufWinEnter,WinEnter term://* startinsert]])
+vim.cmd([[autocmd BufWinEnter,WinEnter term://* startinsert]])
 
 -- Jump to last known cursor position when opening files
-cmd(
+vim.cmd(
 	[[autocmd BufReadPost * if &filetype != "gitcommit" && &filetype != "NeogitCommitMessage" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 )
 
-cmd([[autocmd BufRead,BufNewFile Jenkinsfile setf groovy]])
-cmd([[autocmd BufRead,BufNewFile *.graphql setf graphql]])
+vim.cmd([[autocmd BufRead,BufNewFile Jenkinsfile setf groovy]])
+vim.cmd([[autocmd BufRead,BufNewFile *.graphql setf graphql]])
 
 -- Set indentation to hard tabs for some files
-cmd([[autocmd FileType snippets,go,lua setlocal tabstop=4]])
-cmd([[autocmd FileType snippets,go,lua setlocal shiftwidth=4]])
-cmd([[autocmd FileType asm             setlocal shiftwidth=8]])
-cmd([[autocmd FileType asm             setlocal expandtab]])
-cmd([[autocmd FileType go,lua          setlocal noexpandtab]])
-cmd([[autocmd FileType makefile        setlocal noexpandtab]])
+vim.cmd([[autocmd FileType snippets,go,lua setlocal tabstop=4]])
+vim.cmd([[autocmd FileType snippets,go,lua setlocal shiftwidth=4]])
+vim.cmd([[autocmd FileType asm             setlocal shiftwidth=8]])
+vim.cmd([[autocmd FileType asm             setlocal expandtab]])
+vim.cmd([[autocmd FileType go,lua          setlocal noexpandtab]])
+vim.cmd([[autocmd FileType makefile        setlocal noexpandtab]])
 
 user_cmd("TSOrganizeImports", function()
 	vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })

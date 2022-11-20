@@ -1,8 +1,6 @@
-local cmd = vim.cmd
-
-cmd("filetype on")
+vim.cmd("filetype on")
 require("config.plugins")
-cmd("syntax enable")
+vim.cmd("syntax enable")
 
 require("config.options")
 require("config.bindings")
