@@ -46,6 +46,9 @@ for _, v in ipairs(treesitter_langs) do
 end
 
 require("nvim-treesitter.configs").setup({
+	context_commentstring = {
+		enable = true,
+	},
 	textobjects = {
 		swap = {
 			enable = true,
