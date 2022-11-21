@@ -24,8 +24,8 @@ require("packer").startup(function(use)
 	-- Theme
 	use(mirror("indent-blankline.nvim"))
 	use(mirror("lualine.nvim"))
-	-- use(mirror("base46.nvim"))
-	use("~/Dev/Personal/base46.nvim")
+	use(mirror("base46.nvim"))
+	-- use("~/Dev/Personal/base46.nvim")
 
 	-- fs nav
 	use(mirror("plenary.nvim"))
@@ -87,4 +87,4 @@ require("packer").startup(function(use)
 	end
 end)
 
-pcall(require("impatient"))
+pcall(require, "impatient")
