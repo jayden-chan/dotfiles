@@ -1,4 +1,4 @@
-function op         () { nautilus ${1:-.}        </dev/null &>/dev/null & disown }
+function op         () { thunar   ${1:-.}        </dev/null &>/dev/null & disown }
 function manp       () { zathura =(man -Tpdf $@) </dev/null &>/dev/null & disown }
 function manv       () { man $@ | vim "+runtime! syntax/man.vim" "+set nonumber" "+set norelativenumber" }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
