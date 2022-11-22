@@ -78,6 +78,20 @@ require("indent_blankline").setup({
 	show_current_context_start = false,
 })
 
+---        ---
+--- lexima ---
+---        ---
+
+-- custom space rules, based on defaults
+vim.cmd(" call lexima#add_rule({'char': '<Space>', 'at': '(\\%#)', 'input_after': '<Space>'})  ")
+vim.cmd(" call lexima#add_rule({'char': ')', 'at': '\\%# )', 'leave': 2})                      ")
+vim.cmd(" call lexima#add_rule({'char': '<BS>', 'at': '( \\%# )', 'delete': 1})                ")
+vim.cmd(" call lexima#add_rule({'char': '<Space>', 'at': '{\\%#}', 'input_after': '<Space>'})  ")
+vim.cmd(" call lexima#add_rule({'char': '}', 'at': '\\%# }', 'leave': 2})                      ")
+vim.cmd(" call lexima#add_rule({'char': '<BS>', 'at': '{ \\%# }', 'delete': 1})                ")
+vim.cmd(" call lexima#add_rule({'char': '<Space>', 'at': '\\[\\[\\%#]]', 'input_after': '<Space>'}) ")
+vim.cmd(" call lexima#add_rule({'char': '<BS>', 'at': '\\[\\[ \\%# ]]', 'delete': 1})               ")
+
 ---           ---
 --- telescope ---
 ---           ---
