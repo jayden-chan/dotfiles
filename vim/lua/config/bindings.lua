@@ -81,7 +81,6 @@ map("n", "<c-p>", "<c-i>")
 map("n", "<leader><leader>", "<c-^>", { silent = false })
 
 -- Disable Ex mode
-map("", "q:", "<nop>")
 map("", "Q", "<nop>")
 
 -- New line no insert mode

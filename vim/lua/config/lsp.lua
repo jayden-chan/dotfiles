@@ -4,7 +4,7 @@
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 vim.api.nvim_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
@@ -32,6 +32,7 @@ local on_attach = function(client, bufnr)
 	buf_key("n", "<leader>o", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_key("n", "<leader>O", "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_key("n", "<leader>g", "<cmd>Lspsaga hover_doc<CR>", opts)
+	buf_key("n", "<leader>G", "<cmd>Lspsaga peek_definition<CR>", opts)
 	buf_key("n", "<leader>R", "<cmd>Lspsaga rename<CR>", opts)
 	buf_key("n", "<leader>e", "<cmd>Lspsaga code_action<CR>", opts)
 end
