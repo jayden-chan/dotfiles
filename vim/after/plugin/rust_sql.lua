@@ -53,7 +53,7 @@ local format_dat_sql = function(bufnr)
 		if name == "sql" then
 			-- { start row, start col, end row, end col }
 			local range = { node:range() }
-			text_to_format = text_to_format .. "\n---\n" .. vim.treesitter.get_node_text(node, bufnr)
+			text_to_format = vim.treesitter.get_node_text(node, bufnr) .. "\n---\n" .. text_to_format
 			table.insert(changes, 1, {
 				range = range,
 				formatted = {},
@@ -73,7 +73,7 @@ local format_dat_sql = function(bufnr)
 	for _, line in ipairs(formatted) do
 		if line == "---" then
 			i = i + 1
-			j = 0
+			j = 1
 			indentation = string.rep(" ", changes[i].range[2])
 		else
 			changes[i].formatted[j] = indentation .. line

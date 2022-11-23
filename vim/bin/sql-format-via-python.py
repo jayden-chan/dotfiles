@@ -2,6 +2,7 @@ import sys
 import sqlparse
 
 contents = sys.stdin.read()
+
 for identifier in range(10):
     contents = contents.replace(f"?{identifier}", f"__id_{identifier}")
 
@@ -26,7 +27,8 @@ for snippet in snippets:
                                  )
 
         for identifier in range(10):
-            result = result.replace(f"__id_{identifier}", f"?{identifier}")
+            result = result.replace(f"__id_{identifier}", f"?{identifier}").strip()
 
-        print(result.strip())
-        print("---")
+        results.append(result)
+
+print("\n---\n".join(results))
