@@ -43,6 +43,9 @@ map("n", "<leader>N", '<cmd>lua require("neogit").open({ kind = "replace" })<cr>
 -- Undo tree
 map("n", "<leader>U", "<cmd>UndotreeToggle<CR>")
 
+-- signcolumn sometimes randomly gets disabled
+map("n", "<leader>S", "<cmd>set signcolumn=yes<CR>")
+
 -- Remap cursor movement keys because I'm a scrub and don't use the default
 map("", "h", "i")
 map("", "j", "h")

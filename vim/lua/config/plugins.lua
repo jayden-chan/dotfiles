@@ -51,8 +51,7 @@ require("packer").startup(function(use)
 	use(mirror("nvim-ts-context-commentstring"))
 	use(mirror("vim-surround"))
 	use(mirror("ultisnips"))
-	-- use(mirror("nvim-autopairs"))
-	use("cohama/lexima.vim")
+	use(mirror("lexima.vim"))
 	use(mirror("impatient.nvim"))
 
 	-- IDE-like
@@ -68,6 +67,7 @@ require("packer").startup(function(use)
 	use(mirror("null-ls.nvim"))
 	use(mirror("fidget.nvim"))
 	use({ mirror("lspsaga.nvim"), branch = "main" })
+	use(mirror("trouble.nvim"))
 
 	-- Syntax
 	use({
@@ -78,7 +78,6 @@ require("packer").startup(function(use)
 	})
 	use({ mirror("vim-markdown"), ft = { "markdown" } })
 	use({ mirror("timing-diagram-generator"), branch = "vim-plugin" })
-	use({ mirror("rust.vim"), ft = { "rust" } })
 	use({ mirror("vim-hexokinase"), run = "make hexokinase" })
 	use({ mirror("nginx.vim"), ft = { "nginx" } })
 
