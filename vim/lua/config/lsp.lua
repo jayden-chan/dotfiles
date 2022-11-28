@@ -3,10 +3,10 @@
 ---     ---
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-vim.api.nvim_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+local bind_opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bind_opts)
+vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bind_opts)
+vim.api.nvim_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", bind_opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -29,12 +29,14 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
-	buf_key("n", "<leader>o", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_key("n", "<leader>O", "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_key("n", "<leader>g", "<cmd>Lspsaga hover_doc<CR>", opts)
-	buf_key("n", "<leader>G", "<cmd>Lspsaga peek_definition<CR>", opts)
-	buf_key("n", "<leader>R", "<cmd>Lspsaga rename<CR>", opts)
-	buf_key("n", "<leader>e", "<cmd>Lspsaga code_action<CR>", opts)
+	buf_key("n", "<leader>o", "<cmd>lua vim.lsp.buf.definition()<CR>", bind_opts)
+	buf_key("n", "<leader>O", "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", bind_opts)
+	buf_key("n", "<leader>P", "<cmd>Lspsaga lsp_finder<CR>", bind_opts)
+	buf_key("n", "<leader>g", "<cmd>Lspsaga hover_doc<CR>", bind_opts)
+	buf_key("n", "<leader>G", "<cmd>Lspsaga peek_definition<CR>", bind_opts)
+	buf_key("n", "<leader>R", "<cmd>Lspsaga rename<CR>", bind_opts)
+	buf_key("n", "<leader>e", "<cmd>Lspsaga code_action<CR>", bind_opts)
+	buf_key("n", "<leader>T", "<cmd>Trouble<CR>", bind_opts)
 end
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -260,6 +262,13 @@ null_ls.setup({
 local saga = require("lspsaga")
 saga.init_lsp_saga({
 	code_action_icon = "",
+	finder_action_keys = {
+		open = { "o", "<CR>" },
+		vsplit = "s",
+		split = "H",
+		tabe = "t",
+		quit = { "q", "<ESC>" },
+	},
 	code_action_lightbulb = {
 		enable = true,
 		enable_in_insert = false,

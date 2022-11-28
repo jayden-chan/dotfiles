@@ -24,7 +24,7 @@ map("t", "<esc>", [[<C-\><C-n>]])
 
 -- Formatting (remove whitespace and reindent)
 map("n", "<leader>ww", [[<cmd>%s/\s\+$//e<cr>]], { silent = false })
-map("n", "<leader>ta", "<cmd>Tabularize /<bar><cr>")
+map("v", "<leader>ta", "<cmd>Tabularize /<bar><cr>")
 
 -- Close quickfix/preview/location
 map("", "<c-q>", "<cmd>ccl<bar>pcl<bar>lcl<cr>")
