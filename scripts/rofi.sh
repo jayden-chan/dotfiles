@@ -14,7 +14,7 @@ elif [ "$1" = "--power" ]; then
     result=$(< "$HOME/.config/dotfiles/rofi/powermenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme")
 
     case $result in
-        logout)   bspc quit ;;
+        logout)   echo 'awesome.quit()' | awesome-client ;;
         lock)     dm-tool lock ;;
         reboot)   shutdown --reboot now ;;
         shutdown) shutdown --poweroff now ;;

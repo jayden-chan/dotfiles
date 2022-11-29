@@ -8,7 +8,6 @@ if [ "$1" = "--env" ]; then
 fi
 
 if [ "$1" = "--full" ]; then
-    rm -rf ~/.config/bspwm   2>/dev/null
     rm -rf ~/.config/latexmk 2>/dev/null
     rm -rf ~/.config/npm     2>/dev/null
     rm -rf ~/.config/nvim    2>/dev/null
@@ -18,7 +17,6 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/mpv     2>/dev/null
     rm -rf ~/.config/wget    2>/dev/null
 
-    mkdir -p ~/.config/bspwm
     mkdir -p ~/.config/git
     mkdir -p ~/.config/latexmk
     mkdir -p ~/.config/npm
@@ -70,7 +68,6 @@ ln -fs ~/.config/dotfiles/vim/bin                ~/.config/nvim/bin
 ln -fs ~/.config/dotfiles/vim/init.lua           ~/.config/nvim/
 ln -fs ~/.config/dotfiles/awesome                ~/.config/awesome
 
-ln -fs ~/.config/dotfiles/bspwm/bspwmrc          ~/.config/bspwm/
 ln -fs ~/.config/dotfiles/git/gitconfig          ~/.config/git/config
 ln -fs ~/.config/dotfiles/misc/latexmkrc         ~/.config/latexmk/
 ln -fs ~/.config/dotfiles/rofi/base.rasi         ~/.config/rofi/
