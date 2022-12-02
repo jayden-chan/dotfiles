@@ -597,11 +597,11 @@ local clientkeys = gears.table.join(
 	end, { description = "move to master", group = "client" }),
 
 	awful.key({ modkey }, "o", function(c)
-		c:move_to_screen(c.screen.index - 1)
+		c:move_to_screen(c.screen.index + 1)
 	end, { description = "move to previous screen", group = "client" }),
 
 	awful.key({ modkey }, "p", function(c)
-		c:move_to_screen(c.screen.index + 1)
+		c:move_to_screen(c.screen.index - 1)
 	end, { description = "move to next screen", group = "client" }),
 
 	awful.key({ modkey }, "t", function(c)
@@ -721,6 +721,11 @@ awful.rules.rules = {
 			name = {
 				"Event Tester", -- xev.
 				"Steam Guard - Computer Authorization Required",
+				"xzoom x1",
+				"xzoom x2",
+				"xzoom x3",
+				"xzoom x4",
+				"xzoom x5",
 			},
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
@@ -734,9 +739,9 @@ awful.rules.rules = {
 	-- Add titlebars to normal clients and dialogs
 	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
 	-- Discord on screen 1
-	{ rule = { class = "discord" }, properties = { screen = 3, tag = "1" } },
+	{ rule = { class = "discord" }, properties = { screen = 3, tag = "3" } },
 	-- Carla on screen 3 tag 2
-	{ rule = { class = "Carla2" }, properties = { screen = 2, tag = "2" } },
+	{ rule = { class = "Carla2" }, properties = { screen = 3, tag = "2" } },
 }
 -- }}}
 
