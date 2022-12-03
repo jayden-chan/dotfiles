@@ -217,7 +217,10 @@
       "ninja",
       "sqlx-cli",
       "python-sqlparse",
-      "picom-arian8j2-git"
+      "picom-arian8j2-git",
+      "thunar-volman",
+      "lxsession-gtk3",
+      "polkit"
     ]
   },
   "ignored": [

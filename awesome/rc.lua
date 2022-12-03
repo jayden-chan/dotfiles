@@ -74,6 +74,8 @@ local super = "Mod4"
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
+awful.spawn.with_shell("pgrep -fx 'thunar --daemon' > /dev/null || thunar --daemon")
+awful.spawn.with_shell("pgrep -fx lxpolkit > /dev/null || lxpolkit")
 awful.spawn.with_shell("pgrep -x redshift > /dev/null || redshift")
 awful.spawn.with_shell("pgrep -x picom > /dev/null || picom --config " .. dots .. "/misc/picom.conf")
 
