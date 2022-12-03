@@ -59,7 +59,8 @@
       "uthash",
       "dbeaver",
       "kdenlive",
-      "oxygen"
+      "oxygen",
+      "gpu-screen-recorder-git"
     ],
     "swift": [
       "light",

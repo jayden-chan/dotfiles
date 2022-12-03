@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run
+#!/usr/bin/env -S deno run --allow-env
 
 const SYSTEM_EQ = "System Equalizer";
 const DX5_OUT = "Topping DX5 Output";
@@ -29,6 +29,8 @@ const CLEAN_AMP_L = { node: "Clean Amp", port: "Audio Output 1" };
 const CLEAN_AMP_R = { node: "Clean Amp", port: "Audio Output 2" };
 const QC35_L = { node: QC35_OUT, port: "playback_FL" };
 const QC35_R = { node: QC35_OUT, port: "playback_FR" };
+
+const home = Deno.env.get("HOME") ?? "/home/jayden";
 
 const MIXER_R = (num: number) => ({
   node: "Mixer",
@@ -261,7 +263,7 @@ const config = {
     ["Virtual Raw MIDI 4-1", "APC Key 25"],
     ["Virtual Raw MIDI 5-1", "APC Key 25"],
   ],
-  lv2Path: "/usr/lib/lv2:/home/jayden/.config/dotfiles/afx/lv2",
+  lv2Path: `/usr/lib/lv2:${home}/.config/dotfiles/afx/lv2`,
   pipewire: {
     plugins: [
       {
@@ -437,10 +439,21 @@ const config = {
         actions: [
           {
             type: "command",
-            command:
-              "picom --config /home/jayden/.config/dotfiles/misc/picom.conf",
+            command: `picom --config ${home}/.config/dotfiles/misc/picom.conf`,
+          },
+          {
+            type: "command",
+            command: "killall -SIGINT gpu-screen-recorder",
+            onFinish: [
+              {
+                type: "command",
+                command:
+                  "notify-send 'gpu-screen-recorder' 'Recording stopped'",
+              },
+            ],
           },
           { type: "led::set", button: "Button 9", color: "GREEN" },
+          { type: "led::set", button: "Button 10", color: "AMBER" },
         ],
       },
       onLongPress: {
@@ -448,12 +461,53 @@ const config = {
           {
             type: "command",
             command: "killall picom",
+            onFinish: [
+              { type: "led::set", button: "Button 9", color: "AMBER" },
+            ],
           },
-          { type: "led::set", button: "Button 9", color: "AMBER" },
+          {
+            type: "command",
+            command: "sleep 1",
+            onFinish: [
+              {
+                type: "command",
+                command: `notify-send "gpu-screen-recorder" "GPU screen recorder active"`,
+              },
+              {
+                type: "command",
+                command: `gpu-screen-recorder -w DP-2 -c mp4 -f 60 -q very_high -r 150 -a carla-sink.monitor -a carla-source -k h265 -o ${home}/Videos/replays`,
+              },
+              { type: "led::set", button: "Button 10", color: "RED" },
+            ],
+          },
         ],
       },
     },
     "Button 10": {
+      type: "button",
+      defaultLEDState: "AMBER",
+      onPress: {
+        actions: [
+          {
+            type: "command",
+            command: "killall -SIGUSR1 gpu-screen-recorder",
+            onFinish: [
+              {
+                type: "command",
+                command: `notify-send "gpu-screen-recorder" "Clip saved"`,
+              },
+            ],
+          },
+          { type: "led::set", button: "Button 10", color: "GREEN_FLASHING" },
+          {
+            type: "command",
+            command: "sleep 3",
+            onFinish: [{ type: "led::set", button: "Button 10", color: "RED" }],
+          },
+        ],
+      },
+    },
+    "Button 11": {
       type: "button",
       defaultLEDState: "AMBER",
       onPress: {
@@ -465,7 +519,7 @@ const config = {
         ],
       },
     },
-    "Button 11": {
+    "Button 12": {
       type: "button",
       defaultLEDState: "AMBER",
       onLongPress: {
@@ -713,6 +767,7 @@ const config = {
     "Button 26": SFX("Button 26", "~/Documents/SFX/ritz.mp3", 80, true),
     "Button 27": SFX("Button 27", "~/Documents/SFX/chips.mp3", 55, true),
     "Button 28": SFX("Button 28", "~/Documents/SFX/Allahu_Akbar.mp3", 55, true),
+    "Button 17": SFX("Button 17", "~/Documents/SFX/csgo_ready.opus", 100, true),
     "Button 37": DIAL_MANAGER(1, "Button 37"),
     "Button 38": DIAL_MANAGER(2, "Button 38"),
     "Button 39": DIAL_MANAGER(3, "Button 39"),
