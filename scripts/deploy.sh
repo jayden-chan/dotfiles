@@ -84,6 +84,7 @@ ln -fs ~/.config/dotfiles/mpv/input.conf         ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
 ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
+ln -fs ~/.config/dotfiles/mpv/all_audio.lua      ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
 ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
 ln -fs ~/.config/dotfiles/misc/st.desktop        ~/.local/share/applications/
