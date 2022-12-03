@@ -12,8 +12,8 @@ local themes_path = "~/.config/dotfiles/awesome/theme/"
 
 local theme = {}
 
-theme.font = "Sans 13"
-theme.notification_font = "Sans 15"
+theme.font = "Sans 12"
+theme.notification_font = "Sans 14"
 
 local main_bg = "#1e2122"
 local font_fg = "#bbbbbb"

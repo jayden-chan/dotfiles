@@ -34,7 +34,6 @@
       "wine-gecko",
       "wine-mono",
       "dxvk-bin",
-      "proton-ge-custom-bin",
       "pipewire-jack",
       "nvidia-dkms",
       "guitarix",
@@ -221,7 +220,9 @@
       "picom-arian8j2-git",
       "thunar-volman",
       "lxsession-gtk3",
-      "polkit"
+      "polkit",
+      "tumbler",
+      "ffmpegthumbnailer"
     ]
   },
   "ignored": [
