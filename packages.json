@@ -222,7 +222,9 @@
       "lxsession-gtk3",
       "polkit",
       "tumbler",
-      "ffmpegthumbnailer"
+      "ffmpegthumbnailer",
+      "thunar-media-tags-plugin",
+      "thunar-archive-plugin"
     ]
   },
   "ignored": [
