@@ -59,7 +59,8 @@
       "dbeaver",
       "kdenlive",
       "oxygen",
-      "gpu-screen-recorder-git"
+      "gpu-screen-recorder-git",
+      "ferium-bin"
     ],
     "swift": [
       "light",
