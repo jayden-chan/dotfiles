@@ -674,9 +674,11 @@ local clientbuttons = gears.table.join(
 root.keys(globalkeys)
 
 awful.rules.rules = {
+	-- Add titlebars to normal clients and dialogs
+	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
 	-- All clients
 	{
-		rule = {},
+		rule = { type = "normal" },
 		properties = {
 			border_width = 0,
 			border_color = beautiful.border_normal,
@@ -686,9 +688,26 @@ awful.rules.rules = {
 			buttons = clientbuttons,
 			screen = awful.screen.preferred,
 			titlebars_enabled = false,
+			placement = awful.placement.no_overlap + awful.placement.no_offscreen + awful.placement.centered,
 		},
 	},
-
+	{
+		rule_any = {
+			{ type = "dock" },
+			{ type = "splash" },
+			{ type = "menu" },
+			{ type = "toolbar" },
+			{ type = "utility" },
+			{ type = "dropdown_menu" },
+			{ type = "popup_menu" },
+			{ type = "notification" },
+			{ type = "combo" },
+			{ type = "dnd" },
+		},
+		properties = {
+			titlebars_enabled = false,
+		},
+	},
 	-- Floating clients.
 	{
 		rule_any = {
@@ -737,9 +756,6 @@ awful.rules.rules = {
 		},
 		properties = { floating = true },
 	},
-
-	-- Add titlebars to normal clients and dialogs
-	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
 	-- Discord on screen 1
 	{ rule = { class = "discord" }, properties = { screen = 3, tag = "3" } },
 	-- Carla on screen 3 tag 2
@@ -760,7 +776,7 @@ client.connect_signal("manage", function(c)
 	end
 
 	if not c.maximized and not c.fullscreen then
-		if c.floating then
+		if c.floating and (c.type == "normal" or c.type == "dialog") then
 			awful.titlebar.show(c)
 		else
 			awful.titlebar.hide(c)
@@ -770,7 +786,7 @@ end)
 
 client.connect_signal("property::floating", function(c)
 	if not c.maximized and not c.fullscreen then
-		if c.floating then
+		if c.floating and (c.type == "normal" or c.type == "dialog") then
 			awful.titlebar.show(c)
 		else
 			awful.titlebar.hide(c)
