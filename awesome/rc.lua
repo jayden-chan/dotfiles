@@ -678,7 +678,7 @@ awful.rules.rules = {
 	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
 	-- All clients
 	{
-		rule = { type = "normal" },
+		rule = {},
 		properties = {
 			border_width = 0,
 			border_color = beautiful.border_normal,
@@ -776,7 +776,7 @@ client.connect_signal("manage", function(c)
 	end
 
 	if not c.maximized and not c.fullscreen then
-		if c.floating and (c.type == "normal" or c.type == "dialog") then
+		if c.floating and c.requests_no_titlebar ~= true and (c.type == "normal" or c.type == "dialog") then
 			awful.titlebar.show(c)
 		else
 			awful.titlebar.hide(c)
@@ -786,7 +786,7 @@ end)
 
 client.connect_signal("property::floating", function(c)
 	if not c.maximized and not c.fullscreen then
-		if c.floating and (c.type == "normal" or c.type == "dialog") then
+		if c.floating and c.requests_no_titlebar ~= true and (c.type == "normal" or c.type == "dialog") then
 			awful.titlebar.show(c)
 		else
 			awful.titlebar.hide(c)
