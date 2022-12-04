@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write
+#!/usr/bin/env -S deno run --allow-read --allow-write --no-lock
 
 import { genEqualizerAPO } from "./json_to_eqapo.ts";
 import { genLSP } from "./json_to_lsp.ts";

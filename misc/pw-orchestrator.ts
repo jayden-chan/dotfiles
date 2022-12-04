@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-env
+#!/usr/bin/env -S deno run --allow-env --no-lock
 
 const SYSTEM_EQ = "System Equalizer";
 const DX5_OUT = "Topping DX5 Output";

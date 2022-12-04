@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run=paccache,yay
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run=paccache,yay --no-lock
 
 const HOST = Deno.readTextFileSync("/etc/hostname").trim();
 const PACKAGES_PATH = "/home/jayden/.config/dotfiles/packages.json";
