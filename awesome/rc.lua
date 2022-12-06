@@ -742,6 +742,7 @@ awful.rules.rules = {
 			name = {
 				"Event Tester", -- xev.
 				"Steam Guard - Computer Authorization Required",
+				"Friends List",
 				"xzoom x1",
 				"xzoom x2",
 				"xzoom x3",
