@@ -13,7 +13,7 @@ if [ -z "$HA_TOKEN" ]; then
     indoor_temp=""
 else
     ha_temp="$(ha desk_temp)"
-    if [ -n "$ha_temp" ]; then
+    if [ -n "$ha_temp" ] && [ "$ha_temp" != "unavailable" ]; then
         indoor_temp=" (${ha_temp}C)"
     fi
 fi
