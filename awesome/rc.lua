@@ -71,9 +71,23 @@ local modkey = "Mod1"
 -- Super (windows key)
 local super = "Mod4"
 
+local gpu_screen_recorder_cmd = "gpu-screen-recorder"
+	.. " -w DP-2"
+	.. " -c mp4"
+	.. " -f 60"
+	.. " -q very_high"
+	.. " -r 150"
+	.. " -a carla-sink.monitor"
+	.. " -a carla-source"
+	.. " -k h265"
+	.. " -o "
+	.. home
+	.. "/Videos/replays"
+
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
+awful.spawn.with_shell("pgrep -x gpu-screen-recorder > /dev/null || " .. gpu_screen_recorder_cmd)
 awful.spawn.with_shell("pgrep -fx 'thunar --daemon' > /dev/null || thunar --daemon")
 awful.spawn.with_shell("pgrep -fx lxpolkit > /dev/null || lxpolkit")
 awful.spawn.with_shell("pgrep -x redshift > /dev/null || redshift")

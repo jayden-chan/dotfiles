@@ -441,19 +441,7 @@ const config = {
             type: "command",
             command: `picom --config ${home}/.config/dotfiles/misc/picom.conf`,
           },
-          {
-            type: "command",
-            command: "killall -SIGINT gpu-screen-recorder",
-            onFinish: [
-              {
-                type: "command",
-                command:
-                  "notify-send 'gpu-screen-recorder' 'Recording stopped'",
-              },
-            ],
-          },
           { type: "led::set", button: "Button 9", color: "GREEN" },
-          { type: "led::set", button: "Button 10", color: "AMBER" },
         ],
       },
       onLongPress: {
@@ -463,21 +451,6 @@ const config = {
             command: "killall picom",
             onFinish: [
               { type: "led::set", button: "Button 9", color: "AMBER" },
-            ],
-          },
-          {
-            type: "command",
-            command: "sleep 1",
-            onFinish: [
-              {
-                type: "command",
-                command: `notify-send "gpu-screen-recorder" "GPU screen recorder active"`,
-              },
-              {
-                type: "command",
-                command: `gpu-screen-recorder -w DP-2 -c mp4 -f 60 -q very_high -r 150 -a carla-sink.monitor -a carla-source -k h265 -o ${home}/Videos/replays`,
-              },
-              { type: "led::set", button: "Button 10", color: "RED" },
             ],
           },
         ],
