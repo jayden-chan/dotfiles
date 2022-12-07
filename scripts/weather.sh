@@ -28,14 +28,22 @@ if [ -f "$weather_file" ]; then
     time_diff=$(echo "$curr_time - $weather_time" | bc -l)
 
     if [ "$time_diff" -gt "600" ]; then
-        weather=$(curl --silent "$url" | jq -r '"\(.weather[0].description), \(.main.feels_like | round)C"')
-        echo "$weather	$curr_time" > "$weather_file"
+        weather_response=$(curl curl --silent "$url")
+        weather_code=$?
+        if [ "$weather_code" = "0" ]; then
+            weather=$(echo "$weather_response" | jq -r '"\(.weather[0].description), \(.main.feels_like | round)C"')
+            echo "$weather	$curr_time" > "$weather_file"
+        fi
     else
         weather="$cached_weather"
     fi
 else
-    weather=$(curl --silent "$url" | jq -r '"\(.weather[0].description), \(.main.feels_like | round)C"')
-    echo "$weather	$curr_time" > "$weather_file"
+    weather_response=$(curl curl --silent "$url")
+    weather_code=$?
+    if [ "$weather_code" = "0" ]; then
+        weather=$(echo "$weather_response" | jq -r '"\(.weather[0].description), \(.main.feels_like | round)C"')
+        echo "$weather	$curr_time" > "$weather_file"
+    fi
 fi
 
 echo "$weather$indoor_temp"
