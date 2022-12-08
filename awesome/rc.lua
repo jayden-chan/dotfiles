@@ -83,11 +83,12 @@ local gpu_screen_recorder_cmd = "gpu-screen-recorder"
 	.. " -o "
 	.. home
 	.. "/Videos/replays"
+	.. " > /dev/null"
 
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
-awful.spawn.with_shell("pgrep -x gpu-screen-recorder > /dev/null || " .. gpu_screen_recorder_cmd)
+awful.spawn.with_shell("pgrep -x gpu-screen-reco > /dev/null || " .. gpu_screen_recorder_cmd)
 awful.spawn.with_shell("pgrep -fx 'thunar --daemon' > /dev/null || thunar --daemon")
 awful.spawn.with_shell("pgrep -fx lxpolkit > /dev/null || lxpolkit")
 awful.spawn.with_shell("pgrep -x redshift > /dev/null || redshift")

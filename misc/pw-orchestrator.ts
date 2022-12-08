@@ -373,6 +373,45 @@ const config = {
       defaultLEDState: "ON",
       onPress: { actions: [{ type: "command", command: "xdotool key Down" }] },
     },
+    "Rec Arm": {
+      type: "button",
+      defaultLEDState: "ON",
+      onPress: {
+        actions: [
+          {
+            type: "cycle",
+            actions: [
+              [
+                {
+                  type: LINK,
+                  src: { node: "Scarlett Meter", port: "OutR" },
+                  dest: { node: "Scarlett Noise Repellent", port: "Input" },
+                },
+                {
+                  type: LINK,
+                  src: { node: "Scarlett Noise Repellent", port: "Output" },
+                  dest: { node: "LSP Gate Mono", port: "Input" },
+                },
+                { type: "led::set", button: "Rec Arm", color: "ON" },
+              ],
+              [
+                {
+                  type: UNLINK,
+                  src: { node: "Scarlett Meter", port: "OutR" },
+                  dest: { node: "Scarlett Noise Repellent", port: "Input" },
+                },
+                {
+                  type: UNLINK,
+                  src: { node: "Scarlett Noise Repellent", port: "Output" },
+                  dest: { node: "LSP Gate Mono", port: "Input" },
+                },
+                { type: "led::set", button: "Rec Arm", color: "OFF" },
+              ],
+            ],
+          },
+        ],
+      },
+    },
     Select: {
       type: "button",
       defaultLEDState: "ON",
@@ -477,40 +516,6 @@ const config = {
             command: "sleep 3",
             onFinish: [{ type: "led::set", button: "Button 10", color: "RED" }],
           },
-        ],
-      },
-    },
-    "Button 11": {
-      type: "button",
-      defaultLEDState: "AMBER",
-      onPress: {
-        actions: [
-          { type: LINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
-          { type: LINK, src: CLEAN_AMP_L, dest: MIXER_L(6) },
-          { type: LINK, src: CLEAN_AMP_R, dest: MIXER_R(6) },
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
-        ],
-      },
-    },
-    "Button 12": {
-      type: "button",
-      defaultLEDState: "AMBER",
-      onLongPress: {
-        actions: [
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
-          { type: UNLINK, src: METAL_AMP_L, dest: MIXER_L(6) },
-          { type: UNLINK, src: METAL_AMP_R, dest: MIXER_R(6) },
-          { type: UNLINK, src: CLEAN_AMP_L, dest: MIXER_L(6) },
-          { type: UNLINK, src: CLEAN_AMP_R, dest: MIXER_R(6) },
-        ],
-      },
-      onPress: {
-        actions: [
-          { type: LINK, src: SCARLETT_GUITAR, dest: METAL_AMP },
-          { type: LINK, src: METAL_AMP_L, dest: MIXER_L(6) },
-          { type: LINK, src: METAL_AMP_R, dest: MIXER_R(6) },
-          { type: UNLINK, src: SCARLETT_GUITAR, dest: CLEAN_AMP },
         ],
       },
     },
