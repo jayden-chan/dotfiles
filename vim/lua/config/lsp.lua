@@ -31,6 +31,7 @@ local on_attach = function(client, bufnr)
 
 	buf_key("n", "<leader>o", "<cmd>lua vim.lsp.buf.definition()<CR>", bind_opts)
 	buf_key("n", "<leader>O", "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", bind_opts)
+	buf_key("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", bind_opts)
 	buf_key("n", "<leader>P", "<cmd>Lspsaga lsp_finder<CR>", bind_opts)
 	buf_key("n", "<leader>g", "<cmd>Lspsaga hover_doc<CR>", bind_opts)
 	buf_key("n", "<leader>G", "<cmd>Lspsaga peek_definition<CR>", bind_opts)

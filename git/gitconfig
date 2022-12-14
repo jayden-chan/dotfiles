@@ -22,10 +22,11 @@
 [pull]
 	rebase = true
 [diff]
+    external = difft
     colorMoved = default
 
 [pager]
-    diff = delta
+    # diff = delta
     log = delta
     reflog = delta
     show = delta
