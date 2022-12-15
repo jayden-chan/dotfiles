@@ -45,10 +45,8 @@
       "linux-zen",
       "linux-zen-headers",
       "flatpak",
-      "lib32-nvidia-utils",
       "redshift",
       "awesome",
-      "bottles",
       "noise-repellent",
       "ardour",
       "xzoom",
@@ -225,7 +223,11 @@
       "tumbler",
       "ffmpegthumbnailer",
       "thunar-media-tags-plugin",
-      "thunar-archive-plugin"
+      "thunar-archive-plugin",
+      "linux-lts",
+      "linux-lts-headers",
+      "hurl-bin",
+      "difftastic"
     ]
   },
   "ignored": [
