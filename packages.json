@@ -58,7 +58,15 @@
       "kdenlive",
       "oxygen",
       "gpu-screen-recorder-git",
-      "ferium-bin"
+      "ferium-bin",
+      "gamemode",
+      "lib32-gamemode",
+      "lib32-nvidia-utils",
+      "sunshine",
+      "steam",
+      "mangohud",
+      "lib32-mangohud",
+      "proton-ge-custom-bin"
     ],
     "swift": [
       "light",
@@ -224,10 +232,9 @@
       "ffmpegthumbnailer",
       "thunar-media-tags-plugin",
       "thunar-archive-plugin",
-      "linux-lts",
-      "linux-lts-headers",
       "hurl-bin",
-      "difftastic"
+      "difftastic",
+      "nmap"
     ]
   },
   "ignored": [
