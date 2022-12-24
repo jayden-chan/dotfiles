@@ -11,19 +11,27 @@
         "bands": [
           {
             "type": "highpass",
-            "mode": "BWC_BT",
-            "slope": 1,
-            "freq": 50.326,
-            "Q": 0,
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 50.005,
+            "Q": 0.6,
+            "gain": 0
+          },
+          {
+            "type": "highpass",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 67.807,
+            "Q": 0.6,
             "gain": 0
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 131.91,
+            "freq": 134.035,
             "Q": 0.44,
-            "gain": -1.13
+            "gain": -1.27
           },
           {
             "type": "peaking",
@@ -31,7 +39,7 @@
             "slope": 0,
             "freq": 1035.169,
             "Q": 4.1,
-            "gain": -2.61
+            "gain": -2.13
           },
           {
             "type": "peaking",
@@ -39,7 +47,7 @@
             "slope": 0,
             "freq": 2905.615,
             "Q": 4.4,
-            "gain": -6
+            "gain": -5.38
           }
         ]
       }
