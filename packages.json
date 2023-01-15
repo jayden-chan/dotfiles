@@ -66,7 +66,10 @@
       "steam",
       "mangohud",
       "lib32-mangohud",
-      "proton-ge-custom-bin"
+      "proton-ge-custom-bin",
+      "gparted",
+      "dolphin-emu",
+      "prismlauncher-qt5-bin"
     ],
     "swift": [
       "light",
@@ -188,9 +191,9 @@
       "prettierd",
       "gopls",
       "gnome-keyring",
-      "jre-openjdk-headless",
-      "jre-openjdk",
-      "jdk-openjdk",
+      "jre11-openjdk-headless",
+      "jre11-openjdk",
+      "jdk11-openjdk",
       "bottom",
       "shellcheck",
       "wireplumber",
