@@ -72,15 +72,15 @@ local modkey = "Mod1"
 local super = "Mod4"
 
 local gpu_screen_recorder_cmd = "gpu-screen-recorder"
-	.. " -w DP-2"
-	.. " -c mp4"
-	.. " -f 60"
-	.. " -q very_high"
-	.. " -r 150"
-	.. " -a carla-sink.monitor"
-	.. " -a carla-source"
-	.. " -k h265"
-	.. " -o "
+	.. " -w DP-2" -- window/screen to record
+	.. " -c mp4" -- container format
+	.. " -f 60" -- framerate
+	.. " -q very_high" -- quality
+	.. " -r 150" -- number of seconds in record buffer
+	.. " -a carla-sink.monitor" -- audio device
+	.. " -a carla-source" -- audio device
+	.. " -k h265" -- codec
+	.. " -o " -- output path
 	.. home
 	.. "/Videos/replays"
 	.. " > /dev/null"
@@ -167,9 +167,37 @@ local myawesomemenu = {
 	},
 }
 
+local mypowermenu = {
+	{
+		"logout",
+		function()
+			script("rofi.sh", { "--power_fast", "logout" }, false)
+		end,
+	},
+	{
+		"lock",
+		function()
+			script("rofi.sh", { "--power_fast", "lock" }, false)
+		end,
+	},
+	{
+		"reboot",
+		function()
+			script("rofi.sh", { "--power_fast", "reboot" }, false)
+		end,
+	},
+	{
+		"shutdown",
+		function()
+			script("rofi.sh", { "--power_fast", "shutdown" }, false)
+		end,
+	},
+}
+
 local mymainmenu = awful.menu({
 	items = {
 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
+		{ "power menu", mypowermenu },
 		{ "open terminal", terminal },
 		{
 			"rofi",

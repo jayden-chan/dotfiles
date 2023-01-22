@@ -497,7 +497,7 @@ const config = {
     },
     "Button 10": {
       type: "button",
-      defaultLEDState: "AMBER",
+      defaultLEDState: "RED",
       onPress: {
         actions: [
           {

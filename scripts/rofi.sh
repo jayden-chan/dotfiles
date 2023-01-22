@@ -8,6 +8,15 @@ else
     rofi_theme=""
 fi
 
+if [ "$1" = "--power_fast" ]; then
+    case $2 in
+        logout)   echo 'awesome.quit()' | awesome-client ;;
+        lock)     dm-tool lock ;;
+        reboot)   shutdown --reboot now ;;
+        shutdown) shutdown --poweroff now ;;
+    esac
+fi
+
 if [ "$1" = "--normal" ]; then
     rofi -modi drun -show drun -drun-show-actions -theme drun -theme-str "$rofi_theme"
 elif [ "$1" = "--power" ]; then
@@ -19,6 +28,7 @@ elif [ "$1" = "--power" ]; then
         reboot)   shutdown --reboot now ;;
         shutdown) shutdown --poweroff now ;;
     esac
+
 elif [ "$1" = "--save-screenshot" ]; then
     result=$(rofi -dmenu -i -theme screenshot -p "file name:" -theme-str "$rofi_theme")
 
