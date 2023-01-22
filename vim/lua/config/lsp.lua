@@ -261,16 +261,18 @@ null_ls.setup({
 })
 
 local saga = require("lspsaga")
-saga.init_lsp_saga({
-	code_action_icon = "",
-	finder_action_keys = {
-		open = { "o", "<CR>" },
-		vsplit = "s",
+saga.setup({
+	ui = {
+		code_action = ""
+	},
+	finder = {
+		edit = { "o", "<CR>" },
+		quit = { "q", "<ESC>" },
 		split = "H",
 		tabe = "t",
-		quit = { "q", "<ESC>" },
+		vsplit = "s",
 	},
-	code_action_lightbulb = {
+	lightbulb = {
 		enable = true,
 		enable_in_insert = false,
 		cache_code_action = false,
