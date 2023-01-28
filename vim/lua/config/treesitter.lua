@@ -16,6 +16,7 @@ local treesitter_langs = {
 	"latex",
 	"lua",
 	"make",
+	"markdown",
 	"python",
 	"query",
 	"rasi",
