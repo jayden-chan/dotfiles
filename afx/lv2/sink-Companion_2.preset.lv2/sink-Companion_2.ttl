@@ -201,7 +201,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "g_2" ;
-		pset:value 0.578141
+		pset:value 0.662255
 	] , [
 		lv2:symbol "g_3" ;
 		pset:value 0.917287
@@ -213,7 +213,7 @@
 		pset:value 0.846273
 	] , [
 		lv2:symbol "g_6" ;
-		pset:value 0.586858
+		pset:value 0.620197
 	] , [
 		lv2:symbol "g_7" ;
 		pset:value 1.000000
