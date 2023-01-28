@@ -7,6 +7,7 @@ function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|rem
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function ffclip     () { ffmpeg -i "$1" -ss "$2" -c:v copy -c:a aac -b:a 320k -filter_complex amerge=inputs=2 -to "$3" "${1:r}_clip.mp4" }
+function ffcliph    () { ffmpeg -i "$1" -ss "$2" -c:v libx264 -c:a aac -b:a 320k -filter_complex amerge=inputs=2 -to "$3" "${1:r}_clip.mp4" }
 
 
 # Good compression/archive settings
