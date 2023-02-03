@@ -22,6 +22,7 @@ local treesitter_langs = {
 	"rasi",
 	"rust",
 	"sql",
+	"terraform",
 	"toml",
 	"tsx",
 	"typescript",
