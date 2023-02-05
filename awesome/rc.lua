@@ -75,7 +75,7 @@ local gpu_screen_recorder_cmd = "gpu-screen-recorder"
 	.. " -w DP-2" -- window/screen to record
 	.. " -c mp4" -- container format
 	.. " -f 60" -- framerate
-	.. " -q very_high" -- quality
+	.. " -q ultra" -- quality
 	.. " -r 150" -- number of seconds in record buffer
 	.. " -a carla-sink.monitor" -- audio device
 	.. " -a carla-source" -- audio device

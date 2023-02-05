@@ -8,29 +8,6 @@ function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function toh264     () { ffmpeg -i "$1" -c:v libx264 -c:a copy "${1:r}_h264.mp4" }
 
-function ffclip () { 
-    # input file from first argument
-    # skip to time at second argument
-    # set video codec to copy
-    # set audio codec to AAC 320kbps
-    # merge audio streams 1 and 2, normalize to -23 LUFS with range 7db and true peak -2dbfs
-    # stop at time given by third argument
-    # map input video stream 0 to output video stream 0
-    # map LUFS normalized audio to output audio stream 0
-    # append _clip to input file name
-
-    ffmpeg \
-        -i "$1" \
-        -ss "$2" \
-        -c:v copy \
-        -c:a aac -b:a 320k \
-        -filter_complex '[0:1][0:2]amerge=inputs=2[outa];[outa]loudnorm=I=-23:LRA=7:TP=-2[outl]' \
-        -to "$3" \
-        -map '0:v:0' \
-        -map '[outl]' \
-        "${1:r}_clip.mp4" 
-}
-
 # Good compression/archive settings
 function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
 function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
