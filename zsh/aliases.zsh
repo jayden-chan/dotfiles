@@ -45,6 +45,8 @@ alias o='xdg-open'
 alias t='tmux'
 alias c='cargo'
 alias p='~/.config/dotfiles/scripts/p.ts'
+alias k='kubectl'
+alias l='exa -a'
 
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
@@ -54,7 +56,6 @@ alias myip='curl https://ipinfo.io/ip && echo'
 
 # better defaults
 alias clear='clear -x'
-alias l='exa -a'
 alias ls='exa'
 alias la='exa -lah'
 alias ll='exa -lh'

@@ -69,7 +69,9 @@
       "proton-ge-custom-bin",
       "gparted",
       "dolphin-emu",
-      "prismlauncher-qt5-bin"
+      "prismlauncher-qt5-bin",
+      "kubectl",
+      "helm"
     ],
     "swift": [
       "light",
@@ -237,7 +239,8 @@
       "thunar-archive-plugin",
       "hurl-bin",
       "difftastic",
-      "nmap"
+      "nmap",
+      "bc"
     ]
   },
   "ignored": [

@@ -31,6 +31,7 @@ export SSB_HOME="$XDG_DATA_HOME"/zoom
 export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export WGETRC="$HOME"/.config/wget/wgetrc
 export ZDOTDIR="$HOME"/.config/zsh
+export KUBECACHEDIR="$XDG_CACHE_HOME"/kube
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export _Z_DATA="$XDG_DATA_HOME"/z
 
