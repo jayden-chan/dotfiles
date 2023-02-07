@@ -92,11 +92,6 @@ vim.g.EditorConfig_exclude_patterns = { "fugitive://.*", "scp://.*" }
 vim.g.rustfmt_autosave = 1
 vim.g.sql_type_default = "pgsql"
 
-vim.g.lexima_map_escape = ""
-
-vim.g.lexima_enable_space_rules = 0
-vim.g.lexima_enable_endwise_rules = 0
-
 vim.g.tex_flavor = "latex"
 vim.g.tex_conceal = ""
 vim.g.vim_markdown_conceal = 0

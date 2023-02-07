@@ -24,24 +24,9 @@ map("t", "<esc>", [[<C-\><C-n>]])
 
 -- Formatting (remove whitespace and reindent)
 map("n", "<leader>ww", [[<cmd>%s/\s\+$//e<cr>]], { silent = false })
-map("v", "<leader>ta", "<cmd>Tabularize /<bar><cr>")
 
 -- Close quickfix/preview/location
 map("", "<c-q>", "<cmd>ccl<bar>pcl<bar>lcl<cr>")
-
--- Fuzzy finding
-map("n", "<leader>f", '<cmd>lua require("telescope.builtin").find_files()<cr>')
-map("n", "<leader>r", '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers()<cr>')
-map("n", "<leader>hh", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
-map("n", "<leader>n", '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
-map("n", "<leader>z", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
-
--- Neogit
-map("n", "<leader>N", '<cmd>lua require("neogit").open({ kind = "replace" })<cr>')
-
--- Undo tree
-map("n", "<leader>U", "<cmd>UndotreeToggle<CR>")
 
 -- signcolumn sometimes randomly gets disabled
 map("n", "<leader>S", "<cmd>set signcolumn=yes<CR>")
@@ -111,12 +96,3 @@ map("v", "H", "I")
 
 -- Toggle highlight search
 map("n", "<leader>h", ":set hls!<CR>", { silent = false })
-
--- neo-tree
-map("n", "<C-n>", "<cmd>Neotree toggle<CR>")
-
--- tmux navigator
-map("n", "<M-j>", "<cmd>TmuxNavigateLeft<cr>")
-map("n", "<M-k>", "<cmd>TmuxNavigateDown<cr>")
-map("n", "<M-i>", "<cmd>TmuxNavigateUp<cr>")
-map("n", "<M-l>", "<cmd>TmuxNavigateRight<cr>")
