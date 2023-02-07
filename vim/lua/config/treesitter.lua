@@ -10,6 +10,7 @@ local treesitter_langs = {
 	"dockerfile",
 	"go",
 	"graphql",
+	"hcl",
 	"java",
 	"javascript",
 	"jsonc",
