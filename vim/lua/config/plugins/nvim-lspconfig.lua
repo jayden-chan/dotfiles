@@ -1,5 +1,7 @@
 local utils = require("config.utils")
 local lsp_settings = require("config.lsp")
+local user_cmd = vim.api.nvim_buf_create_user_command
+
 return {
 	utils.mirror("nvim-lspconfig"),
 	dependencies = {
@@ -38,6 +40,14 @@ return {
 			root_dir = require("lspconfig/util").root_pattern("package.json"),
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
+
+				user_cmd(bufnr, "TSOrganizeImports", function()
+					vim.lsp.buf.execute_command({
+						command = "_typescript.organizeImports",
+						arguments = { vim.fn.expand("%:p") },
+					})
+				end, { nargs = 0 })
+
 				on_attach(client, bufnr)
 			end,
 			flags = default_flags,

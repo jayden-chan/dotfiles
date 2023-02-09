@@ -61,10 +61,6 @@ vim.cmd([[autocmd FileType asm             setlocal expandtab]])
 vim.cmd([[autocmd FileType go,lua          setlocal noexpandtab]])
 vim.cmd([[autocmd FileType makefile        setlocal noexpandtab]])
 
-user_cmd("TSOrganizeImports", function()
-	vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
-end, { nargs = 0 })
-
 user_cmd("RustDocs", ":silent !rustup doc --std", {})
 
 -- Make leaving easier in case of typos
