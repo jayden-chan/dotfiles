@@ -1,6 +1,6 @@
 Preamp: 0 dB
 Filter 1: ON HPQ Fc 50.005 Hz Q 0.6
 Filter 2: ON HPQ Fc 67.807 Hz Q 0.6
-Filter 3: ON PK Fc 134.035 Hz Gain -1.27 dB Q 0.44
+Filter 3: ON PK Fc 134.035 Hz Gain -2.31 dB Q 0.44
 Filter 4: ON PK Fc 1035.169 Hz Gain -2.13 dB Q 4.1
 Filter 5: ON PK Fc 2905.615 Hz Gain -5.38 dB Q 4.4

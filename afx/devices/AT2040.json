@@ -31,7 +31,7 @@
             "slope": 0,
             "freq": 134.035,
             "Q": 0.44,
-            "gain": -1.27
+            "gain": -2.31
           },
           {
             "type": "peaking",

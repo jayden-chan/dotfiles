@@ -41,6 +41,7 @@ alias Lq='exit'
 
 # One letter
 alias y='yarn'
+alias n='npm'
 alias o='xdg-open'
 alias t='tmux'
 alias c='cargo'
