@@ -51,4 +51,5 @@ require("lazy").setup({
 	require("config.plugins.tdg"),
 	require("config.plugins.hexokinase"),
 	require("config.plugins.nginx"),
+	require("config.plugins.presence"),
 })
