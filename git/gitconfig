@@ -2,31 +2,45 @@
 [user]
     email = jaydencn7@gmail.com
     name = Jayden Chan
-    signingkey = 831C294F75648D2CD15C15F44F1A3E4490A56A14
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqwiL56RIzEG55t2aa9ruLHBIBuo27mSkXU4/T19iwL
+
 [push]
     default = simple
+
 [credential "https://git.jayden.codes"]
     helper = store --file ~/.config/git/credentials
+
 [init]
-    # compatibility purposes
-    defaultBranch = master
+    defaultBranch = main
+
 [commit]
     gpgsign = true
     verbose = true
     template = ~/.config/dotfiles/git/git-commit.txt
+
+[tag]
+    gpgsign = true
+
+[gpg]
+    format = ssh
+
+[gpg.ssh]
+    allowedSignersFile = ~/.ssh/allowed_signers
+
 [core]
     editor = nvim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.config/dotfiles/git/gitignore
     abbrev = 8
+
 [pull]
 	rebase = true
+
 [diff]
-    external = difft
     colorMoved = default
 
 [pager]
-    # diff = delta
+    diff = delta
     log = delta
     reflog = delta
     show = delta
