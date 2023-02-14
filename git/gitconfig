@@ -25,7 +25,7 @@
     format = ssh
 
 [gpg.ssh]
-    allowedSignersFile = ~/.ssh/allowed_signers
+    allowedSignersFile = ~/.config/dotfiles/ssh/allowed_signers
 
 [core]
     editor = nvim
