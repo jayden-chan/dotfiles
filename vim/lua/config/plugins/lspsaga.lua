@@ -1,6 +1,7 @@
 local utils = require("config.utils")
 return {
 	utils.mirror("lspsaga.nvim"),
+	lazy = true,
 	opts = {
 		ui = {
 			-- code_action = ""

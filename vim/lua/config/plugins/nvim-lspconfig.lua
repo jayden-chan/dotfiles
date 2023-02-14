@@ -6,6 +6,7 @@ return {
 	utils.mirror("nvim-lspconfig"),
 	dependencies = {
 		utils.mirror("cmp-nvim-lsp"),
+		utils.mirror("lspsaga.nvim"),
 	},
 	config = function()
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -98,7 +99,7 @@ return {
 			},
 		})
 
-		lspconfig.sumneko_lua.setup({
+		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 			on_init = on_init,
 			on_attach = function(client, bufnr)

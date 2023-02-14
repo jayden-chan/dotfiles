@@ -1,6 +1,18 @@
 local utils = require("config.utils")
 return {
-	"andweeb/presence.nvim",
+	utils.mirror("presence.nvim"),
+	cond = function()
+		local git_root = vim.fn.finddir(".git", ".;")
+		if git_root ~= "" then
+			local lines = vim.fn.readfile(git_root .. "/config")
+			for _, l in pairs(lines) do
+				if string.find(l, "shouldenablepresencenvim") then
+					return true
+				end
+			end
+		end
+		return false
+	end,
 	opts = {
 		auto_update = true,
 		neovim_image_text = "The One True Text Editor",

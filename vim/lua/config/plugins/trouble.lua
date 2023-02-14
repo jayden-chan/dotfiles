@@ -1,6 +1,7 @@
 local utils = require("config.utils")
 return {
 	utils.mirror("trouble.nvim"),
+	event = "VeryLazy",
 	opts = {
 		position = "bottom",
 		height = 10,

@@ -1,6 +1,7 @@
 local utils = require("config.utils")
 return {
 	utils.mirror("lexima.vim"),
+	event = "InsertEnter",
 	config = function()
 		vim.g.lexima_map_escape = ""
 

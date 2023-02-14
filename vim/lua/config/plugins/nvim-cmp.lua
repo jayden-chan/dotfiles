@@ -10,6 +10,7 @@ return {
 		utils.mirror("cmp-nvim-ultisnips"),
 		utils.mirror("lspkind-nvim"),
 	},
+	event = "InsertEnter",
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")

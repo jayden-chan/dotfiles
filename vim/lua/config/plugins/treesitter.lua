@@ -1,42 +1,17 @@
 local utils = require("config.utils")
+local treesitter_langs = require("config.treesitter_langs")
+
 return {
 	utils.mirror("nvim-treesitter"),
 	build = ":TSUpdate",
+	ft = treesitter_langs,
 	dependencies = {
 		utils.mirror("nvim-treesitter-textobjects"),
 		utils.mirror("spellsitter.nvim"),
+		utils.mirror("playground"),
 	},
 	config = function()
-		local treesitter_langs = {
-			"bash",
-			"c",
-			"cmake",
-			"cpp",
-			"css",
-			"dockerfile",
-			"go",
-			"graphql",
-			"hcl",
-			"java",
-			"javascript",
-			"jsonc",
-			"latex",
-			"lua",
-			"make",
-			"markdown",
-			"python",
-			"query",
-			"rasi",
-			"rust",
-			"sql",
-			"terraform",
-			"toml",
-			"tsx",
-			"typescript",
-			"vim",
-			"yaml",
-		}
-
+		require("config.rust_sql")
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = treesitter_langs,
 			highlight = {
