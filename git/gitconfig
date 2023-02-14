@@ -32,18 +32,13 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.config/dotfiles/git/gitignore
     abbrev = 8
+    pager = delta
 
 [pull]
 	rebase = true
 
 [diff]
     colorMoved = default
-
-[pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
 
 [interactive]
     diffFilter = delta --color-only --features=interactive --true-color=always
