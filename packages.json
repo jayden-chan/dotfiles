@@ -11,6 +11,7 @@
       "img2pdf",
       "docker",
       "docker-compose",
+      "docker-buildx",
       "obs-studio",
       "discord",
       "python-llfuse",
