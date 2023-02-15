@@ -15,6 +15,7 @@ local treesitter_langs = {
 	"lua",
 	"make",
 	"markdown",
+	"markdown_inline",
 	"python",
 	"query",
 	"rasi",
