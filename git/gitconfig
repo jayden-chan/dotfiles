@@ -7,9 +7,6 @@
 [push]
     default = simple
 
-[credential "https://git.jayden.codes"]
-    helper = store --file ~/.config/git/credentials
-
 [init]
     defaultBranch = main
 

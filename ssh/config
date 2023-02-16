@@ -33,6 +33,11 @@ Host rsyncnet
 Host github.com
     IdentityFile ~/.ssh/github
 
+Host git.jayden.codes
+    User git
+    Port 2222
+    IdentityFile ~/.ssh/gitea
+
 Host *
     ForwardX11 no
     IdentitiesOnly yes
