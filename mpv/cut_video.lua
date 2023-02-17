@@ -58,7 +58,7 @@ function create_clip()
 		"-b:a",            "320k",
 
 		 -- merge audio inputs 1 and 2, normalize to -18 LUFS with range 11db and true peak -2dbfs
-		"-filter_complex", "[0:1][0:2]amerge=inputs=2[outa];[outa]loudnorm=I=-18:LRA=11:TP=-2[outl]",
+		"-filter_complex", "[0:1][0:2]amix=inputs=2[outa];[outa]loudnorm=I=-18:LRA=11:TP=-2[outl]",
 
 		-- seek to end position
 		"-to",             tostring(end_pos),
