@@ -6,7 +6,8 @@ return {
 		if git_root ~= "" then
 			local lines = vim.fn.readfile(git_root .. "/config")
 			for _, l in pairs(lines) do
-				if string.find(l, "shouldenablepresencenvim") then
+				local line = l:gsub("%s+", "")
+				if string.find(line, "shouldenablepresencenvim") and not string.find(line, ";") then
 					return true
 				end
 			end
