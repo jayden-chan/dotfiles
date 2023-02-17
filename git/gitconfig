@@ -1,6 +1,6 @@
 # vim: ft=gitconfig
 [user]
-    email = jaydencn7@gmail.com
+    email = jayden@jayden.codes
     name = Jayden Chan
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqwiL56RIzEG55t2aa9ruLHBIBuo27mSkXU4/T19iwL
 
