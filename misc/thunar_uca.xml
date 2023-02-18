@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1667782009341942-1</unique-id>
+	<command>sh -c &apos;cd %f ; st&apos;</command>
+	<description>Open a terminal in the current directory</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>4kyoutubetomp3</icon>
+	<name>FFProbe</name>
+	<submenu></submenu>
+	<unique-id>1676602598381730-1</unique-id>
+	<command>sh -c &apos;ffprobe %f 2&gt;&amp;1 | gedit -&apos;</command>
+	<description>Run ffprobe on file</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>4kyoutubetomp3</icon>
+	<name>Convert to H.264</name>
+	<submenu></submenu>
+	<unique-id>1676603460856505-2</unique-id>
+	<command>st -e zsh -c &apos;export input=%f; ffmpeg -i &quot;$input&quot; -c:v libx264 -c:a copy &quot;${input:r}_h264.mp4&quot;; echo &quot;\nDone!&quot;; read&apos;</command>
+	<description>Convert the file to H.264 codec</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
+</actions>
