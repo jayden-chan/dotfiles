@@ -77,12 +77,12 @@ function create_clip()
 	}
 
 	mp.osd_message("Rendering clip...", 900)
-	mp.commandv("set", "pause", "yes")
+	mp.set_property("pause", "yes")
 
 	mp.command_native_async({ name = "subprocess", args = cmd, capture_stdout = false }, function(success, _, error)
 		if success == true then
 			mp.osd_message("Rendering clip complete", 30)
-			mp.commandv("set", "pause", "no")
+			mp.set_property("pause", "no")
 		else
 			mp.osd_message(string.format("Rendering failed: %s", error), 30)
 		end

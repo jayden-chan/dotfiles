@@ -7,7 +7,8 @@ mp.add_key_binding("%", function()
 	mp.set_property("mute", "no")
 end)
 
-mp.add_key_binding("$", function()
+local function activate_all_audio()
+	mp.set_property("mute", "no")
 	local current_lavfi = mp.get_property("lavfi-complex")
 
 	local count = 0
@@ -40,8 +41,16 @@ mp.add_key_binding("$", function()
 	elseif count == 0 then
 		mp.osd_message("No audio tracks")
 	end
-end)
+end
 
+mp.add_key_binding("$", activate_all_audio)
 mp.register_event("end-file", function()
 	mp.set_property("lavfi-complex", "")
+end)
+
+mp.register_event("file-loaded", function()
+	local input_path = mp.get_property("stream-path")
+	if string.find(input_path, "/Replay_") then
+		activate_all_audio()
+	end
 end)
