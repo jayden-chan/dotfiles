@@ -72,7 +72,10 @@
       "dolphin-emu",
       "prismlauncher-qt5-bin",
       "kubectl",
-      "helm"
+      "helm",
+      "kind-bin",
+      "flux-bin",
+      "lens-bin"
     ],
     "swift": [
       "light",
