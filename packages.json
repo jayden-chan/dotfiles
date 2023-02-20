@@ -156,8 +156,6 @@
       "clang",
       "ttf-symbola",
       "file-roller",
-      "nodejs-lts-gallium",
-      "npm",
       "tmux",
       "eog",
       "entr",
@@ -190,11 +188,8 @@
       "mpv",
       "pipewire-pulse",
       "wireguard-tools",
-      "bitwarden-cli",
       "sshfs",
       "nfs-utils",
-      "typescript-language-server",
-      "prettierd",
       "gopls",
       "gnome-keyring",
       "jre11-openjdk-headless",
@@ -209,7 +204,6 @@
       "gnu-free-fonts",
       "ttf-iosevka-nerd",
       "python-grip",
-      "yalc",
       "tokei",
       "pacman-contrib",
       "dnsmasq",
@@ -218,7 +212,6 @@
       "plank",
       "numix-circle-icon-theme-git",
       "stylua",
-      "eslint_d",
       "realtime-privileges",
       "rtkit",
       "carla",
@@ -243,7 +236,8 @@
       "hurl-bin",
       "difftastic",
       "nmap",
-      "bc"
+      "bc",
+      "volta-bin"
     ]
   },
   "ignored": [

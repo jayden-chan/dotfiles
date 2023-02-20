@@ -46,6 +46,7 @@ alias o='xdg-open'
 alias t='tmux'
 alias c='cargo'
 alias p='~/.config/dotfiles/scripts/p.ts'
+alias j='pnpm'
 alias k='kubectl'
 alias l='exa -a'
 
