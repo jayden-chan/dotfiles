@@ -16,6 +16,7 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/zsh     2>/dev/null
     rm -rf ~/.config/mpv     2>/dev/null
     rm -rf ~/.config/wget    2>/dev/null
+    rm -rf ~/.config/mprocs  2>/dev/null
 
     mkdir -p ~/.config/git
     mkdir -p ~/.config/latexmk
@@ -26,6 +27,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/mpv/scripts
     mkdir -p ~/.config/mpv/script-opts
     mkdir -p ~/.config/wget
+    mkdir -p ~/.config/mprocs
     mkdir -p ~/.config/zathura
 
     mkdir -p ~/.local/share/fonts
@@ -89,6 +91,7 @@ ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/all_audio.lua      ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/cut_video.lua      ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
+ln -fs ~/.config/dotfiles/misc/mprocs.yaml       ~/.config/mprocs/
 ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
 ln -fs ~/.config/dotfiles/misc/st.desktop        ~/.local/share/applications/
 
