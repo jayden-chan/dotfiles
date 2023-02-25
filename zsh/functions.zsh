@@ -13,6 +13,10 @@ function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
 function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
 alias decompress='tar xfJ'
 
+# kube
+function kw () { kubectl "$@" -o wide }
+function kww () { kubectl "$@" -o wide -w }
+
 function gig () {
     if [[ "$1" == "ls" ]]; then
         curl --silent https://api.github.com/repos/github/gitignore/contents/ | jq '.[].name' -r | rg "\.gitignore" --replace=''
