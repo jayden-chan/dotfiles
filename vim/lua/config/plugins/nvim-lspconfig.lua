@@ -28,6 +28,7 @@ return {
 		-- Setup lspconfig.
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
+		local lsp_util = require("lspconfig.util")
 		local on_attach = lsp_settings.on_attach
 		local on_init = lsp_settings.on_init
 		local default_flags = lsp_settings.default_flags
@@ -38,7 +39,9 @@ return {
 		lspconfig.tsserver.setup({
 			capabilities = capabilities,
 			on_init = on_init,
-			root_dir = require("lspconfig/util").root_pattern("package.json"),
+			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			root_dir = lsp_util.root_pattern("package.json"),
+			single_file_support = false,
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 
@@ -58,7 +61,7 @@ return {
 			capabilities = capabilities,
 			on_init = on_init,
 			filetypes = { "typescript" },
-			root_dir = require("lspconfig/util").root_pattern("deno.json", "deno.jsonc"),
+			root_dir = lsp_util.root_pattern("deno.json", "deno.jsonc"),
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 				on_attach(client, bufnr)

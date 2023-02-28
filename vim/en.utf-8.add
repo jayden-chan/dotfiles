@@ -175,3 +175,8 @@ Recurly
 frontend
 middleware
 answerer
+answerers
+BigQuery
+Webpack
+TypeScript
+YAML

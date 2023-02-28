@@ -17,7 +17,7 @@
 	<name>FFProbe</name>
 	<submenu></submenu>
 	<unique-id>1676602598381730-1</unique-id>
-	<command>sh -c &apos;ffprobe %f 2&gt;&amp;1 | gedit -&apos;</command>
+	<command>sh -c &quot;ffprobe %f 2&gt;&amp;1 | gedit -&quot;</command>
 	<description>Run ffprobe on file</description>
 	<range>*</range>
 	<patterns>*</patterns>
