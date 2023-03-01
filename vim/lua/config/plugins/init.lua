@@ -53,4 +53,5 @@ require("lazy").setup({
 	require("config.plugins.nginx"),
 	require("config.plugins.presence"),
 	require("config.plugins.gitlinker"),
+	require("config.plugins.rest"),
 })
