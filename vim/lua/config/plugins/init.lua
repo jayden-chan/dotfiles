@@ -52,4 +52,5 @@ require("lazy").setup({
 	require("config.plugins.hexokinase"),
 	require("config.plugins.nginx"),
 	require("config.plugins.presence"),
+	require("config.plugins.gitlinker"),
 })
