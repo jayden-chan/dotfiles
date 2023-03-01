@@ -13,6 +13,10 @@ return {
 		hover = {
 			max_width = 0.6,
 		},
+		diagnostic = {
+			on_insert = false,
+			on_insert_follow = false,
+		},
 		lightbulb = {
 			enable = true,
 			enable_in_insert = false,
