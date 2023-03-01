@@ -3,15 +3,15 @@ return {
 	utils.mirror("lspsaga.nvim"),
 	lazy = true,
 	opts = {
-		ui = {
-			-- code_action = ""
-		},
 		finder = {
 			edit = { "o", "<CR>" },
 			quit = { "q", "<ESC>" },
 			split = "H",
 			tabe = "t",
 			vsplit = "s",
+		},
+		hover = {
+			max_width = 0.6,
 		},
 		lightbulb = {
 			enable = true,
