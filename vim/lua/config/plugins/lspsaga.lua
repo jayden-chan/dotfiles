@@ -10,6 +10,9 @@ return {
 			tabe = "t",
 			vsplit = "s",
 		},
+		symbol_in_winbar = {
+			enable = false,
+		},
 		hover = {
 			max_width = 0.6,
 		},
