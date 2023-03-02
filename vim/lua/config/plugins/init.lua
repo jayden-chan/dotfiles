@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	require("config.plugins.base46"),
 	require("config.plugins.indent-blankline"),
 	require("config.plugins.lualine"),
 	require("config.plugins.plenary"),

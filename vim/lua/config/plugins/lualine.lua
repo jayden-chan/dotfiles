@@ -2,6 +2,7 @@ local utils = require("config.utils")
 return {
 	utils.mirror("lualine.nvim"),
 	dependencies = {
+		-- dir = "~/Dev/Personal/base46.nvim",
 		utils.mirror("base46.nvim"),
 	},
 	config = function()
@@ -12,15 +13,7 @@ return {
 		if not present then
 			return
 		end
-		local theme = "gruvchad"
-		local color_base = "base46"
-		local theme_opts = {
-			base = color_base,
-			theme = theme,
-			transparency = false,
-		}
-		base46.load_theme(theme_opts)
-		local colors = base46.get_colors(color_base, theme)
+		local colors = base46.get_colors(utils.theme.color_base, utils.theme.theme)
 
 		---         ---
 		--- lualine ---
@@ -75,7 +68,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = base46.get_lualine_theme("base46", theme),
+				theme = base46.get_lualine_theme("base46", utils.theme.theme),
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				always_divide_middle = true,
