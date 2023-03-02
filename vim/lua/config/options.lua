@@ -6,6 +6,8 @@ vim.opt.fillchars = vim.opt.fillchars + "diff: "
 -- 256 colors
 vim.opt.termguicolors = true
 
+vim.opt.swapfile = false
+
 -- Tab settings
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4

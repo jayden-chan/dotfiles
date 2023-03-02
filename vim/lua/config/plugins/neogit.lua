@@ -7,7 +7,7 @@ return {
 			kind = "vsplit",
 		},
 	},
-	keys = {
-		{ "<leader>N", '<cmd>lua require("neogit").open({ kind = "replace" })<cr>' },
-	},
+	-- keys = {
+	-- 	{ "<leader>N", '<cmd>lua require("neogit").open({ kind = "replace" })<cr>' },
+	-- },
 }

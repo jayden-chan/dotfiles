@@ -55,4 +55,5 @@ require("lazy").setup({
 	require("config.plugins.gitlinker"),
 	require("config.plugins.rest"),
 	require("config.plugins.vim-helm"),
+	require("config.plugins.diffview"),
 })
