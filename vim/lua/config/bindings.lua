@@ -88,8 +88,8 @@ vim.cmd([[noremap c "_c]])
 vim.cmd([[noremap cc "_cc]])
 
 -- Tab switching
-map("n", "<tab>j", ":tabprevious<CR>", { silent = false })
-map("n", "<tab>l", ":tabnext<CR>", { silent = false })
+map("n", "<tab>j", ":tabprevious<CR>")
+map("n", "<tab>l", ":tabnext<CR>")
 
 -- Fix 'I' behaviour in V-block
 map("v", "H", "I")
