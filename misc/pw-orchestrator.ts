@@ -382,30 +382,32 @@ const config = {
             type: "cycle",
             actions: [
               [
+                { type: "led::set", button: "Rec Arm", color: "OFF" },
                 {
-                  type: LINK,
-                  src: { node: "Scarlett Meter", port: "OutR" },
-                  dest: { node: "Scarlett Noise Repellent", port: "Input" },
+                  type: "midi",
+                  events: [
+                    {
+                      type: "CONTROL_CHANGE",
+                      channel: 5,
+                      controller: 10,
+                      value: 0,
+                    },
+                  ],
                 },
-                {
-                  type: LINK,
-                  src: { node: "Scarlett Noise Repellent", port: "Output" },
-                  dest: { node: "LSP Gate Mono", port: "Input" },
-                },
-                { type: "led::set", button: "Rec Arm", color: "ON" },
               ],
               [
+                { type: "led::set", button: "Rec Arm", color: "ON" },
                 {
-                  type: UNLINK,
-                  src: { node: "Scarlett Meter", port: "OutR" },
-                  dest: { node: "Scarlett Noise Repellent", port: "Input" },
+                  type: "midi",
+                  events: [
+                    {
+                      type: "CONTROL_CHANGE",
+                      channel: 5,
+                      controller: 10,
+                      value: 127,
+                    },
+                  ],
                 },
-                {
-                  type: UNLINK,
-                  src: { node: "Scarlett Noise Repellent", port: "Output" },
-                  dest: { node: "LSP Gate Mono", port: "Input" },
-                },
-                { type: "led::set", button: "Rec Arm", color: "OFF" },
               ],
             ],
           },

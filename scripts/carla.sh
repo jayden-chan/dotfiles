@@ -3,8 +3,9 @@
 # don't bother starting if Carla is already running
 pgrep -x carla > /dev/null && exit
 
+echo "[carla.sh] [$(date)] Starting pw-orchestrator and Carla" >> ~/.xsession-errors
 pw-orchestrator daemon =($DOT/misc/pw-orchestrator.ts) &
-pw_pid=$!
 sleep 1
 ~/Dev/Testing/Carla/source/frontend/carla ~/Documents/Default.carxp
-kill "$pw_pid"
+echo "[carla.sh] [$(date)] Carla exiting, killing pw-orchestrator instances" >> ~/.xsession-errors
+ps -ax | rg "^\s*(\d+).*\d node.*pw-orchestrator" --only-matching --replace='$1' | xargs kill
