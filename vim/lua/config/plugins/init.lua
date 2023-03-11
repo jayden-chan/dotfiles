@@ -21,7 +21,6 @@ require("lazy").setup({
 	require("config.plugins.nui"),
 	require("config.plugins.neo-tree"),
 	require("config.plugins.gitsigns"),
-	require("config.plugins.neogit"),
 	require("config.plugins.vim-fugitive"),
 	require("config.plugins.tabular"),
 	require("config.plugins.vim-tmux-navigator"),
@@ -54,7 +53,5 @@ require("lazy").setup({
 	require("config.plugins.nginx"),
 	require("config.plugins.presence"),
 	require("config.plugins.gitlinker"),
-	require("config.plugins.rest"),
 	require("config.plugins.vim-helm"),
-	require("config.plugins.diffview"),
 })

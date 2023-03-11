@@ -81,10 +81,6 @@ return {
 			sources = cmp.config.sources({ { name = "git" } }, { buffer_cmp }),
 		})
 
-		cmp.setup.filetype("NeogitCommitMessage", {
-			sources = cmp.config.sources({ { name = "git" } }, { buffer_cmp }),
-		})
-
 		-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline("/", {
 			sources = { buffer_cmp },

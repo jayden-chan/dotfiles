@@ -1,10 +1,9 @@
 local user_cmd = vim.api.nvim_create_user_command
 
-vim.cmd([[autocmd FileType gitcommit,NeogitCommitMessage,text,markdown,tex let b:EditorConfig_disable = 1]])
+vim.cmd([[autocmd FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1]])
 
 local spell_langs = {
 	"gitcommit",
-	"NeogitCommitMessage",
 	"text",
 	"markdown",
 	"tex",
@@ -47,7 +46,7 @@ end
 
 -- Jump to last known cursor position when opening files
 vim.cmd(
-	[[autocmd BufReadPost * if &filetype != "gitcommit" && &filetype != "NeogitCommitMessage" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+	[[autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 )
 
 vim.cmd([[autocmd BufRead,BufNewFile Jenkinsfile setf groovy]])
