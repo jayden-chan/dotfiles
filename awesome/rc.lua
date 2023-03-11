@@ -83,7 +83,7 @@ local gpu_screen_recorder_cmd = "gpu-screen-recorder"
 	.. " -o " -- output path
 	.. home
 	.. "/Videos/replays"
-	.. "2>&1 > /dev/null"
+	.. " 2>&1 > /tmp/gpu-screen-recorder.log"
 
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
