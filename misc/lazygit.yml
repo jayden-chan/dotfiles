@@ -1,0 +1,23 @@
+gui:
+  splitDiff: auto
+  showIcons: true
+  scrollHeight: 12
+  sidePanelWidth: 0.2
+  showBottomLine: false
+  showRandomTip: false
+  showFileTree: false
+  showCommandLog: false
+keybinding:
+  universal:
+    prevItem-alt: "i"
+    nextItem-alt: "k"
+    scrollLeft: "J"
+    scrollRight: "L"
+    prevBlock-alt: "j"
+    nextBlock-alt: "l"
+    scrollUpMain-alt1: "I"
+    scrollDownMain-alt1: "K"
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never

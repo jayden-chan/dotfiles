@@ -54,12 +54,10 @@
       "firejail",
       "thunar",
       "libev",
-      "uthash",
       "dbeaver",
       "kdenlive",
       "oxygen",
       "gpu-screen-recorder-git",
-      "ferium-bin",
       "gamemode",
       "lib32-gamemode",
       "lib32-nvidia-utils",
@@ -74,10 +72,7 @@
       "kubectl",
       "helm",
       "kind-bin",
-      "flux-bin",
-      "lens-bin",
-      "k9s",
-      "kustomize"
+      "k9s"
     ],
     "swift": [
       "light",
@@ -183,7 +178,6 @@
       "zathura-pdf-mupdf",
       "qrencode",
       "sxiv",
-      "pfetch",
       "zbar",
       "git-delta",
       "dbus-python",
@@ -236,10 +230,10 @@
       "thunar-media-tags-plugin",
       "thunar-archive-plugin",
       "hurl-bin",
-      "difftastic",
       "nmap",
       "bc",
-      "volta-bin"
+      "volta-bin",
+      "lazygit"
     ]
   },
   "ignored": [

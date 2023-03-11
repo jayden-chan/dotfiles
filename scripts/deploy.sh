@@ -17,6 +17,7 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/mpv     2>/dev/null
     rm -rf ~/.config/wget    2>/dev/null
     rm -rf ~/.config/mprocs  2>/dev/null
+    rm -rf ~/.config/lazygit 2>/dev/null
 
     mkdir -p ~/.config/git
     mkdir -p ~/.config/latexmk
@@ -29,6 +30,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/wget
     mkdir -p ~/.config/mprocs
     mkdir -p ~/.config/zathura
+    mkdir -p ~/.config/lazygit
 
     mkdir -p ~/.local/share/fonts
     mkdir -p ~/.local/share/applications
@@ -93,6 +95,7 @@ ln -fs ~/.config/dotfiles/mpv/cut_video.lua      ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
 ln -fs ~/.config/dotfiles/misc/mprocs.yaml       ~/.config/mprocs/
 ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
+ln -fs ~/.config/dotfiles/misc/lazygit.yml       ~/.config/lazygit/config.yml
 ln -fs ~/.config/dotfiles/misc/st.desktop        ~/.local/share/applications/
 
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
