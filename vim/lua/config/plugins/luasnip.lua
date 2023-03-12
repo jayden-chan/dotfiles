@@ -8,7 +8,7 @@ return {
 	},
 	config = function()
 		local luasnip = require("luasnip")
-		require("luasnip.loaders.from_lua").load({ paths = "~/.config/dotfiles/vim/luasnip" })
+		require("luasnip.loaders.from_lua").load({ paths = "~/.config/dotfiles/vim/snippets" })
 		luasnip.config.set_config({
 			history = false,
 			updateevents = "TextChanged,TextChangedI",
