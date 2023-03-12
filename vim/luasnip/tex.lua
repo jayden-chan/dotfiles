@@ -1,4 +1,12 @@
 return {
+	s("fr", fmt("\\frac{{{1}}}{{{2}}}", { i(1), i(0) })),
+	s("b", fmt("\\textbf{{{1}}}", i(0))),
+	s("i", fmt("\\textit{{{1}}}", i(0))),
+	s("rm", fmt("\\text{{{1}}}", i(0))),
+	s("tt", fmt("\\texttt{{{1}}}", i(0))),
+	s("ml", fmt("${1}$", i(0))),
+	s("vs", fmt("\\vspace{{{1}}}", i(0))),
+	s("code", fmt("\\inputminted[baselinestretch=1,linenos]{{{1}}}{{{2}}}", { i(1), i(0) })),
 	s(
 		"start",
 		fmt(
@@ -76,6 +84,91 @@ return {
 ]],
 			{ i(1), i(0) },
 			{ repeat_duplicates = true }
+		)
+	),
+	s(
+		"fl",
+		fmt(
+			[[
+\begin{{flalign*}}
+{1}
+\end{{flalign*}}
+]],
+			{ i(0) }
+		)
+	),
+	s(
+		"en",
+		fmt(
+			[[
+\begin{{enumerate}}
+	\item
+		{1}
+\end{{enumerate}}
+]],
+			{ i(0) }
+		)
+	),
+	s(
+		"it",
+		fmt(
+			[[
+\begin{{itemize}}
+	\item
+		{1}
+\end{{itemize}}
+]],
+			{ i(0) }
+		)
+	),
+	s(
+		"tab",
+		fmt(
+			[[
+\begin{{center}}
+	\begin{{tabularx}}{{\textwidth}}{{ {1} }}
+		\hline
+		{2}
+	\end{{tabularx}}
+\end{{center}}
+]],
+			{ i(1), i(0) }
+		)
+	),
+	s(
+		"fig",
+		fmt(
+			[[
+\begin{{figure}}[H]
+	\begin{{center}}
+		\caption{{{1}}}
+		\includegraphics[width=1.0\textwidth]{{{2}}}
+	\end{{center}}
+\end{{figure}}
+]],
+			{ i(1), i(0) }
+		)
+	),
+	s(
+		"amat",
+		fmt(
+			[[
+\begin{{amatrix}}{{{1}}}
+{2}
+\end{{amatrix}}
+]],
+			{ i(1), i(0) }
+		)
+	),
+	s(
+		"ma",
+		fmt(
+			[[
+\[
+	{1}
+\]
+]],
+			{ i(0) }
 		)
 	),
 }

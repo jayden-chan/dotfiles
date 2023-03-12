@@ -129,11 +129,11 @@ export const capitalize = (input: string): string =>
 		"af",
 		fmt(
 			[[
-async function {1}(): Promise<{2}> {{
-	{3}
+{1}async function {2}(): Promise<{3}> {{
+	{4}
 }}
 ]],
-			{ i(1), i(2), i(0) }
+			{ c(1, { t(""), t("export ") }), i(2), i(3), i(0) }
 		)
 	),
 }

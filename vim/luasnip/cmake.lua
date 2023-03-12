@@ -1,7 +1,11 @@
-snippet cppstart
+return {
+	s(
+		"cppstart",
+		fmt(
+			[[
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
-project(${1:name} LANGUAGES CXX)
+project({1} LANGUAGES CXX)
 set(CMAKE_VERBOSE_MAKEFILE true)
 set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 
@@ -22,19 +26,24 @@ include_directories(inc)
 file(GLOB SOURCES "src/*.cpp")
 
 add_executable(
-	${2:executable}
-	${SOURCES}
+	{2}
+	${{SOURCES}}
 )
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 	add_definitions(-DDEBUG)
 endif()
-endsnippet
-
-snippet cstart
+]],
+			{ i(1), i(0) }
+		)
+	),
+	s(
+		"cstart",
+		fmt(
+			[[
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
-project(${1:name} LANGAGES C)
+project({1} LANGAGES C)
 set(CMAKE_VERBOSE_MAKEFILE true)
 set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 
@@ -55,11 +64,15 @@ include_directories(inc)
 file(GLOB SOURCES "src/*.c")
 
 add_executable(
-	${2:executable}
-	${SOURCES}
+	{2}
+	${{SOURCES}}
 )
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 	add_definitions(-DDEBUG)
 endif()
-endsnippet
+]],
+			{ i(1), i(0) }
+		)
+	),
+}
