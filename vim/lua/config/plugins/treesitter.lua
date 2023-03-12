@@ -1,10 +1,10 @@
 local utils = require("config.utils")
-local treesitter_langs = require("config.treesitter_langs")
+local ts_config = require("config.treesitter_langs")
 
 return {
 	utils.mirror("nvim-treesitter"),
 	build = ":TSUpdate",
-	ft = treesitter_langs,
+	ft = ts_config.extended,
 	dependencies = {
 		utils.mirror("nvim-treesitter-textobjects"),
 		utils.mirror("spellsitter.nvim"),
@@ -13,7 +13,7 @@ return {
 	config = function()
 		require("config.rust_sql")
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = treesitter_langs,
+			ensure_installed = ts_config.base,
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
@@ -49,10 +49,14 @@ return {
 
 		require("spellsitter").setup()
 
+		local augroup = vim.api.nvim_create_augroup("TreesitterSpell", { clear = true })
+
 		-- We can enable spell checking for any language that has
 		-- treesitter since it will only check the comments and not the code
-		for _, v in ipairs(treesitter_langs) do
-			vim.cmd("autocmd FileType " .. v .. " setlocal spell spelllang=en_us")
-		end
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = ts_config.extended,
+			command = "setlocal spell spelllang=en_us",
+			group = augroup,
+		})
 	end,
 }

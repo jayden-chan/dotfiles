@@ -1,4 +1,4 @@
-local treesitter_langs = {
+local base = {
 	"bash",
 	"c",
 	"cmake",
@@ -31,4 +31,12 @@ local treesitter_langs = {
 	"yaml",
 }
 
-return treesitter_langs
+local extended = vim.list_extend(vim.deepcopy(base), {
+	"typescriptreact",
+	"javascriptreact",
+})
+
+return {
+	base = base,
+	extended = extended,
+}

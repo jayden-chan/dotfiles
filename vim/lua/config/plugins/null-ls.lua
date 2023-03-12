@@ -1,10 +1,13 @@
 local utils = require("config.utils")
 local lsp_config = require("config.lsp")
+local ts_config = require("config.treesitter_langs")
+
 return {
 	utils.mirror("null-ls.nvim"),
 	dependencies = {
 		utils.mirror("cmp-nvim-lsp"),
 	},
+	ft = ts_config.extended,
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local null_ls = require("null-ls")

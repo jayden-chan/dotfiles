@@ -1,5 +1,6 @@
 local utils = require("config.utils")
 local lsp_settings = require("config.lsp")
+local ts_config = require("config.treesitter_langs")
 local user_cmd = vim.api.nvim_buf_create_user_command
 
 return {
@@ -8,6 +9,7 @@ return {
 		utils.mirror("cmp-nvim-lsp"),
 		utils.mirror("lspsaga.nvim"),
 	},
+	ft = ts_config.extended,
 	config = function()
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		for type, icon in pairs(signs) do
