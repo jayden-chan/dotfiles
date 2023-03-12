@@ -77,9 +77,6 @@ vim.cmd([[let &t_EI = "\<Esc>[2 q"]])
 -- Leader
 vim.g.mapleader = " "
 
-vim.g.UltiSnipsExpandTrigger = "<tab>"
-vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
-
 vim.g.Hexokinase_optInPatterns = {
 	"full_hex",
 	"triple_hex",

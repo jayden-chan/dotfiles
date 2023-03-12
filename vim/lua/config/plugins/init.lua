@@ -28,7 +28,6 @@ require("lazy").setup({
 	require("config.plugins.comment"),
 	require("config.plugins.nvim-ts-context-commentstring"),
 	require("config.plugins.vim-surround"),
-	require("config.plugins.ultisnips"),
 	require("config.plugins.lexima"),
 	require("config.plugins.telescope"),
 	require("config.plugins.cmp-nvim-lsp"),
@@ -36,7 +35,6 @@ require("lazy").setup({
 	require("config.plugins.cmp-git"),
 	require("config.plugins.cmp-path"),
 	require("config.plugins.cmp-cmdline"),
-	require("config.plugins.cmp-nvim-ultisnips"),
 	require("config.plugins.lspkind-nvim"),
 	require("config.plugins.nvim-cmp"),
 	require("config.plugins.nvim-lspconfig"),
@@ -54,4 +52,5 @@ require("lazy").setup({
 	require("config.plugins.presence"),
 	require("config.plugins.gitlinker"),
 	require("config.plugins.vim-helm"),
+	require("config.plugins.luasnip"),
 })

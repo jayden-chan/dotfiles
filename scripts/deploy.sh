@@ -57,7 +57,6 @@ fi
 cd ~ || exit
 
 # symlinked folders need to be removed before linking
-rm -rf ~/.config/nvim/UltiSnips
 rm -rf ~/.config/awesome
 rm -rf ~/.config/nvim/lua
 rm -rf ~/.config/nvim/queries
@@ -65,7 +64,6 @@ rm -rf ~/.config/nvim/after
 rm -rf ~/.config/nvim/bin
 rm -rf ~/.config/nvim/init.lua
 rm -rf ~/.config/nvim/lazy-lock.json
-ln -fs ~/.config/dotfiles/vim/snippets           ~/.config/nvim/UltiSnips
 ln -fs ~/.config/dotfiles/vim/lua                ~/.config/nvim/lua
 ln -fs ~/.config/dotfiles/vim/queries            ~/.config/nvim/queries
 ln -fs ~/.config/dotfiles/vim/after              ~/.config/nvim/after

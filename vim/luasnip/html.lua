@@ -1,10 +1,8 @@
-snippet <>
-<${1:}>
-	${0}
-</$1>
-endsnippet
-
-snippet start
+return {
+	s(
+		"start",
+		fmt(
+			[[
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -17,4 +15,20 @@ snippet start
 	<body>
 	</body>
 </html>
-endsnippet
+]],
+			{}
+		)
+	),
+	s(
+		"<>",
+		fmt(
+			[[
+<{1}>
+	{2}
+</{1}>
+]],
+			{ i(1), i(0) },
+			{ repeat_duplicates = true }
+		)
+	),
+}

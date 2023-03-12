@@ -7,13 +7,14 @@ return {
 		utils.mirror("cmp-git"),
 		utils.mirror("cmp-path"),
 		utils.mirror("cmp-cmdline"),
-		utils.mirror("cmp-nvim-ultisnips"),
+		utils.mirror("cmp_luasnip"),
 		utils.mirror("lspkind-nvim"),
 	},
 	event = "InsertEnter",
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
+		local luasnip = require("luasnip")
 
 		local buffer_cmp = {
 			name = "buffer",
@@ -32,7 +33,7 @@ return {
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					vim.fn["UltiSnips#Anon"](args.body)
+					luasnip.lsp_expand(args.body)
 				end,
 			},
 			preselect = cmp.PreselectMode.None,
@@ -65,10 +66,17 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				-- Enter immediately completes. C-n/C-p to select.
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<Tab>"] = cmp.mapping(function(fallback)
+					if luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "ultisnips" },
+				{ name = "luasnip" },
 				{ name = "path" },
 			}, {
 				buffer_cmp,
