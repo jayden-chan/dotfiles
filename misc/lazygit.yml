@@ -3,10 +3,14 @@ gui:
   showIcons: true
   scrollHeight: 12
   sidePanelWidth: 0.2
+  showListFooter: false
   showBottomLine: false
   showRandomTip: false
   showFileTree: false
   showCommandLog: false
+update:
+  method: never
+promptToReturnFromSubprocess: false
 keybinding:
   universal:
     prevItem-alt: "i"
@@ -17,6 +21,10 @@ keybinding:
     nextBlock-alt: "l"
     scrollUpMain-alt1: "I"
     scrollDownMain-alt1: "K"
+  files:
+    commitChanges: null
+    amendLastCommit: "A"
+    commitChangesWithEditor: "c"
 git:
   paging:
     colorArg: always
