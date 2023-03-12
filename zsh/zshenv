@@ -44,7 +44,6 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export DOT="$HOME/.config/dotfiles"
-export SXHKD_SHELL="/bin/dash"
 
 export DO_NOT_TRACK=1
 # Opt out of .NET telemetry (yikes...)

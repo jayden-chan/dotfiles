@@ -63,6 +63,12 @@ function syc () {
 }
 
 function gitea_mirror () {
+    # unlock the vault if it's not already unlocked
+    if [ "$BW_SESSION" = "" ]; then
+        export BW_SESSION="$(bw unlock --raw)"
+        bw sync 1>&2
+    fi
+
     gitea_token=$(bwg "Gitea Mirror Account OAuth Token")
     github_token=$(bwg "Gitea Mirror Account Pull Token")
 
@@ -104,7 +110,6 @@ function gitea_mirror () {
         \"service\": \"github\",
         \"wiki\": false
     }"
-
 }
 
 function bwg () {

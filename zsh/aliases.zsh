@@ -3,8 +3,6 @@ alias gs='git status'
 
 # Compilation
 alias lcm='latexmk -pvc -pdfxe -shell-escape'
-alias god='cd $GOPATH/src/github.com/jayden-chan/'
-alias hh='git push heroku master && heroku logs --tail'
 
 # dotfile editing
 alias gdf='cd $DOT && git status'
