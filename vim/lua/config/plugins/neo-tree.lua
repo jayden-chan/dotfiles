@@ -1,6 +1,11 @@
 local utils = require("config.utils")
 return {
 	utils.mirror("neo-tree.nvim"),
+	dependencies = {
+		utils.mirror("nui.nvim"),
+		utils.mirror("plenary.nvim"),
+		utils.mirror("nvim-web-devicons"),
+	},
 	keys = {
 		{ "<C-n>", "<cmd>Neotree toggle<CR>" },
 	},

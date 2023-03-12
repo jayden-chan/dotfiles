@@ -1,3 +1,4 @@
+local utils = require("config.utils")
 return {
-	"towolf/vim-helm",
+	utils.mirror("vim-helm"),
 }

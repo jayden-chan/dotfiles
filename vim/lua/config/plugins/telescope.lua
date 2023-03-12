@@ -1,6 +1,7 @@
 local utils = require("config.utils")
 return {
 	utils.mirror("telescope.nvim"),
+	dependencies = { utils.mirror("plenary.nvim") },
 	keys = {
 		{ "<leader>f", '<cmd>lua require("telescope.builtin").find_files()<cr>' },
 		{ "<leader>r", '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
