@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("pl", fmt('println!("{}"{})', { i(1), i(0) })),
 	s("pf", fmt('print!("{}"{})', { i(1), i(0) })),

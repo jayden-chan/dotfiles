@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("log", fmt("console.log({})", i(0))),
 	s("er", fmt("console.error({})", i(0))),

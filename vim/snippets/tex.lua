@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("fr", fmt("\\frac{{{1}}}{{{2}}}", { i(1), i(0) })),
 	s("b", fmt("\\textbf{{{1}}}", i(0))),

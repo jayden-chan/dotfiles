@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local function cmd(command)
 	local file = io.popen("zsh -c '" .. command .. "'", "r")
 	if file == nil then

@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("pf", fmt("fmt.Printf({})", i(0))),
 	s("pl", fmt("fmt.Println({})", i(0))),

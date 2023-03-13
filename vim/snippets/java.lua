@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("cw", fmt("System.out.println({});", i(0))),
 	s("cl", fmt("System.out.print({});", i(0))),

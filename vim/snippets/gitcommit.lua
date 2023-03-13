@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("f", t("feat: ")),
 	s("i", t("fix: ")),

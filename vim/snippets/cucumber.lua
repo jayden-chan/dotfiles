@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("@unit", t({ "@unit", "Scenario: " })),
 	s("sc", t("Scenario: ")),

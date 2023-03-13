@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s("nodes", t("node --enable-source-maps --unhandled-rejections=strict")),
 	s("cpr", t("rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh")),
