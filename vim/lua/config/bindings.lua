@@ -28,8 +28,8 @@ map("n", "<leader>ww", [[<cmd>%s/\s\+$//e<cr>]], { silent = false })
 -- Close quickfix/preview/location
 map("", "<c-q>", "<cmd>ccl<bar>pcl<bar>lcl<cr>")
 
--- signcolumn sometimes randomly gets disabled
-map("n", "<leader>S", "<cmd>set signcolumn=yes<CR>")
+-- signcolumn/bind settings sometimes randomly get changed by diffview
+map("n", "<leader>S", "<cmd>set signcolumn=yes | set noscrollbind | set nocursorbind<CR>")
 
 -- Remap cursor movement keys because I'm a scrub and don't use the default
 map("", "h", "i")

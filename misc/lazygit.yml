@@ -26,6 +26,7 @@ keybinding:
     ignoreFile: "h"
     amendLastCommit: "A"
     commitChangesWithEditor: "c"
+    stashAllChanges: "S"
 git:
   paging:
     colorArg: always
