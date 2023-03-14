@@ -86,13 +86,9 @@ vim.g.Hexokinase_optInPatterns = {
 	"hsla",
 }
 
-vim.g.EditorConfig_exclude_patterns = { "fugitive://.*", "scp://.*" }
-
 vim.g.rustfmt_autosave = 1
 vim.g.sql_type_default = "pgsql"
 
 vim.g.tex_flavor = "latex"
 vim.g.tex_conceal = ""
-vim.g.vim_markdown_conceal = 0
-vim.g.vim_markdown_conceal_code_blocks = 0
 vim.g.tmux_navigator_no_mappings = 1

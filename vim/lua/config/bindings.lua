@@ -48,6 +48,10 @@ map("v", "I", "12<up>")
 map("v", "K", "12<down>")
 map("n", "U", "J")
 
+-- Move the selected lines up and down with ctrl+direction
+map("v", "<c-i>", ":m '<-2<CR>gv=gv")
+map("v", "<c-k>", ":m '>+1<CR>gv=gv")
+
 -- Make X and Y behave like C and D
 map("n", "Y", "y$")
 map("n", "X", 'v$<Left>"_x')

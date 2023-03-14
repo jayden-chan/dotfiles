@@ -12,9 +12,7 @@ local on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.format({
-					bufnr = bufnr,
-				})
+				vim.lsp.buf.format({ bufnr = bufnr })
 			end,
 		})
 	end
