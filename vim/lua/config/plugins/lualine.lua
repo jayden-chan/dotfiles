@@ -3,8 +3,8 @@ return {
 	utils.mirror("lualine.nvim"),
 	dependencies = {
 		-- dir = "~/Dev/Personal/base46.nvim",
-		utils.mirror("nvim-web-devicons"),
 		utils.mirror("base46.nvim"),
+		utils.mirror("nvim-web-devicons"),
 	},
 	config = function()
 		---        ---

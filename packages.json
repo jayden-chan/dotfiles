@@ -72,7 +72,8 @@
       "kubectl",
       "helm",
       "kind-bin",
-      "k9s"
+      "k9s",
+      "zoom"
     ],
     "swift": [
       "light",
@@ -160,7 +161,6 @@
       "gvfs-mtp",
       "spotify",
       "inotify-tools",
-      "python-pynvim",
       "fd",
       "webp-pixbuf-loader",
       "rust-analyzer",

@@ -4,6 +4,6 @@ return {
 	end,
 	theme = {
 		color_base = "base46",
-		theme = "gruvchad",
+		theme = "everforest",
 	},
 }
