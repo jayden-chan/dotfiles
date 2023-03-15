@@ -233,7 +233,8 @@
       "nmap",
       "bc",
       "volta-bin",
-      "lazygit"
+      "lazygit",
+      "neofetch"
     ]
   },
   "ignored": [

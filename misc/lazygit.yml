@@ -23,6 +23,7 @@ keybinding:
     scrollDownMain-alt1: "K"
   files:
     commitChanges: null
+    ignoreFile: "h"
     amendLastCommit: "A"
     commitChangesWithEditor: "c"
 git:
