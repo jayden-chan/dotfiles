@@ -41,11 +41,11 @@ return {
 				completion = {
 					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
 					col_offset = -3,
-					side_padding = 0,
+					side_padding = 1,
 				},
 			},
 			formatting = {
-				fields = { "kind", "abbr", "menu" },
+				fields = { "abbr", "kind" },
 				format = function(entry, vim_item)
 					local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
 					local strings = vim.split(kind.kind, "%s", { trimempty = true })
@@ -57,9 +57,7 @@ return {
 						strings[2] = "Type Parameter"
 					end
 
-					kind.kind = " " .. strings[1] .. " "
-					kind.menu = "    (" .. strings[2] .. ")"
-
+					kind.kind = " " .. strings[1] .. " " .. strings[2]
 					return kind
 				end,
 			},
