@@ -3,7 +3,7 @@
 # Based on:
 # https://github.com/LukeSmithxyz/st/blob/0af4782a47cc1b0918bdc41fb61b1a5d358f75f6/st-urlhandler
 
-urlregex='((http|https|git|ftp|ftps|ssh)://((?:\w+(?:(?:\.|@)\w+)+)|(localhost)|(\d+\.\d+\.\d+\.\d+))(:\d+)?[-.=&?_a-zA-Z0-9#%/~]+)'
+urlregex='((http|https|git|ftp|ftps|ssh)://((?:\w[a-zA-Z0-9_-]*(?:(?:\.|@)\w+)+)|(localhost)|(\d+\.\d+\.\d+\.\d+))(:\d{1,5})?[-.=&?_a-zA-Z0-9#%/~]+)'
 pathregex='((?:\s|^)(?:~|\.|\.\.)?(?:/(?:[a-zA-Z_.-])(?:[a-zA-Z0-9_.-])*)+)'
 
 # make the script work across multiple lines and
