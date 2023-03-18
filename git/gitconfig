@@ -44,8 +44,8 @@
     features = decorations
     side-by-side = true
     syntax-theme = ansi
-    plus-style = syntax auto
-    minus-style = syntax auto
+    plus-style = syntax "#165422"
+    minus-style = syntax "#69262b"
     paging = always
 
 [delta "interactive"]

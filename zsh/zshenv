@@ -43,6 +43,7 @@ export VOLTA_HOME="$HOME/.local/share/volta"
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
+export COLORTERM="truecolor"
 export DOT="$HOME/.config/dotfiles"
 
 export DO_NOT_TRACK=1
