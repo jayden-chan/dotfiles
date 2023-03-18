@@ -5,15 +5,6 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		local present, base46 = pcall(require, "base46")
-		if not present then
-			return
-		end
-		local theme_opts = {
-			base = utils.theme.color_base,
-			theme = utils.theme.theme,
-			transparency = false,
-		}
-		base46.load_theme(theme_opts)
+		LoadBase46ColorScheme(utils.theme.name)
 	end,
 }
