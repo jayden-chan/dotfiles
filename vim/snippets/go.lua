@@ -77,4 +77,15 @@ func ({1}) {2}({3}) {4}{{
 			{ repeat_duplicates = true }
 		)
 	),
+	s(
+		"gof",
+		fmt(
+			[[
+go func({1}) {{
+	{2}
+}}()
+]],
+			{ i(1), i(0) }
+		)
+	),
 }
