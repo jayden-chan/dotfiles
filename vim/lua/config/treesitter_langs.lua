@@ -8,6 +8,7 @@ local base = {
 	"go",
 	"graphql",
 	"hcl",
+	"html",
 	"http",
 	"java",
 	"javascript",
