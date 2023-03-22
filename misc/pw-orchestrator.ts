@@ -382,20 +382,6 @@ const config = {
             type: "cycle",
             actions: [
               [
-                { type: "led::set", button: "Rec Arm", color: "OFF" },
-                {
-                  type: "midi",
-                  events: [
-                    {
-                      type: "CONTROL_CHANGE",
-                      channel: 5,
-                      controller: 10,
-                      value: 0,
-                    },
-                  ],
-                },
-              ],
-              [
                 { type: "led::set", button: "Rec Arm", color: "ON" },
                 {
                   type: "midi",
@@ -405,6 +391,20 @@ const config = {
                       channel: 5,
                       controller: 10,
                       value: 127,
+                    },
+                  ],
+                },
+              ],
+              [
+                { type: "led::set", button: "Rec Arm", color: "OFF" },
+                {
+                  type: "midi",
+                  events: [
+                    {
+                      type: "CONTROL_CHANGE",
+                      channel: 5,
+                      controller: 10,
+                      value: 0,
                     },
                   ],
                 },
