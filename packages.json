@@ -9,9 +9,6 @@
       "arm-none-eabi-newlib",
       "arm-none-eabi-gcc",
       "img2pdf",
-      "docker",
-      "docker-compose",
-      "docker-buildx",
       "obs-studio",
       "discord",
       "python-llfuse",
@@ -29,7 +26,6 @@
       "discord-chat-exporter-cli",
       "dive-bin",
       "inkscape",
-      "libva-vdpau-driver-chromium",
       "lutris",
       "wine-staging",
       "wine-gecko",
@@ -39,7 +35,6 @@
       "nvidia-dkms",
       "guitarix",
       "wmname",
-      "cheese",
       "aether.lv2",
       "alsa-utils",
       "midish",
@@ -73,7 +68,8 @@
       "helm",
       "kind-bin",
       "k9s",
-      "zoom"
+      "zoom",
+      "openscad"
     ],
     "swift": [
       "light",
@@ -234,7 +230,10 @@
       "bc",
       "volta-bin",
       "lazygit",
-      "neofetch"
+      "neofetch",
+      "guvcview",
+      "podman",
+      "fuse-overlayfs"
     ]
   },
   "ignored": [
