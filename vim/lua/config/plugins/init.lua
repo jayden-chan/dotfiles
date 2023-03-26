@@ -41,4 +41,18 @@ require("lazy").setup({
 	require("config.plugins.gitlinker"),
 	require("config.plugins.vim-helm"),
 	require("config.plugins.luasnip"),
+}, {
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"matchparen",
+				"gzip",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"zipPlugin",
+				"tutor",
+			},
+		},
+	},
 })
