@@ -7,6 +7,7 @@ vim.opt.fillchars = vim.opt.fillchars + "diff: "
 vim.opt.termguicolors = true
 
 vim.opt.swapfile = false
+vim.opt.updatetime = 300
 
 -- Tab settings
 vim.opt.expandtab = true
@@ -70,9 +71,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 
 -- Change cursor to bar and underscore for different modes
-vim.cmd([[let &t_SI = "\<Esc>[6 q"]])
-vim.cmd([[let &t_SR = "\<Esc>[4 q"]])
-vim.cmd([[let &t_EI = "\<Esc>[2 q"]])
+vim.opt.guicursor = "a:blinkwait1-blinkon1-blinkoff1,n-v:block,i-ci-ve:ver1,r:hor1"
 
 -- Leader
 vim.g.mapleader = " "
