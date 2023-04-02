@@ -521,6 +521,19 @@ const config = {
         ],
       },
     },
+    "Button 11": {
+      type: "button",
+      defaultLEDState: "AMBER",
+      onPress: {
+        actions: [
+          {
+            type: "command",
+            command:
+              "ha set_led_strip on $(convert /usr/share/backgrounds/wall +dither -colors 1 -unique-colors txt: | rg '(#[0-9A-F]{6})' --only-matching --replace='$1')",
+          },
+        ],
+      },
+    },
     "Stop All Clips": {
       type: "button",
       onPress: {
