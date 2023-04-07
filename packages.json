@@ -65,7 +65,8 @@
       "dolphin-emu",
       "prismlauncher-qt5-bin",
       "zoom",
-      "openscad"
+      "openscad",
+      "podman-compose"
     ],
     "swift": [
       "light",
