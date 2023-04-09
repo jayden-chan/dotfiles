@@ -41,6 +41,7 @@ require("lazy").setup({
 	require("config.plugins.gitlinker"),
 	require("config.plugins.vim-helm"),
 	require("config.plugins.luasnip"),
+	require("config.plugins.leap"),
 }, {
 	performance = {
 		rtp = {
