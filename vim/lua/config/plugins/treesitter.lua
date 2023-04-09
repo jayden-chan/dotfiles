@@ -7,7 +7,6 @@ return {
 	ft = ts_config.extended,
 	dependencies = {
 		utils.mirror("nvim-treesitter-textobjects"),
-		utils.mirror("spellsitter.nvim"),
 		utils.mirror("playground"),
 	},
 	config = function()
@@ -46,8 +45,6 @@ return {
 				},
 			},
 		})
-
-		require("spellsitter").setup()
 
 		local augroup = vim.api.nvim_create_augroup("TreesitterSpell", { clear = true })
 
