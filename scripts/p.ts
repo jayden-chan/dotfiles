@@ -1,7 +1,8 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run=paccache,yay --no-lock
+#!/usr/bin/env -S deno run --allow-read --allow-env --allow-write --allow-run=paccache,yay --no-lock
 
 const HOST = Deno.readTextFileSync("/etc/hostname").trim();
-const PACKAGES_PATH = "/home/jayden/.config/dotfiles/packages.json";
+const HOME = Deno.env.get("HOME") ?? "/home/jayden";
+const PACKAGES_PATH = `${HOME}/.config/dotfiles/packages.json`;
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
 function usage() {
@@ -35,14 +36,14 @@ type Packages = {
 /**
  * @param {Object} packages Packages list
  */
-function writePackagesList(packages: Packages) {
+function writePackagesList(packages: Packages): void {
   Deno.writeTextFileSync(
     PACKAGES_PATH,
     JSON.stringify(packages, null, 2) + "\n"
   );
 }
 
-function checkBootMount() {
+function checkBootMount(): boolean {
   const mountInfo = Deno.readTextFileSync("/proc/mounts");
   const isMounted = /\/dev\/\w+ \/boot /.test(mountInfo);
   if (isMounted) {
@@ -166,7 +167,7 @@ async function handleYayCommand(
 /**
  * @param {Object} packages Packages list
  */
-async function verifyPackages(packages: Packages) {
+async function verifyPackages(packages: Packages): void {
   const p = Deno.run({
     cmd: ["yay", "-Qq"],
     stderr: "piped",
@@ -194,7 +195,7 @@ async function verifyPackages(packages: Packages) {
 /**
  * @param {Object} packages Package list
  */
-async function showUnlisted(packages: Packages) {
+async function showUnlisted(packages: Packages): void {
   const p = Deno.run({
     cmd: ["yay", "-Qqettn"],
     stderr: "piped",
@@ -217,7 +218,7 @@ async function showUnlisted(packages: Packages) {
     .forEach((notListed) => console.log(notListed));
 }
 
-async function list() {
+async function list(): void {
   const p1 = Deno.run({
     cmd: ["yay", "-Qqettn"],
     stderr: "piped",
@@ -251,7 +252,7 @@ async function list() {
   console.log(aur);
 }
 
-async function main() {
+async function main(): Promise<void> {
   const packages = JSON.parse(Deno.readTextFileSync(PACKAGES_PATH));
   const command = Deno.args[0];
   const args = Deno.args.slice(1);
@@ -307,12 +308,10 @@ async function main() {
   }
 }
 
-(async () => {
-  let code;
-  try {
-    code = await main();
-  } catch (e) {
-    code = e;
-  }
-  Deno.exit(code);
-})();
+let code;
+try {
+  code = await main();
+} catch (e) {
+  code = e;
+}
+Deno.exit(code);
