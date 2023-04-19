@@ -259,14 +259,21 @@ function mullvad_ns () {
 
     if [ "$command" = "up" ]; then
         conf="$1"
+        if [ "$1" = "" ]; then
+            echo "Provide a path to the WireGuard config file"
+            return
+        fi
+
+        # extract the interface IP from the config file
         addr=$(< "$conf" rg 'Address\s+=\s+(\d+\.\d+\.\d+\.\d+/\d+)' --only-matching --replace='$1')
+        # extract the DNS IP from the config file
         dns=$(< "$conf" rg 'DNS\s+=\s+(\d+\.\d+\.\d+\.\d+)' --only-matching --replace='$1')
 
         set -x
         sudo ip netns add $NS
         sudo ip link add $WGIF type wireguard
-        sudo wg setconf $WGIF $conf
         sudo ip link set $WGIF netns $NS
+        sudo ip netns exec $NS wg setconf $WGIF $conf
         sudo ip -n $NS addr add $addr dev $WGIF
         sudo ip -n $NS link set lo up
         sudo ip -n $NS link set $WGIF up
