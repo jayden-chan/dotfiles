@@ -214,7 +214,8 @@
       "neofetch",
       "guvcview",
       "podman",
-      "fuse-overlayfs"
+      "fuse-overlayfs",
+      "atuin"
     ]
   },
   "ignored": [
