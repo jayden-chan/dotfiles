@@ -124,7 +124,7 @@ fi
 eval "$(starship init zsh)"
 
 # initialize atuin
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # if tmux is executable, X is running, and not inside a tmux session.
 #   try attach to a detatched session. if there aren't any then create a new one
