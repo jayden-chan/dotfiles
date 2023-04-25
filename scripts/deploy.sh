@@ -96,6 +96,7 @@ ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
 ln -fs ~/.config/dotfiles/misc/lazygit.yml       ~/.config/lazygit/config.yml
 ln -fs ~/.config/dotfiles/misc/st.desktop        ~/.local/share/applications/
 
+ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop       ~/.local/share/applications/
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
 
 # set default apps
