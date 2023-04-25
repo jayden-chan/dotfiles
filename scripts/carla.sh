@@ -4,7 +4,8 @@
 pgrep -x carla > /dev/null && exit
 
 echo "[carla.sh] [$(date)] Starting pw-orchestrator and Carla" >> ~/.xsession-errors
-pw-orchestrator daemon =($DOT/misc/pw-orchestrator.ts) &
+$DOT/misc/pw-orchestrator.ts > /tmp/pw-orchestrator-config.json
+pw-orchestrator daemon /tmp/pw-orchestrator-config.json &
 sleep 1
 ~/Dev/Testing/Carla/source/frontend/carla ~/Documents/Default.carxp
 echo "[carla.sh] [$(date)] Carla exiting, killing pw-orchestrator instances" >> ~/.xsession-errors

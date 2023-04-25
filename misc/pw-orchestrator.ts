@@ -1,5 +1,7 @@
 #!/usr/bin/env -S deno run --allow-env --no-lock
 
+const HOME = Deno.env.get("HOME") ?? "/home/jayden";
+
 const SYSTEM_EQ = "System Equalizer";
 const DX5_OUT = "Topping DX5 Output";
 const QC35_OUT = "Bose QuietComfort 35";
@@ -14,34 +16,30 @@ const SYSTEM_EQ_OUT_R = { node: SYSTEM_EQ, port: "out_r" };
 const DX5_L = { node: DX5_OUT, port: "playback_FL" };
 const DX5_R = { node: DX5_OUT, port: "playback_FR" };
 
-const SCARLETT_GUITAR = { node: "Scarlett Meter", port: "OutR" };
-
 const AOUT_OUT_L = { node: "Audio Output", port: "monitor_FL" };
 const AOUT_OUT_R = { node: "Audio Output", port: "monitor_FR" };
 const AOUT_IN_L = { node: "Audio Output", port: "playback_FL" };
 const AOUT_IN_R = { node: "Audio Output", port: "playback_FR" };
 
-const METAL_AMP = { node: "Metal Amp", port: "Audio Input 1" };
-const METAL_AMP_L = { node: "Metal Amp", port: "Audio Output 1" };
-const METAL_AMP_R = { node: "Metal Amp", port: "Audio Output 2" };
-const CLEAN_AMP = { node: "Clean Amp", port: "Audio Input 1" };
-const CLEAN_AMP_L = { node: "Clean Amp", port: "Audio Output 1" };
-const CLEAN_AMP_R = { node: "Clean Amp", port: "Audio Output 2" };
+const MIC_SINK_OUT_L = { node: "Mic Sink", port: "monitor_FL" };
+const MIC_SINK_OUT_R = { node: "Mic Sink", port: "monitor_FR" };
+const MIC_SINK_IN_L = { node: "Mic Sink", port: "playback_FL" };
+const MIC_SINK_IN_R = { node: "Mic Sink", port: "playback_FR" };
+
 const QC35_L = { node: QC35_OUT, port: "playback_FL" };
 const QC35_R = { node: QC35_OUT, port: "playback_FR" };
 
-const home = Deno.env.get("HOME") ?? "/home/jayden";
-
-const MIXER_R = (num: number) => ({
+const MIXER_OUT_R = (num: number) => ({
   node: "Mixer",
-  port: `Audio Input ${num * 2}`,
-});
-const MIXER_L = (num: number) => ({
-  node: "Mixer",
-  port: `Audio Input ${num * 2 - 1}`,
+  port: `Audio Output ${num * 2}`,
 });
 
-const DIAL_MANAGER = (dial: number, button: string, rangeEnd?: number) => {
+const MIXER_OUT_L = (num: number) => ({
+  node: "Mixer",
+  port: `Audio Output ${num * 2 - 1}`,
+});
+
+const DIAL_MANAGER = (dial: number, button: string, rangeEnd: number) => {
   const dialStr = `Dial ${dial}`;
   return {
     type: "button",
@@ -70,7 +68,7 @@ const DIAL_MANAGER = (dial: number, button: string, rangeEnd?: number) => {
             ],
             [
               { type: "led::set", button, color: "AMBER" },
-              { type: "range", dial: dialStr, range: [0, rangeEnd ?? 0.5] },
+              { type: "range", dial: dialStr, range: [0, rangeEnd] },
             ],
           ],
         },
@@ -83,48 +81,16 @@ const DIAL_MANAGER = (dial: number, button: string, rangeEnd?: number) => {
           type: "cycle",
           actions: [
             [
-              {
-                type: UNLINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2 - 1}` },
-                dest: { node: "Mic Sink", port: "playback_FL" },
-              },
-              {
-                type: UNLINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2}` },
-                dest: { node: "Mic Sink", port: "playback_FR" },
-              },
-              {
-                type: LINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2 - 1}` },
-                dest: AOUT_IN_L,
-              },
-              {
-                type: LINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2}` },
-                dest: AOUT_IN_R,
-              },
+              { type: UNLINK, src: MIXER_OUT_L(dial), dest: MIC_SINK_IN_L },
+              { type: UNLINK, src: MIXER_OUT_R(dial), dest: MIC_SINK_IN_R },
+              { type: LINK, src: MIXER_OUT_L(dial), dest: AOUT_IN_L },
+              { type: LINK, src: MIXER_OUT_R(dial), dest: AOUT_IN_R },
             ],
             [
-              {
-                type: UNLINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2 - 1}` },
-                dest: AOUT_IN_L,
-              },
-              {
-                type: UNLINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2}` },
-                dest: AOUT_IN_R,
-              },
-              {
-                type: LINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2 - 1}` },
-                dest: { node: "Mic Sink", port: "playback_FL" },
-              },
-              {
-                type: LINK,
-                src: { node: "Mixer", port: `Audio Output ${dial * 2}` },
-                dest: { node: "Mic Sink", port: "playback_FR" },
-              },
+              { type: UNLINK, src: MIXER_OUT_L(dial), dest: AOUT_IN_L },
+              { type: UNLINK, src: MIXER_OUT_R(dial), dest: AOUT_IN_R },
+              { type: LINK, src: MIXER_OUT_L(dial), dest: MIC_SINK_IN_L },
+              { type: LINK, src: MIXER_OUT_R(dial), dest: MIC_SINK_IN_R },
             ],
           ],
         },
@@ -164,7 +130,7 @@ const SFX = (
   button: string,
   path: string,
   volume: number,
-  cancelable?: boolean
+  cancelable: boolean
 ) => {
   return {
     type: "button",
@@ -175,9 +141,9 @@ const SFX = (
           type: "command",
           cancelable: cancelable !== undefined ? cancelable : false,
           onFinish: [{ type: "led::set", button, color: "GREEN" }],
-          command: `mpv --no-config --volume=${
-            volume ?? 100
-          } --no-terminal --audio-device=pulse/mic-sink ${path}`,
+          command: `mpv --no-config --volume=${volume.toFixed(
+            0
+          )} --no-terminal --audio-device=pulse/mic-sink ${path}`,
         },
         { type: "led::set", button, color: "AMBER" },
       ],
@@ -224,13 +190,9 @@ const eqPresetActions = (name: string, button: string) => {
 const EQ_PRESET = (name: string, button: string) => {
   return {
     type: "button",
-    defaultLEDState: "AMBER",
-    onLongPress: {
-      actions: eqPresetActions("sink-Flat", button),
-    },
-    onPress: {
-      actions: eqPresetActions(name, button),
-    },
+    defaultLEDStateAlways: "AMBER",
+    onLongPress: { actions: eqPresetActions("sink-Flat", button) },
+    onPress: { actions: eqPresetActions(name, button) },
   };
 };
 
@@ -244,8 +206,34 @@ const EQ_PRESET_BINDS = {
 };
 const ALL_EQ_BUTTONS = Object.keys(EQ_PRESET_BINDS);
 
+const SFX_BINDS: Record<string, [string, number, boolean]> = {
+  "Button 33": ["~/Documents/SFX/knock.mp3", 100, false],
+  "Button 34": ["~/Documents/SFX/discord.wav", 80, false],
+  "Button 35": ["~/Documents/SFX/Badum_tss.mp3", 70, false],
+  "Button 36": ["~/Documents/SFX/rev_it_up.mp3", 70, true],
+  "Button 25": ["~/Documents/SFX/Gentlemen.mp3", 80, true],
+  "Button 26": ["~/Documents/SFX/ritz.mp3", 65, true],
+  "Button 27": ["~/Documents/SFX/chips.mp3", 55, true],
+  "Button 28": ["~/Documents/SFX/Allahu_Akbar.mp3", 55, true],
+  "Button 17": ["~/Documents/SFX/csgo_ready.opus", 100, true],
+  "Button 18": ["~/Documents/SFX/NFL_fuzz2.ogg", 46, true],
+  "Button 19": ["~/Documents/SFX/NFL_clean.ogg", 63, true],
+};
+
+const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
+  "Button 37": [1, 0.5],
+  "Button 38": [2, 0.5],
+  "Button 39": [3, 0.5],
+  "Button 40": [4, 0.5],
+  "Button 29": [5, 0.5],
+  "Button 30": [6, 0.5],
+  "Button 31": [7, 0.5],
+  "Button 32": [8, 0.35],
+};
+
 const config = {
   device: "APC Key 25 MIDI",
+  stateFile: `${HOME}/.local/state/pw-orchestrator.json`,
   inputMidi: "virt:2",
   outputMidi: "virt:1",
   connections: [
@@ -263,7 +251,7 @@ const config = {
     ["Virtual Raw MIDI 4-1", "APC Key 25"],
     ["Virtual Raw MIDI 5-1", "APC Key 25"],
   ],
-  lv2Path: `/usr/lib/lv2:${home}/.config/dotfiles/afx/lv2`,
+  lv2Path: `/usr/lib/lv2:${HOME}/.config/dotfiles/afx/lv2`,
   pipewire: {
     plugins: [
       {
@@ -315,6 +303,8 @@ const config = {
           { type: LINK, src: SYSTEM_EQ_OUT_R, dest: DX5_R },
           { type: LINK, src: SYSTEM_EQ_OUT_L, dest: QC35_L },
           { type: LINK, src: SYSTEM_EQ_OUT_R, dest: QC35_R },
+          { type: LINK, src: MIC_SINK_OUT_L, dest: SYSTEM_EQ_IN_L },
+          { type: LINK, src: MIC_SINK_OUT_R, dest: SYSTEM_EQ_IN_R },
         ],
       },
       {
@@ -473,14 +463,14 @@ const config = {
         ],
       },
     },
-    "Button 9": {
+    "Button 13": {
       type: "button",
-      defaultLEDState: "GREEN",
+      defaultLEDStateAlways: "GREEN",
       onPress: {
         actions: [
           {
             type: "command",
-            command: `picom --config ${home}/.config/dotfiles/misc/picom.conf`,
+            command: `picom --config ~/.config/dotfiles/misc/picom.conf`,
           },
           { type: "led::set", button: "Button 9", color: "GREEN" },
         ],
@@ -497,7 +487,7 @@ const config = {
         ],
       },
     },
-    "Button 10": {
+    "Button 14": {
       type: "button",
       defaultLEDState: "RED",
       onPress: {
@@ -521,7 +511,7 @@ const config = {
         ],
       },
     },
-    "Button 11": {
+    "Button 15": {
       type: "button",
       defaultLEDState: "AMBER",
       onPress: {
@@ -534,13 +524,37 @@ const config = {
         ],
       },
     },
+    "Button 16": {
+      type: "button",
+      defaultLEDState: "RED",
+      onPress: {
+        actions: [
+          {
+            type: "command",
+            command:
+              "~/.config/dotfiles/misc/pw-orchestrator.ts > /tmp/pw-orchestrator-config.json",
+            cancelable: false,
+            onFinish: [
+              { type: "config::reload" },
+              {
+                type: "command",
+                command: `notify-send "PipeWire Orchestrator" "Reloading config"`,
+              },
+            ],
+          },
+        ],
+      },
+    },
     "Stop All Clips": {
       type: "button",
       onPress: {
         actions: [
           {
             type: "cancel",
-            alt: { type: "command", command: "notify-send testing bruh" },
+            alt: {
+              type: "command",
+              command: `notify-send "PipeWire Orchestrator" "No pending action to cancel"`,
+            },
           },
         ],
       },
@@ -635,46 +649,30 @@ const config = {
                 {
                   type: UNLINK,
                   src: { node: "Microphone", port: "capture_FL" },
-                  dest: { node: "Audio Output", port: "playback_FL" },
+                  dest: AOUT_IN_L,
                 },
                 {
                   type: UNLINK,
                   src: { node: "Microphone", port: "capture_FR" },
-                  dest: { node: "Audio Output", port: "playback_FR" },
+                  dest: AOUT_IN_R,
                 },
-                {
-                  type: LINK,
-                  src: { node: "Mic Sink", port: "monitor_FL" },
-                  dest: { node: "Audio Output", port: "playback_FL" },
-                },
-                {
-                  type: LINK,
-                  src: { node: "Mic Sink", port: "monitor_FR" },
-                  dest: { node: "Audio Output", port: "playback_FR" },
-                },
+                { type: LINK, src: MIC_SINK_OUT_L, dest: SYSTEM_EQ_IN_L },
+                { type: LINK, src: MIC_SINK_OUT_R, dest: SYSTEM_EQ_IN_R },
               ],
               [
                 { type: "led::set", button: "Send", color: "ON" },
                 {
                   type: LINK,
                   src: { node: "Microphone", port: "capture_FL" },
-                  dest: { node: "Audio Output", port: "playback_FL" },
+                  dest: AOUT_IN_L,
                 },
                 {
                   type: LINK,
                   src: { node: "Microphone", port: "capture_FR" },
-                  dest: { node: "Audio Output", port: "playback_FR" },
+                  dest: AOUT_IN_R,
                 },
-                {
-                  type: UNLINK,
-                  src: { node: "Mic Sink", port: "monitor_FL" },
-                  dest: { node: "Audio Output", port: "playback_FL" },
-                },
-                {
-                  type: UNLINK,
-                  src: { node: "Mic Sink", port: "monitor_FR" },
-                  dest: { node: "Audio Output", port: "playback_FR" },
-                },
+                { type: UNLINK, src: MIC_SINK_OUT_L, dest: SYSTEM_EQ_IN_L },
+                { type: UNLINK, src: MIC_SINK_OUT_R, dest: SYSTEM_EQ_IN_R },
               ],
             ],
           },
@@ -752,23 +750,6 @@ const config = {
         ],
       },
     },
-    "Button 33": SFX("Button 33", "~/Documents/SFX/knock.mp3", 100),
-    "Button 34": SFX("Button 34", "~/Documents/SFX/discord.wav", 80),
-    "Button 35": SFX("Button 35", "~/Documents/SFX/Badum_tss.mp3", 70),
-    "Button 36": SFX("Button 36", "~/Documents/SFX/rev_it_up.mp3", 70, true),
-    "Button 25": SFX("Button 25", "~/Documents/SFX/Gentlemen.mp3", 90, true),
-    "Button 26": SFX("Button 26", "~/Documents/SFX/ritz.mp3", 80, true),
-    "Button 27": SFX("Button 27", "~/Documents/SFX/chips.mp3", 55, true),
-    "Button 28": SFX("Button 28", "~/Documents/SFX/Allahu_Akbar.mp3", 55, true),
-    "Button 17": SFX("Button 17", "~/Documents/SFX/csgo_ready.opus", 100, true),
-    "Button 37": DIAL_MANAGER(1, "Button 37"),
-    "Button 38": DIAL_MANAGER(2, "Button 38"),
-    "Button 39": DIAL_MANAGER(3, "Button 39"),
-    "Button 40": DIAL_MANAGER(4, "Button 40"),
-    "Button 29": DIAL_MANAGER(5, "Button 29"),
-    "Button 30": DIAL_MANAGER(6, "Button 30"),
-    "Button 31": DIAL_MANAGER(7, "Button 31"),
-    "Button 32": DIAL_MANAGER(8, "Button 32", 0.35),
     "Dial 1": PASSTHROUGH(16),
     "Dial 2": PASSTHROUGH(17),
     "Dial 3": PASSTHROUGH(18),
@@ -782,6 +763,14 @@ const config = {
 
 Object.entries(EQ_PRESET_BINDS).forEach(([button, eqPreset]) => {
   config.bindings[button] = EQ_PRESET(eqPreset, button);
+});
+
+Object.entries(SFX_BINDS).forEach(([button, sfxBind]) => {
+  config.bindings[button] = SFX(button, ...sfxBind);
+});
+
+Object.entries(DIAL_MANAGER_BINDS).forEach(([button, [dial, rangeEnd]]) => {
+  config.bindings[button] = DIAL_MANAGER(dial, button, rangeEnd);
 });
 
 console.log(JSON.stringify(config));
