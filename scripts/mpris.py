@@ -254,6 +254,10 @@ class Player:
                 metadata['artist'] = split_string[0].strip()
                 metadata['title'] = split_string[1].strip()
 
+            if metadata['artist'] == "":
+                self._print('')
+                return
+
             fmt_string = FORMAT_STRING_ALT if len(metadata['artist'].strip()) == 0 else FORMAT_STRING
             text = re.sub(FORMAT_REGEX, '', fmt_string)
 
