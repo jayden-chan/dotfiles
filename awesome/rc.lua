@@ -77,9 +77,11 @@ local gpu_screen_recorder_cmd = "gpu-screen-recorder"
 	.. " -f 60" -- framerate
 	.. " -q very_high" -- quality
 	.. " -r 150" -- number of seconds in record buffer
-	.. " -a carla-sink.monitor" -- audio device
-	.. " -a carla-source" -- audio device
+	.. " -a audio-sink.monitor" -- audio playback
+	.. " -a carla-source" -- microphone
+	.. " -ac opus" -- audio codec
 	.. " -k h265" -- codec
+	.. " -v no" -- don't print framerate updates
 	.. " -o " -- output path
 	.. home
 	.. "/Videos/replays"
