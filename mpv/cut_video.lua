@@ -1,5 +1,4 @@
 local mp = require("mp")
-local utils = require("mp.utils")
 
 local start_pos = nil
 local end_pos = nil
@@ -11,7 +10,7 @@ local function timestamp(duration)
 	return string.format("%02d:%02d:%02.03f", hours, minutes, seconds)
 end
 
-function toggle_mark()
+local function toggle_mark()
 	local pos = mp.get_property_number("time-pos")
 	if start_pos == nil then
 		start_pos = pos
@@ -26,7 +25,7 @@ function toggle_mark()
 	end
 end
 
-function create_clip()
+local function create_clip()
 	if start_pos == nil or end_pos == nil then
 		mp.osd_message("Missing marks")
 		return
