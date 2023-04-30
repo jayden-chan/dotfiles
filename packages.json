@@ -61,7 +61,8 @@
       "dolphin-emu",
       "prismlauncher-qt5-bin",
       "openscad",
-      "podman-compose"
+      "podman-compose",
+      "alsa-scarlett-gui"
     ],
     "swift": [
       "light",
