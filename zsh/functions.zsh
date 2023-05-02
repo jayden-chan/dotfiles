@@ -16,6 +16,7 @@ alias decompress='tar xfJ'
 # kube
 function kw () { kubectl "$@" -o wide }
 function kww () { kubectl "$@" -o wide -w }
+function kns () { kubectl config set-context --current --namespace="$1" }
 
 function gig () {
     if [[ "$1" == "ls" ]]; then
