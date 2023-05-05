@@ -3,40 +3,57 @@
 const HOME = Deno.env.get("HOME") ?? "/home/jayden";
 
 const SYSTEM_EQ = "System Equalizer";
-const DX5_OUT = "Topping DX5 Output";
-const QC35_OUT = "Bose QuietComfort 35";
+const DX5_DEV = "Topping DX5 Output";
+const S_4i4_DEV = "Scarlett 4i4";
+const QC_35_DEV = "Bose QuietComfort 35";
+
 const UNLINK = "pipewire::unlink";
 const LINK = "pipewire::link";
 
-const SYSTEM_EQ_IN_L = { node: SYSTEM_EQ, port: "in_l" };
-const SYSTEM_EQ_IN_R = { node: SYSTEM_EQ, port: "in_r" };
-const SYSTEM_EQ_OUT_L = { node: SYSTEM_EQ, port: "out_l" };
-const SYSTEM_EQ_OUT_R = { node: SYSTEM_EQ, port: "out_r" };
+type InOut = "In" | "Out";
+type LR = "L" | "R";
 
-const DX5_L = { node: DX5_OUT, port: "playback_FL" };
-const DX5_R = { node: DX5_OUT, port: "playback_FR" };
+const In: InOut = "In";
+const Out: InOut = "Out";
+const L: LR = "L";
+const R: LR = "R";
 
-const AOUT_OUT_L = { node: "Audio Output", port: "monitor_FL" };
-const AOUT_OUT_R = { node: "Audio Output", port: "monitor_FR" };
-const AOUT_IN_L = { node: "Audio Output", port: "playback_FL" };
-const AOUT_IN_R = { node: "Audio Output", port: "playback_FR" };
+const pbc = (o: InOut) => (o === In ? "playback" : "capture");
+const pbm = (o: InOut) => (o === In ? "playback" : "monitor");
+const inc = (o: InOut) => (o === In ? "input" : "capture");
+const full = (o: InOut) => (o === In ? "Input" : "Output");
+const genSinkTemplate =
+  (node: string, nodeGen: (o: InOut) => string) => (o: InOut, p: LR) => ({
+    node,
+    port: `${nodeGen(o)}_F${p}`,
+  });
 
-const MIC_SINK_OUT_L = { node: "Mic Sink", port: "monitor_FL" };
-const MIC_SINK_OUT_R = { node: "Mic Sink", port: "monitor_FR" };
-const MIC_SINK_IN_L = { node: "Mic Sink", port: "playback_FL" };
-const MIC_SINK_IN_R = { node: "Mic Sink", port: "playback_FR" };
+const DX5 = genSinkTemplate(DX5_DEV, pbc);
+const AOUT = genSinkTemplate("Audio Output", pbm);
+const ASINK = genSinkTemplate("Audio Sink", pbm);
+const M_SINK = genSinkTemplate("Mic Sink", pbm);
+const QC35 = genSinkTemplate(QC_35_DEV, pbc);
+const MIC = genSinkTemplate("Microphone", inc);
+const SCARLETT_METER = (p: LR) => ({ node: "Scarlett Meter", port: `In${p}` });
 
-const QC35_L = { node: QC35_OUT, port: "playback_FL" };
-const QC35_R = { node: QC35_OUT, port: "playback_FR" };
-
-const MIXER_OUT_R = (num: number) => ({
-  node: "Mixer",
-  port: `Audio Output ${num * 2}`,
+const EQ = (o: InOut, p: LR) => ({
+  node: SYSTEM_EQ,
+  port: `${o.toLowerCase()}_${p.toLowerCase()}`,
 });
 
-const MIXER_OUT_L = (num: number) => ({
+const MIC_TOGGLE = (p: LR) => ({
+  node: "Mic Toggle",
+  port: `Audio Output ${p === L ? 1 : 2}`,
+});
+
+const MIXER = (o: InOut, p: LR, num: number) => ({
   node: "Mixer",
-  port: `Audio Output ${num * 2 - 1}`,
+  port: `Audio ${full(o)} ${p === L ? num * 2 - 1 : num * 2}`,
+});
+
+const S_4i4 = (o: InOut, p: number) => ({
+  node: `${S_4i4_DEV} ${full(o === In ? Out : In)}`,
+  port: `${pbc(o)}_AUX${p}`,
 });
 
 const DIAL_MANAGER = (dial: number, button: string, rangeEnd: number) => {
@@ -81,16 +98,16 @@ const DIAL_MANAGER = (dial: number, button: string, rangeEnd: number) => {
           type: "cycle",
           actions: [
             [
-              { type: UNLINK, src: MIXER_OUT_L(dial), dest: MIC_SINK_IN_L },
-              { type: UNLINK, src: MIXER_OUT_R(dial), dest: MIC_SINK_IN_R },
-              { type: LINK, src: MIXER_OUT_L(dial), dest: AOUT_IN_L },
-              { type: LINK, src: MIXER_OUT_R(dial), dest: AOUT_IN_R },
+              { type: UNLINK, src: MIXER(Out, L, dial), dest: M_SINK(In, L) },
+              { type: UNLINK, src: MIXER(Out, R, dial), dest: M_SINK(In, R) },
+              { type: LINK, src: MIXER(Out, L, dial), dest: ASINK(In, L) },
+              { type: LINK, src: MIXER(Out, R, dial), dest: ASINK(In, R) },
             ],
             [
-              { type: UNLINK, src: MIXER_OUT_L(dial), dest: AOUT_IN_L },
-              { type: UNLINK, src: MIXER_OUT_R(dial), dest: AOUT_IN_R },
-              { type: LINK, src: MIXER_OUT_L(dial), dest: MIC_SINK_IN_L },
-              { type: LINK, src: MIXER_OUT_R(dial), dest: MIC_SINK_IN_R },
+              { type: UNLINK, src: MIXER(Out, L, dial), dest: ASINK(In, L) },
+              { type: UNLINK, src: MIXER(Out, R, dial), dest: ASINK(In, R) },
+              { type: LINK, src: MIXER(Out, L, dial), dest: M_SINK(In, L) },
+              { type: LINK, src: MIXER(Out, R, dial), dest: M_SINK(In, R) },
             ],
           ],
         },
@@ -211,8 +228,8 @@ const SFX_BINDS: Record<string, [string, number, boolean]> = {
   "Button 34": ["~/Documents/SFX/discord.wav", 80, false],
   "Button 35": ["~/Documents/SFX/Badum_tss.mp3", 70, false],
   "Button 36": ["~/Documents/SFX/rev_it_up.mp3", 70, true],
-  "Button 25": ["~/Documents/SFX/Gentlemen.mp3", 80, true],
-  "Button 26": ["~/Documents/SFX/ritz.mp3", 65, true],
+  "Button 25": ["~/Documents/SFX/Gentlemen.mp3", 85, true],
+  "Button 26": ["~/Documents/SFX/ritz.mp3", 70, true],
   "Button 27": ["~/Documents/SFX/chips.mp3", 55, true],
   "Button 28": ["~/Documents/SFX/Allahu_Akbar.mp3", 55, true],
   "Button 17": ["~/Documents/SFX/csgo_ready.opus", 100, true],
@@ -270,7 +287,7 @@ const config = {
       { node: "WEBRTC VoiceEngine", mixerChannel: 7 },
       { node: "spotify", mixerChannel: 8 },
       {
-        node: QC35_OUT,
+        node: QC_35_DEV,
         onDisconnect: [
           ...eqPresetActions(
             "sink-QC35",
@@ -278,8 +295,8 @@ const config = {
               (e) => e[1] === "sink-QC35"
             )![0]
           ),
-          { type: LINK, src: SYSTEM_EQ_OUT_L, dest: DX5_L },
-          { type: LINK, src: SYSTEM_EQ_OUT_R, dest: DX5_R },
+          { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
         ],
         onConnect: [
           ...eqPresetActions(
@@ -288,34 +305,52 @@ const config = {
               (e) => e[1] === "sink-QC35_Wireless"
             )![0]
           ),
-          { type: UNLINK, src: SYSTEM_EQ_OUT_L, dest: DX5_L },
-          { type: UNLINK, src: SYSTEM_EQ_OUT_R, dest: DX5_R },
-          { type: LINK, src: SYSTEM_EQ_OUT_L, dest: QC35_L },
-          { type: LINK, src: SYSTEM_EQ_OUT_R, dest: QC35_R },
+          { type: UNLINK, src: EQ(Out, L), dest: DX5(In, L) },
+          { type: UNLINK, src: EQ(Out, R), dest: DX5(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: QC35(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: QC35(In, R) },
         ],
       },
       {
         node: SYSTEM_EQ,
         onConnect: [
-          { type: LINK, src: AOUT_OUT_L, dest: SYSTEM_EQ_IN_L },
-          { type: LINK, src: AOUT_OUT_R, dest: SYSTEM_EQ_IN_R },
-          { type: LINK, src: SYSTEM_EQ_OUT_L, dest: DX5_L },
-          { type: LINK, src: SYSTEM_EQ_OUT_R, dest: DX5_R },
-          { type: LINK, src: SYSTEM_EQ_OUT_L, dest: QC35_L },
-          { type: LINK, src: SYSTEM_EQ_OUT_R, dest: QC35_R },
-          { type: LINK, src: MIC_SINK_OUT_L, dest: SYSTEM_EQ_IN_L },
-          { type: LINK, src: MIC_SINK_OUT_R, dest: SYSTEM_EQ_IN_R },
+          { type: LINK, src: ASINK(Out, L), dest: EQ(In, L) },
+          { type: LINK, src: ASINK(Out, R), dest: EQ(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: QC35(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: QC35(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: S_4i4(In, 2) },
+          { type: LINK, src: EQ(Out, R), dest: S_4i4(In, 3) },
+          { type: LINK, src: M_SINK(Out, L), dest: EQ(In, L) },
+          { type: LINK, src: M_SINK(Out, R), dest: EQ(In, R) },
         ],
       },
       {
-        node: DX5_OUT,
+        node: DX5_DEV,
         onConnect: [
-          { type: LINK, src: SYSTEM_EQ_OUT_L, dest: DX5_L },
-          { type: LINK, src: SYSTEM_EQ_OUT_R, dest: DX5_R },
+          { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
+        ],
+      },
+      {
+        node: `${S_4i4_DEV} Output`,
+        onConnect: [
+          { type: LINK, src: EQ(Out, L), dest: S_4i4(In, 2) },
+          { type: LINK, src: EQ(Out, R), dest: S_4i4(In, 3) },
+          { type: LINK, src: MIC_TOGGLE(L), dest: S_4i4(In, 0) },
+          { type: LINK, src: MIC_TOGGLE(R), dest: S_4i4(In, 0) },
+        ],
+      },
+      {
+        node: `${S_4i4_DEV} Input`,
+        onConnect: [
+          { type: LINK, src: S_4i4(Out, 0), dest: SCARLETT_METER(L) },
         ],
       },
     ],
   },
+  // deno-lint-ignore no-explicit-any
   bindings: <Record<string, any>>{
     "Play/Pause": {
       type: "button",
@@ -325,6 +360,23 @@ const config = {
           {
             type: "command",
             command: "~/.config/dotfiles/scripts/xf86.sh media PlayPause",
+          },
+        ],
+      },
+    },
+    Rec: {
+      type: "button",
+      onPress: {
+        actions: [
+          {
+            type: "command",
+            command: "killall -SIGUSR1 gpu-screen-recorder",
+            onFinish: [
+              {
+                type: "command",
+                command: `notify-send "gpu-screen-recorder" "Clip saved"`,
+              },
+            ],
           },
         ],
       },
@@ -353,16 +405,6 @@ const config = {
         ],
       },
     },
-    Up: {
-      type: "button",
-      defaultLEDState: "ON",
-      onPress: { actions: [{ type: "command", command: "xdotool key Up" }] },
-    },
-    Down: {
-      type: "button",
-      defaultLEDState: "ON",
-      onPress: { actions: [{ type: "command", command: "xdotool key Down" }] },
-    },
     "Rec Arm": {
       type: "button",
       defaultLEDState: "ON",
@@ -373,28 +415,51 @@ const config = {
             actions: [
               [
                 { type: "led::set", button: "Rec Arm", color: "ON" },
+                { type: LINK, src: S_4i4(Out, 2), dest: MIXER(In, L, 4) },
+                { type: LINK, src: S_4i4(Out, 3), dest: MIXER(In, R, 4) },
+              ],
+              [
+                { type: "led::set", button: "Rec Arm", color: "OFF" },
+                { type: UNLINK, src: S_4i4(Out, 2), dest: MIXER(In, L, 4) },
+                { type: UNLINK, src: S_4i4(Out, 3), dest: MIXER(In, R, 4) },
+              ],
+            ],
+          },
+        ],
+      },
+    },
+    Mute: {
+      type: "button",
+      defaultLEDState: "ON",
+      onPress: {
+        actions: [
+          {
+            type: "cycle",
+            actions: [
+              [
+                { type: "led::set", button: "Mute", color: "OFF" },
                 {
                   type: "midi",
                   events: [
                     {
                       type: "CONTROL_CHANGE",
-                      channel: 5,
-                      controller: 10,
-                      value: 127,
+                      channel: 4,
+                      controller: 12,
+                      value: 0,
                     },
                   ],
                 },
               ],
               [
-                { type: "led::set", button: "Rec Arm", color: "OFF" },
+                { type: "led::set", button: "Mute", color: "ON" },
                 {
                   type: "midi",
                   events: [
                     {
                       type: "CONTROL_CHANGE",
-                      channel: 5,
-                      controller: 10,
-                      value: 0,
+                      channel: 4,
+                      controller: 12,
+                      value: 127,
                     },
                   ],
                 },
@@ -403,11 +468,6 @@ const config = {
           },
         ],
       },
-    },
-    Select: {
-      type: "button",
-      defaultLEDState: "ON",
-      onPress: { actions: [{ type: "command", command: "xdotool key Enter" }] },
     },
     "Button 7": {
       type: "button",
@@ -463,7 +523,7 @@ const config = {
         ],
       },
     },
-    "Button 13": {
+    "Button 14": {
       type: "button",
       defaultLEDStateAlways: "GREEN",
       onPress: {
@@ -472,7 +532,7 @@ const config = {
             type: "command",
             command: `picom --config ~/.config/dotfiles/misc/picom.conf`,
           },
-          { type: "led::set", button: "Button 9", color: "GREEN" },
+          { type: "led::set", button: "Button 14", color: "GREEN" },
         ],
       },
       onLongPress: {
@@ -481,32 +541,8 @@ const config = {
             type: "command",
             command: "killall picom",
             onFinish: [
-              { type: "led::set", button: "Button 9", color: "AMBER" },
+              { type: "led::set", button: "Button 14", color: "AMBER" },
             ],
-          },
-        ],
-      },
-    },
-    "Button 14": {
-      type: "button",
-      defaultLEDState: "RED",
-      onPress: {
-        actions: [
-          {
-            type: "command",
-            command: "killall -SIGUSR1 gpu-screen-recorder",
-            onFinish: [
-              {
-                type: "command",
-                command: `notify-send "gpu-screen-recorder" "Clip saved"`,
-              },
-            ],
-          },
-          { type: "led::set", button: "Button 10", color: "GREEN_FLASHING" },
-          {
-            type: "command",
-            command: "sleep 3",
-            onFinish: [{ type: "led::set", button: "Button 10", color: "RED" }],
           },
         ],
       },
@@ -646,33 +682,17 @@ const config = {
             actions: [
               [
                 { type: "led::set", button: "Send", color: "OFF" },
-                {
-                  type: UNLINK,
-                  src: { node: "Microphone", port: "capture_FL" },
-                  dest: AOUT_IN_L,
-                },
-                {
-                  type: UNLINK,
-                  src: { node: "Microphone", port: "capture_FR" },
-                  dest: AOUT_IN_R,
-                },
-                { type: LINK, src: MIC_SINK_OUT_L, dest: SYSTEM_EQ_IN_L },
-                { type: LINK, src: MIC_SINK_OUT_R, dest: SYSTEM_EQ_IN_R },
+                { type: UNLINK, src: MIC(Out, L), dest: AOUT(In, L) },
+                { type: UNLINK, src: MIC(Out, R), dest: AOUT(In, R) },
+                { type: LINK, src: M_SINK(Out, L), dest: EQ(In, L) },
+                { type: LINK, src: M_SINK(Out, R), dest: EQ(In, R) },
               ],
               [
                 { type: "led::set", button: "Send", color: "ON" },
-                {
-                  type: LINK,
-                  src: { node: "Microphone", port: "capture_FL" },
-                  dest: AOUT_IN_L,
-                },
-                {
-                  type: LINK,
-                  src: { node: "Microphone", port: "capture_FR" },
-                  dest: AOUT_IN_R,
-                },
-                { type: UNLINK, src: MIC_SINK_OUT_L, dest: SYSTEM_EQ_IN_L },
-                { type: UNLINK, src: MIC_SINK_OUT_R, dest: SYSTEM_EQ_IN_R },
+                { type: LINK, src: MIC(Out, L), dest: AOUT(In, L) },
+                { type: LINK, src: MIC(Out, R), dest: AOUT(In, R) },
+                { type: UNLINK, src: M_SINK(Out, L), dest: EQ(In, L) },
+                { type: UNLINK, src: M_SINK(Out, R), dest: EQ(In, R) },
               ],
             ],
           },
