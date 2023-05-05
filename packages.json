@@ -62,7 +62,8 @@
       "prismlauncher-qt5-bin",
       "openscad",
       "podman-compose",
-      "alsa-scarlett-gui"
+      "alsa-scarlett-gui",
+      "swh-plugins"
     ],
     "swift": [
       "light",
