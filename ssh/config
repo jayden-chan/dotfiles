@@ -16,6 +16,12 @@ Host grace
     User jayden
     IdentityFile ~/.ssh/grace
 
+Host opnsense
+    Hostname wowtomato.jayden.codes
+    Port 22
+    User jayden
+    IdentityFile ~/.ssh/opnsense
+
 Host piwheel
     Hostname 192.168.1.73
     User pi
