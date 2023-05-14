@@ -116,7 +116,10 @@ const lspReverseSync = () => {
     jsonContents.effects[effectToEdit].settings.preamp = preamp;
     jsonContents.effects[effectToEdit].settings.bands = bands;
     jsonContents.effects[effectToEdit].settings.zoom = zoom;
-    Deno.writeTextFileSync(fullPath, JSON.stringify(jsonContents, null, 2));
+    Deno.writeTextFileSync(
+      fullPath,
+      JSON.stringify(jsonContents, null, 2) + "\n"
+    );
   }
 };
 

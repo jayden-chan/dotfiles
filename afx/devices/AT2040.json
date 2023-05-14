@@ -13,7 +13,7 @@
             "type": "highpass",
             "mode": "BWC_BT",
             "slope": 2,
-            "freq": 55.973,
+            "freq": 60,
             "Q": 0.6,
             "gain": 0
           },
@@ -21,9 +21,9 @@
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 85.812,
+            "freq": 87,
             "Q": 0.28,
-            "gain": -1.45
+            "gain": -1.1
           },
           {
             "type": "peaking",
