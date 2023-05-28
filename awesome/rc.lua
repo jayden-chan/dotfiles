@@ -586,6 +586,13 @@ local globalkeys = gears.table.join(
 	),
 
 	awful.key(
+		{ modkey, "Shift" },
+		"space",
+		script_cb("rofi.sh", { "--window" }, false),
+		{ description = "open window switcher prompt", group = "launcher" }
+	),
+
+	awful.key(
 		{ modkey, "Control" },
 		"Delete",
 		script_cb("rofi.sh", { "--power" }),

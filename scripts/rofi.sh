@@ -19,6 +19,8 @@ fi
 
 if [ "$1" = "--normal" ]; then
     rofi -modi drun -show drun -drun-show-actions -theme drun -theme-str "$rofi_theme"
+elif [ "$1" = "--window" ]; then
+    rofi -modi window -show window -theme drun -theme-str "$rofi_theme"
 elif [ "$1" = "--power" ]; then
     result=$(< "$HOME/.config/dotfiles/rofi/powermenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme")
 
