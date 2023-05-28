@@ -174,7 +174,7 @@ function main() {
   if (cmd === "peq") {
     const path = args[1];
     const contents = JSON.parse(Deno.readTextFileSync(path));
-    console.log(genEqualizerAPO(contents));
+    console.log(genPeq(contents));
     return;
   }
 

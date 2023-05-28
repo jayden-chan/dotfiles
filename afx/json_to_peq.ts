@@ -30,6 +30,7 @@ export function genPeq(contents: Contents): string {
     preamp: eq.settings.preamp,
     parametric: true,
     bands: [
+      // Bass "tone knob"
       {
         type: 0,
         channels: 0,
@@ -38,6 +39,7 @@ export function genPeq(contents: Contents): string {
         gain: 0.0,
         color: 0,
       },
+      // Treble "tone knob"
       {
         type: 1,
         channels: 0,
