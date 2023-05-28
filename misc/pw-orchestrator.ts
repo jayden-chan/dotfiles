@@ -392,13 +392,7 @@ const config = {
         actions: [
           {
             type: "command",
-            command: "killall -SIGUSR1 gpu-screen-recorder",
-            onFinish: [
-              {
-                type: "command",
-                command: `notify-send "gpu-screen-recorder" "Clip saved"`,
-              },
-            ],
+            command: `killall -SIGUSR1 gpu-screen-recorder && notify-send "gpu-screen-recorder" "Clip saved" || notify-send -u critical "gpu-screen-recorder" "ERROR!!! ERROR!! Clip failed to save"`,
           },
         ],
       },
@@ -545,7 +539,7 @@ const config = {
         ],
       },
     },
-    "Button 14": {
+    "Button 15": {
       type: "button",
       defaultLEDStateAlways: "GREEN",
       onPress: {
@@ -554,7 +548,7 @@ const config = {
             type: "command",
             command: `picom --config ~/.config/dotfiles/misc/picom.conf`,
           },
-          { type: "led::set", button: "Button 14", color: "GREEN" },
+          { type: "led::set", button: "Button 15", color: "GREEN" },
         ],
       },
       onLongPress: {
@@ -563,13 +557,13 @@ const config = {
             type: "command",
             command: "killall picom",
             onFinish: [
-              { type: "led::set", button: "Button 14", color: "AMBER" },
+              { type: "led::set", button: "Button 15", color: "AMBER" },
             ],
           },
         ],
       },
     },
-    "Button 15": {
+    "Button 16": {
       type: "button",
       defaultLEDState: "AMBER",
       onPress: {
@@ -582,9 +576,9 @@ const config = {
         ],
       },
     },
-    "Button 16": {
+    "Button 22": {
       type: "button",
-      defaultLEDState: "RED",
+      defaultLEDState: "AMBER",
       onPress: {
         actions: [
           {
