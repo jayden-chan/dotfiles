@@ -1,0 +1,96 @@
+{
+  "name": "Focal Bathys",
+  "type": "sink",
+  "output": "FL FR",
+  "effects": [
+    {
+      "type": "eq",
+      "settings": {
+        "preamp": -5.6,
+        "zoom": -36,
+        "bands": [
+          {
+            "type": "lowshelf",
+            "mode": "APO_DR",
+            "slope": 0,
+            "freq": 105,
+            "Q": 0.71,
+            "gain": -1
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 430,
+            "Q": 1.2,
+            "gain": -2
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 910,
+            "Q": 1.4,
+            "gain": 7.5
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 1150,
+            "Q": 2,
+            "gain": -4.6
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 2850,
+            "Q": 6,
+            "gain": -1.5
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 3250,
+            "Q": 6,
+            "gain": -1.5
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 4000,
+            "Q": 0.7,
+            "gain": 4.5
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 4350,
+            "Q": 5,
+            "gain": -1
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 5750,
+            "Q": 5,
+            "gain": -1.5
+          },
+          {
+            "type": "highshelf",
+            "mode": "APO_DR",
+            "slope": 0,
+            "freq": 10000,
+            "Q": 0.71,
+            "gain": 1.5
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ const SYSTEM_EQ = "System Equalizer";
 const DX5_DEV = "Topping DX5 Output";
 const S_4i4_DEV = "Scarlett 4i4";
 const QC_35_DEV = "Bose QuietComfort 35";
+const BATHYS_DEV = "Focal Bathys";
 
 const UNLINK = "pipewire::unlink";
 const LINK = "pipewire::link";
@@ -33,6 +34,7 @@ const AOUT = genSinkTemplate("Audio Output", pbm);
 const ASINK = genSinkTemplate("Audio Sink", pbm);
 const M_SINK = genSinkTemplate("Mic Sink", pbm);
 const QC35 = genSinkTemplate(QC_35_DEV, pbc);
+const BATHYS = genSinkTemplate(BATHYS_DEV, pbc);
 const MIC = genSinkTemplate("Microphone", inc);
 const SCARLETT_METER = (p: LR) => ({ node: "Scarlett Meter", port: `In${p}` });
 
@@ -220,6 +222,7 @@ const EQ_PRESET_BINDS = {
   "Button 4": "sink-Companion_2",
   "Button 5": "sink-HD_560S",
   "Button 6": "sink-Focal_Clear",
+  "Button 7": "sink-Focal_Bathys",
 };
 const ALL_EQ_BUTTONS = Object.keys(EQ_PRESET_BINDS);
 
@@ -233,8 +236,10 @@ const SFX_BINDS: Record<string, [string, number, boolean]> = {
   "Button 27": ["~/Documents/SFX/chips.mp3", 55, true],
   "Button 28": ["~/Documents/SFX/Allahu_Akbar.mp3", 55, true],
   "Button 17": ["~/Documents/SFX/csgo_ready.opus", 100, true],
-  "Button 18": ["~/Documents/SFX/NFL_fuzz2.ogg", 46, true],
-  "Button 19": ["~/Documents/SFX/NFL_clean.ogg", 63, true],
+  "Button 18": ["~/Documents/SFX/NFL_fuzz2.ogg", 55, true],
+  "Button 19": ["~/Documents/SFX/NFL_clean.ogg", 70, true],
+  "Button 20": ["~/Documents/SFX/metal_pipe.ogg", 70, true],
+  "Button 9": ["~/Documents/SFX/star_wars.ogg", 80, true],
 };
 
 const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
@@ -312,6 +317,21 @@ const config = {
         ],
       },
       {
+        node: BATHYS_DEV,
+        onConnect: [
+          ...eqPresetActions(
+            "sink-Focal_Bathys",
+            Object.entries(EQ_PRESET_BINDS).find(
+              (e) => e[1] === "sink-Focal_Bathys"
+            )![0]
+          ),
+          { type: UNLINK, src: EQ(Out, L), dest: DX5(In, L) },
+          { type: UNLINK, src: EQ(Out, R), dest: DX5(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: BATHYS(In, R) },
+        ],
+      },
+      {
         node: SYSTEM_EQ,
         onConnect: [
           { type: LINK, src: ASINK(Out, L), dest: EQ(In, L) },
@@ -320,6 +340,8 @@ const config = {
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
           { type: LINK, src: EQ(Out, L), dest: QC35(In, L) },
           { type: LINK, src: EQ(Out, R), dest: QC35(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: BATHYS(In, R) },
           { type: LINK, src: EQ(Out, L), dest: S_4i4(In, 2) },
           { type: LINK, src: EQ(Out, R), dest: S_4i4(In, 3) },
           { type: LINK, src: M_SINK(Out, L), dest: EQ(In, L) },
@@ -469,7 +491,7 @@ const config = {
         ],
       },
     },
-    "Button 7": {
+    "Button 23": {
       type: "button",
       defaultLEDState: "RED",
       onPress: {
@@ -478,14 +500,14 @@ const config = {
             type: "cycle",
             actions: [
               [
-                { type: "led::set", button: "Button 7", color: "RED" },
+                { type: "led::set", button: "Button 23", color: "RED" },
                 {
                   type: "command",
                   command: "ha input_boolean living_room_lights_toggle off",
                 },
               ],
               [
-                { type: "led::set", button: "Button 7", color: "GREEN" },
+                { type: "led::set", button: "Button 23", color: "GREEN" },
                 {
                   type: "command",
                   command: "ha input_boolean living_room_lights_toggle on",
@@ -496,7 +518,7 @@ const config = {
         ],
       },
     },
-    "Button 8": {
+    "Button 24": {
       type: "button",
       defaultLEDState: "RED",
       onPress: {
@@ -505,14 +527,14 @@ const config = {
             type: "cycle",
             actions: [
               [
-                { type: "led::set", button: "Button 8", color: "RED" },
+                { type: "led::set", button: "Button 24", color: "RED" },
                 {
                   type: "command",
                   command: "ha input_boolean led_strip_toggle off",
                 },
               ],
               [
-                { type: "led::set", button: "Button 8", color: "GREEN" },
+                { type: "led::set", button: "Button 24", color: "GREEN" },
                 {
                   type: "command",
                   command: "ha input_boolean led_strip_toggle on",
