@@ -1,0 +1,81 @@
+[
+  {
+    "name": "Companion 2",
+    "preamp": 0,
+    "parametric": true,
+    "bands": [
+      {
+        "type": 0,
+        "channels": 0,
+        "frequency": 90,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 1,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 37.352,
+        "q": 1.5,
+        "gain": 0.83,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 74.88,
+        "q": 1,
+        "gain": -1.71,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 133.275,
+        "q": 0.75,
+        "gain": -3.58,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 603.285,
+        "q": 0.25,
+        "gain": -0.75,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 2152.592,
+        "q": 2.25,
+        "gain": 0.1,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 4395.048,
+        "q": 0.2,
+        "gain": -1.45,
+        "color": -8947849
+      },
+      {
+        "type": 5,
+        "channels": 0,
+        "frequency": 8959.508,
+        "q": 0.25,
+        "gain": -4.15,
+        "color": -13421773
+      }
+    ]
+  }
+]

@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Focal Bathys",
+    "preamp": -5.6,
+    "parametric": true,
+    "bands": [
+      {
+        "type": 0,
+        "channels": 0,
+        "frequency": 90,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 1,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 4,
+        "channels": 0,
+        "frequency": 105,
+        "q": 0.71,
+        "gain": -1,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 430,
+        "q": 1.2,
+        "gain": -2,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 910,
+        "q": 1.4,
+        "gain": 7.5,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 1150,
+        "q": 2,
+        "gain": -4.6,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 2850,
+        "q": 6,
+        "gain": -1.5,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 3250,
+        "q": 6,
+        "gain": -1.5,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 4000,
+        "q": 0.7,
+        "gain": 4.5,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 4350,
+        "q": 5,
+        "gain": -1,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 5750,
+        "q": 5,
+        "gain": -1.5,
+        "color": -13421773
+      },
+      {
+        "type": 5,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0.71,
+        "gain": 1.5,
+        "color": -8947849
+      }
+    ]
+  }
+]

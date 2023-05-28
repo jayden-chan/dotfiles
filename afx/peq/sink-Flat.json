@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Flat",
+    "preamp": 0,
+    "parametric": true,
+    "bands": [
+      {
+        "type": 0,
+        "channels": 0,
+        "frequency": 90,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 1,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 1,
+        "gain": 0,
+        "color": -13421773
+      }
+    ]
+  }
+]

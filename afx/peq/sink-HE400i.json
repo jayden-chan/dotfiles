@@ -1,0 +1,97 @@
+[
+  {
+    "name": "HE400i",
+    "preamp": -8,
+    "parametric": true,
+    "bands": [
+      {
+        "type": 0,
+        "channels": 0,
+        "frequency": 90,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 1,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 25,
+        "q": 1,
+        "gain": 4.96,
+        "color": -13421773
+      },
+      {
+        "type": 4,
+        "channels": 0,
+        "frequency": 105,
+        "q": 0.71,
+        "gain": 3.55,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 700,
+        "q": 1,
+        "gain": 1,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 1050,
+        "q": 2,
+        "gain": -1.8,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 1900,
+        "q": 1.2,
+        "gain": 5.7,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 2900,
+        "q": 2,
+        "gain": -2.8,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 6100,
+        "q": 1.4,
+        "gain": 3,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 6750,
+        "q": 4.5,
+        "gain": -4.7,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 8450,
+        "q": 4,
+        "gain": -2.9,
+        "color": -13421773
+      }
+    ]
+  }
+]

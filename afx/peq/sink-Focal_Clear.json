@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Focal Clear",
+    "preamp": -6,
+    "parametric": true,
+    "bands": [
+      {
+        "type": 0,
+        "channels": 0,
+        "frequency": 90,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 1,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 4,
+        "channels": 0,
+        "frequency": 32,
+        "q": 0.69,
+        "gain": 3.21,
+        "color": -13421773
+      },
+      {
+        "type": 4,
+        "channels": 0,
+        "frequency": 98.497,
+        "q": 0.71,
+        "gain": 1.39,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 570,
+        "q": 0.8,
+        "gain": 1.92,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 1350,
+        "q": 1.7,
+        "gain": -1.32,
+        "color": -8947849
+      },
+      {
+        "type": 5,
+        "channels": 0,
+        "frequency": 1800,
+        "q": 0.71,
+        "gain": 4.75,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 3030,
+        "q": 2.8,
+        "gain": -2.9,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 3630,
+        "q": 4.8,
+        "gain": -2.2,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 5900,
+        "q": 6,
+        "gain": -5.3,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 7000,
+        "q": 1,
+        "gain": 2,
+        "color": -13421773
+      },
+      {
+        "type": 5,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0.71,
+        "gain": -5,
+        "color": -8947849
+      }
+    ]
+  }
+]

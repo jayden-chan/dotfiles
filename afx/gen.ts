@@ -7,6 +7,7 @@ import { apoToJson } from "./apo_to_json.ts";
 import { lspToJson } from "./lsp_to_json.ts";
 
 import { dirname } from "https://deno.land/x/dirname_es/mod.ts";
+import { genPeq } from "./json_to_peq.ts";
 const __dirname = dirname(import.meta);
 
 export type Band = {
@@ -67,6 +68,10 @@ const syncAll = () => {
     const lspOutPath = `${__dirname}/lsp/${outFile}.cfg`;
     const lspOutput = genLSP(contents);
     Deno.writeTextFileSync(lspOutPath, lspOutput);
+
+    const peqOutPath = `${__dirname}/peq/${outFile}.json`;
+    const peqOutput = genPeq(contents);
+    Deno.writeTextFileSync(peqOutPath, peqOutput);
 
     const lv2OutDir = `${__dirname}/lv2/${outFile}.preset.lv2`;
     const [lv2Manifest, lv2Preset] = genLV2(contents, outFile);
@@ -160,6 +165,13 @@ function main() {
   }
 
   if (cmd === "apo") {
+    const path = args[1];
+    const contents = JSON.parse(Deno.readTextFileSync(path));
+    console.log(genEqualizerAPO(contents));
+    return;
+  }
+
+  if (cmd === "peq") {
     const path = args[1];
     const contents = JSON.parse(Deno.readTextFileSync(path));
     console.log(genEqualizerAPO(contents));

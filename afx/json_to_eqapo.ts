@@ -13,7 +13,7 @@ function bandToAPOLine(band: Band) {
     case "lowpass":
       return lowpassToAPO(band);
     default:
-      console.error(
+      throw new Error(
         `Warning: unknown/unsupported filter type "${band.type}" detected`
       );
   }
