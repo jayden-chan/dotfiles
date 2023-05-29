@@ -23,7 +23,7 @@
       {
         "type": 4,
         "channels": 0,
-        "frequency": 34.851,
+        "frequency": 35,
         "q": 0.46,
         "gain": 5,
         "color": -13421773
@@ -31,7 +31,7 @@
       {
         "type": 3,
         "channels": 0,
-        "frequency": 73.913,
+        "frequency": 74,
         "q": 1.4,
         "gain": 0.4,
         "color": -8947849
@@ -39,7 +39,7 @@
       {
         "type": 3,
         "channels": 0,
-        "frequency": 207.579,
+        "frequency": 208,
         "q": 1.4,
         "gain": -0.62,
         "color": -13421773
@@ -55,7 +55,7 @@
       {
         "type": 3,
         "channels": 0,
-        "frequency": 710.698,
+        "frequency": 711,
         "q": 0,
         "gain": 1.39,
         "color": -13421773
@@ -103,7 +103,7 @@
       {
         "type": 3,
         "channels": 0,
-        "frequency": 6148.913,
+        "frequency": 6149,
         "q": 5.8,
         "gain": -1.65,
         "color": -13421773
@@ -119,7 +119,7 @@
       {
         "type": 0,
         "channels": 0,
-        "frequency": 14858.112,
+        "frequency": 14858,
         "q": 0.6,
         "gain": 0,
         "color": -13421773

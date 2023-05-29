@@ -51,7 +51,7 @@ export function genPeq(contents: Contents): string {
       ...eq.settings.bands.map((b, i) => ({
         type: bandToPeqType(b),
         channels: 0,
-        frequency: b.freq,
+        frequency: Math.round(b.freq),
         q: b.Q,
         gain: b.gain,
         color: i % 2 === 0 ? -13421773 : -8947849,
