@@ -238,7 +238,7 @@ const SFX_BINDS: Record<string, [string, number, boolean]> = {
   "Button 17": ["~/Documents/SFX/csgo_ready.opus", 100, true],
   "Button 18": ["~/Documents/SFX/NFL_fuzz2.ogg", 55, true],
   "Button 19": ["~/Documents/SFX/NFL_clean.ogg", 70, true],
-  "Button 20": ["~/Documents/SFX/metal_pipe.ogg", 70, true],
+  "Button 20": ["~/Documents/SFX/metal_pipe.ogg", 80, true],
   "Button 9": ["~/Documents/SFX/star_wars.ogg", 80, true],
 };
 
@@ -342,8 +342,6 @@ const config = {
           { type: LINK, src: EQ(Out, R), dest: QC35(In, R) },
           { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
           { type: LINK, src: EQ(Out, R), dest: BATHYS(In, R) },
-          { type: LINK, src: EQ(Out, L), dest: S_4i4(In, 2) },
-          { type: LINK, src: EQ(Out, R), dest: S_4i4(In, 3) },
           { type: LINK, src: M_SINK(Out, L), dest: EQ(In, L) },
           { type: LINK, src: M_SINK(Out, R), dest: EQ(In, R) },
         ],
@@ -358,8 +356,6 @@ const config = {
       {
         node: `${S_4i4_DEV} Output`,
         onConnect: [
-          { type: LINK, src: EQ(Out, L), dest: S_4i4(In, 2) },
-          { type: LINK, src: EQ(Out, R), dest: S_4i4(In, 3) },
           { type: LINK, src: MIC_TOGGLE(L), dest: S_4i4(In, 0) },
           { type: LINK, src: MIC_TOGGLE(R), dest: S_4i4(In, 0) },
         ],
