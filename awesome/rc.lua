@@ -806,6 +806,8 @@ awful.rules.rules = {
 	{ rule = { class = "discord" }, properties = { screen = 3, tag = "3" } },
 	-- Carla on screen 3 tag 2
 	{ rule = { class = "Carla2" }, properties = { screen = 3, tag = "2" } },
+	-- Trackmania
+	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },
 }
 -- }}}
 
