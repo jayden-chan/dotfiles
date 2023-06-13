@@ -87,7 +87,6 @@
       "go",
       "pavucontrol",
       "maim",
-      "firefox",
       "cmake",
       "fakeroot",
       "gdb",
@@ -217,7 +216,8 @@
       "guvcview",
       "podman",
       "fuse-overlayfs",
-      "atuin"
+      "atuin",
+      "firefox-developer-edition"
     ]
   },
   "ignored": [
