@@ -223,6 +223,7 @@ const EQ_PRESET_BINDS = {
   "Button 5": "sink-HD_560S",
   "Button 6": "sink-Focal_Clear",
   "Button 7": "sink-Focal_Bathys",
+  "Button 8": "sink-Truthear_Hexa",
 };
 const ALL_EQ_BUTTONS = Object.keys(EQ_PRESET_BINDS);
 
