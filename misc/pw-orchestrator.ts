@@ -319,6 +319,10 @@ const config = {
       },
       {
         node: BATHYS_DEV,
+        onDisconnect: [
+          { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: BATHYS(In, R) },
+        ],
         onConnect: [
           ...eqPresetActions(
             "sink-Focal_Bathys",
@@ -352,13 +356,6 @@ const config = {
         onConnect: [
           { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
-        ],
-      },
-      {
-        node: `${S_4i4_DEV} Output`,
-        onConnect: [
-          { type: LINK, src: MIC_TOGGLE(L), dest: S_4i4(In, 0) },
-          { type: LINK, src: MIC_TOGGLE(R), dest: S_4i4(In, 0) },
         ],
       },
       {
@@ -430,11 +427,15 @@ const config = {
                 { type: "led::set", button: "Rec Arm", color: "ON" },
                 { type: LINK, src: S_4i4(Out, 2), dest: MIXER(In, L, 4) },
                 { type: LINK, src: S_4i4(Out, 3), dest: MIXER(In, R, 4) },
+                { type: LINK, src: MIC_TOGGLE(L), dest: S_4i4(In, 0) },
+                { type: LINK, src: MIC_TOGGLE(R), dest: S_4i4(In, 0) },
               ],
               [
                 { type: "led::set", button: "Rec Arm", color: "OFF" },
                 { type: UNLINK, src: S_4i4(Out, 2), dest: MIXER(In, L, 4) },
                 { type: UNLINK, src: S_4i4(Out, 3), dest: MIXER(In, R, 4) },
+                { type: UNLINK, src: MIC_TOGGLE(L), dest: S_4i4(In, 0) },
+                { type: UNLINK, src: MIC_TOGGLE(R), dest: S_4i4(In, 0) },
               ],
             ],
           },
