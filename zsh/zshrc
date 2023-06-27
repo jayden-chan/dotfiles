@@ -120,13 +120,12 @@ if [ "$hostname" = "Yellow-Lion.local" ]; then
     source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 else
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # initialize atuin
+    eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 # initialize starship prompt
 eval "$(starship init zsh)"
-
-# initialize atuin
-eval "$(atuin init zsh --disable-up-arrow)"
 
 # if tmux is executable, X is running, and not inside a tmux session.
 #   try attach to a detatched session. if there aren't any then create a new one
