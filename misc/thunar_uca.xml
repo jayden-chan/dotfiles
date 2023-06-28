@@ -5,7 +5,7 @@
 	<name>Open Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1667782009341942-1</unique-id>
-	<command>sh -c &apos;cd %f ; st&apos;</command>
+	<command>sh -c &apos;cd &quot;%f&quot; ; st&apos;</command>
 	<description>Open a terminal in the current directory</description>
 	<range></range>
 	<patterns>*</patterns>
@@ -34,5 +34,17 @@
 	<range>*</range>
 	<patterns>*</patterns>
 	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Create Horn</name>
+	<submenu></submenu>
+	<unique-id>1687950107706213-1</unique-id>
+	<command>/home/jayden/.config/dotfiles/scripts/horn.sh %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<other-files/>
 </action>
 </actions>

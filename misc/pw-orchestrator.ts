@@ -320,8 +320,8 @@ const config = {
       {
         node: BATHYS_DEV,
         onDisconnect: [
-          { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
-          { type: LINK, src: EQ(Out, R), dest: BATHYS(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
         ],
         onConnect: [
           ...eqPresetActions(

@@ -781,6 +781,7 @@ awful.rules.rules = {
 				"origin.exe",
 				"pw-display",
 				"veromix",
+				"eadesktop.exe",
 				"Thunar",
 				"xtightvncviewer",
 			},

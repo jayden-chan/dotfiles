@@ -63,7 +63,8 @@
       "openscad",
       "podman-compose",
       "alsa-scarlett-gui",
-      "swh-plugins"
+      "swh-plugins",
+      "units"
     ],
     "swift": [
       "light",
