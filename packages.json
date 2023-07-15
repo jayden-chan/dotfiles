@@ -32,7 +32,7 @@
       "wine-mono",
       "dxvk-bin",
       "pipewire-jack",
-      "nvidia-dkms",
+      "nvidia-open-dkms",
       "guitarix",
       "wmname",
       "aether.lv2",
@@ -64,7 +64,9 @@
       "podman-compose",
       "alsa-scarlett-gui",
       "swh-plugins",
-      "units"
+      "adwaita-icon-theme",
+      "darktable",
+      "hugin"
     ],
     "swift": [
       "light",
@@ -184,7 +186,6 @@
       "dnsmasq",
       "tree-sitter",
       "lua-language-server",
-      "plank",
       "numix-circle-icon-theme-git",
       "stylua",
       "realtime-privileges",

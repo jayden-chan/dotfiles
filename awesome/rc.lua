@@ -16,6 +16,10 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local lain = require("lain")
 
+-- sometimes the screen numbers get messed up and the directions/numbers
+-- need to change. no idea how to make the screen numbers consistent
+local screen_num_invert = true
+
 naughty.config.spacing = 1
 naughty.config.padding = 10
 naughty.config.defaults.position = "bottom_right"
@@ -586,8 +590,8 @@ local globalkeys = gears.table.join(
 	),
 
 	awful.key(
-		{ modkey, "Shift" },
-		"space",
+		{ modkey },
+		"w",
 		script_cb("rofi.sh", { "--window" }, false),
 		{ description = "open window switcher prompt", group = "launcher" }
 	),
@@ -651,11 +655,11 @@ local clientkeys = gears.table.join(
 	end, { description = "move to master", group = "client" }),
 
 	awful.key({ modkey }, "o", function(c)
-		c:move_to_screen(c.screen.index + 1)
+		c:move_to_screen(c.screen.index + (screen_num_invert and -1 or 1))
 	end, { description = "move to previous screen", group = "client" }),
 
 	awful.key({ modkey }, "p", function(c)
-		c:move_to_screen(c.screen.index - 1)
+		c:move_to_screen(c.screen.index - (screen_num_invert and -1 or 1))
 	end, { description = "move to next screen", group = "client" }),
 
 	awful.key({ modkey }, "t", function(c)
@@ -804,9 +808,9 @@ awful.rules.rules = {
 		properties = { floating = true },
 	},
 	-- Discord on screen 1
-	{ rule = { class = "discord" }, properties = { screen = 3, tag = "3" } },
+	{ rule = { class = "discord" }, properties = { screen = (screen_num_invert and 2 or 3), tag = "3" } },
 	-- Carla on screen 3 tag 2
-	{ rule = { class = "Carla2" }, properties = { screen = 3, tag = "2" } },
+	{ rule = { class = "Carla2" }, properties = { screen = (screen_num_invert and 2 or 3), tag = "2" } },
 	-- Trackmania
 	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },
 }

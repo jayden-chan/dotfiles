@@ -10,7 +10,7 @@ else
     skin="$1"
 fi
 
-new_skin="${skin:r}_horn.zip" 
+new_skin="${skin:r}_${horn:t:r}.zip"
 work_dir=/tmp/__horn__temp/workdir
 
 mkdir -p "$work_dir"
