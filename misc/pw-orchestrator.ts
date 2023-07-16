@@ -484,6 +484,47 @@ const config = {
         ],
       },
     },
+    Select: {
+      type: "button",
+      defaultLEDState: "ON",
+      onPress: {
+        actions: [
+          {
+            type: "cycle",
+            actions: [
+              [
+                { type: "led::set", button: "Select", color: "OFF" },
+                {
+                  type: "midi",
+                  events: [
+                    {
+                      type: "CONTROL_CHANGE",
+                      channel: 4,
+                      controller: 13,
+                      value: 0,
+                    },
+                  ],
+                },
+              ],
+              [
+                { type: "led::set", button: "Select", color: "ON" },
+                {
+                  type: "midi",
+                  events: [
+                    {
+                      type: "CONTROL_CHANGE",
+                      channel: 4,
+                      controller: 13,
+                      value: 127,
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        ],
+      },
+    },
     "Button 23": {
       type: "button",
       defaultLEDState: "RED",
