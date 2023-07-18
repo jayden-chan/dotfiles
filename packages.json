@@ -66,7 +66,10 @@
       "swh-plugins",
       "adwaita-icon-theme",
       "darktable",
-      "hugin"
+      "hugin",
+      "gphoto2",
+      "v4l2loopback-dkms",
+      "mediainfo"
     ],
     "swift": [
       "light",
@@ -215,7 +218,6 @@
       "volta-bin",
       "lazygit",
       "neofetch",
-      "guvcview",
       "podman",
       "fuse-overlayfs",
       "atuin",
