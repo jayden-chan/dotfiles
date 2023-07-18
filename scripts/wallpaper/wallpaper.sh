@@ -1,6 +1,11 @@
 #!/bin/zsh
 
+# -t     Start in thumbnail mode.
+# -b     Do not show info bar on bottom of window.
+# -o     Write list of all marked files to standard output when quitting.
+# -g     <GEOMETRY> Set window position and size.
 chosen_wall=$(fd . ${1:-.} -e png -e jpg -e jpeg -e webp | sxiv - -t -b -o -g 1600x900)
+
 if [ "$chosen_wall" = "" ]; then
     echo "no image chosen"
 else
