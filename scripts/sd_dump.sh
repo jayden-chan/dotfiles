@@ -14,64 +14,79 @@ fi
 photos=$(fd . "$sd/DCIM/100MSDCF" --extension ARW --extension JPG)
 num_photos=$(echo "$photos" | wc -l)
 
+if [ "$photos" = "" ]; then
+    num_photos="0"
+fi
+
 videos=$(fd . "/run/media/jayden/disk/PRIVATE/M4ROOT/CLIP/" --extension MP4)
 num_videos=$(echo "$videos" | wc -l)
+
+if [ "$videos" = "" ]; then
+    num_videos="0"
+fi
 
 echo "================================================================"
 echo "Number of photos to import: $num_photos"
 echo "Number of videos to import: $num_videos"
 echo "================================================================"
 
-current_photo=1
 
-for file in $(echo "$photos"); do
-    ext="${file:e}"
+if [ "$photos" != "" ]; then
+    echo "================================================================"
+    echo "COPYING PHOTOS"
+    echo "================================================================"
 
-    original_date=$(exiv2 -g 'Exif.Photo.DateTimeOriginal' -P v "$file")
-    date_offset=$(exiv2 -g 'Exif.Photo.OffsetTimeOriginal' -P v "$file")
-    date=$(echo "$original_date $date_offset" | sed -E -e 's/:/-/1' -e 's/:/-/1' | xargs -d '\n' date "+%Y-%m-%d_%H-%M-%S" -u -d)
+    current_photo=1
+    for file in $(echo "$photos"); do
+        ext="${file:e}"
 
-    echo -n "[$current_photo/$num_photos] ${file:t} ($date) "
+        original_date=$(exiv2 -g 'Exif.Photo.DateTimeOriginal' -P v "$file")
+        date_offset=$(exiv2 -g 'Exif.Photo.OffsetTimeOriginal' -P v "$file")
+        date=$(echo "$original_date $date_offset" | sed -E -e 's/:/-/1' -e 's/:/-/1' | xargs -d '\n' date "+%Y-%m-%d_%H-%M-%S" -u -d)
 
-    resulting_file=""
-    if [ "$ext" = "ARW" ]; then
-        resulting_file="/home/jayden/Pictures/a6600/raw/${date}_${file:t}"
-        echo -n "(RAW) "
-    elif [ "$ext" = "JPG" ]; then
-        resulting_file="/home/jayden/Pictures/a6600/jpeg/${date}_${file:t}"
-        echo -n "(JPEG) "
-    else
-        echo "WARNING: Unknown file extension \"$ext\""
-        exit 1
-    fi
+        echo -n "[$current_photo/$num_photos] ${file:t} ($date) "
 
-    if [ -f "$resulting_file" ]; then
-        echo "ERROR: $resulting_file already exists"
-        exit 1
-    fi
+        resulting_file=""
+        if [ "$ext" = "ARW" ]; then
+            resulting_file="/home/jayden/Pictures/a6600/raw/${date}_${file:t}"
+            echo -n "(RAW) "
+        elif [ "$ext" = "JPG" ]; then
+            resulting_file="/home/jayden/Pictures/a6600/jpeg/${date}_${file:t}"
+            echo -n "(JPEG) "
+        else
+            echo "WARNING: Unknown file extension \"$ext\""
+            exit 1
+        fi
 
-    echo "-> $resulting_file" | sed -E 's|/home/jayden|~|g'
-    cp "$file" "$resulting_file"
+        if [ -f "$resulting_file" ]; then
+            echo "ERROR: $resulting_file already exists"
+            exit 1
+        fi
 
-    ((current_photo++))
-done
+        echo "-> $resulting_file" | sed -E 's|/home/jayden|~|g'
+        cp "$file" "$resulting_file"
 
-echo "================================================================"
-echo "COPYING VIDEOS"
-echo "================================================================"
+        ((current_photo++))
+    done
+fi
 
-current_video=1
+if [ "$videos" != "" ]; then
+    echo "================================================================"
+    echo "COPYING VIDEOS"
+    echo "================================================================"
 
-for file in $(echo "$videos"); do
-    original_date=$(mediainfo "$file" | rg "Tagged date" | sort -u | rg "\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(.*?)$" --only-matching --replace='$0' --color=never)
-    date=$(echo "$original_date" | xargs -d '\n' date "+%Y-%m-%d_%H-%M-%S" -u -d)
-    resulting_file="/home/jayden/Pictures/a6600/video/${date}_${file:t}"
+    current_video=1
+    for file in $(echo "$videos"); do
+        original_date=$(mediainfo "$file" | rg "Tagged date" | sort -u | rg "\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(.*?)$" --only-matching --replace='$0' --color=never)
+        date=$(echo "$original_date" | xargs -d '\n' date "+%Y-%m-%d_%H-%M-%S" -u -d)
+        resulting_file="/home/jayden/Pictures/a6600/video/${date}_${file:t}"
 
-    echo "[$current_video/$num_videos] ${file:t} ($date) -> $resulting_file" | sed -E 's|/home/jayden|~|g'
-    rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$file" "$resulting_file"
+        echo "[$current_video/$num_videos] ${file:t} ($date) -> $resulting_file" | sed -E 's|/home/jayden|~|g'
+        rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$file" "$resulting_file"
 
-    ((current_video++))
-done
+        ((current_video++))
+    done
+fi
 
 echo
 echo "================================================================"
