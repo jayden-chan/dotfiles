@@ -18,7 +18,7 @@ if [ "$photos" = "" ]; then
     num_photos="0"
 fi
 
-videos=$(fd . "/run/media/jayden/disk/PRIVATE/M4ROOT/CLIP/" --extension MP4)
+videos=$(fd . "$sd/PRIVATE/M4ROOT/CLIP/" --extension MP4)
 num_videos=$(echo "$videos" | wc -l)
 
 if [ "$videos" = "" ]; then
@@ -48,10 +48,10 @@ if [ "$photos" != "" ]; then
 
         resulting_file=""
         if [ "$ext" = "ARW" ]; then
-            resulting_file="/home/jayden/Pictures/a6600/raw/${date}_${file:t}"
+            resulting_file="$HOME/Pictures/a6600/raw/${date}_${file:t}"
             echo -n "(RAW) "
         elif [ "$ext" = "JPG" ]; then
-            resulting_file="/home/jayden/Pictures/a6600/jpeg/${date}_${file:t}"
+            resulting_file="$HOME/Pictures/a6600/jpeg/${date}_${file:t}"
             echo -n "(JPEG) "
         else
             echo "WARNING: Unknown file extension \"$ext\""
@@ -59,12 +59,11 @@ if [ "$photos" != "" ]; then
         fi
 
         if [ -f "$resulting_file" ]; then
-            echo "ERROR: $resulting_file already exists"
-            exit 1
+            echo "-> $resulting_file (already exists, skipping)"
+        else
+            echo "-> $resulting_file" | sed -E "s|$HOME|~|g"
+            cp "$file" "$resulting_file"
         fi
-
-        echo "-> $resulting_file" | sed -E 's|/home/jayden|~|g'
-        cp "$file" "$resulting_file"
 
         ((current_photo++))
     done
@@ -79,9 +78,9 @@ if [ "$videos" != "" ]; then
     for file in $(echo "$videos"); do
         original_date=$(mediainfo "$file" | rg "Tagged date" | sort -u | rg "\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(.*?)$" --only-matching --replace='$0' --color=never)
         date=$(echo "$original_date" | xargs -d '\n' date "+%Y-%m-%d_%H-%M-%S" -u -d)
-        resulting_file="/home/jayden/Pictures/a6600/video/${date}_${file:t}"
+        resulting_file="$HOME/Pictures/a6600/video/${date}_${file:t}"
 
-        echo "[$current_video/$num_videos] ${file:t} ($date) -> $resulting_file" | sed -E 's|/home/jayden|~|g'
+        echo "[$current_video/$num_videos] ${file:t} ($date) -> $resulting_file" | sed -E "s|$HOME|~|g"
         rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$file" "$resulting_file"
 
         ((current_video++))
