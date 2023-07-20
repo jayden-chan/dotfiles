@@ -18,6 +18,8 @@ if [ "$photos" = "" ]; then
     num_photos="0"
 fi
 
+real_num_photos=$(($((num_photos)) / 2))
+
 videos=$(fd . "$sd/PRIVATE/M4ROOT/CLIP/" --extension MP4)
 num_videos=$(echo "$videos" | wc -l)
 
@@ -26,7 +28,7 @@ if [ "$videos" = "" ]; then
 fi
 
 echo "================================================================"
-echo "Number of photos to import: $num_photos"
+echo "Number of photos to import: $real_num_photos"
 echo "Number of videos to import: $num_videos"
 echo "================================================================"
 
@@ -89,5 +91,5 @@ fi
 
 echo
 echo "================================================================"
-echo "Imported $num_photos photos and $num_videos videos!"
+echo "Imported $real_num_photos photos and $num_videos videos!"
 echo "================================================================"
