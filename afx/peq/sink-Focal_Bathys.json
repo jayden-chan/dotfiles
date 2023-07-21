@@ -97,7 +97,7 @@
         "channels": 0,
         "frequency": 10000,
         "q": 0.71,
-        "gain": 1.5,
+        "gain": 1.25,
         "color": -8947849
       }
     ]

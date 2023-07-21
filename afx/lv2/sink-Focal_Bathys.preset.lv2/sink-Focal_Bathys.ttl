@@ -222,7 +222,7 @@
 		pset:value 0.841416
 	] , [
 		lv2:symbol "g_9" ;
-		pset:value 1.188473
+		pset:value 1.154758
 	] , [
 		lv2:symbol "g_in" ;
 		pset:value 0.524856
