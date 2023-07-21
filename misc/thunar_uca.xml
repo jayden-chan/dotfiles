@@ -47,4 +47,26 @@
 	<audio-files/>
 	<other-files/>
 </action>
+<action>
+	<icon>pamac-delete</icon>
+	<name>Cull Images</name>
+	<submenu></submenu>
+	<unique-id>1689641415278067-1</unique-id>
+	<command>/home/jayden/.config/dotfiles/scripts/cull.sh %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
+	<description>Cull Images</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>document-import</icon>
+	<name>Import images/videos</name>
+	<submenu></submenu>
+	<unique-id>1689902676394518-1</unique-id>
+	<command>st -e sh -c &apos;/home/jayden/.config/dotfiles/scripts/sd_dump.sh %f; read&apos;</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
 </actions>
