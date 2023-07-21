@@ -44,4 +44,4 @@ while IFS= read -r i; do
     ((num_files++))
 done <<<"$images"
 
-notify-send --expire-time=60000 "cull.sh" "Sent $num_files files to trash ($num_jpegs jpeg, $num_raws raw, $num_xmps xmp)"
+notify-send --expire-time=60000 "cull.sh" "Sent $num_jpegs impages to trash ($num_files total, $num_jpegs jpeg, $num_raws raw, $num_xmps xmp)"

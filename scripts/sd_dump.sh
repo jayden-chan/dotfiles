@@ -2,16 +2,21 @@
 
 set -e
 
-sd="/run/media/jayden/disk"
+import_path="$1"
 
-if [ -d "$sd" ]; then
+if [ "$import_path" = "" ]; then
+    echo "Error: You must provide the path to import from"
+    exit 1
+fi
+
+if [ -d "$import_path" ]; then
     echo "Found SD card on file system."
 else
     echo "Error: SD card isn't mounted to file system."
     exit 1
 fi
 
-photos=$(fd . "$sd/DCIM/100MSDCF" --extension ARW --extension JPG)
+photos=$(fd . "$import_path/DCIM/100MSDCF" --extension ARW --extension JPG)
 num_photos=$(echo "$photos" | wc -l)
 
 if [ "$photos" = "" ]; then
@@ -20,7 +25,7 @@ fi
 
 real_num_photos=$(($((num_photos)) / 2))
 
-videos=$(fd . "$sd/PRIVATE/M4ROOT/CLIP/" --extension MP4)
+videos=$(fd . "$import_path/PRIVATE/M4ROOT/CLIP/" --extension MP4)
 num_videos=$(echo "$videos" | wc -l)
 
 if [ "$videos" = "" ]; then
@@ -89,7 +94,11 @@ if [ "$videos" != "" ]; then
     done
 fi
 
+result_message="Imported $real_num_photos photos and $num_videos videos"
+
 echo
 echo "================================================================"
-echo "Imported $real_num_photos photos and $num_videos videos!"
+echo "$result_message"
 echo "================================================================"
+
+notify-send --expire-time=60000 "sd_dump.sh" "$result_message"
