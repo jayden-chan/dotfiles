@@ -61,7 +61,7 @@ alias ll='exa -lh'
 alias cat='bat'
 alias bc='bc -l'
 alias ip='ip -c'
-alias sxiv='sxiv -b'
+alias sxiv='nsxiv -b'
 alias yalc='yalc --store-folder ~/.local/share/yalc'
 alias make='make --no-print-directory'
 

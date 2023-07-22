@@ -778,7 +778,7 @@ awful.rules.rules = {
 				"MessageWin",
 				"Nitrogen",
 				"Org.gnome.Nautilus",
-				"Sxiv",
+				"Nsxiv",
 				"Tor Browser",
 				"Wpa_gui",
 				"mpv",

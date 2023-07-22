@@ -69,7 +69,8 @@
       "hugin",
       "gphoto2",
       "v4l2loopback-dkms",
-      "mediainfo"
+      "mediainfo",
+      "nsxiv"
     ],
     "swift": [
       "light",
@@ -161,7 +162,6 @@
       "zathura-ps",
       "zathura-pdf-mupdf",
       "qrencode",
-      "sxiv",
       "zbar",
       "git-delta",
       "dbus-python",

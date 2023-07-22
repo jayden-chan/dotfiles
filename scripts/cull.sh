@@ -9,7 +9,7 @@ date
 # -b     Do not show info bar on bottom of window.
 # -o     Write list of all marked files to standard output when quitting.
 # -g     <GEOMETRY> Set window position and size.
-images=$(echo "$@" | xargs sxiv -b -o -g 1600x900)
+images=$(echo "$@" | xargs nsxiv -b -o -g 1600x900)
 
 num_files=0
 num_xmps=0
@@ -44,4 +44,4 @@ while IFS= read -r i; do
     ((num_files++))
 done <<<"$images"
 
-notify-send --expire-time=60000 "cull.sh" "Sent $num_jpegs impages to trash ($num_files total, $num_jpegs jpeg, $num_raws raw, $num_xmps xmp)"
+notify-send --expire-time=60000 "cull.sh" "Sent $num_jpegs images to trash ($num_files total, $num_jpegs jpeg, $num_raws raw, $num_xmps xmp)"
