@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-dir="$1"
 base_path="/home/jayden/Pictures/a6600"
 
 date
@@ -13,7 +12,7 @@ images=$(echo "$@" | xargs nsxiv -b -o -g 1600x900)
 
 num_files=0
 num_xmps=0
-num_jpegs=0
+num_sdrs=0
 num_raws=0
 while IFS= read -r i; do 
     if [ "$i" = "" ]; then
@@ -40,8 +39,8 @@ while IFS= read -r i; do
 
     echo "Trashing original file $i"
     gio trash "$i"
-    ((num_jpegs++))
+    ((num_sdrs++))
     ((num_files++))
 done <<<"$images"
 
-notify-send --expire-time=60000 "cull.sh" "Sent $num_jpegs images to trash ($num_files total, $num_jpegs jpeg, $num_raws raw, $num_xmps xmp)"
+notify-send --expire-time=60000 "cull.sh" "Sent $num_sdrs images to trash ($num_files total, $num_sdrs sdr, $num_raws raw, $num_xmps xmp)"

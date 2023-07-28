@@ -58,7 +58,7 @@ if [ "$photos" != "" ]; then
             resulting_file="$HOME/Pictures/a6600/raw/${date}_${file:t}"
             echo -n "(RAW) "
         elif [ "$ext" = "JPG" ]; then
-            resulting_file="$HOME/Pictures/a6600/jpeg/${date}_${file:t}"
+            resulting_file="$HOME/Pictures/a6600/sdr/${date}_${file:t}"
             echo -n "(JPEG) "
         else
             echo "WARNING: Unknown file extension \"$ext\""
