@@ -22,10 +22,10 @@ keybinding:
     scrollUpMain-alt1: "I"
     scrollDownMain-alt1: "K"
   files:
-    commitChanges: null
+    commitChangesWithEditor: "c"
+    commitChanges: "C"
     ignoreFile: "h"
     amendLastCommit: "A"
-    commitChangesWithEditor: "c"
     stashAllChanges: "S"
 git:
   paging:
