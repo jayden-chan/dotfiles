@@ -70,7 +70,9 @@
       "gphoto2",
       "v4l2loopback-dkms",
       "mediainfo",
-      "nsxiv"
+      "nsxiv",
+      "aardvark-dns",
+      "goose"
     ],
     "swift": [
       "light",
@@ -222,7 +224,8 @@
       "fuse-overlayfs",
       "atuin",
       "firefox-developer-edition",
-      "mat2"
+      "mat2",
+      "bun-bin"
     ]
   },
   "ignored": [
