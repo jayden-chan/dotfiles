@@ -23,9 +23,9 @@
       {
         "type": 4,
         "channels": 0,
-        "frequency": 170,
+        "frequency": 97,
         "q": 0.28,
-        "gain": 0.95,
+        "gain": 0.8,
         "color": -13421773
       },
       {
