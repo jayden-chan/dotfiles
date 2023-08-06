@@ -130,6 +130,31 @@ eval "$(starship init zsh)"
 # if tmux is executable, X is running, and not inside a tmux session.
 #   try attach to a detatched session. if there aren't any then create a new one
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    unattached=$(tmux ls 2>/dev/null | rg -v "attached" | rg "^\d" --only-matching)
-    [[ "$?" = "0" ]] && tmux attach -t "$unattached" || tmux
+    unattached=$(tmux ls 2>/dev/null | rg --invert-match "attached" | rg "^\d" --only-matching)
+    if [ "$?" = "0" ]; then
+        tmux attach -t "$unattached"
+    else
+        array_of_sessions=("${(@f)$(tmux ls 2>/dev/null | rg "^\d" --only-matching --replace='$0')}")
+        typeset -A set_of_sessions=()
+        for s in $array_of_sessions; do
+            set_of_sessions["$s"]="1"
+        done
+
+        s=1
+        created="0"
+        for s in $array_of_sessions; do
+            taken="${set_of_sessions["$s"]}"
+            if [ "$taken" != "1" ]; then
+                created="1"
+                tmux new -s "$s"
+                break
+            else
+                ((s++))
+            fi
+        done
+
+        if [ "$created" = "0" ]; then
+            tmux new -s "$s"
+        fi
+    fi
 fi
