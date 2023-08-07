@@ -55,7 +55,7 @@ local function create_clip()
 	-- [v1] [a1] [v2] [a2] [v3] [a3] concat=n=3:v=1:a=1[v][a]
 
 	-- merge audio inputs 1 and 2, normalize to -18 LUFS with range 11db and true peak -2dbfs
-	local filter = "[0:1][0:2]amix=inputs=2[outa];[outa]loudnorm=I=-18:LRA=11:TP=-2[outl];"
+	local filter = "[0:1][0:2]amix=inputs=2[outa];[outa]loudnorm=I=-20:LRA=13:TP=-1[outl];"
 
 	-- split the video into N copies, where N is the number of
 	-- clip segments
