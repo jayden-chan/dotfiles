@@ -288,12 +288,23 @@ local bg = function(widget)
 end
 
 local widget_block_gap = 11
-local weather_widget = wibox.widget({ widget = wibox.widget.textbox })
+local weather_text = wibox.widget({ widget = wibox.widget.textbox })
+local weather = mar(icon_box("摒", mar(weather_text, 0, 10, 0, 10)), 0, widget_block_gap)
 awful.widget.watch(scripts .. "/weather.sh", 10, function(_, stdout)
-	weather_widget:set_text(stdout:gsub("%s+$", ""))
+	weather_text:set_text(stdout:gsub("%s+$", ""))
 end)
 
-local weather = mar(icon_box("摒", mar(weather_widget, 0, 10, 0, 10)), 0, widget_block_gap)
+local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
+local headphones = mar(icon_box("", mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
+awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 300, function(_, stdout)
+	local data = stdout:gsub("%s+$", "")
+	if string.len(data) == 0 then
+		headphones:set_visible(false)
+	else
+		headphones_text:set_text(data .. "%")
+		headphones:set_visible(true)
+	end
+end)
 
 awful.screen.connect_for_each_screen(function(s)
 	-- Each screen has its own tag table.
@@ -404,11 +415,13 @@ awful.screen.connect_for_each_screen(function(s)
 		right:add(mem)
 		right:add(cpu)
 		right:add(weather)
+		right:add(headphones)
 		right:add(time)
 		right:add(bg(mar(systray, 8, 3, 8, 10)))
 		right:add(layout)
 	else
 		right:add(weather)
+		right:add(headphones)
 		right:add(time)
 		right:add(layout)
 	end
