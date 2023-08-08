@@ -72,7 +72,8 @@
       "mediainfo",
       "nsxiv",
       "aardvark-dns",
-      "goose"
+      "goose",
+      "libprocps"
     ],
     "swift": [
       "light",
