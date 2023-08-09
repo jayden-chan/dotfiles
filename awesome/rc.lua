@@ -85,11 +85,11 @@ local gpu_screen_recorder_cmd = "gpu-screen-recorder"
 	.. " -a carla-source" -- microphone
 	.. " -ac opus" -- audio codec
 	.. " -k h265" -- codec
-	.. " -v no" -- don't print framerate updates
+	.. " -v yes" -- don't print framerate updates
 	.. " -o " -- output path
 	.. home
 	.. "/Videos/replays"
-	.. " 2>&1 > /tmp/gpu-screen-recorder.log"
+	.. " > /tmp/gpu-screen-recorder.log 2>&1"
 
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
