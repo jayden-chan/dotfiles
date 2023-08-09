@@ -1,6 +1,6 @@
-#!/usr/bin/env -S deno run --allow-env --no-lock
+#!/usr/bin/env -S bun run
 
-const HOME = Deno.env.get("HOME") ?? "/home/jayden";
+const HOME = process.env["HOME"] ?? "/home/jayden";
 
 const SYSTEM_EQ = "System Equalizer";
 const DX5_DEV = "Topping DX5 Output";
@@ -367,7 +367,6 @@ const config = {
       },
     ],
   },
-  // deno-lint-ignore no-explicit-any
   bindings: <Record<string, any>>{
     "Play/Pause": {
       type: "button",

@@ -1,7 +1,9 @@
-#!/usr/bin/env -S deno run --allow-read --allow-env --allow-write --allow-run=paccache,yay --no-lock
+#!/usr/bin/env -S bun run
 
-const HOST = Deno.readTextFileSync("/etc/hostname").trim();
-const HOME = Deno.env.get("HOME") ?? "/home/jayden";
+import { readFileSync, writeFileSync } from "node:fs";
+
+const HOST = readFileSync("/etc/hostname", { encoding: "utf8" }).trim();
+const HOME = process.env.HOME ?? "/home/jayden";
 const PACKAGES_PATH = `${HOME}/.config/dotfiles/packages.json`;
 const YAY_COMMANDS = ["-S", "-Rsn", "-Yc", "-Syu", "-Sc"];
 
@@ -37,14 +39,11 @@ type Packages = {
  * @param {Object} packages Packages list
  */
 function writePackagesList(packages: Packages): void {
-  Deno.writeTextFileSync(
-    PACKAGES_PATH,
-    JSON.stringify(packages, null, 2) + "\n"
-  );
+  writeFileSync(PACKAGES_PATH, JSON.stringify(packages, null, 2) + "\n");
 }
 
 function checkBootMount(): boolean {
-  const mountInfo = Deno.readTextFileSync("/proc/mounts");
+  const mountInfo = readFileSync("/proc/mounts", { encoding: "utf8" });
   const isMounted = /\/dev\/\w+ \/boot /.test(mountInfo);
   if (isMounted) {
     return true;
@@ -63,13 +62,13 @@ async function paccache(): Promise<number> {
     return 1;
   }
 
-  const p = Deno.run({
-    cmd: ["paccache", "-r"],
-    stdin: "inherit",
+  const p = Bun.spawn(["paccache", "-r"], {
     stdout: "inherit",
     stderr: "inherit",
+    stdin: "inherit",
   });
-  return (await p.status()).code;
+
+  return await p.exited;
 }
 
 /**
@@ -88,16 +87,15 @@ async function handleYayCommand(
   }
 
   const progs = args.filter((a) => !a.startsWith("-"));
-  const p = Deno.run({
-    cmd: ["yay", yayCommand, ...args],
-    stdin: "inherit",
+  const p = Bun.spawn(["yay", yayCommand, ...args], {
     stdout: "inherit",
     stderr: "inherit",
+    stdin: "inherit",
   });
 
-  const status = await p.status();
-  if (status.code !== 0) {
-    return status.code;
+  const status = await p.exited;
+  if (status !== 0) {
+    return status;
   }
 
   switch (yayCommand) {
@@ -110,7 +108,7 @@ async function handleYayCommand(
       );
 
       if (newProgs.length === 0) {
-        return status.code;
+        return status;
       }
 
       const progsString =
@@ -140,7 +138,7 @@ async function handleYayCommand(
       }
 
       writePackagesList(packages);
-      return status.code;
+      return status;
     }
     case YAY_COMMANDS[1]: {
       progs
@@ -156,10 +154,10 @@ async function handleYayCommand(
         });
 
       writePackagesList(packages);
-      return status.code;
+      return status;
     }
     default: {
-      return status.code;
+      return status;
     }
   }
 }
@@ -167,20 +165,21 @@ async function handleYayCommand(
 /**
  * @param {Object} packages Packages list
  */
-async function verifyPackages(packages: Packages): void {
-  const p = Deno.run({
-    cmd: ["yay", "-Qq"],
-    stderr: "piped",
-    stdout: "piped",
+async function verifyPackages(packages: Packages): Promise<void> {
+  const p = Bun.spawn(["yay", "-Qq"], {
+    stdout: "pipe",
+    stderr: "pipe",
   });
-  const [status, stdout] = await Promise.all([p.status(), p.output()]);
-  p.close();
-  if (status.code !== 0) {
-    console.error(`error!: ${stdout}`);
+
+  const status = await p.exited;
+  const stdout = await new Response(p.stdout).text();
+  const stderr = await new Response(p.stderr).text();
+  if (status !== 0) {
+    console.error(`error!: ${stdout} ${stderr}`);
     return;
   }
 
-  const installed = new TextDecoder().decode(stdout).split("\n");
+  const installed = stdout.split("\n");
   Object.entries(packages.installed).forEach(([host, arr]) => {
     if (host === "all" || HOST === host) {
       arr.forEach((p) => {
@@ -195,21 +194,22 @@ async function verifyPackages(packages: Packages): void {
 /**
  * @param {Object} packages Package list
  */
-async function showUnlisted(packages: Packages): void {
-  const p = Deno.run({
-    cmd: ["yay", "-Qqettn"],
-    stderr: "piped",
-    stdout: "piped",
+async function showUnlisted(packages: Packages): Promise<void> {
+  const p = Bun.spawn(["yay", "-Qqettn"], {
+    stdout: "pipe",
+    stderr: "pipe",
   });
-  const [status, stdout] = await Promise.all([p.status(), p.output()]);
-  p.close();
 
-  if (status.code !== 0) {
-    console.error(`error!: ${stdout}`);
+  const status = await p.exited;
+  const stdout = await new Response(p.stdout).text();
+  const stderr = await new Response(p.stderr).text();
+
+  if (status !== 0) {
+    console.error(`error!: ${stdout} ${stderr}`);
     return;
   }
 
-  const installed = new TextDecoder().decode(stdout).trim().split("\n");
+  const installed = stdout.trim().split("\n");
   const ignored = packages.ignored;
   const listed = Object.values(packages.installed).flat();
 
@@ -218,44 +218,43 @@ async function showUnlisted(packages: Packages): void {
     .forEach((notListed) => console.log(notListed));
 }
 
-async function list(): void {
-  const p1 = Deno.run({
-    cmd: ["yay", "-Qqettn"],
-    stderr: "piped",
-    stdout: "piped",
-  });
-  const p2 = Deno.run({
-    cmd: ["yay", "-Qqettm"],
-    stderr: "piped",
-    stdout: "piped",
+async function list(): Promise<void> {
+  const p1 = Bun.spawn(["yay", "-Qqettn"], {
+    stdout: "pipe",
+    stderr: "pipe",
   });
 
-  const [status1, stdout1, status2, stdout2] = await Promise.all([
-    p1.status(),
-    p1.output(),
-    p2.status(),
-    p2.output(),
-  ]);
-  p1.close();
-  p2.close();
+  const p2 = Bun.spawn(["yay", "-Qqettm"], {
+    stdout: "pipe",
+    stderr: "pipe",
+  });
 
-  if (status1.code !== 0 || status2.code !== 0) {
-    console.error(`error!: ${stdout1} ${stdout2}`);
+  const status1 = await p1.exited;
+  const stdout1 = await new Response(p1.stdout).text();
+  const stderr1 = await new Response(p1.stderr).text();
+  const status2 = await p2.exited;
+  const stdout2 = await new Response(p2.stdout).text();
+  const stderr2 = await new Response(p2.stderr).text();
+
+  if (status1 !== 0 || status2 !== 0) {
+    console.error(`error!: ${stdout1} ${stdout2} ${stderr1} ${stderr2}`);
     return;
   }
 
-  const native = new TextDecoder().decode(stdout1).trim();
-  const aur = new TextDecoder().decode(stdout2).trim();
+  const native = stdout1.trim();
+  const aur = stdout2.trim();
   console.log("Native\n");
   console.log(native);
   console.log("\nAUR\n");
   console.log(aur);
 }
 
-async function main(): Promise<void> {
-  const packages = JSON.parse(Deno.readTextFileSync(PACKAGES_PATH));
-  const command = Deno.args[0];
-  const args = Deno.args.slice(1);
+async function main(): Promise<number> {
+  const packages = JSON.parse(
+    readFileSync(PACKAGES_PATH, { encoding: "utf8" })
+  );
+  const command = process.argv[2];
+  const args = process.argv.slice(3);
 
   if (command === undefined) {
     const yayCode = await handleYayCommand(YAY_COMMANDS[3], packages, args);
@@ -308,10 +307,15 @@ async function main(): Promise<void> {
   }
 }
 
-let code;
+let code: number;
 try {
   code = await main();
 } catch (e) {
-  code = e;
+  if (typeof e === "number") {
+    code = e;
+  } else {
+    console.error(e);
+    code = 1;
+  }
 }
-Deno.exit(code);
+process.exit(code);

@@ -1,4 +1,13 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --no-lock
+#!/usr/bin/env -S bun run
+
+import {
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+  statSync,
+  rmSync,
+  mkdirSync,
+} from "node:fs";
 
 import { genEqualizerAPO } from "./json_to_eqapo.ts";
 import { genLSP } from "./json_to_lsp.ts";
@@ -6,9 +15,9 @@ import { genLV2 } from "./json_to_lv2.ts";
 import { apoToJson } from "./apo_to_json.ts";
 import { lspToJson } from "./lsp_to_json.ts";
 
-import { dirname } from "https://deno.land/x/dirname_es/mod.ts";
 import { genPeq } from "./json_to_peq.ts";
-const __dirname = dirname(import.meta);
+const __dirname = import.meta.dir;
+const utf8 = { encoding: <"utf8">"utf8" };
 
 export type Band = {
   type: string;
@@ -43,8 +52,8 @@ const qToBw = (Q: number) => {
 
 function dirExistsSync(path: string): boolean {
   try {
-    const fileInfo = Deno.lstatSync(path);
-    return fileInfo.isDirectory;
+    const fileInfo = statSync(path);
+    return fileInfo.isDirectory();
   } catch (_) {
     return false;
   }
@@ -52,49 +61,48 @@ function dirExistsSync(path: string): boolean {
 
 const syncAll = () => {
   const path = `${__dirname}/devices`;
-  const files = Deno.readDirSync(path);
+  const files = readdirSync(path);
 
-  for (const file of files) {
-    const f = file.name;
+  for (const f of files) {
     const p = `${path}/${f}`;
-    const contents = JSON.parse(Deno.readTextFileSync(p));
+    const contents = JSON.parse(readFileSync(p, utf8));
 
     const outFile = `${contents.type}-${contents.name.replace(/\s+/g, "_")}`;
 
     const apoOutPath = `${__dirname}/apo/${outFile}.txt`;
     const apoOutput = genEqualizerAPO(contents);
-    Deno.writeTextFileSync(apoOutPath, apoOutput);
+    writeFileSync(apoOutPath, apoOutput);
 
     const lspOutPath = `${__dirname}/lsp/${outFile}.cfg`;
     const lspOutput = genLSP(contents);
-    Deno.writeTextFileSync(lspOutPath, lspOutput);
+    writeFileSync(lspOutPath, lspOutput);
 
     const peqOutPath = `${__dirname}/peq/${outFile}.json`;
     const peqOutput = genPeq(contents);
-    Deno.writeTextFileSync(peqOutPath, peqOutput);
+    writeFileSync(peqOutPath, peqOutput);
 
     const lv2OutDir = `${__dirname}/lv2/${outFile}.preset.lv2`;
     const [lv2Manifest, lv2Preset] = genLV2(contents, outFile);
     if (dirExistsSync(lv2OutDir)) {
-      Deno.removeSync(lv2OutDir, { recursive: true });
+      rmSync(lv2OutDir, { recursive: true });
     }
 
-    Deno.mkdirSync(lv2OutDir);
-    Deno.writeTextFileSync(`${lv2OutDir}/manifest.ttl`, lv2Manifest);
-    Deno.writeTextFileSync(`${lv2OutDir}/${outFile}.ttl`, lv2Preset);
+    mkdirSync(lv2OutDir, { recursive: true });
+    writeFileSync(`${lv2OutDir}/manifest.ttl`, lv2Manifest);
+    writeFileSync(`${lv2OutDir}/${outFile}.ttl`, lv2Preset);
   }
 };
 
 const lspReverseSync = () => {
   const path = `${__dirname}/lsp`;
-  const files = Deno.readDirSync(path);
+  const files = readdirSync(path);
 
   const devicesPath = `${__dirname}/devices`;
-  const devicesFiles = Deno.readDirSync(devicesPath);
+  const devicesFiles = readdirSync(devicesPath);
   const deviceFileNames = Object.fromEntries(
     [...devicesFiles].map((file) => {
-      const p = `${devicesPath}/${file.name}`;
-      const contents = JSON.parse(Deno.readTextFileSync(p));
+      const p = `${devicesPath}/${file}`;
+      const contents = JSON.parse(readFileSync(p, utf8));
       const outFile = `${contents.type}-${contents.name.replace(
         /\s+/g,
         "_"
@@ -103,10 +111,9 @@ const lspReverseSync = () => {
     })
   );
 
-  for (const file of files) {
-    const f = file.name;
+  for (const f of files) {
     const p = `${path}/${f}`;
-    const contents = Deno.readTextFileSync(p);
+    const contents = readFileSync(p, utf8);
     const { preamp, zoom, bands } = lspToJson(contents);
 
     const info = deviceFileNames[f];
@@ -121,15 +128,12 @@ const lspReverseSync = () => {
     jsonContents.effects[effectToEdit].settings.preamp = preamp;
     jsonContents.effects[effectToEdit].settings.bands = bands;
     jsonContents.effects[effectToEdit].settings.zoom = zoom;
-    Deno.writeTextFileSync(
-      fullPath,
-      JSON.stringify(jsonContents, null, 2) + "\n"
-    );
+    writeFileSync(fullPath, JSON.stringify(jsonContents, null, 2) + "\n");
   }
 };
 
 const bw = (path: string) => {
-  const contents = JSON.parse(Deno.readTextFileSync(path)) as Contents;
+  const contents = JSON.parse(readFileSync(path, utf8)) as Contents;
   contents.effects = contents.effects.map((e) => {
     if (e.type === "eq") {
       e.settings.bands = e.settings.bands.map((b) => ({
@@ -145,7 +149,7 @@ const bw = (path: string) => {
 };
 
 function main() {
-  const args = Deno.args;
+  const args = process.argv.slice(2);
   const cmd = args[0];
   if (cmd === "all") {
     syncAll();
@@ -166,35 +170,35 @@ function main() {
 
   if (cmd === "apo") {
     const path = args[1];
-    const contents = JSON.parse(Deno.readTextFileSync(path));
+    const contents = JSON.parse(readFileSync(path, utf8));
     console.log(genEqualizerAPO(contents));
     return;
   }
 
   if (cmd === "peq") {
     const path = args[1];
-    const contents = JSON.parse(Deno.readTextFileSync(path));
+    const contents = JSON.parse(readFileSync(path, utf8));
     console.log(genPeq(contents));
     return;
   }
 
   if (cmd === "apoToJson") {
     const path = args[1];
-    const contents = Deno.readTextFileSync(path);
+    const contents = readFileSync(path, utf8);
     console.log(JSON.stringify(apoToJson(contents), null, 2));
     return;
   }
 
   if (cmd === "lspToJson") {
     const path = args[1];
-    const contents = Deno.readTextFileSync(path);
+    const contents = readFileSync(path, utf8);
     console.log(JSON.stringify(lspToJson(contents), null, 2));
     return;
   }
 
   if (cmd === "lsp") {
     const path = args[1];
-    const contents = JSON.parse(Deno.readTextFileSync(path));
+    const contents = JSON.parse(readFileSync(path, utf8));
     console.log(genLSP(contents));
     return;
   }

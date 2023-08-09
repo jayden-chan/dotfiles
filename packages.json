@@ -52,7 +52,6 @@
       "dbeaver",
       "kdenlive",
       "oxygen",
-      "gpu-screen-recorder-git",
       "gamemode",
       "lib32-gamemode",
       "lib32-nvidia-utils",
@@ -200,7 +199,6 @@
       "lsp-plugins",
       "x42-plugins",
       "jalv",
-      "deno",
       "lain-git",
       "websocat",
       "meson",
@@ -226,7 +224,8 @@
       "atuin",
       "firefox-developer-edition",
       "mat2",
-      "bun-bin"
+      "bun-bin",
+      "moreutils"
     ]
   },
   "ignored": [

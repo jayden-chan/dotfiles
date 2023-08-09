@@ -43,7 +43,6 @@ return {
 			on_init = on_init,
 			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 			root_dir = lsp_util.root_pattern("package.json"),
-			single_file_support = false,
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 
@@ -54,18 +53,6 @@ return {
 					})
 				end, { nargs = 0 })
 
-				on_attach(client, bufnr)
-			end,
-			flags = default_flags,
-		})
-
-		lspconfig.denols.setup({
-			capabilities = capabilities,
-			on_init = on_init,
-			filetypes = { "typescript" },
-			root_dir = lsp_util.root_pattern("deno.json", "deno.jsonc"),
-			on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = false
 				on_attach(client, bufnr)
 			end,
 			flags = default_flags,

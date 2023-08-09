@@ -19,6 +19,41 @@ function kw () { kubectl "$@" -o wide }
 function kww () { kubectl "$@" -o wide -w }
 function kns () { kubectl config set-context --current --namespace="$1" }
 
+function bb () {
+    if [ "$1" = "down" ]; then
+        gio trash ./tsconfig.json
+        gio trash ./package.json
+        rm -rf ./node_modules/ bun.lockb
+    fi
+
+    if [ "$1" = "up" ]; then
+    cat << EOF > ./tsconfig.json
+    {
+      "compilerOptions": {
+        "types": ["bun-types"],
+        "lib": ["esnext"],
+        "module": "esnext",
+        "target": "esnext",
+        "moduleResolution": "bundler",
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "moduleDetection": "force",
+        "esModuleInterop": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true
+      }
+    }
+EOF
+
+    cat << EOF > ./package.json
+    { "dependencies": { "@types/node": "18", "bun-types": "latest" } }
+EOF
+
+        bun install
+    fi
+}
+
 function gig () {
     if [[ "$1" == "ls" ]]; then
         curl --silent https://api.github.com/repos/github/gitignore/contents/ | jq '.[].name' -r | rg "\.gitignore" --replace=''
