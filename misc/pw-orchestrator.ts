@@ -597,6 +597,11 @@ const config = {
             command: "killall picom",
             onFinish: [
               { type: "led::set", button: "Button 15", color: "AMBER" },
+              {
+                type: "command",
+                command:
+                  "pgrep -x gpu-screen-reco > /dev/null || notify-send -u critical 'WARNING' 'gpu-screen-recorder is not running'",
+              },
             ],
           },
         ],
