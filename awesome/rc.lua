@@ -89,7 +89,7 @@ local gpu_screen_recorder_cmd = "gpu-screen-recorder"
 	.. " -o " -- output path
 	.. home
 	.. "/Videos/replays"
-	.. " > /tmp/gpu-screen-recorder.log 2>&1"
+	.. " 2>&1 | ts '%s' > /tmp/gpu-screen-recorder.log"
 
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
@@ -799,6 +799,7 @@ awful.rules.rules = {
 				"Org.gnome.Nautilus",
 				"Nsxiv",
 				"Tor Browser",
+				"Inkview",
 				"Wpa_gui",
 				"mpv",
 				"origin.exe",
