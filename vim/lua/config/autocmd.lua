@@ -46,7 +46,7 @@ end
 
 -- Jump to last known cursor position when opening files
 vim.cmd(
-	[[autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+	[[autocmd BufReadPost * if expand('%:t') != 'COMMIT_EDITMSG' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 )
 
 vim.cmd([[autocmd BufRead,BufNewFile Jenkinsfile setf groovy]])
