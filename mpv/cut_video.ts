@@ -1,4 +1,3 @@
-import { randomBytes } from "node:crypto";
 import { rm } from "node:fs/promises";
 import { writeFile } from "node:fs/promises";
 
@@ -76,7 +75,13 @@ if (args.some((a) => Number.isNaN(parseFloat(a)))) {
   process.exit(1);
 }
 
-const id = randomBytes(4).toString("hex");
+const id = new Date()
+  .toLocaleString()
+  .replaceAll("/", "-")
+  .replaceAll(":", "-")
+  .replace(/\s/g, "_")
+  .replaceAll(",", "");
+
 const tmpPath = `/tmp/cut_video_${id}.mp4`;
 const cutsFilter = genCutsFilter(args);
 
@@ -201,30 +206,29 @@ if (finalCode !== 0) {
   process.exit(1);
 }
 
-if (DEBUG) {
-  let debugOut = "";
-  debugOut += "First render command:\n";
-  debugOut += `$ ${renderTmpClipCommand.map((c) => `'${c}'`).join(" ")}\n\n`;
-  debugOut += renderTmpClipCommand.join("\n") + "\n\n";
-  debugOut += `\n\n${"-".repeat(64)}\n\n`;
-
-  debugOut += "First render filter:\n";
-  debugOut += cutsFilter.replaceAll(";", "\n");
-  debugOut += `\n\n${"-".repeat(64)}\n\n`;
-
-  debugOut += "Loudness analysis command:\n";
-  debugOut += `$ ${loudnessAnalysisCommand.map((c) => `'${c}'`).join(" ")}\n\n`;
-  debugOut += loudnessAnalysisCommand.join("\n") + "\n\n";
-  debugOut += `\n\n${"-".repeat(64)}\n\n`;
-
-  debugOut += "Final ffmpeg command:\n";
-  debugOut += `$ ${finalCmd.map((c) => `'${c}'`).join(" ")}\n\n`;
-  debugOut += finalCmd.join("\n") + "\n\n";
-  debugOut += `\n\n${"-".repeat(64)}\n\n`;
-
-  await writeFile(`/tmp/cut_video_${id}_DEBUG.log`, debugOut);
-} else {
+if (!DEBUG) {
   await rm(tmpPath);
 }
 
+let debugOut = "";
+debugOut += "First render command:\n";
+debugOut += `$ ${renderTmpClipCommand.map((c) => `'${c}'`).join(" ")}\n\n`;
+debugOut += renderTmpClipCommand.join("\n") + "\n\n";
+debugOut += `\n\n${"-".repeat(64)}\n\n`;
+
+debugOut += "First render filter:\n";
+debugOut += cutsFilter.replaceAll(";", "\n");
+debugOut += `\n\n${"-".repeat(64)}\n\n`;
+
+debugOut += "Loudness analysis command:\n";
+debugOut += `$ ${loudnessAnalysisCommand.map((c) => `'${c}'`).join(" ")}\n\n`;
+debugOut += loudnessAnalysisCommand.join("\n") + "\n\n";
+debugOut += `\n\n${"-".repeat(64)}\n\n`;
+
+debugOut += "Final ffmpeg command:\n";
+debugOut += `$ ${finalCmd.map((c) => `'${c}'`).join(" ")}\n\n`;
+debugOut += finalCmd.join("\n") + "\n\n";
+debugOut += `\n\n${"-".repeat(64)}\n\n`;
+
+await writeFile(`/tmp/cut_video_${id}_DEBUG.log`, debugOut);
 await notify("Rendering finished!");
