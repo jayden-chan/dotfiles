@@ -2,6 +2,14 @@ import { rm } from "node:fs/promises";
 import { writeFile } from "node:fs/promises";
 
 const DEBUG = false;
+const id = new Date()
+  .toLocaleString()
+  .replaceAll("/", "-")
+  .replaceAll(":", "-")
+  .replace(/\s/g, "_")
+  .replaceAll(",", "");
+
+const debugFile = `/tmp/cut_video_${id}_DEBUG.log`;
 
 type LoudnessInfo = {
   input_i: string;
@@ -14,6 +22,28 @@ type LoudnessInfo = {
   output_thresh: string;
   normalization_type: string;
   target_offset: string;
+};
+
+const cmd = async (command: string[], label: string) => {
+  const proc = Bun.spawn(command, {
+    stdout: "pipe",
+    stderr: "pipe",
+  });
+
+  const stdout = await new Response(proc.stdout).text();
+  const stderr = await new Response(proc.stderr).text();
+  const code = await proc.exited;
+
+  if (code !== 0) {
+    await notify(`Error: command failed: ${label}`, { err: true });
+    await writeFile(
+      debugFile,
+      command.join("\n") + "\n\n" + stdout + "\n\n" + stderr
+    );
+    process.exit(1);
+  }
+
+  return { code, stdout, stderr };
 };
 
 const notify = async (msg: string, opts?: { err?: boolean }) => {
@@ -75,19 +105,13 @@ if (args.some((a) => Number.isNaN(parseFloat(a)))) {
   process.exit(1);
 }
 
-const id = new Date()
-  .toLocaleString()
-  .replaceAll("/", "-")
-  .replaceAll(":", "-")
-  .replace(/\s/g, "_")
-  .replaceAll(",", "");
-
 const tmpPath = `/tmp/cut_video_${id}.mp4`;
 const cutsFilter = genCutsFilter(args);
 
 // prettier-ignore
 const renderTmpClipCommand = [
   "ffmpeg",
+  // don't spam up the stdout/stderr
   "-hide_banner",
   "-nostats",
   "-i",              path,
@@ -122,40 +146,33 @@ const renderTmpClipCommand = [
   "-y",
 ]
 
-const proc = Bun.spawn(renderTmpClipCommand, {
-  stdout: "ignore",
-  stderr: "ignore",
-});
-
-const code = await proc.exited;
+await cmd(renderTmpClipCommand, "temp clip");
 
 let loudnessInfo: LoudnessInfo;
-if (code !== 0) {
-  await notify("Error: Tmp render command failed", { err: true });
-  process.exit(1);
-}
 
 await Bun.sleep(1);
 
 // prettier-ignore
 const loudnessAnalysisCommand = [
-    "ffmpeg",
-    "-hide_banner",
-    "-nostats",
-    "-i",           tmpPath,
-    "-filter:a",    "loudnorm=print_format=json",
-    "-f",           "null",
-    "NULL",
-  ];
+  "ffmpeg",
+  // don't spam up the stdout/stderr
+  "-hide_banner",
+  "-nostats",
+  "-i",           tmpPath,
+  // print the loudnorm information as JSON format
+  "-filter:a",    "loudnorm=print_format=json",
+  "-f",           "null",
+  "NULL",
+];
 
-const loudnessAnalysisProc = Bun.spawn(loudnessAnalysisCommand, {
-  stdout: "ignore",
-  stderr: "pipe",
-});
+const { stderr: loudnessOutput } = await cmd(
+  loudnessAnalysisCommand,
+  "loudness analysis"
+);
 
-const text = await new Response(loudnessAnalysisProc.stderr).text();
-await loudnessAnalysisProc.exited;
-const jsonPortion = text.slice(text.lastIndexOf("{"), text.length).trim();
+const jsonPortion = loudnessOutput
+  .slice(loudnessOutput.lastIndexOf("{"), loudnessOutput.length)
+  .trim();
 
 try {
   loudnessInfo = JSON.parse(jsonPortion);
@@ -183,28 +200,36 @@ const outputPath = path
 // prettier-ignore
 const finalCmd = [
   "ffmpeg",
+  // don't spam up the stdout/stderr
   "-hide_banner",
   "-nostats",
   "-i",              tmpPath,
+
+  // select all input streams for the output
   "-map",            "0",
+
+  // copy the video over without transcoding
+  // or modifying in any way
   "-c:v",            "copy",
+
+  // apply the computed loudness normalization filter
   "-filter:a",       loudnormFilter,
+
+  // AAC 320 kbps
   "-c:a",            "aac",
   "-b:a",            "320k",
+
+  // set the number of audio channels to 2. this is supposed to be
+  // automatically determined by the input but it sometimes doesn't
+  // work when using the loudnorm filter
+  "-ac",             "2",
+
   outputPath,
+
   "-y",
 ]
 
-const finalCmdProc = Bun.spawn(finalCmd, {
-  stdout: "ignore",
-  stderr: "ignore",
-});
-
-const finalCode = await finalCmdProc.exited;
-if (finalCode !== 0) {
-  await notify("Error: Final render command failed", { err: true });
-  process.exit(1);
-}
+await cmd(finalCmd, "final render");
 
 if (!DEBUG) {
   await rm(tmpPath);
@@ -230,5 +255,5 @@ debugOut += `$ ${finalCmd.map((c) => `'${c}'`).join(" ")}\n\n`;
 debugOut += finalCmd.join("\n") + "\n\n";
 debugOut += `\n\n${"-".repeat(64)}\n\n`;
 
-await writeFile(`/tmp/cut_video_${id}_DEBUG.log`, debugOut);
+await writeFile(debugFile, debugOut);
 await notify("Rendering finished!");
