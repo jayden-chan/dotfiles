@@ -10,13 +10,15 @@ alias zshrc='vim $DOT/zsh/zshrc'
 
 # Exit
 alias :q='exit'
+alias :qa='exit'
 alias :Q='exit'
 alias :wq='exit'
 alias :Wq='exit'
-alias :q!='builtin exit'
-alias :Q!='builtin exit'
-alias :wq!='builtin exit'
-alias :Wq!='builtin exit'
+alias :q!='exit'
+alias :qa!='exit'
+alias :Q!='exit'
+alias :wq!='exit'
+alias :Wq!='exit'
 
 # Editor
 alias vim='nvim'

@@ -360,19 +360,3 @@ function mullvad_ns () {
         firejail --noprofile --netns=$NS "$@"
     fi
 }
-
-# try not to exit the terminal with un-pushed git commits
-function exit () {
-    gitlog=$(git log @{upstream}.. 2>/dev/null)
-    if [[ $? -ne 0 ]]; then builtin exit; fi
-    if [[ $(printf '%s' "$gitlog" | wc -c) -ne 0 ]]; then
-        echo "Oops! You forgot to push your commits to the upstream repo."
-        echo -n "Would you like to push them before exiting? [Y/n] "
-        read answer
-
-        if [ "$answer" != "${answer#[Yy]}" ]; then
-            git push || return -1
-        fi
-    fi
-    builtin exit
-}
