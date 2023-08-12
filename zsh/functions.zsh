@@ -59,26 +59,26 @@ function bb () {
 
     if [ "$1" = "up" ]; then
     cat << EOF > ./tsconfig.json
-    {
-      "compilerOptions": {
-        "types": ["bun-types"],
-        "lib": ["esnext"],
-        "module": "esnext",
-        "target": "esnext",
-        "moduleResolution": "bundler",
-        "noEmit": true,
-        "allowImportingTsExtensions": true,
-        "moduleDetection": "force",
-        "esModuleInterop": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true
-      }
-    }
+{
+  "compilerOptions": {
+    "types": ["bun-types"],
+    "lib": ["esnext"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}
 EOF
 
     cat << EOF > ./package.json
-    { "dependencies": { "@types/node": "18", "bun-types": "latest" } }
+{ "dependencies": { "@types/node": "18", "bun-types": "latest" } }
 EOF
 
         bun install
@@ -252,70 +252,6 @@ function installfont () {
     echo --- Refreshing font cache ---
     sudo fc-cache -fv
     echo --- Done ---
-}
-
-function cargo_init() {
-    if [ "$1" = "" ]; then
-        echo "You must specify a project name"
-    else
-        cargo init $1
-        cd $1
-        touch README.md
-        echo "# $1" > README.md
-
-        if [ "$2" != "" ]; then
-            echo "\n$2" >> README.md
-        fi
-
-        touch Makefile
-        echo "build: build-native\n" >> Makefile
-        echo "build-general:\n\tcargo build --release\n" >> Makefile
-        echo "build-native:\n\tRUSTFLAGS=\"-Ctarget-cpu-native\" cargo build --release\n" >> Makefile
-        echo ".PHONY: build build-general build-native" >> Makefile
-
-        touch rustfmt.toml
-        echo "max_width = 80" > rustfmt.toml
-        echo "Project creation finished, don't forget to add a license"
-    fi
-}
-
-function ts_init() {
-    if [ "$1" = "" ]; then
-        echo "You must specify a project name"
-    else
-        mkdir $1
-        cd $1
-        git status >/dev/null 2>&1 || { git init }
-        yarn init
-        mkdir src
-
-        echo "# $1" > README.md
-        echo "function main() {\n  console.log(\"Hello world\");\n}\n\nmain();" > src/index.ts
-        echo "dist\nnode_modules\n*.swp\n*.env" > .gitignore
-        echo '{
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.json"],
-  "compilerOptions": {
-    "incremental": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "outDir": "dist",
-    "module": "commonjs",
-    "lib": ["es2020"],
-    "target": "ES6",
-    "inlineSourceMap": true,
-    "strict": true
-  }
-}' > tsconfig.json
-
-        yarn add -D @types/node@16
-
-        if [ "$2" != "" ]; then
-            echo "\n$2" >> README.md
-        fi
-
-        echo "Project created, don't forget to update package.json"
-    fi
-
 }
 
 function mullvad_ns () {
