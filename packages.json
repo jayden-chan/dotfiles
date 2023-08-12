@@ -71,7 +71,6 @@
       "mediainfo",
       "nsxiv",
       "aardvark-dns",
-      "goose",
       "libprocps"
     ],
     "swift": [
@@ -205,7 +204,6 @@
       "ninja",
       "sqlx-cli",
       "python-sqlparse",
-      "picom-arian8j2-git",
       "thunar-volman",
       "lxsession-gtk3",
       "polkit",
@@ -225,7 +223,8 @@
       "firefox-developer-edition",
       "mat2",
       "bun-bin",
-      "moreutils"
+      "moreutils",
+      "picom"
     ]
   },
   "ignored": [
