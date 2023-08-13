@@ -296,7 +296,7 @@ end)
 
 local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
 local headphones = mar(icon_box("", mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
-awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 300, function(_, stdout)
+awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 60, function(_, stdout)
 	local data = stdout:gsub("%s+$", "")
 	if string.len(data) == 0 then
 		headphones:set_visible(false)
