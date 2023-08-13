@@ -294,6 +294,13 @@ awful.widget.watch(scripts .. "/weather.sh", 10, function(_, stdout)
 	weather_text:set_text(stdout:gsub("%s+$", ""))
 end)
 
+weather:buttons(gears.table.join(
+	weather:buttons(),
+	awful.button({}, 1, nil, function()
+		awful.spawn(scripts .. "/weather.sh --open")
+	end)
+))
+
 local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
 local headphones = mar(icon_box("", mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
 awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 60, function(_, stdout)

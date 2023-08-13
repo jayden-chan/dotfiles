@@ -4,9 +4,8 @@
 
 # default city Victoria BC
 city=${WEATHER_CITY_ID:-6174041}
-browser=${BROWSER:-firefox}
 
-if [ "$1" = "--open" ]; then $browser https://openweathermap.org/city/"$city"; exit; fi
+if [ "$1" = "--open" ]; then xdg-open https://openweathermap.org/city/"$city"; exit; fi
 if [ -z "$WEATHER_TOKEN" ]; then echo "No weather token"; exit 1; fi
 
 if [ -z "$HA_TOKEN" ]; then
