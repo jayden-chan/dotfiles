@@ -71,7 +71,8 @@
       "mediainfo",
       "nsxiv",
       "aardvark-dns",
-      "libprocps"
+      "libprocps",
+      "breeze"
     ],
     "swift": [
       "light",
