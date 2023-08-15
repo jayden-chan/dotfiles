@@ -96,6 +96,7 @@ awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
 awful.spawn.with_shell("pgrep -x  gpu-screen-reco   > /dev/null || " .. gpu_screen_recorder_cmd)
 awful.spawn.with_shell("pgrep -fx 'thunar --daemon' > /dev/null || thunar --daemon")
+awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
 awful.spawn.with_shell("pgrep -fx lxpolkit          > /dev/null || lxpolkit")
 awful.spawn.with_shell("pgrep -x  redshift          > /dev/null || redshift")
 awful.spawn.with_shell("pgrep -x  picom             > /dev/null || picom --config " .. dots .. "/misc/picom.conf")
@@ -780,6 +781,19 @@ awful.rules.rules = {
 			{ type = "dnd" },
 		},
 		properties = {
+			titlebars_enabled = false,
+		},
+	},
+	-- KDE connect pointer
+	{
+		rule_any = {
+			class = {
+				"kdeconnectd",
+				"kdeconnect.daemon",
+			},
+		},
+		properties = {
+			floating = true,
 			titlebars_enabled = false,
 		},
 	},

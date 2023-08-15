@@ -72,7 +72,8 @@
       "nsxiv",
       "aardvark-dns",
       "libprocps",
-      "breeze"
+      "breeze",
+      "kdeconnect",
     ],
     "swift": [
       "light",
