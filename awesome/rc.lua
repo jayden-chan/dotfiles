@@ -80,8 +80,8 @@ local gpu_screen_recorder_cmd = "gpu-screen-recorder"
 	.. " -c mp4" -- container format
 	.. " -f 60" -- framerate
 	.. " -q very_high" -- quality
-	.. " -r 150" -- number of seconds in record buffer
-	.. " -a audio-sink.monitor" -- audio playback
+	.. " -r 240" -- number of seconds in record buffer
+	.. " -a audio-device-sink.monitor" -- audio playback
 	.. " -a carla-source" -- microphone
 	.. " -ac opus" -- audio codec
 	.. " -k h265" -- codec
