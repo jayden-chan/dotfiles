@@ -1,11 +1,27 @@
 ---@diagnostic disable: undefined-global
+
+local log_snippet = function(trigger, level)
+	return s(
+		trigger,
+		fmt("logger." .. level .. "({})", {
+			c(1, {
+				sn(nil, { t('"'), i(1), t('"') }),
+				sn(nil, { t('{ message: "'), i(1), t('"'), i(2), t(" }") }),
+				sn(nil, { t("`"), i(1), t("`") }),
+				sn(nil, { t("{ message: `"), i(1), t("`"), i(2), t(" }") }),
+			}),
+		})
+	)
+end
+
 return {
 	s("log", fmt("console.log({})", i(0))),
 	s("er", fmt("console.error({})", i(0))),
-	s("deb", fmt("logger.debug({})", i(0))),
-	s("info", fmt("logger.info({})", i(0))),
-	s("warn", fmt("logger.warn({})", i(0))),
-	s("err", fmt("logger.error({})", i(0))),
+	log_snippet("deb", "debug"),
+	log_snippet("info", "info"),
+	log_snippet("warn", "warn"),
+	log_snippet("err", "error"),
+	log_snippet("crit", "crit"),
 	s(
 		"prom",
 		fmt(
