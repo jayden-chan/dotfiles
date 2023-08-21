@@ -9,7 +9,6 @@
       "arm-none-eabi-newlib",
       "arm-none-eabi-gcc",
       "img2pdf",
-      "obs-studio",
       "discord",
       "python-llfuse",
       "arduino",
@@ -74,6 +73,8 @@
       "libprocps",
       "breeze",
       "kdeconnect",
+      "stockfish",
+      "yubikey-manager"
     ],
     "swift": [
       "light",
@@ -226,7 +227,8 @@
       "mat2",
       "bun-bin",
       "moreutils",
-      "picom"
+      "picom",
+      "libfido2"
     ]
   },
   "ignored": [
