@@ -228,7 +228,8 @@
       "bun-bin",
       "moreutils",
       "picom",
-      "libfido2"
+      "libfido2",
+      "libvips"
     ]
   },
   "ignored": [
