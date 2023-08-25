@@ -16,5 +16,5 @@ else
     fi
 fi
 
-weather=$(curl --silent "https://cron.jayden.codes/weather.txt")
+weather=$(curl --silent "https://cron.jayden.codes/weather/short/victoria")
 echo "$weather$indoor_temp"
