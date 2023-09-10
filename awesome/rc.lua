@@ -302,6 +302,12 @@ weather:buttons(gears.table.join(
 	end)
 ))
 
+local dnd_text = wibox.widget({ widget = wibox.widget.textbox })
+dnd_text:set_text("Do Not Disturb")
+local dnd_widget = mar(icon_box("", mar(dnd_text, 0, 10, 0, 10)), 0, widget_block_gap)
+dnd_widget:set_visible(false)
+naughty.resume()
+
 local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
 local headphones = mar(icon_box("", mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
 awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 60, function(_, stdout)
@@ -424,12 +430,14 @@ awful.screen.connect_for_each_screen(function(s)
 		right:add(cpu)
 		right:add(weather)
 		right:add(headphones)
+		right:add(dnd_widget)
 		right:add(time)
 		right:add(bg(mar(systray, 8, 3, 8, 10)))
 		right:add(layout)
 	else
 		right:add(weather)
 		right:add(headphones)
+		right:add(dnd_widget)
 		right:add(time)
 		right:add(layout)
 	end
@@ -465,6 +473,17 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey }, "h", function()
 		hotkeys_popup.show_help(nil, awful.screen.focused())
 	end, { description = "show hotkey list", group = "awesome" }),
+
+	-- Do not disturb
+	awful.key({ modkey }, "d", function()
+		if naughty.is_suspended() then
+			naughty.resume()
+			dnd_widget:set_visible(false)
+		else
+			naughty.suspend()
+			dnd_widget:set_visible(true)
+		end
+	end, { description = "toggle mute notifications", group = "awesome" }),
 
 	-- Screenshots
 	awful.key(
