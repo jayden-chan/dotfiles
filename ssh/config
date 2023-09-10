@@ -22,6 +22,12 @@ Host opnsense
     User jayden
     IdentityFile ~/.ssh/opnsense
 
+Host livestream
+    Hostname live.jayden.codes
+    Port 22
+    User jaydencn7
+    IdentityFile ~/.ssh/gcp_livestream
+
 Host piwheel
     Hostname 192.168.1.73
     User pi
