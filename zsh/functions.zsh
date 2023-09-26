@@ -117,9 +117,9 @@ function syc () {
     alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
     if [ "$1" = "up" ]; then
         echo "syncing up"
-        cpr ~/Documents/ homelab:Documents/cloud/
-        cpr ~/Pictures/  homelab:Pictures/cloud/
-        cpr ~/Videos/    homelab:Videos/cloud/
+        cpr                       ~/Documents/ homelab:Documents/cloud/
+        cpr                       ~/Pictures/  homelab:Pictures/cloud/
+        cpr --exclude 'replays/*' ~/Videos/    homelab:Videos/cloud/
         return
     elif [ "$1" = "down" ]; then
         echo "syncing down"
