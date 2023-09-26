@@ -1,12 +1,12 @@
 #!/bin/zsh
 
-num=0
 full="no"
 if [ "$1" = "--full" ]; then
     full="yes"
     shift
 fi
 
+num=0
 for file in "$@"; do
     orientation=$(exiv2 -g 'Exif.Image.Orientation' -P v "$file")
     ext="${file:t:e}"

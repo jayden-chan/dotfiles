@@ -75,31 +75,15 @@ local modkey = "Mod1"
 -- Super (windows key)
 local super = "Mod4"
 
-local gpu_screen_recorder_cmd = "gpu-screen-recorder"
-	.. " -w DP-2" -- window/screen to record
-	.. " -c mp4" -- container format
-	.. " -f 60" -- framerate
-	.. " -q very_high" -- quality
-	.. " -r 240" -- number of seconds in record buffer
-	.. " -a audio-device-sink.monitor" -- audio playback
-	.. " -a carla-source" -- microphone
-	.. " -ac opus" -- audio codec
-	.. " -k h265" -- codec
-	.. " -v yes" -- don't print framerate updates
-	.. " -o " -- output path
-	.. home
-	.. "/Videos/replays"
-	.. " 2>&1 | ts '%s' > /tmp/gpu-screen-recorder.log"
-
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
-awful.spawn.with_shell("pgrep -x  gpu-screen-reco   > /dev/null || " .. gpu_screen_recorder_cmd)
 awful.spawn.with_shell("pgrep -fx 'thunar --daemon' > /dev/null || thunar --daemon")
 awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
 awful.spawn.with_shell("pgrep -fx lxpolkit          > /dev/null || lxpolkit")
 awful.spawn.with_shell("pgrep -x  redshift          > /dev/null || redshift")
 awful.spawn.with_shell("pgrep -x  picom             > /dev/null || picom --config " .. dots .. "/misc/picom.conf")
+awful.spawn.with_shell("nitrogen --restore")
 
 -- Spawn the MPRIS listener script
 local start_mpris = function()
@@ -147,11 +131,7 @@ local script_cb = function(name, args, startup_notifications)
 end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = {
-	awful.layout.suit.tile.left,
-	awful.layout.suit.floating,
-	awful.layout.suit.max,
-}
+awful.layout.layouts = { awful.layout.suit.tile.left }
 -- }}}
 
 -- {{{ Menu
@@ -343,13 +323,14 @@ awful.screen.connect_for_each_screen(function(s)
 	))
 
 	-- Create a textclock widget
-	s.mytextclock = wibox.widget.textclock("%a, %b %e %l:%M")
+	s.textclock_local = wibox.widget.textclock("%a, %b %e %l:%M %p")
+	s.textclock_cet = wibox.widget.textclock("%a, %b %e %l:%M %p", 60, "Europe/Stockholm")
 	s.month_calendar = awful.widget.calendar_popup.month({
 		screen = s,
 		start_sunday = true,
 		margin = 15,
 	})
-	s.month_calendar:attach(s.mytextclock, "tr")
+	s.month_calendar:attach(s.textclock_local, "tr")
 
 	s.mytaglist = wibox.container.background()
 	s.mytaglist.bg = bar_bg
@@ -417,8 +398,8 @@ awful.screen.connect_for_each_screen(function(s)
 
 	local mem = mar(icon_box("", mar(mem_widget, 0, 10, 0, 10)), 0, widget_block_gap)
 	local cpu = mar(icon_box("勤", mar(cpu_widget, 0, 10, 0, 10)), 0, widget_block_gap)
-	local time = mar(icon_box("", mar(s.mytextclock, 0, 10, 0, 10)), 0, widget_block_gap)
-	local layout = bg(mar(s.mylayoutbox, 7, 7, 7, 7))
+	local time_local = icon_box("", mar(s.textclock_local, 0, 10, 0, 10))
+	local time_cet = mar(icon_box("", mar(s.textclock_cet, 0, 10, 0, 10)), 0, widget_block_gap)
 
 	local right = wibox.layout.fixed.horizontal()
 
@@ -431,15 +412,15 @@ awful.screen.connect_for_each_screen(function(s)
 		right:add(weather)
 		right:add(headphones)
 		right:add(dnd_widget)
-		right:add(time)
-		right:add(bg(mar(systray, 8, 3, 8, 10)))
-		right:add(layout)
+		right:add(time_cet)
+		right:add(time_local)
+		right:add(mar(bg(mar(systray, 8, 3, 8, 10)), 0, 0, 0, widget_block_gap))
 	else
 		right:add(weather)
 		right:add(headphones)
 		right:add(dnd_widget)
-		right:add(time)
-		right:add(layout)
+		right:add(time_cet)
+		right:add(time_local)
 	end
 
 	local left = wibox.layout.fixed.horizontal()
