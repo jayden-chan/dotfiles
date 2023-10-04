@@ -288,7 +288,8 @@ const config = {
       { node: "re:.*Battlefield 4.*", mixerChannel: "round_robin" },
       { node: "re:.*Overwatch\\.exe.*", mixerChannel: "round_robin" },
       { node: "TrackmaniaUplay", mixerChannel: "round_robin" },
-      { node: "re:csgo_linux64*", mixerChannel: 6 },
+      { node: "re:csgo_linux64.*", mixerChannel: 6 },
+      { node: "re:.*cs2.*", mixerChannel: 6 },
       { node: "WEBRTC VoiceEngine", mixerChannel: 7 },
       { node: "spotify", mixerChannel: 8 },
       {
