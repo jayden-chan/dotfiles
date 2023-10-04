@@ -1,6 +1,7 @@
 import { rm } from "node:fs/promises";
 import { writeFile } from "node:fs/promises";
 
+const RESOLUTION = "1920:1080";
 const DEBUG = false;
 const id = new Date()
   .toLocaleString()
@@ -88,7 +89,7 @@ const genCutsFilter = (args: string[]) => {
   });
 
   const channelPairs = cuts.map((i) => `[v${i}][a${i}]`).join("");
-  filter += `${channelPairs}concat=n=${numCuts}:v=1:a=1[v][a]`;
+  filter += `${channelPairs}concat=n=${numCuts}:v=1:a=1[vpre][a];[vpre]scale=${RESOLUTION}:flags=bicubic,setsar=1:1[v]`;
   return filter;
 };
 
