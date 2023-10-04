@@ -74,7 +74,12 @@
       "kdeconnect",
       "yubikey-manager",
       "pam-u2f",
-      "sunshine"
+      "sunshine",
+      "mangohud",
+      "gamescope",
+      "glances",
+      "qpwgraph",
+      "phoronix-test-suite"
     ],
     "swift": [
       "light",
