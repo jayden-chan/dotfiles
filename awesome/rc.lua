@@ -414,7 +414,7 @@ awful.screen.connect_for_each_screen(function(s)
 		right:add(dnd_widget)
 		right:add(time_cet)
 		right:add(time_local)
-		right:add(mar(bg(mar(systray, 8, 3, 8, 10)), 0, 0, 0, widget_block_gap))
+		right:add(mar(bg(mar(systray, 8, 8, 8, 10)), 0, 0, 0, widget_block_gap))
 	else
 		right:add(weather)
 		right:add(headphones)
