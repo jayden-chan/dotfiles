@@ -2,21 +2,27 @@
 
 set -e
 
-import_path="$1"
+sd_path="$1"
+dest_path="$HOME/Pictures/a6600"
 
-if [ "$import_path" = "" ]; then
+if [ "$sd_path" = "" ]; then
     echo "Error: You must provide the path to import from"
     exit 1
 fi
 
-if [ -d "$import_path" ]; then
+if [ ! -d "$dest_path" ]; then
+    echo "Error: Destination import path does not exist"
+    exit 1
+fi
+
+if [ -d "$sd_path" ]; then
     echo "Found SD card on file system."
 else
     echo "Error: SD card isn't mounted to file system."
     exit 1
 fi
 
-photos=$(fd . "$import_path/DCIM/100MSDCF" --extension ARW --extension JPG)
+photos=$(fd . "$sd_path/DCIM/100MSDCF" --extension ARW --extension JPG)
 num_photos=$(echo "$photos" | wc -l)
 
 if [ "$photos" = "" ]; then
@@ -25,7 +31,7 @@ fi
 
 real_num_photos=$(($((num_photos)) / 2))
 
-videos=$(fd . "$import_path/PRIVATE/M4ROOT/CLIP/" --extension MP4)
+videos=$(fd . "$sd_path/PRIVATE/M4ROOT/CLIP/" --extension MP4)
 num_videos=$(echo "$videos" | wc -l)
 
 if [ "$videos" = "" ]; then
@@ -55,10 +61,10 @@ if [ "$photos" != "" ]; then
 
         resulting_file=""
         if [ "$ext" = "ARW" ]; then
-            resulting_file="$HOME/Pictures/a6600/raw/${date}_${file:t}"
+            resulting_file="$dest_path/raw/${date}_${file:t}"
             echo -n "(RAW) "
         elif [ "$ext" = "JPG" ]; then
-            resulting_file="$HOME/Pictures/a6600/sdr/${date}_${file:t}"
+            resulting_file="$dest_path/sdr/${date}_${file:t}"
             echo -n "(JPEG) "
         else
             echo "WARNING: Unknown file extension \"$ext\""
@@ -85,7 +91,7 @@ if [ "$videos" != "" ]; then
     for file in $(echo "$videos"); do
         original_date=$(mediainfo "$file" | rg "Tagged date" | sort -u | rg "\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(.*?)$" --only-matching --replace='$0' --color=never)
         date=$(echo "$original_date" | xargs -d '\n' date "+%Y-%m-%d_%H-%M-%S" -u -d)
-        resulting_file="$HOME/Pictures/a6600/video/${date}_${file:t}"
+        resulting_file="$dest_path/video/${date}_${file:t}"
 
         echo "[$current_video/$num_videos] ${file:t} ($date) -> $resulting_file" | sed -E "s|$HOME|~|g"
         rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$file" "$resulting_file"
