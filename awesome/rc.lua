@@ -849,11 +849,11 @@ awful.rules.rules = {
 		properties = { floating = true },
 	},
 	-- Discord on screen 1
-	{ rule = { class = "discord" }, properties = { screen = (screen_num_invert and 2 or 3), tag = "3" } },
+	{ rule = { class = "discord" }, properties = { screen = 2, tag = "3" } },
 	-- Carla on screen 3 tag 2
-	{ rule = { class = "Carla2" }, properties = { screen = (screen_num_invert and 2 or 3), tag = "2" } },
+	{ rule = { class = "Carla2" }, properties = { screen = 2, tag = "2" } },
 	-- Trackmania
-	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },
+	{ rule = { class = "steam_app_2225070" }, properties = { screen = 3, tag = "3" } },
 }
 -- }}}
 
