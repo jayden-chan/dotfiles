@@ -118,7 +118,7 @@ function syc () {
     if [ "$1" = "up" ]; then
         echo "syncing up"
         cpr                       ~/Documents/ homelab:Documents/cloud/
-        cpr                       ~/Pictures/  homelab:Pictures/cloud/
+        cpr --exclude 'a6600/*'   ~/Pictures/  homelab:Pictures/cloud/
         cpr --exclude 'replays/*' ~/Videos/    homelab:Videos/cloud/
         return
     elif [ "$1" = "down" ]; then
