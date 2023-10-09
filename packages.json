@@ -79,7 +79,11 @@
       "gamescope",
       "glances",
       "qpwgraph",
-      "phoronix-test-suite"
+      "phoronix-test-suite",
+      "nvme-cli",
+      "psensor",
+      "nvtop",
+      "libva-nvidia-driver"
     ],
     "swift": [
       "light",
@@ -230,7 +234,8 @@
       "picom",
       "libfido2",
       "libvips",
-      "gdm"
+      "gdm",
+      "libva-utils"
     ]
   },
   "ignored": [
