@@ -432,9 +432,9 @@ awful.screen.connect_for_each_screen(function(s)
 	s.mywibox:struts({ top = 35, left = 0, right = 0, bottom = 0 })
 	s.mywibox:setup({
 		layout = wibox.layout.align.horizontal,
-		expand = "none",
+		expand = "inside",
 		mar(left, 10, 0, 0, 20),
-		mar(wibox.container.background(), 10),
+		mar(wibox.container.background(), 1),
 		mar(right, 10, 20),
 	})
 end)
