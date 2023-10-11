@@ -67,8 +67,7 @@ const genCutsFilter = (args: string[]) => {
   const cutPoints = args.map((a) => parseFloat(a).toFixed(4));
   const numCuts = cutPoints.length / 2;
   const cuts = [...Array(numCuts).keys()].map((n) => n + 1);
-  let filter = `[0:1]volume=0.6[ain1];[0:2]volume=0.6[ain2];`;
-  filter += `[ain1][ain2]amix=inputs=2:normalize=0[outl];`;
+  let filter = `[0:1][0:2]amix=inputs=2:weights=0.6 0.6:normalize=0[outl];`;
   const vcopies = cuts.map((i) => `[vcopy${i}]`).join("");
   const acopies = cuts.map((i) => `[acopy${i}]`).join("");
   filter += `[0:v]split=${numCuts}${vcopies};`;
@@ -80,7 +79,7 @@ const genCutsFilter = (args: string[]) => {
     filter += `[vcopy${i}]trim=start=${startPos}:end=${endPos},setpts=PTS-STARTPTS[v${i}];`;
   });
 
-  filter += `[outl]asplit=${numCuts}${acopies};`;
+  filter += `[outl]asplit=${numCuts}${acopies};\n`;
   cuts.forEach((i) => {
     const startIdx = (i - 1) * 2;
     const startPos = cutPoints[startIdx];
@@ -89,7 +88,8 @@ const genCutsFilter = (args: string[]) => {
   });
 
   const channelPairs = cuts.map((i) => `[v${i}][a${i}]`).join("");
-  filter += `${channelPairs}concat=n=${numCuts}:v=1:a=1[vpre][a];[vpre]scale=${RESOLUTION}:flags=bicubic,setsar=1:1[v]`;
+  filter += `${channelPairs}concat=n=${numCuts}:v=1:a=1[vpre][a];`;
+  filter += `[vpre]scale=${RESOLUTION}:flags=bicubic,setsar=1:1[v]`;
   return filter;
 };
 
@@ -131,8 +131,7 @@ const renderTmpClipCommand = [
   "-c:a",            "aac",
   "-b:a",            "320k",
 
-  // apply our generated filter_complex parameter to normalize
-  // the audio and clip up the video
+  // apply our generated filter_complex parameter to clip up the video
   "-filter_complex", cutsFilter,
 
   // select the clipped up and normalized video/audio that we made

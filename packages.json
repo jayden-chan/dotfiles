@@ -100,7 +100,6 @@
       "bluez-utils",
       "blueman",
       "nitrogen",
-      "insomnia-bin",
       "git-extras",
       "xcolor",
       "gimp",
@@ -235,7 +234,8 @@
       "libfido2",
       "libvips",
       "gdm",
-      "libva-utils"
+      "libva-utils",
+      "ebumeter"
     ]
   },
   "ignored": [
