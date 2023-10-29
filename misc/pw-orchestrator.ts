@@ -241,6 +241,11 @@ const SFX_BINDS: Record<string, [string, number, boolean]> = {
   "Button 19": ["~/Documents/SFX/NFL_clean.ogg", 70, true],
   "Button 20": ["~/Documents/SFX/metal_pipe.ogg", 80, true],
   "Button 9": ["~/Documents/SFX/star_wars.ogg", 80, true],
+  "Button 10": [
+    "~/Documents/SFX/minecraft-alpha-damage-sound-effect.mp3",
+    100,
+    false,
+  ],
 };
 
 const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
