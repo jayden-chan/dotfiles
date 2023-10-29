@@ -825,6 +825,9 @@ awful.rules.rules = {
 				"mpv",
 				"origin.exe",
 				"pw-display",
+				"nvidia-settings",
+				"Nvidia-settings",
+				"NVIDIA settings",
 				"veromix",
 				"eadesktop.exe",
 				"Thunar",
@@ -853,7 +856,7 @@ awful.rules.rules = {
 	-- Carla on screen 3 tag 2
 	{ rule = { class = "Carla2" }, properties = { screen = 2, tag = "2" } },
 	-- Trackmania
-	{ rule = { class = "steam_app_2225070" }, properties = { screen = 3, tag = "3" } },
+	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },
 }
 -- }}}
 
