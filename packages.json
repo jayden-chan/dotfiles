@@ -4,7 +4,6 @@
       "dfu-programmer",
       "dfu-util",
       "nvidia-settings",
-      "rpi-imager-bin",
       "avahi",
       "arm-none-eabi-newlib",
       "arm-none-eabi-gcc",
@@ -83,7 +82,10 @@
       "nvme-cli",
       "psensor",
       "nvtop",
-      "libva-nvidia-driver"
+      "libva-nvidia-driver",
+      "liquidctl",
+      "coolercontrol",
+      "openrgb-bin"
     ],
     "swift": [
       "light",
