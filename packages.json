@@ -84,7 +84,6 @@
       "nvtop",
       "libva-nvidia-driver",
       "liquidctl",
-      "coolercontrol",
       "openrgb-bin"
     ],
     "swift": [
@@ -237,7 +236,8 @@
       "libvips",
       "gdm",
       "libva-utils",
-      "ebumeter"
+      "ebumeter",
+      "dust"
     ]
   },
   "ignored": [
