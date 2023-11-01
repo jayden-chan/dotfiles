@@ -390,7 +390,10 @@ const config = {
         actions: [
           {
             type: "command",
-            command: `killall -SIGUSR1 gpu-screen-recorder && notify-send "gpu-screen-recorder" "Clip saved" || notify-send -u critical "gpu-screen-recorder" "ERROR!!! ERROR!! Clip failed to save"`,
+            command:
+              `killall -SIGUSR1 gpu-screen-recorder ` +
+              `&& notify-send "gpu-screen-recorder" "Clip saved" ` +
+              `|| notify-send -u critical "gpu-screen-recorder" "ERROR!!! ERROR!! Clip failed to save"`,
           },
         ],
       },
@@ -415,6 +418,42 @@ const config = {
           {
             type: "command",
             command: "~/.config/dotfiles/scripts/xf86.sh media Previous",
+          },
+        ],
+      },
+    },
+    "Clip Stop": {
+      type: "button",
+      defaultLEDState: "OFF",
+      onLongPress: {
+        actions: [
+          { type: "led::set", button: "Clip Stop", color: "ON" },
+          {
+            type: "command",
+            command: "~/.config/dotfiles/scripts/liquidctl.sh max",
+          },
+        ],
+      },
+      onPress: {
+        actions: [
+          {
+            type: "cycle",
+            actions: [
+              [
+                { type: "led::set", button: "Clip Stop", color: "ON" },
+                {
+                  type: "command",
+                  command: "~/.config/dotfiles/scripts/liquidctl.sh high",
+                },
+              ],
+              [
+                { type: "led::set", button: "Clip Stop", color: "OFF" },
+                {
+                  type: "command",
+                  command: "~/.config/dotfiles/scripts/liquidctl.sh low",
+                },
+              ],
+            ],
           },
         ],
       },
