@@ -84,6 +84,7 @@ awful.spawn.with_shell("pgrep -fx lxpolkit          > /dev/null || lxpolkit")
 awful.spawn.with_shell("pgrep -x  redshift          > /dev/null || redshift")
 awful.spawn.with_shell("pgrep -x  gsr.sh            > /dev/null || " .. scripts .. "/gsr.sh")
 awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("sleep 3; openrgb --mode static --color 0323F5")
 
 -- Spawn the MPRIS listener script
 local start_mpris = function()
