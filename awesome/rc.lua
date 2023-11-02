@@ -84,7 +84,8 @@ awful.spawn.with_shell("pgrep -fx lxpolkit          > /dev/null || lxpolkit")
 awful.spawn.with_shell("pgrep -x  redshift          > /dev/null || redshift")
 awful.spawn.with_shell("pgrep -x  gsr.sh            > /dev/null || " .. scripts .. "/gsr.sh")
 awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("sleep 3; openrgb --mode static --color 0323F5")
+-- awful.spawn.with_shell("sleep 3; openrgb --mode static --color 0323F5")
+awful.spawn.with_shell("sleep 3; openrgb --mode static --color AFBEFE")
 
 -- Spawn the MPRIS listener script
 local start_mpris = function()
@@ -508,6 +509,49 @@ local globalkeys = gears.table.join(
 		"c",
 		script_cb("xcolor.sh", { "--theme-pick" }, false),
 		{ description = "pick accent color", group = "screenshot" }
+	),
+
+	-- pipewire-orchestrator
+	awful.key(
+		{ modkey, "Shift" },
+		"F1",
+		script_cb("midi.sh", { "mic_mute" }, false),
+		{ description = "toggle mic mute", group = "pipewire-orchestrator" }
+	),
+
+	awful.key(
+		{ modkey, "Shift" },
+		"F2",
+		script_cb("midi.sh", { "cooler_control" }, false),
+		{ description = "cycle cooling control settings", group = "pipewire-orchestrator" }
+	),
+
+	awful.key(
+		{ modkey, "Shift" },
+		"F8",
+		script_cb("midi.sh", { "bathys_eq" }, false),
+		{ description = "set EQ to Focal Bathys", group = "pipewire-orchestrator" }
+	),
+
+	awful.key(
+		{ modkey, "Shift" },
+		"F9",
+		script_cb("midi.sh", { "hexa_eq" }, false),
+		{ description = "set EQ to Truthear Hexa", group = "pipewire-orchestrator" }
+	),
+
+	awful.key(
+		{ modkey, "Shift" },
+		"F10",
+		script_cb("midi.sh", { "disable_eq" }, false),
+		{ description = "disable EQ", group = "pipewire-orchestrator" }
+	),
+
+	awful.key(
+		{ modkey, "Shift" },
+		"F11",
+		script_cb("midi.sh", { "clip_save" }, false),
+		{ description = "save clip", group = "pipewire-orchestrator" }
 	),
 
 	-- XF86
