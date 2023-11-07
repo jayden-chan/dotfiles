@@ -30,7 +30,9 @@ elif [ "$1" = "--power" ]; then
         reboot)   shutdown --reboot now ;;
         shutdown) shutdown --poweroff now ;;
     esac
-
+elif [ "$1" = "--liquidctl" ]; then
+    result=$(< "$HOME/.config/dotfiles/rofi/liquidctlmenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme")
+    "$HOME/.config/dotfiles/scripts/liquidctl.sh" "$result"
 elif [ "$1" = "--save-screenshot" ]; then
     result=$(rofi -dmenu -i -theme screenshot -p "file name:" -theme-str "$rofi_theme")
 

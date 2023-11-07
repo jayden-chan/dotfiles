@@ -262,24 +262,24 @@ const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
 const config = {
   device: "APC Key 25 MIDI",
   stateFile: `${HOME}/.local/state/pw-orchestrator.json`,
-  // inputMidi: "virt:2",
-  // outputMidi: "virt:1",
-  inputMidi: "SOCKET",
-  outputMidi: "NONE",
+  inputMidi: "virt:2",
+  outputMidi: "virt:1",
+  // inputMidi: "SOCKET",
+  // outputMidi: "NONE",
   connections: [
-    // ["APC Key 25", "Virtual Raw MIDI 0-2"],
-    // ["APC Key 25", "Virtual Raw MIDI 1-2"],
-    // ["APC Key 25", "Virtual Raw MIDI 2-2"],
-    // ["APC Key 25", "Virtual Raw MIDI 3-2"],
-    // ["APC Key 25", "Virtual Raw MIDI 4-2"],
-    // ["APC Key 25", "Virtual Raw MIDI 5-2"],
-    //
-    // ["Virtual Raw MIDI 0-1", "APC Key 25"],
-    // ["Virtual Raw MIDI 1-1", "APC Key 25"],
-    // ["Virtual Raw MIDI 2-1", "APC Key 25"],
-    // ["Virtual Raw MIDI 3-1", "APC Key 25"],
-    // ["Virtual Raw MIDI 4-1", "APC Key 25"],
-    // ["Virtual Raw MIDI 5-1", "APC Key 25"],
+    ["APC Key 25", "Virtual Raw MIDI 0-2"],
+    ["APC Key 25", "Virtual Raw MIDI 1-2"],
+    ["APC Key 25", "Virtual Raw MIDI 2-2"],
+    ["APC Key 25", "Virtual Raw MIDI 3-2"],
+    ["APC Key 25", "Virtual Raw MIDI 4-2"],
+    ["APC Key 25", "Virtual Raw MIDI 5-2"],
+
+    ["Virtual Raw MIDI 0-1", "APC Key 25"],
+    ["Virtual Raw MIDI 1-1", "APC Key 25"],
+    ["Virtual Raw MIDI 2-1", "APC Key 25"],
+    ["Virtual Raw MIDI 3-1", "APC Key 25"],
+    ["Virtual Raw MIDI 4-1", "APC Key 25"],
+    ["Virtual Raw MIDI 5-1", "APC Key 25"],
   ],
   lv2Path: `/usr/lib/lv2:${HOME}/.config/dotfiles/afx/lv2`,
   pipewire: {
@@ -427,35 +427,11 @@ const config = {
     "Clip Stop": {
       type: "button",
       defaultLEDState: "OFF",
-      onLongPress: {
-        actions: [
-          { type: "led::set", button: "Clip Stop", color: "ON" },
-          {
-            type: "command",
-            command: "~/.config/dotfiles/scripts/liquidctl.sh max",
-          },
-        ],
-      },
       onPress: {
         actions: [
           {
-            type: "cycle",
-            actions: [
-              [
-                { type: "led::set", button: "Clip Stop", color: "ON" },
-                {
-                  type: "command",
-                  command: "~/.config/dotfiles/scripts/liquidctl.sh high",
-                },
-              ],
-              [
-                { type: "led::set", button: "Clip Stop", color: "OFF" },
-                {
-                  type: "command",
-                  command: "~/.config/dotfiles/scripts/liquidctl.sh low",
-                },
-              ],
-            ],
+            type: "command",
+            command: "~/.config/dotfiles/scripts/rofi.sh --liquidctl",
           },
         ],
       },
