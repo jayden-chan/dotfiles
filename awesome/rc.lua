@@ -18,7 +18,7 @@ local lain = require("lain")
 
 -- sometimes the screen numbers get messed up and the directions/numbers
 -- need to change. no idea how to make the screen numbers consistent
-local screen_num_invert = true
+local screen_num_invert = false
 
 naughty.config.spacing = 1
 naughty.config.padding = 10
@@ -85,7 +85,7 @@ awful.spawn.with_shell("pgrep -x  redshift          > /dev/null || redshift")
 awful.spawn.with_shell("pgrep -x  gsr.sh            > /dev/null || " .. scripts .. "/gsr.sh")
 awful.spawn.with_shell("nitrogen --restore")
 -- awful.spawn.with_shell("sleep 3; openrgb --mode static --color 0323F5")
-awful.spawn.with_shell("sleep 3; openrgb --mode static --color AFBEFE")
+awful.spawn.with_shell("sleep 3; openrgb --mode static --color D0D7FE")
 
 -- Spawn the MPRIS listener script
 local start_mpris = function()
@@ -897,9 +897,9 @@ awful.rules.rules = {
 		properties = { floating = true },
 	},
 	-- Discord on screen 1
-	{ rule = { class = "discord" }, properties = { screen = 2, tag = "3" } },
+	{ rule = { class = "discord" }, properties = { screen = 3, tag = "3" } },
 	-- Carla on screen 3 tag 2
-	{ rule = { class = "Carla2" }, properties = { screen = 2, tag = "2" } },
+	{ rule = { class = "Carla2" }, properties = { screen = 3, tag = "2" } },
 	-- Trackmania
 	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },
 }
