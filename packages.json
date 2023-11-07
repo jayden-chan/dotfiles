@@ -85,7 +85,6 @@
       "vulkan-intel",
       "pasystray",
       "network-manager-applet",
-      "openresolv",
       "intel-media-driver",
       "intel-gpu-tools"
     ],
@@ -230,7 +229,8 @@
       "gdm",
       "libva-utils",
       "ebumeter",
-      "dust"
+      "dust",
+      "openresolv"
     ]
   },
   "ignored": [
