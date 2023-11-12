@@ -1,34 +1,46 @@
 #!/bin/bash
 
+level_file="/tmp/liquidctl_level"
+if [ ! -f "$level_file" ]; then
+    echo -n "1" > "$level_file"
+fi
+
 fan1="fan1"
 fan2="fan3"
 pump="fan2"
 level="$1"
+auto="$2"
+current_level=$(cat "$level_file")
 
-if [ "$level" = "level1" ]; then
-    liquidctl --match Aquacomputer set "$fan1" speed 46 && \
-    liquidctl --match Aquacomputer set "$fan2" speed 45 && \
-    liquidctl --match Aquacomputer set "$pump" speed 18 && \
-    notify-send "liquidctl" "Cooling set to level 1"
+if [ "$auto" = "true" ]; then
+    if [ "$current_level" != "1" ]; then
+        exit 0
+    fi
+    notify-send -u critical "liquidctl" "WARNING: Cooling level was set automatically"
 fi
 
-if [ "$level" = "level2" ]; then
-    liquidctl --match Aquacomputer set "$fan1" speed 63 && \
-    liquidctl --match Aquacomputer set "$fan2" speed 63 && \
-    liquidctl --match Aquacomputer set "$pump" speed 35 && \
-    notify-send "liquidctl" "Cooling set to level 2"
-fi
+case "$level" in
+    1) liquidctl --match Aquacomputer set "$fan1" speed 43 && \
+       liquidctl --match Aquacomputer set "$fan2" speed 42 && \
+       liquidctl --match Aquacomputer set "$pump" speed 18
+           ;;
+    2) liquidctl --match Aquacomputer set "$fan1" speed 55 && \
+       liquidctl --match Aquacomputer set "$fan2" speed 55 && \
+       liquidctl --match Aquacomputer set "$pump" speed 30
+           ;;
+    3) liquidctl --match Aquacomputer set "$fan1" speed 63 && \
+       liquidctl --match Aquacomputer set "$fan2" speed 63 && \
+       liquidctl --match Aquacomputer set "$pump" speed 35
+           ;;
+    4) liquidctl --match Aquacomputer set "$fan1" speed 72 && \
+       liquidctl --match Aquacomputer set "$fan2" speed 72 && \
+       liquidctl --match Aquacomputer set "$pump" speed 35
+           ;;
+    5) liquidctl --match Aquacomputer set "$fan1" speed 100 && \
+       liquidctl --match Aquacomputer set "$fan2" speed 100 && \
+       liquidctl --match Aquacomputer set "$pump" speed 35
+           ;;
+esac
 
-if [ "$level" = "level3" ]; then
-    liquidctl --match Aquacomputer set "$fan1" speed 72 && \
-    liquidctl --match Aquacomputer set "$fan2" speed 72 && \
-    liquidctl --match Aquacomputer set "$pump" speed 35 && \
-    notify-send "liquidctl" "Cooling set to level 3"
-fi
-
-if [ "$level" = "level4" ]; then
-    liquidctl --match Aquacomputer set "$fan1" speed 100 && \
-    liquidctl --match Aquacomputer set "$fan2" speed 100 && \
-    liquidctl --match Aquacomputer set "$pump" speed 35 && \
-    notify-send "liquidctl" "Cooling set to level 4"
-fi
+echo -n "$level" > "$level_file"
+notify-send "liquidctl" "Cooling set to level $level"

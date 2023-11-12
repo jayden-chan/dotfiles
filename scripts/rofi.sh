@@ -31,8 +31,14 @@ elif [ "$1" = "--power" ]; then
         shutdown) shutdown --poweroff now ;;
     esac
 elif [ "$1" = "--liquidctl" ]; then
-    result=$(< "$HOME/.config/dotfiles/rofi/liquidctlmenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme")
-    "$HOME/.config/dotfiles/scripts/liquidctl.sh" "$result"
+    result=$(< "$HOME/.config/dotfiles/rofi/liquidctlmenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme" -theme-str "listview { columns: 5; }")
+    case $result in
+        "Level 1") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "1" ;;
+        "Level 2") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "2" ;;
+        "Level 3") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "3" ;;
+        "Level 4") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "4" ;;
+        "Level 5") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "5" ;;
+    esac
 elif [ "$1" = "--save-screenshot" ]; then
     result=$(rofi -dmenu -i -theme screenshot -p "file name:" -theme-str "$rofi_theme")
 
