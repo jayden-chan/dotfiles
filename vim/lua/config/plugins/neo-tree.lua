@@ -16,6 +16,7 @@ return {
 			close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 			popup_border_style = "rounded",
 			enable_git_status = true,
+			use_default_mappings = false,
 			enable_diagnostics = true,
 			sort_case_insensitive = false, -- used when sorting files and directories in the tree
 			sort_function = nil, -- use a custom function for sorting files and directories in the tree

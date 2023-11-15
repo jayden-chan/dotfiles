@@ -1,8 +1,8 @@
 local utils = require("config.utils")
 return {
 	utils.mirror("indent-blankline.nvim"),
+	main = "ibl",
 	opts = {
-		show_current_context = false,
-		show_current_context_start = false,
+		scope = { enabled = false },
 	},
 }
