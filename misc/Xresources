@@ -44,3 +44,7 @@ st.color15: _color15
 st.cursorColor: _cursorColor
 st.background: _background
 st.foreground: _foreground
+
+Xft.dpi: 88
+Xcursor.theme: Oxygen_White
+Xcursor.size: 32
