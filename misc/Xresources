@@ -1,26 +1,26 @@
-#define _color0 #2c2f30
-#define _color1 #ec6b64
-#define _color2 #a9b665
-#define _color3 #e0c080
-#define _color4 #7daea3
-#define _color5 #d3869b
-#define _color6 #86b17f
-#define _color7 #c0b196
-#define _color8 #2c2f30
-#define _color9 #ec6b64
-#define _color10 #a9b665
-#define _color11 #e0c080
-#define _color12 #7daea3
-#define _color13 #d3869b
-#define _color14 #86b17f
-#define _color15 #c0b196
+#define _color0 #2b3339
+#define _color1 #e67e80
+#define _color2 #a7c080
+#define _color3 #dbbc7f
+#define _color4 #95d1c9
+#define _color5 #d699b6
+#define _color6 #95d1c9
+#define _color7 #e7dabe
+#define _color8 #3a4248
+#define _color9 #e67e80
+#define _color10 #a7c080
+#define _color11 #dbbc7f
+#define _color12 #95d1c9
+#define _color13 #d699b6
+#define _color14 #95d1c9
+#define _color15 #d3c6aa
 #define _color16 #d65d0e
 
 #define _cursorColor #b5b1a4
-#define _background #1e2122
-#define _foreground #c0b196
+#define _background #2b3339
+#define _foreground #d3c6aa
 
-st.font: Iosevka Nerd Font Mono:pixelsize=18:antialias=true:autohint=false:fonthashint=true
+st.font: Iosevka Nerd Font Mono:pixelsize=16:antialias=true:autohint=false:fonthashint=true
 st.cwscale: 1.0
 st.chscale: 0.91
 st.borderpx: 11
