@@ -133,7 +133,10 @@ local script_cb = function(name, args, startup_notifications)
 end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = { awful.layout.suit.tile.left }
+awful.layout.layouts = {
+	awful.layout.suit.tile.left,
+	awful.layout.suit.tile.top,
+}
 -- }}}
 
 -- {{{ Menu
@@ -304,25 +307,13 @@ end)
 
 awful.screen.connect_for_each_screen(function(s)
 	-- Each screen has its own tag table.
-	awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-
-	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
-	-- We need one layoutbox per screen.
-	s.mylayoutbox = awful.widget.layoutbox(s)
-	s.mylayoutbox:buttons(gears.table.join(
-		awful.button({}, 1, function()
-			awful.layout.inc(1)
-		end),
-		awful.button({}, 3, function()
-			awful.layout.inc(-1)
-		end),
-		awful.button({}, 4, function()
-			awful.layout.inc(1)
-		end),
-		awful.button({}, 5, function()
-			awful.layout.inc(-1)
-		end)
-	))
+	if s.index == 1 then
+		-- The main screen uses tile.left layout by default
+		awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+	else
+		-- The side screen uses tile.top by default
+		awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[2])
+	end
 
 	-- Create a textclock widget
 	s.textclock_local = wibox.widget.textclock("%a, %b %e %l:%M %p")
@@ -618,6 +609,14 @@ local globalkeys = gears.table.join(
 		awful.screen.focus_relative(1)
 	end, { description = "focus the previous screen", group = "screen" }),
 
+	awful.key({ modkey }, "bracketleft", function()
+		awful.layout.inc(-1)
+	end, { description = "switch to the previous layout", group = "screen" }),
+
+	awful.key({ modkey }, "bracketright", function()
+		awful.layout.inc(1)
+	end, { description = "switch to the next layout", group = "screen" }),
+
 	awful.key({ modkey }, "Tab", function()
 		awful.client.focus.history.previous()
 		if client.focus then
@@ -896,9 +895,13 @@ awful.rules.rules = {
 		},
 		properties = { floating = true },
 	},
-	-- Discord on screen 1
-	{ rule = { class = "discord" }, properties = { screen = 2, tag = "3" } },
-	-- Carla on screen 3 tag 2
+	-- Discord on side screen
+	{ rule = { class = "discord" }, properties = { screen = 2, tag = "1" } },
+	-- Spotify on side screen
+	{ rule = { class = "Spotify" }, properties = { screen = 2, tag = "1" } },
+	-- Psensor on side screen
+	{ rule = { class = "Psensor" }, properties = { screen = 2, tag = "2" } },
+	-- Carla on side screen
 	{ rule = { class = "Carla2" }, properties = { screen = 2, tag = "2" } },
 	-- Trackmania
 	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },

@@ -26,7 +26,7 @@ case "$level" in
            ;;
     2) liquidctl --match Aquacomputer set "$fan1" speed 55 && \
        liquidctl --match Aquacomputer set "$fan2" speed 55 && \
-       liquidctl --match Aquacomputer set "$pump" speed 30
+       liquidctl --match Aquacomputer set "$pump" speed 35
            ;;
     3) liquidctl --match Aquacomputer set "$fan1" speed 63 && \
        liquidctl --match Aquacomputer set "$fan2" speed 63 && \
