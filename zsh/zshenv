@@ -67,7 +67,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # work laptop stuff
-if [ "$hostname" = "Yellow-Lion.local" ]; then
+if [ "$hostname" = "client-Jayden-Chan.local" ]; then
     export PATH="$PATH:/opt/homebrew/bin"
 fi
 

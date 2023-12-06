@@ -114,7 +114,7 @@ source $DOT/zsh/git.zsh
 source $DOT/zsh/dotenv.zsh
 
 # syntax highlighting, must be loaded last
-if [ "$hostname" = "Yellow-Lion.local" ]; then
+if [ "$hostname" = "client-Jayden-Chan.local" ]; then
     source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
     source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
