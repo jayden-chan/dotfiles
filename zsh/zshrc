@@ -120,6 +120,9 @@ if [ "$hostname" = "Yellow-Lion.local" ]; then
     source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 else
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [ "$hostname" = "grace" ] || [ "$hostname" = "swift" ]; then
     # initialize atuin
     eval "$(atuin init zsh --disable-up-arrow)"
 fi
