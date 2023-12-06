@@ -317,7 +317,6 @@ awful.screen.connect_for_each_screen(function(s)
 
 	-- Create a textclock widget
 	s.textclock_local = wibox.widget.textclock("%a, %b %e %l:%M %p")
-	s.textclock_cet = wibox.widget.textclock("%a, %b %e %l:%M %p", 60, "Europe/Stockholm")
 	s.month_calendar = awful.widget.calendar_popup.month({
 		screen = s,
 		start_sunday = true,
@@ -392,7 +391,6 @@ awful.screen.connect_for_each_screen(function(s)
 	local mem = mar(icon_box("", mar(mem_widget, 0, 10, 0, 10)), 0, widget_block_gap)
 	local cpu = mar(icon_box("勤", mar(cpu_widget, 0, 10, 0, 10)), 0, widget_block_gap)
 	local time_local = icon_box("", mar(s.textclock_local, 0, 10, 0, 10))
-	local time_cet = mar(icon_box("", mar(s.textclock_cet, 0, 10, 0, 10)), 0, widget_block_gap)
 
 	local right = wibox.layout.fixed.horizontal()
 
@@ -405,14 +403,12 @@ awful.screen.connect_for_each_screen(function(s)
 		right:add(weather)
 		right:add(headphones)
 		right:add(dnd_widget)
-		right:add(time_cet)
 		right:add(time_local)
 		right:add(mar(bg(mar(systray, 8, 8, 8, 10)), 0, 0, 0, widget_block_gap))
 	else
 		right:add(weather)
 		right:add(headphones)
 		right:add(dnd_widget)
-		right:add(time_cet)
 		right:add(time_local)
 	end
 
