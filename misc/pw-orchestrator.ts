@@ -599,6 +599,28 @@ const config = {
         ],
       },
     },
+    "Button 14": {
+      type: "button",
+      defaultLEDStateAlways: "AMBER",
+      onPress: {
+        actions: [
+          {
+            type: "command",
+            command: "openrgb --mode static --color D0D7FE",
+          },
+          { type: "led::set", button: "Button 14", color: "GREEN" },
+        ],
+      },
+      onLongPress: {
+        actions: [
+          {
+            type: "command",
+            command: "openrgb --mode static --color 000000",
+          },
+          { type: "led::set", button: "Button 14", color: "RED" },
+        ],
+      },
+    },
     "Button 15": {
       type: "button",
       defaultLEDStateAlways: "GREEN",
