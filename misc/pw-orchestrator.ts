@@ -246,6 +246,7 @@ const SFX_BINDS: Record<string, [string, number, boolean]> = {
     100,
     false,
   ],
+  "Button 11": ["~/Documents/SFX/yippee.ogg", 80, true],
 };
 
 const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
