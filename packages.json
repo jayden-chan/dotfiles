@@ -77,7 +77,10 @@
       "nvtop",
       "libva-nvidia-driver",
       "liquidctl",
-      "openrgb-bin"
+      "openrgb-bin",
+      "r2modman-appimage",
+      "autokey-gtk",
+      "dyff"
     ],
     "swift": [
       "light",
