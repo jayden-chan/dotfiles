@@ -85,7 +85,7 @@ awful.spawn.with_shell("pgrep -x  redshift          > /dev/null || redshift")
 awful.spawn.with_shell("pgrep -x  picom             > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
 awful.spawn.with_shell("pgrep -x  gsr.sh            > /dev/null || " .. scripts .. "/gsr.sh")
 awful.spawn.with_shell("nitrogen --restore")
--- awful.spawn.with_shell("sleep 3; openrgb --mode static --color 0323F5")
+awful.spawn.with_shell("xrdb -load ~/.config/dotfiles/misc/Xresources")
 awful.spawn.with_shell("sleep 3; openrgb --mode static --color D0D7FE")
 
 -- Spawn the MPRIS listener script
