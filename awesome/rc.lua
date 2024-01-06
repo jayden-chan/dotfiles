@@ -62,6 +62,7 @@ end
 -- This is used later as the default terminal and editor to run.
 local terminal = "st"
 local editor = os.getenv("EDITOR") or "nvim"
+local tv_mode = os.getenv("TV_MODE") or "false"
 local editor_cmd = terminal .. " -e " .. editor
 
 local home = os.getenv("HOME")
@@ -78,15 +79,24 @@ local super = "Mod4"
 -- Startup programs
 awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
+
 awful.spawn.with_shell("pgrep -fx 'thunar --daemon' > /dev/null || thunar --daemon")
 awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
 awful.spawn.with_shell("pgrep -fx lxpolkit          > /dev/null || lxpolkit")
-awful.spawn.with_shell("pgrep -x  redshift          > /dev/null || redshift")
-awful.spawn.with_shell("pgrep -x  picom             > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
-awful.spawn.with_shell("pgrep -x  gsr.sh            > /dev/null || " .. scripts .. "/gsr.sh")
+
+if tv_mode ~= "true" then
+	awful.spawn.with_shell("pgrep -x redshift > /dev/null || redshift")
+	awful.spawn.with_shell("pgrep -x picom    > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
+	awful.spawn.with_shell("pgrep -x gsr.sh   > /dev/null || " .. scripts .. "/gsr.sh")
+	awful.spawn.with_shell("openrgb --mode static --color D0D7FE")
+else
+	awful.spawn.with_shell("sleep 5; xrandr --output HDMI-0 --mode 1920x1080 --rate 60.00")
+	awful.spawn.with_shell("pgrep -x picom > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf --vsync")
+	awful.spawn.with_shell(scripts .. "/liquidctl.sh 3")
+	awful.spawn.with_shell("openrgb --mode static --color 000000")
+end
+
 awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("xrdb -load ~/.config/dotfiles/misc/Xresources")
-awful.spawn.with_shell("sleep 3; openrgb --mode static --color D0D7FE")
 
 -- Spawn the MPRIS listener script
 local start_mpris = function()
@@ -893,13 +903,16 @@ awful.rules.rules = {
 		properties = { floating = true },
 	},
 	-- Discord on side screen
-	{ rule = { class = "discord" }, properties = { screen = 2, tag = "1" } },
+	{ rule = { class = "discord" }, properties = { screen = tv_mode == "true" and 1 or 2, tag = "1" } },
 	-- Spotify on side screen
-	{ rule = { class = "Spotify" }, properties = { screen = 2, tag = "1" } },
+	{ rule = { class = "Spotify" }, properties = { screen = tv_mode == "true" and 1 or 2, tag = "1" } },
 	-- Psensor on side screen
-	{ rule = { class = "Psensor" }, properties = { screen = 2, tag = "2" } },
+	{
+		rule = { class = "Psensor" },
+		properties = { screen = tv_mode == "true" and 1 or 2, tag = tv_mode == "true" and "3" or "2" },
+	},
 	-- Carla on side screen
-	{ rule = { class = "Carla2" }, properties = { screen = 2, tag = "2" } },
+	{ rule = { class = "Carla2" }, properties = { screen = tv_mode == "true" and 1 or 2, tag = "2" } },
 	-- Trackmania
 	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },
 }

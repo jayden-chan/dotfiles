@@ -1,12 +1,14 @@
 #!/usr/bin/env -S bun run
 
 const HOME = process.env["HOME"] ?? "/home/jayden";
+const TV_MODE = process.env["TV_MODE"] ?? "false";
 
 const SYSTEM_EQ = "System Equalizer";
 const DX5_DEV = "Topping DX5 Output";
 const S_4i4_DEV = "Scarlett 4i4";
 const QC_35_DEV = "Bose QuietComfort 35";
 const BATHYS_DEV = "Focal Bathys";
+const HDMI_DEV = "HDMI Output";
 
 const UNLINK = "pipewire::unlink";
 const LINK = "pipewire::link";
@@ -36,6 +38,7 @@ const M_SINK = genSinkTemplate("Mic Sink", pbm);
 const QC35 = genSinkTemplate(QC_35_DEV, pbc);
 const BATHYS = genSinkTemplate(BATHYS_DEV, pbc);
 const MIC = genSinkTemplate("Microphone", inc);
+const HDMI = genSinkTemplate(HDMI_DEV, pbm);
 const SCARLETT_METER = (p: LR) => ({ node: "Scarlett Meter", port: `In${p}` });
 
 const EQ = (o: InOut, p: LR) => ({
@@ -232,7 +235,7 @@ const SFX_BINDS: Record<string, [string, number, boolean]> = {
   "Button 34": ["~/Documents/SFX/discord.wav", 80, false],
   "Button 35": ["~/Documents/SFX/Badum_tss.mp3", 70, false],
   "Button 36": ["~/Documents/SFX/rev_it_up.mp3", 70, true],
-  "Button 25": ["~/Documents/SFX/Gentlemen.mp3", 85, true],
+  "Button 25": ["~/Documents/SFX/Gentlemen.mp3", 100, true],
   "Button 26": ["~/Documents/SFX/ritz.mp3", 70, true],
   "Button 27": ["~/Documents/SFX/chips.mp3", 55, true],
   "Button 28": ["~/Documents/SFX/Allahu_Akbar.mp3", 55, true],
@@ -263,10 +266,8 @@ const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
 const config = {
   device: "APC Key 25 MIDI",
   stateFile: `${HOME}/.local/state/pw-orchestrator.json`,
-  inputMidi: "virt:2",
-  outputMidi: "virt:1",
-  // inputMidi: "SOCKET",
-  // outputMidi: "NONE",
+  inputMidi: TV_MODE === "true" ? "SOCKET" : "virt:2",
+  outputMidi: TV_MODE === "true" ? "NONE" : "virt:1",
   connections: [
     ["APC Key 25", "Virtual Raw MIDI 0-2"],
     ["APC Key 25", "Virtual Raw MIDI 1-2"],
@@ -372,6 +373,17 @@ const config = {
           { type: LINK, src: S_4i4(Out, 0), dest: SCARLETT_METER(L) },
         ],
       },
+      ...(TV_MODE === "true"
+        ? [
+            {
+              node: HDMI_DEV,
+              onConnect: [
+                { type: LINK, src: EQ(Out, L), dest: HDMI(In, L) },
+                { type: LINK, src: EQ(Out, R), dest: HDMI(In, R) },
+              ],
+            },
+          ]
+        : []),
     ],
   },
   bindings: <Record<string, any>>{

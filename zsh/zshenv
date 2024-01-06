@@ -80,6 +80,8 @@ if [ "$hostname" = "swift" ] || [ "$hostname" = "grace" ]; then
         eval $(gnome-keyring-daemon --start 2>/dev/null)
         export SSH_AUTH_SOCK
     fi
+
+    xrdb -load ~/.config/dotfiles/misc/Xresources
 fi
 
 # NPM global
