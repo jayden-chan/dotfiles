@@ -31,9 +31,9 @@
       {
         "type": 3,
         "channels": 0,
-        "frequency": 87,
+        "frequency": 103,
         "q": 0.28,
-        "gain": -0.65,
+        "gain": 0.24,
         "color": -8947849
       },
       {
