@@ -80,7 +80,8 @@
       "openrgb-bin",
       "r2modman-appimage",
       "autokey-gtk",
-      "dyff"
+      "dyff",
+      "rpi-imager-bin"
     ],
     "swift": [
       "light",
