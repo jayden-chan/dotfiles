@@ -3,7 +3,7 @@ local lsp_config = require("config.lsp")
 local ts_config = require("config.treesitter_langs")
 
 return {
-	utils.mirror("null-ls.nvim"),
+	utils.mirror("none-ls.nvim"),
 	dependencies = {
 		utils.mirror("cmp-nvim-lsp"),
 	},

@@ -28,7 +28,7 @@ require("lazy").setup({
 	require("config.plugins.telescope"),
 	require("config.plugins.nvim-cmp"),
 	require("config.plugins.nvim-lspconfig"),
-	require("config.plugins.null-ls"),
+	require("config.plugins.none-ls"),
 	require("config.plugins.fidget"),
 	require("config.plugins.lspsaga"),
 	require("config.plugins.trouble"),
