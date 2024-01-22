@@ -20,9 +20,6 @@ return {
 			},
 			indent = { enable = true },
 			incremental_selection = { enable = false },
-			context_commentstring = {
-				enable = true,
-			},
 			textobjects = {
 				swap = {
 					enable = true,
