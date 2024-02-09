@@ -20,6 +20,7 @@ return {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.diagnostics.shellcheck,
+				null_ls.builtins.formatting.taplo,
 				null_ls.builtins.code_actions.shellcheck,
 				null_ls.builtins.diagnostics.cppcheck,
 				null_ls.builtins.formatting.terraform_fmt,
