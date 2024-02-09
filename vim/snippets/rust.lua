@@ -10,6 +10,8 @@ return {
 	s("des", t("#[derive(Serialize, Deserialize)]")),
 	s("re", fmt("Result<{}, {}>", { i(1), i(0) })),
 	s("op", fmt("Option<{}>", { i(0) })),
+	s("any", fmt("anyhow!({})", { i(0) })),
+	s("bail", fmt("anyhow::bail!({})", { i(0) })),
 	s(
 		"test",
 		fmt(
