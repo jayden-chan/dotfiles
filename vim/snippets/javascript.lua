@@ -95,6 +95,25 @@ export const {1} = (props: {{}}) => {{
 		)
 	),
 	s(
+		"hvc",
+		fmt(
+			[[
+const use{1} = () => {{
+	return {{ hello: "world" }};
+}};
+
+type {1}Props = ReturnType<typeof use{1}>;
+const {1}View = (props: {1}Props) => {{
+	return <div>{2}</div>;
+}};
+
+export const {1} = () => <{1}View {{...use{1}()}} />;
+]],
+			{ i(1), i(0) },
+			{ repeat_duplicates = true }
+		)
+	),
+	s(
 		"st",
 		fmt(
 			[[
