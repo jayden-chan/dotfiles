@@ -15,8 +15,8 @@ local theme = {}
 theme.font = "Sans 10"
 theme.notification_font = "Sans 12"
 
-local main_bg = "#1e2122"
-local font_fg = "#bbbbbb"
+local main_bg = "#1e2327"
+local font_fg = "#d3c6aa"
 local white = "#ffffff"
 
 theme.bg_normal = "#222222"
@@ -85,18 +85,23 @@ theme.menu_width = dpi(200)
 --theme.bg_widget = "#cc0000"
 
 -- Define the image to load
-theme.titlebar_close_button_normal = themes_path .. "default/red_unfocused.png"
+theme.titlebar_close_button_normal = themes_path .. "default/red.png"
 theme.titlebar_close_button_focus = themes_path .. "default/red.png"
+theme.titlebar_close_button_focus_hover = themes_path .. "default/red_hover.png"
 
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "default/yellow_unfocused.png"
+theme.titlebar_sticky_button_normal_inactive = themes_path .. "default/yellow.png"
 theme.titlebar_sticky_button_focus_inactive = themes_path .. "default/yellow.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "default/yellow_unfocused.png"
+theme.titlebar_sticky_button_focus_inactive_hover = themes_path .. "default/yellow_hover.png"
+theme.titlebar_sticky_button_normal_active = themes_path .. "default/yellow.png"
 theme.titlebar_sticky_button_focus_active = themes_path .. "default/yellow.png"
+theme.titlebar_sticky_button_focus_active_hover = themes_path .. "default/yellow_hover.png"
 
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "default/green_unfocused.png"
+theme.titlebar_maximized_button_normal_inactive = themes_path .. "default/green.png"
 theme.titlebar_maximized_button_focus_inactive = themes_path .. "default/green.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "default/green_unfocused.png"
+theme.titlebar_maximized_button_focus_inactive_hover = themes_path .. "default/green_hover.png"
+theme.titlebar_maximized_button_normal_active = themes_path .. "default/green.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "default/green.png"
+theme.titlebar_maximized_button_focus_active_hover = themes_path .. "default/green_hover.png"
 
 theme.wallpaper = themes_path .. "default/background.png"
 

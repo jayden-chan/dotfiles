@@ -963,9 +963,9 @@ client.connect_signal("request::titlebars", function(c)
 		end)
 	)
 
-	local titlebar = awful.titlebar(c, {
-		size = 25,
-	})
+	local titlebar_size = 40
+	local icon_size = 16
+	local titlebar = awful.titlebar(c, { size = titlebar_size })
 
 	titlebar:setup({
 		{
@@ -974,10 +974,10 @@ client.connect_signal("request::titlebars", function(c)
 				buttons = buttons,
 				layout = wibox.layout.fixed.horizontal,
 			},
-			left = 5,
+			left = titlebar_size / 3,
 			right = 5,
-			top = 5,
-			bottom = 5,
+			top = (titlebar_size - icon_size) / 2,
+			bottom = (titlebar_size - icon_size) / 2,
 			layout = wibox.container.margin,
 		},
 		{ -- Middle
@@ -992,22 +992,26 @@ client.connect_signal("request::titlebars", function(c)
 			{ -- Right
 				{
 					awful.titlebar.widget.stickybutton(c),
-					right = 3,
+					right = 4,
 					layout = wibox.container.margin,
 				},
 				{
 					awful.titlebar.widget.maximizedbutton(c),
-					left = 3,
-					right = 3,
+					left = 4,
+					right = 4,
 					layout = wibox.container.margin,
 				},
-				{ awful.titlebar.widget.closebutton(c), left = 3, layout = wibox.container.margin },
+				{
+					awful.titlebar.widget.closebutton(c),
+					left = 4,
+					layout = wibox.container.margin,
+				},
 				layout = wibox.layout.fixed.horizontal(),
 			},
 			left = 5,
-			right = 5,
-			top = 5,
-			bottom = 5,
+			right = titlebar_size / 3,
+			top = (titlebar_size - icon_size) / 2,
+			bottom = (titlebar_size - icon_size) / 2,
 			layout = wibox.container.margin,
 		},
 		layout = wibox.layout.align.horizontal,

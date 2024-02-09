@@ -1,7 +1,7 @@
 configuration {
     font:                           "Sans 11";
     show-icons:                     true;
-    icon-theme:                     "Yaru-Blue";
+    icon-theme:                     "Papirus-Dark";
     display-drun:                   "";
     drun-display-format:            "{name}";
     disable-history:                false;
