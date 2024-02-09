@@ -10,6 +10,7 @@ local base = {
 	"hcl",
 	"html",
 	"http",
+	"hurl",
 	"java",
 	"javascript",
 	"json",
