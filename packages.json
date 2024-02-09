@@ -224,7 +224,9 @@
       "openresolv",
       "gtk-engine-murrine",
       "papirus-icon-theme",
-      "libappindicator-gtk3"
+      "libappindicator-gtk3",
+      "hurl-bin",
+      "taplo"
     ]
   },
   "ignored": [
