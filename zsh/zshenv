@@ -75,10 +75,10 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
+
 if [ "$hostname" = "swift" ] || [ "$hostname" = "grace" ]; then
     if [ -n "$DESKTOP_SESSION" ];then
-        eval $(gnome-keyring-daemon --start 2>/dev/null)
-        export SSH_AUTH_SOCK
+        export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh
         xrdb -load ~/.config/dotfiles/misc/Xresources
     fi
 fi
