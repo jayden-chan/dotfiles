@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$1" = "bathys_eq" ]; then
-    printf '90 06 7F\n80 06 7F' | nc -N -U /tmp/pipewire-orchestrator.sock
+    printf '90 03 7F\n80 03 7F' | nc -N -U /tmp/pipewire-orchestrator.sock
 fi
 
 if [ "$1" = "hexa_eq" ]; then

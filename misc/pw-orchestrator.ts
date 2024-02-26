@@ -266,8 +266,10 @@ const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
 const config = {
   device: "APC Key 25 MIDI",
   stateFile: `${HOME}/.local/state/pw-orchestrator.json`,
-  inputMidi: TV_MODE === "true" ? "SOCKET" : "virt:2",
-  outputMidi: TV_MODE === "true" ? "NONE" : "virt:1",
+  // inputMidi: TV_MODE === "true" ? "SOCKET" : "virt:2",
+  // outputMidi: TV_MODE === "true" ? "NONE" : "virt:1",
+  inputMidi: "SOCKET",
+  outputMidi: "NONE",
   connections: [
     ["APC Key 25", "Virtual Raw MIDI 0-2"],
     ["APC Key 25", "Virtual Raw MIDI 1-2"],

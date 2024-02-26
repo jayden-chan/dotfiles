@@ -22,7 +22,7 @@ fi
 case "$level" in
     1) liquidctl --match Aquacomputer set "$fan1" speed 43 && \
        liquidctl --match Aquacomputer set "$fan2" speed 42 && \
-       liquidctl --match Aquacomputer set "$pump" speed 18
+       liquidctl --match Aquacomputer set "$pump" speed 20
            ;;
     2) liquidctl --match Aquacomputer set "$fan1" speed 55 && \
        liquidctl --match Aquacomputer set "$fan2" speed 55 && \
