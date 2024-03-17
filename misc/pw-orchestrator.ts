@@ -1,6 +1,8 @@
 #!/usr/bin/env -S bun run
 
+// @ts-ignore
 const HOME = process.env["HOME"] ?? "/home/jayden";
+// @ts-ignore
 const TV_MODE = process.env["TV_MODE"] ?? "false";
 
 const SYSTEM_EQ = "System Equalizer";
@@ -266,8 +268,6 @@ const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
 const config = {
   device: "APC Key 25 MIDI",
   stateFile: `${HOME}/.local/state/pw-orchestrator.json`,
-  // inputMidi: TV_MODE === "true" ? "SOCKET" : "virt:2",
-  // outputMidi: TV_MODE === "true" ? "NONE" : "virt:1",
   inputMidi: "SOCKET",
   outputMidi: "NONE",
   connections: [
@@ -335,12 +335,6 @@ const config = {
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
         ],
         onConnect: [
-          ...eqPresetActions(
-            "sink-Focal_Bathys",
-            Object.entries(EQ_PRESET_BINDS).find(
-              (e) => e[1] === "sink-Focal_Bathys"
-            )![0]
-          ),
           { type: UNLINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: UNLINK, src: EQ(Out, R), dest: DX5(In, R) },
           { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },

@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 # if bluetooth is off we need to exit early because otherwise
 # the bluetoothctl command hangs forever
 active="$(systemctl status bluetooth | rg 'Active: active')"
