@@ -8,16 +8,21 @@ if [ "$1" = "--env" ]; then
 fi
 
 if [ "$1" = "--full" ]; then
-    rm -rf ~/.config/latexmk 2>/dev/null
-    rm -rf ~/.config/npm     2>/dev/null
-    rm -rf ~/.config/nvim    2>/dev/null
-    rm -rf ~/.config/rofi    2>/dev/null
-    rm -rf ~/.config/tmux    2>/dev/null
-    rm -rf ~/.config/zsh     2>/dev/null
-    rm -rf ~/.config/mpv     2>/dev/null
-    rm -rf ~/.config/wget    2>/dev/null
-    rm -rf ~/.config/mprocs  2>/dev/null
-    rm -rf ~/.config/lazygit 2>/dev/null
+    rm -rf ~/.config/latexmk     2>/dev/null
+    rm -rf ~/.config/npm         2>/dev/null
+    rm -rf ~/.config/nvim        2>/dev/null
+    rm -rf ~/.config/rofi        2>/dev/null
+    rm -rf ~/.config/tmux        2>/dev/null
+    rm -rf ~/.config/zsh         2>/dev/null
+    rm -rf ~/.config/mpv         2>/dev/null
+    rm -rf ~/.config/wget        2>/dev/null
+    rm -rf ~/.config/mprocs      2>/dev/null
+    rm -rf ~/.config/lazygit     2>/dev/null
+    rm -rf ~/.config/wireplumber 2>/dev/null
+
+    rm -f ~/.config/pipewire/jack.conf           2>/dev/null
+    rm -f ~/.config/pipewire/pipewire.conf       2>/dev/null
+    rm -f ~/.config/pipewire/pipewire-pulse.conf 2>/dev/null
 
     mkdir -p ~/.config/git
     mkdir -p ~/.config/latexmk
@@ -31,6 +36,8 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/mprocs
     mkdir -p ~/.config/zathura
     mkdir -p ~/.config/lazygit
+    mkdir -p ~/.config/pipewire
+    mkdir -p ~/.config/wireplumber/main.lua.d
 
     mkdir -p ~/.local/share/fonts
     mkdir -p ~/.local/share/applications
@@ -64,40 +71,44 @@ rm -rf ~/.config/nvim/after
 rm -rf ~/.config/nvim/bin
 rm -rf ~/.config/nvim/init.lua
 rm -rf ~/.config/nvim/lazy-lock.json
-ln -fs ~/.config/dotfiles/vim/lua                ~/.config/nvim/lua
-ln -fs ~/.config/dotfiles/vim/queries            ~/.config/nvim/queries
-ln -fs ~/.config/dotfiles/vim/after              ~/.config/nvim/after
-ln -fs ~/.config/dotfiles/vim/bin                ~/.config/nvim/bin
-ln -fs ~/.config/dotfiles/vim/init.lua           ~/.config/nvim/
-ln -fs ~/.config/dotfiles/vim/lazy-lock.json     ~/.config/nvim/
-ln -fs ~/.config/dotfiles/awesome                ~/.config/awesome
 
-ln -fs ~/.config/dotfiles/git/gitconfig          ~/.config/git/config
-ln -fs ~/.config/dotfiles/misc/latexmkrc         ~/.config/latexmk/
-ln -fs ~/.config/dotfiles/rofi/base.rasi         ~/.config/rofi/
-ln -fs ~/.config/dotfiles/rofi/drun.rasi         ~/.config/rofi/
-ln -fs ~/.config/dotfiles/rofi/power.rasi        ~/.config/rofi/
-ln -fs ~/.config/dotfiles/rofi/screenshot.rasi   ~/.config/rofi/
-ln -fs ~/.config/dotfiles/rofi/links.rasi        ~/.config/rofi/
-ln -fs ~/.config/dotfiles/rofi/eq.rasi           ~/.config/rofi/
-ln -fs ~/.config/dotfiles/misc/starship.toml     ~/.config/
-ln -fs ~/.config/dotfiles/misc/tmux.conf         ~/.config/tmux/
-ln -fs ~/.config/dotfiles/zsh/zlogout            ~/.config/zsh/.zlogout
-ln -fs ~/.config/dotfiles/zsh/zshrc              ~/.config/zsh/.zshrc
-ln -fs ~/.config/dotfiles/mpv/input.conf         ~/.config/mpv/
-ln -fs ~/.config/dotfiles/mpv/mpv.conf           ~/.config/mpv/
-ln -fs ~/.config/dotfiles/mpv/osc.conf           ~/.config/mpv/script-opts/
-ln -fs ~/.config/dotfiles/mpv/appendURL.lua      ~/.config/mpv/scripts/
-ln -fs ~/.config/dotfiles/mpv/all_audio.lua      ~/.config/mpv/scripts/
-ln -fs ~/.config/dotfiles/mpv/cut_video.lua      ~/.config/mpv/scripts/
-ln -fs ~/.config/dotfiles/misc/wgetrc            ~/.config/wget/
-ln -fs ~/.config/dotfiles/misc/mprocs.yaml       ~/.config/mprocs/
-ln -fs ~/.config/dotfiles/misc/zathurarc         ~/.config/zathura/
-ln -fs ~/.config/dotfiles/misc/lazygit.yml       ~/.config/lazygit/config.yml
-ln -fs ~/.config/dotfiles/misc/st.desktop        ~/.local/share/applications/
+ln -fs ~/.config/dotfiles/vim/lua                               ~/.config/nvim/lua
+ln -fs ~/.config/dotfiles/vim/queries                           ~/.config/nvim/queries
+ln -fs ~/.config/dotfiles/vim/after                             ~/.config/nvim/after
+ln -fs ~/.config/dotfiles/vim/bin                               ~/.config/nvim/bin
+ln -fs ~/.config/dotfiles/vim/init.lua                          ~/.config/nvim/
+ln -fs ~/.config/dotfiles/vim/lazy-lock.json                    ~/.config/nvim/
+ln -fs ~/.config/dotfiles/awesome                               ~/.config/awesome
+ln -fs ~/.config/dotfiles/git/gitconfig                         ~/.config/git/config
+ln -fs ~/.config/dotfiles/misc/latexmkrc                        ~/.config/latexmk/
+ln -fs ~/.config/dotfiles/rofi/base.rasi                        ~/.config/rofi/
+ln -fs ~/.config/dotfiles/rofi/drun.rasi                        ~/.config/rofi/
+ln -fs ~/.config/dotfiles/rofi/power.rasi                       ~/.config/rofi/
+ln -fs ~/.config/dotfiles/rofi/screenshot.rasi                  ~/.config/rofi/
+ln -fs ~/.config/dotfiles/rofi/links.rasi                       ~/.config/rofi/
+ln -fs ~/.config/dotfiles/rofi/eq.rasi                          ~/.config/rofi/
+ln -fs ~/.config/dotfiles/misc/starship.toml                    ~/.config/
+ln -fs ~/.config/dotfiles/misc/tmux.conf                        ~/.config/tmux/
+ln -fs ~/.config/dotfiles/zsh/zlogout                           ~/.config/zsh/.zlogout
+ln -fs ~/.config/dotfiles/zsh/zshrc                             ~/.config/zsh/.zshrc
+ln -fs ~/.config/dotfiles/mpv/input.conf                        ~/.config/mpv/
+ln -fs ~/.config/dotfiles/mpv/mpv.conf                          ~/.config/mpv/
+ln -fs ~/.config/dotfiles/mpv/osc.conf                          ~/.config/mpv/script-opts/
+ln -fs ~/.config/dotfiles/mpv/appendURL.lua                     ~/.config/mpv/scripts/
+ln -fs ~/.config/dotfiles/mpv/all_audio.lua                     ~/.config/mpv/scripts/
+ln -fs ~/.config/dotfiles/mpv/cut_video.lua                     ~/.config/mpv/scripts/
+ln -fs ~/.config/dotfiles/misc/wgetrc                           ~/.config/wget/
+ln -fs ~/.config/dotfiles/misc/mprocs.yaml                      ~/.config/mprocs/
+ln -fs ~/.config/dotfiles/misc/zathurarc                        ~/.config/zathura/
+ln -fs ~/.config/dotfiles/misc/lazygit.yml                      ~/.config/lazygit/config.yml
+ln -fs ~/.config/dotfiles/pipewire/pipewire.conf                ~/.config/pipewire/
+ln -fs ~/.config/dotfiles/pipewire/pipewire-pulse.conf          ~/.config/pipewire/
+ln -fs ~/.config/dotfiles/pipewire/jack.conf                    ~/.config/pipewire/
+ln -fs ~/.config/dotfiles/pipewire/51-cleanup.lua               ~/.config/wireplumber/main.lua.d/
 
-ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop       ~/.local/share/applications/
-ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop ~/.local/share/applications/
+ln -fs ~/.config/dotfiles/misc/st.desktop                       ~/.local/share/applications/
+ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop         ~/.local/share/applications/
+ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop   ~/.local/share/applications/
 
 # set default apps
 if [ "$(hostname)" != "Yellow-Lion.local" ]; then
