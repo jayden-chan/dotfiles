@@ -6,64 +6,56 @@
     {
       "type": "eq",
       "settings": {
-        "preamp": 0,
-        "zoom": -36,
+        "preamp": -1.48,
+        "zoom": -34.37,
         "bands": [
           {
             "type": "peaking",
-            "mode": "RLC_BT",
+            "mode": "APO_DR",
             "slope": 0,
-            "freq": 37.352,
-            "Q": 1.5,
-            "gain": 0.83
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 74.88,
+            "freq": 33.108,
             "Q": 1,
-            "gain": -1.71
+            "gain": 3.35
           },
           {
-            "type": "peaking",
+            "type": "lowshelf",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 133.275,
-            "Q": 0.75,
-            "gain": -3.58
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 603.285,
+            "freq": 60.61,
             "Q": 0.25,
-            "gain": -0.75
+            "gain": -4.6
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 2152.592,
-            "Q": 2.25,
-            "gain": 0.1
+            "freq": 124.776,
+            "Q": 3.22,
+            "gain": -9.68
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 4395.048,
-            "Q": 0.2,
-            "gain": -1.45
+            "freq": 212.806,
+            "Q": 1.5,
+            "gain": -1.19
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 707.436,
+            "Q": 0.28,
+            "gain": 0.88
           },
           {
             "type": "highshelf",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 8959.508,
-            "Q": 0.25,
-            "gain": -4.15
+            "freq": 3546.937,
+            "Q": 0,
+            "gain": -2.99
           }
         ]
       }

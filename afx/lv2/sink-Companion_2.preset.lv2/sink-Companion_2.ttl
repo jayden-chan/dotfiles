@@ -18,10 +18,10 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "f_0" ;
-		pset:value 37.352000
+		pset:value 33.108000
 	] , [
 		lv2:symbol "f_1" ;
-		pset:value 74.880000
+		pset:value 60.610000
 	] , [
 		lv2:symbol "f_10" ;
 		pset:value 500.000000
@@ -42,19 +42,19 @@
 		pset:value 500.000000
 	] , [
 		lv2:symbol "f_2" ;
-		pset:value 133.275000
+		pset:value 124.776000
 	] , [
 		lv2:symbol "f_3" ;
-		pset:value 603.285000
+		pset:value 212.806000
 	] , [
 		lv2:symbol "f_4" ;
-		pset:value 2152.592000
+		pset:value 707.436000
 	] , [
 		lv2:symbol "f_5" ;
-		pset:value 4395.048000
+		pset:value 3546.937000
 	] , [
 		lv2:symbol "f_6" ;
-		pset:value 8959.508000
+		pset:value 500.000000
 	] , [
 		lv2:symbol "f_7" ;
 		pset:value 500.000000
@@ -75,7 +75,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "fm_0" ;
-		pset:value 0.000000
+		pset:value 6.000000
 	] , [
 		lv2:symbol "fm_1" ;
 		pset:value 0.000000
@@ -132,7 +132,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "ft_1" ;
-		pset:value 1.000000
+		pset:value 5.000000
 	] , [
 		lv2:symbol "ft_10" ;
 		pset:value 0.000000
@@ -162,10 +162,10 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "ft_5" ;
-		pset:value 1.000000
+		pset:value 3.000000
 	] , [
 		lv2:symbol "ft_6" ;
-		pset:value 3.000000
+		pset:value 0.000000
 	] , [
 		lv2:symbol "ft_7" ;
 		pset:value 0.000000
@@ -177,10 +177,10 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "g_0" ;
-		pset:value 1.100257
+		pset:value 1.470537
 	] , [
 		lv2:symbol "g_1" ;
-		pset:value 0.821320
+		pset:value 0.588888
 	] , [
 		lv2:symbol "g_10" ;
 		pset:value 1.000000
@@ -201,19 +201,19 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "g_2" ;
-		pset:value 0.662255
+		pset:value 0.328148
 	] , [
 		lv2:symbol "g_3" ;
-		pset:value 0.917287
+		pset:value 0.871984
 	] , [
 		lv2:symbol "g_4" ;
-		pset:value 1.011578
+		pset:value 1.106608
 	] , [
 		lv2:symbol "g_5" ;
-		pset:value 0.846273
+		pset:value 0.708796
 	] , [
 		lv2:symbol "g_6" ;
-		pset:value 0.620197
+		pset:value 1.000000
 	] , [
 		lv2:symbol "g_7" ;
 		pset:value 1.000000
@@ -225,7 +225,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "g_in" ;
-		pset:value 1.000000
+		pset:value 0.843355
 	] , [
 		lv2:symbol "g_out" ;
 		pset:value 1.000000
@@ -234,7 +234,7 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "hue_1" ;
-		pset:value 0.142857
+		pset:value 0.166667
 	] , [
 		lv2:symbol "hue_10" ;
 		pset:value 0.625000
@@ -255,19 +255,19 @@
 		pset:value 0.937500
 	] , [
 		lv2:symbol "hue_2" ;
-		pset:value 0.285714
+		pset:value 0.333333
 	] , [
 		lv2:symbol "hue_3" ;
-		pset:value 0.428571
+		pset:value 0.500000
 	] , [
 		lv2:symbol "hue_4" ;
-		pset:value 0.571429
+		pset:value 0.666667
 	] , [
 		lv2:symbol "hue_5" ;
-		pset:value 0.714286
+		pset:value 0.833333
 	] , [
 		lv2:symbol "hue_6" ;
-		pset:value 0.857143
+		pset:value 0.375000
 	] , [
 		lv2:symbol "hue_7" ;
 		pset:value 0.437500
@@ -282,10 +282,10 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "q_0" ;
-		pset:value 1.500000
+		pset:value 1.000000
 	] , [
 		lv2:symbol "q_1" ;
-		pset:value 1.000000
+		pset:value 0.250000
 	] , [
 		lv2:symbol "q_10" ;
 		pset:value 1.410000
@@ -306,19 +306,19 @@
 		pset:value 1.410000
 	] , [
 		lv2:symbol "q_2" ;
-		pset:value 0.750000
+		pset:value 3.220000
 	] , [
 		lv2:symbol "q_3" ;
-		pset:value 0.250000
+		pset:value 1.500000
 	] , [
 		lv2:symbol "q_4" ;
-		pset:value 2.250000
+		pset:value 0.280000
 	] , [
 		lv2:symbol "q_5" ;
-		pset:value 0.200000
+		pset:value 0.000000
 	] , [
 		lv2:symbol "q_6" ;
-		pset:value 0.250000
+		pset:value 1.410000
 	] , [
 		lv2:symbol "q_7" ;
 		pset:value 1.410000
@@ -480,7 +480,7 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "zoom" ;
-		pset:value 0.015858
+		pset:value 0.019131
 	] ;
 	state:state [
 		<http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo/KVT> [
