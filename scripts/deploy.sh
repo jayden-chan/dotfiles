@@ -8,7 +8,6 @@ if [ "$1" = "--env" ]; then
 fi
 
 if [ "$1" = "--full" ]; then
-    rm -rf ~/.config/latexmk     2>/dev/null
     rm -rf ~/.config/npm         2>/dev/null
     rm -rf ~/.config/nvim        2>/dev/null
     rm -rf ~/.config/rofi        2>/dev/null
@@ -25,7 +24,6 @@ if [ "$1" = "--full" ]; then
     rm -f ~/.config/pipewire/pipewire-pulse.conf 2>/dev/null
 
     mkdir -p ~/.config/git
-    mkdir -p ~/.config/latexmk
     mkdir -p ~/.config/npm
     mkdir -p ~/.config/rofi
     mkdir -p ~/.config/tmux
@@ -45,7 +43,6 @@ if [ "$1" = "--full" ]; then
 
     # /home cleanup directories
     mkdir -p ~/.cache/nv
-    mkdir -p ~/.cache/texlive
     mkdir -p ~/.config/docker
     mkdir -p ~/.config/grip
     mkdir -p ~/.config/gtk-2.0
@@ -80,7 +77,6 @@ ln -fs ~/.config/dotfiles/vim/init.lua                          ~/.config/nvim/
 ln -fs ~/.config/dotfiles/vim/lazy-lock.json                    ~/.config/nvim/
 ln -fs ~/.config/dotfiles/awesome                               ~/.config/awesome
 ln -fs ~/.config/dotfiles/git/gitconfig                         ~/.config/git/config
-ln -fs ~/.config/dotfiles/misc/latexmkrc                        ~/.config/latexmk/
 ln -fs ~/.config/dotfiles/rofi/base.rasi                        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/drun.rasi                        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/power.rasi                       ~/.config/rofi/

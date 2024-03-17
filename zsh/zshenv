@@ -28,7 +28,6 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export SSB_HOME="$XDG_DATA_HOME"/zoom
-export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export WGETRC="$HOME"/.config/wget/wgetrc
 export ZDOTDIR="$HOME"/.config/zsh
 export KUBECACHEDIR="$XDG_CACHE_HOME"/kube

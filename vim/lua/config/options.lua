@@ -88,6 +88,4 @@ vim.g.Hexokinase_optInPatterns = {
 vim.g.rustfmt_autosave = 1
 vim.g.sql_type_default = "pgsql"
 
-vim.g.tex_flavor = "latex"
-vim.g.tex_conceal = ""
 vim.g.tmux_navigator_no_mappings = 1

@@ -1,9 +1,6 @@
 # Stop activating ghostscript by accident
 alias gs='git status'
 
-# Compilation
-alias lcm='latexmk -pvc -pdfxe -shell-escape'
-
 # dotfile editing
 alias gdf='cd $DOT && git status'
 

@@ -1,12 +1,11 @@
 local user_cmd = vim.api.nvim_create_user_command
 
-vim.cmd([[autocmd FileType gitcommit,text,markdown,tex let b:EditorConfig_disable = 1]])
+vim.cmd([[autocmd FileType gitcommit,text,markdown let b:EditorConfig_disable = 1]])
 
 local spell_langs = {
 	"gitcommit",
 	"text",
 	"markdown",
-	"tex",
 	"cucumber",
 }
 
