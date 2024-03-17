@@ -226,7 +226,7 @@
       "papirus-icon-theme",
       "libappindicator-gtk3",
       "hurl-bin",
-      "taplo",
+      "taplo-cli",
       "localsend-bin"
     ]
   },
