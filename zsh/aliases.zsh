@@ -6,7 +6,6 @@ alias lcm='latexmk -pvc -pdfxe -shell-escape'
 
 # dotfile editing
 alias gdf='cd $DOT && git status'
-alias zshrc='vim $DOT/zsh/zshrc'
 
 # Exit
 alias :q='exit'
@@ -65,7 +64,6 @@ alias cat='bat'
 alias bc='bc -l'
 alias ip='ip -c'
 alias sxiv='nsxiv -b'
-alias yalc='yalc --store-folder ~/.local/share/yalc'
 alias make='make --no-print-directory'
 
 # Other
@@ -77,4 +75,3 @@ alias gpl='curl https://www.gnu.org/licenses/gpl-3.0.txt'
 alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
 alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}\t{{.Image}}"'
 alias drs='docker-compose up -d --force-recreate --remove-orphans'
-alias pu='pulumi'

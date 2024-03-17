@@ -3,7 +3,6 @@ function manp       () { zathura =(man -Tpdf $@) </dev/null &>/dev/null & disown
 function manv       () { man $@ | vim "+runtime! syntax/man.vim" "+set nonumber" "+set norelativenumber" }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
-function pach       () { cat /var/log/pacman.log | rg -i 'installed|upgraded|removed' | tail -$1 }
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function toh264     () { ffmpeg -i "$1" -c:v libx264 -c:a copy "${1:r}_h264.mp4" }
@@ -15,8 +14,6 @@ function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
 alias decompress='tar xfJ'
 
 # kube
-function kw () { kubectl "$@" -o wide }
-function kww () { kubectl "$@" -o wide -w }
 function kns () { kubectl config set-context --current --namespace="$1" }
 
 function plot () {
