@@ -107,4 +107,4 @@ echo "================================================================"
 echo "$result_message"
 echo "================================================================"
 
-notify-send --expire-time=60000 "sd_dump.sh" "$result_message"
+notify-send --expire-time=60000 "sd-dump.sh" "$result_message"

@@ -63,7 +63,7 @@
 	<name>Import images/videos</name>
 	<submenu></submenu>
 	<unique-id>1689902676394518-1</unique-id>
-	<command>st -e sh -c &apos;/home/jayden/.config/dotfiles/scripts/sd_dump.sh %f | less  --exit-follow-on-close +F&apos;</command>
+	<command>st -e sh -c &apos;/home/jayden/.config/dotfiles/scripts/sd-dump.sh %f | less  --exit-follow-on-close +F&apos;</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
