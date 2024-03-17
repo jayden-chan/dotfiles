@@ -226,7 +226,8 @@
       "papirus-icon-theme",
       "libappindicator-gtk3",
       "hurl-bin",
-      "taplo"
+      "taplo",
+      "localsend-bin"
     ]
   },
   "ignored": [
