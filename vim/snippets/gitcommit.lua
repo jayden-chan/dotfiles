@@ -2,7 +2,7 @@
 return {
 	s("f", t("feat: ")),
 	s("i", t("fix: ")),
-	s("c", t("c: ")),
+	s("c", t("chore: ")),
 	s("d", t("docs: ")),
 	s("r", t("refactor: ")),
 	s("j", t("JC: ")),
