@@ -335,6 +335,7 @@ const config = {
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
         ],
         onConnect: [
+          ...eqPresetActions("sink-Flat", "Button 1"),
           { type: UNLINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: UNLINK, src: EQ(Out, R), dest: DX5(In, R) },
           { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
