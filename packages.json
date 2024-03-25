@@ -72,7 +72,8 @@
       "openrgb-bin",
       "r2modman-appimage",
       "rpi-imager-bin",
-      "insomnium-bin"
+      "insomnium-bin",
+      "baobab"
     ],
     "swift": [
       "light",
