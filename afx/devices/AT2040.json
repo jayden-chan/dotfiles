@@ -23,7 +23,7 @@
             "slope": 0,
             "freq": 103.227,
             "Q": 0.28,
-            "gain": 0.24
+            "gain": -0.17
           },
           {
             "type": "peaking",
@@ -31,7 +31,7 @@
             "slope": 0,
             "freq": 1035.169,
             "Q": 4.1,
-            "gain": -1.3
+            "gain": -1.01
           },
           {
             "type": "peaking",
@@ -39,7 +39,7 @@
             "slope": 0,
             "freq": 2905.615,
             "Q": 4.02,
-            "gain": -5
+            "gain": -4.6
           },
           {
             "type": "highshelf",
