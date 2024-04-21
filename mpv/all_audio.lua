@@ -52,5 +52,13 @@ mp.register_event("file-loaded", function()
 	local input_path = mp.get_property("stream-path")
 	if string.find(input_path, "/Replay_") then
 		activate_all_audio()
+		if string.find(input_path, "_clip") then
+			activate_all_audio()
+			mp.set_property("volume", 50)
+			mp.set_property("mute", "no")
+		else
+			mp.set_property("volume", 85)
+			mp.set_property("mute", "no")
+		end
 	end
 end)
