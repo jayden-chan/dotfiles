@@ -6,8 +6,8 @@ const HOME = process.env["HOME"] ?? "/home/jayden";
 const TV_MODE = process.env["TV_MODE"] ?? "false";
 
 const SYSTEM_EQ = "System Equalizer";
-const DX5_DEV = "Topping DX5 Output";
-const S_4i4_DEV = "Scarlett 4i4";
+const DX5_DEV = "DX5 Pro";
+const S_4i4_DEV = "Scarlett 4i4 USB Pro";
 const QC_35_DEV = "Bose QuietComfort 35";
 const BATHYS_DEV = "Focal Bathys";
 const HDMI_DEV = "HDMI Output";
@@ -15,9 +15,12 @@ const HDMI_DEV = "HDMI Output";
 const UNLINK = "pipewire::unlink";
 const LINK = "pipewire::link";
 
+type SinkMode = "Pro" | "Basic";
 type InOut = "In" | "Out";
 type LR = "L" | "R";
 
+const Pro: SinkMode = "Pro";
+const Basic: SinkMode = "Basic";
 const In: InOut = "In";
 const Out: InOut = "Out";
 const L: LR = "L";
@@ -27,20 +30,23 @@ const pbc = (o: InOut) => (o === In ? "playback" : "capture");
 const pbm = (o: InOut) => (o === In ? "playback" : "monitor");
 const inc = (o: InOut) => (o === In ? "input" : "capture");
 const full = (o: InOut) => (o === In ? "Input" : "Output");
-const genSinkTemplate =
-  (node: string, nodeGen: (o: InOut) => string) => (o: InOut, p: LR) => ({
+const sinkTemplate =
+  (node: string, nodeGen: (o: InOut) => string, sinkMode: SinkMode) =>
+  (o: InOut, p: LR) => ({
     node,
-    port: `${nodeGen(o)}_F${p}`,
+    port: `${nodeGen(o)}_${
+      sinkMode === "Basic" ? `F${p}` : `AUX${p === "L" ? "0" : "1"}`
+    }`,
   });
 
-const DX5 = genSinkTemplate(DX5_DEV, pbc);
-const AOUT = genSinkTemplate("Audio Output", pbm);
-const ASINK = genSinkTemplate("Audio Sink", pbm);
-const M_SINK = genSinkTemplate("Mic Sink", pbm);
-const QC35 = genSinkTemplate(QC_35_DEV, pbc);
-const BATHYS = genSinkTemplate(BATHYS_DEV, pbc);
-const MIC = genSinkTemplate("Microphone", inc);
-const HDMI = genSinkTemplate(HDMI_DEV, pbm);
+const DX5 = sinkTemplate(DX5_DEV, pbc, Pro);
+const AOUT = sinkTemplate("Audio Output", pbm, Basic);
+const ASINK = sinkTemplate("Audio Device", pbm, Basic);
+const M_SINK = sinkTemplate("Mic Sink", pbm, Basic);
+const QC35 = sinkTemplate(QC_35_DEV, pbc, Basic);
+const BATHYS = sinkTemplate(BATHYS_DEV, pbc, Basic);
+const MIC = sinkTemplate("Microphone", inc, Basic);
+const HDMI = sinkTemplate(HDMI_DEV, pbm, Pro);
 const SCARLETT_METER = (p: LR) => ({ node: "Scarlett Meter", port: `In${p}` });
 
 const EQ = (o: InOut, p: LR) => ({
@@ -329,7 +335,7 @@ const config = {
         ],
       },
       {
-        node: BATHYS_DEV,
+        node: `re:^${BATHYS_DEV}(-\\d+)?$`,
         onDisconnect: [
           { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
@@ -365,7 +371,7 @@ const config = {
         ],
       },
       {
-        node: `${S_4i4_DEV} Input`,
+        node: S_4i4_DEV,
         onConnect: [
           { type: LINK, src: S_4i4(Out, 0), dest: SCARLETT_METER(L) },
         ],
