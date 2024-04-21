@@ -13,7 +13,7 @@ for file in "$@"; do
 
     new_name="${file:t:r}_clean.$ext"
     if [ "$full" = "yes" ]; then
-        # create a pseudorandom name for the while while preserving the order of
+        # create a pseudorandom name for the image while preserving the order of
         # the selected input files
         letter=$(cat /dev/urandom | tr -dc 'A-F' | fold -w 1 | head -n 1 | tr -d '\n')
         new_name="${num}${letter}$(cat /dev/urandom | tr -dc 'A-F0-9' | fold -w 10 | head -n 1 | tr -d '\n').$ext"
