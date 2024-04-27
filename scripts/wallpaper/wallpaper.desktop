@@ -1,6 +1,6 @@
 [Desktop Entry]
 # Can't use $HOME or ~ here unfortunately
-Exec=/home/jayden/.config/dotfiles/scripts/wallpaper/wallpaper.sh /home/jayden/Pictures/Wallpapers/Single\ Screen
+Exec=/home/jayden/.config/dotfiles/scripts/wallpaper/wallpaper.sh "/home/jayden/Pictures/Wallpapers/Single Screen"
 Type=Application
 Version=1.0
 Name=Wallpaper

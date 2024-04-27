@@ -88,6 +88,7 @@ if tv_mode ~= "true" then
 	awful.spawn.with_shell("pgrep -x redshift > /dev/null || redshift")
 	awful.spawn.with_shell("pgrep -x picom    > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
 	awful.spawn.with_shell("pgrep -x gsr.sh   > /dev/null || " .. scripts .. "/gsr.sh")
+	awful.spawn.with_shell("pgrep -x auto-cool.sh   > /dev/null || " .. scripts .. "/auto-cool.sh")
 	awful.spawn.with_shell("openrgb --mode static --color D0D7FE")
 else
 	awful.spawn.with_shell("sleep 5; xrandr --output HDMI-0 --mode 1920x1080 --rate 60.00")
