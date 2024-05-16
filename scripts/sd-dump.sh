@@ -4,6 +4,8 @@ set -e
 
 sd_path="$1"
 dest_path="$HOME/Pictures/a6600"
+photos_path="$sd_path/DCIM/100MSDCF/"
+videos_path="$sd_path/PRIVATE/M4ROOT/CLIP/"
 
 if [ "$sd_path" = "" ]; then
     echo "Error: You must provide the path to import from"
@@ -22,20 +24,22 @@ else
     exit 1
 fi
 
-photos=$(fd . "$sd_path/DCIM/100MSDCF" --extension ARW --extension JPG)
-num_photos=$(echo "$photos" | wc -l)
-
-if [ "$photos" = "" ]; then
-    num_photos="0"
+photos=""
+num_photos="0"
+real_num_photos="0"
+if [ -d "$photos_path" ]; then
+    photos=$(fd . "$photos_path" --extension ARW --extension JPG)
+    num_photos=$(echo "$photos" | wc -l)
+    real_num_photos=$(($((num_photos)) / 2))
 fi
 
-real_num_photos=$(($((num_photos)) / 2))
-
-videos=$(fd . "$sd_path/PRIVATE/M4ROOT/CLIP/" --extension MP4)
-num_videos=$(echo "$videos" | wc -l)
-
-if [ "$videos" = "" ]; then
-    num_videos="0"
+videos=""
+num_videos="0"
+if [ -d "$videos_path" ]; then
+    videos=$(fd . "$videos_path" --extension MP4)
+    if [ "$videos" != "" ]; then
+        num_videos=$(echo "$videos" | wc -l)
+    fi
 fi
 
 echo "================================================================"
