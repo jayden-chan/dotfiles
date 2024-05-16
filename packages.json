@@ -226,7 +226,7 @@
       "gtk-engine-murrine",
       "papirus-icon-theme",
       "libappindicator-gtk3",
-      "hurl-bin",
+      "hurl",
       "taplo-cli",
       "localsend-bin"
     ]
