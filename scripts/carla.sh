@@ -12,7 +12,7 @@ systemctl --user restart pipewire pipewire-pulse wireplumber
 sleep 3
 echo "[carla.sh] [$(date)] Starting pw-orchestrator and Carla"
 $DOT/misc/pw-orchestrator.ts > /tmp/pw-orchestrator-config.json
-PW_ORCH_DEBUG=1 pw-orchestrator daemon /tmp/pw-orchestrator-config.json &
+pw-orchestrator daemon /tmp/pw-orchestrator-config.json &
 
 sleep 3
 ~/Dev/Testing/Carla/source/frontend/carla ~/Documents/Default.carxp
