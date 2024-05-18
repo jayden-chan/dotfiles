@@ -1,7 +1,7 @@
 [
   {
     "name": "Truthear Hexa",
-    "preamp": -1.4,
+    "preamp": -3,
     "parametric": true,
     "bands": [
       {
@@ -23,17 +23,17 @@
       {
         "type": 4,
         "channels": 0,
-        "frequency": 97,
-        "q": 0.28,
-        "gain": 0.8,
+        "frequency": 47,
+        "q": 0,
+        "gain": 2.9,
         "color": -13421773
       },
       {
         "type": 3,
         "channels": 0,
-        "frequency": 8069,
-        "q": 2.77,
-        "gain": -0.66,
+        "frequency": 8001,
+        "q": 4,
+        "gain": -2.58,
         "color": -8947849
       }
     ]

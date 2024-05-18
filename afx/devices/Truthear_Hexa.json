@@ -6,24 +6,24 @@
     {
       "type": "eq",
       "settings": {
-        "preamp": -1.4,
-        "zoom": -36,
+        "preamp": -3,
+        "zoom": -42,
         "bands": [
           {
             "type": "lowshelf",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 97.122,
-            "Q": 0.28,
-            "gain": 0.8
+            "freq": 47.441,
+            "Q": 0,
+            "gain": 2.9
           },
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 8069.007,
-            "Q": 2.77,
-            "gain": -0.66
+            "freq": 8001.405,
+            "Q": 4,
+            "gain": -2.58
           }
         ]
       }

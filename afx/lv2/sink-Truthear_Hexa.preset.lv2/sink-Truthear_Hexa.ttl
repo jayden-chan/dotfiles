@@ -18,10 +18,10 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "f_0" ;
-		pset:value 97.122000
+		pset:value 47.441000
 	] , [
 		lv2:symbol "f_1" ;
-		pset:value 8069.007000
+		pset:value 8001.405000
 	] , [
 		lv2:symbol "f_10" ;
 		pset:value 500.000000
@@ -177,10 +177,10 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "g_0" ;
-		pset:value 1.096464
+		pset:value 1.396302
 	] , [
 		lv2:symbol "g_1" ;
-		pset:value 0.926840
+		pset:value 0.743051
 	] , [
 		lv2:symbol "g_10" ;
 		pset:value 1.000000
@@ -225,7 +225,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "g_in" ;
-		pset:value 0.851158
+		pset:value 0.707981
 	] , [
 		lv2:symbol "g_out" ;
 		pset:value 1.000000
@@ -282,10 +282,10 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "q_0" ;
-		pset:value 0.280000
+		pset:value 0.000000
 	] , [
 		lv2:symbol "q_1" ;
-		pset:value 2.770000
+		pset:value 4.000000
 	] , [
 		lv2:symbol "q_10" ;
 		pset:value 1.410000
@@ -480,7 +480,7 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "zoom" ;
-		pset:value 0.015858
+		pset:value 0.007949
 	] ;
 	state:state [
 		<http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo/KVT> [
