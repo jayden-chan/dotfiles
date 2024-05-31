@@ -65,7 +65,7 @@ const MIXER = (o: InOut, p: LR, num: number) => ({
 });
 
 const S_4i4 = (o: InOut, p: number) => ({
-  node: `${S_4i4_DEV} ${full(o === In ? Out : In)}`,
+  node: S_4i4_DEV,
   port: `${pbc(o)}_AUX${p}`,
 });
 
@@ -274,8 +274,8 @@ const DIAL_MANAGER_BINDS: Record<string, [number, number]> = {
 const config = {
   device: "APC Key 25 MIDI",
   stateFile: `${HOME}/.local/state/pw-orchestrator.json`,
-  inputMidi: "SOCKET",
-  outputMidi: "NONE",
+  inputMidi: "virt:2",
+  outputMidi: "virt:1",
   connections: [
     ["APC Key 25", "Virtual Raw MIDI 0-2"],
     ["APC Key 25", "Virtual Raw MIDI 1-2"],
@@ -307,8 +307,8 @@ const config = {
       { node: "TrackmaniaUplay", mixerChannel: "round_robin" },
       { node: "re:csgo_linux64.*", mixerChannel: 6 },
       { node: "re:.*cs2.*", mixerChannel: 6 },
+      { node: "re:.*SDL Application.*", mixerChannel: 6 },
       { node: "WEBRTC VoiceEngine", mixerChannel: 7 },
-      { node: "spotify", mixerChannel: 8 },
       {
         node: QC_35_DEV,
         onDisconnect: [
@@ -341,7 +341,12 @@ const config = {
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
         ],
         onConnect: [
-          ...eqPresetActions("sink-Flat", "Button 1"),
+          ...eqPresetActions(
+            "sink-Focal_Bathys",
+            Object.entries(EQ_PRESET_BINDS).find(
+              (e) => e[1] === "sink-Focal_Bathys"
+            )![0]
+          ),
           { type: UNLINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: UNLINK, src: EQ(Out, R), dest: DX5(In, R) },
           { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
