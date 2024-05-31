@@ -13,9 +13,9 @@
             "type": "lowshelf",
             "mode": "APO_DR",
             "slope": 0,
-            "freq": 105,
+            "freq": 56.295,
             "Q": 0.71,
-            "gain": -0.5
+            "gain": 1.71
           },
           {
             "type": "peaking",
