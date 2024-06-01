@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Moondrop Space Travel",
+    "preamp": -3.99,
+    "parametric": true,
+    "bands": [
+      {
+        "type": 0,
+        "channels": 0,
+        "frequency": 90,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 1,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 105,
+        "q": 0.46,
+        "gain": -1.5,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 851,
+        "q": 1.92,
+        "gain": 0.8,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 1881,
+        "q": 1.9,
+        "gain": 2.2,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 2585,
+        "q": 3.71,
+        "gain": -0.8,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 2890,
+        "q": 1.49,
+        "gain": -1.8,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 3372,
+        "q": 1.88,
+        "gain": -2.74,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 4549,
+        "q": 4.18,
+        "gain": -1.3,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 5626,
+        "q": 3.5,
+        "gain": 4.5,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 7974,
+        "q": 3.01,
+        "gain": 2,
+        "color": -13421773
+      },
+      {
+        "type": 5,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0.7,
+        "gain": -3.02,
+        "color": -8947849
+      }
+    ]
+  }
+]

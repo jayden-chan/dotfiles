@@ -7,12 +7,12 @@
       "type": "eq",
       "settings": {
         "preamp": 0,
-        "zoom": -36,
+        "zoom": -33.97,
         "bands": [
           {
             "type": "highpass",
-            "mode": "BWC_BT",
-            "slope": 2,
+            "mode": "RLC_BT",
+            "slope": 1,
             "freq": 60,
             "Q": 0.6,
             "gain": 0
@@ -23,7 +23,7 @@
             "slope": 0,
             "freq": 103.227,
             "Q": 0.28,
-            "gain": -0.17
+            "gain": -0.5
           },
           {
             "type": "peaking",

@@ -13,8 +13,10 @@ function apoTypeToJsonType(apoType: string) {
     case "HPQ":
       return "highpass";
     case "LS":
+    case "LSC":
       return "lowshelf";
     case "HS":
+    case "HSC":
       return "highshelf";
   }
 }
@@ -26,7 +28,9 @@ function apoModeToJsonMode(apoType: string) {
     case "HP":
     case "HPQ":
     case "LS":
+    case "LSC":
     case "HS":
+    case "HSC":
       return "APO_DR";
     default:
       return "RLC_BT";
