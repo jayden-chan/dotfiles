@@ -2,10 +2,9 @@
 
 [ -e "$HOME/.config/ENV" ] && . "$HOME"/.config/ENV
 
-# default city Victoria BC
-city=${WEATHER_CITY_ID:-6174041}
+city=${WEATHER_CITY:-calgary}
 
-if [ "$1" = "--open" ]; then xdg-open https://openweathermap.org/city/"$city"; exit; fi
+if [ "$1" = "--open" ]; then xdg-open "https://cron.jayden.codes/weather/open/$city"; exit; fi
 
 if [ -z "$HA_TOKEN" ]; then
     indoor_temp=""
@@ -16,5 +15,5 @@ else
     fi
 fi
 
-weather=$(curl --silent "https://cron.jayden.codes/weather/short/calgary")
+weather=$(curl --silent "https://cron.jayden.codes/weather/short/$city")
 echo "$weather$indoor_temp"

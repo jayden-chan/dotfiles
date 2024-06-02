@@ -288,7 +288,7 @@ end
 local widget_block_gap = 11
 local weather_text = wibox.widget({ widget = wibox.widget.textbox })
 local weather = mar(icon_box("摒", mar(weather_text, 0, 10, 0, 10)), 0, widget_block_gap)
-awful.widget.watch(scripts .. "/weather.sh", 10, function(_, stdout)
+awful.widget.watch(scripts .. "/weather.sh", 30, function(_, stdout)
 	weather_text:set_text(stdout:gsub("%s+$", ""))
 end)
 
