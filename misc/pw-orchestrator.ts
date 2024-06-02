@@ -8,7 +8,7 @@ const TV_MODE = process.env["TV_MODE"] ?? "false";
 const SYSTEM_EQ = "System Equalizer";
 const DX5_DEV = "DX5 Pro";
 const S_4i4_DEV = "Scarlett 4i4 USB Pro";
-const QC_35_DEV = "Bose QuietComfort 35";
+const SPC_TRV_DEV = "Moondrop Space Travel";
 const BATHYS_DEV = "Focal Bathys";
 const HDMI_DEV = "HDMI Output";
 
@@ -43,7 +43,7 @@ const DX5 = sinkTemplate(DX5_DEV, pbc, Pro);
 const AOUT = sinkTemplate("Audio Output", pbm, Basic);
 const ASINK = sinkTemplate("Audio Device", pbm, Basic);
 const M_SINK = sinkTemplate("Mic Sink", pbm, Basic);
-const QC35 = sinkTemplate(QC_35_DEV, pbc, Basic);
+const SPC_TRV = sinkTemplate(SPC_TRV_DEV, pbc, Basic);
 const BATHYS = sinkTemplate(BATHYS_DEV, pbc, Basic);
 const MIC = sinkTemplate("Microphone", inc, Basic);
 const HDMI = sinkTemplate(HDMI_DEV, pbm, Pro);
@@ -227,14 +227,11 @@ const EQ_PRESET = (name: string, button: string) => {
 };
 
 const EQ_PRESET_BINDS = {
-  "Button 1": "sink-HE400i",
-  "Button 2": "sink-QC35",
-  "Button 3": "sink-QC35_Wireless",
-  "Button 4": "sink-Companion_2",
-  "Button 5": "sink-HD_560S",
-  "Button 6": "sink-Focal_Clear",
-  "Button 7": "sink-Focal_Bathys",
-  "Button 8": "sink-Truthear_Hexa",
+  "Button 1": "sink-Companion_2",
+  "Button 2": "sink-Focal_Clear",
+  "Button 3": "sink-Focal_Bathys",
+  "Button 4": "sink-Truthear_Hexa",
+  "Button 5": "sink-Moondrop_Space_Travel",
 };
 const ALL_EQ_BUTTONS = Object.keys(EQ_PRESET_BINDS);
 
@@ -310,28 +307,22 @@ const config = {
       { node: "re:.*SDL Application.*", mixerChannel: 6 },
       { node: "WEBRTC VoiceEngine", mixerChannel: 7 },
       {
-        node: QC_35_DEV,
+        node: SPC_TRV_DEV,
         onDisconnect: [
-          ...eqPresetActions(
-            "sink-QC35",
-            Object.entries(EQ_PRESET_BINDS).find(
-              (e) => e[1] === "sink-QC35"
-            )![0]
-          ),
           { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
         ],
         onConnect: [
           ...eqPresetActions(
-            "sink-QC35_Wireless",
+            "sink-Moondrop_Space_Travel",
             Object.entries(EQ_PRESET_BINDS).find(
-              (e) => e[1] === "sink-QC35_Wireless"
+              (e) => e[1] === "sink-Moondrop_Space_Travel"
             )![0]
           ),
           { type: UNLINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: UNLINK, src: EQ(Out, R), dest: DX5(In, R) },
-          { type: LINK, src: EQ(Out, L), dest: QC35(In, L) },
-          { type: LINK, src: EQ(Out, R), dest: QC35(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: SPC_TRV(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: SPC_TRV(In, R) },
         ],
       },
       {
@@ -360,8 +351,8 @@ const config = {
           { type: LINK, src: ASINK(Out, R), dest: EQ(In, R) },
           { type: LINK, src: EQ(Out, L), dest: DX5(In, L) },
           { type: LINK, src: EQ(Out, R), dest: DX5(In, R) },
-          { type: LINK, src: EQ(Out, L), dest: QC35(In, L) },
-          { type: LINK, src: EQ(Out, R), dest: QC35(In, R) },
+          { type: LINK, src: EQ(Out, L), dest: SPC_TRV(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: SPC_TRV(In, R) },
           { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
           { type: LINK, src: EQ(Out, R), dest: BATHYS(In, R) },
           { type: LINK, src: M_SINK(Out, L), dest: EQ(In, L) },
