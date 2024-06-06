@@ -50,6 +50,8 @@ end)
 
 mp.register_event("file-loaded", function()
 	local input_path = mp.get_property("stream-path")
+
+	-- automatically un-mute and set volume for clips & replays
 	if string.find(input_path, "/Replay_") then
 		activate_all_audio()
 		if string.find(input_path, "_clip") then
@@ -60,5 +62,12 @@ mp.register_event("file-loaded", function()
 			mp.set_property("volume", 85)
 			mp.set_property("mute", "no")
 		end
+	end
+
+	-- un-mute and disable looping for music files
+	if string.match(input_path, "%.flac$") then
+		mp.set_property("volume", 100)
+		mp.set_property("mute", "no")
+		mp.set_property("loop", "no")
 	end
 end)
