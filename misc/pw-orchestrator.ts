@@ -448,6 +448,16 @@ const config = {
         ],
       },
     },
+    Solo: {
+      type: "button",
+      defaultLEDState: "OFF",
+      onPress: {
+        actions: [
+          { type: LINK, src: EQ(Out, L), dest: BATHYS(In, L) },
+          { type: LINK, src: EQ(Out, R), dest: BATHYS(In, R) },
+        ],
+      },
+    },
     "Rec Arm": {
       type: "button",
       defaultLEDState: "ON",
