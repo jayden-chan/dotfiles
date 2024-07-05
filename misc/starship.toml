@@ -6,13 +6,16 @@ error_symbol = "[✗](bold red)"
 success_symbol = "[:](bold green)"
 
 [package]
-disabled=true
+disabled = true
+
+[gcloud]
+disabled = true
 
 [git_status]
-disabled=false
+disabled = false
 
 [git_commit]
-disabled=false
+disabled = false
 
 [custom.gwip]
 command = "git log -n 1 2>/dev/null | rg --quiet --count --regexp \"--wip--\" && echo '[WORK IN PROGRESS]'"
