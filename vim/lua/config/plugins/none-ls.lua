@@ -6,6 +6,8 @@ return {
 	utils.mirror("none-ls.nvim"),
 	dependencies = {
 		utils.mirror("cmp-nvim-lsp"),
+		"gbprod/none-ls-shellcheck.nvim",
+		"nvimtools/none-ls-extras.nvim",
 	},
 	ft = ts_config.extended,
 	config = function()
@@ -19,12 +21,11 @@ return {
 			sources = {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.diagnostics.shellcheck,
-				null_ls.builtins.formatting.taplo,
-				null_ls.builtins.code_actions.shellcheck,
-				null_ls.builtins.diagnostics.cppcheck,
+				require("none-ls-shellcheck.diagnostics"),
+				require("none-ls-shellcheck.code_actions"),
+				require("none-ls.diagnostics.cpplint"),
 				null_ls.builtins.formatting.terraform_fmt,
-				null_ls.builtins.diagnostics.eslint_d.with({
+				require("none-ls.diagnostics.eslint_d").with({
 					condition = function(utls)
 						return utls.root_has_file({
 							".eslintrc.js",
