@@ -111,20 +111,41 @@ function gotify-send () {
 }
 
 function syc () {
-    alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
-    if [ "$1" = "up" ]; then
-        echo "syncing up"
-        cpr                       ~/Documents/ homelab:Documents/cloud/
-        cpr --exclude 'a6600/*'   ~/Pictures/  homelab:Pictures/cloud/
-        cpr --exclude 'replays/*' ~/Videos/    homelab:Videos/cloud/
+    alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1'
+    if [ "$1" = "clips" ]; then
+        echo "syncing clips"
+        cpr -e ssh --exclude 'replays/*' ~/Videos/ homelab:Videos/cloud/
         return
-    elif [ "$1" = "down" ]; then
-        echo "syncing down"
-        cpr homelab:Documents/cloud/ ~/Documents/
-        cpr homelab:Pictures/cloud/  ~/Pictures/
-        cpr homelab:Videos/cloud/    ~/Videos/
+    elif [ "$1" = "files" ]; then
+        echo "syncing personal files to external drive"
+        cpr                       /mnt/homelab/seagate/music/ "/run/media/jayden/Seagate External/Backup/Personal Files/Music/"
+        cpr --exclude 'replays/*' /home/jayden/Videos/        "/run/media/jayden/Seagate External/Backup/Personal Files/Videos/"
+        cpr --exclude 'ardour/*'  /home/jayden/Documents/     "/run/media/jayden/Seagate External/Backup/Personal Files/Documents/"
+        cpr --exclude 'a6600/*'   /home/jayden/Pictures/      "/run/media/jayden/Seagate External/Backup/Personal Files/Pictures/"
         return
     fi
+}
+
+function borg_backup () {
+    [ -e "$HOME/.config/ENV" ] && . "$HOME"/.config/ENV
+
+    if [ "$BACKUP_SEAGATE_BORG_REPO" = "" ]; then
+        echo "Error: Borg repo environment variable missing"
+        return
+    fi
+
+    if [ "$BACKUP_SEAGATE_GCP_BUCKET" = "" ]; then
+        echo "Error: GCP bucket variable missing"
+        return
+    fi
+
+    if [ ! -d "$BACKUP_SEAGATE_BORG_REPO" ]; then
+        echo "Error: Borg NFS mount isn't present"
+        return
+    fi
+
+    borg create --compression zstd,6 --progress --stats "$BACKUP_SEAGATE_BORG_REPO"::{now} "/run/media/jayden/Seagate External/Backup"
+    gsutil -m rsync -r "$BACKUP_SEAGATE_BORG_REPO/" "$BACKUP_SEAGATE_GCP_BUCKET"
 }
 
 function gitea_mirror () {

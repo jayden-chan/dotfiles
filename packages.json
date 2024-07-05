@@ -73,7 +73,10 @@
       "r2modman-appimage",
       "rpi-imager-bin",
       "insomnium-bin",
-      "baobab"
+      "baobab",
+      "feishin-bin",
+      "jdk21-openjdk",
+      "google-cloud-cli"
     ],
     "swift": [
       "light",
