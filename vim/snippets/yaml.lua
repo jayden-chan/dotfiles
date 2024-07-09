@@ -18,8 +18,6 @@ nginx:
 	port: "{{{{ PORT_{2} }}}}"
 
 docker:
-	version: "2.1"
-
 	services:
 		{3}
 ]],
