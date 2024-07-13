@@ -117,6 +117,9 @@ const renderTmpClipCommand = [
   "-nostats",
   "-i",              path,
 
+  // set the framerate to 60
+  "-r",              "60",
+
   // video codec settings
   // https://www.nvidia.com/en-us/geforce/guides/broadcasting-guide/
   // https://git.dec05eba.com/gpu-screen-recorder/tree/src/main.cpp#n411
@@ -171,13 +174,14 @@ const { stderr: loudnessOutput } = await cmd(
 );
 
 const jsonPortion = loudnessOutput
-  .slice(loudnessOutput.lastIndexOf("{"), loudnessOutput.length)
+  .slice(loudnessOutput.lastIndexOf("{"), loudnessOutput.lastIndexOf("}") + 1)
   .trim();
 
 try {
   loudnessInfo = JSON.parse(jsonPortion);
 } catch (e) {
   await notify("Error: Failed to parse JSON from loudnorm", { err: true });
+  await writeFile(debugFile, `${loudnessOutput}\n\n${e}\n\n${jsonPortion}`);
   process.exit(1);
 }
 
