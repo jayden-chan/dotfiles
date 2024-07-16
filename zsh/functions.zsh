@@ -126,28 +126,6 @@ function syc () {
     fi
 }
 
-function borg_backup () {
-    [ -e "$HOME/.config/ENV" ] && . "$HOME"/.config/ENV
-
-    if [ "$BACKUP_SEAGATE_BORG_REPO" = "" ]; then
-        echo "Error: Borg repo environment variable missing"
-        return
-    fi
-
-    if [ "$BACKUP_SEAGATE_GCP_BUCKET" = "" ]; then
-        echo "Error: GCP bucket variable missing"
-        return
-    fi
-
-    if [ ! -d "$BACKUP_SEAGATE_BORG_REPO" ]; then
-        echo "Error: Borg NFS mount isn't present"
-        return
-    fi
-
-    borg create --compression zstd,6 --progress --stats "$BACKUP_SEAGATE_BORG_REPO"::{now} "/run/media/jayden/Seagate External/Backup"
-    gsutil -m rsync -r "$BACKUP_SEAGATE_BORG_REPO/" "$BACKUP_SEAGATE_GCP_BUCKET"
-}
-
 function gitea_mirror () {
     # unlock the vault if it's not already unlocked
     if [ "$BW_SESSION" = "" ]; then
