@@ -1,6 +1,4 @@
 function op         () { thunar   ${1:-.}        </dev/null &>/dev/null & disown }
-function manp       () { zathura =(man -Tpdf $@) </dev/null &>/dev/null & disown }
-function manv       () { man $@ | vim "+runtime! syntax/man.vim" "+set nonumber" "+set norelativenumber" }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
@@ -233,14 +231,6 @@ function zcustomfunc () {
     fi
 }
 alias z="zcustomfunc"
-
-function manh () {
-    tmp_dir=$(mktemp -d -t manh-XXXXXX)
-    man -Thtml $1 > $tmp_dir/manual.html
-    xdg-open $tmp_dir/manual.html
-    sleep 1
-    rm -rf $tmp_dir
-}
 
 function installfont () {
     sudo echo --- Installing font ---
