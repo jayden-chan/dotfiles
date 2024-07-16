@@ -38,7 +38,6 @@
       "firejail",
       "thunar",
       "libev",
-      "dbeaver",
       "kdenlive",
       "oxygen",
       "gamemode",
@@ -76,7 +75,10 @@
       "baobab",
       "feishin-bin",
       "jdk21-openjdk",
-      "google-cloud-cli"
+      "google-cloud-cli",
+      "smartmontools",
+      "python-opencv",
+      "python-numpy"
     ],
     "swift": [
       "light",
@@ -169,7 +171,6 @@
       "mpv",
       "pipewire-pulse",
       "wireguard-tools",
-      "sshfs",
       "nfs-utils",
       "gopls",
       "gnome-keyring",
@@ -224,7 +225,6 @@
       "gdm",
       "libva-utils",
       "ebumeter",
-      "dust",
       "openresolv",
       "gtk-engine-murrine",
       "papirus-icon-theme",
