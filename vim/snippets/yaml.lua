@@ -16,6 +16,9 @@ nginx:
 	endpoint: http://localhost
 	users: ['jayden']
 	port: "{{{{ PORT_{2} }}}}"
+	homepage:
+	  name: {1}
+	  icon: {1}.png
 
 docker:
 	services:
