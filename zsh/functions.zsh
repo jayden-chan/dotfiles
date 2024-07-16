@@ -5,6 +5,7 @@ function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function toh264     () { ffmpeg -i "$1" -c:v libx264 -c:a copy "${1:r}_h264.mp4" }
 function sc         () { jq .scripts ${1:-package.json} }
+function podbuild   () { podman image build -f ./Containerfile -t git.jayden.codes/jayden/"$1":latest && podman image push git.jayden.codes/jayden/"$1":latest }
 
 # Good compression/archive settings
 function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
