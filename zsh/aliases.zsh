@@ -44,7 +44,7 @@ alias c='cargo'
 alias p='~/.config/dotfiles/scripts/p.ts'
 alias j='pnpm'
 alias k='kubectl'
-alias l='exa -a'
+alias l='eza -a'
 
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
@@ -54,9 +54,9 @@ alias myip='curl https://ipinfo.io/ip && echo'
 
 # better defaults
 alias clear='clear -x'
-alias ls='exa'
-alias la='exa -lah'
-alias ll='exa -lh'
+alias ls='eza'
+alias la='eza -lah'
+alias ll='eza -lh'
 alias cat='bat'
 alias bc='bc -l'
 alias ip='ip -c'
