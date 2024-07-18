@@ -117,6 +117,8 @@ function syc () {
         return
     elif [ "$1" = "files" ]; then
         echo "syncing personal files to external drive"
+        cpr -e ssh                homelab:docker/gitea/data/git/repositories/jayden/ "/run/media/jayden/Seagate External/Backup/Personal Files/Git/"
+
         cpr                       /mnt/homelab/seagate/music/ "/run/media/jayden/Seagate External/Backup/Personal Files/Music/"
         cpr --exclude 'replays/*' /home/jayden/Videos/        "/run/media/jayden/Seagate External/Backup/Personal Files/Videos/"
         cpr --exclude 'ardour/*'  /home/jayden/Documents/     "/run/media/jayden/Seagate External/Backup/Personal Files/Documents/"
