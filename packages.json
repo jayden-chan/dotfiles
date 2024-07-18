@@ -231,7 +231,8 @@
       "libappindicator-gtk3",
       "hurl",
       "taplo-cli",
-      "localsend-bin"
+      "localsend-bin",
+      "mprocs-bin"
     ]
   },
   "ignored": [
