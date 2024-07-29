@@ -181,7 +181,6 @@
       "man-pages",
       "gnu-free-fonts",
       "ttf-iosevka-nerd",
-      "python-grip",
       "tokei",
       "pacman-contrib",
       "dnsmasq",
@@ -231,8 +230,9 @@
       "libappindicator-gtk3",
       "hurl",
       "taplo-cli",
-      "localsend-bin",
-      "mprocs-bin"
+      "mprocs-bin",
+      "go-yq",
+      "zenity"
     ]
   },
   "ignored": [
