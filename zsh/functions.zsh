@@ -74,7 +74,7 @@ function bb () {
 EOF
 
     cat << EOF > ./package.json
-{ "dependencies": { "@types/node": "18", "bun-types": "latest" } }
+{ "devDependencies": { "@types/node": "20", "bun-types": "latest" } }
 EOF
 
         bun install
