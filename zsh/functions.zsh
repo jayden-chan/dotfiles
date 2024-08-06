@@ -113,7 +113,8 @@ function syc () {
     alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1'
     if [ "$1" = "clips" ]; then
         echo "syncing clips"
-        cpr -e ssh --exclude 'replays/*' ~/Videos/ homelab:Videos/cloud/
+        cpr -e ssh ~/Videos/clips/ homelab:Videos/cloud/clips/
+        cpr -e ssh ~/Videos/clips_h264/ homelab:Videos/cloud/clips_h264/
         return
     elif [ "$1" = "files" ]; then
         echo "syncing personal files to external drive"
