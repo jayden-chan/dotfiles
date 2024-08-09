@@ -5,7 +5,7 @@
 	<name>Open Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1667782009341942-1</unique-id>
-	<command>sh -c &apos;cd &quot;%f&quot; ; st&apos;</command>
+	<command>sh -c &quot;cd %f ; st&quot;</command>
 	<description>Open a terminal in the current directory</description>
 	<range></range>
 	<patterns>*</patterns>
@@ -17,7 +17,7 @@
 	<name>FFProbe</name>
 	<submenu></submenu>
 	<unique-id>1676602598381730-1</unique-id>
-	<command>sh -c &quot;ffprobe %f 2&gt;&amp;1 | gedit -&quot;</command>
+	<command>st -e sh -c &quot;ffprobe -hide_banner %f 2&gt;&amp;1 |  less  --exit-follow-on-close +F&quot;</command>
 	<description>Run ffprobe on file</description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -25,18 +25,18 @@
 	<video-files/>
 </action>
 <action>
-	<icon>4kyoutubetomp3</icon>
-	<name>Convert to H.264</name>
+	<icon>userinfo</icon>
+	<name>MediaInfo</name>
 	<submenu></submenu>
-	<unique-id>1676603460856505-2</unique-id>
-	<command>st -e zsh -c &apos;export input=%f; ffmpeg -i &quot;$input&quot; -c:v libx264 -c:a copy &quot;${input:r}_h264.mp4&quot;; echo &quot;\nDone!&quot;; read&apos;</command>
-	<description>Convert the file to H.264 codec</description>
+	<unique-id>1690139417393646-2</unique-id>
+	<command>st -e sh -c &quot;mediainfo %f 2&gt;&amp;1 |  less  --exit-follow-on-close +F&quot;</command>
+	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
 	<video-files/>
 </action>
 <action>
-	<icon></icon>
+	<icon>audio-speakers</icon>
 	<name>Create Horn</name>
 	<submenu></submenu>
 	<unique-id>1687950107706213-1</unique-id>
@@ -48,12 +48,23 @@
 	<other-files/>
 </action>
 <action>
-	<icon>pamac-delete</icon>
-	<name>Cull Images</name>
-	<submenu></submenu>
+	<icon>indicator-trashindicator</icon>
+	<name>Cull</name>
+	<submenu>picman</submenu>
 	<unique-id>1689641415278067-1</unique-id>
-	<command>/home/jayden/.config/dotfiles/scripts/cull.sh %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
-	<description>Cull Images</description>
+	<command>/home/jayden/Dev/Personal/picman/src/cull-basic.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>indicator-trashindicator</icon>
+	<name>Cull (safe)</name>
+	<submenu>picman</submenu>
+	<unique-id>1719774323493242-2</unique-id>
+	<command>/home/jayden/Dev/Personal/picman/src/cull-basic.ts --safe %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
+	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
 	<image-files/>
@@ -63,10 +74,87 @@
 	<name>Import images/videos</name>
 	<submenu></submenu>
 	<unique-id>1689902676394518-1</unique-id>
-	<command>st -e sh -c &apos;/home/jayden/.config/dotfiles/scripts/sd-dump.sh %f | less  --exit-follow-on-close +F&apos;</command>
+	<command>st -e sh -c &apos;/home/jayden/Dev/Personal/picman/src/sd-import.ts %f | less  --exit-follow-on-close +F&apos;</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
 	<directories/>
+</action>
+<action>
+	<icon>userinfo</icon>
+	<name>View Metadata</name>
+	<submenu>picman</submenu>
+	<unique-id>1690136297179459-1</unique-id>
+	<command> st -e sh -c &apos;exiv2 -p a %f 2&gt;&amp;1 | rg -v &quot;MakerNote|XMLPacket&quot; | less  --exit-follow-on-close +F&apos;</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>view-private</icon>
+	<name>Anonymize</name>
+	<submenu>picman</submenu>
+	<unique-id>1690485195569083-1</unique-id>
+	<command>/home/jayden/Dev/Personal/picman/src/anonymize.ts %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>pgp-keys</icon>
+	<name>Make Private</name>
+	<submenu>picman</submenu>
+	<unique-id>1719616786472408-1</unique-id>
+	<command>/home/jayden/Dev/Personal/picman/src/private.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/privatize.log</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>document-open-folder</icon>
+	<name>Make Pano Folder</name>
+	<submenu>picman</submenu>
+	<unique-id>1719760172570658-1</unique-id>
+	<command>/home/jayden/Dev/Personal/picman/src/pano-group.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/pano-group.log</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>crosshairs</icon>
+	<name>Set GPS Location</name>
+	<submenu>picman</submenu>
+	<unique-id>1720814069760259-1</unique-id>
+	<command>/home/jayden/Dev/Personal/picman/src/gps.ts --write-gps %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>emblem-web</icon>
+	<name>Open GPS Location</name>
+	<submenu>picman</submenu>
+	<unique-id>1720819178080678-2</unique-id>
+	<command>/home/jayden/Dev/Personal/picman/src/gps.ts --open-gps %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>gpsd-logo</icon>
+	<name>Correlate GPS</name>
+	<submenu>picman</submenu>
+	<unique-id>1722097833051003-1</unique-id>
+	<command>/home/jayden/Dev/Personal/picman/src/gps.ts --correlate-gps %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
 </action>
 </actions>
