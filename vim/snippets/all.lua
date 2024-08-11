@@ -167,7 +167,10 @@ along with {3}. If not, see <https://www.gnu.org/licenses/>.
 	s(
 		"lic",
 		f(function()
-			return cmd('cat "$(git rev-parse --show-toplevel || echo .)"/.lic')
+			local current_file = vim.api.nvim_buf_get_name(0)
+			local ext1 = current_file:match("^.+(%..+)$")
+			local ext = string.sub(ext1, 2, string.len(ext1))
+			return cmd('cat "$(git rev-parse --show-toplevel || echo .)"/.git-ignored-general/LICENSE_HEADER_' .. ext)
 		end)
 	),
 	s({ trig = "sh(%b())", regTrig = true, hidden = true }, {

@@ -3,6 +3,7 @@ node_modules
 *.swp
 
 .null-ls-root
+.git-ignored-general
 
 ##### Linux OS ignores
 
