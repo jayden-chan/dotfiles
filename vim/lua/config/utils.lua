@@ -4,7 +4,7 @@ local M = {
 	end,
 	theme = {
 		color_base = "base46",
-		theme = "everforest",
+		theme = "everforest_darker",
 	},
 }
 

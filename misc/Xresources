@@ -1,4 +1,4 @@
-#define _color0 #2b3339
+#define _color0 #202022
 #define _color1 #e67e80
 #define _color2 #a7c080
 #define _color3 #dbbc7f
@@ -6,7 +6,7 @@
 #define _color5 #d699b6
 #define _color6 #95d1c9
 #define _color7 #e7dabe
-#define _color8 #3a4248
+#define _color8 #3a3a3a
 #define _color9 #e67e80
 #define _color10 #a7c080
 #define _color11 #dbbc7f
@@ -17,8 +17,8 @@
 #define _color16 #d65d0e
 
 #define _cursorColor #b5b1a4
-#define _background #2b3339
-#define _foreground #d3c6aa
+#define _background #202022
+#define _foreground #d3c7bb
 
 st.font: Iosevka Nerd Font Mono:pixelsize=16:antialias=true:autohint=false:fonthashint=true
 st.cwscale: 1.0
