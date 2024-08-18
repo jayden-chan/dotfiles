@@ -8,7 +8,6 @@
       "arm-none-eabi-newlib",
       "arm-none-eabi-gcc",
       "img2pdf",
-      "discord",
       "python-llfuse",
       "arduino",
       "simplescreenrecorder",
@@ -144,7 +143,6 @@
       "file-roller",
       "tmux",
       "eog",
-      "entr",
       "openbsd-netcat",
       "gvfs-mtp",
       "spotify",
@@ -233,6 +231,8 @@
       "mprocs-bin",
       "go-yq",
       "zenity",
+      "just",
+      "watchexec",
       "pgformatter"
     ]
   },

@@ -42,9 +42,10 @@ alias t='tmux'
 alias b='bun'
 alias c='cargo'
 alias p='~/.config/dotfiles/scripts/p.ts'
-alias j='pnpm'
+alias j='just'
 alias k='kubectl'
 alias l='eza -a'
+alias u='./scripts/util.sh'
 
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'

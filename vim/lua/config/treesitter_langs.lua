@@ -15,6 +15,7 @@ local base = {
 	"javascript",
 	"json",
 	"jsonc",
+	"just",
 	"lua",
 	"make",
 	"markdown",
