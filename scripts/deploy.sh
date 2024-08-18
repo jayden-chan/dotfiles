@@ -65,14 +65,12 @@ rm -rf ~/.config/awesome
 rm -rf ~/.config/nvim/lua
 rm -rf ~/.config/nvim/queries
 rm -rf ~/.config/nvim/after
-rm -rf ~/.config/nvim/bin
 rm -rf ~/.config/nvim/init.lua
 rm -rf ~/.config/nvim/lazy-lock.json
 
 ln -fs ~/.config/dotfiles/vim/lua                               ~/.config/nvim/lua
 ln -fs ~/.config/dotfiles/vim/queries                           ~/.config/nvim/queries
 ln -fs ~/.config/dotfiles/vim/after                             ~/.config/nvim/after
-ln -fs ~/.config/dotfiles/vim/bin                               ~/.config/nvim/bin
 ln -fs ~/.config/dotfiles/vim/init.lua                          ~/.config/nvim/
 ln -fs ~/.config/dotfiles/vim/lazy-lock.json                    ~/.config/nvim/
 ln -fs ~/.config/dotfiles/awesome                               ~/.config/awesome
