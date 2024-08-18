@@ -232,7 +232,8 @@
       "taplo-cli",
       "mprocs-bin",
       "go-yq",
-      "zenity"
+      "zenity",
+      "pgformatter"
     ]
   },
   "ignored": [
