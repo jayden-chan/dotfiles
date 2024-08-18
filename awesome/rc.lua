@@ -467,6 +467,10 @@ local globalkeys = gears.table.join(
 		end
 	end, { description = "toggle mute notifications", group = "awesome" }),
 
+	awful.key({ modkey }, "r", function()
+		awful.spawn.with_shell("kill -TERM $(pgrep -f 'target/debug/lakehouse-server')")
+	end, { description = "shutdown lakehouse", group = "awesome" }),
+
 	-- Screenshots
 	awful.key(
 		{ super, "Control" },
