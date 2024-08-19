@@ -23,7 +23,6 @@ local two_spc_files = {
 	"css",
 	"graphql",
 	"groovy",
-	"helm",
 	"html",
 	"javascript",
 	"json",

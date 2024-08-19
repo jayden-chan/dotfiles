@@ -34,14 +34,11 @@ require("lazy").setup({
 	require("config.plugins.trouble"),
 	require("config.plugins.treesitter"),
 	require("config.plugins.treesitter-playground"),
-	require("config.plugins.tdg"),
 	require("config.plugins.hexokinase"),
 	require("config.plugins.nginx"),
 	require("config.plugins.presence"),
 	require("config.plugins.gitlinker"),
-	require("config.plugins.vim-helm"),
 	require("config.plugins.luasnip"),
-	require("config.plugins.leap"),
 }, {
 	performance = {
 		rtp = {
