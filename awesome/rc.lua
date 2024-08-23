@@ -907,10 +907,6 @@ awful.rules.rules = {
 		},
 		properties = { floating = true },
 	},
-	-- Discord on side screen
-	{ rule = { class = "discord" }, properties = { screen = tv_mode == "true" and 1 or 2, tag = "1" } },
-	-- Spotify on side screen
-	{ rule = { class = "Spotify" }, properties = { screen = tv_mode == "true" and 1 or 2, tag = "1" } },
 	-- Psensor on side screen
 	{
 		rule = { class = "Psensor" },
