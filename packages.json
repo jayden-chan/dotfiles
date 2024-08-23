@@ -232,8 +232,7 @@
       "go-yq",
       "zenity",
       "just",
-      "watchexec",
-      "pgformatter"
+      "watchexec"
     ]
   },
   "ignored": [

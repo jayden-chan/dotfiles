@@ -21,7 +21,12 @@ return {
 			sources = {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.pg_format,
+				null_ls.builtins.formatting.sql_formatter.with({
+					extra_args = {
+						"--config",
+						'{"language":"postgresql","dialect":"postgresql","tabWidth":4}',
+					},
+				}),
 				require("none-ls-shellcheck.diagnostics"),
 				require("none-ls-shellcheck.code_actions"),
 				require("none-ls.diagnostics.cpplint"),

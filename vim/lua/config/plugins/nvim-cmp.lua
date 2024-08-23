@@ -11,6 +11,12 @@ return {
 		utils.mirror("lspkind-nvim"),
 	},
 	event = "InsertEnter",
+	cmd = {
+		"DBUI",
+		"DBUIToggle",
+		"DBUIAddConnection",
+		"DBUIFindBuffer",
+	},
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
@@ -29,6 +35,14 @@ return {
 				end,
 			},
 		}
+
+		local default_cmp_sources = cmp.config.sources({
+			{ name = "nvim_lsp" },
+			{ name = "luasnip" },
+			{ name = "path" },
+		}, {
+			buffer_cmp,
+		})
 
 		cmp.setup({
 			snippet = {
@@ -72,19 +86,24 @@ return {
 					end
 				end, { "i", "s" }),
 			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "path" },
-			}, {
-				buffer_cmp,
-			}),
+			sources = default_cmp_sources,
 		})
 
 		-- Set configuration for specific filetype.
 		require("cmp_git").setup()
 		cmp.setup.filetype("gitcommit", {
 			sources = cmp.config.sources({ { name = "git" } }, { buffer_cmp }),
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(t)
+				if string.find(t.file, "lakehouse%-query%-") ~= nil then
+					print(string.format("event fired: %s", vim.inspect(t)))
+					cmp.setup.buffer({
+						sources = cmp.config.sources({ { name = "vim-dadbod-completion" } }, { buffer_cmp }),
+					})
+				end
+			end,
 		})
 
 		-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
