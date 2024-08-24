@@ -1,6 +1,7 @@
 local utils = require("config.utils")
 return {
 	utils.mirror("gitsigns.nvim"),
+	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		signs = {
 			add = { text = "┃" },
