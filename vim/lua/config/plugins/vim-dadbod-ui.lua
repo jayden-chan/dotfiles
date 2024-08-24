@@ -1,8 +1,9 @@
+local utils = require("config.utils")
 return {
-	"kristijanhusak/vim-dadbod-ui",
+	utils.mirror("vim-dadbod-ui"),
 	dependencies = {
-		{ "tpope/vim-dadbod", lazy = true },
-		{ "kristijanhusak/vim-dadbod-completion", lazy = true },
+		{ utils.mirror("vim-dadbod"), lazy = true },
+		{ utils.mirror("vim-dadbod-completion"), lazy = true },
 	},
 	cmd = {
 		"DBUI",
