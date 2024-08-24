@@ -40,6 +40,7 @@ require("lazy").setup({
 	require("config.plugins.gitlinker"),
 	require("config.plugins.luasnip"),
 	require("config.plugins.vim-dadbod-ui"),
+	require("config.plugins.todo-comments"),
 }, {
 	performance = {
 		rtp = {
