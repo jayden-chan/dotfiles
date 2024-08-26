@@ -79,6 +79,13 @@ return {
 			flags = default_flags,
 		})
 
+		lspconfig.yamlls.setup({
+			capabilities = capabilities,
+			on_init = on_init,
+			on_attach = on_attach,
+			flags = default_flags,
+		})
+
 		lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
 			on_init = on_init,

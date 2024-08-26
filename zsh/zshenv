@@ -66,6 +66,15 @@ export PATH="$HOME/.local/bin:$PATH"
 # Volta binaries
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# NPM binaries
+export PATH="$HOME/.local/share/npm/bin:$PATH"
+
+# Nix binaries
+export PATH="$HOME/.nix-profile/bin:$PATH"
+
+# Bun binaries
+export PATH="$HOME/.cache/.bun/bin:$PATH"
+
 # work laptop stuff
 if [ "$hostname" = "client-Jayden-Chan.local" ]; then
     export PATH="$PATH:/opt/homebrew/bin"
@@ -75,16 +84,12 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
-
 if [ "$hostname" = "swift" ] || [ "$hostname" = "grace" ]; then
     if [ -n "$DESKTOP_SESSION" ];then
         export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh
         xrdb -load ~/.config/dotfiles/misc/Xresources
     fi
 fi
-
-# NPM global
-export PATH=~/.local/share/npm/bin:$PATH
 
 unset MANPATH
 export MANPATH="$NPM_PATH/share/man:$(manpath)"

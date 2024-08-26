@@ -212,7 +212,6 @@
       "podman",
       "fuse-overlayfs",
       "atuin",
-      "firefox-developer-edition",
       "mat2",
       "bun-bin",
       "moreutils",
@@ -228,11 +227,10 @@
       "libappindicator-gtk3",
       "hurl",
       "taplo-cli",
-      "mprocs-bin",
       "go-yq",
       "zenity",
-      "just",
-      "watchexec"
+      "nix",
+      "zen-browser-optimized-bin"
     ]
   },
   "ignored": [
