@@ -230,7 +230,8 @@
       "go-yq",
       "zenity",
       "nix",
-      "zen-browser-optimized-bin"
+      "zen-browser-optimized-bin",
+      "direnv"
     ]
   },
   "ignored": [

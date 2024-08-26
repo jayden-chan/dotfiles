@@ -18,6 +18,7 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/mprocs      2>/dev/null
     rm -rf ~/.config/lazygit     2>/dev/null
     rm -rf ~/.config/wireplumber 2>/dev/null
+    rm -rf ~/.config/direnv      2>/dev/null
 
     rm -f ~/.config/pipewire/jack.conf           2>/dev/null
     rm -f ~/.config/pipewire/pipewire.conf       2>/dev/null
@@ -36,6 +37,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/lazygit
     mkdir -p ~/.config/pipewire
     mkdir -p ~/.config/wireplumber/main.lua.d
+    mkdir -p ~/.config/direnv
 
     mkdir -p ~/.local/share/fonts
     mkdir -p ~/.local/share/applications
@@ -99,6 +101,7 @@ ln -fs ~/.config/dotfiles/pipewire/pipewire.conf                ~/.config/pipewi
 ln -fs ~/.config/dotfiles/pipewire/pipewire-pulse.conf          ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/pipewire/jack.conf                    ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/pipewire/51-cleanup.lua               ~/.config/wireplumber/main.lua.d/
+ln -fs ~/.config/dotfiles/misc/direnv.toml                      ~/.config/direnv/
 
 ln -fs ~/.config/dotfiles/misc/st.desktop                       ~/.local/share/applications/
 ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop         ~/.local/share/applications/

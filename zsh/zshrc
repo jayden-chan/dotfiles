@@ -130,6 +130,11 @@ fi
 # initialize starship prompt
 eval "$(starship init zsh)"
 
+if [ "$IN_NIX_SHELL" = "" ]; then
+    # initialize direnv
+    eval "$(direnv hook zsh)"
+fi
+
 # if tmux is executable, X is running, and not inside a tmux session.
 #   try attach to a detatched session. if there aren't any then create a new one
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
