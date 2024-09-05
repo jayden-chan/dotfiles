@@ -28,6 +28,7 @@ local two_spc_files = {
 	"json",
 	"jsonc",
 	"less",
+	"nix",
 	"scss",
 	"sql",
 	"toml",
