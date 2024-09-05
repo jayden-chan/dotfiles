@@ -16,6 +16,7 @@ end
 
 return {
 	s("log", fmt("console.log({})", i(0))),
+	s("linesplit", t(".split(/\\r?\\n/g).map(l => l.trim()).filter(l => l.length > 0)")),
 	s("er", fmt("console.error({})", i(0))),
 	log_snippet("deb", "debug"),
 	log_snippet("info", "info"),
