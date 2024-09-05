@@ -65,3 +65,4 @@ xinput --set-prop 'HP HP Link-5 micro dongle Mouse' 'libinput Accel Speed' -1
 xset r rate 270 35
 xmodmap -e "clear lock" &
 xmodmap -e "keysym Caps_Lock = Escape" &
+solaar config 'MX Master 3S' dpi 1750 &
