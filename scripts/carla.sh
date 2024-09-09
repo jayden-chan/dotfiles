@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 exec >/home/jayden/.cache/carla-sh-logs.log 2>&1
 

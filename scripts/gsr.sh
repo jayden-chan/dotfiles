@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 while true; do
     focused_window=$(xdotool getwindowfocus getwindowname)

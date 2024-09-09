@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 level_file="/tmp/liquidctl_level"
 if [ ! -f "$level_file" ]; then

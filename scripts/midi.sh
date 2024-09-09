@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$1" = "bathys_eq" ]; then
     printf '90 03 7F\n80 03 7F' | nc -N -U /tmp/pipewire-orchestrator.sock

@@ -1,4 +1,4 @@
-#!/usr/bin/dash
+#!/usr/bin/env bash
 
 alias maimselect='maim --noopengl --capturebackground --select --hidecursor'
 alias clip='xclip -selection c -filter'

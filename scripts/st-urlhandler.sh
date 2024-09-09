@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/usr/bin/env bash
 
 # Based on:
 # https://github.com/LukeSmithxyz/st/blob/0af4782a47cc1b0918bdc41fb61b1a5d358f75f6/st-urlhandler

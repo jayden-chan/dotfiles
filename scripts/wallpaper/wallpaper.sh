@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # -t     Start in thumbnail mode.
 # -b     Do not show info bar on bottom of window.

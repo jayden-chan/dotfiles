@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 # https://unix.stackexchange.com/questions/491531/how-to-avoid-mouse-cursor-jumping-while-using-xinput-coordinate-transformation-m
 #

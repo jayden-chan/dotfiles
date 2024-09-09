@@ -1,4 +1,4 @@
-#!/usr/bin/dash
+#!/usr/bin/env bash
 
 tmp_file=$(mktemp -t xcolor-XXXXXX.png)
 color=$(xcolor | tr -d '\n' | xclip -selection c -filter)
