@@ -100,7 +100,6 @@ ln -fs ~/.config/dotfiles/pipewire/pipewire-pulse.conf          ~/.config/pipewi
 ln -fs ~/.config/dotfiles/pipewire/jack.conf                    ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/misc/direnv.toml                      ~/.config/direnv/
 
-ln -fs ~/.config/dotfiles/misc/st.desktop                       ~/.local/share/applications/
 ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop         ~/.local/share/applications/
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop   ~/.local/share/applications/
 

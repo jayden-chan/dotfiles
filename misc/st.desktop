@@ -1,8 +1,0 @@
-[Desktop Entry]
-Exec=/usr/local/bin/st
-Type=Application
-Version=1.0
-Name=Simple Terminal
-Comment=A suckless terminal emulator
-Icon=org.gnome.Terminal
-Terminal=false
