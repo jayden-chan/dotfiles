@@ -10,7 +10,6 @@ return {
 		utils.mirror("playground"),
 	},
 	config = function()
-		require("config.rust_sql")
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = ts_config.base,
 			auto_install = true,
