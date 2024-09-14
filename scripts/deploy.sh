@@ -32,7 +32,6 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/direnv
     mkdir -p ~/.config/atuin
 
-    mkdir -p ~/.local/share/fonts
     mkdir -p ~/.local/share/applications
     mkdir -p ~/.local/bin
 

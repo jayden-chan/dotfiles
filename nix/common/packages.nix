@@ -38,6 +38,7 @@ in
     go
     gpu-screen-recorder
     imagemagick
+    inkscape
     jalv
     jq
     killall

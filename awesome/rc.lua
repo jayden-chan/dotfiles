@@ -68,6 +68,7 @@ local editor_cmd = terminal .. " -e " .. editor
 local home = os.getenv("HOME")
 local dots = home .. "/.config/dotfiles"
 local scripts = dots .. "/scripts"
+local icon_path = home .. "/.config/dotfiles/awesome/theme/default/"
 
 beautiful.init(home .. "/.config/awesome/theme/default/theme.lua")
 
@@ -243,25 +244,20 @@ local mar = function(w, top, right, bottom, left)
 	return wibox.container.margin(w, left or 0, right or 0, top or 0, bottom or 0)
 end
 
-local icon = function(icon, font_size, bg, fg)
-	local text = wibox.widget.textbox(icon)
-	text.forced_width = 40
-	text.font = "JetBrainsMono Nerd Font Mono " .. (font_size or 20)
-	text.align = "center"
-	text.markup = '<span foreground="' .. (fg or "#1e2122") .. '">' .. icon .. "</span>"
-
+local icon = function(icon, hor, ver)
+	local image = wibox.widget.imagebox(icon_path .. icon .. ".png", true)
 	local wid = wibox.container.background()
 	wid.bg = bg or "#ffffff"
 	wid.shape = gears.shape.rect
-	wid.widget = text
+	wid.widget = mar(image, ver or 9, hor or 14, ver or 9, hor or 14)
 	wid.visible = true
 
 	return wid
 end
 
-local icon_box = function(ico, widget)
+local icob = function(ico, widget)
 	local layout = wibox.layout.fixed.horizontal()
-	layout:add(icon(ico))
+	layout:add(ico)
 	layout:add(widget)
 
 	local wid = wibox.container.background()
@@ -283,7 +279,7 @@ end
 
 local widget_block_gap = 11
 local weather_text = wibox.widget({ widget = wibox.widget.textbox })
-local weather = mar(icon_box("摒", mar(weather_text, 0, 10, 0, 10)), 0, widget_block_gap)
+local weather = mar(icob(icon("cloud", 12, 10), mar(weather_text, 0, 10, 0, 10)), 0, widget_block_gap)
 awful.widget.watch(scripts .. "/weather.sh", 30, function(_, stdout)
 	weather_text:set_text(stdout:gsub("%s+$", ""))
 end)
@@ -297,12 +293,12 @@ weather:buttons(gears.table.join(
 
 local dnd_text = wibox.widget({ widget = wibox.widget.textbox })
 dnd_text:set_text("Do Not Disturb")
-local dnd_widget = mar(icon_box("", mar(dnd_text, 0, 10, 0, 10)), 0, widget_block_gap)
+local dnd_widget = mar(icob(icon("volume-xmark"), mar(dnd_text, 0, 10, 0, 10)), 0, widget_block_gap)
 dnd_widget:set_visible(false)
 naughty.resume()
 
 local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
-local headphones = mar(icon_box("", mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
+local headphones = mar(icob(icon("headphones", 13, 10), mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
 awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 60, function(_, stdout)
 	local data = stdout:gsub("%s+$", "")
 	if string.len(data) == 0 then
@@ -356,7 +352,8 @@ awful.screen.connect_for_each_screen(function(s)
 		height = 45,
 	})
 
-	local os_icon = icon("", 28, "#ffffff", bar_bg)
+	local os_icon = icon("nix", 11, 7);
+
 	local mem_widget = wibox.widget({ widget = wibox.widget.textbox })
 	lain.widget.mem({
 		timeout = 5,
@@ -380,7 +377,7 @@ awful.screen.connect_for_each_screen(function(s)
 	})
 
 	local mpris_text = wibox.widget({ widget = wibox.widget.textbox })
-	local mpris_block = mar(icon_box("ﱘ", mar(mpris_text, 0, 10, 0, 10)), 0, 0, 0, widget_block_gap)
+	local mpris_block = mar(icob(icon("circle-play", 13), mar(mpris_text, 0, 10, 0, 10)), 0, 0, 0, widget_block_gap)
 	mpris_block:set_visible(false)
 
 	-- Subscribe to the MPRIS signal from the listener script
@@ -396,9 +393,9 @@ awful.screen.connect_for_each_screen(function(s)
 	awesome.disconnect_signal("mpris", mpris_toggle_func)
 	awesome.connect_signal("mpris", mpris_toggle_func)
 
-	local mem = mar(icon_box("", mar(mem_widget, 0, 10, 0, 10)), 0, widget_block_gap)
-	local cpu = mar(icon_box("勤", mar(cpu_widget, 0, 10, 0, 10)), 0, widget_block_gap)
-	local time_local = icon_box("", mar(s.textclock_local, 0, 10, 0, 10))
+	local mem = mar(icob(icon("floppy-disk", 14, 8), mar(mem_widget, 0, 10, 0, 10)), 0, widget_block_gap)
+	local cpu = mar(icob(icon("chart-line"), mar(cpu_widget, 0, 10, 0, 10)), 0, widget_block_gap)
+	local time_local = icob(icon("clock", 12), mar(s.textclock_local, 0, 10, 0, 10))
 
 	local right = wibox.layout.fixed.horizontal()
 

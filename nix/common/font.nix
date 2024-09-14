@@ -2,7 +2,14 @@
 
 {
   fonts = {
-    packages = with pkgs; [ (nerdfonts.override { fonts = [ "Iosevka" ]; }) ];
+    packages = with pkgs; [
+      (nerdfonts.override {
+        fonts = [
+          "Iosevka"
+          "JetBrainsMono"
+        ];
+      })
+    ];
 
     fontconfig = {
       hinting.style = "slight";
