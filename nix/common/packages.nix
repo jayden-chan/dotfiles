@@ -22,6 +22,7 @@ in
     borgbackup
     bun
     carla
+    chromium
     dbeaver-bin
     delta
     eza
@@ -29,6 +30,7 @@ in
     ffmpeg-full
     ffmpegthumbnailer
     file
+    firejail
     fontconfig
     gcc
     gedit
@@ -46,6 +48,7 @@ in
     libnotify
     liquidctl
     lsp-plugins
+    lua-language-server
     maim
     mpv
     neofetch
@@ -55,14 +58,18 @@ in
     nsxiv
     onefetch
     pavucontrol
+    picom
     pkg-config
     psensor
+    qrencode
     redshift
     ripgrep
     rofi
     rsync
+    shellcheck
     spotify
     starship
+    stylua
     taplo
     tmux
     tokei

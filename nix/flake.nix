@@ -13,6 +13,9 @@
 
     minichacha.url = "github:jayden-chan/minichacha";
     minichacha.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -20,6 +23,7 @@
       self,
       nixpkgs,
       home-manager,
+      stylix,
       ...
     }@inputs:
     let
@@ -42,6 +46,8 @@
           system = specialArgs.config-vars.system;
           modules = [
             ./hosts/grace/configuration.nix
+
+            stylix.nixosModules.stylix
 
             home-manager.nixosModules.home-manager
             {

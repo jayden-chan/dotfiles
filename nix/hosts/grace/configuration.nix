@@ -19,6 +19,8 @@
     ../../common/lecture.nix
     ../../common/nix-conf.nix
     ../../common/packages.nix
+    ../../common/stylix.nix
+    ../../common/stylix-root.nix
     ../../common/thunar.nix
     ../../common/x.nix
   ];

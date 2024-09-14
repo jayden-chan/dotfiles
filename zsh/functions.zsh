@@ -16,10 +16,16 @@ alias decompress='tar xfJ'
 function kns () { kubectl config set-context --current --namespace="$1" }
 
 function nix-rebuild () {
+    # we'll use a random id to avoid accidentally messing up the .git directory
+    rand_id=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
+
     pushd ~/.config/dotfiles/nix >/dev/null || return
-    git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"
+
+    # temporarily "delete" the git repo so that Nix doesn't complain
+    mv ../.git "../.git-tmp-$rand_id"
     sudo nixos-rebuild switch --flake ".#$(hostname)"
-    git log -n 1 | rg --quiet --count --regexp "--wip--" && git reset HEAD~1
+    mv "../.git-tmp-$rand_id" ../.git 
+
     popd >/dev/null
 }
 

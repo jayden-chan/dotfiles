@@ -11,7 +11,5 @@ if [ "$chosen_wall" = "" ]; then
 else
     nitrogen --set-zoom-fill --save "$chosen_wall" --head=0 2>/dev/null
     nitrogen --set-zoom-fill --save "$chosen_wall" --head=1 2>/dev/null
-    nitrogen --set-zoom-fill --save "$chosen_wall" --head=2 2>/dev/null
-    cp "$chosen_wall" /usr/share/backgrounds/wall
-    chmod 777 /usr/share/backgrounds/wall
+    cp "$chosen_wall" $DOT/nix/common/wall
 fi

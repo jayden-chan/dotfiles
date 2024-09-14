@@ -239,7 +239,7 @@ local taglist_buttons = gears.table.join(
 	end)
 )
 
-local bar_bg = "#1e2122"
+local bar_bg = "#202022"
 local mar = function(w, top, right, bottom, left)
 	return wibox.container.margin(w, left or 0, right or 0, top or 0, bottom or 0)
 end

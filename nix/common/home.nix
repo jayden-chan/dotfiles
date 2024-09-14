@@ -12,6 +12,8 @@ let
   };
 in
 {
+  imports = [ ./stylix.nix ];
+
   home.username = config-vars.username;
   home.homeDirectory = config-vars.home-dir;
 
@@ -23,13 +25,15 @@ in
     ".local/share/zsh/zsh-syntax-highlighting".source = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
   };
 
-  home.pointerCursor = {
-    name = "macOS";
-    package = unstable.apple-cursor;
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
-  };
+  # home-manager only targets
+  stylix.targets.alacritty.enable = true;
+  stylix.targets.bat.enable = true;
+  stylix.targets.gedit.enable = true;
+  stylix.targets.gnome.enable = true;
+  stylix.targets.gtk.enable = true;
+  stylix.targets.mangohud.enable = true;
+  stylix.targets.vesktop.enable = true;
+  stylix.targets.zathura.enable = true;
 
   gtk.cursorTheme = {
     name = "macOS";

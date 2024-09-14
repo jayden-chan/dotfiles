@@ -15,7 +15,7 @@ local theme = {}
 theme.font = "Sans 10"
 theme.notification_font = "Sans 12"
 
-local main_bg = "#1e2327"
+local main_bg = "#202022"
 local font_fg = "#d3c6aa"
 local white = "#ffffff"
 
