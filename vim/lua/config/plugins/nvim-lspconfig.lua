@@ -38,7 +38,7 @@ return {
 		---                       ---
 		--- Language Server Setup ---
 		---                       ---
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 			on_init = on_init,
 			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
