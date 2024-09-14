@@ -20,13 +20,6 @@ function git_current_branch () {
     echo ${ref#refs/heads/}
 }
 
-# Warn if the current branch is a WIP
-function work_in_progress () {
-  if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
-    echo "WIP!!"
-  fi
-}
-
 # Check if main exists and use instead of master
 function git_main_branch () {
   command git rev-parse --git-dir &>/dev/null || return

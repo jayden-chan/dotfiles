@@ -2,8 +2,7 @@ DEFAULT_USER="jayden"
 
 hostname="$(hostname)"
 
-# zsh-z, must be loaded before completion stuff
-source $HOME/.local/share/zsh-z.plugin.zsh
+[ -e "$HOME/.config/ENV" ] && source $HOME/.config/ENV
 
 ##########################################################
 #                       completion                       #
@@ -37,6 +36,7 @@ autoload -U +X bashcompinit && bashcompinit
 ##########################################################
 
 HISTSIZE=50000
+HISTFILE="${XDG_STATE_HOME}/zsh/history"
 SAVEHIST=100000
 
 setopt extended_history       # record timestamp of command in HISTFILE
@@ -119,11 +119,11 @@ if [ "$hostname" = "client-Jayden-Chan.local" ]; then
     source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
     source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 else
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 if [ "$hostname" = "grace" ] || [ "$hostname" = "swift" ]; then
-    # initialize atuin
     eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
@@ -134,6 +134,8 @@ if [ "$IN_NIX_SHELL" = "" ]; then
     # initialize direnv
     eval "$(direnv hook zsh)"
 fi
+
+eval "$(zoxide init zsh)"
 
 # if tmux is executable, X is running, and not inside a tmux session.
 #   try attach to a detatched session. if there aren't any then create a new one

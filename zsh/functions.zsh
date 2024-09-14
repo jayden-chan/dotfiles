@@ -15,6 +15,14 @@ alias decompress='tar xfJ'
 # kube
 function kns () { kubectl config set-context --current --namespace="$1" }
 
+function nix-rebuild () {
+    pushd ~/.config/dotfiles/nix >/dev/null || return
+    git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"
+    sudo nixos-rebuild switch --flake ".#$(hostname)"
+    git log -n 1 | rg --quiet --count --regexp "--wip--" && git reset HEAD~1
+    popd >/dev/null
+}
+
 function plot () {
     if [ "$1" = "--help" ]; then
         echo "plot <filename> [style] [x column number] [y column number]"
@@ -205,43 +213,6 @@ function bwg () {
             break
         done
     fi
-}
-
-function zcustomfunc () {
-    local BOOKMARKS_FILE="$HOME/.cache/bookmarks"
-    if [ ! -f "$BOOKMARKS_FILE" ]; then
-        touch "$BOOKMARKS_FILE"
-    fi
-
-    if [[ "$1" = "bookmark" ]]; then
-        if [[ "$2" != "" ]]; then
-            local tmp_file=$(mktemp)
-            echo "$2 $PWD" >> $BOOKMARKS_FILE
-            cat "$BOOKMARKS_FILE" | sort | uniq > $tmp_file
-            cat "$tmp_file" > $BOOKMARKS_FILE
-            rm "$tmp_file"
-        else
-            cat "$BOOKMARKS_FILE"
-        fi
-    elif [[ "$1" != "" ]]; then
-        local bookmark=$(rg "^$1 (.*?)\$" "$BOOKMARKS_FILE" --only-matching --replace '$1')
-        if [[ "$bookmark" == "" ]]; then
-            zshz 2>&1 "$@"
-        else
-            cd "$bookmark"
-        fi
-    else
-        zshz 2>&1 "$@"
-    fi
-}
-alias z="zcustomfunc"
-
-function installfont () {
-    sudo echo --- Installing font ---
-    cp $@ $HOME/.local/share/fonts
-    echo --- Refreshing font cache ---
-    sudo fc-cache -fv
-    echo --- Done ---
 }
 
 function mullvad_ns () {

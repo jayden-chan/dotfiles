@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-if [ "$1" = "--env" ]; then
-    mkdir -p ~/.config/zsh
-    ln -fs ~/.config/dotfiles/zsh/zshenv ~/.config/zsh/.zshenv
-    ln -fs ~/.config/dotfiles/zsh/zshenv ~/.xprofile
-    exit
-fi
-
 if [ "$1" = "--full" ]; then
     rm -rf ~/.config/npm         2>/dev/null
     rm -rf ~/.config/nvim        2>/dev/null
@@ -18,6 +11,7 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/mprocs      2>/dev/null
     rm -rf ~/.config/lazygit     2>/dev/null
     rm -rf ~/.config/direnv      2>/dev/null
+    rm -rf ~/.config/atuin       2>/dev/null
 
     rm -f ~/.config/pipewire/jack.conf           2>/dev/null
     rm -f ~/.config/pipewire/pipewire.conf       2>/dev/null
@@ -36,6 +30,7 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/lazygit
     mkdir -p ~/.config/pipewire
     mkdir -p ~/.config/direnv
+    mkdir -p ~/.config/atuin
 
     mkdir -p ~/.local/share/fonts
     mkdir -p ~/.local/share/applications
@@ -73,7 +68,8 @@ ln -fs ~/.config/dotfiles/vim/queries                           ~/.config/nvim/q
 ln -fs ~/.config/dotfiles/vim/after                             ~/.config/nvim/after
 ln -fs ~/.config/dotfiles/vim/init.lua                          ~/.config/nvim/
 ln -fs ~/.config/dotfiles/vim/lazy-lock.json                    ~/.config/nvim/
-ln -fs ~/.config/dotfiles/awesome                               ~/.config/awesome
+ln -fs ~/.config/dotfiles/awesome/theme                         ~/.config/awesome/theme
+ln -fs ~/.config/dotfiles/awesome/rc.lua                        ~/.config/awesome/
 ln -fs ~/.config/dotfiles/git/gitconfig                         ~/.config/git/config
 ln -fs ~/.config/dotfiles/rofi/base.rasi                        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/drun.rasi                        ~/.config/rofi/
@@ -99,37 +95,10 @@ ln -fs ~/.config/dotfiles/pipewire/pipewire.conf                ~/.config/pipewi
 ln -fs ~/.config/dotfiles/pipewire/pipewire-pulse.conf          ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/pipewire/jack.conf                    ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/misc/direnv.toml                      ~/.config/direnv/
+ln -fs ~/.config/dotfiles/misc/atuin.toml                       ~/.config/atuin/config.toml
 
 ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop         ~/.local/share/applications/
 ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop   ~/.local/share/applications/
-
-# set default apps
-if [ "$(hostname)" != "Yellow-Lion.local" ]; then
-    xdg-mime default org.pwmt.zathura.desktop     application/pdf
-    xdg-mime default org.gnome.eog.desktop        image/png
-    xdg-mime default org.gnome.eog.desktop        image/jpg
-    xdg-mime default org.gnome.eog.desktop        image/jpeg
-    xdg-mime default org.gnome.eog.desktop        image/webp
-    xdg-mime default org.gnome.eog.desktop        image/x-portable-pixmap
-    xdg-mime default org.gnome.gedit.desktop      text/plain
-    xdg-mime default org.gnome.gedit.desktop      text/csv
-    xdg-mime default org.gnome.gedit.desktop      text/xml
-    xdg-mime default org.gnome.gedit.desktop      application/json
-    xdg-mime default org.gnome.FileRoller.desktop application/zip
-    xdg-mime default mpv.desktop                  audio/mpeg
-    xdg-mime default mpv.desktop                  image/gif
-    xdg-mime default mpv.desktop                  audio/flac
-    xdg-mime default mpv.desktop                  audio/x-aiff
-    xdg-mime default mpv.desktop                  video/x-matroska
-    xdg-mime default mpv.desktop                  video/mp4
-fi
-
-if [ "$1" = "--full" ]; then
-    cp ~/.config/dotfiles/misc/npmrc             ~/.config/npm/
-
-    cp ~/.config/dotfiles/font/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf ~/.local/share/fonts/
-    sudo fc-cache -fv && fc-cache -fv
-fi
 
 echo
 echo "Finished deployment"

@@ -45,12 +45,10 @@ alias p='~/.config/dotfiles/scripts/p.ts'
 alias j='just'
 alias k='kubectl'
 alias l='eza -a'
-alias u='./scripts/util.sh'
 
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
 alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh'
-alias ufwadd='sudo ufw allow proto udp/tcp from 192.168.1.0/24 to any port 123 comment "Comment"'
 alias myip='curl https://ipinfo.io/ip && echo'
 
 # better defaults
@@ -63,12 +61,12 @@ alias bc='bc -l'
 alias ip='ip -c'
 alias sxiv='nsxiv -b'
 alias make='make --no-print-directory'
+alias node='node --enable-source-maps --unhandled-rejections=strict'
 
 # Other
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'
 alias clip='xclip -selection c'
 alias pasteimg='xclip -selection clipboard -t image/png -o'
-alias nodes='node --enable-source-maps --unhandled-rejections=strict'
 alias gpl='curl https://www.gnu.org/licenses/gpl-3.0.txt'
 alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
 alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}\t{{.Image}}"'

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+shopt -s expand_aliases
 alias maimselect='maim --noopengl --capturebackground --select --hidecursor'
 alias clip='xclip -selection c -filter'
 

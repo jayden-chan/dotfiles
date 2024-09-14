@@ -80,21 +80,17 @@ local super = "Mod4"
 awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
 
-awful.spawn.with_shell("pgrep -fx 'thunar --daemon' > /dev/null || thunar --daemon")
-awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
-awful.spawn.with_shell("pgrep -fx lxpolkit          > /dev/null || lxpolkit")
+awful.spawn.with_shell("pgrep -f 'thunar --daemon' > /dev/null || thunar --daemon")
+-- awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
 
 if tv_mode ~= "true" then
-	awful.spawn.with_shell("pgrep -x redshift > /dev/null || redshift")
-	awful.spawn.with_shell("pgrep -x picom    > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
-	awful.spawn.with_shell("pgrep -x gsr.sh   > /dev/null || " .. scripts .. "/gsr.sh")
-	awful.spawn.with_shell("pgrep -x auto-cool.sh   > /dev/null || " .. scripts .. "/auto-cool.sh")
-	awful.spawn.with_shell("openrgb --mode static --color D0D7FE")
+	awful.spawn.with_shell("pgrep redshift > /dev/null || redshift")
+	awful.spawn.with_shell("pgrep picom    > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
+	awful.spawn.with_shell("pgrep -fx auto-cool.sh   > /dev/null || " .. scripts .. "/auto-cool.sh")
 else
 	awful.spawn.with_shell("sleep 5; xrandr --output HDMI-0 --mode 1920x1080 --rate 60.00")
-	awful.spawn.with_shell("pgrep -x picom > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf --vsync")
+	awful.spawn.with_shell("pgrep picom > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf --vsync")
 	awful.spawn.with_shell(scripts .. "/liquidctl.sh 3")
-	awful.spawn.with_shell("openrgb --mode static --color 000000")
 end
 
 awful.spawn.with_shell("nitrogen --restore")
@@ -123,10 +119,10 @@ awful.spawn.easy_async_with_shell(find_mpris_cmd, function(stdout, _, _, exit_co
 			table.insert(kill_args, line)
 		end
 		awful.spawn.easy_async(kill_args, function()
-			start_mpris()
+			-- start_mpris()
 		end)
 	else
-		start_mpris()
+		-- start_mpris()
 	end
 end)
 
@@ -360,7 +356,7 @@ awful.screen.connect_for_each_screen(function(s)
 		height = 45,
 	})
 
-	local arch_icon = icon("", 30, "#ffffff", bar_bg)
+	local os_icon = icon("", 28, "#ffffff", bar_bg)
 	local mem_widget = wibox.widget({ widget = wibox.widget.textbox })
 	lain.widget.mem({
 		timeout = 5,
@@ -425,7 +421,7 @@ awful.screen.connect_for_each_screen(function(s)
 	end
 
 	local left = wibox.layout.fixed.horizontal()
-	left:add(arch_icon)
+	left:add(os_icon)
 	left:add(s.mytaglist)
 	left:add(mpris_block)
 
