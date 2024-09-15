@@ -36,18 +36,6 @@
 	<video-files/>
 </action>
 <action>
-	<icon>audio-speakers</icon>
-	<name>Create Horn</name>
-	<submenu></submenu>
-	<unique-id>1687950107706213-1</unique-id>
-	<command>/home/jayden/.config/dotfiles/scripts/horn.sh %F</command>
-	<description></description>
-	<range>*</range>
-	<patterns>*</patterns>
-	<audio-files/>
-	<other-files/>
-</action>
-<action>
 	<icon>indicator-trashindicator</icon>
 	<name>Cull</name>
 	<submenu>picman</submenu>
@@ -156,5 +144,65 @@
 	<range>*</range>
 	<patterns>*</patterns>
 	<image-files/>
+</action>
+<action>
+	<icon>object-locked</icon>
+	<name>Encrypt</name>
+	<submenu></submenu>
+	<unique-id>1725996062477753-1</unique-id>
+	<command>/home/jayden/.config/dotfiles/scripts/minichacha.sh encrypt %f</command>
+	<description>Encrypt file with minichacha</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>object-locked</icon>
+	<name>Encrypt + shred</name>
+	<submenu></submenu>
+	<unique-id>1725996519859743-4</unique-id>
+	<command>/home/jayden/.config/dotfiles/scripts/minichacha.sh encrypt %f --shred</command>
+	<description>Encrypt file with minichacha then shred original</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>object-unlocked</icon>
+	<name>Decrypt</name>
+	<submenu></submenu>
+	<unique-id>1725996206100751-2</unique-id>
+	<command>/home/jayden/.config/dotfiles/scripts/minichacha.sh decrypt %f</command>
+	<description>Decrypt file with minichacha</description>
+	<range>*</range>
+	<patterns>*.minichacha</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>object-unlocked</icon>
+	<name>Decrypt + write</name>
+	<submenu></submenu>
+	<unique-id>1725996348476582-3</unique-id>
+	<command>/home/jayden/.config/dotfiles/scripts/minichacha.sh decrypt %f --write</command>
+	<description>Decrypt file with minichacha and write to file</description>
+	<range>*</range>
+	<patterns>*.minichacha</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
 </action>
 </actions>
