@@ -10,6 +10,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+
     ../../common/audio.nix
     ../../common/bluetooth.nix
     ../../common/bootloader.nix
@@ -19,8 +20,8 @@
     ../../common/lecture.nix
     ../../common/nix-conf.nix
     ../../common/packages.nix
-    ../../common/stylix.nix
     ../../common/stylix-root.nix
+    ../../common/stylix.nix
     ../../common/thunar.nix
     ../../common/x.nix
   ];
@@ -71,8 +72,6 @@
       X11Forwarding = true;
     };
   };
-
-  services.flatpak.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 

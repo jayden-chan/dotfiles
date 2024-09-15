@@ -24,11 +24,4 @@
 
   programs.direnv.enable = true;
   programs.zsh.enable = true;
-
-  # needed for flatpak but good to have in general
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "gtk";
-  };
 }
