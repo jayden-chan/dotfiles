@@ -50,10 +50,12 @@ in
       package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
       name = "JetBrainsMono Nerd Font Mono";
     };
+
     sansSerif = {
       package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
       name = "FreeSans";
     };
+
     serif = {
       package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
       name = "FreeSerif";

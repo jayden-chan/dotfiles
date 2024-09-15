@@ -13,7 +13,7 @@ function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
 function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
 alias decompress='tar xfJ'
 
-function nix-rebuild () {
+function _nix_git_trick () {
     # we'll use a random id to avoid accidentally messing up the .git directory
     rand_id=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 
@@ -21,11 +21,14 @@ function nix-rebuild () {
 
     # temporarily "delete" the git repo so that Nix doesn't complain
     mv ../.git "../.git-tmp-$rand_id"
-    sudo nixos-rebuild switch --flake ".#$(hostname)"
+    eval "$@"
     mv "../.git-tmp-$rand_id" ../.git 
 
     popd >/dev/null
 }
+
+alias nix-rebuild='_nix_git_trick sudo nixos-rebuild switch --flake .';
+alias nix-update='_nix_git_trick nix flake update';
 
 function plot () {
     if [ "$1" = "--help" ]; then
