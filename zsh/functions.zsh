@@ -6,14 +6,12 @@ function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert 
 function toh264     () { ffmpeg -i "$1" -c:v libx264 -c:a copy "${1:r}_h264.mp4" }
 function sc         () { jq .scripts ${1:-package.json} }
 function podbuild   () { podman image build -f ./Containerfile -t git.jayden.codes/jayden/"$1":latest && podman image push git.jayden.codes/jayden/"$1":latest }
+function kns        () { kubectl config set-context --current --namespace="$1" }
 
 # Good compression/archive settings
 function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
 function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
 alias decompress='tar xfJ'
-
-# kube
-function kns () { kubectl config set-context --current --namespace="$1" }
 
 function nix-rebuild () {
     # we'll use a random id to avoid accidentally messing up the .git directory

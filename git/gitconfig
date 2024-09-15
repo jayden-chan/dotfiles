@@ -35,7 +35,7 @@
     pager = delta
 
 [pull]
-	rebase = true
+    rebase = true
 
 [rebase]
     autoStash = true

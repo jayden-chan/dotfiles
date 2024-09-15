@@ -22,7 +22,7 @@
 
 st.font: Iosevka Nerd Font Mono:pixelsize=16:antialias=true:autohint=false:fonthashint=true
 st.cwscale: 1.0
-st.chscale: 0.91
+st.chscale: 0.90
 st.borderpx: 11
 st.color0: _color0
 st.color1: _color1
