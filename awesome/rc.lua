@@ -352,7 +352,7 @@ awful.screen.connect_for_each_screen(function(s)
 		height = 45,
 	})
 
-	local os_icon = icon("nix", 11, 7);
+	local os_icon = icon("nix", 11, 7)
 
 	local mem_widget = wibox.widget({ widget = wibox.widget.textbox })
 	lain.widget.mem({
@@ -735,6 +735,10 @@ local clientkeys = gears.table.join(
 	awful.key({ modkey }, "t", function(c)
 		c.ontop = not c.ontop
 	end, { description = "toggle keep on top", group = "client" }),
+
+	awful.key({ modkey, "Control" }, "t", function(c)
+		awful.titlebar.toggle(c)
+	end, { description = "toggle title bar", group = "client" }),
 
 	awful.key({ modkey, "Control" }, "n", function()
 		local c = awful.client.restore()
