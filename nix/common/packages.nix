@@ -19,6 +19,7 @@ in
     bash
     bat
     bc
+    bitwarden-cli
     borgbackup
     bun
     carla
@@ -73,7 +74,6 @@ in
     taplo
     tmux
     tokei
-    usbutils
     vesktop
     wget
     x42-plugins
@@ -89,6 +89,8 @@ in
     gnome.zenity
 
     kdePackages.kdeconnect-kde
+
+    python312Packages.grip
 
     xorg.xev
     xorg.xinput
