@@ -22,13 +22,14 @@ function _nix_git_trick () {
     # temporarily "delete" the git repo so that Nix doesn't complain
     mv ../.git "../.git-tmp-$rand_id"
     eval "$@"
-    mv "../.git-tmp-$rand_id" ../.git 
+    mv "../.git-tmp-$rand_id" ../.git
 
     popd >/dev/null
 }
 
-alias nix-rebuild='_nix_git_trick sudo nixos-rebuild switch --flake .';
+alias nix-rebuild='_nix_git_trick nh os switch';
 alias nix-update='_nix_git_trick nix flake update';
+alias nix-clean='_nix_git_trick nh clean all --keep 10';
 
 function plot () {
     if [ "$1" = "--help" ]; then
