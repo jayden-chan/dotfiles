@@ -12,7 +12,12 @@ let
   };
 in
 {
-  imports = [ ../common/stylix.nix ];
+  imports = [
+    ../common/stylix.nix
+
+    ./xresources.nix
+    ./zathura.nix
+  ];
 
   home.username = config-vars.username;
   home.homeDirectory = config-vars.home-dir;
@@ -23,6 +28,7 @@ in
   home.file = {
     ".local/share/zsh/zsh-autosuggestions".source = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
     ".local/share/zsh/zsh-syntax-highlighting".source = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
+    ".config/wgetrc".text = "hsts-file = ${config-vars.home-dir}/.cache/wget-hsts";
   };
 
   # home-manager only targets

@@ -25,6 +25,11 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
-  programs.direnv.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    silent = true;
+  };
+
   programs.zsh.enable = true;
 }

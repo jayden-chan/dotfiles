@@ -7,10 +7,8 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/tmux        2>/dev/null
     rm -rf ~/.config/zsh         2>/dev/null
     rm -rf ~/.config/mpv         2>/dev/null
-    rm -rf ~/.config/wget        2>/dev/null
     rm -rf ~/.config/mprocs      2>/dev/null
     rm -rf ~/.config/lazygit     2>/dev/null
-    rm -rf ~/.config/direnv      2>/dev/null
     rm -rf ~/.config/atuin       2>/dev/null
 
     rm -f ~/.config/pipewire/jack.conf           2>/dev/null
@@ -24,12 +22,9 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/zsh
     mkdir -p ~/.config/mpv/scripts
     mkdir -p ~/.config/mpv/script-opts
-    mkdir -p ~/.config/wget
     mkdir -p ~/.config/mprocs
-    mkdir -p ~/.config/zathura
     mkdir -p ~/.config/lazygit
     mkdir -p ~/.config/pipewire
-    mkdir -p ~/.config/direnv
     mkdir -p ~/.config/atuin
 
     mkdir -p ~/.local/share/applications
@@ -86,14 +81,11 @@ ln -fs ~/.config/dotfiles/mpv/osc.conf                          ~/.config/mpv/sc
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/all_audio.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/cut_video.lua                     ~/.config/mpv/scripts/
-ln -fs ~/.config/dotfiles/misc/wgetrc                           ~/.config/wget/
 ln -fs ~/.config/dotfiles/misc/mprocs.yaml                      ~/.config/mprocs/
-ln -fs ~/.config/dotfiles/misc/zathurarc                        ~/.config/zathura/
 ln -fs ~/.config/dotfiles/misc/lazygit.yml                      ~/.config/lazygit/config.yml
 ln -fs ~/.config/dotfiles/pipewire/pipewire.conf                ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/pipewire/pipewire-pulse.conf          ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/pipewire/jack.conf                    ~/.config/pipewire/
-ln -fs ~/.config/dotfiles/misc/direnv.toml                      ~/.config/direnv/
 ln -fs ~/.config/dotfiles/misc/atuin.toml                       ~/.config/atuin/config.toml
 
 ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop         ~/.local/share/applications/

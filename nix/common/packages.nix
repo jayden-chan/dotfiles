@@ -74,7 +74,6 @@ in
     xclip
     xcolor
     yt-dlp
-    zathura
     zoxide
     zsh-autosuggestions
     zsh-syntax-highlighting

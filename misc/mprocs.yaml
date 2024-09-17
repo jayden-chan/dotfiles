@@ -1,8 +1,0 @@
-keymap_procs:
-  <i>: { c: prev-proc }
-  <k>: { c: next-proc }
-  <M-l>: { c: focus-term }
-  <o>: { c: focus-term }
-
-keymap_term:
-  <M-j>: { c: focus-procs }

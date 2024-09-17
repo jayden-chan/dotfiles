@@ -29,7 +29,7 @@
     RUSTUP_HOME = "${XDG_DATA_HOME}/rustup";
     SQLITE_HISTORY = "${XDG_DATA_HOME}/sqlite_history";
     SSB_HOME = "${XDG_DATA_HOME}/zoom";
-    WGETRC = "$HOME/.config/wget/wgetrc";
+    WGETRC = "$HOME/.config/wgetrc";
     XCOMPOSECACHE = "${XDG_CACHE_HOME}/X11/xcompose";
     ZDOTDIR = "$HOME/.config/zsh";
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java";
