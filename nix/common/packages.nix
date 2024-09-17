@@ -103,5 +103,6 @@ in
     unstable.devenv
     inputs.zen-browser.packages."${system}".specific
     inputs.minichacha.packages."${system}".default
+    inputs.spotify-dbus-mon.packages."${system}".default
   ];
 }

@@ -91,7 +91,7 @@ awful.spawn.with_shell("nitrogen --restore")
 
 -- Spawn the MPRIS listener script
 local start_mpris = function()
-	awful.spawn.with_line_callback(scripts .. "/mpris.py", {
+	awful.spawn.with_line_callback("spotify-dbus-mon", {
 		stdout = function(line)
 			awesome.emit_signal("mpris", line:gsub("%s+$", ""))
 		end,
@@ -101,8 +101,7 @@ local start_mpris = function()
 	})
 end
 
-local find_mpris_cmd =
-	"ps -ax | rg \"(\\d+).*?\\d+:\\d+ python3 /home/jayden/\\.config/dotfiles/scripts/mpris\\.py\" --only-matching --replace='$1' --color=never"
+local find_mpris_cmd = "ps -ax | rg '(\\d+).*?\\d spotify-dbus-mon' --only-matching --replace='$1' --color=never"
 
 -- Restart the MPRIS listener script and setup the global signal handler
 -- for the widget to consume
@@ -113,10 +112,10 @@ awful.spawn.easy_async_with_shell(find_mpris_cmd, function(stdout, _, _, exit_co
 			table.insert(kill_args, line)
 		end
 		awful.spawn.easy_async(kill_args, function()
-			-- start_mpris()
+			start_mpris()
 		end)
 	else
-		-- start_mpris()
+		start_mpris()
 	end
 end)
 
