@@ -39,6 +39,7 @@
           home-dir = "/home/jayden";
           dotfiles-dir = "/home/jayden/.config/dotfiles";
           locale = "en_CA.UTF-8";
+          theme = import ./theme.nix { };
         };
       };
     in

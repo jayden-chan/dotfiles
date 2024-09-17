@@ -4,27 +4,27 @@
   xresources = {
     path = "${config-vars.home-dir}/.config/Xresources";
     extraConfig = ''
-      #define _color0 #202022
-      #define _color1 #e67e80
-      #define _color2 #a7c080
-      #define _color3 #dbbc7f
-      #define _color4 #95d1c9
-      #define _color5 #d699b6
-      #define _color6 #95d1c9
-      #define _color7 #e7dabe
-      #define _color8 #3a3a3a
-      #define _color9 #e67e80
-      #define _color10 #a7c080
-      #define _color11 #dbbc7f
-      #define _color12 #95d1c9
-      #define _color13 #d699b6
-      #define _color14 #95d1c9
-      #define _color15 #d3c6aa
-      #define _color16 #d65d0e
+      #define _color0 ${config-vars.theme.base00}
+      #define _color1 ${config-vars.theme.base0E}
+      #define _color2 ${config-vars.theme.base08}
+      #define _color3 ${config-vars.theme.base0B}
+      #define _color4 ${config-vars.theme.color4}
+      #define _color5 ${config-vars.theme.base0F}
+      #define _color6 ${config-vars.theme.color4}
+      #define _color7 ${config-vars.theme.base07}
+      #define _color8 ${config-vars.theme.base02}
+      #define _color9 ${config-vars.theme.base0E}
+      #define _color10 ${config-vars.theme.base08}
+      #define _color11 ${config-vars.theme.base0B}
+      #define _color12 ${config-vars.theme.color4}
+      #define _color13 ${config-vars.theme.base0F}
+      #define _color14 ${config-vars.theme.color4}
+      #define _color15 ${config-vars.theme.base05}
+      #define _color16 ${config-vars.theme.base0C}
 
-      #define _cursorColor #b5b1a4
-      #define _background #202022
-      #define _foreground #d3c7bb
+      #define _cursorColor ${config-vars.theme.cursor}
+      #define _background ${config-vars.theme.base00}
+      #define _foreground ${config-vars.theme.base05}
     '';
 
     properties = {
