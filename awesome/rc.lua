@@ -81,17 +81,10 @@ local super = "Mod4"
 awful.spawn(scripts .. "/inputs.sh", false)
 awful.spawn(scripts .. "/carla.sh", false)
 
-awful.spawn.with_shell("pgrep -f 'thunar --daemon' > /dev/null || thunar --daemon")
 -- awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
 
-	awful.spawn.with_shell("pgrep redshift > /dev/null || redshift")
-	awful.spawn.with_shell("pgrep picom    > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
 if host == "grace" then
 	awful.spawn.with_shell("pgrep -fx auto-cool.sh   > /dev/null || " .. scripts .. "/auto-cool.sh")
-else
-	awful.spawn.with_shell("sleep 5; xrandr --output HDMI-0 --mode 1920x1080 --rate 60.00")
-	awful.spawn.with_shell("pgrep picom > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf --vsync")
-	awful.spawn.with_shell(scripts .. "/liquidctl.sh 3")
 end
 
 awful.spawn.with_shell("nitrogen --restore")

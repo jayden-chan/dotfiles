@@ -1,5 +1,13 @@
 { pkgs, ... }:
 
+let
+  package = pkgs.xfce.thunar.override {
+    thunarPlugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+in
 {
   # xfconf is required to persist Thunar settings
   # since we're not running on XFCE
@@ -14,12 +22,7 @@
   # required for Thunar archive plugin
   programs.file-roller.enable = true;
 
-  # Thunar
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
+  environment.systemPackages = [ package ];
+  services.dbus.packages = [ package ];
+  systemd.packages = [ package ];
 }

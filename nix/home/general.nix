@@ -12,7 +12,7 @@ let
   };
 in
 {
-  imports = [ ./stylix.nix ];
+  imports = [ ../common/stylix.nix ];
 
   home.username = config-vars.username;
   home.homeDirectory = config-vars.home-dir;
@@ -60,6 +60,8 @@ in
     "video/mp4" = [ "mpv.desktop" ];
     "video/x-matroska" = [ "mpv.desktop" ];
   };
+
+  systemd.user.enable = true;
 
   services.autorandr.enable = true;
   programs.autorandr = {

@@ -1,7 +1,13 @@
 { ... }:
 
 {
-  imports = [ ../../common/home.nix ];
+  imports = [
+    ../../home/general.nix
+
+    ../../home/services/picom.nix
+    ../../home/services/redshift.nix
+    ../../home/services/thunar-daemon.nix
+  ];
 
   home.stateVersion = "24.05";
 
