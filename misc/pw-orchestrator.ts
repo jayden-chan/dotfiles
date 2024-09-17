@@ -2,8 +2,6 @@
 
 // @ts-ignore
 const HOME = process.env["HOME"] ?? "/home/jayden";
-// @ts-ignore
-const TV_MODE = process.env["TV_MODE"] ?? "false";
 
 const SYSTEM_EQ = "System Equalizer";
 const DX5_DEV = "DX5 Pro";
@@ -372,17 +370,6 @@ const config = {
           { type: LINK, src: S_4i4(Out, 0), dest: SCARLETT_METER(L) },
         ],
       },
-      ...(TV_MODE === "true"
-        ? [
-            {
-              node: HDMI_DEV,
-              onConnect: [
-                { type: LINK, src: EQ(Out, L), dest: HDMI(In, L) },
-                { type: LINK, src: EQ(Out, R), dest: HDMI(In, R) },
-              ],
-            },
-          ]
-        : []),
     ],
   },
   bindings: <Record<string, any>>{

@@ -62,7 +62,7 @@ end
 -- This is used later as the default terminal and editor to run.
 local terminal = "st"
 local editor = os.getenv("EDITOR") or "nvim"
-local tv_mode = os.getenv("TV_MODE") or "false"
+local host = os.getenv("HOST") or "grace"
 local editor_cmd = terminal .. " -e " .. editor
 
 local home = os.getenv("HOME")
@@ -84,9 +84,9 @@ awful.spawn(scripts .. "/carla.sh", false)
 awful.spawn.with_shell("pgrep -f 'thunar --daemon' > /dev/null || thunar --daemon")
 -- awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
 
-if tv_mode ~= "true" then
 	awful.spawn.with_shell("pgrep redshift > /dev/null || redshift")
 	awful.spawn.with_shell("pgrep picom    > /dev/null || picom --config ~/.config/dotfiles/misc/picom.conf")
+if host == "grace" then
 	awful.spawn.with_shell("pgrep -fx auto-cool.sh   > /dev/null || " .. scripts .. "/auto-cool.sh")
 else
 	awful.spawn.with_shell("sleep 5; xrandr --output HDMI-0 --mode 1920x1080 --rate 60.00")
@@ -907,10 +907,13 @@ awful.rules.rules = {
 	-- Psensor on side screen
 	{
 		rule = { class = "Psensor" },
-		properties = { screen = tv_mode == "true" and 1 or 2, tag = tv_mode == "true" and "3" or "2" },
+		properties = { screen = 2, tag = "2" },
 	},
 	-- Carla on side screen
-	{ rule = { class = "Carla2" }, properties = { screen = tv_mode == "true" and 1 or 2, tag = "2" } },
+	{
+		rule = { class = "Carla2" },
+		properties = { screen = host == "grace" and 2 or 1, tag = host == "grace" and "2" or "9" },
+	},
 	-- Trackmania
 	{ rule = { class = "steam_app_2225070" }, properties = { screen = 1, tag = "3" } },
 }
