@@ -1,6 +1,7 @@
 { pkgs, config-vars, ... }:
 
 {
+  networking.hostName = config-vars.host;
   networking.networkmanager.enable = true;
   time.timeZone = config-vars.timezone;
   i18n.defaultLocale = config-vars.locale;
@@ -13,7 +14,14 @@
     uid = 1000;
     isNormalUser = true;
     shell = pkgs.zsh;
-    packages = with pkgs; [ ];
+
+    extraGroups = [
+      "audio"
+      "video"
+      "input"
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   services.gnome.gnome-keyring.enable = true;

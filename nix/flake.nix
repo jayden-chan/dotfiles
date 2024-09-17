@@ -30,14 +30,14 @@
       ...
     }@inputs:
     let
-      specialArgs = {
+      args = {
         inherit inputs;
         config-vars = {
           system = "x86_64-linux";
           name = "Jayden";
           username = "jayden";
           home-dir = "/home/jayden";
-          timezone = "America/Edmonton";
+          dotfiles-dir = "/home/jayden/.config/dotfiles";
           locale = "en_CA.UTF-8";
         };
       };
@@ -45,8 +45,14 @@
     {
       nixosConfigurations = {
         grace = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = specialArgs.config-vars.system;
+          specialArgs = nixpkgs.lib.recursiveUpdate args {
+            config-vars = {
+              host = "grace";
+              timezone = "America/Edmonton";
+            };
+          };
+
+          system = args.config-vars.system;
           modules = [
             ./hosts/grace/configuration.nix
 
@@ -56,7 +62,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.extraSpecialArgs = args;
               home-manager.users.jayden = import ./hosts/grace/home.nix;
             }
           ];

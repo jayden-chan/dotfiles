@@ -36,22 +36,18 @@
     };
   };
 
-  networking.hostName = "grace";
   networking.wireless.enable = false;
 
-  users.users."${config-vars.username}".extraGroups = [
-    "audio"
-    "video"
-    "input"
-    "networkmanager"
-
-    # Sudo
-    "wheel"
-
-    # Epson scanner support
-    "lp"
-    "scanner"
+  environment.systemPackages = with pkgs; [
+    borgbackup
+    dbeaver-bin
+    firejail
+    gpu-screen-recorder
+    liquidctl
+    psensor
   ];
+
+  programs.kdeconnect.enable = true;
 
   # open ports in the firewall
   networking.firewall = {
@@ -74,12 +70,13 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.modesetting.enable = true;
 
   # disable mouse acceleration
   services.libinput = {
     enable = true;
     mouse = {
-      accelSpeed = "-0.25";
+      accelSpeed = "-0.2";
       accelProfile = "flat";
     };
   };
@@ -110,11 +107,14 @@
     ];
   };
 
-  hardware.nvidia.modesetting.enable = true;
-
   # Epson scanner support
   hardware.sane = {
     enable = true;
     extraBackends = [ pkgs.epkowa ];
   };
+
+  users.users."${config-vars.username}".extraGroups = [
+    "lp"
+    "scanner"
+  ];
 }

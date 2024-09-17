@@ -17,10 +17,13 @@
     windowManager.awesome.enable = true;
 
     displayManager = {
-      lightdm.enable = true;
-      lightdm.greeters.gtk.enable = true;
+      lightdm = {
+        enable = true;
+        greeters.gtk.enable = true;
+      };
+
       sessionCommands = ''
-        xrdb -merge ${config-vars.home-dir}/.config/dotfiles/misc/Xresources
+        xrdb -merge ${config-vars.dotfiles-dir}/misc/Xresources
       '';
     };
 

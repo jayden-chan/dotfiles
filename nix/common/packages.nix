@@ -20,18 +20,15 @@ in
     bat
     bc
     bitwarden-cli
-    borgbackup
     bun
     carla
     chromium
-    dbeaver-bin
     delta
     eza
     fd
     ffmpeg-full
     ffmpegthumbnailer
     file
-    firejail
     fontconfig
     gcc
     gedit
@@ -39,7 +36,6 @@ in
     git
     gnumake
     go
-    gpu-screen-recorder
     imagemagick
     inkscape
     jalv
@@ -47,7 +43,6 @@ in
     killall
     lazygit
     libnotify
-    liquidctl
     lsp-plugins
     lua-language-server
     maim
@@ -61,7 +56,6 @@ in
     pavucontrol
     picom
     pkg-config
-    psensor
     qrencode
     redshift
     ripgrep
@@ -87,8 +81,6 @@ in
 
     gnome.eog
     gnome.zenity
-
-    kdePackages.kdeconnect-kde
 
     python312Packages.grip
 

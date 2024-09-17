@@ -1,4 +1,4 @@
-{ ... }:
+{ config-vars, ... }:
 
 {
   environment.sessionVariables = rec {
@@ -38,7 +38,8 @@
     TERMINAL = "st";
     BROWSER = "zen";
     COLORTERM = "truecolor";
-    DOT = "$HOME/.config/dotfiles";
+    DOT = config-vars.dotfiles-dir;
+    HOSTNAME = config-vars.host;
 
     # yikes
     DO_NOT_TRACK = "1";
