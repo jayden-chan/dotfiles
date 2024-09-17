@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   config-vars,
   inputs,
   ...
@@ -15,6 +16,8 @@ in
   imports = [
     ../common/stylix.nix
 
+    ./desktop-files.nix
+    ./mpv.nix
     ./xresources.nix
     ./zathura.nix
   ];
@@ -46,6 +49,9 @@ in
     size = 24;
     package = unstable.apple-cursor;
   };
+
+  xdg.mime.enable = true;
+  xdg.mimeApps.enable = true;
 
   xdg.mimeApps.defaultApplications = {
     "application/json" = [ "org.gnome.gedit.desktop" ];

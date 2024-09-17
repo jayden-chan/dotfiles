@@ -1,9 +1,3 @@
-Host stealth
-    Hostname stealth.jayden.codes
-    Port 32223
-    User pi
-    IdentityFile ~/.ssh/stealth
-
 Host homelab
     Hostname homelab.jayden.codes
     Port 32223
@@ -27,20 +21,6 @@ Host livestream
     Port 22
     User jaydencn7
     IdentityFile ~/.ssh/gcp_livestream
-
-Host piwheel
-    Hostname 192.168.1.73
-    User pi
-    Port 22
-    IdentitiesOnly no
-    ControlPath ~/.ssh/piwheel.socket
-    ControlMaster auto
-    ControlPersist 300m
-
-Host rsyncnet
-    Hostname de1397.rsync.net
-    User de1397
-    IdentityFile ~/.ssh/rsync_net
 
 Host github.com
     IdentityFile ~/.ssh/github

@@ -21,7 +21,6 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/tmux
     mkdir -p ~/.config/zsh
     mkdir -p ~/.config/mpv/scripts
-    mkdir -p ~/.config/mpv/script-opts
     mkdir -p ~/.config/mprocs
     mkdir -p ~/.config/lazygit
     mkdir -p ~/.config/pipewire
@@ -32,7 +31,6 @@ if [ "$1" = "--full" ]; then
 
     # /home cleanup directories
     mkdir -p ~/.cache/nv
-    mkdir -p ~/.config/docker
     mkdir -p ~/.config/grip
     mkdir -p ~/.config/gtk-2.0
     mkdir -p ~/.config/java
@@ -43,7 +41,6 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.local/share/gnupg
     mkdir -p ~/.local/share/gradle
     mkdir -p ~/.local/share/rustup
-    mkdir -p ~/.local/share/zoom
     mkdir -p ~/.local/share/zsh
 fi
 
@@ -75,9 +72,6 @@ ln -fs ~/.config/dotfiles/misc/starship.toml                    ~/.config/
 ln -fs ~/.config/dotfiles/misc/tmux.conf                        ~/.config/tmux/
 ln -fs ~/.config/dotfiles/zsh/zlogout                           ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc                             ~/.config/zsh/.zshrc
-ln -fs ~/.config/dotfiles/mpv/input.conf                        ~/.config/mpv/
-ln -fs ~/.config/dotfiles/mpv/mpv.conf                          ~/.config/mpv/
-ln -fs ~/.config/dotfiles/mpv/osc.conf                          ~/.config/mpv/script-opts/
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/all_audio.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/cut_video.lua                     ~/.config/mpv/scripts/
@@ -87,9 +81,6 @@ ln -fs ~/.config/dotfiles/pipewire/pipewire.conf                ~/.config/pipewi
 ln -fs ~/.config/dotfiles/pipewire/pipewire-pulse.conf          ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/pipewire/jack.conf                    ~/.config/pipewire/
 ln -fs ~/.config/dotfiles/misc/atuin.toml                       ~/.config/atuin/config.toml
-
-ln -fs ~/.config/dotfiles/misc/chromium_mullvad.desktop         ~/.local/share/applications/
-ln -fs ~/.config/dotfiles/scripts/wallpaper/wallpaper.desktop   ~/.local/share/applications/
 
 echo
 echo "Finished deployment"

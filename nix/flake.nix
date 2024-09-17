@@ -63,6 +63,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = args;
+              home-manager.backupFileExtension = "backup";
               home-manager.users.jayden = import ./hosts/grace/home.nix;
             }
           ];

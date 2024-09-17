@@ -25,6 +25,10 @@
       sessionCommands = ''
         xrdb -merge ${config-vars.home-dir}/.config/Xresources
         eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
+        rm ${config-vars.home-dir}/.xsession-errors.old
+
+        xmodmap -e "clear lock"
+        xmodmap -e "keysym Caps_Lock = Escape"
       '';
     };
 
