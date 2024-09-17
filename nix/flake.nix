@@ -17,6 +17,9 @@
     spotify-dbus-mon.url = "github:jayden-chan/spotify-dbus-mon";
     spotify-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
 
+    st.url = "github:jayden-chan/st";
+    st.inputs.nixpkgs.follows = "nixpkgs";
+
     zen-browser.url = "github:jayden-chan/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };

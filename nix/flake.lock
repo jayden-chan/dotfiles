@@ -257,11 +257,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725703823,
-        "narHash": "sha256-tDgM4d8mLK0Hd6YMB2w1BqMto1XBXADOzPEaLl10VI4=",
+        "lastModified": 1726592409,
+        "narHash": "sha256-2Y6CDvD/BD43WLS77PHu6dUHbdUfFhuzkY8oJAecD/U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "208df2e558b73b6a1f0faec98493cb59a25f62ba",
+        "rev": "2ab00f89dd3ecf8012f5090e6d7ca1a7ea30f594",
         "type": "github"
       },
       "original": {
@@ -353,6 +353,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "spotify-dbus-mon": "spotify-dbus-mon",
+        "st": "st",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
       }
@@ -376,6 +377,26 @@
       "original": {
         "owner": "jayden-chan",
         "repo": "spotify-dbus-mon",
+        "type": "github"
+      }
+    },
+    "st": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726601565,
+        "narHash": "sha256-4qiPuTKbslCnyUzHlNIchSKRLIwcbzcZoUEUN+BWEzk=",
+        "owner": "jayden-chan",
+        "repo": "st",
+        "rev": "1ba11886fee878c92d73bf4f0ffba1a6376868a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jayden-chan",
+        "repo": "st",
         "type": "github"
       }
     },
