@@ -20,6 +20,7 @@
     ../../common/lecture.nix
     ../../common/nix-conf.nix
     ../../common/packages.nix
+    ../../common/steam.nix
     ../../common/stylix-root.nix
     ../../common/stylix.nix
     ../../common/thunar.nix
