@@ -17,6 +17,7 @@ in
     ../common/stylix.nix
 
     ./desktop-files.nix
+    ./mime.nix
     ./mpv.nix
     ./xresources.nix
     ./zathura.nix
@@ -48,29 +49,6 @@ in
     name = "macOS";
     size = 24;
     package = unstable.apple-cursor;
-  };
-
-  xdg.mime.enable = true;
-  xdg.mimeApps.enable = true;
-
-  xdg.mimeApps.defaultApplications = {
-    "application/json" = [ "org.gnome.gedit.desktop" ];
-    "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-    "application/zip" = [ "org.gnome.FileRoller.desktop" ];
-    "audio/flac" = [ "mpv.desktop" ];
-    "audio/mpeg" = [ "mpv.desktop" ];
-    "audio/x-aiff" = [ "mpv.desktop" ];
-    "image/gif" = [ "mpv.desktop" ];
-    "image/jpeg" = [ "org.gnome.eog.desktop" ];
-    "image/jpg" = [ "org.gnome.eog.desktop" ];
-    "image/png" = [ "org.gnome.eog.desktop" ];
-    "image/webp" = [ "org.gnome.eog.desktop" ];
-    "image/x-portable-pixmap" = [ "org.gnome.eog.desktop" ];
-    "text/csv" = [ "org.gnome.gedit.desktop" ];
-    "text/plain" = [ "org.gnome.gedit.desktop" ];
-    "text/xml" = [ "org.gnome.gedit.desktop" ];
-    "video/mp4" = [ "mpv.desktop" ];
-    "video/x-matroska" = [ "mpv.desktop" ];
   };
 
   systemd.user.enable = true;
