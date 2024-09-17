@@ -33,7 +33,6 @@
       args = {
         inherit inputs;
         config-vars = {
-          system = "x86_64-linux";
           name = "Jayden";
           username = "jayden";
           home-dir = "/home/jayden";
@@ -42,18 +41,24 @@
           theme = import ./theme.nix { };
         };
       };
+
+      host-args = {
+        grace = {
+          config-vars = {
+            host = "grace";
+            system = "x86_64-linux";
+            timezone = "America/Edmonton";
+          };
+        };
+      };
     in
     {
       nixosConfigurations = {
         grace = nixpkgs.lib.nixosSystem {
-          specialArgs = nixpkgs.lib.recursiveUpdate args {
-            config-vars = {
-              host = "grace";
-              timezone = "America/Edmonton";
-            };
-          };
+          specialArgs = nixpkgs.lib.recursiveUpdate args host-args.grace;
 
-          system = args.config-vars.system;
+          system = "x86_64-linux";
+
           modules = [
             ./hosts/grace/configuration.nix
 
@@ -63,7 +68,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = args;
+              home-manager.extraSpecialArgs = nixpkgs.lib.recursiveUpdate args host-args.grace;
               home-manager.backupFileExtension = "backup";
               home-manager.users.jayden = import ./hosts/grace/home.nix;
             }
