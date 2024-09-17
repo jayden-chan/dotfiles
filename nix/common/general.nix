@@ -1,8 +1,15 @@
 { pkgs, config-vars, ... }:
 
 {
-  networking.hostName = config-vars.host;
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = config-vars.host;
+    networkmanager.enable = true;
+
+    extraHosts = ''
+      10.118.254.125 git.jayden.codes
+    '';
+  };
+
   time.timeZone = config-vars.timezone;
   i18n.defaultLocale = config-vars.locale;
 

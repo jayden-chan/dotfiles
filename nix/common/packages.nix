@@ -24,7 +24,9 @@ in
     carla
     chromium
     delta
+    dig
     eza
+    fastfetch
     fd
     ffmpeg-full
     ffmpegthumbnailer
@@ -47,7 +49,6 @@ in
     lua-language-server
     maim
     mpv
-    neofetch
     nitrogen
     nixfmt-rfc-style
     nodejs_20
