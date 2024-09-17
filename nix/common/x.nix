@@ -24,6 +24,7 @@
 
       sessionCommands = ''
         xrdb -merge ${config-vars.dotfiles-dir}/misc/Xresources
+        eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
       '';
     };
 

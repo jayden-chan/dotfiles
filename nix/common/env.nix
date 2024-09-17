@@ -41,6 +41,8 @@
     DOT = config-vars.dotfiles-dir;
     HOSTNAME = config-vars.host;
 
+    SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+
     # yikes
     DO_NOT_TRACK = "1";
     DOTNET_CLI_TELEMETRY_OPTOUT = "1";
