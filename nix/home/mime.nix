@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  zen-desktop-file = "userapp-Zen Browser-2GLFU2.desktop";
+in
 {
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;
@@ -23,28 +26,28 @@
     "video/mp4" = [ "mpv.desktop" ];
     "video/x-matroska" = [ "mpv.desktop" ];
 
-    "x-scheme-handler/http" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "x-scheme-handler/https" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "x-scheme-handler/chrome" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "text/html" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-htm" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-html" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-shtml" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/xhtml+xml" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-xhtml" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-xht" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
+    "x-scheme-handler/http" = [ zen-desktop-file ];
+    "x-scheme-handler/https" = [ zen-desktop-file ];
+    "x-scheme-handler/chrome" = [ zen-desktop-file ];
+    "text/html" = [ zen-desktop-file ];
+    "application/x-extension-htm" = [ zen-desktop-file ];
+    "application/x-extension-html" = [ zen-desktop-file ];
+    "application/x-extension-shtml" = [ zen-desktop-file ];
+    "application/xhtml+xml" = [ zen-desktop-file ];
+    "application/x-extension-xhtml" = [ zen-desktop-file ];
+    "application/x-extension-xht" = [ zen-desktop-file ];
   };
 
   xdg.mimeApps.associations.added = {
-    "x-scheme-handler/http" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "x-scheme-handler/https" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "x-scheme-handler/chrome" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "text/html" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-htm" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-html" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-shtml" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/xhtml+xml" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-xhtml" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
-    "application/x-extension-xht" = [ "userapp-Zen Browser-8OM5T2.desktop" ];
+    "x-scheme-handler/http" = [ zen-desktop-file ];
+    "x-scheme-handler/https" = [ zen-desktop-file ];
+    "x-scheme-handler/chrome" = [ zen-desktop-file ];
+    "text/html" = [ zen-desktop-file ];
+    "application/x-extension-htm" = [ zen-desktop-file ];
+    "application/x-extension-html" = [ zen-desktop-file ];
+    "application/x-extension-shtml" = [ zen-desktop-file ];
+    "application/xhtml+xml" = [ zen-desktop-file ];
+    "application/x-extension-xhtml" = [ zen-desktop-file ];
+    "application/x-extension-xht" = [ zen-desktop-file ];
   };
 }
