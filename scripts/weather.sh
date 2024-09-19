@@ -2,7 +2,12 @@
 
 [ -e "$HOME/.config/ENV" ] && . "$HOME"/.config/ENV
 
-city=${WEATHER_CITY:-calgary}
+city="$WEATHER_CITY"
+
+if [ "$city" = "" ]; then
+    echo "weather city not set"
+    exit
+fi
 
 if [ "$1" = "--open" ]; then xdg-open "https://cron.jayden.codes/weather/open/$city"; exit; fi
 

@@ -92,8 +92,10 @@ in
     xorg.xrdb
     xorg.xset
 
-    unstable.neovim
     unstable.devenv
+    unstable.neovim
+
+    inputs.agenix.packages.${system}.default
     inputs.minichacha.packages."${system}".default
     inputs.spotify-dbus-mon.packages."${system}".default
     inputs.st.packages."${system}".st

@@ -5,6 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.inputs.darwin.follows = "";
+
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -28,6 +32,7 @@
     {
       self,
       nixpkgs,
+      agenix,
       home-manager,
       stylix,
       ...
@@ -65,15 +70,15 @@
           modules = [
             ./hosts/grace/configuration.nix
 
+            agenix.nixosModules.default
             stylix.nixosModules.stylix
-
             home-manager.nixosModules.home-manager
+
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = nixpkgs.lib.recursiveUpdate args host-args.grace;
-              home-manager.backupFileExtension = "backup";
-              home-manager.users.jayden = import ./hosts/grace/home.nix;
+              home-manager.users."${args.config-vars.username}" = import ./hosts/grace/home.nix;
             }
           ];
         };
