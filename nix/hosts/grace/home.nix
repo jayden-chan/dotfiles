@@ -40,12 +40,12 @@ in
 
   home.stateVersion = "24.05";
 
-  programs.autorandr.profiles.main = {
+  programs.autorandr.profiles."00-main" = {
     inherit fingerprint;
     config = main-config;
   };
 
-  programs.autorandr.profiles.stretched = {
+  programs.autorandr.profiles."99-stretched" = {
     inherit fingerprint;
     config = lib.recursiveUpdate main-config {
       "DP-2" = {
