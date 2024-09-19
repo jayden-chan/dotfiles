@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   config-vars,
   inputs,
   ...
@@ -74,6 +73,8 @@ in
     # 24 hours
     maxCacheTtl = 86400;
     maxCacheTtlSsh = 86400;
+    defaultCacheTtl = 86400;
+    defaultCacheTtlSsh = 86400;
 
     enableBashIntegration = false;
     enableFishIntegration = false;

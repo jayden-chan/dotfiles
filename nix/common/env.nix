@@ -15,7 +15,6 @@
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";
     GRADLE_USER_HOME = "${XDG_DATA_HOME}/gradle";
     GRIPHOME = "${XDG_CONFIG_HOME}/grip";
-    GTK2_RC_FILES = "${XDG_CONFIG_HOME}/gtk-2.0/gtkrc";
     HISTFILE = "${XDG_STATE_HOME}/zsh/history";
     ICEAUTHORITY = "${XDG_CACHE_HOME}/ICEauthority";
     IPYTHONDIR = "${XDG_CONFIG_HOME}/jupyter";

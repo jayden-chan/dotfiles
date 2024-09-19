@@ -94,6 +94,7 @@ in
 
     unstable.devenv
     unstable.neovim
+    unstable.nil
 
     inputs.agenix.packages.${system}.default
     inputs.minichacha.packages."${system}".default

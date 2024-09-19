@@ -82,7 +82,7 @@
   services.libinput = {
     enable = true;
     mouse = {
-      accelSpeed = "-0.1";
+      accelSpeed = "-0.15";
       accelProfile = "flat";
     };
   };
