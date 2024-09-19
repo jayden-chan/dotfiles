@@ -69,6 +69,7 @@ in
     taplo
     tmux
     tokei
+    usbutils
     vesktop
     wget
     x42-plugins

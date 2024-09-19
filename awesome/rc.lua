@@ -854,6 +854,7 @@ awful.rules.rules = {
 				"Arandr",
 				"BigMeter",
 				"Blueman-manager",
+				".blueman-manager-wrapped",
 				"Eog",
 				"File-roller",
 				"Gedit",

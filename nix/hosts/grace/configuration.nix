@@ -37,6 +37,9 @@
     };
   };
 
+  # disable HDMI audio entirely
+  boot.blacklistedKernelModules = [ "snd_hda_codec_hdmi" ];
+
   networking.wireless.enable = false;
 
   environment.systemPackages = with pkgs; [
@@ -50,14 +53,15 @@
 
   programs.kdeconnect.enable = true;
 
-  # open ports in the firewall
   networking.firewall = {
     enable = true;
+    allowedUDPPorts = [ ];
     allowedTCPPorts = [
+      # SSH
       32223
+      # dev servers
       4334
     ];
-    allowedUDPPorts = [ ];
   };
 
   services.openssh = {
@@ -77,7 +81,7 @@
   services.libinput = {
     enable = true;
     mouse = {
-      accelSpeed = "-0.2";
+      accelSpeed = "-0.1";
       accelProfile = "flat";
     };
   };
