@@ -20,6 +20,7 @@ in
     };
 
     Service = {
+      Environment = "XDG_DATA_HOME=${config-vars.home-dir}/.local/share";
       ExecStart = "${package}/bin/Thunar --daemon";
     };
   };
