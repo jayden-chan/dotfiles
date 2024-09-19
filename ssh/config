@@ -33,3 +33,4 @@ Host git.jayden.codes
 Host *
     ForwardX11 no
     IdentitiesOnly yes
+    AddKeysToAgent yes

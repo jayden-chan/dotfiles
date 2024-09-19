@@ -13,7 +13,6 @@
     CARGO_HOME = "${XDG_DATA_HOME}/cargo";
     CUDA_CACHE_PATH = "${XDG_CACHE_HOME}/nv";
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";
-    GNUPGHOME = "${XDG_DATA_HOME}/gnupg";
     GRADLE_USER_HOME = "${XDG_DATA_HOME}/gradle";
     GRIPHOME = "${XDG_CONFIG_HOME}/grip";
     GTK2_RC_FILES = "${XDG_CONFIG_HOME}/gtk-2.0/gtkrc";
@@ -43,7 +42,7 @@
     DOT = config-vars.dotfiles-dir;
     HOSTNAME = config-vars.host;
 
-    SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+    SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
 
     # yikes
     DO_NOT_TRACK = "1";

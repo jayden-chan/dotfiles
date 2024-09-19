@@ -63,4 +63,21 @@ in
       '';
     };
   };
+
+  services.gpg-agent = {
+    enable = true;
+    enableZshIntegration = true;
+    enableSshSupport = true;
+
+    pinentryPackage = pkgs.pinentry-gtk2;
+
+    # 24 hours
+    maxCacheTtl = 86400;
+    maxCacheTtlSsh = 86400;
+
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableNushellIntegration = false;
+    enableScDaemon = false;
+  };
 }

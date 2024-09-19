@@ -31,8 +31,6 @@
     ];
   };
 
-  services.gnome.gnome-keyring.enable = true;
-
   programs.direnv = {
     enable = true;
     silent = true;

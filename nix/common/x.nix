@@ -24,7 +24,6 @@
 
       sessionCommands = ''
         xrdb -merge ${config-vars.home-dir}/.config/Xresources
-        eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
         rm ${config-vars.home-dir}/.xsession-errors.old
 
         xmodmap -e "clear lock"
@@ -33,6 +32,6 @@
     };
 
     # don't bother installing xterm since we don't need it
-    excludePackages = with pkgs; [ xterm ];
+    excludePackages = [ pkgs.xterm ];
   };
 }
