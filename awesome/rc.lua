@@ -77,17 +77,8 @@ local modkey = "Mod1"
 -- Super (windows key)
 local super = "Mod4"
 
--- Startup programs
-awful.spawn(scripts .. "/inputs.sh", false)
-awful.spawn(scripts .. "/carla.sh", false)
-
--- awful.spawn.with_shell("pgrep -x  kdeconnect-indi   > /dev/null || kdeconnect-indicator")
-
-if host == "grace" then
-	awful.spawn.with_shell("pgrep -fx auto-cool.sh   > /dev/null || " .. scripts .. "/auto-cool.sh")
-end
-
-awful.spawn.with_shell("nitrogen --restore")
+-- Autostart programs
+awful.spawn(scripts .. "/autostart.sh", false)
 
 -- Spawn the MPRIS listener script
 local start_mpris = function()

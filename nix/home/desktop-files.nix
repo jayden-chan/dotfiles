@@ -25,10 +25,5 @@
       Icon=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper-ico.png
       Terminal=false
     '';
-
-    # need to link this into the local applications directory because Thunar doesn't pick it
-    # up in its Applications list for some reason
-    # https://github.com/nix-community/home-manager/issues/1439
-    ".local/share/applications/mpv.desktop".source = "${pkgs.mpv}/share/applications/mpv.desktop";
   };
 }
