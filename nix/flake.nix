@@ -47,6 +47,10 @@
           dotfiles-dir = "/home/jayden/.config/dotfiles";
           locale = "en_CA.UTF-8";
           theme = import ./theme.nix { };
+          ips = {
+            opnsense = "10.118.254.1";
+            homelab = "10.118.254.125";
+          };
         };
       };
 

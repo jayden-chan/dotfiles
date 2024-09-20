@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  config-vars,
-  inputs,
-  ...
-}:
+{ pkgs, config-vars, ... }:
 
 {
   imports = [
@@ -105,7 +98,7 @@
   '';
 
   fileSystems."/mnt/homelab" = {
-    device = "10.118.254.125:/";
+    device = "${config-vars.ips.homelab}:/";
     fsType = "nfs";
     options = [
       "nfsvers=4.2"

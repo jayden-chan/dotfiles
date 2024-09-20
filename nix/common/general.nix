@@ -3,11 +3,22 @@
 {
   networking = {
     hostName = config-vars.host;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "dnsmasq";
+    };
 
     extraHosts = ''
-      10.118.254.125 git.jayden.codes
+      ${config-vars.ips.homelab} git.jayden.codes
     '';
+  };
+
+  services.dnsmasq = {
+    enable = true;
+    settings = {
+      cache-size = 2056;
+      server = [ config-vars.ips.opnsense ];
+    };
   };
 
   time.timeZone = config-vars.timezone;
