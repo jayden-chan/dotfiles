@@ -1,6 +1,6 @@
 gui:
   splitDiff: auto
-  nerdFontsVersion: 3
+  nerdFontsVersion: "3"
   scrollHeight: 12
   sidePanelWidth: 0.2
   showListFooter: false

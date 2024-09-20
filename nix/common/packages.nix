@@ -49,6 +49,7 @@ in
     lua-language-server
     maim
     mpv
+    mullvad-browser
     nitrogen
     nixfmt-rfc-style
     nodejs_20
@@ -72,9 +73,11 @@ in
     usbutils
     vesktop
     wget
+    wireguard-tools
     x42-plugins
     xclip
     xcolor
+    yaml-language-server
     yt-dlp
     zoxide
     zsh-autosuggestions

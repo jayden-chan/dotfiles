@@ -32,7 +32,7 @@ if ! rga "/share/carla/carla" "$ps_ax"; then
     carla "$HOME/.config/Carla.carxp" &
 fi
 
-if [ "$HOST" = "grace" ]; then
+if [ "$HOSTNAME" = "grace" ]; then
     if ! rga "auto-cool.sh" "$ps_ax"; then
         msg "starting auto-cool script"
         "$DOT/scripts/auto-cool.sh" &

@@ -46,13 +46,13 @@
   environment.systemPackages = with pkgs; [
     borgbackup
     dbeaver-bin
-    firejail
     gpu-screen-recorder
     liquidctl
     psensor
   ];
 
   programs.kdeconnect.enable = true;
+  programs.firejail.enable = true;
 
   networking.firewall = {
     enable = true;

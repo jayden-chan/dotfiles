@@ -1,18 +1,18 @@
-{ pkgs, config-vars, ... }:
+{ config-vars, ... }:
 
 {
   home.file = {
-    ".local/share/applications/chromium_mullvad.desktop".text = ''
+    ".local/share/applications/mullvad_browser_vpn.desktop".text = ''
       [Desktop Entry]
-      Exec=${pkgs.firejail}/bin/firejail --noprofile --netns=mullvad chromium --incognito https://mullvad.net/en/check
-      Type=Application
-      Version=1.0
-      Name=Chromium (Mullvad)
+      Categories=Network;WebBrowser;Security
       Comment=Access the Internet over Mullvad
-      Icon=chromium
-      Terminal=false
-      Categories=Network;WebBrowser;
-      MimeType=application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+      Exec=firejail --noprofile --netns=mullvad mullvad-browser --incognito https://mullvad.net/en/check
+      GenericName=Web Browser
+      Icon=mullvad-browser
+      MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;x-scheme-handler/http;x-scheme-handler/https
+      Name=Mullvad Browser (VPN)
+      Type=Application
+      Version=1.4
     '';
 
     ".local/share/applications/wallpaper.desktop".text = ''

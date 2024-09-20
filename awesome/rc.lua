@@ -62,7 +62,7 @@ end
 -- This is used later as the default terminal and editor to run.
 local terminal = "st"
 local editor = os.getenv("EDITOR") or "nvim"
-local host = os.getenv("HOST") or "grace"
+local host = os.getenv("HOSTNAME") or "grace"
 local editor_cmd = terminal .. " -e " .. editor
 
 local home = os.getenv("HOME")
