@@ -52,12 +52,12 @@ in
     mullvad-browser
     nitrogen
     nixfmt-rfc-style
-    nodejs_20
     nsxiv
     onefetch
     pavucontrol
     picom
     pkg-config
+    prettierd
     qrencode
     redshift
     ripgrep
@@ -85,6 +85,8 @@ in
 
     gnome.eog
     gnome.zenity
+
+    nodePackages.typescript-language-server
 
     python312Packages.grip
 

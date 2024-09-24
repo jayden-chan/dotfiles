@@ -1,6 +1,7 @@
 import { rm } from "node:fs/promises";
 import { writeFile } from "node:fs/promises";
 
+const AUDIO_EXTS = [".m4a", ".ogg", ".mp3", ".opus"];
 const RESOLUTION = "1920:1080";
 const DEBUG = false;
 const id = new Date()
@@ -11,6 +12,9 @@ const id = new Date()
   .replaceAll(",", "");
 
 const debugFile = `/tmp/cut_video_${id}_DEBUG.log`;
+
+const path = process.argv[2];
+const args = process.argv.slice(3);
 
 type LoudnessInfo = {
   input_i: string;
@@ -25,7 +29,7 @@ type LoudnessInfo = {
   target_offset: string;
 };
 
-const cmd = async (command: string[], label: string) => {
+async function cmd(command: string[], label: string) {
   const proc = Bun.spawn(command, {
     stdout: "pipe",
     stderr: "pipe",
@@ -39,15 +43,15 @@ const cmd = async (command: string[], label: string) => {
     await notify(`Error: command failed: ${label}`, { err: true });
     await writeFile(
       debugFile,
-      command.join("\n") + "\n\n" + stdout + "\n\n" + stderr
+      command.join("\n") + "\n\n" + stdout + "\n\n" + stderr,
     );
     process.exit(1);
   }
 
   return { code, stdout, stderr };
-};
+}
 
-const notify = async (msg: string, opts?: { err?: boolean }) => {
+async function notify(msg: string, opts?: { err?: boolean }): Promise<void> {
   const proc = Bun.spawn({
     cmd: [
       "notify-send",
@@ -61,9 +65,9 @@ const notify = async (msg: string, opts?: { err?: boolean }) => {
   });
 
   await proc.exited;
-};
+}
 
-const genCutsFilter = (args: string[]) => {
+function genCutsFilter(args: string[]): string {
   const cutPoints = args.map((a) => parseFloat(a).toFixed(4));
   const numCuts = cutPoints.length / 2;
   const cuts = [...Array(numCuts).keys()].map((n) => n + 1);
@@ -91,10 +95,33 @@ const genCutsFilter = (args: string[]) => {
   filter += `${channelPairs}concat=n=${numCuts}:v=1:a=1[vpre][a];`;
   filter += `[vpre]scale=${RESOLUTION}:flags=bicubic,setsar=1:1[v]`;
   return filter;
-};
+}
 
-const path = process.argv[2];
-const args = process.argv.slice(3);
+if (AUDIO_EXTS.some((e) => path.endsWith(e))) {
+  // prettier-ignore
+  const command = [
+    "ffmpeg",
+    // don't spam up the stdout/stderr
+    "-hide_banner",
+    "-nostats",
+
+    "-i",       path,
+
+    // seek to starting position
+    "-ss",      args[0],
+
+    // seek to end
+    "-to",      "9999999999",
+
+    path.replace(path.slice(path.lastIndexOf(".")), ".ogg"),
+
+    // overwrite output file if already exists
+    "-y",
+  ];
+
+  await cmd(command, "final render");
+  process.exit(0);
+}
 
 if (args.length % 2 !== 0) {
   await notify("Error: Mismatched cut points", { err: true });
@@ -170,7 +197,7 @@ const loudnessAnalysisCommand = [
 
 const { stderr: loudnessOutput } = await cmd(
   loudnessAnalysisCommand,
-  "loudness analysis"
+  "loudness analysis",
 );
 
 const jsonPortion = loudnessOutput

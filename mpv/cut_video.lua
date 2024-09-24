@@ -21,6 +21,14 @@ local function add_mark()
 	end
 end
 
+local function shell_quote(input)
+	if string.find(input, "'") then
+		return ' "' .. input .. '" '
+	else
+		return " '" .. input .. "' "
+	end
+end
+
 local function clear_marks()
 	start_pos = {}
 	end_pos = {}
@@ -39,10 +47,10 @@ local function create_clip()
 	end
 
 	local input_path = mp.get_property("stream-path")
-	local shell_cmd = "bun run $DOT/mpv/cut_video.ts '" .. input_path .. "' "
+	local shell_cmd = "bun run $DOT/mpv/cut_video.ts" .. shell_quote(input_path)
 	for i, k in pairs(start_pos) do
-		shell_cmd = shell_cmd .. "'" .. k .. "' "
-		shell_cmd = shell_cmd .. "'" .. end_pos[i] .. "' "
+		shell_cmd = shell_cmd .. shell_quote(k)
+		shell_cmd = shell_cmd .. shell_quote(end_pos[i])
 	end
 
 	local cmd = { "zsh", "-c", shell_cmd }
