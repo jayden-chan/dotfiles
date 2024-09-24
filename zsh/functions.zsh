@@ -17,7 +17,7 @@ function _nix_git_trick () {
     # we'll use a random id to avoid accidentally messing up the .git directory
     rand_id=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 
-    pushd ~/.config/dotfiles/nix >/dev/null || return
+    pushd "$DOT/nix" >/dev/null || return
 
     # temporarily "delete" the git repo so that Nix doesn't complain
     mv ../.git "../.git-tmp-$rand_id"

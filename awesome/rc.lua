@@ -66,9 +66,9 @@ local host = os.getenv("HOSTNAME") or "grace"
 local editor_cmd = terminal .. " -e " .. editor
 
 local home = os.getenv("HOME")
-local dots = home .. "/.config/dotfiles"
+local dots = os.getenv("DOT")
 local scripts = dots .. "/scripts"
-local icon_path = home .. "/.config/dotfiles/awesome/theme/default/"
+local icon_path = dots .. "/awesome/theme/default/"
 
 beautiful.init(home .. "/.config/awesome/theme/default/theme.lua")
 
