@@ -1,53 +1,58 @@
 { ... }:
 
 let
-  zen-desktop-file = "userapp-Zen Browser-2GLFU2.desktop";
+  eog = "org.gnome.eog.desktop";
+  file-roller = "org.gnome.FileRoller.desktop";
+  gedit = "org.gnome.gedit.desktop";
+  mpv = "mpv.desktop";
+  zathura = "org.pwmt.zathura.desktop";
+  zen-browser = "zen.desktop";
 in
 {
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;
 
   xdg.mimeApps.defaultApplications = {
-    "application/json" = [ "org.gnome.gedit.desktop" ];
-    "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-    "application/zip" = [ "org.gnome.FileRoller.desktop" ];
-    "audio/flac" = [ "mpv.desktop" ];
-    "audio/mpeg" = [ "mpv.desktop" ];
-    "audio/x-aiff" = [ "mpv.desktop" ];
-    "image/gif" = [ "mpv.desktop" ];
-    "image/jpeg" = [ "org.gnome.eog.desktop" ];
-    "image/jpg" = [ "org.gnome.eog.desktop" ];
-    "image/png" = [ "org.gnome.eog.desktop" ];
-    "image/webp" = [ "org.gnome.eog.desktop" ];
-    "image/x-portable-pixmap" = [ "org.gnome.eog.desktop" ];
-    "text/csv" = [ "org.gnome.gedit.desktop" ];
-    "text/plain" = [ "org.gnome.gedit.desktop" ];
-    "text/xml" = [ "org.gnome.gedit.desktop" ];
-    "video/mp4" = [ "mpv.desktop" ];
-    "video/x-matroska" = [ "mpv.desktop" ];
+    "application/json" = [ gedit ];
+    "application/pdf" = [ zathura ];
+    "application/zip" = [ file-roller ];
+    "audio/flac" = [ mpv ];
+    "audio/mpeg" = [ mpv ];
+    "audio/x-aiff" = [ mpv ];
+    "image/gif" = [ mpv ];
+    "image/jpeg" = [ eog ];
+    "image/jpg" = [ eog ];
+    "image/png" = [ eog ];
+    "image/webp" = [ eog ];
+    "image/x-portable-pixmap" = [ eog ];
+    "text/csv" = [ gedit ];
+    "text/plain" = [ gedit ];
+    "text/xml" = [ gedit ];
+    "video/mp4" = [ mpv ];
+    "video/x-matroska" = [ mpv ];
 
-    "x-scheme-handler/http" = [ zen-desktop-file ];
-    "x-scheme-handler/https" = [ zen-desktop-file ];
-    "x-scheme-handler/chrome" = [ zen-desktop-file ];
-    "text/html" = [ zen-desktop-file ];
-    "application/x-extension-htm" = [ zen-desktop-file ];
-    "application/x-extension-html" = [ zen-desktop-file ];
-    "application/x-extension-shtml" = [ zen-desktop-file ];
-    "application/xhtml+xml" = [ zen-desktop-file ];
-    "application/x-extension-xhtml" = [ zen-desktop-file ];
-    "application/x-extension-xht" = [ zen-desktop-file ];
+    "x-scheme-handler/http" = [ zen-browser ];
+    "x-scheme-handler/https" = [ zen-browser ];
+    "x-scheme-handler/chrome" = [ zen-browser ];
+    "text/html" = [ zen-browser ];
+    "application/x-extension-htm" = [ zen-browser ];
+    "application/x-extension-html" = [ zen-browser ];
+    "application/x-extension-shtml" = [ zen-browser ];
+    "application/xhtml+xml" = [ zen-browser ];
+    "application/x-extension-xhtml" = [ zen-browser ];
+    "application/x-extension-xht" = [ zen-browser ];
   };
 
   xdg.mimeApps.associations.added = {
-    "x-scheme-handler/http" = [ zen-desktop-file ];
-    "x-scheme-handler/https" = [ zen-desktop-file ];
-    "x-scheme-handler/chrome" = [ zen-desktop-file ];
-    "text/html" = [ zen-desktop-file ];
-    "application/x-extension-htm" = [ zen-desktop-file ];
-    "application/x-extension-html" = [ zen-desktop-file ];
-    "application/x-extension-shtml" = [ zen-desktop-file ];
-    "application/xhtml+xml" = [ zen-desktop-file ];
-    "application/x-extension-xhtml" = [ zen-desktop-file ];
-    "application/x-extension-xht" = [ zen-desktop-file ];
+    "x-scheme-handler/http" = [ zen-browser ];
+    "x-scheme-handler/https" = [ zen-browser ];
+    "x-scheme-handler/chrome" = [ zen-browser ];
+    "text/html" = [ zen-browser ];
+    "application/x-extension-htm" = [ zen-browser ];
+    "application/x-extension-html" = [ zen-browser ];
+    "application/x-extension-shtml" = [ zen-browser ];
+    "application/xhtml+xml" = [ zen-browser ];
+    "application/x-extension-xhtml" = [ zen-browser ];
+    "application/x-extension-xht" = [ zen-browser ];
   };
 }
