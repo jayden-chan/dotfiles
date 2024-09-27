@@ -1,5 +1,58 @@
-{ pkgs, config-vars, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  config,
+  config-vars,
+  ...
+}:
 
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = config-vars.system;
+    config.allowUnfree = true;
+  };
+
+  nvidia-package =
+    (
+      (config.boot.kernelPackages.nvidiaPackages.mkDriver {
+        version = "555.58.02";
+        sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+        sha256_aarch64 = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+        openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+        settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+        persistencedSha256 = lib.fakeSha256;
+      }).overrideAttrs
+      (
+        {
+          version,
+          preFixup ? "",
+          ...
+        }:
+        {
+          preFixup =
+            preFixup
+            + ''
+              sed -i 's/\x85\xc0\x0f\x85\x9b\x00\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
+            '';
+        }
+      )
+    ).overrideAttrs
+      (
+        {
+          version,
+          preFixup ? "",
+          ...
+        }:
+        {
+          preFixup =
+            preFixup
+            + ''
+              sed -i 's/\xe8\x25\x43\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\x25\x43\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
+            '';
+        }
+      );
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -40,9 +93,16 @@
   environment.systemPackages = with pkgs; [
     borgbackup
     dbeaver-bin
-    gpu-screen-recorder
     liquidctl
     psensor
+    drm_info
+
+    (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
+      mkdir -p $out/bin
+      makeWrapper ${unstable.gpu-screen-recorder}/bin/gpu-screen-recorder $out/bin/gpu-screen-recorder \
+        --prefix LD_LIBRARY_PATH : ${pkgs.libglvnd}/lib \
+        --prefix LD_LIBRARY_PATH : ${nvidia-package}/lib
+    '')
   ];
 
   programs.firejail.enable = true;
@@ -86,7 +146,20 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.modesetting.enable = true;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    package = nvidia-package;
+  };
+
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
 
   # disable mouse acceleration
   services.libinput = {
