@@ -50,6 +50,8 @@ in
     package = unstable.apple-cursor;
   };
 
+  services.kdeconnect.enable = true;
+
   systemd.user.enable = true;
 
   services.autorandr.enable = true;
