@@ -37,6 +37,11 @@ if [ "$HOSTNAME" = "grace" ]; then
         msg "starting auto-cool script"
         "$DOT/scripts/auto-cool.sh" &
     fi
+
+    if ! rga "psensor" "$ps_ax"; then
+        msg "starting psensor"
+        psensor 2>/dev/null &
+    fi
 fi
 
 nitrogen --restore &
