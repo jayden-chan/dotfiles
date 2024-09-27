@@ -116,6 +116,16 @@ in
         from = 1714;
         to = 1764;
       }
+
+      # Sunshine
+      {
+        from = 47998;
+        to = 48000;
+      }
+      {
+        from = 8000;
+        to = 8010;
+      }
     ];
 
     allowedTCPPortRanges = [
@@ -130,8 +140,15 @@ in
     allowedTCPPorts = [
       # SSH
       32223
+
       # dev servers
       4334
+
+      # Sunshine
+      47984
+      47989
+      47990
+      48010
     ];
   };
 
@@ -159,6 +176,13 @@ in
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
+  };
+
+  services.sunshine = {
+    enable = true;
+    autoStart = false;
+    capSysAdmin = true;
+    openFirewall = false;
   };
 
   # disable mouse acceleration
