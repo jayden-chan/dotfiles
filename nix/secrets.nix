@@ -9,4 +9,5 @@ in
   "secrets/mpv-secrets.lua.age".publicKeys = users ++ systems;
   "secrets/redshift.conf.age".publicKeys = users ++ systems;
   "secrets/env.age".publicKeys = users ++ systems;
+  "secrets/ssh-config.age".publicKeys = users ++ systems;
 }

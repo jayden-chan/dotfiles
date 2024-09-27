@@ -29,4 +29,12 @@
     owner = "jayden";
     group = "users";
   };
+
+  age.secrets.ssh-config = {
+    file = ../secrets/ssh-config.age;
+    path = "${config-vars.home-dir}/.ssh/config";
+    mode = "0400";
+    owner = "jayden";
+    group = "users";
+  };
 }

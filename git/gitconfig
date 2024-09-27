@@ -22,7 +22,7 @@
     format = ssh
 
 [gpg.ssh]
-    allowedSignersFile = ~/.config/dotfiles/ssh/allowed_signers
+    allowedSignersFile = ~/.config/dotfiles/misc/ssh_allowed_signers
 
 [credential]
     helper = /usr/lib/git-core/git-credential-libsecret
