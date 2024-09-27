@@ -13,6 +13,7 @@
     ../../common/lecture.nix
     ../../common/nix-conf.nix
     ../../common/packages.nix
+    ../../common/podman.nix
     ../../common/secrets.nix
     ../../common/steam.nix
     ../../common/stylix-root.nix
