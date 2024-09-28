@@ -1,16 +1,10 @@
 {
   pkgs,
-  config-vars,
+  unstable,
   inputs,
   ...
 }:
 
-let
-  unstable = import inputs.nixpkgs-unstable {
-    system = config-vars.system;
-    config.allowUnfree = true;
-  };
-in
 {
   environment.systemPackages = with pkgs; [
     alsa-utils

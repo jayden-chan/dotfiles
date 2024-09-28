@@ -55,11 +55,16 @@
       };
 
       host-args = {
-        grace = {
+        grace = rec {
           config-vars = {
             host = "grace";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
+          };
+
+          unstable = import inputs.nixpkgs-unstable {
+            system = config-vars.system;
+            config.allowUnfree = true;
           };
         };
       };

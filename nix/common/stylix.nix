@@ -1,16 +1,10 @@
 {
   pkgs,
   config-vars,
-  inputs,
+  unstable,
   ...
 }:
 
-let
-  unstable = import inputs.nixpkgs-unstable {
-    system = config-vars.system;
-    config.allowUnfree = true;
-  };
-in
 {
   stylix.enable = true;
   stylix.autoEnable = false;

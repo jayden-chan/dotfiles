@@ -1,18 +1,13 @@
 {
   lib,
   pkgs,
-  inputs,
+  unstable,
   config,
   config-vars,
   ...
 }:
 
 let
-  unstable = import inputs.nixpkgs-unstable {
-    system = config-vars.system;
-    config.allowUnfree = true;
-  };
-
   nvidia-package =
     (
       (config.boot.kernelPackages.nvidiaPackages.mkDriver {
