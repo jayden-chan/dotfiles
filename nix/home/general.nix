@@ -12,6 +12,7 @@
     ./desktop-files.nix
     ./mime.nix
     ./mpv.nix
+    ./thunar-uca.nix
     ./xresources.nix
     ./zathura.nix
   ];
