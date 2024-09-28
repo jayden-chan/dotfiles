@@ -31,37 +31,6 @@ alias nix-rebuild='_nix_git_trick nh os switch';
 alias nix-update='_nix_git_trick nix flake update';
 alias nix-clean='_nix_git_trick nh clean all --keep 10';
 
-function plot () {
-    if [ "$1" = "--help" ]; then
-        echo "plot <filename> [style] [x column number] [y column number]"
-        echo "useful styles: dots, lines, boxes"
-        return
-    fi
-
-    style=${2:-dots}
-    x=${3:-1}
-    y=${4:-2}
-
-    first_line=$(head -n 1 "$1")
-    xlabel=$(cut -d, -f"$x" <<< "$first_line")
-    ylabel=$(cut -d, -f"$y" <<< "$first_line")
-    title=${1:t}
-    output="${1:t:r}.svg"
-
-    gnuplot_code="
-    set title '$title'
-    set datafile separator ','
-    set xlabel '$xlabel'
-    set ylabel '$ylabel'
-    set grid
-    set terminal svg enhanced
-    set output '$output'
-    plot '$1' using $x:$y with $style title columnhead
-    "
-
-    gnuplot -c =(<<< "$gnuplot_code")
-}
-
 function bb () {
     if [ "$1" = "down" ]; then
         trash ./tsconfig.json
