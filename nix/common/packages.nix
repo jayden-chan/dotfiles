@@ -70,6 +70,7 @@ in
     taplo
     tmux
     tokei
+    trash-cli
     usbutils
     vesktop
     wget

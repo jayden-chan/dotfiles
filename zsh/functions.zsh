@@ -64,8 +64,8 @@ function plot () {
 
 function bb () {
     if [ "$1" = "down" ]; then
-        gio trash ./tsconfig.json
-        gio trash ./package.json
+        trash ./tsconfig.json
+        trash ./package.json
         rm -rf ./node_modules/ bun.lockb
     fi
 
