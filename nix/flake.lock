@@ -384,11 +384,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727541564,
-        "narHash": "sha256-L2xxEWvVK76BhXMDOiNzsiG3nYyYohAAmsdvU4+YvnM=",
+        "lastModified": 1727554398,
+        "narHash": "sha256-1QNveD56OT+O1scNDlhCkyYTpQqaUmS5J0xnR14h98g=",
         "owner": "jayden-chan",
         "repo": "notifications-dbus-mon",
-        "rev": "70307b287348b285dfdb8487aebe7c3d71724c84",
+        "rev": "c4cbec1cee39881bf2de31f36e8c9f767db762ea",
         "type": "github"
       },
       "original": {
