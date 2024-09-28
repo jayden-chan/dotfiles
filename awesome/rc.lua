@@ -485,53 +485,21 @@ local globalkeys = gears.table.join(
 
 	awful.key(
 		{ modkey, "Shift" },
-		"c",
-		script_cb("xcolor.sh", { "--theme-pick" }, false),
-		{ description = "pick accent color", group = "screenshot" }
-	),
-
-	-- pipewire-orchestrator
-	awful.key(
-		{ modkey, "Shift" },
 		"F1",
-		script_cb("midi.sh", { "mic_mute" }, false),
-		{ description = "toggle mic mute", group = "pipewire-orchestrator" }
+		script_cb("rofi.sh", { "--autorandr" }, false),
+		{ description = "select autorandr profile", group = "misc" }
 	),
 
 	awful.key(
 		{ modkey, "Shift" },
 		"F2",
-		script_cb("midi.sh", { "cooler_control" }, false),
-		{ description = "cycle cooling control settings", group = "pipewire-orchestrator" }
+		script_cb("rofi.sh", { "--liquidctl" }, false),
+		{ description = "cycle cooling control settings", group = "misc" }
 	),
 
-	awful.key(
-		{ modkey, "Shift" },
-		"F8",
-		script_cb("midi.sh", { "bathys_eq" }, false),
-		{ description = "set EQ to Focal Bathys", group = "pipewire-orchestrator" }
-	),
-
-	awful.key(
-		{ modkey, "Shift" },
-		"F9",
-		script_cb("midi.sh", { "hexa_eq" }, false),
-		{ description = "set EQ to Truthear Hexa", group = "pipewire-orchestrator" }
-	),
-
-	awful.key(
-		{ modkey, "Shift" },
-		"F10",
-		script_cb("midi.sh", { "disable_eq" }, false),
-		{ description = "disable EQ", group = "pipewire-orchestrator" }
-	),
-
-	awful.key(
-		{ modkey, "Shift" },
-		"F11",
-		script_cb("midi.sh", { "clip_save" }, false),
-		{ description = "save clip", group = "pipewire-orchestrator" }
-	),
+	awful.key({ modkey, "Shift" }, "F11", function()
+		awful.spawn.with_shell("killall -SIGUSR1 gpu-screen-recorder")
+	end, { description = "save clip", group = "misc" }),
 
 	-- XF86
 	awful.key(

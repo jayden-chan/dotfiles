@@ -55,4 +55,7 @@ elif [ "$1" = "--save-screenshot" ]; then
         xclip -selection clipboard -t image/png -o > "$file"
         notify-send -i "$file" "Maim" "Screenshot saved to $result.png"
     fi
+elif [ "$1" = "--autorandr" ]; then
+    result=$(autorandr --list | rofi -dmenu -i -p "select profile:" -theme links -theme-str "$rofi_theme")
+    autorandr --load "$result"
 fi

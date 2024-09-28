@@ -7,7 +7,7 @@ msg () {
 shopt -s expand_aliases
 alias rga='rg --color=never >/dev/null'
 
-exec >/home/jayden/.cache/autostart.log 2>&1
+exec > "$HOME/.cache/autostart.log" 2>&1
 
 ps_ax="/tmp/autostart_psax";
 ps -ax > "$ps_ax"

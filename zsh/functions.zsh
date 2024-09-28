@@ -106,9 +106,9 @@ function syc () {
         cpr -e ssh                homelab:docker/gitea/data/git/repositories/jayden/ "/run/media/jayden/Seagate External/Backup/Personal Files/Git/"
 
         cpr                       /mnt/homelab/seagate/music/ "/run/media/jayden/Seagate External/Backup/Personal Files/Music/"
-        cpr --exclude 'replays/*' /home/jayden/Videos/        "/run/media/jayden/Seagate External/Backup/Personal Files/Videos/"
-        cpr --exclude 'ardour/*'  /home/jayden/Documents/     "/run/media/jayden/Seagate External/Backup/Personal Files/Documents/"
-        cpr --exclude 'a6600/*'   /home/jayden/Pictures/      "/run/media/jayden/Seagate External/Backup/Personal Files/Pictures/"
+        cpr --exclude 'replays/*' "$HOME/Videos/"             "/run/media/jayden/Seagate External/Backup/Personal Files/Videos/"
+        cpr --exclude 'ardour/*'  "$HOME/Documents/"          "/run/media/jayden/Seagate External/Backup/Personal Files/Documents/"
+        cpr --exclude 'a6600/*'   "$HOME/Pictures/"           "/run/media/jayden/Seagate External/Backup/Personal Files/Pictures/"
         return
     fi
 }
