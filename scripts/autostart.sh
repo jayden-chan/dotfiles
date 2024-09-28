@@ -32,6 +32,11 @@ if ! rga "/share/carla/carla" "$ps_ax"; then
     carla "$HOME/.config/Carla.carxp" &
 fi
 
+if ! rga "notifications-dbus-mon" "$ps_ax"; then
+    msg "starting notifications-dbus-mon"
+    notifications-dbus-mon &
+fi
+
 if [ "$HOSTNAME" = "grace" ]; then
     if ! rga "auto-cool.sh" "$ps_ax"; then
         msg "starting auto-cool script"
@@ -40,6 +45,13 @@ if [ "$HOSTNAME" = "grace" ]; then
 
     if ! rga "psensor" "$ps_ax"; then
         msg "starting psensor"
+
+        # we'll sleep for a couple seconds so that
+        # psensor starts up after carla and goes into
+        # the right place in the tiling window manager
+        # hierarchy
+        sleep 2
+
         psensor 2>/dev/null &
     fi
 fi

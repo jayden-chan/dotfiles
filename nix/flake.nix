@@ -18,6 +18,9 @@
     minichacha.url = "github:jayden-chan/minichacha";
     minichacha.inputs.nixpkgs.follows = "nixpkgs";
 
+    notifications-dbus-mon.url = "github:jayden-chan/notifications-dbus-mon";
+    notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
+
     spotify-dbus-mon.url = "github:jayden-chan/spotify-dbus-mon";
     spotify-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
 
