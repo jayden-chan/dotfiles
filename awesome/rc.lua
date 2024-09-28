@@ -848,6 +848,7 @@ awful.rules.rules = {
 				".blueman-manager-wrapped",
 				"Eog",
 				"File-roller",
+				"file-roller",
 				"Gedit",
 				"Gpick",
 				"Jalv.gtk3",
