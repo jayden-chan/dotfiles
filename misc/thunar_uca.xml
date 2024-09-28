@@ -40,7 +40,7 @@
 	<name>Cull</name>
 	<submenu>picman</submenu>
 	<unique-id>1689641415278067-1</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/cull-basic.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
+	<command>/home/jayden/Dev/picman/src/cull-basic.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -51,7 +51,7 @@
 	<name>Cull (safe)</name>
 	<submenu>picman</submenu>
 	<unique-id>1719774323493242-2</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/cull-basic.ts --safe %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
+	<command>/home/jayden/Dev/picman/src/cull-basic.ts --safe %F 2&gt;&amp;1 &gt; /home/jayden/.cache/cull_logs.log</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -62,7 +62,7 @@
 	<name>Import images/videos</name>
 	<submenu></submenu>
 	<unique-id>1689902676394518-1</unique-id>
-	<command>st -e sh -c &apos;/home/jayden/Dev/Personal/picman/src/sd-import.ts %f | less  --exit-follow-on-close +F&apos;</command>
+	<command>st -e sh -c &apos;/home/jayden/Dev/picman/src/sd-import.ts %f | less  --exit-follow-on-close +F&apos;</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -84,7 +84,7 @@
 	<name>Anonymize</name>
 	<submenu>picman</submenu>
 	<unique-id>1690485195569083-1</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/anonymize.ts %F</command>
+	<command>/home/jayden/Dev/picman/src/anonymize.ts %F</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -95,7 +95,7 @@
 	<name>Make Private</name>
 	<submenu>picman</submenu>
 	<unique-id>1719616786472408-1</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/private.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/privatize.log</command>
+	<command>/home/jayden/Dev/picman/src/private.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/privatize.log</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -106,7 +106,7 @@
 	<name>Make Pano Folder</name>
 	<submenu>picman</submenu>
 	<unique-id>1719760172570658-1</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/pano-group.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/pano-group.log</command>
+	<command>/home/jayden/Dev/picman/src/pano-group.ts %F 2&gt;&amp;1 &gt; /home/jayden/.cache/pano-group.log</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -117,7 +117,7 @@
 	<name>Set GPS Location</name>
 	<submenu>picman</submenu>
 	<unique-id>1720814069760259-1</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/gps.ts --write-gps %F</command>
+	<command>/home/jayden/Dev/picman/src/gps.ts --write-gps %F</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -128,7 +128,7 @@
 	<name>Open GPS Location</name>
 	<submenu>picman</submenu>
 	<unique-id>1720819178080678-2</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/gps.ts --open-gps %F</command>
+	<command>/home/jayden/Dev/picman/src/gps.ts --open-gps %F</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -139,7 +139,7 @@
 	<name>Correlate GPS</name>
 	<submenu>picman</submenu>
 	<unique-id>1722097833051003-1</unique-id>
-	<command>/home/jayden/Dev/Personal/picman/src/gps.ts --correlate-gps %F</command>
+	<command>/home/jayden/Dev/picman/src/gps.ts --correlate-gps %F</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>

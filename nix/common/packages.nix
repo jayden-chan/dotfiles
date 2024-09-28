@@ -25,6 +25,8 @@ in
     chromium
     delta
     dig
+    exiftool
+    exiv2
     eza
     fastfetch
     fd
@@ -48,6 +50,8 @@ in
     lsp-plugins
     lua-language-server
     maim
+    mat2
+    mediainfo
     mpv
     mullvad-browser
     nitrogen
@@ -79,6 +83,7 @@ in
     xclip
     xcolor
     yaml-language-server
+    yq-go
     yt-dlp
     zoxide
     zsh-autosuggestions
