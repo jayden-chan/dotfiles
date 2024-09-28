@@ -162,6 +162,9 @@ along with {3}. If not, see <https://www.gnu.org/licenses/>.
 			f(function()
 				return cmd("date +%s%3N")
 			end),
+			f(function()
+				return cmd("date +%s%6N")
+			end),
 		})
 	),
 	s(
