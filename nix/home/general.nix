@@ -44,10 +44,18 @@ in
   stylix.targets.vesktop.enable = true;
   stylix.targets.zathura.enable = true;
 
-  gtk.cursorTheme = {
-    name = "macOS";
-    size = 24;
-    package = unstable.apple-cursor;
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "macOS";
+      size = 24;
+      package = unstable.apple-cursor;
+    };
+
+    iconTheme = {
+      package = pkgs.numix-icon-theme;
+      name = "Numix";
+    };
   };
 
   services.kdeconnect.enable = true;
