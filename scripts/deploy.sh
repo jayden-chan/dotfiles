@@ -9,10 +9,6 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/mpv         2>/dev/null
     rm -rf ~/.config/lazygit     2>/dev/null
 
-    rm -f ~/.config/pipewire/jack.conf           2>/dev/null
-    rm -f ~/.config/pipewire/pipewire.conf       2>/dev/null
-    rm -f ~/.config/pipewire/pipewire-pulse.conf 2>/dev/null
-
     mkdir -p ~/.config/git
     mkdir -p ~/.config/npm
     mkdir -p ~/.config/rofi
@@ -20,7 +16,6 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/zsh
     mkdir -p ~/.config/mpv/scripts
     mkdir -p ~/.config/lazygit
-    mkdir -p ~/.config/pipewire
 
     mkdir -p ~/.local/share/applications
     mkdir -p ~/.local/bin
@@ -72,9 +67,6 @@ ln -fs ~/.config/dotfiles/mpv/appendURL.lua                     ~/.config/mpv/sc
 ln -fs ~/.config/dotfiles/mpv/all_audio.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/cut_video.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/misc/lazygit.yml                      ~/.config/lazygit/config.yml
-ln -fs ~/.config/dotfiles/pipewire/pipewire.conf                ~/.config/pipewire/
-ln -fs ~/.config/dotfiles/pipewire/pipewire-pulse.conf          ~/.config/pipewire/
-ln -fs ~/.config/dotfiles/pipewire/jack.conf                    ~/.config/pipewire/
 
 echo
 echo "Finished deployment"

@@ -29,6 +29,7 @@ function _nix_git_trick () {
 
 alias nix-rebuild='_nix_git_trick nh os switch';
 alias nix-update='_nix_git_trick nix flake update';
+alias nix-update-only='_nix_git_trick nix flake lock --update-input';
 alias nix-clean='_nix_git_trick nh clean all --keep 10';
 
 function bb () {
