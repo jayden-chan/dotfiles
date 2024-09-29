@@ -9,6 +9,7 @@
   imports = [
     ../common/stylix.nix
 
+    ./atuin.nix
     ./desktop-files.nix
     ./mime.nix
     ./mpv.nix

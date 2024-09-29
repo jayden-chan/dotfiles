@@ -8,7 +8,6 @@
 {
   environment.systemPackages = with pkgs; [
     alsa-utils
-    atuin
     awesome
     bash
     bat
