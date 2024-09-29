@@ -49,7 +49,7 @@
           home-dir = "/home/jayden";
           dotfiles-dir = "/home/jayden/.config/dotfiles";
           locale = "en_CA.UTF-8";
-          theme = import ./theme.nix { };
+          theme = import ./theme.nix;
           ips = {
             opnsense = "10.118.254.1";
             homelab = "10.118.254.125";
@@ -77,7 +77,7 @@
         grace = nixpkgs.lib.nixosSystem {
           specialArgs = nixpkgs.lib.recursiveUpdate args host-args.grace;
 
-          system = "x86_64-linux";
+          system = host-args.grace.config-vars.system;
 
           modules = [
             ./hosts/grace/configuration.nix

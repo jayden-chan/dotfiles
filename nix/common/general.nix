@@ -1,6 +1,9 @@
 { pkgs, config-vars, ... }:
 
 {
+  # use linux-zen kernel
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   networking = {
     hostName = config-vars.host;
     networkmanager = {
