@@ -38,7 +38,6 @@
     jalv
     jq
     killall
-    lazygit
     libnotify
     lsp-plugins
     lua-language-server

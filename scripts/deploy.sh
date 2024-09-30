@@ -7,7 +7,6 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/tmux        2>/dev/null
     rm -rf ~/.config/zsh         2>/dev/null
     rm -rf ~/.config/mpv         2>/dev/null
-    rm -rf ~/.config/lazygit     2>/dev/null
 
     mkdir -p ~/.config/git
     mkdir -p ~/.config/npm
@@ -15,7 +14,6 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/tmux
     mkdir -p ~/.config/zsh
     mkdir -p ~/.config/mpv/scripts
-    mkdir -p ~/.config/lazygit
 
     mkdir -p ~/.local/share/applications
     mkdir -p ~/.local/bin
@@ -65,7 +63,6 @@ ln -fs ~/.config/dotfiles/zsh/zshrc                             ~/.config/zsh/.z
 ln -fs ~/.config/dotfiles/mpv/appendURL.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/all_audio.lua                     ~/.config/mpv/scripts/
 ln -fs ~/.config/dotfiles/mpv/cut_video.lua                     ~/.config/mpv/scripts/
-ln -fs ~/.config/dotfiles/misc/lazygit.yml                      ~/.config/lazygit/config.yml
 
 echo
 echo "Finished deployment"
