@@ -186,6 +186,7 @@ in
     mouse = {
       accelSpeed = "-0.15";
       accelProfile = "flat";
+      middleEmulation = false;
     };
   };
 
