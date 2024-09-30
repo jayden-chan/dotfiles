@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.gamemode.enable = true;
@@ -9,6 +9,4 @@
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = false;
   };
-
-  environment.systemPackages = with pkgs; [ mangohud ];
 }

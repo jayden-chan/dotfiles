@@ -11,6 +11,7 @@
 
     ./atuin.nix
     ./desktop-files.nix
+    ./mangohud.nix
     ./mime.nix
     ./mpv.nix
     ./thunar-uca.nix
