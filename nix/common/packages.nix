@@ -45,7 +45,6 @@
     maim
     mat2
     mediainfo
-    mpv
     mullvad-browser
     nitrogen
     nixfmt-rfc-style
@@ -62,7 +61,6 @@
     rsync
     shellcheck
     spotify
-    starship
     stylua
     taplo
     tmux

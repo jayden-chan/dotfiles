@@ -14,6 +14,7 @@
     ./mangohud.nix
     ./mime.nix
     ./mpv.nix
+    ./starship.nix
     ./thunar-uca.nix
     ./xresources.nix
     ./zathura.nix

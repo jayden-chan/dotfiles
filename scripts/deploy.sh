@@ -59,7 +59,6 @@ ln -fs ~/.config/dotfiles/rofi/power.rasi                       ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/screenshot.rasi                  ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/links.rasi                       ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/eq.rasi                          ~/.config/rofi/
-ln -fs ~/.config/dotfiles/misc/starship.toml                    ~/.config/
 ln -fs ~/.config/dotfiles/misc/tmux.conf                        ~/.config/tmux/
 ln -fs ~/.config/dotfiles/zsh/zlogout                           ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc                             ~/.config/zsh/.zshrc
