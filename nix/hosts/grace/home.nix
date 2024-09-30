@@ -46,5 +46,9 @@ in
         mode = "1280x1024";
       };
     };
+
+    hooks.postswitch = ''
+      killall picom
+    '';
   };
 }

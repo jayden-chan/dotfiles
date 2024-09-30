@@ -59,15 +59,7 @@
   systemd.user.enable = true;
 
   services.autorandr.enable = true;
-  programs.autorandr = {
-    enable = true;
-
-    hooks.postswitch = {
-      "set-wallpaper" = ''
-        nitrogen --restore
-      '';
-    };
-  };
+  programs.autorandr.enable = true;
 
   services.gpg-agent = {
     enable = true;
