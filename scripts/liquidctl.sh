@@ -13,9 +13,10 @@ auto="$2"
 current_level=$(cat "$level_file")
 
 if [ "$auto" = "true" ]; then
-    if [ "$current_level" != "1" ]; then
+    if [ "$(echo "$current_level >= $level" | bc -l)" = "1" ]; then
         exit 0
     fi
+
     notify-send -u critical "liquidctl" "WARNING: Cooling level was set automatically"
 fi
 

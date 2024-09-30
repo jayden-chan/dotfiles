@@ -2,8 +2,12 @@
 
 while true; do
     coolant_temp=$(liquidctl --match Aquacomputer status --json | jq -c '.[0].status | .[] | select(.key | contains("Sensor 2")) | .value')
-    if [ "$(echo "$coolant_temp >= 36.0" | bc -l)" = "1" ]; then
+    if [ "$(echo "$coolant_temp >= 35.0" | bc -l)" = "1" ]; then
         ~/.config/dotfiles/scripts/liquidctl.sh "3" "true"
+    fi
+
+    if [ "$(echo "$coolant_temp >= 38.0" | bc -l)" = "1" ]; then
+        ~/.config/dotfiles/scripts/liquidctl.sh "4" "true"
     fi
 
     if [ "$(echo "$coolant_temp >= 40.0" | bc -l)" = "1" ]; then

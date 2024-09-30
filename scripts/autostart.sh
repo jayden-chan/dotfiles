@@ -38,7 +38,7 @@ if ! rga "notifications-dbus-mon" "$ps_ax"; then
 fi
 
 if [ "$HOSTNAME" = "grace" ]; then
-    if ! rga "auto-cool.sh" "$ps_ax"; then
+    if ! rga "bash .*auto-cool.sh" "$ps_ax"; then
         msg "starting auto-cool script"
         "$DOT/scripts/auto-cool.sh" &
     fi
