@@ -81,7 +81,10 @@ in
   };
 
   # disable HDMI audio entirely
-  boot.blacklistedKernelModules = [ "snd_hda_codec_hdmi" ];
+  boot.blacklistedKernelModules = [
+    "snd_hda_codec_hdmi"
+    "snd_hda_intel"
+  ];
 
   networking.wireless.enable = false;
 
