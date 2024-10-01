@@ -35,9 +35,9 @@ autoload -U +X bashcompinit && bashcompinit
 #                        history                         #
 ##########################################################
 
-HISTSIZE=50000
+HISTSIZE=2000000
 HISTFILE="${XDG_STATE_HOME}/zsh/history"
-SAVEHIST=100000
+SAVEHIST=2000000
 
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
