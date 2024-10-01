@@ -47,6 +47,7 @@
           name = "Jayden";
           username = "jayden";
           home-dir = "/home/jayden";
+          email = "jayden@jayden.codes";
           dotfiles-dir = "/home/jayden/.config/dotfiles";
           locale = "en_CA.UTF-8";
           theme = import ./theme.nix;

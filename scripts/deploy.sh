@@ -8,7 +8,6 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/zsh         2>/dev/null
     rm -rf ~/.config/mpv         2>/dev/null
 
-    mkdir -p ~/.config/git
     mkdir -p ~/.config/npm
     mkdir -p ~/.config/rofi
     mkdir -p ~/.config/tmux
@@ -50,7 +49,6 @@ ln -fs ~/.config/dotfiles/vim/init.lua                          ~/.config/nvim/
 ln -fs ~/.config/dotfiles/vim/lazy-lock.json                    ~/.config/nvim/
 ln -fs ~/.config/dotfiles/awesome/theme                         ~/.config/awesome/theme
 ln -fs ~/.config/dotfiles/awesome/rc.lua                        ~/.config/awesome/
-ln -fs ~/.config/dotfiles/git/gitconfig                         ~/.config/git/config
 ln -fs ~/.config/dotfiles/rofi/base.rasi                        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/drun.rasi                        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/power.rasi                       ~/.config/rofi/

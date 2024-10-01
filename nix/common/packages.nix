@@ -16,7 +16,6 @@
     bun
     carla
     chromium
-    delta
     dig
     exiftool
     exiv2
@@ -30,7 +29,6 @@
     gcc
     gedit
     gimp
-    git
     gnumake
     go
     imagemagick

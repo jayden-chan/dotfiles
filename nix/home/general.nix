@@ -11,6 +11,7 @@
 
     ./atuin.nix
     ./desktop-files.nix
+    ./git.nix
     ./lazygit.nix
     ./mangohud.nix
     ./mime.nix
