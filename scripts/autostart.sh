@@ -9,6 +9,8 @@ alias rga='rg --color=never >/dev/null'
 
 exec > "$HOME/.cache/autostart.log" 2>&1
 
+nitrogen --restore &
+
 ps_ax="/tmp/autostart_psax";
 ps -ax > "$ps_ax"
 
@@ -55,5 +57,3 @@ if [ "$HOSTNAME" = "grace" ]; then
         psensor 2>/dev/null &
     fi
 fi
-
-nitrogen --restore &
