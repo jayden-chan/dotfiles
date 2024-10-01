@@ -1,6 +1,12 @@
 { ... }:
 
 {
+  imports = [
+    ./script-all-audio.nix
+    ./script-append-url.nix
+    ./script-cut-video.nix
+  ];
+
   programs.mpv = {
     enable = true;
     bindings = {

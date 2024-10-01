@@ -9,13 +9,14 @@
   imports = [
     ../common/stylix.nix
 
+    ./mpv/config.nix
+
     ./atuin.nix
     ./desktop-files.nix
     ./git.nix
     ./lazygit.nix
     ./mangohud.nix
     ./mime.nix
-    ./mpv.nix
     ./starship.nix
     ./thunar-uca.nix
     ./xresources.nix
