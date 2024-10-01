@@ -91,10 +91,17 @@ in
   environment.systemPackages = with pkgs; [
     borgbackup
     dbeaver-bin
-    liquidctl
-    psensor
     drm_info
+    exiftool
+    exiv2
+    google-cloud-sdk
+    liquidctl
+    mat2
+    psensor
+    qrencode
+    yq-go
 
+    # make the NVIDIA X11 libraries available for gpu-screen-recorder
     (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
       mkdir -p $out/bin
       makeWrapper ${unstable.gpu-screen-recorder}/bin/gpu-screen-recorder $out/bin/gpu-screen-recorder \

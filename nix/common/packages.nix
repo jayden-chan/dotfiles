@@ -17,8 +17,6 @@
     carla
     chromium
     dig
-    exiftool
-    exiv2
     eza
     fastfetch
     fd
@@ -31,7 +29,6 @@
     gnumake
     go
     imagemagick
-    inkscape
     jalv
     jq
     killall
@@ -39,7 +36,6 @@
     lsp-plugins
     lua-language-server
     maim
-    mat2
     mediainfo
     mullvad-browser
     nitrogen
@@ -50,7 +46,6 @@
     picom
     pkg-config
     prettierd
-    qrencode
     redshift
     ripgrep
     rofi
@@ -70,7 +65,6 @@
     xclip
     xcolor
     yaml-language-server
-    yq-go
     yt-dlp
     zoxide
     zsh-autosuggestions
