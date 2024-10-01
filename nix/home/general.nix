@@ -37,7 +37,6 @@
   # home-manager only targets
   stylix.targets.alacritty.enable = true;
   stylix.targets.bat.enable = true;
-  stylix.targets.gedit.enable = true;
   stylix.targets.gnome.enable = true;
   stylix.targets.gtk.enable = true;
   stylix.targets.mangohud.enable = true;

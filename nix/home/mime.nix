@@ -3,7 +3,7 @@
 let
   eog = "org.gnome.eog.desktop";
   file-roller = "org.gnome.FileRoller.desktop";
-  gedit = "org.gnome.gedit.desktop";
+  basic-text-editor = "org.xfce.mousepad.desktop";
   mpv = "mpv.desktop";
   zathura = "org.pwmt.zathura.desktop";
   zen-browser = "zen.desktop";
@@ -13,7 +13,7 @@ in
   xdg.mimeApps.enable = true;
 
   xdg.mimeApps.defaultApplications = {
-    "application/json" = [ gedit ];
+    "application/json" = [ basic-text-editor ];
     "application/pdf" = [ zathura ];
     "application/zip" = [ file-roller ];
     "audio/flac" = [ mpv ];
@@ -25,9 +25,9 @@ in
     "image/png" = [ eog ];
     "image/webp" = [ eog ];
     "image/x-portable-pixmap" = [ eog ];
-    "text/csv" = [ gedit ];
-    "text/plain" = [ gedit ];
-    "text/xml" = [ gedit ];
+    "text/csv" = [ basic-text-editor ];
+    "text/plain" = [ basic-text-editor ];
+    "text/xml" = [ basic-text-editor ];
     "video/mp4" = [ mpv ];
     "video/x-matroska" = [ mpv ];
 

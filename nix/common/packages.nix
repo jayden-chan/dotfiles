@@ -27,7 +27,6 @@
     file
     fontconfig
     gcc
-    gedit
     gimp
     gnumake
     go
@@ -83,6 +82,8 @@
     nodePackages.typescript-language-server
 
     python312Packages.grip
+
+    xfce.mousepad
 
     xorg.xev
     xorg.xinput
