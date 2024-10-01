@@ -14,7 +14,12 @@ if [ "$1" = "--open" ]; then xdg-open "https://cron.jayden.codes/weather/open/$c
 if [ -z "$HA_TOKEN" ]; then
     indoor_temp=""
 else
-    ha_temp="$(ha office_temp)"
+    ha_temp="$(curl -X GET \
+        -H "authorization: Bearer $HA_TOKEN" \
+        -H "content-type: application/json" \
+        https://homeassistant.jayden.codes/api/states/sensor.temp_sensor_1_temperature \
+        | jq -r '.state')"
+
     if [ -n "$ha_temp" ] && [ "$ha_temp" != "unavailable" ]; then
         indoor_temp=" (${ha_temp}C)"
     fi
