@@ -54,7 +54,6 @@
     spotify
     stylua
     taplo
-    tmux
     tokei
     trash-cli
     usbutils

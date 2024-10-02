@@ -19,6 +19,7 @@
     ./mime.nix
     ./starship.nix
     ./thunar-uca.nix
+    ./tmux.nix
     ./xresources.nix
     ./zathura.nix
   ];

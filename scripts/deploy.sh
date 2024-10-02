@@ -4,12 +4,10 @@ if [ "$1" = "--full" ]; then
     rm -rf ~/.config/npm         2>/dev/null
     rm -rf ~/.config/nvim        2>/dev/null
     rm -rf ~/.config/rofi        2>/dev/null
-    rm -rf ~/.config/tmux        2>/dev/null
     rm -rf ~/.config/zsh         2>/dev/null
 
     mkdir -p ~/.config/npm
     mkdir -p ~/.config/rofi
-    mkdir -p ~/.config/tmux
     mkdir -p ~/.config/zsh
 
     mkdir -p ~/.local/share/applications
@@ -53,7 +51,6 @@ ln -fs ~/.config/dotfiles/rofi/power.rasi                       ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/screenshot.rasi                  ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/links.rasi                       ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/eq.rasi                          ~/.config/rofi/
-ln -fs ~/.config/dotfiles/misc/tmux.conf                        ~/.config/tmux/
 ln -fs ~/.config/dotfiles/zsh/zlogout                           ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc                             ~/.config/zsh/.zshrc
 
