@@ -42,7 +42,7 @@
   stylix.targets.gnome.enable = true;
   stylix.targets.gtk.enable = true;
   stylix.targets.mangohud.enable = true;
-  stylix.targets.vesktop.enable = true;
+  stylix.targets.xfce.enable = true;
   stylix.targets.zathura.enable = true;
 
   gtk = {
