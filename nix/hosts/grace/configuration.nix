@@ -101,6 +101,9 @@ in
     qrencode
     yq-go
 
+    unstable.ansel
+    unstable.hugin
+
     # make the NVIDIA X11 libraries available for gpu-screen-recorder
     (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
       mkdir -p $out/bin
