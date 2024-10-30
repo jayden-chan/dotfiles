@@ -73,6 +73,8 @@ return {
 						"*.webp",
 						"--exclude",
 						".git/*",
+						"--exclude",
+						"*.lockb",
 					},
 				},
 			},
