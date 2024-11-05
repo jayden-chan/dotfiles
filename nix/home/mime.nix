@@ -7,6 +7,7 @@ let
   mpv = "mpv.desktop";
   zathura = "org.pwmt.zathura.desktop";
   zen-browser = "zen.desktop";
+  protontricks = "protontricks-launch.desktop";
 in
 {
   xdg.mime.enable = true;
@@ -54,5 +55,6 @@ in
     "application/xhtml+xml" = [ zen-browser ];
     "application/x-extension-xhtml" = [ zen-browser ];
     "application/x-extension-xht" = [ zen-browser ];
+    "application/x-msdownload" = [ protontricks ];
   };
 }

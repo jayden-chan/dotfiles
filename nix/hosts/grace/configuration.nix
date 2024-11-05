@@ -97,6 +97,7 @@ in
     google-cloud-sdk
     liquidctl
     mat2
+    protontricks
     psensor
     qrencode
     yq-go
