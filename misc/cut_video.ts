@@ -148,14 +148,15 @@ const renderTmpClipCommand = [
   "-r",              "60",
 
   // video codec settings
+  // run ffmpeg -h encoder=av1_nvenc for options
   // https://www.nvidia.com/en-us/geforce/guides/broadcasting-guide/
-  // https://git.dec05eba.com/gpu-screen-recorder/tree/src/main.cpp#n411
-  "-c:v",            "hevc_nvenc",
+  "-c:v",            "av1_nvenc",
   "-preset",         "p6",
-  "-profile",        "main",
   "-tune",           "hq",
   "-rc",             "constqp",
-  "-qp",             "24",
+  "-multipass",      "qres",
+  "-rc-lookahead",   "120",
+  "-qp",             "18",
 
   // set audio settings to AAC 320 kbps
   "-c:a",            "aac",

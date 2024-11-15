@@ -497,6 +497,10 @@ local globalkeys = gears.table.join(
 		{ description = "cycle cooling control settings", group = "misc" }
 	),
 
+	awful.key({ modkey }, "e", function()
+		awful.spawn.with_shell("bun run " .. home .. "/Dev/audioman/src/index.ts")
+	end, { description = "run audioman", group = "misc" }),
+
 	awful.key({ modkey, "Shift" }, "F11", function()
 		awful.spawn.with_shell("killall -SIGUSR1 gpu-screen-recorder")
 	end, { description = "save clip", group = "misc" }),

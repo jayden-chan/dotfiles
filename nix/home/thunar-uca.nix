@@ -43,6 +43,17 @@
         </action>
         <action>
             <icon></icon>
+            <name>Convert to H264</name>
+            <submenu></submenu>
+            <unique-id>1731643961229000-1</unique-id>
+            <command>${config-vars.dotfiles-dir}/scripts/toh264.sh %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
             <name>Cull</name>
             <submenu>picman</submenu>
             <unique-id>1689641415278067-1</unique-id>

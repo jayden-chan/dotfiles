@@ -3,7 +3,6 @@ function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
-function toh264     () { ffmpeg -i "$1" -c:v libx264 -c:a copy "${1:r}_h264.mp4" }
 function sc         () { jq .scripts ${1:-package.json} }
 function podbuild   () { podman image build -f ./Containerfile -t git.jayden.codes/jayden/"$1":latest && podman image push git.jayden.codes/jayden/"$1":latest }
 function kns        () { kubectl config set-context --current --namespace="$1" }
@@ -100,7 +99,6 @@ function syc () {
     if [ "$1" = "clips" ]; then
         echo "syncing clips"
         cpr -e ssh ~/Videos/clips/ homelab:Videos/cloud/clips/
-        cpr -e ssh ~/Videos/clips_h264/ homelab:Videos/cloud/clips_h264/
         return
     elif [ "$1" = "files" ]; then
         echo "syncing personal files to external drive"
