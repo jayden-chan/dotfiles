@@ -6,7 +6,7 @@ while true; do
         ~/.config/dotfiles/scripts/liquidctl.sh "3" "true"
     fi
 
-    if [ "$(echo "$coolant_temp >= 38.0" | bc -l)" = "1" ]; then
+    if [ "$(echo "$coolant_temp >= 37.0" | bc -l)" = "1" ]; then
         ~/.config/dotfiles/scripts/liquidctl.sh "4" "true"
     fi
 
