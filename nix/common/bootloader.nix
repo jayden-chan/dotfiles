@@ -8,5 +8,12 @@
       systemd-boot.configurationLimit = 10;
       efi.canTouchEfiVariables = true;
     };
+
+    tmp = {
+      useTmpfs = true;
+
+      # default = 50%
+      tmpfsSize = "50%";
+    };
   };
 }
