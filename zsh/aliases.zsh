@@ -61,6 +61,8 @@ alias ip='ip -c'
 alias sxiv='nsxiv -b'
 alias make='make --no-print-directory'
 alias node='node --enable-source-maps --unhandled-rejections=strict'
+alias ffmpeg='ffmpeg -hide_banner'
+alias ffprobe='ffprobe -hide_banner'
 
 # Other
 alias lpackages='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n '"'"'s/^Package: //p'"'"' | sort -u)'

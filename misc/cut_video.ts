@@ -67,15 +67,20 @@ async function notify(msg: string, opts?: { err?: boolean }): Promise<void> {
   await proc.exited;
 }
 
-function genCutsFilter(args: string[]): string {
+function genComplexFilter(args: string[]): string {
   const cutPoints = args.map((a) => parseFloat(a).toFixed(4));
   const numCuts = cutPoints.length / 2;
   const cuts = [...Array(numCuts).keys()].map((n) => n + 1);
+
+  // combine 2 input audio channels into one channel
   let filter = `[0:1][0:2]amix=inputs=2:weights=0.6 0.6:normalize=0[outl];`;
   const vcopies = cuts.map((i) => `[vcopy${i}]`).join("");
   const acopies = cuts.map((i) => `[acopy${i}]`).join("");
+
+  // create video copies equal to the number of cuts
   filter += `[0:v]split=${numCuts}${vcopies};`;
 
+  // for each copy of the video, trim it according to the cut timestamps
   cuts.forEach((i) => {
     const startIdx = (i - 1) * 2;
     const startPos = cutPoints[startIdx];
@@ -83,7 +88,10 @@ function genCutsFilter(args: string[]): string {
     filter += `[vcopy${i}]trim=start=${startPos}:end=${endPos},setpts=PTS-STARTPTS[v${i}];`;
   });
 
+  // create audio copies equal to the number of cuts
   filter += `[outl]asplit=${numCuts}${acopies};\n`;
+
+  // for each copy of the audio, trim it according to the cut timestamps
   cuts.forEach((i) => {
     const startIdx = (i - 1) * 2;
     const startPos = cutPoints[startIdx];
@@ -91,9 +99,12 @@ function genCutsFilter(args: string[]): string {
     filter += `[acopy${i}]atrim=start=${startPos}:end=${endPos},asetpts=PTS-STARTPTS[a${i}];`;
   });
 
+  // concatenate the trimmed clips
   const channelPairs = cuts.map((i) => `[v${i}][a${i}]`).join("");
-  filter += `${channelPairs}concat=n=${numCuts}:v=1:a=1[vpre][a];`;
-  filter += `[vpre]scale=${RESOLUTION}:flags=bicubic,setsar=1:1[v]`;
+  filter += `${channelPairs}concat=n=${numCuts}:v=1:a=1[vcut][a];`;
+
+  // scale the video to 1080p
+  filter += `[vcut]scale=${RESOLUTION}:flags=bicubic,setsar=1:1[v]`;
   return filter;
 }
 
@@ -134,7 +145,7 @@ if (args.some((a) => Number.isNaN(parseFloat(a)))) {
 }
 
 const tmpPath = `/tmp/cut_video_${id}.mp4`;
-const cutsFilter = genCutsFilter(args);
+const cutsFilter = genComplexFilter(args);
 
 // prettier-ignore
 const renderTmpClipCommand = [
@@ -151,12 +162,26 @@ const renderTmpClipCommand = [
   // run ffmpeg -h encoder=av1_nvenc for options
   // https://www.nvidia.com/en-us/geforce/guides/broadcasting-guide/
   "-c:v",            "av1_nvenc",
-  "-preset",         "p6",
+  "-preset",         "p7",
   "-tune",           "hq",
   "-rc",             "constqp",
   "-multipass",      "qres",
-  "-rc-lookahead",   "120",
-  "-qp",             "18",
+
+  // Number of frames to look ahead for rate-control (from 0 to INT_MAX) (default 0)
+  "-rc-lookahead",   "53",
+
+  // Constant quantization parameter rate control method (from -1 to 255) (default -1)
+  // lower value = higher quality
+  "-qp",             `${((18/51)*255).toFixed(0)}`,
+
+  // full color range
+  "-color_range",     "2",
+  // BT.709
+  "-colorspace",      "1",
+  // BT.709
+  "-color_primaries", "1",
+  // BT.709
+  "-color_trc",       "1",
 
   // set audio settings to AAC 320 kbps
   "-c:a",            "aac",
