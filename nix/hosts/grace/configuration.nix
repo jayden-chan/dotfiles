@@ -95,6 +95,7 @@ in
     exiftool
     exiv2
     google-cloud-sdk
+    kdenlive
     liquidctl
     mat2
     protontricks

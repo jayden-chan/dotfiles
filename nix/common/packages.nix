@@ -20,6 +20,7 @@
     eza
     fastfetch
     fd
+    feishin
     ffmpeg-full
     ffmpegthumbnailer
     file
