@@ -7,7 +7,7 @@ msg () {
 shopt -s expand_aliases
 alias rga='rg --color=never >/dev/null'
 
-exec > "$HOME/.cache/autostart.log" 2>&1
+exec > /tmp/autostart.log 2>&1
 
 nitrogen --restore &
 

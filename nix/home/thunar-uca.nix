@@ -57,7 +57,7 @@
             <name>Cull</name>
             <submenu>picman</submenu>
             <unique-id>1689641415278067-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/cull-basic.ts %F 2&gt;&amp;1 &gt; ${config-vars.home-dir}/.cache/cull_logs.log</command>
+            <command>${config-vars.home-dir}/Dev/picman/src/cull-basic.ts %F 2&gt;&amp;1 &gt; /tmp/cull_logs.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -68,7 +68,7 @@
             <name>Cull (safe)</name>
             <submenu>picman</submenu>
             <unique-id>1719774323493242-2</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/cull-basic.ts --safe %F 2&gt;&amp;1 &gt; ${config-vars.home-dir}/.cache/cull_logs.log</command>
+            <command>${config-vars.home-dir}/Dev/picman/src/cull-basic.ts --safe %F 2&gt;&amp;1 &gt; /tmp/cull_logs.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -112,7 +112,7 @@
             <name>Make Private</name>
             <submenu>picman</submenu>
             <unique-id>1719616786472408-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/private.ts %F 2&gt;&amp;1 &gt; ${config-vars.home-dir}/.cache/privatize.log</command>
+            <command>${config-vars.home-dir}/Dev/picman/src/private.ts %F 2&gt;&amp;1 &gt; /tmp/privatize.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -123,7 +123,7 @@
             <name>Make Pano Folder</name>
             <submenu>picman</submenu>
             <unique-id>1719760172570658-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/pano-group.ts %F 2&gt;&amp;1 &gt; ${config-vars.home-dir}/.cache/pano-group.log</command>
+            <command>${config-vars.home-dir}/Dev/picman/src/pano-group.ts %F 2&gt;&amp;1 &gt; /tmp/pano-group.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
