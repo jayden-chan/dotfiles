@@ -73,6 +73,8 @@ vim.opt.mouse = "a"
 -- Change cursor to bar and underscore for different modes
 vim.opt.guicursor = "a:blinkwait1-blinkon1-blinkoff1,n-v:block,i-ci-ve:ver1,r:hor1"
 
+vim.opt.laststatus = 3
+
 -- Leader
 vim.g.mapleader = " "
 
