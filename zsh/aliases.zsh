@@ -52,9 +52,9 @@ alias myip='curl https://ipinfo.io/ip && echo'
 
 # better defaults
 alias clear='clear -x'
-alias ls='eza'
-alias la='eza -lah'
-alias ll='eza -lh'
+alias ls='eza -b'
+alias la='eza -lahb'
+alias ll='eza -lhb'
 alias cat='bat'
 alias bc='bc -l'
 alias ip='ip -c'
