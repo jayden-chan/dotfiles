@@ -23,7 +23,7 @@
 
     config = {
       osd-scale-by-window = false;
-      no-osd-bar = true;
+      osd-bar = false;
       osd-scale = 0.7;
       sub-scale = 0.5;
       loop = true;
