@@ -3,6 +3,16 @@ return {
 	s("cpr", t("rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh")),
 	s("mvr", t("rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh")),
 	s(
+		"bash",
+		fmt(
+			[[
+#!/usr/bin/env bash
+set -euo pipefail
+]],
+			{}
+		)
+	),
+	s(
 		"argparse",
 		fmt(
 			[[
