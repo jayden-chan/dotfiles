@@ -1,4 +1,4 @@
-function op         () { thunar   ${1:-.}        </dev/null &>/dev/null & disown }
+function op         () { thunar ${1:-.} </dev/null &>/dev/null & disown }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
@@ -66,6 +66,14 @@ EOF
     fi
 }
 
+function findreplace () {
+    if [ "$1" = "--help" ]; then
+        echo "findreplace <trigger> <sed expression>"
+    fi
+
+    rg --files-with-matches "$1" | tee /dev/stderr | xargs sed -Ei "$2"
+}
+
 function gig () {
     if [[ "$1" == "ls" ]]; then
         curl --silent https://api.github.com/repos/github/gitignore/contents/ | jq '.[].name' -r | rg "\.gitignore" --replace=''
@@ -95,7 +103,6 @@ function gotify-send () {
 }
 
 function syc () {
-    alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1'
     if [ "$1" = "clips" ]; then
         echo "syncing clips"
         cpr -e ssh ~/Videos/clips/ homelab:Videos/cloud/clips/
