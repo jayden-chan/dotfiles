@@ -29,7 +29,7 @@
       loop = true;
       mute = true;
       volume = 50;
-      autofit-larger = 1200;
+      autofit-larger = "1200x900";
     };
 
     scriptOpts = {
