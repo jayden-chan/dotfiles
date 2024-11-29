@@ -1,7 +1,6 @@
 import { rm } from "node:fs/promises";
 import { writeFile } from "node:fs/promises";
 
-const AUDIO_EXTS = [".m4a", ".ogg", ".mp3", ".opus"];
 const RESOLUTION = "1920:1080";
 const DEBUG = false;
 const id = new Date()
@@ -16,6 +15,7 @@ const debugFile = `/tmp/cut_video_${id}_DEBUG.log`;
 const path = process.argv[2];
 const args = process.argv.slice(3);
 
+type Streams = { index: number; codec_type: "video" | "audio" }[];
 type LoudnessInfo = {
   input_i: string;
   input_tp: string;
@@ -67,13 +67,17 @@ async function notify(msg: string, opts?: { err?: boolean }): Promise<void> {
   await proc.exited;
 }
 
-function genComplexFilter(args: string[]): string {
-  const cutPoints = args.map((a) => parseFloat(a).toFixed(4));
-  const numCuts = cutPoints.length / 2;
+function genComplexFilter(cutPoints: string[], audioStreams: Streams): string {
+  const points = cutPoints.map((a) => parseFloat(a).toFixed(4));
+  const numCuts = points.length / 2;
   const cuts = [...Array(numCuts).keys()].map((n) => n + 1);
 
+  const audioInputs = audioStreams.map((s) => `[0:${s.index}]`).join("");
+  const audioWeight = audioStreams.length === 1 ? 1 : 0.6;
+  const audioWeights = audioStreams.map((_) => `${audioWeight}`).join(" ");
+
   // combine 2 input audio channels into one channel
-  let filter = `[0:1][0:2]amix=inputs=2:weights=0.6 0.6:normalize=0[outl];`;
+  let filter = `${audioInputs}amix=inputs=${audioStreams.length}:weights=${audioWeights}:normalize=0[outl];`;
   const vcopies = cuts.map((i) => `[vcopy${i}]`).join("");
   const acopies = cuts.map((i) => `[acopy${i}]`).join("");
 
@@ -83,8 +87,8 @@ function genComplexFilter(args: string[]): string {
   // for each copy of the video, trim it according to the cut timestamps
   cuts.forEach((i) => {
     const startIdx = (i - 1) * 2;
-    const startPos = cutPoints[startIdx];
-    const endPos = cutPoints[startIdx + 1];
+    const startPos = points[startIdx];
+    const endPos = points[startIdx + 1];
     filter += `[vcopy${i}]trim=start=${startPos}:end=${endPos},setpts=PTS-STARTPTS[v${i}];`;
   });
 
@@ -94,8 +98,8 @@ function genComplexFilter(args: string[]): string {
   // for each copy of the audio, trim it according to the cut timestamps
   cuts.forEach((i) => {
     const startIdx = (i - 1) * 2;
-    const startPos = cutPoints[startIdx];
-    const endPos = cutPoints[startIdx + 1];
+    const startPos = points[startIdx];
+    const endPos = points[startIdx + 1];
     filter += `[acopy${i}]atrim=start=${startPos}:end=${endPos},asetpts=PTS-STARTPTS[a${i}];`;
   });
 
@@ -108,7 +112,32 @@ function genComplexFilter(args: string[]): string {
   return filter;
 }
 
-if (AUDIO_EXTS.some((e) => path.endsWith(e))) {
+const { stdout: ffprobeOutput } = await cmd(
+  // prettier-ignore
+  [
+    "ffprobe",
+    "-v",            "quiet",
+    "-print_format", "json",
+    "-show_format",
+    "-show_streams",
+    path,
+  ],
+  "ffprobe",
+);
+
+let streams: Streams;
+try {
+  streams = JSON.parse(ffprobeOutput).streams;
+} catch (e) {
+  await notify("Error: Failed to parse JSON from ffprobe", { err: true });
+  await writeFile(debugFile, `${ffprobeOutput}\n\n${e}`);
+  process.exit(1);
+}
+
+const videoStreams = streams.filter((s) => s.codec_type === "video");
+const audioStreams = streams.filter((s) => s.codec_type === "audio");
+
+if (videoStreams.length === 0) {
   // prettier-ignore
   const command = [
     "ffmpeg",
@@ -145,7 +174,7 @@ if (args.some((a) => Number.isNaN(parseFloat(a)))) {
 }
 
 const tmpPath = `/tmp/cut_video_${id}.mp4`;
-const cutsFilter = genComplexFilter(args);
+const cutsFilter = genComplexFilter(args, audioStreams);
 
 // prettier-ignore
 const renderTmpClipCommand = [
@@ -167,12 +196,21 @@ const renderTmpClipCommand = [
   "-rc",             "constqp",
   "-multipass",      "qres",
 
-  // Number of frames to look ahead for rate-control (from 0 to INT_MAX) (default 0)
+  // number of frames to look ahead for rate-control (from 0 to INT_MAX) (default 0)
   "-rc-lookahead",   "53",
 
-  // Constant quantization parameter rate control method (from -1 to 255) (default -1)
+  // constant quantization parameter rate control method (from -1 to 255) (default -1)
   // lower value = higher quality
-  "-qp",             `${((18/51)*255).toFixed(0)}`,
+  "-qp",             process.env.CUT_VIDEO_QP ?? "64",
+
+  // enable adaptive B-frame decision
+  "-b_adapt",        "1",
+
+  // enable Spatial AQ
+  "-spatial-aq",     "1",
+
+  // enable Temporal AQ
+  "-temporal-aq",    "1",
 
   // full color range
   "-color_range",     "2",
