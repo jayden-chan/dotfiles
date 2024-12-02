@@ -46,7 +46,7 @@
             <name>Convert to H264</name>
             <submenu></submenu>
             <unique-id>1731643961229000-1</unique-id>
-            <command>${config-vars.dotfiles-dir}/scripts/toh264.sh %f</command>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts toh264 --notify %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>

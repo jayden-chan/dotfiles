@@ -49,7 +49,7 @@
           end
 
           local input_path = mp.get_property("stream-path")
-          local shell_cmd = "bun run $HOME/Dev/cut-video/src/index.ts --notify" .. shell_quote(input_path)
+          local shell_cmd = "bun run $HOME/Dev/videoman/src/index.ts cut --notify" .. shell_quote(input_path)
           for i, k in pairs(cuts) do
               shell_cmd = shell_cmd .. shell_quote(k)
           end

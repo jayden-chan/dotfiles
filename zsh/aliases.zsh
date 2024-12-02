@@ -74,3 +74,4 @@ alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.N
 alias drs='docker-compose up -d --force-recreate --remove-orphans'
 alias curlv='curl --verbose'
 alias pg='ps -ax | rg'
+alias videoman="$HOME/Dev/videoman/src/index.ts"
