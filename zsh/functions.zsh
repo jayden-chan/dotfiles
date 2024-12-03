@@ -95,10 +95,10 @@ function gig () {
 }
 
 function gotify-send () {
-    if [[ "$GOTIFY_TOKEN" = "" ]]; then
-        echo "no token"
+    if [ "$GOTIFY_HOST" = "" ] || [ "$GOTIFY_TOKEN" = "" ]; then
+        echo "missing host or token"
     else
-        curl "https://gotify.jayden.codes/message?token=$GOTIFY_TOKEN" -F "title=$1" -F "message=$2" -F "priority=5"
+        curl "https://$GOTIFY_HOST/message?token=$GOTIFY_TOKEN" -F "title=$1" -F "message=$2" -F "priority=5"
     fi
 }
 

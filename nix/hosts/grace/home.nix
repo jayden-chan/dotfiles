@@ -15,7 +15,7 @@ let
 
       crtc = 0;
       mode = "1920x1080";
-      position = "1080x350";
+      position = "1920x0";
       rate = "240.00";
     };
     "HDMI-0" = {
@@ -25,7 +25,6 @@ let
       mode = "1920x1080";
       position = "0x0";
       rate = "144.00";
-      rotate = "left";
     };
   };
 in

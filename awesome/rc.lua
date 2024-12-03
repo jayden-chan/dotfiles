@@ -293,14 +293,8 @@ awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 60, function(_, s
 end)
 
 awful.screen.connect_for_each_screen(function(s)
-	-- Each screen has its own tag table.
-	if s.index == 1 then
-		-- The main screen uses tile.left layout by default
-		awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-	else
-		-- The side screen uses tile.top by default
-		awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[2])
-	end
+	-- tile.left is the default layout
+	awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
 	-- Create a textclock widget
 	s.textclock_local = wibox.widget.textclock("%a, %b %e %l:%M %p")
