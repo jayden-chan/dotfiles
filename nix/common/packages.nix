@@ -65,7 +65,6 @@
     xclip
     xcolor
     yaml-language-server
-    yt-dlp
     zoxide
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -89,6 +88,7 @@
     unstable.devenv
     unstable.neovim
     unstable.nil
+    unstable.yt-dlp
 
     inputs.agenix.packages.${system}.default
     inputs.minichacha.packages."${system}".default

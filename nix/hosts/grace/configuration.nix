@@ -105,6 +105,7 @@ in
 
     unstable.ansel
     unstable.hugin
+    unstable.prismlauncher
 
     # make the NVIDIA X11 libraries available for gpu-screen-recorder
     (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
@@ -115,13 +116,12 @@ in
     '')
   ];
 
-  # un-comment to enable CUDA
   # this can't be placed into a devenv configuration because
   # it needs access to the system-wide NVIDIA package paths
-  # environment.sessionVariables = {
-  #   CUDA_PATH = "${pkgs.cudatoolkit}";
-  #   EXTRA_LDFLAGS = "-L/lib -L${nvidia-package}/lib";
-  # };
+  environment.sessionVariables = {
+    CUDA_PATH = "${pkgs.cudatoolkit}";
+    EXTRA_LDFLAGS = "-L/lib -L${nvidia-package}/lib";
+  };
 
   programs.firejail.enable = true;
 
