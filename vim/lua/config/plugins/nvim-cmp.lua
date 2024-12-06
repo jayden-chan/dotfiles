@@ -71,7 +71,10 @@ return {
 						strings[2] = "Type Parameter"
 					end
 
-					kind.kind = " " .. strings[1] .. " " .. strings[2]
+					local s1 = strings[1] or ""
+					local s2 = strings[2] or ""
+
+					kind.kind = " " .. s1 .. " " .. s2
 					return kind
 				end,
 			},
