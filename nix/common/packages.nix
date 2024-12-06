@@ -52,7 +52,6 @@
     rofi
     rsync
     shellcheck
-    spotify
     stylua
     taplo
     tokei
@@ -85,9 +84,11 @@
     xorg.xrdb
     xorg.xset
 
+    unstable.bruno
     unstable.devenv
     unstable.neovim
     unstable.nil
+    unstable.spotify
     unstable.yt-dlp
 
     inputs.agenix.packages.${system}.default

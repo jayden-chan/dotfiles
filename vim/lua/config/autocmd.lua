@@ -52,6 +52,7 @@ vim.cmd([[autocmd BufRead,BufNewFile Jenkinsfile setf groovy]])
 vim.cmd([[autocmd BufRead,BufNewFile *.graphql setf graphql]])
 vim.cmd([[autocmd BufRead,BufNewFile *.rasi setf rasi]])
 vim.cmd([[autocmd BufRead,BufNewFile *.http setf http]])
+vim.cmd([[autocmd BufRead,BufNewFile *.mdx setf markdown]])
 
 -- Set indentation to hard tabs for some files
 vim.cmd([[autocmd FileType snippets,go,lua setlocal tabstop=4]])

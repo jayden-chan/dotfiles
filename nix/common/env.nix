@@ -50,6 +50,7 @@
     DENO_NO_UPDATE_CHECK = "1";
     GOPROXY = "direct";
     ARTILLERY_DISABLE_TELEMETRY = "true";
+    ASTRO_TELEMETRY_DISABLED = "1";
 
     PATH = [
       "$HOME/.local/bin"

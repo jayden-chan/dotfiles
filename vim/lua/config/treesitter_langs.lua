@@ -1,4 +1,5 @@
 local base = {
+	"astro",
 	"bash",
 	"c",
 	"cmake",

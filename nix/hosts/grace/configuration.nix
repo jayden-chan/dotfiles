@@ -91,6 +91,7 @@ in
   environment.systemPackages = with pkgs; [
     borgbackup
     dbeaver-bin
+    dive
     drm_info
     exiftool
     exiv2
