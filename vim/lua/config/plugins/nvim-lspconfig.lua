@@ -35,6 +35,13 @@ return {
 		local on_init = lsp_settings.on_init
 		local default_flags = lsp_settings.default_flags
 
+		local default_lsp_config = {
+			capabilities = capabilities,
+			on_init = on_init,
+			on_attach = on_attach,
+			flags = default_flags,
+		}
+
 		---                       ---
 		--- Language Server Setup ---
 		---                       ---
@@ -58,39 +65,30 @@ return {
 			flags = default_flags,
 		})
 
-		lspconfig.gopls.setup({
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = on_attach,
-			flags = default_flags,
-		})
+		lspconfig.gopls.setup(default_lsp_config)
+		lspconfig.clangd.setup(default_lsp_config)
+		lspconfig.taplo.setup(default_lsp_config)
+		lspconfig.yamlls.setup(default_lsp_config)
+		lspconfig.nil_ls.setup(default_lsp_config)
 
-		lspconfig.clangd.setup({
+		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
 			on_init = on_init,
 			on_attach = on_attach,
 			flags = default_flags,
-		})
-
-		lspconfig.taplo.setup({
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = on_attach,
-			flags = default_flags,
-		})
-
-		lspconfig.yamlls.setup({
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = on_attach,
-			flags = default_flags,
-		})
-
-		lspconfig.nil_ls.setup({
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = on_attach,
-			flags = default_flags,
+			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			root_dir = function(fname)
+				return lsp_util.root_pattern(
+					"tailwind.config.js",
+					"tailwind.config.cjs",
+					"tailwind.config.mjs",
+					"tailwind.config.ts",
+					"postcss.config.js",
+					"postcss.config.cjs",
+					"postcss.config.mjs",
+					"postcss.config.ts"
+				)(fname)
+			end,
 		})
 
 		lspconfig.rust_analyzer.setup({
