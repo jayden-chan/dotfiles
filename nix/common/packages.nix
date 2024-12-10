@@ -17,6 +17,7 @@
     carla
     chromium
     dig
+    eog
     eza
     fastfetch
     fd
@@ -64,12 +65,10 @@
     xclip
     xcolor
     yaml-language-server
+    zenity
     zoxide
     zsh-autosuggestions
     zsh-syntax-highlighting
-
-    gnome.eog
-    gnome.zenity
 
     nodePackages.typescript-language-server
 

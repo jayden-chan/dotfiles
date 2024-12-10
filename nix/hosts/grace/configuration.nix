@@ -11,12 +11,12 @@ let
   nvidia-package =
     (
       (config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        version = "555.58.02";
-        sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
-        sha256_aarch64 = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
-        openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-        settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-        persistencedSha256 = lib.fakeSha256;
+        version = "550.135";
+        sha256_64bit = "sha256-ESBH9WRABWkOdiFBpVtCIZXKa5DvQCSke61MnoGHiKk=";
+        sha256_aarch64 = "sha256-uyBCVhGZ637wv9JAp6Bq0A4e5aQ84jz/5iBgXdPr2FU=";
+        openSha256 = "sha256-426lonLlCk4jahU4waAilYiRUv6bkLMuEpOLkCwcutE=";
+        settingsSha256 = "sha256-4B61Q4CxDqz/BwmDx6EOtuXV/MNJbaZX+hj/Szo1z1Q=";
+        persistencedSha256 = "sha256-FXKOTLbjhoGbO3q6kRuRbHw2pVUkOYTbTX2hyL/az94=";
       }).overrideAttrs
       (
         {
@@ -28,7 +28,7 @@ let
           preFixup =
             preFixup
             + ''
-              sed -i 's/\x85\xc0\x0f\x85\x9b\x00\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
+              sed -i 's/\x83\xfe\x01\x73\x08\x48/\x83\xfe\x01\x90\x90\x48/' $out/lib/libnvidia-fbc.so.${version}
             '';
         }
       )
@@ -43,7 +43,7 @@ let
           preFixup =
             preFixup
             + ''
-              sed -i 's/\xe8\x25\x43\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\x25\x43\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
+              sed -i 's/\xe8\xf5\x52\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\xf5\x52\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
             '';
         }
       );
@@ -100,7 +100,6 @@ in
     liquidctl
     mat2
     protontricks
-    psensor
     qrencode
     yq-go
 
@@ -112,6 +111,14 @@ in
     (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
       mkdir -p $out/bin
       makeWrapper ${unstable.gpu-screen-recorder}/bin/gpu-screen-recorder $out/bin/gpu-screen-recorder \
+        --prefix LD_LIBRARY_PATH : ${pkgs.libglvnd}/lib \
+        --prefix LD_LIBRARY_PATH : ${nvidia-package}/lib
+    '')
+
+    # make the NVIDIA libraries available for btop
+    (pkgs.runCommand "btop" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
+      mkdir -p $out/bin
+      makeWrapper ${btop}/bin/btop $out/bin/btop \
         --prefix LD_LIBRARY_PATH : ${pkgs.libglvnd}/lib \
         --prefix LD_LIBRARY_PATH : ${nvidia-package}/lib
     '')
@@ -192,9 +199,9 @@ in
     package = nvidia-package;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   services.sunshine = {
