@@ -860,9 +860,9 @@ awful.rules.rules = {
 		},
 		properties = { floating = true },
 	},
-	-- Psensor on side screen
+	-- sensors-mon on side screen
 	{
-		rule = { class = "Psensor" },
+		rule = { name = "sensors-mon" },
 		properties = { screen = 2, tag = "2" },
 	},
 	-- Carla on side screen

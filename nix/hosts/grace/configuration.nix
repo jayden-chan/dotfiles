@@ -4,6 +4,7 @@
   unstable,
   config,
   config-vars,
+  inputs,
   ...
 }:
 
@@ -115,11 +116,12 @@ in
         --prefix LD_LIBRARY_PATH : ${nvidia-package}/lib
     '')
 
-    # make the NVIDIA libraries available for btop
-    (pkgs.runCommand "btop" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
+    # make the NVIDIA libraries available for sensors-mon
+    (pkgs.runCommand "sensors-mon" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
       mkdir -p $out/bin
-      makeWrapper ${btop}/bin/btop $out/bin/btop \
-        --prefix LD_LIBRARY_PATH : ${pkgs.libglvnd}/lib \
+      makeWrapper ${
+        inputs.sensors-mon.packages."${system}".default
+      }/bin/sensors-mon $out/bin/sensors-mon \
         --prefix LD_LIBRARY_PATH : ${nvidia-package}/lib
     '')
   ];

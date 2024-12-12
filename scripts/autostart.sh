@@ -45,15 +45,15 @@ if [ "$HOSTNAME" = "grace" ]; then
         "$DOT/scripts/auto-cool.sh" &
     fi
 
-    if ! rga "psensor" "$ps_ax"; then
-        msg "starting psensor"
+    if ! rga "sensors-mon" "$ps_ax"; then
+        msg "starting sensors-mon"
 
         # we'll sleep for a couple seconds so that
-        # psensor starts up after carla and goes into
+        # sensors-mon starts up after carla and goes into
         # the right place in the tiling window manager
         # hierarchy
         sleep 2
 
-        psensor 2>/dev/null &
+        st -e sensors-mon 2>/dev/null &
     fi
 fi
