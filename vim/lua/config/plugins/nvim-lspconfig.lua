@@ -77,6 +77,16 @@ return {
 			on_attach = on_attach,
 			flags = default_flags,
 			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			settings = {
+				tailwindCSS = {
+					experimental = {
+						classRegex = {
+							{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+							{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+						},
+					},
+				},
+			},
 			root_dir = function(fname)
 				return lsp_util.root_pattern(
 					"tailwind.config.js",
