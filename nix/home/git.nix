@@ -18,8 +18,8 @@ in
         features = "decorations";
         side-by-side = true;
         syntax-theme = "ansi";
-        plus-style = "syntax #165422";
-        minus-style = "syntax #69262b";
+        plus-style = "syntax #213620";
+        minus-style = "syntax #3c1e20";
         paging = "always";
 
         interactive = {
