@@ -977,11 +977,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733982535,
-        "narHash": "sha256-Gmj24OtmjtPlFgUsNbhQG2tIGHJgdXkk6WSI3ljXik0=",
+        "lastModified": 1734242881,
+        "narHash": "sha256-0zS7L9V80gUhuHMKfEPwWYh5VRMGzAjzaUY4RlqsOCM=",
         "owner": "jayden-chan",
         "repo": "zen-browser-flake",
-        "rev": "870abf28402f3e2aa29b3f0afa216553060f81ea",
+        "rev": "1458c714bf460e20bdd0991783c6894eba1bda1f",
         "type": "github"
       },
       "original": {

@@ -66,6 +66,10 @@ map("n", "<leader>k", "<cmd>resize +2<CR>", { silent = false })
 map("n", "<leader>i", "<cmd>resize -2<CR>", { silent = false })
 map("n", "<leader>l", "<cmd>vertical resize -5<CR>", { silent = false })
 
+-- Quickfix navigation
+map("n", "]q", "<cmd>cnext<CR>")
+map("n", "[q", "<cmd>cprev<CR>")
+
 -- Make c-p function like c-i since c-i was previously remapped
 map("n", "<c-p>", "<c-i>")
 
