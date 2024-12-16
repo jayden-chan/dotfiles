@@ -7,7 +7,6 @@ return {
 	ft = ts_config.extended,
 	dependencies = {
 		utils.mirror("nvim-treesitter-textobjects"),
-		utils.mirror("playground"),
 	},
 	config = function()
 		require("nvim-treesitter.configs").setup({

@@ -33,7 +33,6 @@ require("lazy").setup({
 	require("config.plugins.lspsaga"),
 	require("config.plugins.trouble"),
 	require("config.plugins.treesitter"),
-	require("config.plugins.treesitter-playground"),
 	require("config.plugins.hexokinase"),
 	require("config.plugins.presence"),
 	require("config.plugins.gitlinker"),
