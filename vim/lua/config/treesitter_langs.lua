@@ -21,6 +21,7 @@ local base = {
 	"make",
 	"markdown",
 	"markdown_inline",
+	"nginx",
 	"nix",
 	"python",
 	"query",
