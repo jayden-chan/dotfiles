@@ -441,10 +441,6 @@ local globalkeys = gears.table.join(
 		awful.spawn.with_shell("kill -TERM $(pgrep -f 'target/debug/lakehouse-server')")
 	end, { description = "shutdown lakehouse", group = "awesome" }),
 
-	awful.key({ modkey, "Control" }, "s", function()
-		awful.spawn.with_shell("eog =(xclip -selection clipboard -t image/png -o)")
-	end, { description = "show screenshot from clipboard", group = "awesome" }),
-
 	-- Screenshots
 	awful.key(
 		{ super, "Control" },
@@ -472,6 +468,13 @@ local globalkeys = gears.table.join(
 		"Print",
 		script_cb("screenshot.sh", {}, false),
 		{ description = "screenshot all screens", group = "screenshot" }
+	),
+
+	awful.key(
+		{ modkey, "Control" },
+		"s",
+		script_cb("screenshot.sh", { "--view" }, false),
+		{ description = "view screenshot in clipboard", group = "screenshot" }
 	),
 
 	awful.key(

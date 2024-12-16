@@ -26,6 +26,10 @@ case "$1" in
 
         rm "$tmp_file"
         ;;
+    --view)
+        xclip -selection clipboard -t image/png -o > "$tmp_file.png"
+        eog "$tmp_file.png"
+        ;;
     # screenshot the entire desktop
     *)
         maim --noopengl | clip -t image/png > "$tmp_file"
