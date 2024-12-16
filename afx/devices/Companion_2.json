@@ -6,24 +6,24 @@
     {
       "type": "eq",
       "settings": {
-        "preamp": -1.48,
+        "preamp": -3.13,
         "zoom": -34.37,
         "bands": [
-          {
-            "type": "peaking",
-            "mode": "APO_DR",
-            "slope": 0,
-            "freq": 33.108,
-            "Q": 1,
-            "gain": 3.35
-          },
           {
             "type": "lowshelf",
             "mode": "RLC_BT",
             "slope": 0,
             "freq": 60.61,
             "Q": 0.25,
-            "gain": -4.6
+            "gain": 0.07
+          },
+          {
+            "type": "lowshelf",
+            "mode": "APO_DR",
+            "slope": 0,
+            "freq": 69.34,
+            "Q": 0.55,
+            "gain": 4.99
           },
           {
             "type": "peaking",
@@ -31,7 +31,7 @@
             "slope": 0,
             "freq": 124.776,
             "Q": 3.22,
-            "gain": -9.68
+            "gain": -5.36
           },
           {
             "type": "peaking",
@@ -39,7 +39,7 @@
             "slope": 0,
             "freq": 212.806,
             "Q": 1.5,
-            "gain": -1.19
+            "gain": -4.82
           },
           {
             "type": "peaking",
@@ -47,7 +47,7 @@
             "slope": 0,
             "freq": 707.436,
             "Q": 0.28,
-            "gain": 0.88
+            "gain": 0.19
           },
           {
             "type": "highshelf",

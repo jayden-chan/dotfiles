@@ -1,7 +1,7 @@
 [
   {
     "name": "Companion 2",
-    "preamp": -1.48,
+    "preamp": -3.13,
     "parametric": true,
     "bands": [
       {
@@ -21,19 +21,19 @@
         "color": 0
       },
       {
-        "type": 3,
+        "type": 4,
         "channels": 0,
-        "frequency": 33,
-        "q": 1,
-        "gain": 3.35,
+        "frequency": 61,
+        "q": 0.25,
+        "gain": 0.07,
         "color": -13421773
       },
       {
         "type": 4,
         "channels": 0,
-        "frequency": 61,
-        "q": 0.25,
-        "gain": -4.6,
+        "frequency": 69,
+        "q": 0.55,
+        "gain": 4.99,
         "color": -8947849
       },
       {
@@ -41,7 +41,7 @@
         "channels": 0,
         "frequency": 125,
         "q": 3.22,
-        "gain": -9.68,
+        "gain": -5.36,
         "color": -13421773
       },
       {
@@ -49,7 +49,7 @@
         "channels": 0,
         "frequency": 213,
         "q": 1.5,
-        "gain": -1.19,
+        "gain": -4.82,
         "color": -8947849
       },
       {
@@ -57,7 +57,7 @@
         "channels": 0,
         "frequency": 707,
         "q": 0.28,
-        "gain": 0.88,
+        "gain": 0.19,
         "color": -13421773
       },
       {
