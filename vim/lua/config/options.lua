@@ -78,15 +78,6 @@ vim.opt.laststatus = 3
 -- Leader
 vim.g.mapleader = " "
 
-vim.g.Hexokinase_optInPatterns = {
-	"full_hex",
-	"triple_hex",
-	"rgb",
-	"rgba",
-	"hsl",
-	"hsla",
-}
-
 vim.g.rustfmt_autosave = 1
 vim.g.sql_type_default = "pgsql"
 

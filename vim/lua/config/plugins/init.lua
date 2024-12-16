@@ -33,12 +33,12 @@ require("lazy").setup({
 	require("config.plugins.lspsaga"),
 	require("config.plugins.trouble"),
 	require("config.plugins.treesitter"),
-	require("config.plugins.hexokinase"),
 	require("config.plugins.presence"),
 	require("config.plugins.gitlinker"),
 	require("config.plugins.luasnip"),
 	require("config.plugins.vim-dadbod-ui"),
 	require("config.plugins.todo-comments"),
+	require("config.plugins.nvim-colorizer"),
 }, {
 	performance = {
 		rtp = {
