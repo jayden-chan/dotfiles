@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 msg () {
-    echo "[autostart] $1"
+    echo "[autostart] [$(date)] $1"
 }
 
 shopt -s expand_aliases
@@ -46,14 +46,13 @@ if [ "$HOSTNAME" = "grace" ]; then
     fi
 
     if ! rga "sensors-mon" "$ps_ax"; then
-        msg "starting sensors-mon"
-
         # we'll sleep for a couple seconds so that
         # sensors-mon starts up after carla and goes into
         # the right place in the tiling window manager
         # hierarchy
         sleep 2
 
+        msg "starting sensors-mon"
         st -e sensors-mon 2>/dev/null &
     fi
 fi
