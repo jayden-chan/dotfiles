@@ -6,7 +6,6 @@ return {
 		{ "<leader>f", '<cmd>lua require("telescope.builtin").find_files()<cr>' },
 		{ "<leader>r", '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
 		{ "<leader>b", '<cmd>lua require("telescope.builtin").buffers()<cr>' },
-		{ "<leader>hh", '<cmd>lua require("telescope.builtin").help_tags()<cr>' },
 		{ "<leader>n", '<cmd>lua require("telescope.builtin").lsp_references()<cr>' },
 		{ "<leader>z", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>' },
 	},

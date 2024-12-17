@@ -42,16 +42,8 @@ return {
 			end, { expr = true })
 
 			-- Actions
-			map({ "n", "v" }, "<leader>u", ":Gitsigns reset_hunk<CR>")
-			map("n", "<leader>hR", gs.reset_buffer)
+			map({ "n", "v" }, "<leader>u", gs.reset_hunk)
 			map("n", "<leader>q", gs.preview_hunk)
-			map("n", "<leader>hb", function()
-				gs.blame_line({ full = true })
-			end)
-			map("n", "<leader>tb", gs.toggle_current_line_blame)
-
-			-- Text object
-			map({ "o", "x" }, "hh", ":<C-U>Gitsigns select_hunk<CR>")
 		end,
 	},
 }
