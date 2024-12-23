@@ -54,62 +54,63 @@ in
       diff.colorMoved = "default";
 
       core = {
+        abbrev = "8";
         editor = "nvim";
         whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
 
-        excludesfile = "${pkgs.writeText "git-excludes-file" ''
-          # vim: ft=gitignore
-          node_modules
-          *.swp
+        excludesfile = "${pkgs.writeText "git-excludes-file"
+          # gitignore
+          ''
+            node_modules
+            *.swp
 
-          .null-ls-root
-          .git-ignored-general
+            .null-ls-root
+            .git-ignored-general
 
-          ##### Linux OS ignores
+            ##### Linux OS ignores
 
-          # temporary files which can be created if a process still has a handle open of a deleted file
-          .fuse_hidden*
+            # temporary files which can be created if a process still has a handle open of a deleted file
+            .fuse_hidden*
 
-          # KDE directory preferences
-          .directory
+            # KDE directory preferences
+            .directory
 
-          # Linux trash folder which might appear on any partition or disk
-          .Trash-*
+            # Linux trash folder which might appear on any partition or disk
+            .Trash-*
 
-          # .nfs files are created when an open file is removed but is still being accessed
-          .nfs*
+            # .nfs files are created when an open file is removed but is still being accessed
+            .nfs*
 
-          ##### MacOS Ignores
+            ##### MacOS Ignores
 
-          # General
-          .DS_Store
-          .AppleDouble
-          .LSOverride
+            # General
+            .DS_Store
+            .AppleDouble
+            .LSOverride
 
-          # Icon must end with two \r
-          Icon
+            # Icon must end with two \r
+            Icon
 
-          # Thumbnails
-          ._*
+            # Thumbnails
+            ._*
 
-          # Files that might appear in the root of a volume
-          .DocumentRevisions-V100
-          .fseventsd
-          .Spotlight-V100
-          .TemporaryItems
-          .Trashes
-          .VolumeIcon.icns
-          .com.apple.timemachine.donotpresent
+            # Files that might appear in the root of a volume
+            .DocumentRevisions-V100
+            .fseventsd
+            .Spotlight-V100
+            .TemporaryItems
+            .Trashes
+            .VolumeIcon.icns
+            .com.apple.timemachine.donotpresent
 
-          # Directories potentially created on remote AFP share
-          .AppleDB
-          .AppleDesktop
-          Network Trash Folder
-          Temporary Items
-          .apdisk
-        ''}";
-
-        abbrev = "8";
+            # Directories potentially created on remote AFP share
+            .AppleDB
+            .AppleDesktop
+            Network Trash Folder
+            Temporary Items
+            .apdisk
+          ''
+        }";
       };
 
       commit = {
