@@ -30,7 +30,7 @@ export function genLSP(contents: Contents) {
   }
 
   const bands = eq.settings.bands.map((b, i) =>
-    jsonBandToLSPBand(b, i, eq.settings.bands.length)
+    jsonBandToLSPBand(b, i, eq.settings.bands.length),
   );
 
   const fillerBands = [...Array(16 - bands.length).keys()].map((e) => {
@@ -42,17 +42,17 @@ export function genLSP(contents: Contents) {
 g_in = ${eq.settings.preamp.toFixed(4)} db
 g_out = 0.00 db
 mode = 0
-fft = 2
 react = 0.10000
 shift = 0.00 db
+ife_l = true
+ofe_l = false
+ife_r = true
+ofe_r = false
 zoom = ${eq.settings.zoom.toFixed(3)} db
 fsel = 0
 bal = 0.00000
 frqs = 0.00000
-fftv_l = true
-fftv_r = true
-${finalBands.map(formatLSPBand).join("\n")}
-out_latency = 0`;
+${finalBands.map(formatLSPBand).join("\n")}`;
 }
 
 const formatLSPBand = (lspBand: LSPBand) => {
