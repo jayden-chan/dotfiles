@@ -60,7 +60,7 @@ end
 
 -- {{{ Variable definitions
 -- This is used later as the default terminal and editor to run.
-local terminal = "st"
+local terminal = "ghostty"
 local editor = os.getenv("EDITOR") or "nvim"
 local host = os.getenv("HOSTNAME") or "grace"
 local editor_cmd = terminal .. " -e " .. editor

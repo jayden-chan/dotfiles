@@ -35,7 +35,7 @@
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java";
 
     EDITOR = "nvim";
-    TERMINAL = "st";
+    TERMINAL = config-vars.terminal;
     BROWSER = "zen";
     COLORTERM = "truecolor";
     DOT = config-vars.dotfiles-dir;

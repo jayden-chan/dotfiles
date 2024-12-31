@@ -15,6 +15,10 @@
     stylix.url = "github:danth/stylix/release-24.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+    ghostty.url = "github:ghostty-org/ghostty";
+    ghostty.inputs.nixpkgs-stable.follows = "nixpkgs";
+    ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+
     minichacha.url = "github:jayden-chan/minichacha";
     minichacha.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -52,6 +56,7 @@
           email = "jayden@jayden.codes";
           home-dir = "/home/jayden";
           dotfiles-dir = "${home-dir}/.config/dotfiles";
+          terminal = "ghostty";
           locale = "en_CA.UTF-8";
           theme = import ./theme.nix;
           ips = {

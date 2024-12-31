@@ -91,6 +91,7 @@
     unstable.yt-dlp
 
     inputs.agenix.packages.${system}.default
+    inputs.ghostty.packages.${system}.default
     inputs.minichacha.packages."${system}".default
     inputs.notifications-dbus-mon.packages."${system}".default
     inputs.spotify-dbus-mon.packages."${system}".default
