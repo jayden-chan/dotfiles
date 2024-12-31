@@ -202,7 +202,7 @@ function bwg () {
 
 function mullvad_ns () {
     NS="mullvad"
-    WGIF="wg0"
+    WGIF="wg1"
 
     command="$1"
     shift
