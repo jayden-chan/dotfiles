@@ -1,0 +1,40 @@
+{
+  "name": "Energy",
+  "type": "sink",
+  "output": "FL FR",
+  "effects": [
+    {
+      "type": "eq",
+      "settings": {
+        "preamp": -3.2,
+        "zoom": -35.69,
+        "bands": [
+          {
+            "type": "lowshelf",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 91.362,
+            "Q": 0.75,
+            "gain": -2.57
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 710.7,
+            "Q": 0,
+            "gain": 3.57
+          },
+          {
+            "type": "highshelf",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 10255.173,
+            "Q": 0,
+            "gain": 1.43
+          }
+        ]
+      }
+    }
+  ]
+}
