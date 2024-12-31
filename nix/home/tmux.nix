@@ -22,7 +22,7 @@
         bind c new-window -c "#{pane_current_path}"
         bind '"' split-window -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
-        bind n display-popup -d "#{pane_current_path}" -xC -yC -w100% -h100% -E 'lazygit'
+        bind n display-popup -B -d "#{pane_current_path}" -xC -yC -w100% -h100% -E 'lazygit'
 
         bind S choose-window "join-pane -v -s "%%""
         bind V choose-window "join-pane -h -s "%%""
