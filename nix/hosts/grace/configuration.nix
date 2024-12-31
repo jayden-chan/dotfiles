@@ -105,6 +105,7 @@ in
     yq-go
 
     unstable.ansel
+    unstable.caffeine-ng
     unstable.hugin
     unstable.prismlauncher
 
