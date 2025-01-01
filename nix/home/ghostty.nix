@@ -5,6 +5,7 @@
     ''
       auto-update = off
       clipboard-read = allow
+      confirm-close-surface = false
       font-family = "Iosevka Nerd Font"
       font-size = 12
       gtk-tabs-location = hidden

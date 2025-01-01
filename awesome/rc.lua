@@ -865,7 +865,7 @@ awful.rules.rules = {
 	},
 	-- sensors-mon on side screen
 	{
-		rule = { name = "sensors-mon" },
+		rule = { instance = "sensors-mon" },
 		properties = { screen = 2, tag = "2" },
 	},
 	-- Carla on side screen
