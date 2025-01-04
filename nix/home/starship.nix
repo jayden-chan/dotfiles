@@ -38,9 +38,9 @@
       };
 
       nix_shell = {
-        impure_msg = "[impure](bold red)";
-        pure_msg = "[pure](bold green)";
-        unknown_msg = "[unknown](bold yellow)";
+        impure_msg = " [impure](bold red)";
+        pure_msg = " [pure](bold green)";
+        unknown_msg = " [unknown](bold yellow)";
         format = "via [❄️$state( \($name\))](bold blue) ";
       };
 
