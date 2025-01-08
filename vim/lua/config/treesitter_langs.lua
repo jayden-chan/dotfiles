@@ -5,6 +5,7 @@ local base = {
 	"cmake",
 	"cpp",
 	"css",
+	"dart",
 	"dockerfile",
 	"go",
 	"graphql",

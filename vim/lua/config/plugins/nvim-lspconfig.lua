@@ -6,7 +6,7 @@ local user_cmd = vim.api.nvim_buf_create_user_command
 return {
 	utils.mirror("nvim-lspconfig"),
 	dependencies = {
-		utils.mirror("cmp-nvim-lsp"),
+		utils.mirror("blink.cmp"),
 		utils.mirror("lspsaga.nvim"),
 	},
 	ft = ts_config.extended,
@@ -28,7 +28,8 @@ return {
 		})
 
 		-- Setup lspconfig.
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local lspconfig = require("lspconfig")
 		local lsp_util = require("lspconfig.util")
 		local on_attach = lsp_settings.on_attach
@@ -70,13 +71,14 @@ return {
 		lspconfig.taplo.setup(default_lsp_config)
 		lspconfig.yamlls.setup(default_lsp_config)
 		lspconfig.nil_ls.setup(default_lsp_config)
+		lspconfig.dartls.setup(default_lsp_config)
 
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
 			on_init = on_init,
 			on_attach = on_attach,
 			flags = default_flags,
-			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			filetypes = { "typescriptreact", "javascriptreact", "html" },
 			settings = {
 				tailwindCSS = {
 					experimental = {

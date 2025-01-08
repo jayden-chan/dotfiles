@@ -5,14 +5,15 @@ local ts_config = require("config.treesitter_langs")
 return {
 	utils.mirror("none-ls.nvim"),
 	dependencies = {
-		utils.mirror("cmp-nvim-lsp"),
-		"gbprod/none-ls-shellcheck.nvim",
-		"nvimtools/none-ls-extras.nvim",
+		utils.mirror("blink.cmp"),
+		utils.mirror("none-ls-shellcheck.nvim"),
+		utils.mirror("none-ls-extras.nvim"),
 	},
 	ft = ts_config.extended,
 	config = function()
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local null_ls = require("null-ls")
+
 		null_ls.setup({
 			capabilities = capabilities,
 			on_init = lsp_config.on_init,
