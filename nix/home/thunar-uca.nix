@@ -162,66 +162,6 @@
             <patterns>*</patterns>
             <image-files/>
         </action>
-        <action>
-            <icon></icon>
-            <name>Encrypt</name>
-            <submenu></submenu>
-            <unique-id>1725996062477753-1</unique-id>
-            <command>${config-vars.dotfiles-dir}/scripts/minichacha.sh encrypt %f</command>
-            <description>Encrypt file with minichacha</description>
-            <range>*</range>
-            <patterns>*</patterns>
-            <audio-files/>
-            <image-files/>
-            <other-files/>
-            <text-files/>
-            <video-files/>
-        </action>
-        <action>
-            <icon></icon>
-            <name>Encrypt + shred</name>
-            <submenu></submenu>
-            <unique-id>1725996519859743-4</unique-id>
-            <command>${config-vars.dotfiles-dir}/scripts/minichacha.sh encrypt %f --shred</command>
-            <description>Encrypt file with minichacha then shred original</description>
-            <range>*</range>
-            <patterns>*</patterns>
-            <audio-files/>
-            <image-files/>
-            <other-files/>
-            <text-files/>
-            <video-files/>
-        </action>
-        <action>
-            <icon></icon>
-            <name>Decrypt</name>
-            <submenu></submenu>
-            <unique-id>1725996206100751-2</unique-id>
-            <command>${config-vars.dotfiles-dir}/scripts/minichacha.sh decrypt %f</command>
-            <description>Decrypt file with minichacha</description>
-            <range>*</range>
-            <patterns>*.minichacha</patterns>
-            <audio-files/>
-            <image-files/>
-            <other-files/>
-            <text-files/>
-            <video-files/>
-        </action>
-        <action>
-            <icon></icon>
-            <name>Decrypt + write</name>
-            <submenu></submenu>
-            <unique-id>1725996348476582-3</unique-id>
-            <command>${config-vars.dotfiles-dir}/scripts/minichacha.sh decrypt %f --write</command>
-            <description>Decrypt file with minichacha and write to file</description>
-            <range>*</range>
-            <patterns>*.minichacha</patterns>
-            <audio-files/>
-            <image-files/>
-            <other-files/>
-            <text-files/>
-            <video-files/>
-        </action>
         </actions>
       '';
   };

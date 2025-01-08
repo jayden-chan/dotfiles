@@ -19,9 +19,6 @@
     ghostty.inputs.nixpkgs-stable.follows = "nixpkgs";
     ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
 
-    minichacha.url = "github:jayden-chan/minichacha";
-    minichacha.inputs.nixpkgs.follows = "nixpkgs";
-
     notifications-dbus-mon.url = "github:jayden-chan/notifications-dbus-mon";
     notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
 
