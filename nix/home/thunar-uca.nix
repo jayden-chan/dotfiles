@@ -23,7 +23,7 @@
             <name>FFProbe</name>
             <submenu></submenu>
             <unique-id>1676602598381730-1</unique-id>
-            <command>${config-vars.terminal} -e sh -c &quot;ffprobe -hide_banner %f 2&gt;&amp;1 |  less  --exit-follow-on-close +F&quot;</command>
+            <command>${config-vars.terminal} -e &quot;ffprobe -hide_banner %f 2&gt;&amp;1 | less --exit-follow-on-close +F&quot;</command>
             <description>Run ffprobe on file</description>
             <range>*</range>
             <patterns>*</patterns>
@@ -35,7 +35,7 @@
             <name>MediaInfo</name>
             <submenu></submenu>
             <unique-id>1690139417393646-2</unique-id>
-            <command>${config-vars.terminal} -e sh -c &quot;mediainfo %f 2&gt;&amp;1 |  less  --exit-follow-on-close +F&quot;</command>
+            <command>${config-vars.terminal} -e &quot;mediainfo %f 2&gt;&amp;1 |  less  --exit-follow-on-close +F&quot;</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -79,7 +79,7 @@
             <name>Import images/videos</name>
             <submenu></submenu>
             <unique-id>1689902676394518-1</unique-id>
-            <command>${config-vars.terminal} -e sh -c &apos;${config-vars.home-dir}/Dev/picman/src/sd-import.ts %f | less  --exit-follow-on-close +F&apos;</command>
+            <command>${config-vars.terminal} -e &apos;${config-vars.home-dir}/Dev/picman/src/sd-import.ts %f | less  --exit-follow-on-close +F&apos;</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -90,7 +90,7 @@
             <name>View Metadata</name>
             <submenu>picman</submenu>
             <unique-id>1690136297179459-1</unique-id>
-            <command>${config-vars.terminal} -e sh -c &apos;exiv2 -p a %f 2&gt;&amp;1 | rg -v &quot;MakerNote|XMLPacket&quot; | less  --exit-follow-on-close +F&apos;</command>
+            <command>${config-vars.terminal} -e &apos;exiv2 -p a %f 2&gt;&amp;1 | rg -v &quot;MakerNote|XMLPacket&quot; | less  --exit-follow-on-close +F&apos;</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
