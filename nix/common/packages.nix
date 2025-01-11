@@ -95,7 +95,6 @@
     inputs.ghostty.packages.${system}.default
     inputs.notifications-dbus-mon.packages."${system}".default
     inputs.spotify-dbus-mon.packages."${system}".default
-    inputs.st.packages."${system}".st
     inputs.zen-browser.packages."${system}".default
   ];
 }
