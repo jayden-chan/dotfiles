@@ -85,6 +85,7 @@
 
     unstable.bruno
     unstable.devenv
+    unstable.ghostty
     unstable.neovim
     unstable.nil
     unstable.picocrypt
@@ -92,7 +93,6 @@
     unstable.yt-dlp
 
     inputs.agenix.packages.${system}.default
-    inputs.ghostty.packages.${system}.default
     inputs.notifications-dbus-mon.packages."${system}".default
     inputs.spotify-dbus-mon.packages."${system}".default
     inputs.zen-browser.packages."${system}".default

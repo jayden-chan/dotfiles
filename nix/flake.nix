@@ -15,10 +15,6 @@
     stylix.url = "github:danth/stylix/release-24.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    ghostty.url = "github:ghostty-org/ghostty";
-    ghostty.inputs.nixpkgs-stable.follows = "nixpkgs";
-    ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
-
     notifications-dbus-mon.url = "github:jayden-chan/notifications-dbus-mon";
     notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
 
