@@ -16,6 +16,7 @@
     bun
     carla
     chromium
+    czkawka-full
     dig
     eog
     eza
