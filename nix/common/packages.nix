@@ -22,7 +22,6 @@
     eza
     fastfetch
     fd
-    feishin
     ffmpeg-full
     ffmpegthumbnailer
     file
@@ -86,6 +85,7 @@
 
     unstable.bruno
     unstable.devenv
+    unstable.feishin
     unstable.ghostty
     unstable.neovim
     unstable.nil
