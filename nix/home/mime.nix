@@ -16,6 +16,12 @@ in
   xdg.mimeApps.defaultApplications = {
     "application/json" = [ basic-text-editor ];
     "application/pdf" = [ zathura ];
+    "application/x-extension-htm" = [ zen-browser ];
+    "application/x-extension-html" = [ zen-browser ];
+    "application/x-extension-shtml" = [ zen-browser ];
+    "application/x-extension-xht" = [ zen-browser ];
+    "application/x-extension-xhtml" = [ zen-browser ];
+    "application/xhtml+xml" = [ zen-browser ];
     "application/zip" = [ file-roller ];
     "audio/flac" = [ mpv ];
     "audio/mpeg" = [ mpv ];
@@ -27,34 +33,27 @@ in
     "image/webp" = [ eog ];
     "image/x-portable-pixmap" = [ eog ];
     "text/csv" = [ basic-text-editor ];
+    "text/html" = [ zen-browser ];
     "text/plain" = [ basic-text-editor ];
     "text/xml" = [ basic-text-editor ];
     "video/mp4" = [ mpv ];
     "video/x-matroska" = [ mpv ];
-
+    "x-scheme-handler/chrome" = [ zen-browser ];
     "x-scheme-handler/http" = [ zen-browser ];
     "x-scheme-handler/https" = [ zen-browser ];
-    "x-scheme-handler/chrome" = [ zen-browser ];
-    "text/html" = [ zen-browser ];
-    "application/x-extension-htm" = [ zen-browser ];
-    "application/x-extension-html" = [ zen-browser ];
-    "application/x-extension-shtml" = [ zen-browser ];
-    "application/xhtml+xml" = [ zen-browser ];
-    "application/x-extension-xhtml" = [ zen-browser ];
-    "application/x-extension-xht" = [ zen-browser ];
   };
 
   xdg.mimeApps.associations.added = {
-    "x-scheme-handler/http" = [ zen-browser ];
-    "x-scheme-handler/https" = [ zen-browser ];
-    "x-scheme-handler/chrome" = [ zen-browser ];
-    "text/html" = [ zen-browser ];
     "application/x-extension-htm" = [ zen-browser ];
     "application/x-extension-html" = [ zen-browser ];
     "application/x-extension-shtml" = [ zen-browser ];
-    "application/xhtml+xml" = [ zen-browser ];
-    "application/x-extension-xhtml" = [ zen-browser ];
     "application/x-extension-xht" = [ zen-browser ];
+    "application/x-extension-xhtml" = [ zen-browser ];
     "application/x-msdownload" = [ protontricks ];
+    "application/xhtml+xml" = [ zen-browser ];
+    "text/html" = [ zen-browser ];
+    "x-scheme-handler/chrome" = [ zen-browser ];
+    "x-scheme-handler/http" = [ zen-browser ];
+    "x-scheme-handler/https" = [ zen-browser ];
   };
 }
