@@ -106,6 +106,7 @@ in
     unstable.ansel
     unstable.caffeine-ng
     unstable.hugin
+    unstable.polychromatic
     unstable.prismlauncher
 
     # make the NVIDIA X11 libraries available for gpu-screen-recorder
@@ -204,6 +205,15 @@ in
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+  };
+
+  hardware.openrazer = {
+    enable = true;
+    users = [ config-vars.username ];
+    verboseLogging = false;
+    keyStatistics = false;
+    devicesOffOnScreensaver = false;
+    batteryNotifier.enable = false;
   };
 
   services.sunshine = {

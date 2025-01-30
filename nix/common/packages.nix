@@ -64,6 +64,7 @@
     x42-plugins
     xclip
     xcolor
+    xdotool
     yaml-language-server
     zenity
     zoxide

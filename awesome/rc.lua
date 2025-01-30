@@ -502,6 +502,10 @@ local globalkeys = gears.table.join(
 		awful.spawn.with_shell("bun run " .. home .. "/Dev/audioman/src/index.ts")
 	end, { description = "run audioman", group = "misc" }),
 
+	awful.key({ modkey }, "x", function()
+		awful.spawn.with_shell('sleep 0.3; xdotool type "$(xclip -selection c -o)"')
+	end, { description = "type clipboard", group = "misc" }),
+
 	awful.key({ modkey, "Shift" }, "F11", function()
 		awful.spawn.with_shell("killall -SIGUSR1 gpu-screen-recorder")
 	end, { description = "save clip", group = "misc" }),
@@ -891,7 +895,12 @@ client.connect_signal("manage", function(c)
 	end
 
 	if not c.maximized and not c.fullscreen then
-		if c.floating and c.requests_no_titlebar ~= true and (c.type == "normal" or c.type == "dialog") then
+		if
+			c.floating
+			and c.requests_no_titlebar ~= true
+			and (c.type == "normal" or c.type == "dialog")
+			and (c.class ~= "cs2")
+		then
 			awful.titlebar.show(c)
 		else
 			awful.titlebar.hide(c)
@@ -901,7 +910,12 @@ end)
 
 client.connect_signal("property::floating", function(c)
 	if not c.maximized and not c.fullscreen then
-		if c.floating and c.requests_no_titlebar ~= true and (c.type == "normal" or c.type == "dialog") then
+		if
+			c.floating
+			and c.requests_no_titlebar ~= true
+			and (c.type == "normal" or c.type == "dialog")
+			and (c.class ~= "cs2")
+		then
 			awful.titlebar.show(c)
 		else
 			awful.titlebar.hide(c)

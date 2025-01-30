@@ -44,7 +44,7 @@ function shadowplay () {
         -f 60 \
         -fm vfr \
         -k av1 \
-        -q high \
+        -q very_high \
         -r 200 \
         -v yes \
         -w DP-0 \

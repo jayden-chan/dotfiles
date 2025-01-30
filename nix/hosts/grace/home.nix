@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config-vars, ... }:
 
 let
   fingerprint = {
@@ -38,9 +38,13 @@ in
   programs.autorandr.profiles."00-main" = {
     inherit fingerprint;
     config = main-config;
+
+    hooks.postswitch = ''
+      killall gpu-screen-recorder
+    '';
   };
 
-  programs.autorandr.profiles."99-stretched" = {
+  programs.autorandr.profiles."43-stretched" = {
     inherit fingerprint;
     config = lib.recursiveUpdate main-config {
       "DP-0" = {
@@ -49,7 +53,8 @@ in
     };
 
     hooks.postswitch = ''
-      killall picom
+      bash ${config-vars.dotfiles-dir}/scripts/gamemode.sh
+      killall gpu-screen-recorder
     '';
   };
 }

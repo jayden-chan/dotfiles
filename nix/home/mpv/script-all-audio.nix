@@ -60,12 +60,18 @@
           if string.find(input_path, "/Replay_") then
               activate_all_audio()
               if string.find(input_path, "_clip") then
-                  mp.set_property("volume", 50)
+                  mp.set_property("volume", 65)
                   mp.set_property("mute", "no")
               else
                   mp.set_property("volume", 85)
                   mp.set_property("mute", "no")
               end
+          end
+
+          if string.find(input_path, "vlc%-record") then
+              activate_all_audio()
+              mp.set_property("volume", 50)
+              mp.set_property("mute", "no")
           end
 
           -- un-mute and disable looping for music files
