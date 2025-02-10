@@ -7,7 +7,7 @@
       "type": "eq",
       "settings": {
         "preamp": 0,
-        "zoom": -33.97,
+        "zoom": -31.57,
         "bands": [
           {
             "type": "highpass",
@@ -23,7 +23,7 @@
             "slope": 0,
             "freq": 103.227,
             "Q": 0.28,
-            "gain": -0.5
+            "gain": -0.59
           },
           {
             "type": "peaking",
@@ -38,16 +38,8 @@
             "mode": "RLC_BT",
             "slope": 0,
             "freq": 2905.615,
-            "Q": 4.02,
-            "gain": -4.6
-          },
-          {
-            "type": "highshelf",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 3296.817,
-            "Q": 0.41,
-            "gain": -0.5
+            "Q": 3.77,
+            "gain": -4.86
           }
         ]
       }

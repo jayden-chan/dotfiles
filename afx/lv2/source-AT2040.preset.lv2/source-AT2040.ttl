@@ -48,7 +48,7 @@
 		pset:value 2905.615000
 	] , [
 		lv2:symbol "f_4" ;
-		pset:value 3296.817000
+		pset:value 500.000000
 	] , [
 		lv2:symbol "f_5" ;
 		pset:value 500.000000
@@ -159,7 +159,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "ft_4" ;
-		pset:value 3.000000
+		pset:value 0.000000
 	] , [
 		lv2:symbol "ft_5" ;
 		pset:value 0.000000
@@ -180,7 +180,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "g_1" ;
-		pset:value 0.944069
+		pset:value 0.934338
 	] , [
 		lv2:symbol "g_10" ;
 		pset:value 1.000000
@@ -204,10 +204,10 @@
 		pset:value 0.890240
 	] , [
 		lv2:symbol "g_3" ;
-		pset:value 0.588888
+		pset:value 0.571524
 	] , [
 		lv2:symbol "g_4" ;
-		pset:value 0.944069
+		pset:value 1.000000
 	] , [
 		lv2:symbol "g_5" ;
 		pset:value 1.000000
@@ -234,7 +234,7 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "hue_1" ;
-		pset:value 0.200000
+		pset:value 0.250000
 	] , [
 		lv2:symbol "hue_10" ;
 		pset:value 0.625000
@@ -255,13 +255,13 @@
 		pset:value 0.937500
 	] , [
 		lv2:symbol "hue_2" ;
-		pset:value 0.400000
+		pset:value 0.500000
 	] , [
 		lv2:symbol "hue_3" ;
-		pset:value 0.600000
+		pset:value 0.750000
 	] , [
 		lv2:symbol "hue_4" ;
-		pset:value 0.800000
+		pset:value 0.250000
 	] , [
 		lv2:symbol "hue_5" ;
 		pset:value 0.312500
@@ -309,10 +309,10 @@
 		pset:value 4.100000
 	] , [
 		lv2:symbol "q_3" ;
-		pset:value 4.020000
+		pset:value 3.770000
 	] , [
 		lv2:symbol "q_4" ;
-		pset:value 0.410000
+		pset:value 1.410000
 	] , [
 		lv2:symbol "q_5" ;
 		pset:value 1.410000
@@ -480,7 +480,7 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "zoom" ;
-		pset:value 0.020033
+		pset:value 0.026407
 	] ;
 	state:state [
 		<http://lsp-plug.in/plugins/lv2/para_equalizer_x16_mono/KVT> [
