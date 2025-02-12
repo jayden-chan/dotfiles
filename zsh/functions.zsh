@@ -30,27 +30,6 @@ alias nix-rebuild='_nix_git_trick nh os switch';
 alias nix-update='_nix_git_trick nix flake update';
 alias nix-clean='_nix_git_trick nh clean all --keep 10';
 
-function shadowplay () {
-    gpu-screen-recorder \
-        -a audio-device-sink.monitor \
-        -a carla-source \
-        -ab 256 \
-        -ac opus \
-        -bm qp \
-        -c mp4 \
-        -cr limited \
-        -cursor yes \
-        -encoder gpu \
-        -f 60 \
-        -fm vfr \
-        -k av1 \
-        -q very_high \
-        -r 200 \
-        -v yes \
-        -w DP-0 \
-        -o ~/Videos/replays 2>&1
-}
-
 function bb () {
     if [ "$1" = "down" ]; then
         trash ./tsconfig.json

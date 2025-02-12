@@ -230,7 +230,7 @@ end
 local icon = function(icon, hor, ver)
 	local image = wibox.widget.imagebox(icon_path .. icon .. ".png", true)
 	local wid = wibox.container.background()
-	wid.bg = bg or "#ffffff"
+	wid.bg = "#ffffff"
 	wid.shape = gears.shape.rect
 	wid.widget = mar(image, ver or 9, hor or 14, ver or 9, hor or 14)
 	wid.visible = true
@@ -399,6 +399,29 @@ awful.screen.connect_for_each_screen(function(s)
 	left:add(s.mytaglist)
 	left:add(mpris_block)
 
+	if s ~= screen.primary then
+		local shadowplay_text = wibox.widget({ widget = wibox.widget.textbox })
+		local shadowplay_block =
+			mar(icob(icon("circle-play", 13), mar(shadowplay_text, 0, 10, 0, 10)), 0, 0, 0, widget_block_gap)
+		shadowplay_block:set_visible(false)
+
+		-- Subscribe to the shadowplay signal from the listener script
+		local shadowplay_toggle_func = function(data)
+			if string.len(data:gsub("%s+$", "")) == 0 then
+				shadowplay_block:set_visible(false)
+			elseif data:find("^/home") ~= nil then
+				naughty.notify({ title = "shadowplay", text = "Clip saved" })
+			else
+				shadowplay_text:set_text(data)
+				shadowplay_block:set_visible(true)
+			end
+		end
+
+		awesome.disconnect_signal("shadowplay", shadowplay_toggle_func)
+		awesome.connect_signal("shadowplay", shadowplay_toggle_func)
+		left:add(shadowplay_block)
+	end
+
 	-- Add widgets to the wibox
 	s.mywibox:struts({ top = 35, left = 0, right = 0, bottom = 0 })
 	s.mywibox:setup({
@@ -509,6 +532,24 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "F11", function()
 		awful.spawn.with_shell("killall -SIGUSR1 gpu-screen-recorder")
 	end, { description = "save clip", group = "misc" }),
+
+	awful.key({ modkey }, "g", function()
+		awful.spawn.with_line_callback(scripts .. "/shadowplay.sh", {
+			stdout = function(line)
+				awesome.emit_signal("shadowplay", line)
+			end,
+			stderr = function(line)
+				naughty.notify({ text = "shadowplay:" .. line })
+			end,
+			exit = function()
+				awesome.emit_signal("shadowplay", "")
+			end,
+		})
+	end, { description = "start shadowplay", group = "misc" }),
+
+	awful.key({ modkey, "Shift" }, "g", function()
+		awful.spawn.with_shell("killall gpu-screen-recorder")
+	end, { description = "stop shadowplay", group = "misc" }),
 
 	-- XF86
 	awful.key(
