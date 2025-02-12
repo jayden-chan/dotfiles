@@ -43,10 +43,10 @@
         </action>
         <action>
             <icon></icon>
-            <name>Convert to H264</name>
+            <name>Normalize</name>
             <submenu></submenu>
             <unique-id>1731643961229000-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts toh264 --notify %f</command>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>

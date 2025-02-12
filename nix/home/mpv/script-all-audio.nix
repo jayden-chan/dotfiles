@@ -65,6 +65,7 @@
               else
                   mp.set_property("volume", 85)
                   mp.set_property("mute", "no")
+                  mp.set_property("file-local-options/video-aspect-override", "16:9")
               end
           end
 
