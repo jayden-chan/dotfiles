@@ -67,10 +67,6 @@
           unstable = import inputs.nixpkgs-unstable {
             system = config-vars.system;
             config.allowUnfree = true;
-            # feishin
-            config.permittedInsecurePackages = [
-              "electron-31.7.7"
-            ];
           };
         };
       };
