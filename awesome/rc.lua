@@ -280,6 +280,17 @@ local dnd_widget = mar(icob(icon("volume-xmark"), mar(dnd_text, 0, 10, 0, 10)), 
 dnd_widget:set_visible(false)
 naughty.resume()
 
+local mute_iconbox = wibox.widget.imagebox(icon_path .. "volume-xmark.png", true)
+local mute_tmp = wibox.container.background()
+mute_tmp.bg = "#ff0000"
+mute_tmp.shape = gears.shape.rect
+mute_tmp.widget = mar(mute_iconbox, 9, 14, 9, 14)
+mute_tmp.visible = true
+
+local mute_widget = mar(mute_tmp, 0, 0, 0, widget_block_gap)
+awful.spawn.with_shell('amidi --port="hw:0,0" --send-hex="B00700"')
+mute_widget:set_visible(true)
+
 local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
 local headphones = mar(icob(icon("headphones", 13, 10), mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
 awful.widget.watch(scripts .. "/bt-battery.sh 'Focal Bathys'", 60, function(_, stdout)
@@ -397,7 +408,6 @@ awful.screen.connect_for_each_screen(function(s)
 	local left = wibox.layout.fixed.horizontal()
 	left:add(os_icon)
 	left:add(s.mytaglist)
-	left:add(mpris_block)
 
 	if s ~= screen.primary then
 		local shadowplay_text = wibox.widget({ widget = wibox.widget.textbox })
@@ -419,7 +429,12 @@ awful.screen.connect_for_each_screen(function(s)
 
 		awesome.disconnect_signal("shadowplay", shadowplay_toggle_func)
 		awesome.connect_signal("shadowplay", shadowplay_toggle_func)
+
+		left:add(mute_widget)
+		left:add(mpris_block)
 		left:add(shadowplay_block)
+	else
+		left:add(mpris_block)
 	end
 
 	-- Add widgets to the wibox
@@ -550,6 +565,24 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "g", function()
 		awful.spawn.with_shell("killall gpu-screen-recorder")
 	end, { description = "stop shadowplay", group = "misc" }),
+
+	awful.key({ modkey }, "grave", function()
+		if mute_widget.visible then
+			-- Control change
+			-- Channel 1
+			-- Control function = channel volume
+			-- 127 volume (max)
+			awful.spawn.with_shell('amidi --port="hw:0,0" --send-hex="B0077F"')
+			mute_widget:set_visible(false)
+		else
+			-- Control change
+			-- Channel 1
+			-- Control function 7 = channel volume
+			-- 0 volume
+			awful.spawn.with_shell('amidi --port="hw:0,0" --send-hex="B00700"')
+			mute_widget:set_visible(true)
+		end
+	end, { description = "toggle mic mute", group = "media" }),
 
 	-- XF86
 	awful.key(
