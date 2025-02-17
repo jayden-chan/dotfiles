@@ -104,6 +104,7 @@ in
     yq-go
 
     unstable.ansel
+    unstable.ardour
     unstable.caffeine-ng
     unstable.hugin
     unstable.polychromatic
