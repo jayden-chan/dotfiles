@@ -106,6 +106,9 @@ function syc () {
         echo "syncing clips"
         cpr -e ssh ~/Videos/clips/ homelab:Videos/cloud/clips/
         return
+    elif [ "$1" = "csgo" ]; then
+        cp ~/.config/dotfiles/csgo/*.cfg ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/
+        rm ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/lsp.cfg
     elif [ "$1" = "files" ]; then
         echo "syncing personal files to external drive"
         echo "=== syncing Git repos"
