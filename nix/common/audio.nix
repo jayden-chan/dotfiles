@@ -122,6 +122,26 @@
                 "audio.position" = "FL,FR";
                 "factory.name" = "support.null-audio-sink";
                 "media.class" = "Audio/Sink";
+                "node.description" = "Discord Sink";
+                "node.name" = "discord-sink";
+              };
+            }
+            {
+              factory = "adapter";
+              args = {
+                "audio.position" = "FL,FR";
+                "factory.name" = "support.null-audio-sink";
+                "media.class" = "Audio/Sink";
+                "node.description" = "Monitoring Sink";
+                "node.name" = "monitoring-sink";
+              };
+            }
+            {
+              factory = "adapter";
+              args = {
+                "audio.position" = "FL,FR";
+                "factory.name" = "support.null-audio-sink";
+                "media.class" = "Audio/Sink";
                 "node.description" = "Audio Output";
                 "node.name" = "carla-sink";
               };
