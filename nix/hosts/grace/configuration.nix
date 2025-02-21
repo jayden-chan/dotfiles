@@ -137,6 +137,12 @@ in
 
   programs.firejail.enable = true;
 
+  # virt-manager
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ config-vars.username ];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
   networking.firewall = {
     enable = true;
 
@@ -173,6 +179,7 @@ in
 
       # dev servers
       4334
+      10097
 
       # Sunshine
       47984
