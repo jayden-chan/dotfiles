@@ -107,7 +107,6 @@ in
     unstable.ardour
     unstable.caffeine-ng
     unstable.hugin
-    unstable.polychromatic
     unstable.prismlauncher
 
     # make the NVIDIA X11 libraries available for gpu-screen-recorder

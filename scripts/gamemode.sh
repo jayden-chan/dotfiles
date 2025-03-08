@@ -13,11 +13,6 @@ for mouse in "${mice[@]}"; do
     done
 done
 
-if [ $(xinput | rg "${mice[0]}") ]; then
-    polychromatic-cli --name "${mice[0]} (Wireless)" --dpi 3200
-    polychromatic-cli --name "${mice[0]} (Wireless)" --option poll_rate --parameter 1000
-fi
-
 if [ "$1" = "--mouse-only" ]; then
     exit 0
 fi
