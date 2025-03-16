@@ -36,7 +36,7 @@
 
     EDITOR = "nvim";
     TERMINAL = config-vars.terminal;
-    BROWSER = "zen";
+    BROWSER = "firefox-devedition";
     COLORTERM = "truecolor";
     DOT = config-vars.dotfiles-dir;
     HOSTNAME = config-vars.host;

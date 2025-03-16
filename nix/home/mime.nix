@@ -6,7 +6,7 @@ let
   basic-text-editor = "org.xfce.mousepad.desktop";
   mpv = "mpv.desktop";
   zathura = "org.pwmt.zathura.desktop";
-  zen-browser = "zen.desktop";
+  browser = "firefox-devedition.desktop";
   protontricks = "protontricks-launch.desktop";
 in
 {
@@ -16,12 +16,12 @@ in
   xdg.mimeApps.defaultApplications = {
     "application/json" = [ basic-text-editor ];
     "application/pdf" = [ zathura ];
-    "application/x-extension-htm" = [ zen-browser ];
-    "application/x-extension-html" = [ zen-browser ];
-    "application/x-extension-shtml" = [ zen-browser ];
-    "application/x-extension-xht" = [ zen-browser ];
-    "application/x-extension-xhtml" = [ zen-browser ];
-    "application/xhtml+xml" = [ zen-browser ];
+    "application/x-extension-htm" = [ browser ];
+    "application/x-extension-html" = [ browser ];
+    "application/x-extension-shtml" = [ browser ];
+    "application/x-extension-xht" = [ browser ];
+    "application/x-extension-xhtml" = [ browser ];
+    "application/xhtml+xml" = [ browser ];
     "application/zip" = [ file-roller ];
     "audio/flac" = [ mpv ];
     "audio/mpeg" = [ mpv ];
@@ -33,27 +33,27 @@ in
     "image/webp" = [ eog ];
     "image/x-portable-pixmap" = [ eog ];
     "text/csv" = [ basic-text-editor ];
-    "text/html" = [ zen-browser ];
+    "text/html" = [ browser ];
     "text/plain" = [ basic-text-editor ];
     "text/xml" = [ basic-text-editor ];
     "video/mp4" = [ mpv ];
     "video/x-matroska" = [ mpv ];
-    "x-scheme-handler/chrome" = [ zen-browser ];
-    "x-scheme-handler/http" = [ zen-browser ];
-    "x-scheme-handler/https" = [ zen-browser ];
+    "x-scheme-handler/chrome" = [ browser ];
+    "x-scheme-handler/http" = [ browser ];
+    "x-scheme-handler/https" = [ browser ];
   };
 
   xdg.mimeApps.associations.added = {
-    "application/x-extension-htm" = [ zen-browser ];
-    "application/x-extension-html" = [ zen-browser ];
-    "application/x-extension-shtml" = [ zen-browser ];
-    "application/x-extension-xht" = [ zen-browser ];
-    "application/x-extension-xhtml" = [ zen-browser ];
+    "application/x-extension-htm" = [ browser ];
+    "application/x-extension-html" = [ browser ];
+    "application/x-extension-shtml" = [ browser ];
+    "application/x-extension-xht" = [ browser ];
+    "application/x-extension-xhtml" = [ browser ];
     "application/x-msdownload" = [ protontricks ];
-    "application/xhtml+xml" = [ zen-browser ];
-    "text/html" = [ zen-browser ];
-    "x-scheme-handler/chrome" = [ zen-browser ];
-    "x-scheme-handler/http" = [ zen-browser ];
-    "x-scheme-handler/https" = [ zen-browser ];
+    "application/xhtml+xml" = [ browser ];
+    "text/html" = [ browser ];
+    "x-scheme-handler/chrome" = [ browser ];
+    "x-scheme-handler/http" = [ browser ];
+    "x-scheme-handler/https" = [ browser ];
   };
 }
