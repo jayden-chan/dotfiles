@@ -107,8 +107,14 @@ function syc () {
         cpr -e ssh ~/Videos/clips/ homelab:Videos/cloud/clips/
         return
     elif [ "$1" = "csgo" ]; then
-        cp ~/.config/dotfiles/csgo/*.cfg ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/
+        cp "$DOT"/csgo/*.cfg ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/
         rm ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/lsp.cfg
+    elif [ "$1" = "firefox" ]; then
+        IFS=$'\n' paths=($(rg '^Path=(.*?)$' ~/.mozilla/firefox/profiles.ini --only-matching --no-line-number --color=never --replace='$1'))
+        for profile in "${paths[@]}"; do
+            cp "$DOT/misc/user.js"        ~/.mozilla/firefox/"$profile"/user.js
+            cp "$DOT/misc/userChrome.css" ~/.mozilla/firefox/"$profile"/chrome/userChrome.css
+        done
     elif [ "$1" = "files" ]; then
         echo "syncing personal files to external drive"
         echo "=== syncing Git repos"
