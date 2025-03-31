@@ -18,7 +18,7 @@
 		pset:value 1.000000
 	] , [
 		lv2:symbol "f_0" ;
-		pset:value 47.441000
+		pset:value 118.933000
 	] , [
 		lv2:symbol "f_1" ;
 		pset:value 8001.405000
@@ -177,7 +177,7 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "g_0" ;
-		pset:value 1.231649
+		pset:value 1.255989
 	] , [
 		lv2:symbol "g_1" ;
 		pset:value 0.780756

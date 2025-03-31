@@ -13,9 +13,9 @@
             "type": "lowshelf",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 47.441,
+            "freq": 118.933,
             "Q": 0.75,
-            "gain": 1.81
+            "gain": 1.98
           },
           {
             "type": "peaking",
