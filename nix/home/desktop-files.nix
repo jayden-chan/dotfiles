@@ -49,5 +49,16 @@
       Icon=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper-ico.png
       Terminal=false
     '';
+
+    ".local/share/applications/gamemodescript.desktop".text = ''
+      [Desktop Entry]
+      Exec=${config-vars.dotfiles-dir}/scripts/gamemode.sh
+      Type=Application
+      Version=1.0
+      Name=Game Mode
+      Comment=Setup the computer for gaming mode
+      Icon=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper-ico.png
+      Terminal=false
+    '';
   };
 }
