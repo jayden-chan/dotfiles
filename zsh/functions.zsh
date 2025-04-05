@@ -70,7 +70,12 @@ function findreplace () {
         echo "findreplace <trigger> <sed expression>"
     fi
 
-    rg --files-with-matches "$1" | tee /dev/stderr | xargs sed -Ei "$2"
+    IFS=$'\n' files=($(rg --files-with-matches "$1"))
+
+    for f in "${files[@]}"; do
+        echo "$f"
+        sed -Ei "$2" "$f"
+    done
 }
 
 function gig () {
