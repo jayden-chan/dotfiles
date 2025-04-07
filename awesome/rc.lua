@@ -975,7 +975,7 @@ client.connect_signal("manage", function(c)
 			c.floating
 			and c.requests_no_titlebar ~= true
 			and (c.type == "normal" or c.type == "dialog")
-			and (c.class ~= "cs2")
+			and (c.class ~= "cs2" and c.class ~= "steam_app_3164500")
 		then
 			awful.titlebar.show(c)
 		else
@@ -990,7 +990,7 @@ client.connect_signal("property::floating", function(c)
 			c.floating
 			and c.requests_no_titlebar ~= true
 			and (c.type == "normal" or c.type == "dialog")
-			and (c.class ~= "cs2")
+			and (c.class ~= "cs2" and c.class ~= "steam_app_3164500")
 		then
 			awful.titlebar.show(c)
 		else
