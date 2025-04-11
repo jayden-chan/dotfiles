@@ -13,6 +13,7 @@ return {
 	config = function()
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local null_ls = require("null-ls")
+		local sql_dialect = os.getenv("SQL_DIALECT") or "postgresql"
 
 		null_ls.setup({
 			capabilities = capabilities,
@@ -26,7 +27,7 @@ return {
 				null_ls.builtins.formatting.sql_formatter.with({
 					extra_args = {
 						"--config",
-						'{"language":"postgresql","dialect":"postgresql","tabWidth":4}',
+						'{"language":"' .. sql_dialect .. '","dialect":"' .. sql_dialect .. '","tabWidth":4}',
 					},
 				}),
 				require("none-ls-shellcheck.diagnostics"),
