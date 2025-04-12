@@ -99,6 +99,7 @@ in
     kdenlive
     liquidctl
     mat2
+    noise-repellent
     protontricks
     qrencode
     yq-go
