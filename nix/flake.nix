@@ -39,6 +39,7 @@
         inherit inputs;
         config-vars = rec {
           name = "Jayden";
+          last-name = "Chan";
           username = "jayden";
           email = "jayden@jayden.codes";
           home-dir = "/home/jayden";

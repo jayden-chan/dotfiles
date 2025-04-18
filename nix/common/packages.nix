@@ -25,7 +25,6 @@
     ffmpeg-full
     ffmpegthumbnailer
     file
-    firefox-devedition
     fontconfig
     gcc
     gimp
@@ -88,6 +87,7 @@
     unstable.bruno
     unstable.devenv
     unstable.feishin
+    unstable.firefox-devedition
     unstable.ghostty
     unstable.neovim
     unstable.nil

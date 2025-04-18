@@ -216,15 +216,6 @@ in
     enable32Bit = true;
   };
 
-  hardware.openrazer = {
-    enable = true;
-    users = [ config-vars.username ];
-    verboseLogging = false;
-    keyStatistics = false;
-    devicesOffOnScreensaver = false;
-    batteryNotifier.enable = false;
-  };
-
   services.sunshine = {
     enable = true;
     autoStart = false;

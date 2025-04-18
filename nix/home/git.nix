@@ -8,7 +8,7 @@ in
     enable = true;
 
     userEmail = config-vars.email;
-    userName = "Jayden Chan";
+    userName = "${config-vars.name} ${config-vars.last-name}";
 
     signing.key = signing-key;
 

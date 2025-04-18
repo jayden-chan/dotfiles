@@ -18,7 +18,7 @@
     # wg-quick.interfaces = {
     #   wg0 = {
     #     address = [ "10.179.254.3/24" ];
-    #     dns = [ "10.118.254.1" ];
+    #     dns = [ config-vars.ips.opnsense ];
     #     privateKey = "...";
     #
     #     peers = [

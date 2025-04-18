@@ -13,6 +13,8 @@ function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
 alias decompress='tar xfJ'
 
 function _nix_git_trick () {
+    # get a sudo authorization so it doesn't prompt us later in the nix process
+    sudo echo ""
     # we'll use a random id to avoid accidentally messing up the .git directory
     rand_id=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 
