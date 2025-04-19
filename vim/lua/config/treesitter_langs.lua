@@ -6,7 +6,6 @@ local base = {
 	"cpp",
 	"css",
 	"dart",
-	"dockerfile",
 	"go",
 	"graphql",
 	"hcl",
