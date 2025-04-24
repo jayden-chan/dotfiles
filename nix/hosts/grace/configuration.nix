@@ -89,6 +89,7 @@ in
   networking.wireless.enable = false;
 
   environment.systemPackages = with pkgs; [
+    ansel
     borgbackup
     dbeaver-bin
     dive
@@ -104,7 +105,6 @@ in
     qrencode
     yq-go
 
-    unstable.ansel
     unstable.ardour
     unstable.caffeine-ng
     unstable.hugin
