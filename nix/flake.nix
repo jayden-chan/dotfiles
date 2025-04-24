@@ -65,6 +65,9 @@
           unstable = import inputs.nixpkgs-unstable {
             system = config-vars.system;
             config.allowUnfree = true;
+            config.permittedInsecurePackages = [
+              "electron-33.4.11"
+            ];
           };
         };
       };

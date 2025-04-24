@@ -11,12 +11,12 @@ let
   nvidia-package =
     (
       (config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        version = "565.77";
-        sha256_64bit = "sha256-CnqnQsRrzzTXZpgkAtF7PbH9s7wbiTRNcM0SPByzFHw=";
-        sha256_aarch64 = "sha256-LSAYUnhfnK3rcuPe1dixOwAujSof19kNOfdRHE7bToE=";
-        openSha256 = "sha256-Fxo0t61KQDs71YA8u7arY+503wkAc1foaa51vi2Pl5I=";
-        settingsSha256 = "sha256-VUetj3LlOSz/LB+DDfMCN34uA4bNTTpjDrb6C6Iwukk=";
-        persistencedSha256 = "sha256-wnDjC099D8d9NJSp9D0CbsL+vfHXyJFYYgU3CwcqKww=";
+        version = "570.133.07";
+        sha256_64bit = "sha256-LUPmTFgb5e9VTemIixqpADfvbUX1QoTT2dztwI3E3CY=";
+        sha256_aarch64 = "sha256-yTovUno/1TkakemRlNpNB91U+V04ACTMwPEhDok7jI0=";
+        openSha256 = "sha256-9l8N83Spj0MccA8+8R1uqiXBS0Ag4JrLPjrU3TaXHnM=";
+        settingsSha256 = "sha256-XMk+FvTlGpMquM8aE8kgYK2PIEszUZD2+Zmj2OpYrzU=";
+        persistencedSha256 = "sha256-G1V7JtHQbfnSRfVjz/LE2fYTlh9okpCbE4dfX9oYSg8=";
       }).overrideAttrs
       (
         {
@@ -28,7 +28,7 @@ let
           preFixup =
             preFixup
             + ''
-              sed -i 's/\x85\xc0\x0f\x84\x9b\x00\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
+              sed -i 's/\x85\xc0\x0f\x85\x14\x01\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
             '';
         }
       )
@@ -43,7 +43,7 @@ let
           preFixup =
             preFixup
             + ''
-              sed -i 's/\xe8\x15\x34\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\x15\x34\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
+              sed -i 's/\xe8\x45\x30\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\x45\x30\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
             '';
         }
       );
