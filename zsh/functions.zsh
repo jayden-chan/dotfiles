@@ -4,7 +4,6 @@ function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | he
 function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function sc         () { jq .scripts ${1:-package.json} }
-function podbuild   () { podman image build -f ./Containerfile -t git.jayden.codes/jayden/"$1":latest && podman image push git.jayden.codes/jayden/"$1":latest }
 function kns        () { kubectl config set-context --current --namespace="$1" }
 
 # Good compression/archive settings
@@ -31,6 +30,14 @@ function _nix_git_trick () {
 alias nix-rebuild='_nix_git_trick nh os switch';
 alias nix-update='_nix_git_trick nix flake update';
 alias nix-clean='_nix_git_trick nh clean all --keep 10';
+
+function podbuild () {
+    podman image build -f ./Containerfile -t git.jayden.codes/jayden/"$1":latest
+
+    if [ "$?" = "0" ] && [ "$2" != "--no-push" ]; then
+        podman image push git.jayden.codes/jayden/"$1":latest
+    fi
+}
 
 function bb () {
     if [ "$1" = "down" ]; then
