@@ -19,6 +19,7 @@
       "DOWN" = "add volume -2";
       "V" = "cycle sub";
       "L" = "cycle-values loop-file inf no";
+      "h" = "vf toggle hflip";
     };
 
     config = {
