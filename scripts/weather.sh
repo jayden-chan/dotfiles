@@ -18,7 +18,7 @@ else
         -H "authorization: Bearer $HA_TOKEN" \
         -H "content-type: application/json" \
         https://homeassistant.jayden.codes/api/states/sensor.temp_sensor_1_temperature \
-        | jq -r '.state')"
+        | jq -r '.state | tonumber * 10 | round / 10')"
 
     if [ -n "$ha_temp" ] && [ "$ha_temp" != "unavailable" ]; then
         indoor_temp=" (${ha_temp}C)"
