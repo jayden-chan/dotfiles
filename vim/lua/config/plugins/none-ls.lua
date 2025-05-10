@@ -34,17 +34,7 @@ return {
 				require("none-ls-shellcheck.code_actions"),
 				require("none-ls.diagnostics.cpplint"),
 				null_ls.builtins.formatting.terraform_fmt,
-				require("none-ls.diagnostics.eslint_d").with({
-					condition = function(utls)
-						return utls.root_has_file({
-							".eslintrc.js",
-							".eslintrc.cjs",
-							".eslintrc.yaml",
-							".eslintrc.yml",
-							".eslintrc.json",
-						})
-					end,
-				}),
+				require("none-ls.diagnostics.eslint_d"),
 			},
 		})
 	end,
