@@ -31,6 +31,11 @@ alias nix-rebuild='_nix_git_trick nh os switch';
 alias nix-update='_nix_git_trick nix flake update';
 alias nix-clean='_nix_git_trick nh clean all --keep 10';
 
+function dkill () {
+    ps -ax | rg '^\s*(\d+)(.*?)\d eslint_d' --only-matching --replace='$1' --color=never | xargs kill
+    ps -ax | rg '^\s*(\d+)(.*?)\d prettierd' --only-matching --replace='$1' --color=never | xargs kill
+}
+
 function podbuild () {
     podman image build -f ./Containerfile -t git.jayden.codes/jayden/"$1":latest
 
