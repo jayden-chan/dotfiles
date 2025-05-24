@@ -115,6 +115,27 @@ export const {1} = () => <{1}View {{...use{1}()}} />;
 		)
 	),
 	s(
+		"hvc2",
+		fmt(
+			[[
+const use{1} = (props: {1}Props) => {{
+	return {{ ...props }};
+}};
+
+type {1}ViewProps = ReturnType<typeof use{1}>;
+const {1}View = (props: {1}ViewProps) => {{
+	return <div>{2}</div>;
+}};
+
+type {1}Props = {{}};
+
+export const {1} = (props: {1}Props) => <{1}View {{...use{1}(props)}} />;
+]],
+			{ i(1), i(0) },
+			{ repeat_duplicates = true }
+		)
+	),
+	s(
 		"st",
 		fmt(
 			[[
