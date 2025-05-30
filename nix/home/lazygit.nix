@@ -6,10 +6,11 @@
 
     settings = {
       gui = {
+        commitHashLength = 0;
         splitDiff = "auto";
         nerdFontsVersion = "3";
         scrollHeight = 12;
-        sidePanelWidth = 0.2;
+        sidePanelWidth = 0.17;
         showListFooter = false;
         showBottomLine = false;
         showRandomTip = false;
@@ -40,9 +41,17 @@
         };
       };
 
-      git.paging = {
-        colorArg = "always";
-        pager = "delta --dark --paging=never";
+      git = {
+        mainBranches = [
+          "master"
+          "main"
+          "production"
+        ];
+        skipHookPrefix = "--wip--";
+        paging = {
+          colorArg = "always";
+          pager = "delta --dark --paging=never";
+        };
       };
     };
   };

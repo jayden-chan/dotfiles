@@ -16,6 +16,7 @@ in
       enable = true;
       options = {
         features = "decorations";
+        line-numbers = false;
         side-by-side = true;
         syntax-theme = "ansi";
         plus-style = "syntax #213620";
@@ -36,9 +37,11 @@ in
     };
 
     extraConfig = {
-      push.default = "simple";
+      diff.colorMoved = "default";
       init.defaultBranch = "main";
-
+      pager.branch = false;
+      pull.rebase = true;
+      rebase.autoStash = true;
       tag.gpgSign = true;
 
       gpg = {
@@ -49,9 +52,17 @@ in
         ''}";
       };
 
-      pull.rebase = true;
-      rebase.autoStash = true;
-      diff.colorMoved = "default";
+      url = {
+        "ssh://git@github.com:" = {
+          insteadOf = "gh:";
+        };
+      };
+
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+        followTags = true;
+      };
 
       core = {
         abbrev = "8";
@@ -129,7 +140,6 @@ in
           # be part of commits of any type.
           #
           # other types: build, chore, ci, docs, style, refactor, perf, test
-
 
           # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
 
