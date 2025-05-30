@@ -18,7 +18,6 @@ require("lazy").setup({
 	require("config.plugins.lualine"),
 	require("config.plugins.neo-tree"),
 	require("config.plugins.gitsigns"),
-	require("config.plugins.vim-fugitive"),
 	require("config.plugins.tabular"),
 	require("config.plugins.vim-tmux-navigator"),
 	require("config.plugins.vim-repeat"),
@@ -39,6 +38,7 @@ require("lazy").setup({
 	require("config.plugins.vim-dadbod-ui"),
 	require("config.plugins.todo-comments"),
 	require("config.plugins.nvim-colorizer"),
+	require("config.plugins.blame"),
 }, {
 	performance = {
 		rtp = {
