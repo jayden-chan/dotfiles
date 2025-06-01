@@ -1,7 +1,6 @@
 function op         () { thunar ${1:-.} </dev/null &>/dev/null & disown }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
-function bwu        () { export BW_SESSION="$(bw unlock --raw)" && bw sync }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function sc         () { jq .scripts ${1:-package.json} }
 function kns        () { kubectl config set-context --current --namespace="$1" }
@@ -151,14 +150,7 @@ function syc () {
 }
 
 function gitea_mirror () {
-    # unlock the vault if it's not already unlocked
-    if [ "$BW_SESSION" = "" ]; then
-        export BW_SESSION="$(bw unlock --raw)"
-        bw sync 1>&2
-    fi
-
-    gitea_token=$(bwg "Gitea Mirror Account OAuth Token")
-    github_token=$(bwg "Gitea Mirror Account Pull Token")
+    gitea_token=$(picopass get gitea-oauth-token)
 
     if [ "$1" = "" ]; then
         echo "usage: gitea_mirror https://github.com/user/repo"
@@ -185,7 +177,6 @@ function gitea_mirror () {
       --data "{
         \"clone_addr\": \"$url\",
         \"repo_name\": \"$name\",
-        \"auth_token\": \"$github_token\",
         \"issues\": false,
         \"labels\": false,
         \"lfs\": false,
@@ -200,32 +191,29 @@ function gitea_mirror () {
     }"
 }
 
-function bwg () {
-    # unlock the vault if it's not already unlocked
-    if [ "$BW_SESSION" = "" ]; then
-        export BW_SESSION="$(bw unlock --raw)"
-        bw sync 1>&2
+function picopass () {
+    if [ "$1" = "list" ] || [ "$1" = "ls" ]; then
+        ls "$HOME/.local/share/picopass" | rg '(.*?)\.pcv$' --only-matching --replace='$1' --color=never
+        return
     fi
 
-    items=$(bw list items --search $1)
-    usernames=($(jq '.[].login.username' --raw-output <<< "$items"))
-    if [ "$2" = "u" ]; then
-        results=($(jq '.[].login.username' --raw-output <<< "$items"))
-    else
-        results=($(jq '.[].login.password' --raw-output <<< "$items"))
+    local plaintext_path="$HOME/.local/share/picopass/$2"
+    local ciphertext_path="$HOME/.local/share/picopass/$2.pcv"
+
+    if [ "$1" = "set" ]; then
+        echo "$3" > "$plaintext_path"
+        picocrypt "$plaintext_path"
+        shred -u "$plaintext_path"
     fi
 
-    if [ "$results" = "null" ]; then
-        results=($(jq '.[].notes' --raw-output <<< "$items"))
-    fi
-
-    if [ "${#usernames[@]}" = "1" ]; then
-        echo -n "${results[1]}"
-    else
-        select opt in "${usernames[@]}"; do
-            echo -n "${results[$REPLY]}"
-            break
-        done
+    if [ "$1" = "get" ]; then
+        if [ ! -f "$ciphertext_path" ]; then
+            >&2 echo "secret does not exist"
+        else
+            >&2 picocrypt "$ciphertext_path"
+            \cat "$plaintext_path"
+            >&2 shred -u "$plaintext_path"
+        fi
     fi
 }
 

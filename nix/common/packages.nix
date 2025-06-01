@@ -12,7 +12,6 @@
     bash
     bat
     bc
-    bitwarden-cli
     bun
     carla
     chromium
@@ -92,6 +91,7 @@
     unstable.neovim
     unstable.nil
     unstable.picocrypt
+    unstable.picocrypt-cli
     unstable.spotify
     unstable.yt-dlp
 
