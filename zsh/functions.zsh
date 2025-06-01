@@ -149,48 +149,6 @@ function syc () {
     fi
 }
 
-function gitea_mirror () {
-    gitea_token=$(picopass get gitea-oauth-token)
-
-    if [ "$1" = "" ]; then
-        echo "usage: gitea_mirror https://github.com/user/repo"
-        return
-    fi
-
-    setopt localoptions shwordsplit
-
-    url="$1"
-
-    saveIFS="$IFS"
-    IFS='/'
-    a=(${url})
-    IFS="$saveIFS"
-
-    name="${a[${#a[@]}]}"
-
-    echo "mirroring: $url [$name]"
-
-    curl --request POST \
-      --url https://git.jayden.codes/api/v1/repos/migrate \
-      --header "Authorization: token $gitea_token" \
-      --header 'Content-Type: application/json' \
-      --data "{
-        \"clone_addr\": \"$url\",
-        \"repo_name\": \"$name\",
-        \"issues\": false,
-        \"labels\": false,
-        \"lfs\": false,
-        \"milestones\": false,
-        \"mirror\": true,
-        \"mirror_interval\": \"36h00m00s\",
-        \"private\": false,
-        \"pull_requests\": false,
-        \"releases\": false,
-        \"service\": \"github\",
-        \"wiki\": false
-    }"
-}
-
 function picopass () {
     if [ "$1" = "list" ] || [ "$1" = "ls" ]; then
         ls "$HOME/.local/share/picopass" | rg '(.*?)\.pcv$' --only-matching --replace='$1' --color=never

@@ -33,13 +33,6 @@ function git_main_branch () {
   echo master
 }
 
-function gp () {
-  git push "$@"
-  if git config remote.gitea.url > /dev/null; then
-    git push gitea "$@"
-  fi
-}
-
 #
 # Aliases
 # (sorted alphabetically)
@@ -99,10 +92,10 @@ alias gcs='git commit -S'
 alias gcsm='git commit -s -m'
 alias gcss='git commit -S -s'
 alias gcssm='git commit -S -s -m'
-alias gdfull='git diff'
 alias gdca='git diff --cached'
 alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
 alias gdcw='git diff --cached --word-diff'
+alias gdfull='git diff'
 alias gds='git diff --staged'
 alias gdt='git diff-tree --no-commit-id --name-only -r'
 alias gdw='git diff --word-diff'
@@ -143,6 +136,7 @@ alias gmom='git merge origin/$(git_main_branch)'
 alias gmt='git mergetool --no-prompt'
 alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
 alias gmum='git merge upstream/$(git_main_branch)'
+alias gp='git push'
 alias gpd='git push --dry-run'
 alias gpf!='git push --force'
 alias gpf='git push --force-with-lease'
