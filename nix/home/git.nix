@@ -76,6 +76,7 @@ in
             *.swp
 
             .null-ls-root
+            .null-ls-enable-eslint
             .git-ignored-general
 
             ##### Linux OS ignores
