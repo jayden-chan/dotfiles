@@ -27,7 +27,11 @@ return {
 				null_ls.builtins.formatting.sql_formatter.with({
 					extra_args = {
 						"--config",
-						'{"language":"' .. sql_dialect .. '","dialect":"' .. sql_dialect .. '","tabWidth":4}',
+						'{"tabWidth":4,"keywordCase":"upper","language":"'
+							.. sql_dialect
+							.. '","dialect":"'
+							.. sql_dialect
+							.. '"}',
 					},
 				}),
 				require("none-ls-shellcheck.diagnostics"),

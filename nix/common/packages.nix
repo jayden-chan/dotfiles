@@ -42,6 +42,8 @@
     nitrogen
     nixfmt-rfc-style
     nsxiv
+    obs-studio
+    obsidian
     onefetch
     pavucontrol
     picom
@@ -56,6 +58,7 @@
     taplo
     tokei
     trash-cli
+    trufflehog
     usbutils
     vesktop
     wget
