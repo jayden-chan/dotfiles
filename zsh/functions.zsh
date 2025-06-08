@@ -27,9 +27,16 @@ function _nix_git_trick () {
     popd >/dev/null
 }
 
+function nix-clean () {
+    local before_space=$(df | rg "/dev/dm-2" | awk '{ print $3 }')
+    _nix_git_trick nh clean all --keep 10
+    local after_space=$(df | rg "/dev/dm-2" | awk '{ print $3 }')
+    local saved=$(bc -l <<< "$before_space * 1024 - $after_space * 1024" | numfmt --to=iec --suffix=iB)
+    echo "Saved $saved of disk space"
+}
+
 alias nix-rebuild='_nix_git_trick nh os switch';
 alias nix-update='_nix_git_trick nix flake update';
-alias nix-clean='_nix_git_trick nh clean all --keep 10';
 
 function dkill () {
     ps -ax | rg '^\s*(\d+)(.*?)\d eslint_d' --only-matching --replace='$1' --color=never | xargs kill

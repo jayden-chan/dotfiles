@@ -2,13 +2,9 @@
 
 {
   fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "Iosevka"
-          "JetBrainsMono"
-        ];
-      })
+    packages = [
+      pkgs.nerd-fonts.iosevka
+      pkgs.nerd-fonts.jetbrains-mono
     ];
 
     fontconfig = {

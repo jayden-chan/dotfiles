@@ -10,7 +10,7 @@
         splitDiff = "auto";
         nerdFontsVersion = "3";
         scrollHeight = 12;
-        sidePanelWidth = 0.17;
+        sidePanelWidth = 0.2;
         showListFooter = false;
         showBottomLine = false;
         showRandomTip = false;
@@ -42,6 +42,7 @@
       };
 
       git = {
+        autoFetch = false;
         mainBranches = [
           "master"
           "main"

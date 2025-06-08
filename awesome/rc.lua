@@ -16,10 +16,6 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local lain = require("lain")
 
--- sometimes the screen numbers get messed up and the directions/numbers
--- need to change. no idea how to make the screen numbers consistent
-local screen_num_invert = true
-
 naughty.config.spacing = 1
 naughty.config.padding = 10
 naughty.config.defaults.position = "bottom_right"
@@ -762,11 +758,11 @@ local clientkeys = gears.table.join(
 	end, { description = "move to master", group = "client" }),
 
 	awful.key({ modkey }, "o", function(c)
-		c:move_to_screen(c.screen.index + (screen_num_invert and -1 or 1))
+		c:move_to_screen(c.screen.index + 1)
 	end, { description = "move to previous screen", group = "client" }),
 
 	awful.key({ modkey }, "p", function(c)
-		c:move_to_screen(c.screen.index - (screen_num_invert and -1 or 1))
+		c:move_to_screen(c.screen.index - 1)
 	end, { description = "move to next screen", group = "client" }),
 
 	awful.key({ modkey }, "t", function(c)
