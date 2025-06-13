@@ -38,7 +38,6 @@ require("lazy").setup({
 	require("config.plugins.vim-dadbod-ui"),
 	require("config.plugins.todo-comments"),
 	require("config.plugins.nvim-colorizer"),
-	require("config.plugins.blame"),
 }, {
 	performance = {
 		rtp = {
