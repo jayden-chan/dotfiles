@@ -16,6 +16,7 @@
         showRandomTip = false;
         showFileTree = false;
         showCommandLog = false;
+        mouseEvents = false;
       };
 
       update.method = "never";
@@ -43,6 +44,7 @@
 
       git = {
         autoFetch = false;
+        disableForcePushing = true;
         mainBranches = [
           "master"
           "main"

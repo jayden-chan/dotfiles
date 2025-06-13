@@ -1,6 +1,7 @@
 /*** Prevent pinned tabs area from scrolling ***/
 #vertical-pinned-tabs-container {
   max-height: none !important;
+  height: min-content !important;
 }
 
 /*** Hide tab close buttons (just use middle click) ***/

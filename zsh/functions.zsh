@@ -31,7 +31,7 @@ function nix-clean () {
     local before_space=$(df | rg "/dev/dm-2" | awk '{ print $3 }')
     _nix_git_trick nh clean all --keep 10
     local after_space=$(df | rg "/dev/dm-2" | awk '{ print $3 }')
-    local saved=$(bc -l <<< "$before_space * 1024 - $after_space * 1024" | numfmt --to=iec --suffix=iB)
+    local saved=$(bc -l <<< "$before_space * 1024 - $after_space * 1024" | numfmt --to=iec-i --suffix=B --format %.2f)
     echo "Saved $saved of disk space"
 }
 
@@ -79,7 +79,13 @@ function bb () {
 EOF
 
     cat << EOF > ./package.json
-{ "devDependencies": { "@types/node": "22", "bun-types": "latest" }, "prettier": {} }
+{
+  "devDependencies": {
+    "@types/node": "22",
+    "bun-types": "latest"
+  },
+  "prettier": {}
+}
 EOF
 
         bun install

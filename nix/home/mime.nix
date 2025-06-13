@@ -8,6 +8,7 @@ let
   zathura = "org.pwmt.zathura.desktop";
   browser = "firefox-devedition.desktop";
   protontricks = "protontricks-launch.desktop";
+  nsxiv = "nsxiv.desktop";
 in
 {
   xdg.mime.enable = true;
@@ -41,6 +42,7 @@ in
     "x-scheme-handler/chrome" = [ browser ];
     "x-scheme-handler/http" = [ browser ];
     "x-scheme-handler/https" = [ browser ];
+    "image/svg+xml" = [ nsxiv ];
   };
 
   xdg.mimeApps.associations.added = {
