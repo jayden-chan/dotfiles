@@ -26,6 +26,7 @@
     ffmpegthumbnailer
     file
     fontconfig
+    fzf
     gcc
     gimp
     gnumake

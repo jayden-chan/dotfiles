@@ -105,13 +105,18 @@ setopt extendedglob
 # Syntax highlight comments while using prompt
 setopt interactivecomments
 
-source $DOT/zsh/aliases.zsh
-source $DOT/zsh/functions.zsh
+source "$DOT/zsh/aliases.zsh"
+source "$DOT/zsh/functions.zsh"
 
 # oh-my-zsh plugins (but without oh-my-zsh bloat)
-source $DOT/zsh/dir.zsh
-source $DOT/zsh/git.zsh
-source $DOT/zsh/dotenv.zsh
+source "$DOT/zsh/dir.zsh"
+source "$DOT/zsh/git.zsh"
+source "$DOT/zsh/dotenv.zsh"
+
+# initialize shist on personal machines
+if [ "$hostname" = "grace" ] || [ "$hostname" = "swift" ]; then
+    source "$DOT/zsh/shist.zsh"
+fi
 
 # syntax highlighting, must be loaded last
 if [ "$hostname" = "client-Jayden-Chan.local" ]; then
@@ -121,10 +126,6 @@ if [ "$hostname" = "client-Jayden-Chan.local" ]; then
 else
     source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
     source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-if [ "$hostname" = "grace" ] || [ "$hostname" = "swift" ]; then
-    eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 # initialize starship prompt

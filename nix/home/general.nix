@@ -11,7 +11,6 @@
 
     ./mpv/config.nix
 
-    ./atuin.nix
     ./desktop-files.nix
     ./ghostty.nix
     ./git.nix
