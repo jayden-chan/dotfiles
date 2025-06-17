@@ -6,11 +6,6 @@ function sc         () { jq .scripts ${1:-package.json} }
 function kns        () { kubectl config set-context --current --namespace="$1" }
 function rgd        () { rg --json -C 10 "$@" | delta }
 
-# Good compression/archive settings
-function compress () { tar c -I"xz -T 0 -7" -f $1.tar.xz $1 }
-function archive () { tar c -I"xz -T 0 -0" -f $1.tar.xz $1 }
-alias decompress='tar xfJ'
-
 function _nix_git_trick () {
     # get a sudo authorization so it doesn't prompt us later in the nix process
     sudo echo ""
