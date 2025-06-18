@@ -72,7 +72,6 @@
     yaml-language-server
     zenity
     zoxide
-    zsh-autosuggestions
     zsh-syntax-highlighting
 
     nodePackages.typescript-language-server

@@ -31,8 +31,6 @@
   programs.home-manager.enable = true;
 
   home.file = {
-    ".local/share/zsh/zsh-autosuggestions".source =
-      "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
     ".local/share/zsh/zsh-syntax-highlighting".source =
       "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
     ".config/wgetrc".text = "hsts-file = ${config-vars.home-dir}/.cache/wget-hsts";

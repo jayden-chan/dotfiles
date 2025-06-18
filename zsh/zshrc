@@ -124,7 +124,6 @@ if [ "$hostname" = "client-Jayden-Chan.local" ]; then
     source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
     source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 else
-    source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
     source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
