@@ -24,7 +24,7 @@ require("lazy").setup({
 	require("config.plugins.comment"),
 	require("config.plugins.vim-surround"),
 	require("config.plugins.lexima"),
-	require("config.plugins.telescope"),
+	require("config.plugins.fzf"),
 	require("config.plugins.nvim-lspconfig"),
 	require("config.plugins.none-ls"),
 	require("config.plugins.fidget"),

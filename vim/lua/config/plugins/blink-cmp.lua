@@ -25,9 +25,7 @@ return {
 			menu = {
 				scrollbar = false,
 				auto_show = function()
-					return vim.bo.buftype ~= "prompt"
-						and vim.b.completion ~= false
-						and vim.bo.filetype ~= "TelescopePrompt"
+					return vim.bo.buftype ~= "prompt" and vim.b.completion ~= false
 				end,
 			},
 			list = { selection = { preselect = false, auto_insert = true } },
