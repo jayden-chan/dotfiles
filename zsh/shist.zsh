@@ -22,7 +22,16 @@ function _shist_widget() {
 
     local selected
     setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases noglob nobash_rematch 2> /dev/null
-    selected="$(curl --compressed --silent -H "authorization: $SHIST_TOKEN" "$SHIST_URL/history?nul_sep=true" | fzf --query="$LBUFFER" --read0)"
+
+    selected="$(curl "$SHIST_URL/history?nul_sep=true" \
+        --compressed \
+        --silent \
+        --header "authorization: $SHIST_TOKEN" \
+        | fzf \
+        --scheme="history" \
+        --query="$LBUFFER" \
+        --read0)"
+
     local ret=$?
 
     if [ -n "$selected" ]; then
@@ -43,7 +52,7 @@ function shearch () {
         --silent \
         -H "authorization: $SHIST_TOKEN" \
         "$SHIST_URL/history?nul_sep=true" \
-    | fzf --read0 \
+    | fzf --scheme="history" --read0 \
     | xclip -selection c
 }
 
