@@ -187,3 +187,16 @@ balancers
 TCP
 customizable
 deduplication
+endian
+Steganography
+CSPRNG
+BLAKE3
+Argon2
+plaintext
+zstd
+UTF-8
+ciphertext
+PNG
+Decrypt
+decrypted
+u32

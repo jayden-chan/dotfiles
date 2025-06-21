@@ -39,20 +39,13 @@ if ! rga "notifications-dbus-mon" "$ps_ax"; then
     notifications-dbus-mon &
 fi
 
-if [ "$HOSTNAME" = "grace" ]; then
-    if ! rga "bash .*auto-cool.sh" "$ps_ax"; then
-        msg "starting auto-cool script"
-        "$DOT/scripts/auto-cool.sh" &
-    fi
+if [ "$HOSTNAME" = "grace" ] && ! rga "sensors-mon" "$ps_ax"; then
+    # we'll sleep for a couple seconds so that
+    # sensors-mon starts up after carla and goes into
+    # the right place in the tiling window manager
+    # hierarchy
+    sleep 2
 
-    if ! rga "sensors-mon" "$ps_ax"; then
-        # we'll sleep for a couple seconds so that
-        # sensors-mon starts up after carla and goes into
-        # the right place in the tiling window manager
-        # hierarchy
-        sleep 2
-
-        msg "starting sensors-mon"
-        ghostty --x11-instance-name="sensors-mon" -e sensors-mon 2>/dev/null &
-    fi
+    msg "starting sensors-mon"
+    ghostty --x11-instance-name="sensors-mon" -e sensors-mon 2>/dev/null &
 fi

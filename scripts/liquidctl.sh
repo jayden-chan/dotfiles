@@ -9,14 +9,8 @@ fan1="fan1"
 fan2="fan3"
 pump="fan2"
 level="$1"
-auto="$2"
-current_level=$(cat "$level_file")
 
-if [ "$auto" = "true" ]; then
-    if [ "$(echo "$current_level >= $level" | bc -l)" = "1" ]; then
-        exit 0
-    fi
-
+if [ "$2" = "--automated" ]; then
     notify-send -u critical "liquidctl" "WARNING: Cooling level was set automatically"
 fi
 
