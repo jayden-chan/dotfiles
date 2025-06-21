@@ -75,3 +75,4 @@ alias drs='docker-compose up -d --force-recreate --remove-orphans'
 alias curlv='curl --verbose'
 alias pg='ps -ax | rg'
 alias videoman="$HOME/Dev/videoman/src/index.ts"
+alias tw='.git-ignored-general/tw.sh'

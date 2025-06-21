@@ -8,12 +8,26 @@
     mouse = true;
     baseIndex = 1;
     escapeTime = 0;
+    keyMode = "vi";
     historyLimit = 50000;
 
     extraConfig = # tmux
       ''
         set -sa terminal-overrides ",xterm*:Tc"
         set -g renumber-windows on
+
+        # make ctrl-i work (and others)
+        set -g extended-keys on
+
+        # unbind all keys
+        unbind -a
+
+        # add back necessary default keybinds
+        bind : command-prompt
+        bind [ copy-mode
+        bind d detach-client
+        bind s choose-session
+        bind . command-prompt "move-window -t '%%'"
 
         # reload with prefix-r
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded."
@@ -38,10 +52,10 @@
         bind -n 'M-i' if-shell "$is_vim" 'send-keys M-i' 'select-pane -U'
         bind -n 'M-l' if-shell "$is_vim" 'send-keys M-l' 'select-pane -R'
 
-        bind -T copy-mode 'M-j' select-pane -L
-        bind -T copy-mode 'M-k' select-pane -D
-        bind -T copy-mode 'M-i' select-pane -U
-        bind -T copy-mode 'M-l' select-pane -R
+        bind -T copy-mode-vi 'M-j' select-pane -L
+        bind -T copy-mode-vi 'M-k' select-pane -D
+        bind -T copy-mode-vi 'M-i' select-pane -U
+        bind -T copy-mode-vi 'M-l' select-pane -R
 
         # in practice these binds really are Meta + key, these are just
         # some additional scuffed bindings that are needed because of
@@ -51,10 +65,10 @@
         bind i if-shell "$is_vim" 'send-keys M-i' 'select-pane -U'
         bind l if-shell "$is_vim" 'send-keys M-l' 'select-pane -R'
 
-        bind -T copy-mode j select-pane -L
-        bind -T copy-mode k select-pane -D
-        bind -T copy-mode i select-pane -U
-        bind -T copy-mode l select-pane -R
+        bind -T copy-mode-vi j select-pane -L
+        bind -T copy-mode-vi k select-pane -D
+        bind -T copy-mode-vi i select-pane -U
+        bind -T copy-mode-vi l select-pane -R
 
         # resize panes
         bind -r J resize-pane -L
@@ -85,23 +99,23 @@
         bind 9 attach-session -t 9
 
         # Use peasant non-standard vim keys for copy mode
-        bind -T copy-mode k send -X cursor-down
-        bind -T copy-mode l send -X cursor-right
-        bind -T copy-mode j send -X cursor-left
-        bind -T copy-mode i send -X cursor-up
-        bind -T copy-mode K send -X -N 12 scroll-down
-        bind -T copy-mode L send -X end-of-line
-        bind -T copy-mode J send -X start-of-line
-        bind -T copy-mode I send -X -N 12 scroll-up
+        bind -T copy-mode-vi k send -X cursor-down
+        bind -T copy-mode-vi l send -X cursor-right
+        bind -T copy-mode-vi j send -X cursor-left
+        bind -T copy-mode-vi i send -X cursor-up
+        bind -T copy-mode-vi K send -X -N 12 scroll-down
+        bind -T copy-mode-vi L send -X end-of-line
+        bind -T copy-mode-vi J send -X start-of-line
+        bind -T copy-mode-vi I send -X -N 12 scroll-up
 
         # Don't exit copy mode after selecting something with the mouse
-        unbind -T copy-mode MouseDragEnd1Pane
+        unbind -T copy-mode-vi MouseDragEnd1Pane
 
-        bind -T copy-mode v     send -X begin-selection
-        bind -T copy-mode 'C-v' send -X begin-selection \; send -X rectangle-toggle
-        bind -T copy-mode V     send -X select-line
-        bind -T copy-mode r     send -X rectangle-toggle
-        bind -T copy-mode y     send -X copy-pipe-and-cancel "xclip -in -selection clipboard"
+        bind -T copy-mode-vi v     send -X begin-selection
+        bind -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
+        bind -T copy-mode-vi V     send -X select-line
+        bind -T copy-mode-vi r     send -X rectangle-toggle
+        bind -T copy-mode-vi y     send -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 
         ########################################################
         # Powerline style statusbar
