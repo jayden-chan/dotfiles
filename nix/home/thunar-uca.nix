@@ -20,6 +20,21 @@
         </action>
         <action>
             <icon></icon>
+            <name>Send to Phone</name>
+            <submenu></submenu>
+            <unique-id>1750648860252321-1</unique-id>
+            <command>${config-vars.dotfiles-dir}/scripts/send-to-phone.sh &apos;%f&apos;</command>
+            <description>Send file to Phone</description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <audio-files/>
+            <image-files/>
+            <other-files/>
+            <text-files/>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
             <name>FFProbe</name>
             <submenu></submenu>
             <unique-id>1676602598381730-1</unique-id>
