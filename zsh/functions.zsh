@@ -1,6 +1,6 @@
 function op         () { thunar ${1:-.} </dev/null &>/dev/null & disown }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
-function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 }
+function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 | tr -d '\n' }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function sc         () { jq .scripts ${1:-package.json} }
 function kns        () { kubectl config set-context --current --namespace="$1" }
