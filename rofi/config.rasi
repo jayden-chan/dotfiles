@@ -1,0 +1,31 @@
+// default config (only used for the pinentry-rofi prompts since the
+// theme for that one can't be passed in)
+
+@import "base.rasi"
+
+* {
+    font: "Mono 11";
+}
+
+window {
+    width: 700px;
+    margin: 0px;
+    padding: 0px;
+    // border: 1px solid;
+    border-color: @foreground;
+    border-radius: 12px;
+}
+
+entry {
+    placeholder: "";
+    font: "DejaVuSansMono Bold 12";
+}
+
+mainbox {
+    enabled: true;
+    children: [ "inputbar", "message" ];
+}
+
+message {
+    border: 0px solid;
+}

@@ -45,11 +45,11 @@ ln -fs ~/.config/dotfiles/vim/init.lua                          ~/.config/nvim/
 ln -fs ~/.config/dotfiles/vim/lazy-lock.json                    ~/.config/nvim/
 ln -fs ~/.config/dotfiles/awesome/theme                         ~/.config/awesome/theme
 ln -fs ~/.config/dotfiles/awesome/rc.lua                        ~/.config/awesome/
+ln -fs ~/.config/dotfiles/rofi/config.rasi                      ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/base.rasi                        ~/.config/rofi/
-ln -fs ~/.config/dotfiles/rofi/drun.rasi                        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/power.rasi                       ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/screenshot.rasi                  ~/.config/rofi/
-ln -fs ~/.config/dotfiles/rofi/links.rasi                       ~/.config/rofi/
+ln -fs ~/.config/dotfiles/rofi/list.rasi                        ~/.config/rofi/
 ln -fs ~/.config/dotfiles/rofi/eq.rasi                          ~/.config/rofi/
 ln -fs ~/.config/dotfiles/zsh/zlogout                           ~/.config/zsh/.zlogout
 ln -fs ~/.config/dotfiles/zsh/zshrc                             ~/.config/zsh/.zshrc

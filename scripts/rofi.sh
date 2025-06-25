@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-[ -e "$HOME/.config/ENV" ] && . "$HOME"/.config/ENV
-
-if [ "$STRIPE_COLOR" != "" ] && [ "$BORDER_COLOR" != "" ]; then
-    rofi_theme="* { stripe: $STRIPE_COLOR; border: $BORDER_COLOR; }"
-else
-    rofi_theme=""
-fi
-
 if [ "$1" = "--power_fast" ]; then
     case $2 in
         logout)   echo 'awesome.quit()' | awesome-client ;;
@@ -18,11 +10,12 @@ if [ "$1" = "--power_fast" ]; then
 fi
 
 if [ "$1" = "--normal" ]; then
-    rofi -modi drun -show drun -drun-show-actions -theme drun -theme-str "$rofi_theme"
+    rofi -modi drun -show drun -drun-show-actions -theme base
 elif [ "$1" = "--window" ]; then
-    rofi -modi window -show window -theme drun -theme-str "$rofi_theme"
+    rofi -modi window -show window -theme base
 elif [ "$1" = "--power" ]; then
-    result=$(< "$HOME/.config/dotfiles/rofi/powermenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme")
+    power_theme_str="listview { columns: 4; } window { width: 44%; }"
+    result=$(< "$DOT/rofi/powermenu" rofi -dmenu -i -theme power -theme-str "$power_theme_str")
 
     case $result in
         logout)   echo 'awesome.quit()' | awesome-client ;;
@@ -31,16 +24,16 @@ elif [ "$1" = "--power" ]; then
         shutdown) shutdown --poweroff now ;;
     esac
 elif [ "$1" = "--liquidctl" ]; then
-    result=$(< "$HOME/.config/dotfiles/rofi/liquidctlmenu" rofi -dmenu -i -theme power -theme-str "$rofi_theme" -theme-str "listview { columns: 5; }")
+    result=$(< "$DOT/rofi/liquidctlmenu" rofi -dmenu -i -theme power)
     case $result in
-        "Level 1") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "1" ;;
-        "Level 2") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "2" ;;
-        "Level 3") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "3" ;;
-        "Level 4") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "4" ;;
-        "Level 5") "$HOME/.config/dotfiles/scripts/liquidctl.sh" "5" ;;
+        "Level 1") "$DOT/scripts/liquidctl.sh" "1" ;;
+        "Level 2") "$DOT/scripts/liquidctl.sh" "2" ;;
+        "Level 3") "$DOT/scripts/liquidctl.sh" "3" ;;
+        "Level 4") "$DOT/scripts/liquidctl.sh" "4" ;;
+        "Level 5") "$DOT/scripts/liquidctl.sh" "5" ;;
     esac
 elif [ "$1" = "--save-screenshot" ]; then
-    result=$(rofi -dmenu -i -theme screenshot -p "file name:" -theme-str "$rofi_theme")
+    result=$(rofi -dmenu -i -p "title (no extension):")
 
     if [ "$result" = "" ]; then
         notify-send "Maim" "Screenshot not saved"
@@ -56,6 +49,6 @@ elif [ "$1" = "--save-screenshot" ]; then
         notify-send -i "$file" "Maim" "Screenshot saved to $result.png"
     fi
 elif [ "$1" = "--autorandr" ]; then
-    result=$(autorandr --list | rofi -dmenu -i -p "select profile:" -theme links -theme-str "$rofi_theme")
+    result=$(autorandr --list | rofi -dmenu -i -p "select profile:" -theme list)
     autorandr --load "$result"
 fi

@@ -25,13 +25,13 @@ case "$1" in
                 [ "$currbrightness" -lt 100 ] && stepamt=10
                 [ "$currbrightness" -lt 30 ] && stepamt=5
                 [ "$currbrightness" -lt 10 ] && stepamt=1
-                light -A $stepamt
+                light -A "$stepamt"
                 ;;
             down) 
                 [ "$currbrightness" -le 100 ] && stepamt=10
                 [ "$currbrightness" -le 30 ] && stepamt=5
                 [ "$currbrightness" -le 10 ] && stepamt=1
-                light -U $stepamt
+                light -U "$stepamt"
                 ;;
         esac
         currbrightness=$(light | awk '{print int($1+0.5)}')

@@ -1,21 +1,26 @@
+@import "base.rasi"
+
 configuration {
-    font:                           "Sans 11";
-    show-icons:                     true;
-    disable-history:                true;
-    fullscreen:                     false;
-    tokenize:                       true;
-    hide-scrollbar:                 true;
-    sidebar-mode:                   false;
-    scroll-method:                  0;
+    font:            "Sans 11";
+    show-icons:      true;
+    disable-history: true;
+    fullscreen:      false;
+    tokenize:        true;
+    hide-scrollbar:  true;
+    sidebar-mode:    false;
+    scroll-method:   0;
 }
 
-@import "base.rasi"
-//;
-
 window {
-    height:                         200px;
+    width: 50%;
+}
+
+listview {
+    columns: 5;
+    lines:   1;
 }
 
 mainbox {
-    children:                       [ listview ];
+    children: [ listview ];
+    padding:  30px;
 }

@@ -71,7 +71,7 @@
     enableZshIntegration = true;
     enableSshSupport = true;
 
-    pinentry.package = pkgs.pinentry-gtk2;
+    pinentry.package = pkgs.pinentry-rofi;
 
     # 24 hours
     maxCacheTtl = 86400;

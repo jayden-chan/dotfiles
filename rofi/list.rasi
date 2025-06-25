@@ -1,0 +1,34 @@
+@import "base.rasi"
+
+* {
+    font: "Mono 12";
+}
+
+configuration {
+    disable-history:                true;
+    tokenize:                       true;
+    sidebar-mode:                   false;
+    scroll-method:                  1;
+}
+
+window {
+    width: 50%;
+}
+
+entry {
+    placeholder: "";
+}
+
+listview {
+    columns: 1;
+}
+
+element {
+    padding: 20px 10px;
+    margin: 0px;
+    spacing: 0px;
+}
+
+element-icon {
+    size: 0px;
+}
