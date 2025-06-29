@@ -72,4 +72,5 @@
   };
 
   programs.zsh.enable = true;
+  services.pcscd.enable = true;
 }

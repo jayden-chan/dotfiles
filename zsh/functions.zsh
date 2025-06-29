@@ -1,16 +1,27 @@
 function op         () { thunar ${1:-.} </dev/null &>/dev/null & disown }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
-function randstring () { cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1 | tr -d '\n' }
 function qrimg      () { qrencode -t png -r /dev/stdin -o /dev/stdout | convert - -interpolate Nearest -filter point -resize 1000% png:/dev/stdout }
 function sc         () { jq .scripts ${1:-package.json} }
 function kns        () { kubectl config set-context --current --namespace="$1" }
 function rgd        () { rg --json -C 10 "$@" | delta }
 
+function randstring () {
+    local characters='[:alnum:]'
+    local default_length="${PASSWORD_STORE_GENERATED_LENGTH:-25}"
+    local length="${1:-$default_length}"
+
+    if [ "$2" = "--symbols" ] || [ "$2" = "-s" ]; then
+        characters='[:punct:][:alnum:]'
+    fi
+
+    cat /dev/urandom | tr -dc "$characters" | fold -w "$length" | head -n 1 | tr -d '\n'
+}
+
 function _nix_git_trick () {
     # get a sudo authorization so it doesn't prompt us later in the nix process
     sudo echo ""
     # we'll use a random id to avoid accidentally messing up the .git directory
-    rand_id=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
+    rand_id="$(randstring)"
 
     pushd "$DOT/nix" >/dev/null || return
 
@@ -143,43 +154,25 @@ function syc () {
             cp "$DOT/misc/userChrome.css" ~/.mozilla/firefox/"$profile"/chrome/userChrome.css
         done
     elif [ "$1" = "files" ]; then
+        local base_path="/run/media/jayden/Seagate External/Backup/Personal Files";
+
         echo "syncing personal files to external drive"
         echo "=== syncing Git repos"
-        cpr -e ssh                homelab:docker/gitea/data/git/repositories/jayden/ "/run/media/jayden/Seagate External/Backup/Personal Files/Git/"
+        cpr -e ssh                homelab:docker/gitea/data/git/repositories/jayden/ "$base_path/Git/"
 
         echo "=== syncing music"
-        cpr                       /mnt/homelab/seagate/music/ "/run/media/jayden/Seagate External/Backup/Personal Files/Music/"
+        cpr                       /mnt/homelab/seagate/music/ "$base_path/Music/"
+
         echo "=== syncing videos"
-        cpr --exclude 'replays/*' "$HOME/Videos/"             "/run/media/jayden/Seagate External/Backup/Personal Files/Videos/"
+        cpr --exclude 'replays/*' "$HOME/Videos/"             "$base_path/Videos/"
+
         echo "=== syncing pictures"
-        cpr --exclude 'a6600/*'   "$HOME/Pictures/"           "/run/media/jayden/Seagate External/Backup/Personal Files/Pictures/"
+        cpr --exclude 'a6600/*'   "$HOME/Pictures/"           "$base_path/Pictures/"
+
+        echo "=== syncing passage"
+        cpr --delete              "$PASSAGE_DIR/"             "$base_path/Passwords/"
+
         return
-    fi
-}
-
-function picopass () {
-    if [ "$1" = "list" ] || [ "$1" = "ls" ]; then
-        ls "$HOME/.local/share/picopass" | rg '(.*?)\.pcv$' --only-matching --replace='$1' --color=never
-        return
-    fi
-
-    local plaintext_path="$HOME/.local/share/picopass/$2"
-    local ciphertext_path="$HOME/.local/share/picopass/$2.pcv"
-
-    if [ "$1" = "set" ]; then
-        echo "$3" > "$plaintext_path"
-        picocrypt "$plaintext_path"
-        shred -u "$plaintext_path"
-    fi
-
-    if [ "$1" = "get" ]; then
-        if [ ! -f "$ciphertext_path" ]; then
-            >&2 echo "secret does not exist"
-        else
-            >&2 picocrypt "$ciphertext_path"
-            \cat "$plaintext_path"
-            >&2 shred -u "$plaintext_path"
-        fi
     fi
 }
 

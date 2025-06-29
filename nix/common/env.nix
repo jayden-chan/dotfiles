@@ -24,6 +24,9 @@
     LESSHISTFILE = "-";
     NODE_REPL_HISTORY = "${XDG_DATA_HOME}/node_repl_history";
     NPM_CONFIG_USERCONFIG = "${XDG_CONFIG_HOME}/npm/npmrc";
+    PASSAGE_DIR = "${XDG_DATA_HOME}/passage/store";
+    PASSAGE_IDENTITIES_FILE = "${XDG_DATA_HOME}/passage/identities";
+    PASSWORD_STORE_CLIP_TIME = "15";
     PSQL_HISTORY = "${XDG_STATE_HOME}/psql_history";
     RUSTUP_HOME = "${XDG_DATA_HOME}/rustup";
     SQLITE_HISTORY = "${XDG_DATA_HOME}/sqlite_history";
@@ -35,6 +38,7 @@
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java";
 
     EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
     TERMINAL = config-vars.terminal;
     BROWSER = "firefox-devedition";
     COLORTERM = "truecolor";

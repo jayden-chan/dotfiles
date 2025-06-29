@@ -8,6 +8,7 @@
 {
   environment.systemPackages = with pkgs; [
     age
+    age-plugin-yubikey
     alsa-utils
     awesome
     bash
@@ -47,6 +48,7 @@
     nsxiv
     obs-studio
     onefetch
+    passage
     pavucontrol
     picom
     pkg-config
@@ -61,6 +63,7 @@
     tokei
     trash-cli
     trufflehog
+    typst
     usbutils
     vesktop
     wget
@@ -70,6 +73,7 @@
     xcolor
     xdotool
     yaml-language-server
+    yubikey-manager
     zenity
     zoxide
     zsh-syntax-highlighting

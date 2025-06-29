@@ -63,6 +63,7 @@ alias make='make --no-print-directory'
 alias node='node --enable-source-maps --unhandled-rejections=strict'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
+alias pass='passage'
 
 # Other
 alias clip='xclip -selection c'

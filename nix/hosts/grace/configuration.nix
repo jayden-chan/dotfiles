@@ -120,6 +120,13 @@ in
     unstable.hugin
     unstable.prismlauncher
 
+    (pkgs.llama-cpp.override {
+      config = {
+        cudaSupport = true;
+        rocmSupport = false;
+      };
+    })
+
     # make the NVIDIA X11 libraries available for gpu-screen-recorder
     (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
       mkdir -p $out/bin

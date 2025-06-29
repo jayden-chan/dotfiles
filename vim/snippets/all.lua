@@ -144,16 +144,6 @@ along with {3}. If not, see <https://www.gnu.org/licenses/>.
 		)
 	),
 	s(
-		{ trig = "rand(%d*)", regTrig = true, hidden = true },
-		f(function(_, parent)
-			local length = parent.captures[1] or "32"
-			if string.len(length) == 0 then
-				length = "32"
-			end
-			return cmd('cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w ' .. length .. " | head -n 1")
-		end)
-	),
-	s(
 		"now",
 		c(1, {
 			f(function()

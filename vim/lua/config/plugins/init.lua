@@ -12,33 +12,49 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-	require("config.plugins.base46"),
-	require("config.plugins.indent-blankline"),
-	require("config.plugins.lualine"),
-	require("config.plugins.neo-tree"),
-	require("config.plugins.gitsigns"),
-	require("config.plugins.tabular"),
-	require("config.plugins.vim-tmux-navigator"),
-	require("config.plugins.vim-repeat"),
-	require("config.plugins.comment"),
-	require("config.plugins.vim-surround"),
-	require("config.plugins.lexima"),
-	require("config.plugins.fzf"),
-	require("config.plugins.nvim-lspconfig"),
-	require("config.plugins.none-ls"),
-	require("config.plugins.fidget"),
-	require("config.plugins.lspsaga"),
-	require("config.plugins.trouble"),
-	require("config.plugins.treesitter"),
-	require("config.plugins.presence"),
-	require("config.plugins.gitlinker"),
-	require("config.plugins.luasnip"),
-	require("config.plugins.blink-cmp"),
-	require("config.plugins.vim-dadbod-ui"),
-	require("config.plugins.todo-comments"),
-	require("config.plugins.nvim-colorizer"),
-}, {
+local plugins = {
+	"base46",
+	"lualine",
+	"tabular",
+	"vim-surround",
+	"lexima",
+}
+
+if os.getenv("NVIM_PASSAGE_MODE") ~= "true" then
+	local other_plugins = {
+		"indent-blankline",
+		"neo-tree",
+		"gitsigns",
+		"vim-tmux-navigator",
+		"vim-repeat",
+		"comment",
+		"fzf",
+		"nvim-lspconfig",
+		"none-ls",
+		"fidget",
+		"lspsaga",
+		"trouble",
+		"treesitter",
+		"presence",
+		"gitlinker",
+		"luasnip",
+		"blink-cmp",
+		"vim-dadbod-ui",
+		"todo-comments",
+		"nvim-colorizer",
+	}
+
+	for _, item in ipairs(other_plugins) do
+		table.insert(plugins, item)
+	end
+end
+
+local plugins_configs = {}
+for _, item in ipairs(plugins) do
+	table.insert(plugins_configs, require("config.plugins." .. item))
+end
+
+require("lazy").setup(plugins_configs, {
 	performance = {
 		rtp = {
 			disabled_plugins = {

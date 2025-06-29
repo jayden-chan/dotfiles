@@ -555,6 +555,15 @@ local globalkeys = gears.table.join(
 		awful.spawn.with_shell("killall gpu-screen-recorder")
 	end, { description = "stop shadowplay", group = "misc" }),
 
+	awful.key({ modkey, "Shift" }, "p", function()
+		local screen = awful.screen.focused()
+		local tag = screen.tags[8]
+		if tag then
+			tag:view_only()
+		end
+		awful.spawn(terminal .. " --x11-instance-name=passage -e " .. scripts .. "/passage.sh")
+	end, { description = "launch passage picker", group = "misc" }),
+
 	awful.key({ modkey }, "grave", function()
 		if mute_widget.visible then
 			-- Control change
@@ -890,6 +899,7 @@ awful.rules.rules = {
 				"DTA",
 				"copyq",
 				"pinentry",
+				"passage",
 			},
 			class = {
 				"Arandr",
@@ -908,6 +918,8 @@ awful.rules.rules = {
 				"Nitrogen",
 				"Org.gnome.Nautilus",
 				"Nsxiv",
+				"Display",
+				"display",
 				"Tor Browser",
 				"Inkview",
 				"Wpa_gui",
