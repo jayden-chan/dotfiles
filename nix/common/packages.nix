@@ -33,6 +33,7 @@
     go
     imagemagick
     jalv
+    joplin-desktop
     jq
     killall
     libnotify
@@ -45,7 +46,6 @@
     nixfmt-rfc-style
     nsxiv
     obs-studio
-    obsidian
     onefetch
     pavucontrol
     picom
