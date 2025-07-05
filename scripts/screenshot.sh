@@ -28,7 +28,7 @@ case "$1" in
         ;;
     --view)
         xclip -selection clipboard -t image/png -o > "$tmp_file.png"
-        eog "$tmp_file.png"
+        xdg-open "$tmp_file.png"
         ;;
     # screenshot the entire desktop
     *)

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config-vars, ... }:
 
 let
   package = pkgs.xfce.thunar.override {

@@ -19,7 +19,6 @@
     chromium
     czkawka-full
     dig
-    eog
     eza
     fastfetch
     fd
@@ -53,6 +52,7 @@
     picom
     pkg-config
     prettierd
+    qview
     redshift
     ripgrep
     rofi

@@ -1,7 +1,7 @@
 { ... }:
 
 let
-  eog = "org.gnome.eog.desktop";
+  qview = "com.interversehq.qView.desktop";
   file-roller = "org.gnome.FileRoller.desktop";
   basic-text-editor = "org.xfce.mousepad.desktop";
   mpv = "mpv.desktop";
@@ -28,11 +28,11 @@ in
     "audio/mpeg" = [ mpv ];
     "audio/x-aiff" = [ mpv ];
     "image/gif" = [ mpv ];
-    "image/jpeg" = [ eog ];
-    "image/jpg" = [ eog ];
-    "image/png" = [ eog ];
-    "image/webp" = [ eog ];
-    "image/x-portable-pixmap" = [ eog ];
+    "image/jpeg" = [ qview ];
+    "image/jpg" = [ qview ];
+    "image/png" = [ qview ];
+    "image/webp" = [ qview ];
+    "image/x-portable-pixmap" = [ qview ];
     "text/csv" = [ basic-text-editor ];
     "text/html" = [ browser ];
     "text/plain" = [ basic-text-editor ];
