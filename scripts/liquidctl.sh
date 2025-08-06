@@ -14,10 +14,12 @@ if [ "$2" = "--automated" ]; then
     notify-send -u critical "liquidctl" "WARNING: Cooling level was set automatically"
 fi
 
+set -e
+
 case "$level" in
-    1) liquidctl --match Aquacomputer set "$fan1" speed 43 && \
-       liquidctl --match Aquacomputer set "$fan2" speed 42 && \
-       liquidctl --match Aquacomputer set "$pump" speed 20
+    1) liquidctl --match Aquacomputer set "$fan1" speed 55 && \
+       liquidctl --match Aquacomputer set "$fan2" speed 55 && \
+       liquidctl --match Aquacomputer set "$pump" speed 23
            ;;
     2) liquidctl --match Aquacomputer set "$fan1" speed 55 && \
        liquidctl --match Aquacomputer set "$fan2" speed 55 && \
