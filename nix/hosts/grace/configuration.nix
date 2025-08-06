@@ -118,6 +118,7 @@ in
     unstable.ardour
     unstable.caffeine-ng
     unstable.hugin
+    unstable.openscad
     unstable.prismlauncher
 
     (pkgs.llama-cpp.override {
