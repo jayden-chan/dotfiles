@@ -62,14 +62,29 @@ case "$action" in
         if [ ${exit_code} -ne 0 ]; then
             read -n 1 -s -r -p "Error. Press any key to continue"
         else
+            copy_options='password\nusername'
+            folder="$(echo "$name" | awk -F/ '{print $1}')"
+
+            if [ "$folder" = "Cards" ]; then
+                copy_options='number\nexpiry\nCVV\nname\npostal code'
+            fi
+
             chmod 400 "$tmp_file"
             while
-                copy_kind="$(printf 'password\nusername' | fzf --prompt "copy $name > " "${default_fzf_args[@]}")"
-                if [ "$copy_kind" = "password" ]; then
-                    sed '1q;d' "$tmp_file" | tr -d '[:space:]' | xclip -selection clipboard
-                elif [ "$copy_kind" = "username" ]; then
-                    sed '2q;d' "$tmp_file" | tr -d '[:space:]' | xclip -selection clipboard
+                copy_kind="$(printf "$copy_options" | fzf --prompt "copy $name > " "${default_fzf_args[@]}")"
+                sed_cmd="1q;d"
+
+                if [ "$copy_kind" = "username" ] || [ "$copy_kind" = "expiry" ]; then
+                    sed_cmd='2q;d'
+                elif [ "$copy_kind" = "CVV" ]; then
+                    sed_cmd='3q;d'
+                elif [ "$copy_kind" = "name" ]; then
+                    sed_cmd='4q;d'
+                elif [ "$copy_kind" = "postal code" ]; then
+                    sed_cmd='5q;d'
                 fi
+
+                sed "$sed_cmd" "$tmp_file" | tr -d '[:space:]' | xclip -selection clipboard
                 [ "$copy_kind" != "" ]
             do
                 read -t 60 -n 1 -s -r -p "${copy_kind^} copied. Press any key to continue or q to exit" copy_reply
