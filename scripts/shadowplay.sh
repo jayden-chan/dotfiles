@@ -12,7 +12,7 @@ gpu-screen-recorder \
     -f 60 \
     -fm vfr \
     -k av1 \
-    -q very_high \
+    -q ultra \
     -r 200 \
     -v yes \
     -w DP-0 \

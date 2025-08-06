@@ -6,6 +6,7 @@
       local mp = require("mp")
 
       local cuts = {}
+      local quality_mode = "good"
 
       local function timestamp(duration)
           local hours = duration / 3600
@@ -37,6 +38,15 @@
           mp.osd_message("Cleared marks")
       end
 
+      local function toggle_quality()
+          if quality_mode == "good" then
+              quality_mode = "fast"
+          else
+              quality_mode = "good"
+          end
+          mp.osd_message("Quality set to \"" .. quality_mode .. "\"")
+      end
+
       local function create_clip()
           if #cuts == 0 then
               mp.osd_message("Missing marks")
@@ -49,7 +59,11 @@
           end
 
           local input_path = mp.get_property("stream-path")
-          local shell_cmd = "bun run $HOME/Dev/videoman/src/index.ts cut --notify" .. shell_quote(input_path)
+          local shell_cmd =
+              "bun run $HOME/Dev/videoman/src/index.ts cut --notify --quality="
+              .. quality_mode
+              .. shell_quote(input_path)
+
           for i, k in pairs(cuts) do
               shell_cmd = shell_cmd .. shell_quote(k)
           end
@@ -71,5 +85,6 @@
       mp.add_key_binding("c", add_mark)
       mp.add_key_binding("C", create_clip)
       mp.add_key_binding("b", clear_marks)
+      mp.add_key_binding("B", toggle_quality)
     '';
 }
