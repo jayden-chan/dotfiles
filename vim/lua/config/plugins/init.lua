@@ -35,7 +35,6 @@ if os.getenv("NVIM_PASSAGE_MODE") ~= "true" then
 		"lspsaga",
 		"trouble",
 		"treesitter",
-		"presence",
 		"gitlinker",
 		"luasnip",
 		"blink-cmp",
