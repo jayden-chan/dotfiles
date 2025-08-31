@@ -7,6 +7,8 @@ user_pref("browser.compactmode.show", true);
 user_pref("apz.overscroll.enabled", true);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
+user_pref("browser.ml.chat.enabled", false);
+user_pref("browser.ml.enabled", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.search.context.loadInBackground", true);
 user_pref("browser.send_pings", false);

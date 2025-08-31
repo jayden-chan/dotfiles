@@ -35,7 +35,7 @@
       Name=New Private Window
 
       [Desktop Action alternate-profile]
-      Exec=firefox-devedition --profile ~/.mozilla/firefox/os9o8p15.Alternate %U
+      Exec=firefox-devedition --profile ${config-vars.home-dir}/.mozilla/firefox/os9o8p15.Alternate %U
       Name=Alternate Profile
     '';
 

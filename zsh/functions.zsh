@@ -150,6 +150,7 @@ function syc () {
     elif [ "$1" = "firefox" ]; then
         IFS=$'\n' paths=($(rg '^Path=(.*?)$' ~/.mozilla/firefox/profiles.ini --only-matching --no-line-number --color=never --replace='$1'))
         for profile in "${paths[@]}"; do
+            mkdir -p                      ~/.mozilla/firefox/"$profile"/chrome/
             cp "$DOT/misc/user.js"        ~/.mozilla/firefox/"$profile"/user.js
             cp "$DOT/misc/userChrome.css" ~/.mozilla/firefox/"$profile"/chrome/userChrome.css
         done
