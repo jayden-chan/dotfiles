@@ -16,6 +16,11 @@ let
     extraPrefix = "kernel/";
   };
 
+  ansel-nixpkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/e6f23dc08d3624daab7094b701aa3954923c6bbb.tar.gz";
+    sha256 = "0m0xmk8sjb5gv2pq7s8w7qxf7qggqsd3rxzv3xrqkhfimy2x7bnx";
+  }) { system = config-vars.system; };
+
   nvidia-package =
     (
       (config.boot.kernelPackages.nvidiaPackages.mkDriver {
@@ -34,11 +39,9 @@ let
           ...
         }:
         {
-          preFixup =
-            preFixup
-            + ''
-              sed -i 's/\x85\xc0\x0f\x85\x14\x01\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
-            '';
+          preFixup = preFixup + ''
+            sed -i 's/\x85\xc0\x0f\x85\x14\x01\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
+          '';
         }
       )
     ).overrideAttrs
@@ -49,11 +52,9 @@ let
           ...
         }:
         {
-          preFixup =
-            preFixup
-            + ''
-              sed -i 's/\xe8\xb5\x2f\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\xb5\x2f\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
-            '';
+          preFixup = preFixup + ''
+            sed -i 's/\xe8\xb5\x2f\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\xb5\x2f\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
+          '';
         }
       );
 in
@@ -98,7 +99,6 @@ in
   networking.wireless.enable = false;
 
   environment.systemPackages = with pkgs; [
-    ansel
     borgbackup
     dbeaver-bin
     dive
@@ -109,11 +109,14 @@ in
     liquidctl
     mat2
     noise-repellent
+    numlockx
     protontricks
     qrencode
     yq-go
 
     kdePackages.kdenlive
+
+    ansel-nixpkgs.ansel
 
     unstable.ardour
     unstable.caffeine-ng

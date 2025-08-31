@@ -41,7 +41,7 @@ function nix-clean () {
     echo "Saved $saved of disk space"
 }
 
-alias nix-rebuild='_nix_git_trick nh os switch';
+alias nix-rebuild='_nix_git_trick nh os switch -- --show-trace';
 alias nix-update='_nix_git_trick nix flake update';
 
 function dkill () {

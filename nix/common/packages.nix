@@ -74,6 +74,7 @@
     xdotool
     yaml-language-server
     yubikey-manager
+    zbar
     zenity
     zoxide
     zsh-syntax-highlighting
