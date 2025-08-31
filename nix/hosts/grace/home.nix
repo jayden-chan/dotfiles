@@ -53,7 +53,7 @@ in
     };
 
     hooks.postswitch = ''
-      bash ${config-vars.dotfiles-dir}/scripts/gamemode.sh
+      bash ${config-vars.dotfiles-dir}/scripts/gamemode.sh --cs2
       killall gpu-screen-recorder
     '';
   };
