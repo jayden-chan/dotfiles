@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.gamemode.enable = true;
@@ -8,5 +8,8 @@
     remotePlay.openFirewall = false;
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = false;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
 }
