@@ -11,7 +11,7 @@
             <name>Open Terminal Here</name>
             <submenu></submenu>
             <unique-id>1667782009341942-1</unique-id>
-            <command>sh -c &quot;cd %f ; ${config-vars.terminal}&quot;</command>
+            <command>${config-vars.terminal} --working-directory=&quot;%f&quot;</command>
             <description>Open a terminal in the current directory</description>
             <range></range>
             <patterns>*</patterns>
@@ -38,7 +38,7 @@
             <name>FFProbe</name>
             <submenu></submenu>
             <unique-id>1676602598381730-1</unique-id>
-            <command>${config-vars.terminal} -e &quot;ffprobe -hide_banner %f 2&gt;&amp;1 | less --exit-follow-on-close +F&quot;</command>
+            <command>${config-vars.terminal} -e sh -c &quot;ffprobe -hide_banner %f 2&gt;&amp;1 | bat; read&quot;</command>
             <description>Run ffprobe on file</description>
             <range>*</range>
             <patterns>*</patterns>
@@ -50,7 +50,7 @@
             <name>MediaInfo</name>
             <submenu></submenu>
             <unique-id>1690139417393646-2</unique-id>
-            <command>${config-vars.terminal} -e &quot;mediainfo %f 2&gt;&amp;1 |  less  --exit-follow-on-close +F&quot;</command>
+            <command>${config-vars.terminal} -e sh -c &quot;mediainfo %f 2&gt;&amp;1 | bat; read&quot;</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -58,10 +58,87 @@
         </action>
         <action>
             <icon></icon>
-            <name>Normalize</name>
-            <submenu></submenu>
+            <name>QP 22 (default)</name>
+            <submenu>Normalize</submenu>
             <unique-id>1731643961229000-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify %f</command>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=22 %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>QP 22 (default)</name>
+            <submenu>Normalize (no loudnorm)</submenu>
+            <unique-id>1731643961229001-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=22 %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>QP 26</name>
+            <submenu>Normalize</submenu>
+            <unique-id>1731643961229002-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=26 %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>QP 26</name>
+            <submenu>Normalize (no loudnorm)</submenu>
+            <unique-id>1731643961229003-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=26 %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>QP 28</name>
+            <submenu>Normalize</submenu>
+            <unique-id>1731643961229004-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=28 %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>QP 28</name>
+            <submenu>Normalize (no loudnorm)</submenu>
+            <unique-id>1731643961229005-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=28 %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>QP 32</name>
+            <submenu>Normalize</submenu>
+            <unique-id>1731643961229006-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=32 %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>QP 32</name>
+            <submenu>Normalize (no loudnorm)</submenu>
+            <unique-id>1731643961229007-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=32 %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -94,7 +171,7 @@
             <name>Import images/videos</name>
             <submenu></submenu>
             <unique-id>1689902676394518-1</unique-id>
-            <command>${config-vars.terminal} -e &apos;${config-vars.home-dir}/Dev/picman/src/sd-import.ts %f | less  --exit-follow-on-close +F&apos;</command>
+            <command>${config-vars.terminal} -e sh -c &apos;${config-vars.home-dir}/Dev/picman/src/sd-import.ts %f | bat; read&apos;</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -105,7 +182,7 @@
             <name>View Metadata</name>
             <submenu>picman</submenu>
             <unique-id>1690136297179459-1</unique-id>
-            <command>${config-vars.terminal} -e &apos;exiv2 -p a %f 2&gt;&amp;1 | rg -v &quot;MakerNote|XMLPacket&quot; | less  --exit-follow-on-close +F&apos;</command>
+            <command>${config-vars.terminal} -e sh -c &apos;exiv2 -p a %f 2&gt;&amp;1 | rg -v &quot;MakerNote|XMLPacket&quot; | bat; read&apos;</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -121,6 +198,19 @@
             <range>*</range>
             <patterns>*</patterns>
             <image-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>Anonymize</name>
+            <unique-id>1690485195569083-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/picman/src/anonymize.ts %F</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <audio-files/>
+            <other-files/>
+            <text-files/>
+            <video-files/>
         </action>
         <action>
             <icon></icon>
