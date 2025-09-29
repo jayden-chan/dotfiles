@@ -96,6 +96,7 @@ in
   environment.systemPackages = with pkgs; [
     borgbackup
     dbeaver-bin
+    discordchatexporter-cli
     dive
     drm_info
     exiftool
@@ -105,6 +106,7 @@ in
     mat2
     noise-repellent
     numlockx
+    p7zip
     protontricks
     qrencode
     yq-go
@@ -117,6 +119,7 @@ in
     unstable.hugin
     unstable.openscad
     unstable.prismlauncher
+    unstable.yarg
 
     (pkgs.llama-cpp.override {
       config = {

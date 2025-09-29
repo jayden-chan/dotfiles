@@ -58,6 +58,7 @@
     rofi
     rsync
     shellcheck
+    socat
     stylua
     taplo
     tokei
