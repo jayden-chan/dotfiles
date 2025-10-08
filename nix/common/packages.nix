@@ -45,7 +45,6 @@
     nitrogen
     nixfmt-rfc-style
     nsxiv
-    obs-studio
     onefetch
     passage
     pavucontrol

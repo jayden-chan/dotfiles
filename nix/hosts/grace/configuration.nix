@@ -106,9 +106,9 @@ in
     mat2
     noise-repellent
     numlockx
-    p7zip
     protontricks
     qrencode
+    streamrip
     yq-go
 
     kdePackages.kdenlive
@@ -119,7 +119,10 @@ in
     unstable.hugin
     unstable.openscad
     unstable.prismlauncher
+
     unstable.yarg
+    unstable.clonehero
+    p7zip
 
     (pkgs.llama-cpp.override {
       config = {
