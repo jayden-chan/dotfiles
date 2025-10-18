@@ -69,32 +69,10 @@
         </action>
         <action>
             <icon></icon>
-            <name>QP 22 (default)</name>
-            <submenu>Normalize (no loudnorm)</submenu>
-            <unique-id>1731643961229001-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=22 %f</command>
-            <description></description>
-            <range>*</range>
-            <patterns>*</patterns>
-            <video-files/>
-        </action>
-        <action>
-            <icon></icon>
             <name>QP 26</name>
             <submenu>Normalize</submenu>
             <unique-id>1731643961229002-1</unique-id>
             <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=26 %f</command>
-            <description></description>
-            <range>*</range>
-            <patterns>*</patterns>
-            <video-files/>
-        </action>
-        <action>
-            <icon></icon>
-            <name>QP 26</name>
-            <submenu>Normalize (no loudnorm)</submenu>
-            <unique-id>1731643961229003-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=26 %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -113,32 +91,10 @@
         </action>
         <action>
             <icon></icon>
-            <name>QP 28</name>
-            <submenu>Normalize (no loudnorm)</submenu>
-            <unique-id>1731643961229005-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=28 %f</command>
-            <description></description>
-            <range>*</range>
-            <patterns>*</patterns>
-            <video-files/>
-        </action>
-        <action>
-            <icon></icon>
             <name>QP 32</name>
             <submenu>Normalize</submenu>
             <unique-id>1731643961229006-1</unique-id>
             <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=32 %f</command>
-            <description></description>
-            <range>*</range>
-            <patterns>*</patterns>
-            <video-files/>
-        </action>
-        <action>
-            <icon></icon>
-            <name>QP 32</name>
-            <submenu>Normalize (no loudnorm)</submenu>
-            <unique-id>1731643961229007-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --skip-loudnorm --qp=32 %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
