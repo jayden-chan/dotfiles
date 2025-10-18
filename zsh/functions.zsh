@@ -6,12 +6,12 @@ function kns        () { kubectl config set-context --current --namespace="$1" }
 function rgd        () { rg --json -C 10 "$@" | delta }
 
 function randstring () {
-    local characters='[:alnum:]'
+    local characters='a-zA-Z0-9'
     local default_length="${PASSWORD_STORE_GENERATED_LENGTH:-25}"
     local length="${1:-$default_length}"
 
     if [ "$2" = "--symbols" ] || [ "$2" = "-s" ]; then
-        characters='[:punct:][:alnum:]'
+        characters='a-zA-Z0-9@#$%^&*()/;|+=._-'
     fi
 
     cat /dev/urandom | tr -dc "$characters" | fold -w "$length" | head -n 1 | tr -d '\n'
