@@ -1,7 +1,6 @@
 {
   pkgs,
   config-vars,
-  unstable,
   ...
 }:
 
@@ -17,7 +16,7 @@
   stylix.base16Scheme = config-vars.theme;
 
   stylix.cursor = {
-    package = unstable.apple-cursor;
+    package = pkgs.apple-cursor;
     name = "macOS";
     size = 24;
   };

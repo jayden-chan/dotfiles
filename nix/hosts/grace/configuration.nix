@@ -94,7 +94,9 @@ in
   networking.wireless.enable = false;
 
   environment.systemPackages = with pkgs; [
+    ardour
     borgbackup
+    caffeine-ng
     dbeaver-bin
     discordchatexporter-cli
     dive
@@ -102,10 +104,13 @@ in
     exiftool
     exiv2
     google-cloud-sdk
+    hugin
     liquidctl
     mat2
     noise-repellent
     numlockx
+    openscad
+    prismlauncher
     protontricks
     qrencode
     streamrip
@@ -114,14 +119,8 @@ in
     kdePackages.kdenlive
 
     unstable.ansel
-    unstable.ardour
-    unstable.caffeine-ng
-    unstable.hugin
-    unstable.openscad
-    unstable.prismlauncher
-
-    unstable.yarg
     unstable.clonehero
+    unstable.yarg
     p7zip
 
     (pkgs.llama-cpp.override {

@@ -1,7 +1,6 @@
 {
   pkgs,
   config-vars,
-  unstable,
   ...
 }:
 
@@ -50,7 +49,7 @@
     cursorTheme = {
       name = "macOS";
       size = 24;
-      package = unstable.apple-cursor;
+      package = pkgs.apple-cursor;
     };
 
     iconTheme = {

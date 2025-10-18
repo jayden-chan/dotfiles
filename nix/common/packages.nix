@@ -14,6 +14,7 @@
     bash
     bat
     bc
+    bruno
     bun
     carla
     chromium
@@ -22,6 +23,7 @@
     eza
     fastfetch
     fd
+    feishin
     ffmpeg-full
     ffmpegthumbnailer
     file
@@ -31,6 +33,7 @@
     gimp
     gnumake
     go
+    htop
     imagemagick
     jalv
     joplin-desktop
@@ -42,12 +45,15 @@
     maim
     mediainfo
     mullvad-browser
+    nil
     nitrogen
     nixfmt-rfc-style
     nsxiv
     onefetch
     passage
     pavucontrol
+    picocrypt
+    picocrypt-cli
     picom
     pkg-config
     prettierd
@@ -57,7 +63,6 @@
     rofi
     rsync
     shellcheck
-    socat
     stylua
     taplo
     tokei
@@ -92,15 +97,10 @@
     xorg.xrdb
     xorg.xset
 
-    unstable.bruno
     unstable.devenv
-    unstable.feishin
     unstable.firefox-devedition
     unstable.ghostty
     unstable.neovim
-    unstable.nil
-    unstable.picocrypt
-    unstable.picocrypt-cli
     unstable.spotify
     unstable.yt-dlp
 
