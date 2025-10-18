@@ -8,24 +8,15 @@
 }:
 
 let
-  # https://github.com/NVIDIA/open-gpu-kernel-modules/issues/840
-  gpl_symbols_linux_615_patch = pkgs.fetchpatch {
-    url = "https://github.com/CachyOS/kernel-patches/raw/914aea4298e3744beddad09f3d2773d71839b182/6.15/misc/nvidia/0003-Workaround-nv_vm_flags_-calling-GPL-only-code.patch";
-    hash = "sha256-YOTAvONchPPSVDP9eJ9236pAPtxYK5nAePNtm2dlvb4=";
-    stripLen = 1;
-    extraPrefix = "kernel/";
-  };
-
   nvidia-package =
     (
       (config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        version = "575.64.05";
-        sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
-        sha256_aarch64 = "sha256-GRE9VEEosbY7TL4HPFoyo0Ac5jgBHsZg9sBKJ4BLhsA=";
-        openSha256 = "sha256-mcbMVEyRxNyRrohgwWNylu45vIqF+flKHnmt47R//KU=";
-        settingsSha256 = "sha256-o2zUnYFUQjHOcCrB0w/4L6xI1hVUXLAWgG2Y26BowBE=";
-        persistencedSha256 = "sha256-2g5z7Pu8u2EiAh5givP5Q1Y4zk4Cbb06W37rf768NFU=";
-        patches = [ gpl_symbols_linux_615_patch ];
+        version = "580.95.05";
+        sha256_64bit = "sha256-hJ7w746EK5gGss3p8RwTA9VPGpp2lGfk5dlhsv4Rgqc=";
+        sha256_aarch64 = "sha256-zLRCbpiik2fGDa+d80wqV3ZV1U1b4lRjzNQJsLLlICk=";
+        openSha256 = "sha256-RFwDGQOi9jVngVONCOB5m/IYKZIeGEle7h0+0yGnBEI=";
+        settingsSha256 = "sha256-F2wmUEaRrpR1Vz0TQSwVK4Fv13f3J9NJLtBe4UP2f14=";
+        persistencedSha256 = "sha256-QCwxXQfG/Pa7jSTBB0xD3lsIofcerAWWAHKvWjWGQtg=";
       }).overrideAttrs
       (
         {
@@ -35,7 +26,7 @@ let
         }:
         {
           preFixup = preFixup + ''
-            sed -i 's/\x85\xc0\x0f\x85\x14\x01\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
+            sed -i 's/\x85\xc0\x0f\x85\xd4\x00\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
           '';
         }
       )
@@ -48,7 +39,7 @@ let
         }:
         {
           preFixup = preFixup + ''
-            sed -i 's/\xe8\xb5\x2f\xfe\xff\x85\xc0\x41\x89\xc4/\xe8\xb5\x2f\xfe\xff\x29\xc0\x41\x89\xc4/g' $out/lib/libnvidia-encode.so.${version}
+            sed -i 's/\xe8\x81\x2e\xfe\xff\x41\x89\xc6\x85\xc0\x0f\x85\xa6\x00\x00\x00\x4c/\xe8\x81\x2e\xfe\xff\x29\xc0\x41\x89\xc6\x90\x90\x90\x90\x90\x90\x4c/g' $out/lib/libnvidia-encode.so.${version}
           '';
         }
       );
