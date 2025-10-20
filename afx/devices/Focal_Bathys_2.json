@@ -1,0 +1,56 @@
+{
+  "name": "Focal Bathys 2",
+  "type": "sink",
+  "output": "FL FR",
+  "effects": [
+    {
+      "type": "eq",
+      "settings": {
+        "preamp": 0,
+        "zoom": -36,
+        "bands": [
+          {
+            "type": "lowshelf",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 335.294,
+            "Q": 0,
+            "gain": -2.68
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 622.901,
+            "Q": 0.25,
+            "gain": -1.99
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 893.716,
+            "Q": 1.41,
+            "gain": -1.03
+          },
+          {
+            "type": "peaking",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 2959.643,
+            "Q": 0.41,
+            "gain": -2.16
+          },
+          {
+            "type": "lowshelf",
+            "mode": "RLC_BT",
+            "slope": 0,
+            "freq": 8663.107,
+            "Q": 0.25,
+            "gain": -1.21
+          }
+        ]
+      }
+    }
+  ]
+}

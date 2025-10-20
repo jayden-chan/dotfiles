@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Focal Bathys 2",
+    "preamp": 0,
+    "parametric": true,
+    "bands": [
+      {
+        "type": 0,
+        "channels": 0,
+        "frequency": 90,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 1,
+        "channels": 0,
+        "frequency": 10000,
+        "q": 0,
+        "gain": 0,
+        "color": 0
+      },
+      {
+        "type": 4,
+        "channels": 0,
+        "frequency": 335,
+        "q": 0,
+        "gain": -2.68,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 623,
+        "q": 0.25,
+        "gain": -1.99,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 894,
+        "q": 1.41,
+        "gain": -1.03,
+        "color": -13421773
+      },
+      {
+        "type": 3,
+        "channels": 0,
+        "frequency": 2960,
+        "q": 0.41,
+        "gain": -2.16,
+        "color": -8947849
+      },
+      {
+        "type": 4,
+        "channels": 0,
+        "frequency": 8663,
+        "q": 0.25,
+        "gain": -1.21,
+        "color": -13421773
+      }
+    ]
+  }
+]
