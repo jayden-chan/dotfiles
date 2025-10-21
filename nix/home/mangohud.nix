@@ -25,9 +25,13 @@ in
   programs.mangohud = {
     enable = true;
     inherit settings;
+
     settingsPerApplication = {
       wine-hitman3 = lib.recursiveUpdate settings {
         fps_limit = 240;
+      };
+      wine-LEGOSTARWARSSKYWALKERSAGA_DX11 = lib.recursiveUpdate settings {
+        fps_limit = 165;
       };
     };
   };
