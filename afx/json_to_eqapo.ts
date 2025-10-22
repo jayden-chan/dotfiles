@@ -14,7 +14,7 @@ function bandToAPOLine(band: Band) {
       return lowpassToAPO(band);
     default:
       throw new Error(
-        `Warning: unknown/unsupported filter type "${band.type}" detected`
+        `Warning: unknown/unsupported filter type "${band.type}" detected`,
       );
   }
 }

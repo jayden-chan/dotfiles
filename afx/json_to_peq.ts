@@ -14,7 +14,7 @@ function bandToPeqType(band: Band): number {
       return 1;
     default:
       throw new Error(
-        `Warning: unknown/unsupported filter type "${band.type}" detected`
+        `Warning: unknown/unsupported filter type "${band.type}" detected`,
       );
   }
 }

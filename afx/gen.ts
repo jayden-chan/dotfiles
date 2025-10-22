@@ -105,10 +105,10 @@ const lspReverseSync = () => {
       const contents = JSON.parse(readFileSync(p, utf8));
       const outFile = `${contents.type}-${contents.name.replace(
         /\s+/g,
-        "_"
+        "_",
       )}.cfg`;
       return [outFile, [p, contents]];
-    })
+    }),
   );
 
   for (const f of files) {

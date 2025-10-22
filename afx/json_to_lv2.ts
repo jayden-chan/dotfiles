@@ -28,7 +28,7 @@ const LSPBandToLV2Params = (lspBand: LSPBand) => {
 
 const manifest = (
   name: string,
-  appliesTo: string
+  appliesTo: string,
 ) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
@@ -44,7 +44,7 @@ const manifest = (
 
 const header = (
   name: string,
-  appliesTo: string
+  appliesTo: string,
 ) => `@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
@@ -244,7 +244,7 @@ export function genLV2(contents: Contents, name: string) {
   }
 
   const bands = eq.settings.bands.map((b, i) =>
-    jsonBandToLSPBand(b, i, eq.settings.bands.length)
+    jsonBandToLSPBand(b, i, eq.settings.bands.length),
   );
 
   const fillerBands = [...Array(16 - bands.length).keys()].map((e) => {

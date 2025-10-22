@@ -100,7 +100,7 @@ export function lspToJson(contents: string): {
     )
   ) {
     throw new Error(
-      `types/gains/modes/mutes/qs/freqs lengths don't match (${types.length}, ${gains.length}, ${qs.length}, ${freqs.length})`
+      `types/gains/modes/mutes/qs/freqs lengths don't match (${types.length}, ${gains.length}, ${qs.length}, ${freqs.length})`,
     );
   }
 
