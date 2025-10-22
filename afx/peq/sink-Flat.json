@@ -23,7 +23,7 @@
       {
         "type": 3,
         "channels": 0,
-        "frequency": 10000,
+        "frequency": 500,
         "q": 1,
         "gain": 0,
         "color": -13421773

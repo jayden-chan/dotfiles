@@ -480,7 +480,7 @@
 		pset:value 0.000000
 	] , [
 		lv2:symbol "zoom" ;
-		pset:value 0.019131
+		pset:value 0.015858
 	] ;
 	state:state [
 		<http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo/KVT> [

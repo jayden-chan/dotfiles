@@ -7,13 +7,13 @@
       "type": "eq",
       "settings": {
         "preamp": 0,
-        "zoom": 0,
+        "zoom": -36,
         "bands": [
           {
             "type": "peaking",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 10000,
+            "freq": 500,
             "Q": 1,
             "gain": 0
           }
