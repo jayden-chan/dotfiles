@@ -7,7 +7,6 @@
       "type": "eq",
       "settings": {
         "preamp": -4.2,
-        "zoom": -36,
         "bands": [
           {
             "type": "peaking",

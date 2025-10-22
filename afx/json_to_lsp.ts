@@ -1,4 +1,4 @@
-import { Band, Contents } from "./gen.ts";
+import { Band, Device, STANDARD_SINK_ZOOM } from "./util";
 
 export type LSPBand = {
   idx: number;
@@ -23,8 +23,8 @@ const hueFromIdx = (idx: number, total: number): number => {
   return idx * increment;
 };
 
-export function genLSP(contents: Contents) {
-  const eq = contents.effects.find((e) => e.type === "eq");
+export function genLSP(device: Device) {
+  const eq = device.effects.find((e) => e.type === "eq");
   if (eq === undefined) {
     throw new Error("couldn't find EQ effect in effects list");
   }
@@ -48,7 +48,7 @@ ife_l = true
 ofe_l = false
 ife_r = true
 ofe_r = false
-zoom = ${eq.settings.zoom.toFixed(3)} db
+zoom = ${(eq.settings.zoom ?? STANDARD_SINK_ZOOM).toFixed(3)} db
 fsel = 0
 bal = 0.00000
 frqs = 0.00000

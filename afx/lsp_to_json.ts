@@ -1,4 +1,4 @@
-import { Band } from "./gen.ts";
+import { Band } from "./util";
 
 const preampRe = /^g_in = ((?:\d|\.|\+|-)+) db$/;
 const typeRe = /^ft_(?:\d+) = (\d+)$/;

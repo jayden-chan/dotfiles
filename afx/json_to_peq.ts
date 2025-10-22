@@ -1,4 +1,4 @@
-import { Band, Contents } from "./gen.ts";
+import { Band, Device } from "./util";
 
 function bandToPeqType(band: Band): number {
   switch (band.type) {
@@ -19,14 +19,14 @@ function bandToPeqType(band: Band): number {
   }
 }
 
-export function genPeq(contents: Contents): string {
-  const eq = contents.effects.find((e) => e.type === "eq");
+export function genPeq(device: Device): string {
+  const eq = device.effects.find((e) => e.type === "eq");
   if (!eq) {
-    throw new Error(`Contents "${contents.name}" can't be converted to peq`);
+    throw new Error(`Device "${device.name}" can't be converted to peq`);
   }
 
   const ret = {
-    name: contents.name,
+    name: device.name,
     preamp: eq.settings.preamp,
     parametric: true,
     bands: [

@@ -7,7 +7,6 @@
       "type": "eq",
       "settings": {
         "preamp": -3.13,
-        "zoom": -36,
         "bands": [
           {
             "type": "lowshelf",

@@ -7,7 +7,6 @@
       "type": "eq",
       "settings": {
         "preamp": 0,
-        "zoom": -36,
         "bands": [
           {
             "type": "lowshelf",
@@ -38,14 +37,14 @@
             "mode": "RLC_BT",
             "slope": 0,
             "freq": 2959.643,
-            "Q": 0.41,
-            "gain": -2.16
+            "Q": 0.16,
+            "gain": -2.25
           },
           {
             "type": "lowshelf",
             "mode": "RLC_BT",
             "slope": 0,
-            "freq": 8663.107,
+            "freq": 10369.707,
             "Q": 0.25,
             "gain": -1.21
           }

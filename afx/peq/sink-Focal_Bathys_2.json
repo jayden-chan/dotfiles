@@ -48,14 +48,14 @@
         "type": 3,
         "channels": 0,
         "frequency": 2960,
-        "q": 0.41,
-        "gain": -2.16,
+        "q": 0.16,
+        "gain": -2.25,
         "color": -8947849
       },
       {
         "type": 4,
         "channels": 0,
-        "frequency": 8663,
+        "frequency": 10370,
         "q": 0.25,
         "gain": -1.21,
         "color": -13421773

@@ -1,4 +1,4 @@
-import { Band, Contents } from "./gen.ts";
+import { Band, Device } from "./util";
 
 function bandToAPOLine(band: Band) {
   switch (band.type) {
@@ -31,8 +31,8 @@ const highshelfToAPO = (band: Band) =>
 const peakingToAPO = (band: Band) =>
   `ON PK Fc ${band.freq} Hz Gain ${band.gain} dB Q ${band.Q}`;
 
-export function genEqualizerAPO(contents: Contents) {
-  const eq = contents.effects.find((e) => e.type === "eq");
+export function genEqualizerAPO(device: Device) {
+  const eq = device.effects.find((e) => e.type === "eq");
   if (eq === undefined) {
     throw new Error("couldn't find EQ effect in effects list");
   }

@@ -2,37 +2,15 @@
 
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 
-import { apoToJson } from "./apo_to_json.ts";
-import { genEqualizerAPO } from "./json_to_eqapo.ts";
-import { genLSP } from "./json_to_lsp.ts";
-import { genPeq } from "./json_to_peq.ts";
-import { lspToJson } from "./lsp_to_json.ts";
+import { apoToJson } from "./apo_to_json";
+import { genEqualizerAPO } from "./json_to_eqapo";
+import { genLSP } from "./json_to_lsp";
+import { genPeq } from "./json_to_peq";
+import { lspToJson } from "./lsp_to_json";
+import { Device, STANDARD_SINK_ZOOM } from "./util";
 
 const __dirname = import.meta.dir;
 const utf8 = { encoding: <"utf8">"utf8" };
-
-export type Band = {
-  type: string;
-  mode: string;
-  slope: number;
-  freq: number;
-  Q: number;
-  gain: number;
-};
-
-export type Contents = {
-  name: string;
-  type: string;
-  output: string;
-  effects: {
-    type: "eq";
-    settings: {
-      preamp: number;
-      zoom: number;
-      bands: Band[];
-    };
-  }[];
-};
 
 const syncAll = () => {
   const path = `${__dirname}/devices`;
@@ -40,20 +18,20 @@ const syncAll = () => {
 
   for (const f of files) {
     const p = `${path}/${f}`;
-    const contents = JSON.parse(readFileSync(p, utf8));
+    const device = JSON.parse(readFileSync(p, utf8));
 
-    const outFile = `${contents.type}-${contents.name.replace(/\s+/g, "_")}`;
+    const outFile = `${device.type}-${device.name.replace(/\s+/g, "_")}`;
 
     const apoOutPath = `${__dirname}/apo/${outFile}.txt`;
-    const apoOutput = genEqualizerAPO(contents);
+    const apoOutput = genEqualizerAPO(device);
     writeFileSync(apoOutPath, apoOutput);
 
     const lspOutPath = `${__dirname}/lsp/${outFile}.cfg`;
-    const lspOutput = genLSP(contents);
+    const lspOutput = genLSP(device);
     writeFileSync(lspOutPath, lspOutput);
 
     const peqOutPath = `${__dirname}/peq/${outFile}.json`;
-    const peqOutput = genPeq(contents);
+    const peqOutput = genPeq(device);
     writeFileSync(peqOutPath, peqOutput);
   }
 };
@@ -67,12 +45,9 @@ const lspReverseSync = () => {
   const deviceFileNames = Object.fromEntries(
     [...devicesFiles].map((file) => {
       const p = `${devicesPath}/${file}`;
-      const contents = JSON.parse(readFileSync(p, utf8));
-      const outFile = `${contents.type}-${contents.name.replace(
-        /\s+/g,
-        "_",
-      )}.cfg`;
-      return [outFile, [p, contents]];
+      const device = JSON.parse(readFileSync(p, utf8));
+      const outFile = `${device.type}-${device.name.replace(/\s+/g, "_")}.cfg`;
+      return [outFile, [p, device]];
     }),
   );
 
@@ -88,12 +63,15 @@ const lspReverseSync = () => {
     }
 
     const fullPath = info[0];
-    const jsonContents = info[1] as Contents;
-    const effectToEdit = jsonContents.effects.findIndex((e) => e.type === "eq");
-    jsonContents.effects[effectToEdit].settings.preamp = preamp;
-    jsonContents.effects[effectToEdit].settings.bands = bands;
-    jsonContents.effects[effectToEdit].settings.zoom = zoom;
-    writeFileSync(fullPath, JSON.stringify(jsonContents, null, 2) + "\n");
+    const device = info[1] as Device;
+    const isSink = device.type === "sink";
+    const effectToEdit = device.effects.findIndex((e) => e.type === "eq");
+
+    device.effects[effectToEdit].settings.preamp = preamp;
+    device.effects[effectToEdit].settings.bands = bands;
+    device.effects[effectToEdit].settings.zoom = isSink ? undefined : zoom;
+
+    writeFileSync(fullPath, JSON.stringify(device, null, 2) + "\n");
   }
 };
 
