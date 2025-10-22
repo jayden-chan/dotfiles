@@ -1,21 +1,13 @@
 #!/usr/bin/env -S bun run
 
-import {
-  readdirSync,
-  readFileSync,
-  writeFileSync,
-  statSync,
-  rmSync,
-  mkdirSync,
-} from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 
+import { apoToJson } from "./apo_to_json.ts";
 import { genEqualizerAPO } from "./json_to_eqapo.ts";
 import { genLSP } from "./json_to_lsp.ts";
-import { genLV2 } from "./json_to_lv2.ts";
-import { apoToJson } from "./apo_to_json.ts";
+import { genPeq } from "./json_to_peq.ts";
 import { lspToJson } from "./lsp_to_json.ts";
 
-import { genPeq } from "./json_to_peq.ts";
 const __dirname = import.meta.dir;
 const utf8 = { encoding: <"utf8">"utf8" };
 
@@ -42,23 +34,6 @@ export type Contents = {
   }[];
 };
 
-const qToBw = (Q: number) => {
-  const l2 = 2 / Math.LN2;
-  const l1 = 1 / Q + Math.sqrt(1 / (Q * Q) + 4);
-  const l3 = Math.log(0.5 * l1);
-  const bw = l2 * l3;
-  return bw;
-};
-
-function dirExistsSync(path: string): boolean {
-  try {
-    const fileInfo = statSync(path);
-    return fileInfo.isDirectory();
-  } catch (_) {
-    return false;
-  }
-}
-
 const syncAll = () => {
   const path = `${__dirname}/devices`;
   const files = readdirSync(path);
@@ -80,16 +55,6 @@ const syncAll = () => {
     const peqOutPath = `${__dirname}/peq/${outFile}.json`;
     const peqOutput = genPeq(contents);
     writeFileSync(peqOutPath, peqOutput);
-
-    const lv2OutDir = `${__dirname}/lv2/${outFile}.preset.lv2`;
-    const [lv2Manifest, lv2Preset] = genLV2(contents, outFile);
-    if (dirExistsSync(lv2OutDir)) {
-      rmSync(lv2OutDir, { recursive: true });
-    }
-
-    mkdirSync(lv2OutDir, { recursive: true });
-    writeFileSync(`${lv2OutDir}/manifest.ttl`, lv2Manifest);
-    writeFileSync(`${lv2OutDir}/${outFile}.ttl`, lv2Preset);
   }
 };
 
@@ -132,22 +97,6 @@ const lspReverseSync = () => {
   }
 };
 
-const bw = (path: string) => {
-  const contents = JSON.parse(readFileSync(path, utf8)) as Contents;
-  contents.effects = contents.effects.map((e) => {
-    if (e.type === "eq") {
-      e.settings.bands = e.settings.bands.map((b) => ({
-        ...b,
-        bw: qToBw(b.Q),
-      }));
-    }
-
-    return e;
-  });
-
-  console.log(JSON.stringify(contents, null, 2));
-};
-
 function main() {
   const args = process.argv.slice(2);
   const cmd = args[0];
@@ -162,44 +111,10 @@ function main() {
     return;
   }
 
-  if (cmd === "bw") {
-    const path = args[1];
-    bw(path);
-    return;
-  }
-
-  if (cmd === "apo") {
-    const path = args[1];
-    const contents = JSON.parse(readFileSync(path, utf8));
-    console.log(genEqualizerAPO(contents));
-    return;
-  }
-
-  if (cmd === "peq") {
-    const path = args[1];
-    const contents = JSON.parse(readFileSync(path, utf8));
-    console.log(genPeq(contents));
-    return;
-  }
-
   if (cmd === "apoToJson") {
     const path = args[1];
     const contents = readFileSync(path, utf8);
     console.log(JSON.stringify(apoToJson(contents), null, 2));
-    return;
-  }
-
-  if (cmd === "lspToJson") {
-    const path = args[1];
-    const contents = readFileSync(path, utf8);
-    console.log(JSON.stringify(lspToJson(contents), null, 2));
-    return;
-  }
-
-  if (cmd === "lsp") {
-    const path = args[1];
-    const contents = JSON.parse(readFileSync(path, utf8));
-    console.log(genLSP(contents));
     return;
   }
 
