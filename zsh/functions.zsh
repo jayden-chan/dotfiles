@@ -61,7 +61,7 @@ function bb () {
     if [ "$1" = "down" ]; then
         trash ./tsconfig.json
         trash ./package.json
-        rm -rf ./node_modules/ bun.lockb
+        rm -rf ./node_modules/ bun.lockb bun.lock
     fi
 
     if [ "$1" = "up" ]; then

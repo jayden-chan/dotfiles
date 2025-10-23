@@ -1,4 +1,4 @@
-import { Band, Device } from "./util";
+import type { Band, Device } from "./util";
 
 function bandToAPOLine(band: Band) {
   switch (band.type) {
@@ -32,14 +32,9 @@ const peakingToAPO = (band: Band) =>
   `ON PK Fc ${band.freq} Hz Gain ${band.gain} dB Q ${band.Q}`;
 
 export function genEqualizerAPO(device: Device) {
-  const eq = device.effects.find((e) => e.type === "eq");
-  if (eq === undefined) {
-    throw new Error("couldn't find EQ effect in effects list");
-  }
-
   let output = "";
-  output += `Preamp: ${eq.settings.preamp} dB\n`;
-  eq.settings.bands.forEach((band, i) => {
+  output += `Preamp: ${device.settings.preamp} dB\n`;
+  device.settings.bands.forEach((band, i) => {
     output += `Filter ${i + 1}: ${bandToAPOLine(band)}\n`;
   });
 

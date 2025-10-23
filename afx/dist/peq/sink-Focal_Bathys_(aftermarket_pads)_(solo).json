@@ -1,7 +1,7 @@
 [
   {
-    "name": "Focal Bathys 2",
-    "preamp": 0,
+    "name": "Focal Bathys (aftermarket pads) (solo)",
+    "preamp": -1.5,
     "parametric": true,
     "bands": [
       {
@@ -47,18 +47,26 @@
       {
         "type": 3,
         "channels": 0,
+        "frequency": 2901,
+        "q": 1.16,
+        "gain": -0.95,
+        "color": -8947849
+      },
+      {
+        "type": 3,
+        "channels": 0,
         "frequency": 2960,
         "q": 0.16,
-        "gain": -2.25,
-        "color": -8947849
+        "gain": -2.07,
+        "color": -13421773
       },
       {
         "type": 4,
         "channels": 0,
         "frequency": 10370,
         "q": 0.25,
-        "gain": -1.21,
-        "color": -13421773
+        "gain": -0.6,
+        "color": -8947849
       }
     ]
   }

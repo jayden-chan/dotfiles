@@ -2,22 +2,17 @@
   "name": "Flat",
   "type": "sink",
   "output": "FL FR",
-  "effects": [
-    {
-      "type": "eq",
-      "settings": {
-        "preamp": 0,
-        "bands": [
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 500,
-            "Q": 1,
-            "gain": 0
-          }
-        ]
+  "settings": {
+    "preamp": 0,
+    "bands": [
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 500,
+        "Q": 1,
+        "gain": 0
       }
-    }
-  ]
+    ]
+  }
 }

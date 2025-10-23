@@ -1,4 +1,4 @@
-import { Band } from "./util";
+import type { Band } from "./util";
 
 const preampRe = /^g_in = ((?:\d|\.|\+|-)+) db$/;
 const typeRe = /^ft_(?:\d+) = (\d+)$/;

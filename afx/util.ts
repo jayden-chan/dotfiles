@@ -12,13 +12,11 @@ export type Band = {
 export type Device = {
   name: string;
   type: "source" | "sink";
-  output: string;
-  effects: {
-    type: "eq";
-    settings: {
-      preamp: number;
-      zoom?: number;
-      bands: Band[];
-    };
-  }[];
+  output: "FL FR" | "MONO";
+  parent?: string;
+  settings: {
+    preamp: number;
+    zoom?: number;
+    bands: Band[];
+  };
 };

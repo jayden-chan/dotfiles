@@ -2,47 +2,42 @@
   "name": "AT2040",
   "type": "source",
   "output": "MONO",
-  "effects": [
-    {
-      "type": "eq",
-      "settings": {
-        "preamp": 0,
-        "zoom": -31.57,
-        "bands": [
-          {
-            "type": "highpass",
-            "mode": "RLC_BT",
-            "slope": 1,
-            "freq": 60,
-            "Q": 0.6,
-            "gain": 0
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 103.227,
-            "Q": 0.28,
-            "gain": -0.5
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 1035.169,
-            "Q": 4.1,
-            "gain": -1.01
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 2905.615,
-            "Q": 3.77,
-            "gain": -4.86
-          }
-        ]
+  "settings": {
+    "preamp": 0,
+    "zoom": -31.57,
+    "bands": [
+      {
+        "type": "highpass",
+        "mode": "RLC_BT",
+        "slope": 1,
+        "freq": 60,
+        "Q": 0.6,
+        "gain": 0
+      },
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 103.227,
+        "Q": 0.28,
+        "gain": -0.5
+      },
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 1035.169,
+        "Q": 4.1,
+        "gain": -1.01
+      },
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 2905.615,
+        "Q": 3.77,
+        "gain": -4.86
       }
-    }
-  ]
+    ]
+  }
 }

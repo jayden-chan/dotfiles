@@ -2,22 +2,17 @@
   "name": "Focal Clear 2",
   "type": "sink",
   "output": "FL FR",
-  "effects": [
-    {
-      "type": "eq",
-      "settings": {
-        "preamp": -6.5,
-        "bands": [
-          {
-            "type": "lowshelf",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 50.245,
-            "Q": 0.66,
-            "gain": 6.5
-          }
-        ]
+  "settings": {
+    "preamp": -6.5,
+    "bands": [
+      {
+        "type": "lowshelf",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 50.245,
+        "Q": 0.66,
+        "gain": 6.5
       }
-    }
-  ]
+    ]
+  }
 }

@@ -1,4 +1,4 @@
-import { Band, Device } from "./util";
+import type { Band, Device } from "./util";
 
 function bandToPeqType(band: Band): number {
   switch (band.type) {
@@ -20,14 +20,9 @@ function bandToPeqType(band: Band): number {
 }
 
 export function genPeq(device: Device): string {
-  const eq = device.effects.find((e) => e.type === "eq");
-  if (!eq) {
-    throw new Error(`Device "${device.name}" can't be converted to peq`);
-  }
-
   const ret = {
     name: device.name,
-    preamp: eq.settings.preamp,
+    preamp: device.settings.preamp,
     parametric: true,
     bands: [
       // Bass "tone knob"
@@ -48,7 +43,7 @@ export function genPeq(device: Device): string {
         gain: 0.0,
         color: 0,
       },
-      ...eq.settings.bands.map((b, i) => ({
+      ...device.settings.bands.map((b, i) => ({
         type: bandToPeqType(b),
         channels: 0,
         frequency: Math.round(b.freq),

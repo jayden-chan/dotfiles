@@ -1,4 +1,5 @@
-import { Band, Device, STANDARD_SINK_ZOOM } from "./util";
+import type { Band, Device } from "./util";
+import { STANDARD_SINK_ZOOM } from "./util";
 
 export type LSPBand = {
   idx: number;
@@ -24,13 +25,8 @@ const hueFromIdx = (idx: number, total: number): number => {
 };
 
 export function genLSP(device: Device) {
-  const eq = device.effects.find((e) => e.type === "eq");
-  if (eq === undefined) {
-    throw new Error("couldn't find EQ effect in effects list");
-  }
-
-  const bands = eq.settings.bands.map((b, i) =>
-    jsonBandToLSPBand(b, i, eq.settings.bands.length),
+  const bands = device.settings.bands.map((b, i) =>
+    jsonBandToLSPBand(b, i, device.settings.bands.length),
   );
 
   const fillerBands = [...Array(16 - bands.length).keys()].map((e) => {
@@ -39,7 +35,7 @@ export function genLSP(device: Device) {
   const finalBands = [...bands, ...fillerBands];
 
   return `bypass = false
-g_in = ${eq.settings.preamp.toFixed(4)} db
+g_in = ${device.settings.preamp.toFixed(4)} db
 g_out = 0.00 db
 mode = 0
 react = 0.10000
@@ -48,7 +44,7 @@ ife_l = true
 ofe_l = false
 ife_r = true
 ofe_r = false
-zoom = ${(eq.settings.zoom ?? STANDARD_SINK_ZOOM).toFixed(3)} db
+zoom = ${(device.settings.zoom ?? STANDARD_SINK_ZOOM).toFixed(3)} db
 fsel = 0
 bal = 0.00000
 frqs = 0.00000

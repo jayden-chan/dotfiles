@@ -1,55 +1,59 @@
 {
-  "name": "Focal Bathys 2",
+  "name": "Focal Bathys (aftermarket pads)",
+  "parent": "Focal Bathys",
   "type": "sink",
   "output": "FL FR",
-  "effects": [
-    {
-      "type": "eq",
-      "settings": {
-        "preamp": 0,
-        "bands": [
-          {
-            "type": "lowshelf",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 335.294,
-            "Q": 0,
-            "gain": -2.68
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 622.901,
-            "Q": 0.25,
-            "gain": -1.99
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 893.716,
-            "Q": 1.41,
-            "gain": -1.03
-          },
-          {
-            "type": "peaking",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 2959.643,
-            "Q": 0.16,
-            "gain": -2.25
-          },
-          {
-            "type": "lowshelf",
-            "mode": "RLC_BT",
-            "slope": 0,
-            "freq": 10369.707,
-            "Q": 0.25,
-            "gain": -1.21
-          }
-        ]
+  "settings": {
+    "preamp": -1.5,
+    "bands": [
+      {
+        "type": "lowshelf",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 335.294,
+        "Q": 0,
+        "gain": -2.68
+      },
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 622.901,
+        "Q": 0.25,
+        "gain": -1.99
+      },
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 893.716,
+        "Q": 1.41,
+        "gain": -1.03
+      },
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 2901.097,
+        "Q": 1.16,
+        "gain": -0.95
+      },
+      {
+        "type": "peaking",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 2959.643,
+        "Q": 0.16,
+        "gain": -2.07
+      },
+      {
+        "type": "lowshelf",
+        "mode": "RLC_BT",
+        "slope": 0,
+        "freq": 10369.707,
+        "Q": 0.25,
+        "gain": -0.6
       }
-    }
-  ]
+    ]
+  }
 }
