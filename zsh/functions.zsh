@@ -49,14 +49,6 @@ function dkill () {
     ps -ax | rg '^\s*(\d+)(.*?)\d prettierd' --only-matching --replace='$1' --color=never | xargs kill
 }
 
-function podbuild () {
-    podman image build -f ./Containerfile -t git.jayden.codes/jayden/"$1":latest
-
-    if [ "$?" = "0" ] && [ "$2" != "--no-push" ]; then
-        podman image push git.jayden.codes/jayden/"$1":latest
-    fi
-}
-
 function bb () {
     if [ "$1" = "down" ]; then
         trash ./tsconfig.json
