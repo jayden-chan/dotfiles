@@ -47,7 +47,7 @@
         "gain": -2.07
       },
       {
-        "type": "lowshelf",
+        "type": "highshelf",
         "mode": "RLC_BT",
         "slope": 0,
         "freq": 10369.707,
