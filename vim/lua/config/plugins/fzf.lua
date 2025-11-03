@@ -32,6 +32,7 @@ return {
 				.. " --exclude '*.ppm'"
 				.. " --exclude '*.pdf'"
 				.. " --exclude '*.webp'"
+				.. " --exclude '*.patch'"
 				.. " --exclude '*.lockb'"
 				.. " --exclude '*.lock'",
 		},
@@ -43,6 +44,7 @@ return {
 				.. " --color=always"
 				.. " --smart-case"
 				.. " --max-columns=4096"
+				.. " --glob '!*.patch'"
 				.. " --glob '!*.lock'"
 				.. " --glob '!*.lockb'"
 				.. " --glob '!package-lock.json'"
