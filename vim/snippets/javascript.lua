@@ -96,6 +96,21 @@ export const {1} = (props: {{}}) => {{
 		)
 	),
 	s(
+		"zz",
+		fmt(
+			[[
+export type {2} = z.infer<typeof {1}Schema>;
+export const {1}Schema = z.object({{
+	{3}
+}});
+]],
+			{ i(1), f(function(args)
+				return args[1][1]:gsub("^%l", string.upper)
+			end, { 1 }), i(0) },
+			{ repeat_duplicates = true }
+		)
+	),
+	s(
 		"hvc",
 		fmt(
 			[[
