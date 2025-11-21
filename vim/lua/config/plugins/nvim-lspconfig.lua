@@ -89,18 +89,6 @@ return {
 					},
 				},
 			},
-			root_dir = function(fname)
-				return lsp_util.root_pattern(
-					"tailwind.config.js",
-					"tailwind.config.cjs",
-					"tailwind.config.mjs",
-					"tailwind.config.ts",
-					"postcss.config.js",
-					"postcss.config.cjs",
-					"postcss.config.mjs",
-					"postcss.config.ts"
-				)(fname)
-			end,
 		})
 
 		lspconfig.rust_analyzer.setup({
@@ -145,13 +133,6 @@ return {
 				Lua = {
 					runtime = { version = "LuaJIT" },
 					diagnostics = { globals = { "vim", "awesome", "client", "root", "screen" } },
-					workspace = {
-						library = {
-							["/usr/local/share/nvim/runtime/lua"] = true,
-							["/usr/local/share/nvim/runtime/lua/vim/lsp"] = true,
-							["/usr/share/awesome/lib"] = true,
-						},
-					},
 					telemetry = { enable = false },
 					format = { enable = false },
 				},

@@ -178,7 +178,7 @@ useEffect(() => {{
 			[[
 export function htmlEscape(text: string): string {{
 	return text
-		.replace(/&$/g, "&amp;")
+		.replace(/&($|\s)/g, "&amp;")
 		.replace(/</g, "&lt;")
 		.replace(/>/g, "&gt;")
 		.replace(/"/g, "&quot;")

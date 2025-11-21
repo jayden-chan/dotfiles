@@ -464,8 +464,8 @@ local globalkeys = gears.table.join(
 	end, { description = "toggle mute notifications", group = "awesome" }),
 
 	awful.key({ modkey }, "r", function()
-		awful.spawn.with_shell("kill -TERM $(pgrep -f 'target/debug/lakehouse-server')")
-		awful.spawn.with_shell("kill -TERM $(pgrep -f 'bun run src/index.ts')")
+		awful.spawn.with_shell("kill -TERM $(pgrep --full 'target/debug/lakehouse-server')")
+		awful.spawn.with_shell("kill -TERM $(pgrep --full 'bun run src/server.ts')")
 		awful.spawn.with_shell("killall -KILL cs2")
 	end, { description = "shutdown lakehouse", group = "awesome" }),
 
