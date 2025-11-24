@@ -45,8 +45,15 @@ alias nix-rebuild='_nix_git_trick nh os switch -- --show-trace';
 alias nix-update='_nix_git_trick nix flake update';
 
 function dkill () {
-    ps -ax | rg '^\s*(\d+)(.*?)\d eslint_d' --only-matching --replace='$1' --color=never | xargs kill
-    ps -ax | rg '^\s*(\d+)(.*?)\d prettierd' --only-matching --replace='$1' --color=never | xargs kill
+    local patterns=(
+      ["1"]='^\s*(\d+)(.*?)\d eslint_d'
+      ["2"]='^\s*(\d+)(.*?)\d prettierd'
+      ["3"]='^\s*(\d+)(.*?)\d \/.*?tailwindcss-language-server'
+    )
+
+    for pattern in $patterns; do
+        ps -ax | rg "$pattern" --only-matching --replace='$1' --color=never | xargs --no-run-if-empty --verbose kill
+    done
 }
 
 function bb () {
