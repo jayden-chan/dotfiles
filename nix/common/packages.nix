@@ -71,7 +71,6 @@
     typst
     usbutils
     vesktop
-    wget
     wireguard-tools
     x42-plugins
     xclip
