@@ -1,14 +1,15 @@
 { ... }:
 
 let
-  qview = "com.interversehq.qView.desktop";
-  file-roller = "org.gnome.FileRoller.desktop";
   basic-text-editor = "org.xfce.mousepad.desktop";
-  mpv = "mpv.desktop";
-  zathura = "org.pwmt.zathura.desktop";
   browser = "firefox-devedition.desktop";
-  protontricks = "protontricks-launch.desktop";
+  file-roller = "org.gnome.FileRoller.desktop";
+  mpv = "mpv.desktop";
   nsxiv = "nsxiv.desktop";
+  protontricks = "protontricks-launch.desktop";
+  qview = "com.interversehq.qView.desktop";
+  thunar = "thunar.desktop";
+  zathura = "org.pwmt.zathura.desktop";
 in
 {
   xdg.mime.enable = true;
@@ -31,8 +32,10 @@ in
     "image/jpeg" = [ qview ];
     "image/jpg" = [ qview ];
     "image/png" = [ qview ];
+    "image/svg+xml" = [ nsxiv ];
     "image/webp" = [ qview ];
     "image/x-portable-pixmap" = [ qview ];
+    "inode/directory" = [ thunar ];
     "text/csv" = [ basic-text-editor ];
     "text/html" = [ browser ];
     "text/plain" = [ basic-text-editor ];
@@ -42,7 +45,6 @@ in
     "x-scheme-handler/chrome" = [ browser ];
     "x-scheme-handler/http" = [ browser ];
     "x-scheme-handler/https" = [ browser ];
-    "image/svg+xml" = [ nsxiv ];
   };
 
   xdg.mimeApps.associations.added = {
