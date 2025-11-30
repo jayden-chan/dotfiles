@@ -14,10 +14,10 @@
     bash
     bat
     bc
+    brave
     bruno
     bun
     carla
-    chromium
     czkawka-full
     dig
     eza
