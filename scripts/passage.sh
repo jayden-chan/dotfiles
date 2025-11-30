@@ -84,7 +84,7 @@ case "$action" in
                     sed_cmd='5q;d'
                 fi
 
-                sed "$sed_cmd" "$tmp_file" | tr -d '[:space:]' | xclip -selection clipboard
+                sed "$sed_cmd" "$tmp_file" | tr -d '\n' | xclip -selection clipboard
                 [ "$copy_kind" != "" ]
             do
                 read -t 60 -n 1 -s -r -p "${copy_kind^} copied. Press any key to continue or q to exit" copy_reply
