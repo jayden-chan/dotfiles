@@ -4,7 +4,7 @@ function _post_to_shist () {
     fi
 
     local res=$(curl "$SHIST_URL/history" \
-        --max-time 2 \
+        --max-time 1 \
         --silent \
         --header "authorization: $SHIST_TOKEN" \
         --json "$(jq -sRrc '{commands: [.]}' <<< "$1")")
