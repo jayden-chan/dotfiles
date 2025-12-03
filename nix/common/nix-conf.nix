@@ -4,6 +4,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-36.9.5"
+  ];
+
   nix.settings = {
     trusted-users = [
       "root"

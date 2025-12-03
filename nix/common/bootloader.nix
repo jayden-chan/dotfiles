@@ -13,7 +13,7 @@
       useTmpfs = true;
 
       # default = 50%
-      tmpfsSize = "50%";
+      tmpfsSize = "66%";
     };
   };
 }
