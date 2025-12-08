@@ -36,6 +36,7 @@ function _nix_git_trick () {
 function nix-clean () {
     local before_space=$(df | rg "/dev/dm-2" | awk '{ print $3 }')
     _nix_git_trick nh clean all --keep 10
+    nix-store --optimise
     local after_space=$(df | rg "/dev/dm-2" | awk '{ print $3 }')
     local saved=$(bc -l <<< "$before_space * 1024 - $after_space * 1024" | numfmt --to=iec-i --suffix=B --format %.2f)
     echo "Saved $saved of disk space"
@@ -141,8 +142,7 @@ function gotify-send () {
 function syc () {
     if [ "$1" = "clips" ]; then
         echo "syncing clips"
-        cpr -e ssh ~/Videos/clips/ homelab:Videos/cloud/clips/
-        return
+        cpr ~/Videos/clips/ /mnt/homelab/seagate/photos/clips/
     elif [ "$1" = "csgo" ]; then
         cp "$DOT"/csgo/*.cfg ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/
         rm ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/lsp.cfg
@@ -157,6 +157,7 @@ function syc () {
         local base_path="/run/media/jayden/Seagate External/Backup/Personal Files";
 
         echo "syncing personal files to external drive"
+
         echo "=== syncing Git repos"
         cpr -e ssh                homelab:docker/gitea/data/git/repositories/jayden/ "$base_path/Git/"
 
@@ -171,8 +172,6 @@ function syc () {
 
         echo "=== syncing passage"
         cpr --delete              "$PASSAGE_DIR/"             "$base_path/Passwords/"
-
-        return
     fi
 }
 
