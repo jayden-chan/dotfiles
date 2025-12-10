@@ -37,3 +37,11 @@ user_pref("toolkit.tabbox.switchByScrolling", false);
 user_pref("widget.gtk.ignore-bogus-leave-notify", 1);
 user_pref("widget.gtk.native-context-menus", false);
 user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
+
+// disable AI slop
+user_pref("browser.ml.enable", false);
+user_pref("browser.ml.chat.enabled", false);
+user_pref("extensions.ml.enabled", false);
+user_pref("browser.ml.linkPreview.enabled", false);
+user_pref("browser.tabs.groups.smart.enabled", false);
+user_pref("browser.tabs.groups.smart.userEnabled", false);
