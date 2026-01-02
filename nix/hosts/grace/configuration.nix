@@ -98,12 +98,14 @@ in
     hugin
     liquidctl
     mat2
+    mcaselector
     noise-repellent
     numlockx
     openscad
     prismlauncher
     protontricks
     qrencode
+    sqlite-interactive
     streamrip
     yq-go
 
