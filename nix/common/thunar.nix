@@ -19,9 +19,6 @@ in
   # thumbnail generation service for Thunar
   services.tumbler.enable = true;
 
-  # required for Thunar archive plugin
-  programs.file-roller.enable = true;
-
   environment.systemPackages = [ package ];
   services.dbus.packages = [ package ];
   systemd.packages = [ package ];

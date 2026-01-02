@@ -14,6 +14,7 @@ in
 {
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;
+  xdg.configFile."mimeapps.list".force = true;
 
   xdg.mimeApps.defaultApplications = {
     "application/json" = [ basic-text-editor ];

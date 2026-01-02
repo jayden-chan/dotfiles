@@ -27,6 +27,7 @@
     ffmpeg-full
     ffmpegthumbnailer
     file
+    file-roller
     fontconfig
     fzf
     gcc

@@ -7,36 +7,12 @@ in
   programs.git = {
     enable = true;
 
-    userEmail = config-vars.email;
-    userName = "${config-vars.name} ${config-vars.last-name}";
-
-    signing.key = signing-key;
-
-    delta = {
-      enable = true;
-      options = {
-        features = "decorations";
-        line-numbers = false;
-        side-by-side = true;
-        syntax-theme = "ansi";
-        plus-style = "syntax #213620";
-        minus-style = "syntax #3c1e20";
-        paging = "always";
-
-        interactive = {
-          keep-plus-minus-markers = false;
-        };
-
-        decorations = {
-          commit-decoration-style = "bold yellow box ul";
-          file-style = "bold yellow ul";
-          file-decoration-style = "bold red box ul";
-          hunk-header-decoration-style = "cyan box ul";
-        };
+    settings = {
+      user = {
+        email = config-vars.email;
+        name = "${config-vars.name} ${config-vars.last-name}";
       };
-    };
 
-    extraConfig = {
       diff.colorMoved = "default";
       init.defaultBranch = "main";
       pager.branch = false;
@@ -151,6 +127,33 @@ in
           # Can use multiple lines with "-" or "*" for bullet points in body
           # -----------------
         ''}";
+      };
+    };
+
+    signing.key = signing-key;
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      features = "decorations";
+      line-numbers = false;
+      side-by-side = true;
+      syntax-theme = "ansi";
+      plus-style = "syntax #213620";
+      minus-style = "syntax #3c1e20";
+      paging = "always";
+
+      interactive = {
+        keep-plus-minus-markers = false;
+      };
+
+      decorations = {
+        commit-decoration-style = "bold yellow box ul";
+        file-style = "bold yellow ul";
+        file-decoration-style = "bold red box ul";
+        hunk-header-decoration-style = "cyan box ul";
       };
     };
   };
