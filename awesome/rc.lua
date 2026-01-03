@@ -277,7 +277,8 @@ dnd_widget:set_visible(false)
 naughty.resume()
 
 local mute_widget = mar(icon("volume-xmark"), 0, 0, 0, widget_block_gap)
-awful.spawn.with_shell('sleep 5; amidi --port="hw:0,0" --send-hex="B00700"')
+local midi_port = "hw:2,0"
+awful.spawn.with_shell('sleep 3; amidi --port="' .. midi_port .. '" --send-hex="B00700"')
 
 local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
 local headphones = mar(icob(icon("headphones", 13, 10), mar(headphones_text, 0, 10, 0, 10)), 0, widget_block_gap)
@@ -572,8 +573,10 @@ local globalkeys = gears.table.join(
 			-- Control function = channel volume
 			-- 127 volume (max)
 			awful.spawn.with_shell(
-				'amidi --port="hw:0,0" --send-hex="B0077F" && '
-					.. "mpv --no-config --volume=80 --no-terminal --audio-device=pipewire/monitoring-sink "
+				'amidi --port="'
+					.. midi_port
+					.. '" --send-hex="B0077F" && '
+					.. "mpv --no-config --volume=60 --no-terminal --audio-device=pipewire/monitoring-sink "
 					.. dots
 					.. "/misc/unmute.mp3"
 			)
@@ -584,8 +587,10 @@ local globalkeys = gears.table.join(
 			-- Control function 7 = channel volume
 			-- 0 volume
 			awful.spawn.with_shell(
-				'amidi --port="hw:0,0" --send-hex="B00700" && '
-					.. "mpv --no-config --volume=80 --no-terminal --audio-device=pipewire/monitoring-sink "
+				'amidi --port="'
+					.. midi_port
+					.. '" --send-hex="B00700" && '
+					.. "mpv --no-config --volume=60 --no-terminal --audio-device=pipewire/monitoring-sink "
 					.. dots
 					.. "/misc/mute.mp3"
 			)
