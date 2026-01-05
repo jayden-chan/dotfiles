@@ -112,6 +112,7 @@ in
     unstable.kdePackages.kdenlive
     unstable.ansel
     unstable.clonehero
+    unstable.yarg
     p7zip
 
     (pkgs.llama-cpp.override {

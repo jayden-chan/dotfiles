@@ -15,6 +15,9 @@
     stylix.url = "github:danth/stylix/release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+    guitar-midi-mapper.url = "github:jayden-chan/guitar-midi-mapper";
+    guitar-midi-mapper.inputs.nixpkgs.follows = "nixpkgs";
+
     notifications-dbus-mon.url = "github:jayden-chan/notifications-dbus-mon";
     notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
 

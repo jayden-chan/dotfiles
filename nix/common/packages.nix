@@ -105,6 +105,7 @@
     unstable.yt-dlp
 
     inputs.agenix.packages.${system}.default
+    inputs.guitar-midi-mapper.packages."${system}".default
     inputs.notifications-dbus-mon.packages."${system}".default
     inputs.spotify-dbus-mon.packages."${system}".default
   ];
