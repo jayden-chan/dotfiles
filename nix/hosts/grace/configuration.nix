@@ -88,7 +88,6 @@ in
     ardour
     borgbackup
     caffeine-ng
-    dbeaver-bin
     discordchatexporter-cli
     dive
     drm_info
@@ -101,12 +100,12 @@ in
     mcaselector
     noise-repellent
     numlockx
-    openscad
+    openscad-unstable
+    orca-slicer
     prismlauncher
     protontricks
     qrencode
     sqlite-interactive
-    streamrip
     yq-go
 
     unstable.kdePackages.kdenlive

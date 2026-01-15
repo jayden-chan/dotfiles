@@ -5,6 +5,13 @@
     packages = [
       pkgs.nerd-fonts.iosevka
       pkgs.nerd-fonts.jetbrains-mono
+
+      # required to prevent OrcaSlicer segfault
+      # https://github.com/OrcaSlicer/OrcaSlicer/issues/10524
+      # https://github.com/OrcaSlicer/OrcaSlicer/issues/10029
+      # https://github.com/OrcaSlicer/OrcaSlicer/issues/11641
+      pkgs.nanum
+      pkgs.nanum-gothic-coding
     ];
 
     fontconfig = {
