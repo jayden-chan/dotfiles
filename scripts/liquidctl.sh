@@ -39,5 +39,10 @@ case "$level" in
            ;;
 esac
 
+# shellcheck disable=2181
+if [ "$?" != "0" ]; then
+    notify-send -u critical "liquidctl" "WARNING: Failed to set cooling level with liquidctl"
+fi
+
 echo -n "$level" > "$level_file"
 notify-send "liquidctl" "Cooling set to level $level"
