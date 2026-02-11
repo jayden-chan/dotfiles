@@ -93,6 +93,7 @@ in
     drm_info
     exiftool
     exiv2
+    fritzing
     google-cloud-sdk
     hugin
     liquidctl
@@ -102,17 +103,18 @@ in
     numlockx
     openscad-unstable
     orca-slicer
+    p7zip
     prismlauncher
     protontricks
     qrencode
     sqlite-interactive
+    v4l-utils
     yq-go
 
-    unstable.kdePackages.kdenlive
     unstable.ansel
     unstable.clonehero
+    unstable.kdePackages.kdenlive
     unstable.yarg
-    p7zip
 
     (pkgs.llama-cpp.override {
       config = {

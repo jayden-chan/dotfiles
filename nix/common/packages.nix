@@ -34,6 +34,7 @@
     gimp
     gnumake
     go
+    gparted
     htop
     imagemagick
     jalv
