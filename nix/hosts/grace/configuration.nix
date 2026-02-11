@@ -1,6 +1,7 @@
 {
   pkgs,
   unstable,
+  lib,
   config,
   config-vars,
   inputs,
@@ -246,10 +247,21 @@ in
     };
   };
 
-  services.udev.extraRules = ''
-    # Aquacomputer Quadro allow access to non-root users
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0c70", ATTRS{idProduct}=="f00d", TAG+="uaccess"
+  # this rule needs to have a custom priority other than 99-local because
+  # the uaccess tag needs to be assigned before the 70- tier of priorities
+  # https://github.com/systemd/systemd/issues/4288#issuecomment-348166161
+  services.udev.packages = lib.singleton (
+    pkgs.writeTextFile {
+      name = "aquacomputer-quadro";
+      text = ''
+        # Aquacomputer Quadro allow access to non-root users
+        ACTION!="remove", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0c70", ATTRS{idProduct}=="f00d", MODE="0660", TAG+="uaccess"
+      '';
+      destination = "/etc/udev/rules.d/60-aquacomputer-quadro.rules";
+    }
+  );
 
+  services.udev.extraRules = ''
     # Disable motherboard bluetooth adapter
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0e8d", ATTRS{idProduct}=="0616", ATTR{authorized}="0"
 
