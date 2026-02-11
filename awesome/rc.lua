@@ -106,6 +106,17 @@ awful.spawn.easy_async_with_shell(find_mpris_cmd, function(stdout, _, _, exit_co
 	end
 end)
 
+local midi_port = "hw:2,0"
+local find_midi_port_cmd =
+	"amidi -l | rg 'hw:(\\d),0\\s+Virtual Raw MIDI' --only-matching --replace='$1' --max-count=1 --color=never"
+
+-- figure out which index the kernel gave to the virtual midi ports
+awful.spawn.easy_async_with_shell(find_midi_port_cmd, function(stdout, _, _, exit_code)
+	if exit_code == 0 then
+		midi_port = "hw:" .. stdout:gsub("%s+", "") .. ",0"
+	end
+end)
+
 local script = function(name, args, startup_notifications)
 	local full_args = { scripts .. "/" .. name }
 	for _, v in pairs(args) do
@@ -277,7 +288,6 @@ dnd_widget:set_visible(false)
 naughty.resume()
 
 local mute_widget = mar(icon("volume-xmark"), 0, 0, 0, widget_block_gap)
-local midi_port = "hw:2,0"
 awful.spawn.with_shell('sleep 3; amidi --port="' .. midi_port .. '" --send-hex="B00700"')
 
 local headphones_text = wibox.widget({ widget = wibox.widget.textbox })
