@@ -161,6 +161,11 @@ function syc () {
         echo "=== syncing Git repos"
         cpr -e ssh                homelab:docker/gitea/data/git/repositories/jayden/ "$base_path/Git/"
 
+        echo "=== syncing documents"
+        cpr                       "$HOME/Documents/3D Printing/"                     "$base_path/Documents/3D Printing/"
+        cpr                       "$HOME/Documents/Fritzing/"                        "$base_path/Documents/Fritzing/"
+        cpr                       "$HOME/Documents/Charts/"                          "$base_path/Documents/Charts/"
+
         echo "=== syncing music"
         cpr                       /mnt/homelab/seagate/music/ "$base_path/Music/"
 
