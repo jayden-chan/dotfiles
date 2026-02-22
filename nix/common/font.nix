@@ -11,7 +11,6 @@
       # https://github.com/OrcaSlicer/OrcaSlicer/issues/10029
       # https://github.com/OrcaSlicer/OrcaSlicer/issues/11641
       pkgs.nanum
-      pkgs.nanum-gothic-coding
     ];
 
     fontconfig = {
