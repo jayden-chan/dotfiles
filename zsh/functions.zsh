@@ -35,8 +35,17 @@ function _nix_git_trick () {
 
 function nix-clean () {
     local before_space=$(df | rg "/dev/mapper/MyVolGroup-nixos--root" | awk '{ print $3 }')
+
+    echo
+    echo "=== nh clean all"
+    echo
     _nix_git_trick nh clean all --keep 10
+
+    echo
+    echo "=== nix-store --optimise"
+    echo
     nix-store --optimise
+
     local after_space=$(df | rg "/dev/mapper/MyVolGroup-nixos--root" | awk '{ print $3 }')
     local saved=$(bc -l <<< "$before_space * 1024 - $after_space * 1024" | numfmt --to=iec-i --suffix=B --format %.2f)
     echo "Saved $saved of disk space"

@@ -17,6 +17,7 @@ end
 return {
 	s("log", fmt("console.log({})", i(0))),
 	s("linesplit", t(".split(/\\r?\\n/g).map(l => l.trim()).filter(l => l.length > 0)")),
+	s("iife", fmt("(() => {{{}}})()", i(0))),
 	s("er", fmt("console.error({})", i(0))),
 	log_snippet("deb", "debug"),
 	log_snippet("info", "info"),
@@ -93,6 +94,34 @@ export const {1} = (props: {{}}) => {{
 }};
 ]],
 			{ i(1), i(0) }
+		)
+	),
+	s(
+		"openscad",
+		fmt(
+			[[
+import {{ Decimal }} from "decimal.js";
+import {{ writeFileSync }} from "node:fs";
+import {{ cube }} from "scad-js";
+import {{ n }} from "./lib";
+
+const EXT_WIDTH = new Decimal("0.45");
+
+const buf = new Decimal("0.01");
+const cubeWidth = new Decimal("10");
+
+function main() {{
+	const model = cube(n([cubeWidth, cubeWidth, cubeWidth]));
+	const output = [model].map((model) => model.serialize().trim()).join("\n");
+
+	const fn = 512;
+	writeFileSync("./output.scad", `$fn = ${{fn}};\n` + output);{1}
+	console.log(`[${{new Date().toTimeString().slice(0, 8)}}] OK`);
+}}
+
+main();
+]],
+			{ i(0) }
 		)
 	),
 	s(
