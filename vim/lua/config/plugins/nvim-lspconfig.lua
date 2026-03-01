@@ -30,8 +30,6 @@ return {
 		-- Setup lspconfig.
 		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
-		local lspconfig = require("lspconfig")
-		local lsp_util = require("lspconfig.util")
 		local on_attach = lsp_settings.on_attach
 		local on_init = lsp_settings.on_init
 		local default_flags = lsp_settings.default_flags
@@ -46,11 +44,11 @@ return {
 		---                       ---
 		--- Language Server Setup ---
 		---                       ---
-		lspconfig.ts_ls.setup({
+		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
 			on_init = on_init,
 			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-			root_dir = lsp_util.root_pattern("package.json"),
+			root_markers = { "package.json" },
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 
@@ -65,15 +63,24 @@ return {
 			end,
 			flags = default_flags,
 		})
+		vim.lsp.enable({ "ts_ls" })
 
-		lspconfig.gopls.setup(default_lsp_config)
-		lspconfig.clangd.setup(default_lsp_config)
-		lspconfig.taplo.setup(default_lsp_config)
-		lspconfig.yamlls.setup(default_lsp_config)
-		lspconfig.nil_ls.setup(default_lsp_config)
-		lspconfig.dartls.setup(default_lsp_config)
+		vim.lsp.config("gopls", default_lsp_config)
+		vim.lsp.enable({ "gopls" })
 
-		lspconfig.tailwindcss.setup({
+		vim.lsp.config("clangd", default_lsp_config)
+		vim.lsp.enable({ "clangd" })
+
+		vim.lsp.config("taplo", default_lsp_config)
+		vim.lsp.enable({ "taplo" })
+
+		vim.lsp.config("yamlls", default_lsp_config)
+		vim.lsp.enable({ "yamlls" })
+
+		vim.lsp.config("nil_ls", default_lsp_config)
+		vim.lsp.enable({ "nil_ls" })
+
+		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			on_init = on_init,
 			on_attach = on_attach,
@@ -90,8 +97,9 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable({ "tailwindcss" })
 
-		lspconfig.rust_analyzer.setup({
+		vim.lsp.config("rust_analyzer", {
 			capabilities = capabilities,
 			on_init = on_init,
 			on_attach = on_attach,
@@ -120,8 +128,9 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable({ "rust_analyzer" })
 
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_init = on_init,
 			on_attach = function(client, bufnr)
@@ -138,5 +147,6 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable({ "lua_ls" })
 	end,
 }
