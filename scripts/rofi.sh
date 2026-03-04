@@ -40,13 +40,15 @@ elif [ "$1" = "--save-screenshot" ]; then
         exit
     fi
 
-    file="$HOME/Pictures/Screenshots/$result.png"
+    timestamp="$(date --iso-8601=seconds | tr ':+T' '-')"
+    file="${timestamp}_${result}.png"
+    out_path="$HOME/Pictures/Screenshots/${file}"
 
-    if [ -f "$file" ]; then
-        notify-send "Error" "File $result.png already exists"
+    if [ -f "$out_path" ]; then
+        notify-send "Error" "File ${file} already exists"
     else
-        xclip -selection clipboard -t image/png -o > "$file"
-        notify-send -i "$file" "Maim" "Screenshot saved to $result.png"
+        xclip -selection clipboard -t image/png -o > "$out_path"
+        notify-send -i "$out_path" "Maim" "Screenshot saved to ${file}"
     fi
 elif [ "$1" = "--autorandr" ]; then
     result=$(autorandr --list | rofi -dmenu -i -p "select profile:" -theme list)
