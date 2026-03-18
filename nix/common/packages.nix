@@ -98,7 +98,6 @@
     xorg.xrdb
     xorg.xset
 
-    unstable.devenv
     unstable.firefox-devedition
     unstable.ghostty
     unstable.neovim
