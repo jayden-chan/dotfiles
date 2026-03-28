@@ -71,6 +71,7 @@ case "$action" in
 
             chmod 400 "$tmp_file"
             while
+                # shellcheck disable=2059
                 copy_kind="$(printf "$copy_options" | fzf --prompt "copy $name > " "${default_fzf_args[@]}")"
                 sed_cmd="1q;d"
 

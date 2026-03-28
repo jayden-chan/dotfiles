@@ -28,7 +28,6 @@ if [ "$enc_patch" = "" ]; then
 fi
 
 code_snippet="
-let
   nvidia-package =
     (
       (config.boot.kernelPackages.nvidiaPackages.mkDriver {
@@ -39,19 +38,11 @@ let
         {
           preFixup = preFixup + ''
             sed -i '${fbc_patch}' \$out/lib/libnvidia-fbc.so.\${version}
-          '';
-        }
-      )
-    ).overrideAttrs
-      (
-        { version, preFixup ? \"\", ... }:
-        {
-          preFixup = preFixup + ''
             sed -i '${enc_patch}' \$out/lib/libnvidia-encode.so.\${version}
           '';
         }
-      );
-in"
+      )
+    );"
 
 echo "$code_snippet" | xclip -selection c
 echo "Copied code snippet to clipboard"
