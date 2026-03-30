@@ -7,6 +7,7 @@ return {
 		{ "<leader>r", '<cmd>lua require("fzf-lua").live_grep()<cr>' },
 		{ "<leader>n", '<cmd>lua require("fzf-lua").lsp_references()<cr>' },
 		{ "<leader>z", '<cmd>lua require("fzf-lua").spell_suggest()<cr>' },
+		{ "<leader>?", '<cmd>lua require("fzf-lua").resume()<cr>' },
 	},
 	opts = {
 		winopts = {
