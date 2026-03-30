@@ -9,16 +9,16 @@
 }:
 
 let
-  nvidia-package =
-    (
-      (config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        version = "580.126.09";
-        sha256_64bit = "sha256-TKxT5I+K3/Zh1HyHiO0kBZokjJ/YCYzq/QiKSYmG7CY=";
-        sha256_aarch64 = "sha256-c5PEKxEv1vCkmOHSozEnuCG+WLdXDcn41ViaUWiNpK0=";
-        openSha256 = "sha256-ychsaurbQ2KNFr/SAprKI2tlvAigoKoFU1H7+SaxSrY=";
-        settingsSha256 = "sha256-4SfCWp3swUp+x+4cuIZ7SA5H7/NoizqgPJ6S9fm90fA=";
-        persistencedSha256 = "sha256-J1UwS0o/fxz45gIbH9uaKxARW+x4uOU1scvAO4rHU5Y=";
-      }).overrideAttrs
+  ssh-port = 32223;
+  nvidia-package = (
+    (config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "595.58.03";
+      sha256_64bit = "sha256-jA1Plnt5MsSrVxQnKu6BAzkrCnAskq+lVRdtNiBYKfk=";
+      sha256_aarch64 = "sha256-hzzIKY1Te8QkCBWR+H5k1FB/HK1UgGhai6cl3wEaPT8=";
+      openSha256 = "sha256-6LvJyT0cMXGS290Dh8hd9rc+nYZqBzDIlItOFk8S4n8=";
+      settingsSha256 = "sha256-2vLF5Evl2D6tRQJo0uUyY3tpWqjvJQ0/Rpxan3NOD3c=";
+      persistencedSha256 = "sha256-AtjM/ml/ngZil8DMYNH+P111ohuk9mWw5t4z7CHjPWw=";
+    }).overrideAttrs
       (
         {
           version,
@@ -28,22 +28,11 @@ let
         {
           preFixup = preFixup + ''
             sed -i 's/\x85\xc0\x0f\x85\xd4\x00\x00\x00\x48/\x85\xc0\x90\x90\x90\x90\x90\x90\x48/g' $out/lib/libnvidia-fbc.so.${version}
+            sed -i 's/\xe8\x51\x21\xfe\xff\x41\x89\xc6\x85\xc0/\xe8\x51\x21\xfe\xff\x29\xc0\x41\x89\xc6/g' $out/lib/libnvidia-encode.so.${version}
           '';
         }
       )
-    ).overrideAttrs
-      (
-        {
-          version,
-          preFixup ? "",
-          ...
-        }:
-        {
-          preFixup = preFixup + ''
-            sed -i 's/\xe8\x81\x2e\xfe\xff\x41\x89\xc6\x85\xc0/\xe8\x81\x2e\xfe\xff\x29\xc0\x41\x89\xc6/g' $out/lib/libnvidia-encode.so.${version}
-          '';
-        }
-      );
+  );
 in
 {
   imports = [
@@ -181,8 +170,7 @@ in
 
     allowedUDPPorts = [ ];
     allowedTCPPorts = [
-      # SSH
-      32223
+      ssh-port
 
       # dev servers
       4334
@@ -198,7 +186,7 @@ in
 
   services.openssh = {
     enable = true;
-    ports = [ 32223 ];
+    ports = [ ssh-port ];
     settings = {
       AllowUsers = [ config-vars.username ];
       PermitRootLogin = "no";
