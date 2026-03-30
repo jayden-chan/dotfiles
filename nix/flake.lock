@@ -306,15 +306,15 @@
       "locked": {
         "lastModified": 1773610797,
         "narHash": "sha256-y05ozEBOw0kHHFBGkqKN5mAA/rVJReSRmZ+5SLhDlFs=",
-        "owner": "jayden-chan",
-        "repo": "guitar-midi-mapper",
+        "ref": "refs/heads/main",
         "rev": "58d4ca7c75fc9dbd7be19cc773d4e32734eb4e80",
-        "type": "github"
+        "revCount": 9,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/guitar-midi-mapper.git"
       },
       "original": {
-        "owner": "jayden-chan",
-        "repo": "guitar-midi-mapper",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/guitar-midi-mapper.git"
       }
     },
     "home-manager": {
@@ -345,11 +345,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774559029,
-        "narHash": "sha256-deix7yg3j6AhjMPnFDCmWB3f83LsajaaULP5HH2j34k=",
+        "lastModified": 1774875830,
+        "narHash": "sha256-WPYlTmZvVa9dWlAziFkVjBdv1Z6giNIq40O1DxsBmiI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a0bb0d11514f92b639514220114ac8063c72d0a3",
+        "rev": "7afd8cebb99e25a64a745765920e663478eb8830",
         "type": "github"
       },
       "original": {
@@ -377,11 +377,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1774386573,
-        "narHash": "sha256-4hAV26quOxdC6iyG7kYaZcM3VOskcPUrdCQd/nx8obc=",
+        "lastModified": 1774709303,
+        "narHash": "sha256-D3Q07BbIA2KnTcSXIqqu9P586uWxN74zNoCH3h2ESHg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "46db2e09e1d3f113a13c0d7b81e2f221c63b8ce9",
+        "rev": "8110df5ad7abf5d4c0f6fb0f8f978390e77f9685",
         "type": "github"
       },
       "original": {
@@ -402,15 +402,15 @@
       "locked": {
         "lastModified": 1738462371,
         "narHash": "sha256-zVIAiCaXrgGAnEuB9yO8z5Y8jcR2N4N2CCQdkCRXGIg=",
-        "owner": "jayden-chan",
-        "repo": "notifications-dbus-mon",
+        "ref": "refs/heads/main",
         "rev": "b8004d3194c047cbdf5b12e8f7e81754c117c9bb",
-        "type": "github"
+        "revCount": 6,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/notifications-dbus-mon.git"
       },
       "original": {
-        "owner": "jayden-chan",
-        "repo": "notifications-dbus-mon",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/notifications-dbus-mon.git"
       }
     },
     "nur": {
@@ -462,15 +462,15 @@
       "locked": {
         "lastModified": 1767383021,
         "narHash": "sha256-A+qYkx47X2sYMmzEV0+EXV4E1jzLebqE+arPVfNzE0s=",
-        "owner": "jayden-chan",
-        "repo": "sensors-mon",
+        "ref": "refs/heads/main",
         "rev": "b7fe971827517147e292fc4dd93f8348cb10ecae",
-        "type": "github"
+        "revCount": 21,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/sensors-mon.git"
       },
       "original": {
-        "owner": "jayden-chan",
-        "repo": "sensors-mon",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/sensors-mon.git"
       }
     },
     "spotify-dbus-mon": {
@@ -484,15 +484,15 @@
       "locked": {
         "lastModified": 1749761425,
         "narHash": "sha256-FEgzTKtVyMltZhMa/0+3O4UaF23Y/xv9l9YJQFM4KDs=",
-        "owner": "jayden-chan",
-        "repo": "spotify-dbus-mon",
+        "ref": "refs/heads/main",
         "rev": "671ac3dd6cd6803cb3633d6a76443743a72caa49",
-        "type": "github"
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/spotify-dbus-mon.git"
       },
       "original": {
-        "owner": "jayden-chan",
-        "repo": "spotify-dbus-mon",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/spotify-dbus-mon.git"
       }
     },
     "stylix": {
@@ -516,11 +516,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1774194089,
-        "narHash": "sha256-SCczWhr8y8aaXVHG+gOGcRahNb0BU1Z5zYZuv9W/nA8=",
+        "lastModified": 1774897901,
+        "narHash": "sha256-GrSM/fvl4jhF39fjkI4oDMk4mR0mY+HHPY2ySWqAihQ=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "7c34241d80ea64dd2039bb3a786fb66b4c6261d9",
+        "rev": "c09faedbde9cbda2aaace349c1e227d322972f54",
         "type": "github"
       },
       "original": {

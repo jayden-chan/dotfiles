@@ -15,16 +15,16 @@
     stylix.url = "github:danth/stylix/release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    guitar-midi-mapper.url = "github:jayden-chan/guitar-midi-mapper";
+    guitar-midi-mapper.url = "git+ssh://git@git.jayden.codes/jayden/guitar-midi-mapper.git";
     guitar-midi-mapper.inputs.nixpkgs.follows = "nixpkgs";
 
-    notifications-dbus-mon.url = "github:jayden-chan/notifications-dbus-mon";
+    notifications-dbus-mon.url = "git+ssh://git@git.jayden.codes/jayden/notifications-dbus-mon.git";
     notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
 
-    sensors-mon.url = "github:jayden-chan/sensors-mon";
+    sensors-mon.url = "git+ssh://git@git.jayden.codes/jayden/sensors-mon.git";
     sensors-mon.inputs.nixpkgs.follows = "nixpkgs";
 
-    spotify-dbus-mon.url = "github:jayden-chan/spotify-dbus-mon";
+    spotify-dbus-mon.url = "git+ssh://git@git.jayden.codes/jayden/spotify-dbus-mon.git";
     spotify-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
   };
 
