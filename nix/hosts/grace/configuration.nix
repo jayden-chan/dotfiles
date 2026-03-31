@@ -99,7 +99,6 @@ in
     qrencode
     sqlite-interactive
     v4l-utils
-    yq-go
 
     unstable.ansel
     unstable.clonehero

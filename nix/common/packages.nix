@@ -30,15 +30,12 @@
     file-roller
     fontconfig
     fzf
-    gcc
     gimp
-    gnumake
     go
     gparted
     htop
     imagemagick
     jalv
-    joplin-desktop
     jq
     killall
     libnotify
@@ -51,13 +48,9 @@
     nitrogen
     nixfmt-rfc-style
     nsxiv
-    onefetch
     passage
     pavucontrol
-    picocrypt
-    picocrypt-cli
     picom
-    pkg-config
     prettierd
     qview
     redshift
@@ -69,7 +62,6 @@
     taplo
     tokei
     trash-cli
-    trufflehog
     typst
     usbutils
     vesktop
@@ -79,9 +71,9 @@
     xcolor
     xdotool
     yaml-language-server
+    yq-go
     yubikey-manager
     zbar
-    zenity
     zoxide
     zsh-syntax-highlighting
 
