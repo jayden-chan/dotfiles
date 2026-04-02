@@ -168,7 +168,7 @@ function syc () {
         echo "syncing personal files to external drive"
 
         echo "=== syncing Git repos"
-        cpr -e ssh                homelab:docker/gitea/data/git/repositories/jayden/ "$base_path/Git/"
+        cpr -e ssh                homelab:docker/forgejo/forgejo/git/repositories/jayden/ "$base_path/Git/"
 
         echo "=== syncing documents"
         cpr                       "$HOME/Documents/3D Printing/"                     "$base_path/Documents/3D Printing/"
