@@ -62,6 +62,7 @@
     taplo
     tokei
     trash-cli
+    typescript-language-server
     typst
     usbutils
     vesktop
@@ -76,8 +77,6 @@
     zbar
     zoxide
     zsh-syntax-highlighting
-
-    nodePackages.typescript-language-server
 
     python312Packages.grip
 
