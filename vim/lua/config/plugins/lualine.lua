@@ -1,10 +1,10 @@
 local utils = require("config.utils")
 return {
-	utils.mirror("lualine.nvim"),
+	"nvim-lualine/lualine.nvim",
 	dependencies = {
 		-- dir = "~/Dev/Personal/base46.nvim",
-		utils.mirror("base46.nvim"),
-		utils.mirror("nvim-web-devicons"),
+		"jayden-chan/base46.nvim",
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		---        ---

@@ -95,6 +95,9 @@ vim.cmd([[noremap x "_x]])
 vim.cmd([[noremap c "_c]])
 vim.cmd([[noremap cc "_cc]])
 
+-- remove default keybinding for selecting inner node
+vim.keymap.del({ "x", "o" }, "in")
+
 -- Tab switching
 map("n", "<tab>j", ":tabprevious<CR>")
 map("n", "<tab>l", ":tabnext<CR>")

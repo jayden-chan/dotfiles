@@ -1,13 +1,12 @@
-local utils = require("config.utils")
 local lsp_settings = require("config.lsp")
 local ts_config = require("config.treesitter_langs")
 local user_cmd = vim.api.nvim_buf_create_user_command
 
 return {
-	utils.mirror("nvim-lspconfig"),
+	"neovim/nvim-lspconfig",
 	dependencies = {
-		utils.mirror("blink.cmp"),
-		utils.mirror("lspsaga.nvim"),
+		"Saghen/blink.cmp",
+		"nvimdev/lspsaga.nvim",
 	},
 	ft = ts_config.extended,
 	config = function()
@@ -64,6 +63,9 @@ return {
 			flags = default_flags,
 		})
 		vim.lsp.enable({ "ts_ls" })
+
+		vim.lsp.config("bashls", default_lsp_config)
+		vim.lsp.enable({ "bashls" })
 
 		vim.lsp.config("gopls", default_lsp_config)
 		vim.lsp.enable({ "gopls" })

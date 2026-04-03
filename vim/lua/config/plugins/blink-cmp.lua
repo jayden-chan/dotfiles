@@ -1,10 +1,8 @@
-local utils = require("config.utils")
-
 return {
-	utils.mirror("blink.cmp"),
+	"Saghen/blink.cmp",
 	-- lazy loading handled internally
 	lazy = false,
-	dependencies = { utils.mirror("LuaSnip") },
+	dependencies = { "L3MON4D3/LuaSnip" },
 
 	-- use a release tag to download pre-built binaries
 	version = "v0.*",

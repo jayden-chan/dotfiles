@@ -1,5 +1,4 @@
-local utils = require("config.utils")
 return {
-	utils.mirror("vim-surround"),
+	"tpope/vim-surround",
 	event = "VeryLazy",
 }

@@ -1,5 +1,4 @@
-local utils = require("config.utils")
 return {
-	utils.mirror("vim-repeat"),
+	"tpope/vim-repeat",
 	event = "VeryLazy",
 }

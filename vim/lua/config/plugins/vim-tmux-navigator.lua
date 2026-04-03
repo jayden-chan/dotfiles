@@ -1,6 +1,5 @@
-local utils = require("config.utils")
 return {
-	utils.mirror("vim-tmux-navigator"),
+	"christoomey/vim-tmux-navigator",
 	keys = {
 		{ "<M-j>", "<cmd>TmuxNavigateLeft<cr>" },
 		{ "<M-k>", "<cmd>TmuxNavigateDown<cr>" },

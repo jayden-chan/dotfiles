@@ -1,13 +1,11 @@
-local utils = require("config.utils")
 local lsp_config = require("config.lsp")
 local ts_config = require("config.treesitter_langs")
 
 return {
-	utils.mirror("none-ls.nvim"),
+	"nvimtools/none-ls.nvim",
 	dependencies = {
-		utils.mirror("blink.cmp"),
-		utils.mirror("none-ls-shellcheck.nvim"),
-		utils.mirror("none-ls-extras.nvim"),
+		"Saghen/blink.cmp",
+		"nvimtools/none-ls-extras.nvim",
 	},
 	ft = ts_config.extended,
 	config = function()
@@ -34,8 +32,6 @@ return {
 							.. '"}',
 					},
 				}),
-				require("none-ls-shellcheck.diagnostics"),
-				require("none-ls-shellcheck.code_actions"),
 				require("none-ls.diagnostics.cpplint"),
 				null_ls.builtins.formatting.terraform_fmt,
 				require("none-ls.diagnostics.eslint_d").with({

@@ -1,11 +1,9 @@
 local base = {
-	"astro",
 	"bash",
 	"c",
 	"cmake",
 	"cpp",
 	"css",
-	"dart",
 	"go",
 	"graphql",
 	"hcl",
@@ -15,7 +13,6 @@ local base = {
 	"java",
 	"javascript",
 	"json",
-	"jsonc",
 	"just",
 	"lua",
 	"make",
@@ -23,7 +20,6 @@ local base = {
 	"markdown_inline",
 	"nginx",
 	"nix",
-	"python",
 	"query",
 	"rasi",
 	"rust",
@@ -34,11 +30,13 @@ local base = {
 	"typescript",
 	"vim",
 	"yaml",
+	"zsh",
 }
 
 local extended = vim.list_extend(vim.deepcopy(base), {
 	"typescriptreact",
 	"javascriptreact",
+	"sh",
 })
 
 return {

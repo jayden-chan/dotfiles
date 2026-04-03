@@ -1,8 +1,7 @@
-local utils = require("config.utils")
 return {
-	utils.mirror("trouble.nvim"),
+	"folke/trouble.nvim",
 	event = "VeryLazy",
-	dependencies = { utils.mirror("nvim-web-devicons") },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
 		position = "bottom",
 		height = 10,

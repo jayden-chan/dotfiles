@@ -38,9 +38,7 @@ if os.getenv("NVIM_PASSAGE_MODE") ~= "true" then
 		"gitlinker",
 		"luasnip",
 		"blink-cmp",
-		"vim-dadbod-ui",
 		"todo-comments",
-		"nvim-colorizer",
 	}
 
 	for _, item in ipairs(other_plugins) do

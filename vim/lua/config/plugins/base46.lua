@@ -1,6 +1,6 @@
 local utils = require("config.utils")
 return {
-	utils.mirror("base46.nvim"),
+	"jayden-chan/base46.nvim",
 	-- dir = "~/Dev/base46.nvim",
 	lazy = false,
 	priority = 1000,

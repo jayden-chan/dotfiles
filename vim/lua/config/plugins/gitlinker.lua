@@ -1,13 +1,12 @@
-local utils = require("config.utils")
 return {
-	utils.mirror("gitlinker.nvim"),
+	"linrongbin16/gitlinker.nvim",
 	lazy = true,
 	init = function()
-		vim.api.nvim_create_user_command("GOpen", function(opts)
+		vim.api.nvim_create_user_command("GOpen", function()
 			require("gitlinker").get_buf_range_url("n")
 		end, { range = true })
 	end,
-	dependencies = { utils.mirror("plenary.nvim") },
+	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		require("gitlinker").setup({
 			mappings = nil,

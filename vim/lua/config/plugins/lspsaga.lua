@@ -1,9 +1,8 @@
-local utils = require("config.utils")
 return {
-	utils.mirror("lspsaga.nvim"),
+	"nvimdev/lspsaga.nvim",
 	dependencies = {
-		utils.mirror("nvim-web-devicons"),
-		utils.mirror("nvim-treesitter"),
+		"nvim-tree/nvim-web-devicons",
+		"nvim-treesitter/nvim-treesitter",
 	},
 	lazy = true,
 	opts = {

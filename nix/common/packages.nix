@@ -40,7 +40,6 @@
     killall
     libnotify
     lsp-plugins
-    lua-language-server
     maim
     mediainfo
     mullvad-browser
@@ -57,12 +56,10 @@
     ripgrep
     rofi
     rsync
-    shellcheck
     stylua
     taplo
     tokei
     trash-cli
-    typescript-language-server
     typst
     usbutils
     vesktop
@@ -71,12 +68,20 @@
     xclip
     xcolor
     xdotool
-    yaml-language-server
     yq-go
     yubikey-manager
     zbar
     zoxide
     zsh-syntax-highlighting
+
+    bash-language-server
+    lua-language-server
+    typescript-language-server
+    yaml-language-server
+
+    # needed for nvim tree-sitter
+    gcc
+    tree-sitter
 
     python312Packages.grip
 
@@ -91,9 +96,9 @@
 
     unstable.firefox-devedition
     unstable.ghostty
-    unstable.neovim
     unstable.spotify
     unstable.yt-dlp
+    unstable.neovim
 
     inputs.agenix.packages.${system}.default
     inputs.guitar-midi-mapper.packages."${system}".default

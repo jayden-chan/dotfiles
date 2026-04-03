@@ -1,6 +1,5 @@
-local utils = require("config.utils")
 return {
-	utils.mirror("todo-comments.nvim"),
-	dependencies = { utils.mirror("plenary.nvim") },
+	"folke/todo-comments.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {},
 }

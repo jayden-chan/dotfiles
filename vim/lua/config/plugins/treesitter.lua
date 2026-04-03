@@ -1,46 +1,38 @@
-local utils = require("config.utils")
 local ts_config = require("config.treesitter_langs")
 
 return {
-	utils.mirror("nvim-treesitter"),
+	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
 	build = ":TSUpdate",
-	ft = ts_config.extended,
 	dependencies = {
-		utils.mirror("nvim-treesitter-textobjects"),
+		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = ts_config.base,
-			auto_install = true,
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
-			indent = { enable = true },
-			incremental_selection = { enable = false },
-			textobjects = {
-				swap = {
-					enable = true,
-					swap_next = {
-						["<leader>a"] = "@parameter.inner",
-					},
-					swap_previous = {
-						["<leader>A"] = "@parameter.inner",
-					},
-				},
-				select = {
-					enable = true,
-					lookahead = true,
-					keymaps = {
-						-- You can use the capture groups defined in textobjects.scm
-						["af"] = "@function.outer",
-						["hf"] = "@function.inner",
-						["ab"] = "@block.outer",
-						["hb"] = "@block.inner",
-					},
-				},
-			},
+		require("nvim-treesitter").setup({
+			install_dir = vim.fn.stdpath("data") .. "/site",
 		})
+		require("nvim-treesitter").install(ts_config.base)
+
+		-- FIXME: this broke with nvim 0.12/new treesitter or whatever
+		-- 	textobjects = {
+		-- 		swap = {
+		-- 			enable = true,
+		-- 			swap_next = {
+		-- 				["<leader>a"] = "@parameter.inner",
+		-- 			},
+		-- 			swap_previous = {
+		-- 				["<leader>A"] = "@parameter.inner",
+		-- 			},
+		-- 		},
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = ts_config.extended,
+			callback = function()
+				vim.treesitter.start()
+			end,
+		})
+
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 		local augroup = vim.api.nvim_create_augroup("TreesitterSpell", { clear = true })
 
