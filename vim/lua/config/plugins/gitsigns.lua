@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"lewis6991/gitsigns.nvim",
+	plugins.gitsigns,
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		signs = {

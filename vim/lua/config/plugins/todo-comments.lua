@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"folke/todo-comments.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	plugins.todo_comments,
+	dependencies = { plugins.plenary },
 	opts = {},
 }

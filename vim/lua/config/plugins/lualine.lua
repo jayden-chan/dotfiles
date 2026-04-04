@@ -1,10 +1,11 @@
 local utils = require("config.utils")
+local plugins = require("config.plugins_list")
 return {
-	"nvim-lualine/lualine.nvim",
+	plugins.lualine,
 	dependencies = {
 		-- dir = "~/Dev/Personal/base46.nvim",
-		"jayden-chan/base46.nvim",
-		"nvim-tree/nvim-web-devicons",
+		plugins.base46,
+		plugins.devicons,
 	},
 	config = function()
 		---        ---

@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"christoomey/vim-tmux-navigator",
+	plugins.tmux_navigator,
 	keys = {
 		{ "<M-j>", "<cmd>TmuxNavigateLeft<cr>" },
 		{ "<M-k>", "<cmd>TmuxNavigateDown<cr>" },

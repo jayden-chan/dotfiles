@@ -1,6 +1,7 @@
 local utils = require("config.utils")
+local plugins = require("config.plugins_list")
 return {
-	"jayden-chan/base46.nvim",
+	plugins.base46,
 	-- dir = "~/Dev/base46.nvim",
 	lazy = false,
 	priority = 1000,

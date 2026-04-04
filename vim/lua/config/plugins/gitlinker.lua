@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"linrongbin16/gitlinker.nvim",
+	plugins.gitlinker,
 	lazy = true,
 	init = function()
 		vim.api.nvim_create_user_command("GOpen", function()

@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"j-hui/fidget.nvim",
+	plugins.fidget,
 	event = "VeryLazy",
 	config = function()
 		require("fidget").setup()

@@ -1,12 +1,13 @@
 local lsp_settings = require("config.lsp")
 local ts_config = require("config.treesitter_langs")
 local user_cmd = vim.api.nvim_buf_create_user_command
+local plugins = require("config.plugins_list")
 
 return {
-	"neovim/nvim-lspconfig",
+	plugins.lspconfig,
 	dependencies = {
-		"Saghen/blink.cmp",
-		"nvimdev/lspsaga.nvim",
+		plugins.blink_cmp,
+		plugins.lspsaga,
 	},
 	ft = ts_config.extended,
 	config = function()

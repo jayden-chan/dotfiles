@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"lukas-reineke/indent-blankline.nvim",
+	plugins.indent_blankline,
 	event = { "BufReadPre", "BufNewFile" },
 	main = "ibl",
 	opts = {

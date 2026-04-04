@@ -1,10 +1,11 @@
+local plugins = require("config.plugins_list")
 return {
-	"nvim-neo-tree/neo-tree.nvim",
+	plugins.neotree,
 	branch = "v3.x",
 	dependencies = {
-		"MunifTanjim/nui.nvim",
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
+		plugins.nui,
+		plugins.plenary,
+		plugins.devicons,
 	},
 	keys = {
 		{ "<C-n>", "<cmd>Neotree toggle<CR>" },

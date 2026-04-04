@@ -1,4 +1,5 @@
+local plugins = require("config.plugins_list")
 return {
-	"tpope/vim-surround",
+	plugins.vim_surround,
 	event = "VeryLazy",
 }

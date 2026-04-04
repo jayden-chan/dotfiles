@@ -1,11 +1,12 @@
 local lsp_config = require("config.lsp")
 local ts_config = require("config.treesitter_langs")
+local plugins = require("config.plugins_list")
 
 return {
-	"nvimtools/none-ls.nvim",
+	plugins.none_ls,
 	dependencies = {
-		"Saghen/blink.cmp",
-		"nvimtools/none-ls-extras.nvim",
+		plugins.blink_cmp,
+		plugins.none_ls_extras,
 	},
 	ft = ts_config.extended,
 	config = function()

@@ -1,6 +1,7 @@
+local plugins = require("config.plugins_list")
 return {
-	"ibhagwan/fzf-lua",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	plugins.fzf_lua,
+	dependencies = { plugins.devicons },
 	keys = {
 		{ "<leader>f", '<cmd>lua require("fzf-lua").files({ winopts = { preview = { vertical = "up:30%" } } })<cr>' },
 		{ "<leader>r", '<cmd>lua require("fzf-lua").live_grep()<cr>' },

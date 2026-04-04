@@ -1,8 +1,9 @@
+local plugins = require("config.plugins_list")
 return {
-	"Saghen/blink.cmp",
+	plugins.blink_cmp,
 	-- lazy loading handled internally
 	lazy = false,
-	dependencies = { "L3MON4D3/LuaSnip" },
+	dependencies = { plugins.luasnip },
 
 	-- use a release tag to download pre-built binaries
 	version = "v0.*",

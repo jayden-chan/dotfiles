@@ -1,4 +1,5 @@
+local plugins = require("config.plugins_list")
 return {
-	"tpope/vim-repeat",
+	plugins.vim_repeat,
 	event = "VeryLazy",
 }

@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"cohama/lexima.vim",
+	plugins.lexima,
 	event = "InsertEnter",
 	config = function()
 		vim.g.lexima_map_escape = ""

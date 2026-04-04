@@ -1,11 +1,12 @@
 local ts_config = require("config.treesitter_langs")
+local plugins = require("config.plugins_list")
 
 return {
-	"nvim-treesitter/nvim-treesitter",
+	plugins.treesitter,
 	lazy = false,
 	build = ":TSUpdate",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
+		plugins.treesitter_textobjects,
 	},
 	config = function()
 		require("nvim-treesitter").setup({

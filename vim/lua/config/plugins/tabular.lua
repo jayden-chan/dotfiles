@@ -1,4 +1,5 @@
+local plugins = require("config.plugins_list")
 return {
-	"godlygeek/tabular",
+	plugins.tabular,
 	cmd = "Tabularize",
 }

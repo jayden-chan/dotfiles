@@ -1,5 +1,6 @@
+local plugins = require("config.plugins_list")
 return {
-	"L3MON4D3/LuaSnip",
+	plugins.luasnip,
 	version = "v2.*",
 	build = "make install_jsregexp",
 	keys = {

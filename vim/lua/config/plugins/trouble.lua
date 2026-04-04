@@ -1,7 +1,8 @@
+local plugins = require("config.plugins_list")
 return {
-	"folke/trouble.nvim",
+	plugins.trouble,
 	event = "VeryLazy",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { plugins.devicons },
 	opts = {
 		position = "bottom",
 		height = 10,

@@ -1,8 +1,9 @@
+local plugins = require("config.plugins_list")
 return {
-	"nvimdev/lspsaga.nvim",
+	plugins.lspsaga,
 	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-		"nvim-treesitter/nvim-treesitter",
+		plugins.devicons,
+		plugins.treesitter,
 	},
 	lazy = true,
 	opts = {
