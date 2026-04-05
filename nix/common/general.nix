@@ -73,9 +73,4 @@
 
   programs.zsh.enable = true;
   services.pcscd.enable = true;
-
-  programs.obs-studio = {
-    enable = true;
-    enableVirtualCamera = true;
-  };
 }

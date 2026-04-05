@@ -14,7 +14,6 @@
     ./ghostty.nix
     ./git.nix
     ./lazygit.nix
-    ./mangohud.nix
     ./mime.nix
     ./starship.nix
     ./thunar-uca.nix
@@ -35,7 +34,6 @@
   };
 
   # home-manager only targets
-  stylix.targets.alacritty.enable = true;
   stylix.targets.bat.enable = true;
   stylix.targets.gnome.enable = true;
   stylix.targets.gtk.enable = true;

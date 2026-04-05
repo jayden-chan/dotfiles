@@ -39,6 +39,7 @@ rm -rf ~/.config/nvim/init.lua
 rm -rf ~/.config/nvim/lazy-lock.json
 
 mkdir -p ~/.config/awesome
+mkdir -p ~/Pictures/Screenshots
 
 ln -fs ~/.config/dotfiles/vim/lua                               ~/.config/nvim/lua
 ln -fs ~/.config/dotfiles/vim/queries                           ~/.config/nvim/queries

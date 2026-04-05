@@ -7,7 +7,7 @@
       clipboard-read = allow
       confirm-close-surface = false
       font-family = "Iosevka Nerd Font"
-      font-size = 12
+      font-size = ${config-vars.terminal-font-size}
       gtk-tabs-location = hidden
       scrollback-limit = 0
       shell-integration = none

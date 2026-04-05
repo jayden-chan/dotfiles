@@ -63,6 +63,21 @@
             host = "grace";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
+            terminal-font-size = 12;
+          };
+
+          unstable = import inputs.nixpkgs-unstable {
+            system = config-vars.system;
+            config.allowUnfree = true;
+          };
+        };
+
+        swift = rec {
+          config-vars = {
+            host = "swift";
+            system = "x86_64-linux";
+            timezone = "America/Edmonton";
+            terminal-font-size = 14;
           };
 
           unstable = import inputs.nixpkgs-unstable {
@@ -91,6 +106,27 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = nixpkgs.lib.recursiveUpdate args host-args.grace;
               home-manager.users."${args.config-vars.username}" = import ./hosts/grace/home.nix;
+            }
+          ];
+        };
+
+        swift = nixpkgs.lib.nixosSystem {
+          specialArgs = nixpkgs.lib.recursiveUpdate args host-args.swift;
+
+          system = host-args.swift.config-vars.system;
+
+          modules = [
+            ./hosts/swift/configuration.nix
+
+            agenix.nixosModules.default
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = nixpkgs.lib.recursiveUpdate args host-args.swift;
+              home-manager.users."${args.config-vars.username}" = import ./hosts/swift/home.nix;
             }
           ];
         };

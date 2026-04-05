@@ -49,7 +49,6 @@ in
     ../../common/packages.nix
     ../../common/podman.nix
     ../../common/secrets.nix
-    ../../common/steam.nix
     ../../common/stylix-root.nix
     ../../common/stylix.nix
     ../../common/thunar.nix
@@ -105,7 +104,9 @@ in
     unstable.kdePackages.kdenlive
     unstable.yarg
 
-    (pkgs.llama-cpp.override {
+    inputs.guitar-midi-mapper.packages."${system}".default
+
+    (unstable.llama-cpp.override {
       config = {
         cudaSupport = true;
         rocmSupport = false;
@@ -130,7 +131,22 @@ in
     '')
   ];
 
+  fonts = {
+    packages = [
+      # required to prevent OrcaSlicer segfault
+      # https://github.com/OrcaSlicer/OrcaSlicer/issues/10524
+      # https://github.com/OrcaSlicer/OrcaSlicer/issues/10029
+      # https://github.com/OrcaSlicer/OrcaSlicer/issues/11641
+      pkgs.nanum
+    ];
+  };
+
   programs.firejail.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+  };
 
   # virt-manager
   programs.virt-manager.enable = true;
@@ -273,5 +289,18 @@ in
   users.users."${config-vars.username}".extraGroups = [
     "lp"
     "scanner"
+    "gamemode"
   ];
+
+  programs.gamemode.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = false;
+    dedicatedServer.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = false;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
 }
