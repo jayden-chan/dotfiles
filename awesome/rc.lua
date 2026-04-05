@@ -14,7 +14,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local lain = require("lain")
 
 naughty.config.spacing = 1
 naughty.config.padding = 10
@@ -342,26 +341,87 @@ awful.screen.connect_for_each_screen(function(s)
 	local os_icon = icon("nix", 11, 7)
 
 	local mem_widget = wibox.widget({ widget = wibox.widget.textbox })
-	lain.widget.mem({
-		timeout = 5,
-		settings = function()
-			-- mem_now variable magically appears in this function
-			-- https://github.com/lcpz/lain/wiki/mem
-			---@diagnostic disable-next-line: undefined-global
-			mem_widget:set_text(mem_now.perc .. "%")
-		end,
-	})
+	local mem_timer = gears.timer({ timeout = 5 })
+
+	-- https://github.com/lcpz/lain/blob/master/widget/mem.lua
+	mem_timer:connect_signal("timeout", function()
+		local mem_now = {}
+		for line in io.lines("/proc/meminfo") do
+			for k, v in string.gmatch(line, "([%a]+):[%s]+([%d]+).+") do
+				-- stylua: ignore start
+				if     k == "MemTotal"     then mem_now.total = math.floor(v / 1024 + 0.5)
+				elseif k == "MemFree"      then mem_now.free  = math.floor(v / 1024 + 0.5)
+				elseif k == "Buffers"      then mem_now.buf   = math.floor(v / 1024 + 0.5)
+				elseif k == "Cached"       then mem_now.cache = math.floor(v / 1024 + 0.5)
+				elseif k == "SReclaimable" then mem_now.srec  = math.floor(v / 1024 + 0.5)
+				-- stylua: ignore end
+				end
+			end
+		end
+
+		mem_now.used = mem_now.total - mem_now.free - mem_now.buf - mem_now.cache - mem_now.srec
+		mem_now.perc = math.floor(mem_now.used / mem_now.total * 100)
+		mem_widget:set_text(mem_now.perc .. "%")
+	end)
+
+	mem_timer:start()
+	mem_timer:emit_signal("timeout")
 
 	local cpu_widget = wibox.widget({ widget = wibox.widget.textbox })
-	lain.widget.cpu({
-		timeout = 5,
-		settings = function()
-			-- cpu_now variable magically appears in this function
-			-- https://github.com/lcpz/lain/wiki/cpu
-			---@diagnostic disable-next-line: undefined-global
-			cpu_widget:set_text(cpu_now.usage .. "%")
-		end,
-	})
+	local cpu_timer = gears.timer({ timeout = 5 })
+	local cpu_core = {}
+
+	-- https://github.com/lcpz/lain/blob/master/widget/cpu.lua
+	cpu_timer:connect_signal("timeout", function()
+		local lines = {}
+		for line in io.lines("/proc/stat") do
+			if string.match(line, "cpu") then
+				lines[#lines + 1] = line
+			end
+		end
+
+		-- Read the amount of time the CPUs have spent performing
+		-- different kinds of work. Read the first line of /proc/stat
+		-- which is the sum of all CPUs.
+		for index, time in pairs(lines) do
+			local coreid = index - 1
+			local core = cpu_core[coreid] or { last_active = 0, last_total = 0, usage = 0 }
+			local at = 1
+			local idle = 0
+			local total = 0
+
+			for field in string.gmatch(time, "[%s]+([^%s]+)") do
+				-- 4 = idle, 5 = ioWait. Essentially, the CPUs have done
+				-- nothing during these times.
+				if at == 4 or at == 5 then
+					idle = idle + field
+				end
+				total = total + field
+				at = at + 1
+			end
+
+			local active = total - idle
+
+			if core.last_active ~= active or core.last_total ~= total then
+				-- Read current data and calculate relative values.
+				local dactive = active - core.last_active
+				local dtotal = total - core.last_total
+				local usage = math.ceil(math.abs((dactive / dtotal) * 100))
+
+				core.last_active = active
+				core.last_total = total
+				core.usage = usage
+
+				-- Save current data for the next run.
+				cpu_core[coreid] = core
+			end
+		end
+
+		cpu_widget:set_text(cpu_core[0].usage .. "%")
+	end)
+
+	cpu_timer:start()
+	cpu_timer:emit_signal("timeout")
 
 	local mpris_text = wibox.widget({ widget = wibox.widget.textbox })
 	local mpris_block = mar(icob(icon("circle-play", 13), mar(mpris_text, 0, 10, 0, 10)), 0, 0, 0, widget_block_gap)
