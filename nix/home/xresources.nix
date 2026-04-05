@@ -26,31 +26,5 @@
       #define _background ${config-vars.theme.base00}
       #define _foreground ${config-vars.theme.base05}
     '';
-
-    properties = {
-      "st.font" = "Iosevka Nerd Font Mono:pixelsize=16:antialias=true:autohint=false:fonthashint=true";
-      "st.cwscale" = "1.0";
-      "st.chscale" = "0.90";
-      "st.borderpx" = "11";
-      "st.color0" = "_color0";
-      "st.color1" = "_color1";
-      "st.color2" = "_color2";
-      "st.color3" = "_color3";
-      "st.color4" = "_color4";
-      "st.color5" = "_color5";
-      "st.color6" = "_color6";
-      "st.color7" = "_color7";
-      "st.color8" = "_color8";
-      "st.color9" = "_color9";
-      "st.color10" = "_color10";
-      "st.color11" = "_color11";
-      "st.color12" = "_color12";
-      "st.color13" = "_color13";
-      "st.color14" = "_color14";
-      "st.color15" = "_color15";
-      "st.cursorColor" = "_cursorColor";
-      "st.background" = "_background";
-      "st.foreground" = "_foreground";
-    };
   };
 }
