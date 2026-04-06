@@ -12,7 +12,6 @@
       MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;x-scheme-handler/http;x-scheme-handler/https
       Name=Mullvad Browser (VPN)
       Type=Application
-      Version=1.4
     '';
 
     ".local/share/applications/firefox-devedition.desktop".text = ''
@@ -28,14 +27,13 @@
       StartupWMClass=firefox-devedition
       Terminal=false
       Type=Application
-      Version=1.4
 
       [Desktop Action new-private-window]
       Exec=firefox-devedition --private-window %U
       Name=New Private Window
 
       [Desktop Action alternate-profile]
-      Exec=firefox-devedition --profile ${config-vars.home-dir}/.mozilla/firefox/os9o8p15.Alternate %U
+      Exec=firefox-devedition --profile ${config-vars.home-dir}/.config/mozilla/firefox/os9o8p15.Alternate %U
       Name=Alternate Profile
     '';
 
@@ -43,7 +41,6 @@
       [Desktop Entry]
       Exec=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper.sh "${config-vars.home-dir}/Pictures/Wallpapers/Single Screen"
       Type=Application
-      Version=1.0
       Name=Wallpaper
       Comment=Set the wallpaper for the desktop and login manager
       Icon=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper-ico.png

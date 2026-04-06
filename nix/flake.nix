@@ -63,7 +63,7 @@
             host = "grace";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
-            terminal-font-size = 12;
+            terminal-font-size = "12";
           };
 
           unstable = import inputs.nixpkgs-unstable {
@@ -77,7 +77,7 @@
             host = "swift";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
-            terminal-font-size = 14;
+            terminal-font-size = "13.5";
           };
 
           unstable = import inputs.nixpkgs-unstable {

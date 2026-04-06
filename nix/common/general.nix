@@ -4,6 +4,8 @@
   # use linux-zen kernel
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  programs.firejail.enable = true;
+
   networking = {
     hostName = config-vars.host;
     networkmanager = {
@@ -14,35 +16,6 @@
     extraHosts = ''
       ${config-vars.ips.homelab} git.jayden.codes
     '';
-
-    # wg-quick.interfaces = {
-    #   wg0 = {
-    #     address = [ "10.179.254.3/24" ];
-    #     dns = [ config-vars.ips.opnsense ];
-    #     privateKey = "...";
-    #
-    #     peers = [
-    #       {
-    #         publicKey = "...";
-    #         presharedKey = "...";
-    #         allowedIPs = [
-    #           "10.118.254.0/24"
-    #           "10.179.254.0/24"
-    #         ];
-    #         endpoint = "purple-heron.jayden.codes:35458";
-    #         persistentKeepalive = 25;
-    #       }
-    #     ];
-    #   };
-    # };
-  };
-
-  services.dnsmasq = {
-    enable = true;
-    settings = {
-      cache-size = 2056;
-      server = [ config-vars.ips.opnsense ];
-    };
   };
 
   time.timeZone = config-vars.timezone;

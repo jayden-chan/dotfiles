@@ -156,11 +156,11 @@ function syc () {
         cp "$DOT"/csgo/*.cfg ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/
         rm ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/cfg/lsp.cfg
     elif [ "$1" = "firefox" ]; then
-        IFS=$'\n' paths=($(rg '^Path=(.*?)$' ~/.mozilla/firefox/profiles.ini --only-matching --no-line-number --color=never --replace='$1'))
+        IFS=$'\n' paths=($(rg '^Path=(.*?)$' ~/.config/mozilla/firefox/profiles.ini --only-matching --no-line-number --color=never --replace='$1'))
         for profile in "${paths[@]}"; do
-            mkdir -p                      ~/.mozilla/firefox/"$profile"/chrome/
-            cp "$DOT/misc/user.js"        ~/.mozilla/firefox/"$profile"/user.js
-            cp "$DOT/misc/userChrome.css" ~/.mozilla/firefox/"$profile"/chrome/userChrome.css
+            mkdir -p                      ~/.config/mozilla/firefox/"$profile"/chrome/
+            cp "$DOT/misc/user.js"        ~/.config/mozilla/firefox/"$profile"/user.js
+            cp "$DOT/misc/userChrome.css" ~/.config/mozilla/firefox/"$profile"/chrome/userChrome.css
         done
     elif [ "$1" = "files" ]; then
         local base_path="/run/media/jayden/Seagate External/Backup/Personal Files";

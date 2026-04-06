@@ -104,7 +104,7 @@ in
     unstable.kdePackages.kdenlive
     unstable.yarg
 
-    inputs.guitar-midi-mapper.packages."${system}".default
+    inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
 
     (unstable.llama-cpp.override {
       config = {
@@ -125,7 +125,7 @@ in
     (pkgs.runCommand "sensors-mon" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
       mkdir -p $out/bin
       makeWrapper ${
-        inputs.sensors-mon.packages."${system}".default
+        inputs.sensors-mon.packages."${stdenv.hostPlatform.system}".default
       }/bin/sensors-mon $out/bin/sensors-mon \
         --prefix LD_LIBRARY_PATH : ${nvidia-package}/lib
     '')
@@ -140,8 +140,6 @@ in
       pkgs.nanum
     ];
   };
-
-  programs.firejail.enable = true;
 
   programs.obs-studio = {
     enable = true;
