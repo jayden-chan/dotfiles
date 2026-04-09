@@ -18,6 +18,21 @@
     '';
   };
 
+  fileSystems."homelab" = {
+    device = "${config-vars.ips.homelab}:/";
+    mountPoint = "/mnt/homelab";
+    fsType = "nfs";
+    options = [
+      "nfsvers=4.2"
+      "noatime"
+      "_netdev"
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "x-systemd.mount-timeout=10"
+    ];
+  };
+
   time.timeZone = config-vars.timezone;
   i18n.defaultLocale = config-vars.locale;
 

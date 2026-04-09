@@ -269,15 +269,6 @@ in
     KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
   '';
 
-  fileSystems."/mnt/homelab" = {
-    device = "${config-vars.ips.homelab}:/";
-    fsType = "nfs";
-    options = [
-      "nfsvers=4.2"
-      "noatime"
-    ];
-  };
-
   # Epson scanner support
   hardware.sane = {
     enable = true;
