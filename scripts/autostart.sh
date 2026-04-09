@@ -29,23 +29,25 @@ if ! rga "/bin/thunar --daemon" "$ps_ax"; then
     thunar --daemon &
 fi
 
-if ! rga "/share/carla/carla" "$ps_ax"; then
-    msg "starting carla"
-    carla "$HOME/.config/Carla.carxp" &
-fi
-
 if ! rga "notifications-dbus-mon" "$ps_ax"; then
     msg "starting notifications-dbus-mon"
     notifications-dbus-mon &
 fi
 
-if [ "$HOSTNAME" = "grace" ] && ! rga "sensors-mon" "$ps_ax"; then
-    # we'll sleep for a couple seconds so that
-    # sensors-mon starts up after carla and goes into
-    # the right place in the tiling window manager
-    # hierarchy
-    sleep 2
+if [ "$HOSTNAME" = "grace" ]; then
+    if ! rga "/share/carla/carla" "$ps_ax"; then
+        msg "starting carla"
+        carla "$HOME/.config/Carla.carxp" &
+    fi
 
-    msg "starting sensors-mon"
-    ghostty --x11-instance-name="sensors-mon" -e sensors-mon 2>/dev/null &
+    if ! rga "sensors-mon" "$ps_ax"; then
+        # we'll sleep for a couple seconds so that
+        # sensors-mon starts up after carla and goes into
+        # the right place in the tiling window manager
+        # hierarchy
+        sleep 2
+
+        msg "starting sensors-mon"
+        ghostty --x11-instance-name="sensors-mon" -e sensors-mon 2>/dev/null &
+    fi
 fi

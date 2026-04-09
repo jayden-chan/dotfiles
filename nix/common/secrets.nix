@@ -3,6 +3,7 @@
 {
   age.identityPaths = [
     "${config-vars.home-dir}/.ssh/nix-secrets-grace"
+    "${config-vars.home-dir}/.ssh/nix-secrets-swift"
     "${config-vars.home-dir}/.ssh/nix-secrets-jayden"
   ];
 

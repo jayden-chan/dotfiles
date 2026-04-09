@@ -3,7 +3,11 @@ let
   users = [ jayden ];
 
   grace = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJ07LC6Oii1E0RYGbDEZcnq1WvB4rw6CF6hU4d87tPu";
-  systems = [ grace ];
+  swift = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA0YaPTxlGxyptUvAr5SLj3P7kUMhByvngxqi6mR6PyH";
+  systems = [
+    grace
+    swift
+  ];
 in
 {
   "secrets/mpv-secrets.lua.age".publicKeys = users ++ systems;
