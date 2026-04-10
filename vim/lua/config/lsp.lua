@@ -26,7 +26,6 @@ local on_attach = function(client, bufnr)
 	buf_key("n", "<leader>g", "<cmd>Lspsaga hover_doc<CR>", bind_opts)
 	buf_key("n", "<leader>R", "<cmd>Lspsaga rename<CR>", bind_opts)
 	buf_key("n", "<leader>e", "<cmd>Lspsaga code_action<CR>", bind_opts)
-	buf_key("n", "<leader>T", "<cmd>Trouble<CR>", bind_opts)
 end
 
 local on_init = function(client)

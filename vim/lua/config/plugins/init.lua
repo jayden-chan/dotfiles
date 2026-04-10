@@ -32,7 +32,6 @@ if os.getenv("NVIM_PASSAGE_MODE") ~= "true" then
 		"nvim-lspconfig",
 		"none-ls",
 		"lspsaga",
-		"trouble",
 		"treesitter",
 		"gitlinker",
 		"luasnip",

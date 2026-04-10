@@ -21,7 +21,6 @@ local M = {
 	todo_comments = "folke/todo-comments.nvim",
 	treesitter = "nvim-treesitter/nvim-treesitter",
 	treesitter_textobjects = "nvim-treesitter/nvim-treesitter-textobjects",
-	trouble = "folke/trouble.nvim",
 	ts_commentstring = "JoosepAlviste/nvim-ts-context-commentstring",
 	vim_repeat = "tpope/vim-repeat",
 	vim_surround = "tpope/vim-surround",
