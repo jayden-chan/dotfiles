@@ -26,7 +26,10 @@ return {
 		-- 			},
 		-- 		},
 
+		local augroup1 = vim.api.nvim_create_augroup("TreesitterStart", { clear = true })
+
 		vim.api.nvim_create_autocmd("FileType", {
+			group = augroup1,
 			pattern = ts_config.extended,
 			callback = function()
 				vim.treesitter.start()
@@ -35,14 +38,14 @@ return {
 
 		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
-		local augroup = vim.api.nvim_create_augroup("TreesitterSpell", { clear = true })
+		local augroup2 = vim.api.nvim_create_augroup("TreesitterSpell", { clear = true })
 
 		-- We can enable spell checking for any language that has
 		-- treesitter since it will only check the comments and not the code
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = ts_config.extended,
 			command = "setlocal spell spelllang=en_us",
-			group = augroup,
+			group = augroup2,
 		})
 	end,
 }

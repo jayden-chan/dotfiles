@@ -31,7 +31,6 @@ if os.getenv("NVIM_PASSAGE_MODE") ~= "true" then
 		"fzf",
 		"nvim-lspconfig",
 		"none-ls",
-		"fidget",
 		"lspsaga",
 		"trouble",
 		"treesitter",

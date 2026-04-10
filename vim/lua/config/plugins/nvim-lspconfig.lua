@@ -27,6 +27,22 @@ return {
 			severity_sort = false,
 		})
 
+		local progress_group = vim.api.nvim_create_augroup("LspProgressUIGroup", { clear = true })
+		vim.api.nvim_create_autocmd("LspProgress", {
+			group = progress_group,
+			callback = function(ev)
+				local value = ev.data.params.value
+				vim.api.nvim_echo({ { value.message or "done" } }, false, {
+					id = "lsp." .. ev.data.client_id,
+					kind = "progress",
+					source = "vim.lsp",
+					title = value.title,
+					status = value.kind ~= "end" and "running" or "success",
+					percent = value.percentage,
+				})
+			end,
+		})
+
 		-- Setup lspconfig.
 		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local capabilities = require("blink.cmp").get_lsp_capabilities()

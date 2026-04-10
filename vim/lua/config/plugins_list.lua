@@ -2,7 +2,6 @@ local M = {
 	base46 = "jayden-chan/base46.nvim",
 	blink_cmp = "Saghen/blink.cmp",
 	devicons = "nvim-tree/nvim-web-devicons",
-	fidget = "j-hui/fidget.nvim",
 	fzf_lua = "ibhagwan/fzf-lua",
 	gitlinker = "linrongbin16/gitlinker.nvim",
 	gitsigns = "lewis6991/gitsigns.nvim",
