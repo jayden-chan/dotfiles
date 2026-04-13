@@ -1,32 +1,36 @@
 { lib, config-vars, ... }:
 
 let
-  fingerprint = {
-    # BenQ ZOWIE XL LCD
-    "DP-0" =
-      "00ffffffffffff0009d1777f01010101031f0104a53c22783fa265a454519d26105054a56b80d1c081c081008180a9c0b30081bc0101023a801871382d40582c450056502100001e000000ff0045424d314d3030353035534c30000000fd0030f0ffff3c010a202020202020000000fc005a4f57494520584c204c43440a012b020318f14b010203040590111213141f2309070783010000fe5b80a0703835403020350056502100001a866f80a0703840403020350056502100001a5a8780a070384d403020350056502100001a23e88078703887401c20980c56502100001a9cc700085200a0407490370056502100001c00000000000000000000000000b8";
-    # LG Electronics LG ULTRAGEAR
-    "HDMI-0" =
-      "00ffffffffffff001e6d025c73f6000008210103803c2278eaab45a456509e27125054210800d1c00101010101010101010101010101288380a0703829403020350058542100001a023a801871382d40582c450058542100001a000000fd0030901eaa22000a202020202020000000fc004c4720554c545241474541520a0116020328f1230907074b010203041112131f903f4065030c0010006d1a00000205309000044a2e4a2e866f80a0703840403020350058542100001afe5b80a0703835403020350058542100001a000000ff000a202020202020202020202020000000000000000000000000000000000000000000000000000000000000000000f5";
+  fingerprint_zowie_xl2746s = "00ffffffffffff0009d1777f01010101031f0104a53c22783fa265a454519d26105054a56b80d1c081c081008180a9c0b30081bc0101023a801871382d40582c450056502100001e000000ff0045424d314d3030353035534c30000000fd0030f0ffff3c010a202020202020000000fc005a4f57494520584c204c43440a012b020318f14b010203040590111213141f2309070783010000fe5b80a0703835403020350056502100001a866f80a0703840403020350056502100001a5a8780a070384d403020350056502100001a23e88078703887401c20980c56502100001a9cc700085200a0407490370056502100001c00000000000000000000000000b8";
+  fingerprint_lg_ultragear = "00ffffffffffff001e6d025c73f6000008210103803c2278eaab45a456509e27125054210800d1c00101010101010101010101010101288380a0703829403020350058542100001a023a801871382d40582c450058542100001a000000fd0030901eaa22000a202020202020000000fc004c4720554c545241474541520a0116020328f1230907074b010203041112131f903f4065030c0010006d1a00000205309000044a2e4a2e866f80a0703840403020350058542100001afe5b80a0703835403020350058542100001a000000ff000a202020202020202020202020000000000000000000000000000000000000000000000000000000000000000000f5";
+
+  config_zowie_xl2746s = {
+    primary = true;
+    enable = true;
+
+    crtc = 0;
+    mode = "1920x1080";
+    position = "1920x0";
+    rate = "240.00";
+  };
+
+  config_lg_ultragear = {
+    enable = true;
+
+    crtc = 0;
+    mode = "1920x1080";
+    position = "0x0";
+    rate = "144.00";
   };
 
   main-config = {
-    "DP-0" = {
-      primary = true;
-      enable = true;
+    "DP-0" = config_zowie_xl2746s;
+    "HDMI-0" = config_lg_ultragear;
+  };
 
-      crtc = 0;
-      mode = "1920x1080";
-      position = "1920x0";
-      rate = "240.00";
-    };
-    "HDMI-0" = {
-      enable = true;
-
-      crtc = 0;
-      mode = "1920x1080";
+  singlescreen-config = {
+    "DP-0" = lib.recursiveUpdate config_zowie_xl2746s {
       position = "0x0";
-      rate = "144.00";
     };
   };
 in
@@ -39,7 +43,11 @@ in
   home.stateVersion = "24.05";
 
   programs.autorandr.profiles."00-main" = {
-    inherit fingerprint;
+    fingerprint = {
+      "DP-0" = fingerprint_zowie_xl2746s;
+      "HDMI-0" = fingerprint_lg_ultragear;
+    };
+
     config = main-config;
 
     hooks.postswitch = ''
@@ -48,7 +56,11 @@ in
   };
 
   programs.autorandr.profiles."43-stretched" = {
-    inherit fingerprint;
+    fingerprint = {
+      "DP-0" = fingerprint_zowie_xl2746s;
+      "HDMI-0" = fingerprint_lg_ultragear;
+    };
+
     config = lib.recursiveUpdate main-config {
       "DP-0" = {
         mode = "1280x1024";
@@ -57,6 +69,35 @@ in
 
     hooks.postswitch = ''
       bash ${config-vars.dotfiles-dir}/scripts/gamemode.sh --cs2
+      killall gpu-screen-recorder
+    '';
+  };
+
+  programs.autorandr.profiles."99-single" = {
+    fingerprint = {
+      "DP-0" = fingerprint_zowie_xl2746s;
+    };
+
+    config = singlescreen-config;
+
+    hooks.postswitch = ''
+      killall gpu-screen-recorder
+    '';
+  };
+
+  programs.autorandr.profiles."99-single-stretched" = {
+    fingerprint = {
+      "DP-0" = fingerprint_zowie_xl2746s;
+    };
+
+    config = lib.recursiveUpdate singlescreen-config {
+      "DP-0" = {
+        mode = "1280x1024";
+      };
+    };
+
+    hooks.postswitch = ''
+      bash ${config-vars.dotfiles-dir}/scripts/gamemode.sh
       killall gpu-screen-recorder
     '';
   };

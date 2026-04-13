@@ -51,6 +51,6 @@ elif [ "$1" = "--save-screenshot" ]; then
         notify-send -i "$out_path" "Maim" "Screenshot saved to ${file}"
     fi
 elif [ "$1" = "--autorandr" ]; then
-    result=$(autorandr --list | rofi -dmenu -i -p "select profile:" -theme list)
+    result=$(autorandr --list | sort -h | rofi -dmenu -i -p "select profile:" -theme list)
     autorandr --load "$result"
 fi

@@ -59,8 +59,11 @@
 
   systemd.user.enable = true;
 
-  services.autorandr.enable = true;
   programs.autorandr.enable = true;
+  services.autorandr = {
+    enable = true;
+    matchEdid = true;
+  };
 
   services.gpg-agent = {
     enable = true;
