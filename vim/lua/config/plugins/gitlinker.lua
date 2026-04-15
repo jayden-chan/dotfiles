@@ -7,7 +7,6 @@ return {
 			require("gitlinker").get_buf_range_url("n")
 		end, { range = true })
 	end,
-	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		require("gitlinker").setup({
 			mappings = nil,
