@@ -292,4 +292,99 @@ in
       proton-ge-bin
     ];
   };
+
+  services.pipewire.extraConfig.pipewire."11-virtual-devices" = {
+    "context.objects" = [
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Source/Virtual";
+          "node.description" = "Microphone";
+          "node.name" = "carla-source";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "CS2 Sink";
+          "node.name" = "cs2-sink";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "Browser Sink";
+          "node.name" = "browser-sink";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "Spotify Sink";
+          "node.name" = "spotify-sink";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "Discord Sink";
+          "node.name" = "discord-sink";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "Monitoring Sink";
+          "node.name" = "monitoring-sink";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "Audio Output";
+          "node.name" = "carla-sink";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "Mic Sink";
+          "node.name" = "mic-sink";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "audio.position" = "FL,FR";
+          "factory.name" = "support.null-audio-sink";
+          "media.class" = "Audio/Sink";
+          "node.description" = "Audio Device";
+          "node.name" = "audio-device-sink";
+        };
+      }
+    ];
+  };
 }
