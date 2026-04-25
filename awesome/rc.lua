@@ -423,6 +423,20 @@ awful.screen.connect_for_each_screen(function(s)
 	cpu_timer:start()
 	cpu_timer:emit_signal("timeout")
 
+	local bat_widget = wibox.widget({ widget = wibox.widget.textbox })
+	if host == "swift" then
+		local bat_timer = gears.timer({ timeout = 60 })
+
+		bat_timer:connect_signal("timeout", function()
+			for line in io.lines("/sys/class/power_supply/BAT1/capacity") do
+				bat_widget:set_text(line .. "%")
+			end
+		end)
+
+		bat_timer:start()
+		bat_timer:emit_signal("timeout")
+	end
+
 	local mpris_text = wibox.widget({ widget = wibox.widget.textbox })
 	local mpris_block = mar(icob(icon("circle-play", 13), mar(mpris_text, 0, 10, 0, 10)), 0, 0, 0, widget_block_gap)
 	mpris_block:set_visible(false)
@@ -452,6 +466,12 @@ awful.screen.connect_for_each_screen(function(s)
 
 		right:add(mem)
 		right:add(cpu)
+
+		if host == "swift" then
+			local bat = mar(icob(icon("battery"), mar(bat_widget, 0, 10, 0, 10)), 0, widget_block_gap)
+			right:add(bat)
+		end
+
 		right:add(weather)
 		right:add(headphones)
 		right:add(dnd_widget)
