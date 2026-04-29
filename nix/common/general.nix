@@ -12,10 +12,6 @@
       enable = true;
       dns = "dnsmasq";
     };
-
-    extraHosts = ''
-      ${config-vars.ips.homelab} git.jayden.codes
-    '';
   };
 
   fileSystems."homelab" = {
