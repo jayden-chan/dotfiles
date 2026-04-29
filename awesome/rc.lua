@@ -1042,8 +1042,6 @@ awful.rules.rules = {
 				"xzoom x5",
 			},
 			role = {
-				"AlarmWindow", -- Thunderbird's calendar.
-				"ConfigManager", -- Thunderbird's about:config.
 				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},

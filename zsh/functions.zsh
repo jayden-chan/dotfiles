@@ -181,6 +181,9 @@ function syc () {
         echo "=== syncing videos"
         cpr --exclude 'replays/*' "$HOME/Videos/"             "$base_path/Videos/"
 
+        echo "=== syncing emails"
+        cpr                       "$HOME/Maildir/"            "$base_path/Mail/"
+
         echo "=== syncing pictures"
         cpr --exclude 'a6600/*'   "$HOME/Pictures/"           "$base_path/Pictures/"
 

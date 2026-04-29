@@ -7,6 +7,7 @@ local spell_langs = {
 	"text",
 	"markdown",
 	"cucumber",
+	"mail",
 }
 
 for _, v in ipairs(spell_langs) do

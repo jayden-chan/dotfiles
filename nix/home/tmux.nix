@@ -1,4 +1,4 @@
-{ ... }:
+{ config-vars, ... }:
 
 {
   programs.tmux = {
@@ -37,6 +37,7 @@
         bind '"' split-window -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
         bind n display-popup -B -d "#{pane_current_path}" -xC -yC -w100% -h100% -E 'lazygit'
+        bind e display-popup -B -d "#{pane_current_path}" -xC -yC -w100% -h100% -E 'aerc'
 
         bind S choose-window "join-pane -v -s "%%""
         bind V choose-window "join-pane -h -s "%%""
@@ -45,7 +46,7 @@
         # https://github.com/christoomey/vim-tmux-navigator
         set-option -g focus-events on
         is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-            | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?|mprocs)(diff)?$'"
+            | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
 
         bind -n 'M-j' if-shell "$is_vim" 'send-keys M-j' 'select-pane -L'
         bind -n 'M-k' if-shell "$is_vim" 'send-keys M-k' 'select-pane -D'
@@ -130,7 +131,7 @@
         %hidden c_teal=colour6
         %hidden c_gray=colour7
         %hidden c_gray2=colour8
-        %hidden c_fg=#b5b1a4
+        %hidden c_fg=${config-vars.theme.cursor}
         %hidden c_bg=colour0
         %hidden c_text=colour15
         %hidden c_primary=$c_red

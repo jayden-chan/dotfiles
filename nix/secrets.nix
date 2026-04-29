@@ -14,4 +14,5 @@ in
   "secrets/redshift.conf.age".publicKeys = users ++ systems;
   "secrets/env.age".publicKeys = users ++ systems;
   "secrets/ssh-config.age".publicKeys = users ++ systems;
+  "secrets/smtp-pass.age".publicKeys = users ++ systems;
 }

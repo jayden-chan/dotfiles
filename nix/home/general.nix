@@ -11,6 +11,7 @@
     ./mpv/config.nix
 
     ./desktop-files.nix
+    ./email.nix
     ./ghostty.nix
     ./git.nix
     ./lazygit.nix

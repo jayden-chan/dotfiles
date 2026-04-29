@@ -37,22 +37,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-
-    ../../common/audio.nix
-    ../../common/bluetooth.nix
-    ../../common/bootloader.nix
-    ../../common/env.nix
-    ../../common/font.nix
-    ../../common/general.nix
-    ../../common/lecture.nix
-    ../../common/nix-conf.nix
-    ../../common/packages.nix
-    ../../common/podman.nix
-    ../../common/secrets.nix
-    ../../common/stylix-root.nix
-    ../../common/stylix.nix
-    ../../common/thunar.nix
-    ../../common/x.nix
+    ../../common/index.nix
   ];
 
   # do not change

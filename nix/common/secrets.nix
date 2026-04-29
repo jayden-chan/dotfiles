@@ -38,4 +38,11 @@
     owner = config-vars.username;
     group = "users";
   };
+
+  age.secrets.smtp-pass = {
+    file = ../secrets/smtp-pass.age;
+    mode = "0400";
+    owner = config-vars.username;
+    group = "users";
+  };
 }

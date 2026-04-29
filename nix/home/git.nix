@@ -1,4 +1,8 @@
-{ pkgs, config-vars, ... }:
+{
+  pkgs,
+  config-vars,
+  ...
+}:
 
 let
   signing-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqwiL56RIzEG55t2aa9ruLHBIBuo27mSkXU4/T19iwL";
@@ -6,6 +10,8 @@ in
 {
   programs.git = {
     enable = true;
+
+    signing.key = signing-key;
 
     settings = {
       user = {
@@ -26,12 +32,6 @@ in
         ssh.allowedSignersFile = "${pkgs.writeText "git-ssh-allowed-signers" ''
           ${config-vars.email} ${signing-key}
         ''}";
-      };
-
-      url = {
-        "ssh://git@github.com:" = {
-          insteadOf = "gh:";
-        };
       };
 
       push = {
@@ -129,8 +129,6 @@ in
         ''}";
       };
     };
-
-    signing.key = signing-key;
   };
 
   programs.delta = {

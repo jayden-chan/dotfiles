@@ -18,4 +18,5 @@
 
   color4 = "#95d1c9";
   cursor = "#b5b1a4";
+  cursorline = "#2f2f2f";
 }
