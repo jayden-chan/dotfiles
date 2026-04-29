@@ -22,7 +22,7 @@ if [ "$1" = "--mouse-only" ]; then
 fi
 
 numlockx on
-killall picom
+systemctl --user stop picom
 "$DOT/scripts/liquidctl.sh" 4
 sleep 5
 notify-send --urgency=critical "gpu-screen-recorder" "Enable GPU screen recorder"

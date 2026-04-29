@@ -46,5 +46,14 @@
       Icon=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper-ico.png
       Terminal=false
     '';
+
+    ".local/share/applications/picom.desktop".text = ''
+      [Desktop Entry]
+      Exec=systemctl --user start picom
+      Type=Application
+      Name=Picom
+      Comment=Start Picom
+      Terminal=false
+    '';
   };
 }

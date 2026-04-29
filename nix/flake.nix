@@ -64,6 +64,7 @@
             system = "x86_64-linux";
             timezone = "America/Edmonton";
             terminal-font-size = "12";
+            vsync = false;
           };
 
           unstable = import inputs.nixpkgs-unstable {
@@ -78,6 +79,7 @@
             system = "x86_64-linux";
             timezone = "America/Edmonton";
             terminal-font-size = "13.5";
+            vsync = true;
           };
 
           unstable = import inputs.nixpkgs-unstable {

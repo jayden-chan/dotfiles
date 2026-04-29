@@ -14,11 +14,6 @@ nitrogen --restore &
 ps_ax="/tmp/autostart_psax";
 ps -ax > "$ps_ax"
 
-if ! rga "picom --config $DOT/misc/picom.conf" "$ps_ax"; then
-    msg "starting picom"
-    picom --config "$DOT/misc/picom.conf" &
-fi
-
 if ! rga "/bin/redshift" "$ps_ax"; then
     msg "starting redshift"
     redshift &
