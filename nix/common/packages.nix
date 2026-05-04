@@ -104,5 +104,6 @@
     inputs.agenix.packages.${stdenv.hostPlatform.system}.default
     inputs.notifications-dbus-mon.packages."${stdenv.hostPlatform.system}".default
     inputs.spotify-dbus-mon.packages."${stdenv.hostPlatform.system}".default
+    inputs.git-check.packages."${stdenv.hostPlatform.system}".default
   ];
 }

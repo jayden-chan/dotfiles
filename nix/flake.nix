@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    crane.url = "github:ipetkov/crane";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,15 +18,23 @@
 
     guitar-midi-mapper.url = "git+ssh://git@git.jayden.codes/jayden/guitar-midi-mapper.git";
     guitar-midi-mapper.inputs.nixpkgs.follows = "nixpkgs";
+    guitar-midi-mapper.inputs.crane.follows = "crane";
 
     notifications-dbus-mon.url = "git+ssh://git@git.jayden.codes/jayden/notifications-dbus-mon.git";
     notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
+    notifications-dbus-mon.inputs.crane.follows = "crane";
 
     sensors-mon.url = "git+ssh://git@git.jayden.codes/jayden/sensors-mon.git";
     sensors-mon.inputs.nixpkgs.follows = "nixpkgs";
+    sensors-mon.inputs.crane.follows = "crane";
 
     spotify-dbus-mon.url = "git+ssh://git@git.jayden.codes/jayden/spotify-dbus-mon.git";
     spotify-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
+    spotify-dbus-mon.inputs.crane.follows = "crane";
+
+    git-check.url = "git+ssh://git@git.jayden.codes/jayden/git-check.git";
+    git-check.inputs.nixpkgs.follows = "nixpkgs";
+    git-check.inputs.crane.follows = "crane";
   };
 
   outputs =

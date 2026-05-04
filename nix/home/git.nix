@@ -13,6 +13,49 @@ in
 
     signing.key = signing-key;
 
+    hooks = {
+      commit-msg = pkgs.writeShellScript "git-hook-commit-msg" ''
+        set -euo pipefail
+
+        args=("commit")
+        if [ "$(git config get gitcheck.allow-initials)" = "true" ]; then
+            args+=("--allow-initials")
+        fi
+        git-check "''${args[@]}" < "$1"
+      '';
+
+      pre-push = pkgs.writeShellScript "git-hook-pre-push" ''
+        set -euo pipefail
+
+        zero=$(git hash-object --stdin </dev/null | tr '0-9a-f' '0')
+
+        while read -r local_ref local_oid remote_ref remote_oid
+        do
+            if test "$local_oid" = "$zero"; then
+                # No need to check any commits if the push is a deletion
+                exit 0
+            else
+                if test "$remote_oid" = "$zero"; then
+                    # New branch, examine all commits
+                    range="$local_oid"
+                else
+                    # Update to existing branch, examine new commits
+                    range="$remote_oid..$local_oid"
+                fi
+
+                args=("commit" "--pushing")
+                if [ "$(git config get gitcheck.allow-initials)" = "true" ]; then
+                    args+=("--allow-initials")
+                fi
+
+                for commit in $(git rev-list "$range"); do
+                    git show --pretty=format:%B --no-patch "$commit" | git-check "''${args[@]}"
+                done
+            fi
+        done
+      '';
+    };
+
     settings = {
       user = {
         email = config-vars.email;
