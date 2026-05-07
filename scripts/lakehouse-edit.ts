@@ -37,7 +37,10 @@ const ENV = Object.fromEntries(
 );
 
 const EDITOR = process.env["EDITOR"] ?? "nvim";
-const TERMINAL = process.env["TERMINAL"] ?? "ghostty";
+const TERMINAL = process.env["TERMINAL"];
+if (!TERMINAL) {
+  await error("$TERMINAL env var isn't set");
+}
 
 const LAKEHOUSE_URL = ENV["LAKEHOUSE_URL"];
 const LAKEHOUSE_TOKEN = ENV["LAKEHOUSE_TOKEN"];
@@ -69,7 +72,7 @@ await writeFile(tmpFile, currentContent);
 
 const proc = Bun.spawn([
   TERMINAL,
-  "--x11-instance-name=lakehouse-nvim",
+  "--class=lakehouse-nvim",
   "-e",
   EDITOR,
   tmpFile,

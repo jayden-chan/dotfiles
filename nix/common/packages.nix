@@ -97,7 +97,6 @@
     xorg.xset
 
     unstable.firefox-devedition
-    unstable.ghostty
     unstable.spotify
     unstable.yt-dlp
     unstable.neovim

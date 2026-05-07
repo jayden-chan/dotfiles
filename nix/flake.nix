@@ -56,7 +56,7 @@
           email = "jayden@jayden.codes";
           home-dir = "/home/jayden";
           dotfiles-dir = "${home-dir}/.config/dotfiles";
-          terminal = "ghostty";
+          terminal = "alacritty";
           locale = "en_CA.UTF-8";
           theme = import ./theme.nix;
           ips = {
@@ -72,7 +72,7 @@
             host = "grace";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
-            terminal-font-size = "12";
+            terminal-font-size = 12;
             vsync = false;
           };
 
@@ -87,7 +87,7 @@
             host = "swift";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
-            terminal-font-size = "13.5";
+            terminal-font-size = 13.5;
             vsync = true;
           };
 

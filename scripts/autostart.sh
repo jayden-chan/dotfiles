@@ -43,6 +43,6 @@ if [ "$HOSTNAME" = "grace" ]; then
         sleep 2
 
         msg "starting sensors-mon"
-        ghostty --x11-instance-name="sensors-mon" -e sensors-mon 2>/dev/null &
+        alacritty --class="sensors-mon" -e sensors-mon 2>/dev/null &
     fi
 fi

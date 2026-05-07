@@ -55,7 +55,7 @@ end
 
 -- {{{ Variable definitions
 -- This is used later as the default terminal and editor to run.
-local terminal = "ghostty"
+local terminal = "alacritty"
 local editor = os.getenv("EDITOR") or "nvim"
 local host = os.getenv("HOSTNAME") or "grace"
 local editor_cmd = terminal .. " -e " .. editor
@@ -557,6 +557,7 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey }, "r", function()
 		awful.spawn.with_shell("kill -TERM $(pgrep --full 'target/debug/lakehouse-server')")
 		awful.spawn.with_shell("kill -TERM $(pgrep --full 'bun run src/server.ts')")
+		awful.spawn.with_shell("kill -TERM $(pgrep --full 'node src/server.ts')")
 		awful.spawn.with_shell("killall -KILL cs2")
 	end, { description = "shutdown lakehouse", group = "awesome" }),
 
@@ -657,7 +658,7 @@ local globalkeys = gears.table.join(
 		if tag then
 			tag:view_only()
 		end
-		awful.spawn(terminal .. " --x11-instance-name=passage -e " .. scripts .. "/passage.sh")
+		awful.spawn(terminal .. " --class=passage -e " .. scripts .. "/passage.sh")
 	end, { description = "launch passage picker", group = "misc" }),
 
 	awful.key({ modkey }, "grave", function()

@@ -10,9 +10,9 @@
 
     ./mpv/config.nix
 
+    ./alacritty.nix
     ./desktop-files.nix
     ./email.nix
-    ./ghostty.nix
     ./git.nix
     ./lazygit.nix
     ./mime.nix

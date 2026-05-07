@@ -132,7 +132,7 @@
         %hidden c_gray=colour7
         %hidden c_gray2=colour8
         %hidden c_fg=${config-vars.theme.cursor}
-        %hidden c_bg=colour0
+        %hidden c_bg=${config-vars.theme.base00}
         %hidden c_text=colour15
         %hidden c_primary=$c_red
 
