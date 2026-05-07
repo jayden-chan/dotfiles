@@ -13,6 +13,8 @@
     CARGO_HOME = "${XDG_DATA_HOME}/cargo";
     CUDA_CACHE_PATH = "${XDG_CACHE_HOME}/nv";
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";
+    GOMODCACHE = "${XDG_CACHE_HOME}/go/mod";
+    GOPATH = "${XDG_DATA_HOME}/go";
     GRADLE_USER_HOME = "${XDG_DATA_HOME}/gradle";
     GRIPHOME = "${XDG_CONFIG_HOME}/grip";
     HISTFILE = "${XDG_STATE_HOME}/zsh/history";

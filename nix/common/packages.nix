@@ -33,6 +33,7 @@
     gimp
     gnumake
     go
+    gopls
     gparted
     htop
     imagemagick
