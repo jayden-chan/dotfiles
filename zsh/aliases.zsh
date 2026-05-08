@@ -1,7 +1,7 @@
 # Stop activating ghostscript by accident
 alias gs='git status'
 
-# dotfile editing
+# shortcuts
 alias gdf='cd $DOT && git status'
 
 # Exit

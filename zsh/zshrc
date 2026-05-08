@@ -111,6 +111,7 @@ source "$DOT/zsh/functions.zsh"
 source "$DOT/zsh/dir.zsh"
 source "$DOT/zsh/git.zsh"
 source "$DOT/zsh/dotenv.zsh"
+source "$DOT/zsh/zcustomfunc.zsh"
 
 # initialize shist on personal machines
 if [ "$hostname" = "grace" ] || [ "$hostname" = "swift" ]; then
@@ -133,8 +134,6 @@ if [ "$IN_NIX_SHELL" = "" ]; then
     # initialize direnv
     eval "$(direnv hook zsh)"
 fi
-
-eval "$(zoxide init zsh)"
 
 # if tmux is executable, X is running, and not inside a tmux session.
 # try attach to a detatched session. if there aren't any then create a new one

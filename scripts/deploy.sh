@@ -15,7 +15,6 @@ if [ "$1" = "--full" ]; then
 
     # /home cleanup directories
     mkdir -p ~/.cache/nv
-    mkdir -p ~/.config/grip
     mkdir -p ~/.config/gtk-2.0
     mkdir -p ~/.config/java
     mkdir -p ~/.config/jupyter

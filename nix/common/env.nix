@@ -16,7 +16,6 @@
     GOMODCACHE = "${XDG_CACHE_HOME}/go/mod";
     GOPATH = "${XDG_DATA_HOME}/go";
     GRADLE_USER_HOME = "${XDG_DATA_HOME}/gradle";
-    GRIPHOME = "${XDG_CONFIG_HOME}/grip";
     HISTFILE = "${XDG_STATE_HOME}/zsh/history";
     ICEAUTHORITY = "${XDG_CACHE_HOME}/ICEauthority";
     IPYTHONDIR = "${XDG_CONFIG_HOME}/jupyter";

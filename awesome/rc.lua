@@ -1012,7 +1012,6 @@ awful.rules.rules = {
 				"mousepad",
 				"Mousepad",
 				"Gpick",
-				"Jalv.gtk3",
 				"MessageWin",
 				"Nitrogen",
 				"Org.gnome.Nautilus",

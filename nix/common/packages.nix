@@ -37,7 +37,6 @@
     gparted
     htop
     imagemagick
-    jalv
     jq
     killall
     libnotify
@@ -67,13 +66,9 @@
     vesktop
     wireguard-tools
     x42-plugins
-    xclip
-    xcolor
-    xdotool
     yq-go
     yubikey-manager
     zbar
-    zoxide
     zsh-syntax-highlighting
 
     bash-language-server
@@ -85,8 +80,6 @@
     gcc
     tree-sitter
 
-    python312Packages.grip
-
     xfce.mousepad
 
     xorg.xev
@@ -95,6 +88,9 @@
     xorg.xprop
     xorg.xrdb
     xorg.xset
+    xclip
+    xcolor
+    xdotool
 
     unstable.firefox-devedition
     unstable.spotify
