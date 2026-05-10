@@ -68,7 +68,7 @@ in
     };
 
     hooks.postswitch = ''
-      bash ${config-vars.dotfiles-dir}/scripts/gamemode.sh --cs2
+      bash ${config-vars.dotfiles-dir}/scripts/gamemode.sh
       killall gpu-screen-recorder
     '';
   };
@@ -105,17 +105,12 @@ in
   home.file = {
     ".local/share/applications/gamemodescript.desktop".text = ''
       [Desktop Entry]
-      Actions=game-mode-cs
       Exec=${config-vars.dotfiles-dir}/scripts/gamemode.sh
       Type=Application
       Name=Game Mode
       Comment=Setup the computer for gaming mode
       Icon=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper-ico.png
       Terminal=false
-
-      [Desktop Action game-mode-cs]
-      Exec=${config-vars.dotfiles-dir}/scripts/gamemode.sh --cs2
-      Name=CS2
     '';
   };
 }

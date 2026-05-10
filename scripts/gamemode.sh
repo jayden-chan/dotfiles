@@ -3,10 +3,6 @@
 accel_prop="libinput Accel Speed"
 accel_speed="-0.80"
 
-if [ "$1" = "--cs2" ]; then
-    accel_speed="-1"
-fi
-
 declare -a mice=("Razer Razer Viper V2 Pro" "WL WLMOUSE BEAST X PRO 8K RECEIVER" "2.4G Wireless Mouse")
 
 for mouse in "${mice[@]}"; do
