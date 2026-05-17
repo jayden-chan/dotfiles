@@ -556,7 +556,6 @@ local globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "r", function()
 		awful.spawn.with_shell("kill -TERM $(pgrep --full 'target/debug/lakehouse-server')")
-		awful.spawn.with_shell("kill -TERM $(pgrep --full 'bun run src/server.ts')")
 		awful.spawn.with_shell("kill -TERM $(pgrep --full 'node src/server.ts')")
 		awful.spawn.with_shell("killall -KILL cs2")
 	end, { description = "shutdown lakehouse", group = "awesome" }),
@@ -619,11 +618,11 @@ local globalkeys = gears.table.join(
 	),
 
 	awful.key({ modkey, "Shift" }, "n", function()
-		awful.spawn.with_shell("bun run " .. scripts .. "/lakehouse-edit.ts")
+		awful.spawn.with_shell("node " .. scripts .. '/lakehouse-edit.ts "$(xclip -selection c -o)"')
 	end, { description = "edit lakehouse note", group = "misc" }),
 
 	awful.key({ modkey }, "e", function()
-		awful.spawn.with_shell("bun run " .. home .. "/Dev/audioman/src/index.ts")
+		awful.spawn.with_shell("node " .. home .. "/Dev/audioman/src/index.ts")
 	end, { description = "run audioman", group = "misc" }),
 
 	awful.key({ modkey }, "x", function()

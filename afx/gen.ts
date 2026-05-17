@@ -1,19 +1,18 @@
-#!/usr/bin/env -S bun run
-
+#!/usr/bin/env -S node
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-import { apoToJson } from "./apo_to_json";
-import { genEqualizerAPO } from "./json_to_eqapo";
-import { genLSP } from "./json_to_lsp";
-import { genPeq } from "./json_to_peq";
-import { lspToJson } from "./lsp_to_json";
-import type { Device } from "./util";
+import { apoToJson } from "./apo_to_json.ts";
+import { genEqualizerAPO } from "./json_to_eqapo.ts";
+import { genLSP } from "./json_to_lsp.ts";
+import { genPeq } from "./json_to_peq.ts";
+import { lspToJson } from "./lsp_to_json.ts";
+import type { Device } from "./util.ts";
 
-const utf8 = { encoding: <"utf8">"utf8" };
+const utf8 = { encoding: "utf8" as const };
 
 const syncAll = () => {
-  const path = `${import.meta.dir}/devices`;
+  const path = `${import.meta.dirname}/devices`;
   const files = readdirSync(path);
 
   const syncDevice = (device: Device) => {
@@ -25,15 +24,15 @@ const syncAll = () => {
 
     const slug = `${device.type}-${device.name.replace(/\s+/g, "_")}`;
 
-    const apoOutPath = `${import.meta.dir}/dist/apo/${slug}.txt`;
+    const apoOutPath = `${import.meta.dirname}/dist/apo/${slug}.txt`;
     const apoOutput = genEqualizerAPO(device);
     writeFileSync(apoOutPath, apoOutput);
 
-    const lspOutPath = `${import.meta.dir}/dist/lsp/${slug}.cfg`;
+    const lspOutPath = `${import.meta.dirname}/dist/lsp/${slug}.cfg`;
     const lspOutput = genLSP(device);
     writeFileSync(lspOutPath, lspOutput);
 
-    const peqOutPath = `${import.meta.dir}/dist/peq/${slug}.json`;
+    const peqOutPath = `${import.meta.dirname}/dist/peq/${slug}.json`;
     const peqOutput = genPeq(device);
     writeFileSync(peqOutPath, peqOutput);
   };
@@ -70,10 +69,10 @@ const syncAll = () => {
 };
 
 const lspReverseSync = () => {
-  const path = `${import.meta.dir}/dist/lsp`;
+  const path = `${import.meta.dirname}/dist/lsp`;
   const files = readdirSync(path).filter((p) => !p.includes("(combined)"));
 
-  const devicesPath = `${import.meta.dir}/devices`;
+  const devicesPath = `${import.meta.dirname}/devices`;
   const devicesFiles = readdirSync(devicesPath);
   const deviceFileNames = Object.fromEntries(
     [...devicesFiles].map((file) => {

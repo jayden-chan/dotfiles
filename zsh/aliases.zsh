@@ -37,7 +37,6 @@ alias Lq='exit'
 # One letter
 alias o='xdg-open'
 alias t='tmux'
-alias b='bun'
 alias c='cargo'
 alias j='just'
 alias k='kubectl'

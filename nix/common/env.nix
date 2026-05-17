@@ -61,7 +61,6 @@
       "${XDG_DATA_HOME}/cargo/bin"
       "$HOME/.local/bin"
       "$HOME/.nix-profile/bin"
-      "$HOME/.cache/.bun/bin"
     ];
   };
 }

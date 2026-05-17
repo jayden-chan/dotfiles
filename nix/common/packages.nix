@@ -16,7 +16,6 @@
     bc
     brave
     bruno
-    bun
     carla
     czkawka-full
     dig

@@ -93,6 +93,7 @@ in
           ''
             node_modules
             *.swp
+            *.tsbuildinfo
 
             .null-ls-root
             .null-ls-enable-eslint

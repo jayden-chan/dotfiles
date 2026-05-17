@@ -1,4 +1,4 @@
-import type { Band, Device } from "./util";
+import type { Band, Device } from "./util.ts";
 
 function bandToPeqType(band: Band): number {
   switch (band.type) {

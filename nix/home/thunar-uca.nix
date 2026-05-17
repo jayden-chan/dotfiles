@@ -102,6 +102,17 @@
         </action>
         <action>
             <icon></icon>
+            <name>10 MiB</name>
+            <submenu>Normalize</submenu>
+            <unique-id>1731643961229008-1</unique-id>
+            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts maxsize %f 10</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
             <name>Cull</name>
             <submenu>picman</submenu>
             <unique-id>1689641415278067-1</unique-id>

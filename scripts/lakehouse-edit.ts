@@ -1,18 +1,23 @@
-#!/usr/bin/env -S bun run
+#!/usr/bin/env -S node
 
-import { $ } from "bun";
 import { randomBytes } from "node:crypto";
 import { readFile, rm, writeFile } from "node:fs/promises";
+import { spawn } from "node:child_process";
+import { once } from "node:events";
 import { join } from "node:path";
 
 const error = async (err: string) => {
   console.error(err);
-  await $`notify-send lakehous-edit "${err}"`;
+  const proc = spawn("notify-send", ["lakehouse-edit", `${err}`]);
+  await once(proc, "close");
   process.exit(1);
 };
 
-const noteId =
-  process.argv[2] ?? (await $`xclip -selection c -o`.text()).trim();
+const noteId = process.argv[2];
+
+if (!noteId) {
+  await error("Missing note ID");
+}
 
 const ENV = Object.fromEntries(
   (await readFile(join(process.env.HOME!, ".config/ENV"), "utf8"))
@@ -70,15 +75,13 @@ if (!currentContent || typeof currentContent !== "string") {
 const tmpFile = `/dev/shm/lakehouse-${randomBytes(4).toString("hex")}.md`;
 await writeFile(tmpFile, currentContent);
 
-const proc = Bun.spawn([
+const proc = spawn(
   TERMINAL,
-  "--class=lakehouse-nvim",
-  "-e",
-  EDITOR,
-  tmpFile,
-]);
+  ["--class=lakehouse-nvim", "-e", EDITOR, tmpFile],
+  { stdio: "inherit" },
+);
 
-await proc.exited;
+await once(proc, "close");
 
 const updatedContent = await readFile(tmpFile, "utf8");
 await rm(tmpFile);

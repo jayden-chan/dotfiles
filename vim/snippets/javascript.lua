@@ -228,6 +228,52 @@ export const capitalize = (input: string): string =>
 		)
 	),
 	s(
+		"sleep",
+		fmt(
+			[[
+async function sleep(ms: number): Promise<void> {{
+	return new Promise<void>((resolve) => setTimeout(() => resolve(), ms));
+}}
+]],
+			{}
+		)
+	),
+	s(
+		"run",
+		fmt(
+			[[
+const proc = spawn("command", ["args"], {{ stdio: "ignore" }});
+const [code] = await once(proc, "close");
+]],
+			{}
+		)
+	),
+	s(
+		"runtext",
+		fmt(
+			[[
+const proc = spawn("command", ["args"], {{ stdio: "pipe" }});
+let stdout = "";
+proc.stdout?.on("data", (data) => stdout += `${{data}}`);
+const [code] = await once(proc, "close");
+]],
+			{}
+		)
+	),
+	s(
+		"prompt",
+		fmt(
+			[[
+import {{ stdin, stdout }} from "node:process";
+import {{ createInterface }} from "node:readline/promises";
+const rl = createInterface({{ input: stdin, output: stdout }});
+const input = await rl.question("Question? [Y/n] ");
+rl.close();
+]],
+			{}
+		)
+	),
+	s(
 		"af",
 		fmt(
 			[[

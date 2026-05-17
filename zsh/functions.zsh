@@ -66,47 +66,6 @@ function dkill () {
     done
 }
 
-function bb () {
-    if [ "$1" = "down" ]; then
-        trash ./tsconfig.json
-        trash ./package.json
-        rm -rf ./node_modules/ bun.lockb bun.lock
-    fi
-
-    if [ "$1" = "up" ]; then
-    cat << EOF > ./tsconfig.json
-{
-  "compilerOptions": {
-    "types": ["bun-types"],
-    "lib": ["esnext"],
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "bundler",
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "moduleDetection": "force",
-    "esModuleInterop": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
-  }
-}
-EOF
-
-    cat << EOF > ./package.json
-{
-  "devDependencies": {
-    "@types/node": "22",
-    "bun-types": "latest"
-  },
-  "prettier": {}
-}
-EOF
-
-        bun install
-    fi
-}
-
 function findreplace () {
     if [ "$1" = "--help" ]; then
         echo "findreplace <trigger> <sed expression>"

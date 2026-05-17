@@ -1,5 +1,5 @@
-import type { Band, Device } from "./util";
-import { STANDARD_SINK_ZOOM } from "./util";
+import type { Band, Device } from "./util.ts";
+import { STANDARD_SINK_ZOOM } from "./util.ts";
 
 export type LSPBand = {
   idx: number;
