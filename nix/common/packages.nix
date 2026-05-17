@@ -47,6 +47,7 @@
     nil
     nitrogen
     nixfmt-rfc-style
+    nodejs_24
     nsxiv
     passage
     pavucontrol
