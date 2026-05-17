@@ -35,8 +35,6 @@ alias ckear='clear'
 alias Lq='exit'
 
 # One letter
-alias y='yarn'
-alias n='npm'
 alias o='xdg-open'
 alias t='tmux'
 alias b='bun'
@@ -65,6 +63,8 @@ alias ffmpeg='ffmpeg -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
 alias ffprobej='ffprobe -v quiet -hide_banner -print_format json -show_format -show_streams'
 alias pass='passage'
+alias pd="prodge"
+alias ci="npm ci --ignore-scripts --allow-git=none"
 
 # Other
 alias clip='xclip -selection c'
