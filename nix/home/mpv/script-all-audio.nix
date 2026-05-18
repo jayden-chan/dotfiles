@@ -27,7 +27,7 @@
           if current_lavfi ~= "" then
               if count ~= 0 then
                   mp.osd_message("Playing audio track 1")
-                  mp.set_property("lavfi-complex", "[aid1] amix=inputs=1 [ao]")
+                  mp.set_property("lavfi-complex", "")
                   return
               end
           end
