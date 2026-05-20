@@ -38,7 +38,7 @@ alias Lq='exit'
 alias o='xdg-open'
 alias t='tmux'
 alias c='cargo'
-alias j='just'
+alias j='./j'
 alias k='kubectl'
 alias l='eza --all'
 

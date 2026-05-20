@@ -158,6 +158,27 @@ along with {3}. If not, see <https://www.gnu.org/licenses/>.
 		})
 	),
 	s(
+		"just",
+		fmt(
+			[[
+#!/usr/bin/env bash
+
+cmd="$1"
+if [ "$cmd" = "" ]; then
+	echo 1>&2 "Error: No command specified"
+	exit 1
+fi
+
+set -euo pipefail
+
+if [ "$cmd" = "command" ]; then
+	echo Example command
+fi
+]],
+			{}
+		)
+	),
+	s(
 		"lic",
 		f(function()
 			local current_file = vim.api.nvim_buf_get_name(0)
