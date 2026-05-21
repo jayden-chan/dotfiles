@@ -13,6 +13,7 @@ local base = {
 	"java",
 	"javascript",
 	"json",
+	"just",
 	"lua",
 	"make",
 	"markdown",

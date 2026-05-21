@@ -35,6 +35,12 @@
     git-check.url = "git+ssh://git@git.jayden.codes/jayden/git-check.git";
     git-check.inputs.nixpkgs.follows = "nixpkgs";
     git-check.inputs.crane.follows = "crane";
+
+    prodge.url = "git+ssh://git@git.jayden.codes/jayden/prodge.git";
+    prodge.inputs.nixpkgs.follows = "nixpkgs";
+
+    weblogs.url = "git+ssh://git@git.jayden.codes/jayden/weblogs.git";
+    weblogs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

@@ -101,5 +101,7 @@
     inputs.notifications-dbus-mon.packages."${stdenv.hostPlatform.system}".default
     inputs.spotify-dbus-mon.packages."${stdenv.hostPlatform.system}".default
     inputs.git-check.packages."${stdenv.hostPlatform.system}".default
+    inputs.prodge.packages."${stdenv.hostPlatform.system}".default
+    inputs.weblogs.packages."${stdenv.hostPlatform.system}".default
   ];
 }

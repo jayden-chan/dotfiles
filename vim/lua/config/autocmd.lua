@@ -50,6 +50,7 @@ vim.cmd(
 )
 
 vim.cmd([[autocmd BufRead,BufNewFile Jenkinsfile setf groovy]])
+vim.cmd([[autocmd BufRead,BufNewFile Prodgefile setf just]])
 vim.cmd([[autocmd BufRead,BufNewFile *.graphql setf graphql]])
 vim.cmd([[autocmd BufRead,BufNewFile *.rasi setf rasi]])
 vim.cmd([[autocmd BufRead,BufNewFile *.http setf http]])

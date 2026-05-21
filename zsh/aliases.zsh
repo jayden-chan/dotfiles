@@ -38,7 +38,7 @@ alias Lq='exit'
 alias o='xdg-open'
 alias t='tmux'
 alias c='cargo'
-alias j='./j'
+alias j='prodge'
 alias k='kubectl'
 alias l='eza --all'
 
@@ -73,6 +73,4 @@ alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
 alias curlv='curl --verbose'
 alias pg='ps -ax | rg'
 alias videoman="$HOME/Dev/videoman/src/index.ts"
-alias prodge="$HOME/Dev/prodge/src/index.ts"
-alias pd="$HOME/Dev/prodge/src/index.ts"
 alias tw='.git-ignored-general/tw.sh'
