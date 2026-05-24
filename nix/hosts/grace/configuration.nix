@@ -87,7 +87,12 @@ in
     unstable.ansel
     unstable.clonehero
     unstable.kdePackages.kdenlive
+    unstable.opencode
     unstable.yarg
+
+    ((import inputs.nixpkgs-llama config-vars.nixpkgs-config).llama-cpp.override {
+      cudaSupport = true;
+    })
 
     inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
 

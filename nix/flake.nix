@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=29916453413845e54a65b8a1cf996842300cd299";
     crane.url = "github:ipetkov/crane";
 
     agenix.url = "github:ryantm/agenix";
@@ -73,7 +74,7 @@
       };
 
       host-args = {
-        grace = rec {
+        grace = {
           config-vars = {
             host = "grace";
             system = "x86_64-linux";
@@ -81,14 +82,9 @@
             terminal-font-size = 12;
             vsync = false;
           };
-
-          unstable = import inputs.nixpkgs-unstable {
-            system = config-vars.system;
-            config.allowUnfree = true;
-          };
         };
 
-        swift = rec {
+        swift = {
           config-vars = {
             host = "swift";
             system = "x86_64-linux";
@@ -96,57 +92,22 @@
             terminal-font-size = 13.5;
             vsync = true;
           };
-
-          unstable = import inputs.nixpkgs-unstable {
-            system = config-vars.system;
-            config.allowUnfree = true;
-          };
         };
+      };
+
+      system-inputs = {
+        inherit nixpkgs;
+        inherit agenix;
+        inherit stylix;
+        inherit home-manager;
+        inherit args;
+        inherit host-args;
       };
     in
     {
       nixosConfigurations = {
-        grace = nixpkgs.lib.nixosSystem {
-          specialArgs = nixpkgs.lib.recursiveUpdate args host-args.grace;
-
-          system = host-args.grace.config-vars.system;
-
-          modules = [
-            ./hosts/grace/configuration.nix
-
-            agenix.nixosModules.default
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = nixpkgs.lib.recursiveUpdate args host-args.grace;
-              home-manager.users."${args.config-vars.username}" = import ./hosts/grace/home.nix;
-            }
-          ];
-        };
-
-        swift = nixpkgs.lib.nixosSystem {
-          specialArgs = nixpkgs.lib.recursiveUpdate args host-args.swift;
-
-          system = host-args.swift.config-vars.system;
-
-          modules = [
-            ./hosts/swift/configuration.nix
-
-            agenix.nixosModules.default
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = nixpkgs.lib.recursiveUpdate args host-args.swift;
-              home-manager.users."${args.config-vars.username}" = import ./hosts/swift/home.nix;
-            }
-          ];
-        };
+        grace = import ./make-system.nix system-inputs "grace";
+        swift = import ./make-system.nix system-inputs "swift";
       };
     };
 }
