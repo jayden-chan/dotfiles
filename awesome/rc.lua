@@ -509,9 +509,28 @@ awful.screen.connect_for_each_screen(function(s)
 		awesome.disconnect_signal("shadowplay", shadowplay_toggle_func)
 		awesome.connect_signal("shadowplay", shadowplay_toggle_func)
 
+		local guitar_midi_mapper_text = wibox.widget({ widget = wibox.widget.textbox })
+		local guitar_midi_mapper_block =
+			mar(icob(icon("circle-play", 13), mar(guitar_midi_mapper_text, 0, 10, 0, 10)), 0, 0, 0, widget_block_gap)
+		guitar_midi_mapper_block:set_visible(false)
+
+		-- Subscribe to the guitar-midi-mapper signal from the listener script
+		local guitar_midi_mapper_toggle_func = function(data)
+			if string.len(data:gsub("%s+$", "")) == 0 then
+				guitar_midi_mapper_block:set_visible(false)
+			else
+				guitar_midi_mapper_text:set_text(data)
+				guitar_midi_mapper_block:set_visible(true)
+			end
+		end
+
+		awesome.disconnect_signal("guitar-midi-mapper", guitar_midi_mapper_toggle_func)
+		awesome.connect_signal("guitar-midi-mapper", guitar_midi_mapper_toggle_func)
+
 		left:add(mute_widget)
 		left:add(mpris_block)
 		left:add(shadowplay_block)
+		left:add(guitar_midi_mapper_block)
 	else
 		left:add(mpris_block)
 	end
@@ -651,6 +670,27 @@ local globalkeys = gears.table.join(
 		awful.spawn.with_shell("killall gpu-screen-recorder")
 	end, { description = "stop shadowplay", group = "misc" }),
 
+	awful.key({ modkey }, "u", function()
+		awful.spawn.with_line_callback(
+			{ "guitar-midi-mapper", "RedOctane Guitar Hero X-plorer", ".*Virtual Raw MIDI \\d-1:VirMIDI.*" },
+			{
+				stdout = function(line)
+					awesome.emit_signal("guitar-midi-mapper", line)
+				end,
+				stderr = function(line)
+					naughty.notify({ text = "guitar-midi-mapper:" .. line })
+				end,
+				exit = function()
+					awesome.emit_signal("guitar-midi-mapper", "")
+				end,
+			}
+		)
+	end, { description = "start guitar-midi-mapper", group = "misc" }),
+
+	awful.key({ modkey, "Shift" }, "u", function()
+		awful.spawn.with_shell("killall guitar-midi-mapper")
+	end, { description = "stop guitar-midi-mapper", group = "misc" }),
+
 	awful.key({ modkey, "Shift" }, "p", function()
 		local screen = awful.screen.focused()
 		local tag = screen.tags[8]
@@ -737,14 +777,6 @@ local globalkeys = gears.table.join(
 		"XF86MonBrightnessDown",
 		script_cb("xf86.sh", { "light", "down" }),
 		{ description = "decrease backlight brightness", group = "media" }
-	),
-
-	-- Inputs
-	awful.key(
-		{ modkey },
-		"u",
-		script_cb("inputs.sh", {}, false),
-		{ description = "jump to urgent client", group = "client" }
 	),
 
 	-- Layout manipulation
