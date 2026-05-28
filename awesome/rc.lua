@@ -276,7 +276,7 @@ end)
 weather:buttons(gears.table.join(
 	weather:buttons(),
 	awful.button({}, 1, nil, function()
-		awful.spawn(scripts .. "/weather.sh --open")
+		awful.spawn({ scripts .. "/weather.sh", "--open" }, false)
 	end)
 ))
 
@@ -575,7 +575,7 @@ local globalkeys = gears.table.join(
 		awful.spawn.with_shell(
 			"kill -TERM $(ps -ax | rg '(\\d+).*?\\d node src/server.ts' --only-matching --replace='$1' --color=never)"
 		)
-		awful.spawn.with_shell("killall -KILL cs2")
+		awful.spawn({ "killall", "-KILL", "cs2" }, false)
 	end, { description = "shutdown lakehouse", group = "awesome" }),
 
 	-- Screenshots
@@ -648,7 +648,7 @@ local globalkeys = gears.table.join(
 	end, { description = "type clipboard", group = "misc" }),
 
 	awful.key({ modkey, "Shift" }, "F11", function()
-		awful.spawn.with_shell("killall -SIGUSR1 gpu-screen-recorder")
+		awful.spawn({ "killall", "-SIGUSR1", "gpu-screen-recorder" }, false)
 	end, { description = "save clip", group = "misc" }),
 
 	awful.key({ modkey }, "g", function()
@@ -666,7 +666,7 @@ local globalkeys = gears.table.join(
 	end, { description = "start shadowplay", group = "misc" }),
 
 	awful.key({ modkey, "Shift" }, "g", function()
-		awful.spawn.with_shell("killall gpu-screen-recorder")
+		awful.spawn({ "killall", "gpu-screen-recorder" }, false)
 	end, { description = "stop shadowplay", group = "misc" }),
 
 	awful.key({ modkey }, "u", function()
@@ -687,7 +687,7 @@ local globalkeys = gears.table.join(
 	end, { description = "start guitar-midi-mapper", group = "misc" }),
 
 	awful.key({ modkey, "Shift" }, "u", function()
-		awful.spawn.with_shell("killall guitar-midi-mapper")
+		awful.spawn({ "killall", "guitar-midi-mapper" }, false)
 	end, { description = "stop guitar-midi-mapper", group = "misc" }),
 
 	awful.key({ modkey, "Shift" }, "p", function()
@@ -696,7 +696,7 @@ local globalkeys = gears.table.join(
 		if tag then
 			tag:view_only()
 		end
-		awful.spawn(terminal .. " --class=passage -e " .. scripts .. "/passage.sh")
+		awful.spawn({ terminal, "--class=passage", "-e", scripts .. "/passage.sh" })
 	end, { description = "launch passage picker", group = "misc" }),
 
 	awful.key({ modkey }, "grave", function()

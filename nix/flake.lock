@@ -407,11 +407,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779979208,
-        "narHash": "sha256-OIa3Mmd41lsbCB6T97QhI3vykEDHZIh+U7CDQVvef9o=",
+        "lastModified": 1780009109,
+        "narHash": "sha256-cawI2Lln+BgLku4tyAx2euCZjFpYR+Zmv61hAhukjqA=",
         "ref": "refs/heads/main",
-        "rev": "1f930cf2d82f6f63917f8c838b9983342255fcfb",
-        "revCount": 28,
+        "rev": "76ce96f2cf3a43c9edc3f8463b0fb8ce1490354c",
+        "revCount": 29,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/prodge.git"
       },
