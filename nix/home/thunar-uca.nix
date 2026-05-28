@@ -11,7 +11,7 @@
             <name>Open Terminal Here</name>
             <submenu></submenu>
             <unique-id>1667782009341942-1</unique-id>
-            <command>${config-vars.terminal} --working-directory=&quot;%f&quot;</command>
+            <command>${config-vars.terminal} --working-directory=%f</command>
             <description>Open a terminal in the current directory</description>
             <range></range>
             <patterns>*</patterns>
