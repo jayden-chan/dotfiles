@@ -20,6 +20,7 @@ nixpkgs.lib.nixosSystem {
       unstable = import args.inputs.nixpkgs-unstable nixpkgs-config;
       config-vars = {
         inherit nixpkgs-config;
+        inherit hostname;
       };
     }
   );

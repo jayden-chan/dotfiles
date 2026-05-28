@@ -7,7 +7,7 @@
   programs.firejail.enable = true;
 
   networking = {
-    hostName = config-vars.host;
+    hostName = config-vars.hostname;
     networkmanager = {
       enable = true;
       dns = "dnsmasq";

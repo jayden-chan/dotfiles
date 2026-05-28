@@ -76,7 +76,6 @@
       host-args = {
         grace = {
           config-vars = {
-            host = "grace";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
             terminal-font-size = 12;
@@ -86,7 +85,6 @@
 
         swift = {
           config-vars = {
-            host = "swift";
             system = "x86_64-linux";
             timezone = "America/Edmonton";
             terminal-font-size = 13.5;
