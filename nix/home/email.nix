@@ -33,8 +33,8 @@
   services.mbsync = {
     enable = true;
     # systemd.time(7) -- https://www.freedesktop.org/software/systemd/man/systemd.time.html
-    # every 11 minutes
-    frequency = "*:0/11";
+    # every 49 minutes
+    frequency = "*:0/49";
   };
 
   programs.mbsync.enable = true;
