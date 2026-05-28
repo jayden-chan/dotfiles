@@ -636,11 +636,11 @@ local globalkeys = gears.table.join(
 	),
 
 	awful.key({ modkey, "Shift" }, "n", function()
-		awful.spawn.with_shell("node " .. scripts .. '/lakehouse-edit.ts "$(xclip -selection c -o)"')
+		awful.spawn.with_shell(scripts .. '/lakehouse-edit.ts "$(xclip -selection c -o)"')
 	end, { description = "edit lakehouse note", group = "misc" }),
 
 	awful.key({ modkey }, "e", function()
-		awful.spawn.with_shell("node " .. home .. "/Dev/audioman/src/index.ts")
+		awful.spawn("audioman", false)
 	end, { description = "run audioman", group = "misc" }),
 
 	awful.key({ modkey }, "x", function()

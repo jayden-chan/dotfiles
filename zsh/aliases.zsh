@@ -70,5 +70,4 @@ alias gpl='curl https://www.gnu.org/licenses/gpl-3.0.txt'
 alias agpl='curl https://www.gnu.org/licenses/agpl-3.0.txt'
 alias curlv='curl --verbose'
 alias pg='ps -ax | rg'
-alias videoman="$HOME/Dev/videoman/src/index.ts"
 alias tw='.git-ignored-general/tw.sh'

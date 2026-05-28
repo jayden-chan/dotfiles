@@ -60,7 +60,7 @@
 
           local input_path = mp.get_property("stream-path")
           local shell_cmd =
-              "node $HOME/Dev/videoman/src/index.ts cut --notify --quality="
+              "videoman cut --notify --quality="
               .. quality_mode
               .. shell_quote(input_path)
 

@@ -37,8 +37,14 @@
     git-check.inputs.nixpkgs.follows = "nixpkgs";
     git-check.inputs.crane.follows = "crane";
 
+    audioman.url = "git+ssh://git@git.jayden.codes/jayden/audioman.git";
+    audioman.inputs.nixpkgs.follows = "nixpkgs";
+
     prodge.url = "git+ssh://git@git.jayden.codes/jayden/prodge.git";
     prodge.inputs.nixpkgs.follows = "nixpkgs";
+
+    videoman.url = "git+ssh://git@git.jayden.codes/jayden/videoman.git";
+    videoman.inputs.nixpkgs.follows = "nixpkgs";
 
     weblogs.url = "git+ssh://git@git.jayden.codes/jayden/weblogs.git";
     weblogs.inputs.nixpkgs.follows = "nixpkgs";

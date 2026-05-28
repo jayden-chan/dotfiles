@@ -23,6 +23,26 @@
         "type": "github"
       }
     },
+    "audioman": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779979843,
+        "narHash": "sha256-LxDDYIcFNSMoifnvsLrSUOfKKa1dl2APpXAjwPqvyjU=",
+        "ref": "refs/heads/main",
+        "rev": "349b588978f2b59a2bc90d4adaf60256b6913087",
+        "revCount": 16,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/audioman.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/audioman.git"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -387,11 +407,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779919702,
-        "narHash": "sha256-1X/BdKwRL7QCZCeeJdkbmVJddhNxMOs41sDhrjIDIDg=",
+        "lastModified": 1779979208,
+        "narHash": "sha256-OIa3Mmd41lsbCB6T97QhI3vykEDHZIh+U7CDQVvef9o=",
         "ref": "refs/heads/main",
-        "rev": "2a3b50a1ddbea1ba88be706dff057c8100b643f0",
-        "revCount": 27,
+        "rev": "1f930cf2d82f6f63917f8c838b9983342255fcfb",
+        "revCount": 28,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/prodge.git"
       },
@@ -403,6 +423,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "audioman": "audioman",
         "crane": "crane",
         "git-check": "git-check",
         "guitar-midi-mapper": "guitar-midi-mapper",
@@ -415,6 +436,7 @@
         "sensors-mon": "sensors-mon",
         "spotify-dbus-mon": "spotify-dbus-mon",
         "stylix": "stylix",
+        "videoman": "videoman",
         "weblogs": "weblogs"
       }
     },
@@ -626,6 +648,26 @@
         "type": "github"
       }
     },
+    "videoman": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779979173,
+        "narHash": "sha256-trgxMRoFl/gS1B5b2aqxkj0KG2nlZkN0PJKxBNgN1tw=",
+        "ref": "refs/heads/main",
+        "rev": "44ec2174f9120e736c760eab8eca2e2199e8469b",
+        "revCount": 31,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/videoman.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/videoman.git"
+      }
+    },
     "weblogs": {
       "inputs": {
         "nixpkgs": [
@@ -633,11 +675,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779401791,
-        "narHash": "sha256-upn9CH8w0Sjoa/+e+7EeroasqCiKH7bQsDEKAk4cZoo=",
+        "lastModified": 1779979236,
+        "narHash": "sha256-ggMbL+8NO+CTv2B4iF/jzFsJXnJePpai29VdM6Dfyro=",
         "ref": "refs/heads/master",
-        "rev": "0e0c1be020acc3434f3219a962e0eb8a1fbd7ed5",
-        "revCount": 68,
+        "rev": "710b05f8e490c4161e9c6a4d4a10d0fead52f584",
+        "revCount": 69,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/weblogs.git"
       },

@@ -61,7 +61,7 @@
             <name>QP 22 (default)</name>
             <submenu>Normalize</submenu>
             <unique-id>1731643961229000-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=22 %f</command>
+            <command>videoman normalize --notify --qp=22 %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -72,7 +72,7 @@
             <name>QP 26</name>
             <submenu>Normalize</submenu>
             <unique-id>1731643961229002-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=26 %f</command>
+            <command>videoman normalize --notify --qp=26 %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -83,7 +83,7 @@
             <name>QP 28</name>
             <submenu>Normalize</submenu>
             <unique-id>1731643961229004-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=28 %f</command>
+            <command>videoman normalize --notify --qp=28 %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -94,7 +94,7 @@
             <name>QP 32</name>
             <submenu>Normalize</submenu>
             <unique-id>1731643961229006-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts normalize --notify --qp=32 %f</command>
+            <command>videoman normalize --notify --qp=32 %f</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -105,7 +105,7 @@
             <name>10 MiB</name>
             <submenu>Normalize</submenu>
             <unique-id>1731643961229008-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/videoman/src/index.ts maxsize %f 10</command>
+            <command>videoman maxsize %f 10</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
