@@ -2,12 +2,6 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
-
-alias -- -='cd -'
 alias 1='cd -'
 alias 2='cd -2'
 alias 3='cd -3'
@@ -19,7 +13,6 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 alias md='mkdir -p'
-alias rd=rmdir
 
 function d () {
   if [[ -n $1 ]]; then
