@@ -128,6 +128,7 @@ return {
 					hide_by_name = {
 						"node_modules",
 						"package-lock.json",
+						"pnpm-lock.yaml",
 						"target",
 					},
 					hide_by_pattern = { -- uses glob style patterns

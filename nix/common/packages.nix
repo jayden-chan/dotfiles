@@ -51,6 +51,7 @@
     passage
     pavucontrol
     picom
+    pnpm
     prettierd
     qview
     redshift

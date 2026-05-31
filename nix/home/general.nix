@@ -17,6 +17,7 @@
     ./lazygit.nix
     ./mime.nix
     ./picom.nix
+    ./pnpm.nix
     ./starship.nix
     ./thunar-uca.nix
     ./tmux.nix

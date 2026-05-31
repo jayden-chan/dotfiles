@@ -41,6 +41,7 @@ alias c='cargo'
 alias j='prodge'
 alias k='kubectl'
 alias l='eza --all'
+alias p='pnpm'
 
 # networking
 alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 -e ssh'
