@@ -30,11 +30,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779979843,
-        "narHash": "sha256-LxDDYIcFNSMoifnvsLrSUOfKKa1dl2APpXAjwPqvyjU=",
+        "lastModified": 1780255653,
+        "narHash": "sha256-JonLlgUKUNSI2MGsAq7L89EMyCETbJXz3DXnfpUy23Q=",
         "ref": "refs/heads/main",
-        "rev": "349b588978f2b59a2bc90d4adaf60256b6913087",
-        "revCount": 16,
+        "rev": "f8f7dbcc6417f416d5b80346ad25f6804e9e0257",
+        "revCount": 18,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/audioman.git"
       },
@@ -163,24 +163,6 @@
         "type": "github"
       }
     },
-    "flake-utils": {
-      "inputs": {
-        "systems": "systems_2"
-      },
-      "locked": {
-        "lastModified": 1710146030,
-        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -207,11 +189,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777862868,
-        "narHash": "sha256-NKvMTH7PFs2A3bxMET/oYlawEECiP53elxKdiFywkDE=",
+        "lastModified": 1780252151,
+        "narHash": "sha256-KV2ibVOaDB3PhwGQslWp1MpFFbiKUuFeu/+VEkWt+9M=",
         "ref": "refs/heads/main",
-        "rev": "2cf90bfa2f16c980023edc4d76bedf218d0c9259",
-        "revCount": 4,
+        "rev": "e2170f6238a19d52e27d84c359b5309c9c92ed6a",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/git-check.git"
       },
@@ -249,11 +231,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777860607,
-        "narHash": "sha256-GdCUROoukH9C1Cv4y0Ge2Bw+zNJCbAg/yKBomZSsprI=",
+        "lastModified": 1780251657,
+        "narHash": "sha256-bsoCmJu98MgK0rheR1Y4uNO9aopweFVF3dx+M4SJUPg=",
         "ref": "refs/heads/main",
-        "rev": "914e46665c61c06b24ea84fca99138b4839dc3e0",
-        "revCount": 10,
+        "rev": "2154d2e1835ef5a6bec07900574722584c7cf5f6",
+        "revCount": 11,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/guitar-midi-mapper.git"
       },
@@ -362,11 +344,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777860797,
-        "narHash": "sha256-rRGUMiltlxF+FgL5mu+uQ92KB6LOULN/6zoXFx1xi3s=",
+        "lastModified": 1780251814,
+        "narHash": "sha256-cSm41sjv2iCGM/n+DLYmP6YI4rl9AFI/lOKZMhsHhno=",
         "ref": "refs/heads/main",
-        "rev": "9fe1f3ac92df1f153596acdad14508c35369ac1a",
-        "revCount": 7,
+        "rev": "466f475d88fdb3ee795a2295214ef3f8292178c8",
+        "revCount": 8,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/notifications-dbus-mon.git"
       },
@@ -400,6 +382,26 @@
         "type": "github"
       }
     },
+    "picman": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780255611,
+        "narHash": "sha256-Awf+jBPH7I65YUd6aoBhfbAz9vsXfAc/fK6MIRiTMp4=",
+        "ref": "refs/heads/main",
+        "rev": "5bddfdedcc5f24f29a0efad01c9ff6fd847bb4ae",
+        "revCount": 37,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/picman.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/picman.git"
+      }
+    },
     "prodge": {
       "inputs": {
         "nixpkgs": [
@@ -407,11 +409,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780099995,
-        "narHash": "sha256-rX4L4vqYdovzIkjHbovWXyt85GIDftLhgf98VLdJPsY=",
+        "lastModified": 1780255699,
+        "narHash": "sha256-nai+mY8B7L3YrygmGL4hzMeL8NkDlAILgMDJyMb09So=",
         "ref": "refs/heads/main",
-        "rev": "bd10e8e35ba756cda684d6120828d09ddc27f4fa",
-        "revCount": 35,
+        "rev": "9476dc005476086fd8a5f6831d8c2bd12b22be0b",
+        "revCount": 41,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/prodge.git"
       },
@@ -432,6 +434,7 @@
         "nixpkgs-llama": "nixpkgs-llama",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "notifications-dbus-mon": "notifications-dbus-mon",
+        "picman": "picman",
         "prodge": "prodge",
         "sensors-mon": "sensors-mon",
         "spotify-dbus-mon": "spotify-dbus-mon",
@@ -468,17 +471,16 @@
         "crane": [
           "crane"
         ],
-        "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1749761425,
-        "narHash": "sha256-FEgzTKtVyMltZhMa/0+3O4UaF23Y/xv9l9YJQFM4KDs=",
+        "lastModified": 1780252101,
+        "narHash": "sha256-wKMCWzm5l8GdxV5DpKerzlgpd6smYLV6nyRnVF7rrz0=",
         "ref": "refs/heads/main",
-        "rev": "671ac3dd6cd6803cb3633d6a76443743a72caa49",
-        "revCount": 2,
+        "rev": "8b2343873dfe3c5c2e0fe7202b8517a29a7da5e4",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/spotify-dbus-mon.git"
       },
@@ -500,7 +502,7 @@
           "nixpkgs"
         ],
         "nur": "nur",
-        "systems": "systems_3",
+        "systems": "systems_2",
         "tinted-foot": "tinted-foot",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
@@ -538,21 +540,6 @@
       }
     },
     "systems_2": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -655,11 +642,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779979173,
-        "narHash": "sha256-trgxMRoFl/gS1B5b2aqxkj0KG2nlZkN0PJKxBNgN1tw=",
+        "lastModified": 1780255731,
+        "narHash": "sha256-G6AvFTyFsrENEi92YeaueRTl3BLHpLn+uHFzd69XQeY=",
         "ref": "refs/heads/main",
-        "rev": "44ec2174f9120e736c760eab8eca2e2199e8469b",
-        "revCount": 31,
+        "rev": "cab195bbac45842a0481aecdaa21aad3e71df525",
+        "revCount": 33,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/videoman.git"
       },
@@ -675,11 +662,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779979236,
-        "narHash": "sha256-ggMbL+8NO+CTv2B4iF/jzFsJXnJePpai29VdM6Dfyro=",
+        "lastModified": 1780255863,
+        "narHash": "sha256-RPl/Rslqm/G87ZBXyDRtDKdjK2uMPOnvilQUVu5qgvQ=",
         "ref": "refs/heads/master",
-        "rev": "710b05f8e490c4161e9c6a4d4a10d0fead52f584",
-        "revCount": 69,
+        "rev": "7fcf17971436736662c1f28ca30c4c207ceb1afc",
+        "revCount": 72,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/weblogs.git"
       },

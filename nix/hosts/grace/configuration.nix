@@ -95,6 +95,7 @@ in
     })
 
     inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
+    inputs.picman.packages."${stdenv.hostPlatform.system}".default
 
     # make the NVIDIA X11 libraries available for gpu-screen-recorder
     (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''

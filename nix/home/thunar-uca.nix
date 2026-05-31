@@ -116,7 +116,7 @@
             <name>Cull</name>
             <submenu>picman</submenu>
             <unique-id>1689641415278067-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/cull-basic.ts %F 2&gt;&amp;1 &gt; /tmp/cull_logs.log</command>
+            <command>picman cull-basic %F 2&gt;&amp;1 &gt; /tmp/cull_logs.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -127,7 +127,7 @@
             <name>Cull (safe)</name>
             <submenu>picman</submenu>
             <unique-id>1719774323493242-2</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/cull-basic.ts --safe %F 2&gt;&amp;1 &gt; /tmp/cull_logs.log</command>
+            <command>picman cull-basic --safe %F 2&gt;&amp;1 &gt; /tmp/cull_logs.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -138,7 +138,7 @@
             <name>Import images/videos</name>
             <submenu></submenu>
             <unique-id>1689902676394518-1</unique-id>
-            <command>${config-vars.terminal} -e sh -c &apos;${config-vars.home-dir}/Dev/picman/src/sd-import.ts %f | bat; read&apos;</command>
+            <command>${config-vars.terminal} -e sh -c &apos;picman sd-import %f | bat; read&apos;</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -160,7 +160,7 @@
             <name>Anonymize</name>
             <submenu>picman</submenu>
             <unique-id>1690485195569083-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/anonymize.ts %F</command>
+            <command>picman anonymize %F</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -170,7 +170,7 @@
             <icon></icon>
             <name>Anonymize</name>
             <unique-id>1690485195569083-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/anonymize.ts %F</command>
+            <command>picman anonymize %F</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -184,7 +184,7 @@
             <name>Make Private</name>
             <submenu>picman</submenu>
             <unique-id>1719616786472408-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/private.ts %F 2&gt;&amp;1 &gt; /tmp/privatize.log</command>
+            <command>picman private %F 2&gt;&amp;1 &gt; /tmp/privatize.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -195,7 +195,7 @@
             <name>Make Pano Folder</name>
             <submenu>picman</submenu>
             <unique-id>1719760172570658-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/pano-group.ts %F 2&gt;&amp;1 &gt; /tmp/pano-group.log</command>
+            <command>picman pano-group %F 2&gt;&amp;1 &gt; /tmp/pano-group.log</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -206,7 +206,7 @@
             <name>Set GPS Location</name>
             <submenu>picman</submenu>
             <unique-id>1720814069760259-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/gps.ts --write-gps %F</command>
+            <command>picman gps write /run/agenix/gps-coords.json %F</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -217,7 +217,7 @@
             <name>Open GPS Location</name>
             <submenu>picman</submenu>
             <unique-id>1720819178080678-2</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/gps.ts --open-gps %F</command>
+            <command>picman gps open %F</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>
@@ -228,7 +228,7 @@
             <name>Correlate GPS</name>
             <submenu>picman</submenu>
             <unique-id>1722097833051003-1</unique-id>
-            <command>${config-vars.home-dir}/Dev/picman/src/gps.ts --correlate-gps %F</command>
+            <command>picman gps correlate %F</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>

@@ -40,6 +40,9 @@
     audioman.url = "git+ssh://git@git.jayden.codes/jayden/audioman.git";
     audioman.inputs.nixpkgs.follows = "nixpkgs";
 
+    picman.url = "git+ssh://git@git.jayden.codes/jayden/picman.git";
+    picman.inputs.nixpkgs.follows = "nixpkgs";
+
     prodge.url = "git+ssh://git@git.jayden.codes/jayden/prodge.git";
     prodge.inputs.nixpkgs.follows = "nixpkgs";
 

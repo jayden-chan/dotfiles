@@ -45,4 +45,11 @@
     owner = config-vars.username;
     group = "users";
   };
+
+  age.secrets."gps-coords.json" = {
+    file = ../secrets/gps-coords.json.age;
+    mode = "0400";
+    owner = config-vars.username;
+    group = "users";
+  };
 }
