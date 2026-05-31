@@ -509,6 +509,10 @@ awful.screen.connect_for_each_screen(function(s)
 		awesome.disconnect_signal("shadowplay", shadowplay_toggle_func)
 		awesome.connect_signal("shadowplay", shadowplay_toggle_func)
 
+		left:add(mute_widget)
+		left:add(mpris_block)
+		left:add(shadowplay_block)
+	else
 		local guitar_midi_mapper_text = wibox.widget({ widget = wibox.widget.textbox })
 		local guitar_midi_mapper_block =
 			mar(icob(icon("circle-play", 13), mar(guitar_midi_mapper_text, 0, 10, 0, 10)), 0, 0, 0, widget_block_gap)
@@ -527,12 +531,8 @@ awful.screen.connect_for_each_screen(function(s)
 		awesome.disconnect_signal("guitar-midi-mapper", guitar_midi_mapper_toggle_func)
 		awesome.connect_signal("guitar-midi-mapper", guitar_midi_mapper_toggle_func)
 
-		left:add(mute_widget)
 		left:add(mpris_block)
-		left:add(shadowplay_block)
 		left:add(guitar_midi_mapper_block)
-	else
-		left:add(mpris_block)
 	end
 
 	-- Add widgets to the wibox
