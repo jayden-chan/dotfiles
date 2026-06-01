@@ -23,26 +23,6 @@
         "type": "github"
       }
     },
-    "audioman": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1780255653,
-        "narHash": "sha256-JonLlgUKUNSI2MGsAq7L89EMyCETbJXz3DXnfpUy23Q=",
-        "ref": "refs/heads/main",
-        "rev": "f8f7dbcc6417f416d5b80346ad25f6804e9e0257",
-        "revCount": 18,
-        "type": "git",
-        "url": "ssh://git@git.jayden.codes/jayden/audioman.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@git.jayden.codes/jayden/audioman.git"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -286,6 +266,26 @@
         "type": "github"
       }
     },
+    "mediaman": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780329957,
+        "narHash": "sha256-+EMEu/3BO6w8XY6S6oVD4SFooGBEbsMulVHlIywhcG8=",
+        "ref": "refs/heads/main",
+        "rev": "e09cb1b8ec2cdc5ee102b035b7b23e41425a123d",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/mediaman.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/mediaman.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1779796641,
@@ -382,26 +382,6 @@
         "type": "github"
       }
     },
-    "picman": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1780255611,
-        "narHash": "sha256-Awf+jBPH7I65YUd6aoBhfbAz9vsXfAc/fK6MIRiTMp4=",
-        "ref": "refs/heads/main",
-        "rev": "5bddfdedcc5f24f29a0efad01c9ff6fd847bb4ae",
-        "revCount": 37,
-        "type": "git",
-        "url": "ssh://git@git.jayden.codes/jayden/picman.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@git.jayden.codes/jayden/picman.git"
-      }
-    },
     "prodge": {
       "inputs": {
         "nixpkgs": [
@@ -409,11 +389,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780255699,
-        "narHash": "sha256-nai+mY8B7L3YrygmGL4hzMeL8NkDlAILgMDJyMb09So=",
+        "lastModified": 1780413175,
+        "narHash": "sha256-JeVr0+mgp4y723rQWB2SPo3DBaOTTxb8J1bUWQBVPZw=",
         "ref": "refs/heads/main",
-        "rev": "9476dc005476086fd8a5f6831d8c2bd12b22be0b",
-        "revCount": 41,
+        "rev": "90507985148b7cd3915de84406704493e8c1bca8",
+        "revCount": 47,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/prodge.git"
       },
@@ -425,21 +405,19 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "audioman": "audioman",
         "crane": "crane",
         "git-check": "git-check",
         "guitar-midi-mapper": "guitar-midi-mapper",
         "home-manager": "home-manager_2",
+        "mediaman": "mediaman",
         "nixpkgs": "nixpkgs",
         "nixpkgs-llama": "nixpkgs-llama",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "notifications-dbus-mon": "notifications-dbus-mon",
-        "picman": "picman",
         "prodge": "prodge",
         "sensors-mon": "sensors-mon",
         "spotify-dbus-mon": "spotify-dbus-mon",
         "stylix": "stylix",
-        "videoman": "videoman",
         "weblogs": "weblogs"
       }
     },
@@ -633,26 +611,6 @@
         "owner": "tinted-theming",
         "repo": "base16-zed",
         "type": "github"
-      }
-    },
-    "videoman": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1780255731,
-        "narHash": "sha256-G6AvFTyFsrENEi92YeaueRTl3BLHpLn+uHFzd69XQeY=",
-        "ref": "refs/heads/main",
-        "rev": "cab195bbac45842a0481aecdaa21aad3e71df525",
-        "revCount": 33,
-        "type": "git",
-        "url": "ssh://git@git.jayden.codes/jayden/videoman.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@git.jayden.codes/jayden/videoman.git"
       }
     },
     "weblogs": {
