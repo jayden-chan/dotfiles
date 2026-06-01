@@ -68,6 +68,7 @@ in
       pull.rebase = true;
       rebase.autoStash = true;
       tag.gpgSign = true;
+      rerere.enabled = true;
 
       gpg = {
         format = "ssh";
