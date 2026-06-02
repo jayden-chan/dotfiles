@@ -1,4 +1,4 @@
-{ ... }:
+{ config-vars, ... }:
 
 {
   programs.lazygit = {
@@ -17,10 +17,15 @@
         showFileTree = false;
         showCommandLog = false;
         mouseEvents = false;
+
+        theme = {
+          selectedLineBgColor = [ config-vars.theme.cursorline ];
+        };
       };
 
       update.method = "never";
       promptToReturnFromSubprocess = false;
+      notARepository = "quit";
 
       keybinding = {
         universal = {
