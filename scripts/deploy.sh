@@ -11,7 +11,6 @@ if [ "$1" = "--full" ]; then
     mkdir -p ~/.config/zsh
 
     mkdir -p ~/.local/share/applications
-    mkdir -p ~/.local/bin
 
     # /home cleanup directories
     mkdir -p ~/.cache/nv

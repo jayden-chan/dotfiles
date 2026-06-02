@@ -85,7 +85,6 @@ in
     v4l-utils
 
     unstable.ansel
-    unstable.clonehero
     unstable.kdePackages.kdenlive
     unstable.opencode
     unstable.yarg

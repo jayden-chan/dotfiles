@@ -7,7 +7,6 @@
       makePluginPath =
         format:
         (lib.strings.makeSearchPath format [
-          "$HOME/.nix-profile/lib"
           "/run/current-system/sw/lib"
           "/etc/profiles/per-user/$USER/lib"
         ])

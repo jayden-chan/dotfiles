@@ -55,12 +55,5 @@
     GOPROXY = "direct";
     ARTILLERY_DISABLE_TELEMETRY = "true";
     ASTRO_TELEMETRY_DISABLED = "1";
-
-    PATH = [
-      "$HOME/.local/bin"
-      "${XDG_DATA_HOME}/cargo/bin"
-      "$HOME/.local/bin"
-      "$HOME/.nix-profile/bin"
-    ];
   };
 }

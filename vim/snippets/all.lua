@@ -179,6 +179,18 @@ fi
 		)
 	),
 	s(
+		"com",
+		fmt(
+			[[
+/**
+ * {}
+ */
+]],
+			{ i(0) }
+		)
+	),
+	s("coml", fmt("/* {} */", { i(0) })),
+	s(
 		"lic",
 		f(function()
 			local current_file = vim.api.nvim_buf_get_name(0)
