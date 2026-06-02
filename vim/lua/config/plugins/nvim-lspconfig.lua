@@ -7,7 +7,6 @@ return {
 	plugins.lspconfig,
 	dependencies = {
 		plugins.blink_cmp,
-		plugins.lspsaga,
 	},
 	ft = ts_config.extended,
 	config = function()

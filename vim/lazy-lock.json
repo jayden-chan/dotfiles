@@ -8,7 +8,6 @@
   "indent-blankline.nvim": { "branch": "master", "commit": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lexima.vim": { "branch": "master", "commit": "ab621e4756465c9d354fce88cff2bd1aa7887065" },
-  "lspsaga.nvim": { "branch": "main", "commit": "3e33a6a6c5d379f3d4fae77fae6b53b762a0a30f" },
   "lualine.nvim": { "branch": "master", "commit": "221ce6b2d999187044529f49da6554a92f740a96" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "ebd66767191714e008ce73b769518a763ff31bdc" },
   "none-ls-extras.nvim": { "branch": "main", "commit": "167f29529ff1438e673b1792a71aaf79ddd6c74f" },

@@ -8,7 +8,6 @@ local M = {
 	indent_blankline = "lukas-reineke/indent-blankline.nvim",
 	lexima = "cohama/lexima.vim",
 	lspconfig = "neovim/nvim-lspconfig",
-	lspsaga = "nvimdev/lspsaga.nvim",
 	lualine = "nvim-lualine/lualine.nvim",
 	luasnip = "L3MON4D3/LuaSnip",
 	neotree = "nvim-neo-tree/neo-tree.nvim",
