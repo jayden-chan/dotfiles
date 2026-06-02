@@ -6,7 +6,7 @@ return {
 	dependencies = { plugins.luasnip },
 
 	-- use a release tag to download pre-built binaries
-	version = "v0.*",
+	version = "v1",
 
 	opts = {
 		sources = { default = { "lsp", "path", "buffer" } },
