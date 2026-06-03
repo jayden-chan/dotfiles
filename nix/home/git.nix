@@ -89,6 +89,16 @@ in
         editor = "nvim";
         whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
 
+        attributesFile = "${pkgs.writeText "git-attributes-file"
+          # gitattributes
+          ''
+            *.age -diff
+            package-lock.json -diff
+            pnpm-lock.yaml -diff
+            Cargo.lock -diff
+          ''
+        }";
+
         excludesfile = "${pkgs.writeText "git-excludes-file"
           # gitignore
           ''
