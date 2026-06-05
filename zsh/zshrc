@@ -1,5 +1,3 @@
-DEFAULT_USER="jayden"
-
 hostname="$(hostname)"
 
 [ -e "$HOME/.config/ENV" ] && source $HOME/.config/ENV

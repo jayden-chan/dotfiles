@@ -2,6 +2,7 @@ function op         () { thunar ${1:-.} </dev/null &>/dev/null & disown }
 function ta         () { if [ -z "$1" ]; then tmux attach; else tmux attach -t $1; fi }
 function sc         () { jq .scripts ${1:-package.json} }
 function kns        () { kubectl config set-context --current --namespace="$1" }
+function uridec     () { echo 'console.log(decodeURI(process.env.TO_DECODE))' | TO_DECODE="$1" node - }
 
 function randstring () {
     local characters='a-zA-Z0-9'
