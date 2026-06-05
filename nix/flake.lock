@@ -93,11 +93,11 @@
     },
     "crane": {
       "locked": {
-        "lastModified": 1779130139,
-        "narHash": "sha256-BLrtr42azquO7MdGFU5a7KiMl3YpFlTeIXqy1fT5GlQ=",
+        "lastModified": 1780532242,
+        "narHash": "sha256-D+BsdpxmtUwtqGoY0IXPhHgTlmqgcZKCEo1oMyn7ep0=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "edb38893982a3338972bb4a2ec7ce7c29ba10fd9",
+        "rev": "59a82a1222dd3b2080b5cc52a1a2e8d5f1b77f37",
         "type": "github"
       },
       "original": {
@@ -320,11 +320,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1779560665,
-        "narHash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o=",
+        "lastModified": 1780243769,
+        "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
+        "rev": "331800de5053fcebacf6813adb5db9c9dca22a0c",
         "type": "github"
       },
       "original": {
@@ -389,11 +389,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780413175,
-        "narHash": "sha256-JeVr0+mgp4y723rQWB2SPo3DBaOTTxb8J1bUWQBVPZw=",
+        "lastModified": 1780709015,
+        "narHash": "sha256-DbTmNmmbxsVNjwG3hZVpv3XByyG4939AynS1OA8Urqw=",
         "ref": "refs/heads/main",
-        "rev": "90507985148b7cd3915de84406704493e8c1bca8",
-        "revCount": 47,
+        "rev": "13064cdcda6982d07d09bdcbe97abb7b406cf0ad",
+        "revCount": 48,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/prodge.git"
       },
@@ -431,11 +431,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778348063,
-        "narHash": "sha256-0fRdS1MLIitIN0Kojc5DrfyOa1uNNjVcE3jFNfEPh2k=",
+        "lastModified": 1780251924,
+        "narHash": "sha256-hrJqVT+qLw+QRUgSDq7hzXabRuE1uRRjhu376wJ2OCU=",
         "ref": "refs/heads/main",
-        "rev": "015c7a04523eecf2c09a0d663edd646d2baadd02",
-        "revCount": 24,
+        "rev": "66974ed681c0dd1e1f544eeba3685265d77385ca",
+        "revCount": 25,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/sensors-mon.git"
       },
@@ -488,11 +488,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1778680496,
-        "narHash": "sha256-tUq1WASV0dHLv3j18log8V6Esq0NYkXuzNH2EHsstcg=",
+        "lastModified": 1780418491,
+        "narHash": "sha256-+eo3U9WHpCkaT/FBGf98kdQprKMUREdY/vmvkej5EiI=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "fc5bec2e44678eeaa221d566d447a0257a884737",
+        "rev": "16689b1d3280604a16d29e249f6b5a1a688e3905",
         "type": "github"
       },
       "original": {
