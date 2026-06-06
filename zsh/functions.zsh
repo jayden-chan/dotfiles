@@ -4,6 +4,12 @@ function sc         () { jq .scripts ${1:-package.json} }
 function kns        () { kubectl config set-context --current --namespace="$1" }
 function uridec     () { echo 'console.log(decodeURI(process.env.TO_DECODE))' | TO_DECODE="$1" node - }
 
+function podprune () {
+    podman container ls -a --external --quiet | xargs --no-run-if-empty podman container rm -f
+    podman image ls | rg -v 'git\.jayden\.codes' | rg -v '<none>' | tail -n +2 | awk '{print $3}' | xargs --no-run-if-empty podman image rm
+    podman image prune
+}
+
 function randstring () {
     local characters='a-zA-Z0-9'
     local default_length="${PASSWORD_STORE_GENERATED_LENGTH:-25}"
