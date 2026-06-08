@@ -14,16 +14,6 @@ in
     signing.key = signing-key;
 
     hooks = {
-      commit-msg = pkgs.writeShellScript "git-hook-commit-msg" ''
-        set -euo pipefail
-
-        args=("commit")
-        if [ "$(git config get gitcheck.allow-initials)" = "true" ]; then
-            args+=("--allow-initials")
-        fi
-        git-check "''${args[@]}" < "$1"
-      '';
-
       pre-push = pkgs.writeShellScript "git-hook-pre-push" ''
         set -euo pipefail
 
@@ -43,13 +33,8 @@ in
                     range="$remote_oid..$local_oid"
                 fi
 
-                args=("commit" "--pushing")
-                if [ "$(git config get gitcheck.allow-initials)" = "true" ]; then
-                    args+=("--allow-initials")
-                fi
-
                 for commit in $(git rev-list "$range"); do
-                    git show --pretty=format:%B --no-patch "$commit" | git-check "''${args[@]}"
+                    git show --pretty=format:%B --no-patch "$commit" | git-check commit --pushing
                 done
             fi
         done
@@ -162,25 +147,20 @@ in
         template = "${pkgs.writeText "git-commit-template" ''
 
           # |<----  Using a Maximum Of 50 Characters  ---->|
-          # <type>[optional scope]: <description>
+          # <scope>: <description>
           #
-          # fix: a commit of the type fix patches a bug in your codebase
-          # feat: a commit of the type feat introduces a new feature to the codebase
+          # [optional body]
           #
-          # BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appends a !
-          # after the type/scope, introduces a breaking API change. A BREAKING CHANGE can
-          # be part of commits of any type.
-          #
-          # other types: build, chore, ci, docs, style, refactor, perf, test
+          # [optional trailer(s)]
 
           # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
 
           # --- COMMIT END ---
           # Remember to
-          #    Capitalize, imperative, no period, blank line between subject
+          #    Lowercase, imperative, no period, blank line between subject
           #    Use the body to explain what and why vs. how
           # Can use multiple lines with "-" or "*" for bullet points in body
-          # -----------------
+          # ------------------
         ''}";
       };
     };
