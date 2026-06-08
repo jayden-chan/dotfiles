@@ -169,11 +169,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780252151,
-        "narHash": "sha256-KV2ibVOaDB3PhwGQslWp1MpFFbiKUuFeu/+VEkWt+9M=",
+        "lastModified": 1780756604,
+        "narHash": "sha256-SF3cRlnroSIPZ6NTG5bwQ/TohLIKT/1Lye4ZKNQmAUI=",
         "ref": "refs/heads/main",
-        "rev": "e2170f6238a19d52e27d84c359b5309c9c92ed6a",
-        "revCount": 5,
+        "rev": "1d2b7710c547a05dc32147280504bac8f4d5f3e4",
+        "revCount": 6,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/git-check.git"
       },
@@ -384,16 +384,19 @@
     },
     "prodge": {
       "inputs": {
+        "crane": [
+          "crane"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1780709015,
-        "narHash": "sha256-DbTmNmmbxsVNjwG3hZVpv3XByyG4939AynS1OA8Urqw=",
+        "lastModified": 1781273388,
+        "narHash": "sha256-iRG9LzCO4BtNdMJSFofL6NeFVD9uvYtMPCuEG+jKLuk=",
         "ref": "refs/heads/main",
-        "rev": "13064cdcda6982d07d09bdcbe97abb7b406cf0ad",
-        "revCount": 48,
+        "rev": "cc6da3c42ca8e21ad11a7abc4342b1695218e66b",
+        "revCount": 79,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/prodge.git"
       },
@@ -620,11 +623,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780255863,
-        "narHash": "sha256-RPl/Rslqm/G87ZBXyDRtDKdjK2uMPOnvilQUVu5qgvQ=",
+        "lastModified": 1781021559,
+        "narHash": "sha256-diNNjCofDx/1UE7kYhOcFxaoYHlP/Q4toDTqTRKDj/o=",
         "ref": "refs/heads/master",
-        "rev": "7fcf17971436736662c1f28ca30c4c207ceb1afc",
-        "revCount": 72,
+        "rev": "4b147f88ae8e2a7bd21278b82149b262421ddb98",
+        "revCount": 78,
         "type": "git",
         "url": "ssh://git@git.jayden.codes/jayden/weblogs.git"
       },

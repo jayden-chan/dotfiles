@@ -25,6 +25,10 @@
     notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
     notifications-dbus-mon.inputs.crane.follows = "crane";
 
+    prodge.url = "git+ssh://git@git.jayden.codes/jayden/prodge.git";
+    prodge.inputs.nixpkgs.follows = "nixpkgs";
+    prodge.inputs.crane.follows = "crane";
+
     sensors-mon.url = "git+ssh://git@git.jayden.codes/jayden/sensors-mon.git";
     sensors-mon.inputs.nixpkgs.follows = "nixpkgs";
     sensors-mon.inputs.crane.follows = "crane";
@@ -39,9 +43,6 @@
 
     mediaman.url = "git+ssh://git@git.jayden.codes/jayden/mediaman.git";
     mediaman.inputs.nixpkgs.follows = "nixpkgs";
-
-    prodge.url = "git+ssh://git@git.jayden.codes/jayden/prodge.git";
-    prodge.inputs.nixpkgs.follows = "nixpkgs";
 
     weblogs.url = "git+ssh://git@git.jayden.codes/jayden/weblogs.git";
     weblogs.inputs.nixpkgs.follows = "nixpkgs";
