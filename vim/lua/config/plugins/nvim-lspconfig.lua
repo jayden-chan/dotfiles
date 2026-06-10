@@ -128,10 +128,10 @@ return {
 						allFeatures = true,
 					},
 					checkOnSave = true,
-					-- check = {
-					-- 	features = "all",
-					-- 	command = "cargo clippy --workspace --message-format=json --all-targets --all-features",
-					-- },
+					check = {
+						features = "all",
+						command = "clippy",
+					},
 					completion = {
 						postfix = {
 							enable = false,

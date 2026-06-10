@@ -78,7 +78,6 @@ vim.opt.laststatus = 3
 -- Leader
 vim.g.mapleader = " "
 
-vim.g.rustfmt_autosave = 1
 vim.g.sql_type_default = "pgsql"
 
 vim.g.tmux_navigator_no_mappings = 1

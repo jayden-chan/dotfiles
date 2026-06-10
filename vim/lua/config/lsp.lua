@@ -19,8 +19,8 @@ local on_attach = function(client, bufnr)
 
 	local bind_opts = { noremap = true, silent = true }
 	buf_key("n", "<leader>H", "<cmd>lua vim.diagnostic.open_float()<CR>", bind_opts)
-	buf_key("n", "[e", "<cmd>lua vim.diagnostic.goto_prev()<CR>", bind_opts)
-	buf_key("n", "]e", "<cmd>lua vim.diagnostic.goto_next()<CR>", bind_opts)
+	buf_key("n", "[e", "<cmd>lua vim.diagnostic.jump({count=-1, float=true})<CR>", bind_opts)
+	buf_key("n", "]e", "<cmd>lua vim.diagnostic.jump({count=1, float=true})<CR>", bind_opts)
 	buf_key("n", "<leader>o", "<cmd>lua vim.lsp.buf.definition()<CR>", bind_opts)
 	buf_key("n", "<leader>O", "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", bind_opts)
 	buf_key("n", "<leader>g", "<cmd>lua vim.lsp.buf.hover()<CR>", bind_opts)
