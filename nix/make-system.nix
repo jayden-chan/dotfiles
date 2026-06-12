@@ -13,8 +13,6 @@ let
     system = system;
     config.allowUnfree = true;
   };
-in
-nixpkgs.lib.nixosSystem {
   specialArgs = nixpkgs.lib.recursiveUpdate args (
     nixpkgs.lib.recursiveUpdate host-args."${hostname}" {
       unstable = import args.inputs.nixpkgs-unstable nixpkgs-config;
@@ -24,6 +22,9 @@ nixpkgs.lib.nixosSystem {
       };
     }
   );
+in
+nixpkgs.lib.nixosSystem {
+  specialArgs = specialArgs;
 
   system = system;
 
@@ -37,7 +38,7 @@ nixpkgs.lib.nixosSystem {
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.extraSpecialArgs = nixpkgs.lib.recursiveUpdate args host-args."${hostname}";
+      home-manager.extraSpecialArgs = specialArgs;
       home-manager.users."${args.config-vars.username}" = import ./hosts/${hostname}/home.nix;
     }
   ];

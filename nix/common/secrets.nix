@@ -52,4 +52,11 @@
     owner = config-vars.username;
     group = "users";
   };
+
+  age.secrets."cookies-backup" = {
+    file = ../secrets/cookies-backup.age;
+    mode = "0400";
+    owner = config-vars.username;
+    group = "users";
+  };
 }

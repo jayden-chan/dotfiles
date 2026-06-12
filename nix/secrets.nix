@@ -16,4 +16,5 @@ in
   "secrets/ssh-config.age".publicKeys = users ++ systems;
   "secrets/smtp-pass.age".publicKeys = users ++ systems;
   "secrets/gps-coords.json.age".publicKeys = users ++ systems;
+  "secrets/cookies-backup.age".publicKeys = users ++ systems;
 }
