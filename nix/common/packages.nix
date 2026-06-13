@@ -42,11 +42,12 @@
     lsp-plugins
     maim
     mediainfo
+    mousepad
     mullvad-browser
     nil
     nitrogen
-    nixfmt-rfc-style
-    nodejs_24
+    nixfmt
+    nodejs_26
     nsxiv
     passage
     pavucontrol
@@ -58,6 +59,7 @@
     ripgrep
     rofi
     rsync
+    signal-desktop
     stylua
     taplo
     tokei
@@ -81,17 +83,15 @@
     gcc
     tree-sitter
 
-    xfce.mousepad
-
-    xorg.xev
-    xorg.xinput
-    xorg.xmodmap
-    xorg.xprop
-    xorg.xrdb
-    xorg.xset
     xclip
     xcolor
     xdotool
+    xev
+    xinput
+    xmodmap
+    xprop
+    xrdb
+    xset
 
     unstable.firefox-devedition
     unstable.spotify

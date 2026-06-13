@@ -1,8 +1,8 @@
-{ pkgs, config-vars, ... }:
+{ pkgs, ... }:
 
 let
-  package = pkgs.xfce.thunar.override {
-    thunarPlugins = with pkgs.xfce; [
+  package = pkgs.thunar.override {
+    thunarPlugins = with pkgs; [
       thunar-archive-plugin
       thunar-volman
     ];

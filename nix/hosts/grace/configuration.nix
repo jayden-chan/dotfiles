@@ -56,8 +56,6 @@ in
     "snd_hda_intel"
   ];
 
-  networking.wireless.enable = false;
-
   environment.systemPackages = with pkgs; [
     ardour
     borgbackup

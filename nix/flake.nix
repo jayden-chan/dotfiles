@@ -2,19 +2,19 @@
   description = "System configuration Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=29916453413845e54a65b8a1cf996842300cd299";
+    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=9ae611a455b90cf061d8f332b977e387bda8e1ca";
     crane.url = "github:ipetkov/crane";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.darwin.follows = "";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix/release-25.11";
+    stylix.url = "github:nix-community/stylix/release-26.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     guitar-midi-mapper.url = "git+ssh://git@git.jayden.codes/jayden/guitar-midi-mapper.git";

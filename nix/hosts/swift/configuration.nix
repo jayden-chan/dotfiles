@@ -23,9 +23,6 @@
   };
 
   services.libinput.enable = true;
-  networking.wireless.enable = false;
-
-  programs.light.enable = true;
   programs.nm-applet.enable = true;
 
   networking.firewall = {
@@ -36,5 +33,5 @@
     allowedTCPPorts = [ 4334 ];
   };
 
-  environment.systemPackages = [ ];
+  environment.systemPackages = with pkgs; [ brightnessctl ];
 }

@@ -8,10 +8,7 @@
 
   networking = {
     hostName = config-vars.hostname;
-    networkmanager = {
-      enable = true;
-      dns = "dnsmasq";
-    };
+    networkmanager.enable = true;
   };
 
   fileSystems."homelab" = {
