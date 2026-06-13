@@ -25,14 +25,6 @@
           end
       end
 
-      local function shell_quote(input)
-          if string.find(input, "'") then
-              return ' "' .. input .. '" '
-          else
-              return " '" .. input .. "' "
-          end
-      end
-
       local function clear_marks()
           cuts = {}
           mp.osd_message("Cleared marks")
@@ -59,16 +51,17 @@
           end
 
           local input_path = mp.get_property("stream-path")
-          local shell_cmd =
-              "videoman cut --notify --quality="
-              .. quality_mode
-              .. shell_quote(input_path)
+          local cmd = {
+              "videoman",
+              "cut",
+              "--notify",
+              "--quality=" .. quality_mode,
+              input_path,
+          }
 
           for i, k in pairs(cuts) do
-              shell_cmd = shell_cmd .. shell_quote(k)
+              table.insert(cmd, "" .. k)
           end
-
-          local cmd = { "zsh", "-c", shell_cmd }
 
           mp.osd_message("Rendering clip...", 9999)
           mp.set_property("pause", "yes")
