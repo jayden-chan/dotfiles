@@ -41,7 +41,6 @@ const ENV = Object.fromEntries(
     ),
 );
 
-const EDITOR = process.env["EDITOR"] ?? "nvim";
 const TERMINAL = process.env["TERMINAL"];
 if (!TERMINAL) {
   await error("$TERMINAL env var isn't set");
@@ -77,7 +76,7 @@ await writeFile(tmpFile, currentContent);
 
 const proc = spawn(
   TERMINAL,
-  ["--class=lakehouse-nvim", "-e", EDITOR, tmpFile],
+  ["--class=lakehouse-nvim", "-e", "nvim", "-c", "setlocal nowrap", tmpFile],
   { stdio: "inherit" },
 );
 
