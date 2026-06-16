@@ -62,6 +62,7 @@ alias node='node --enable-source-maps --unhandled-rejections=strict'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
 alias ffprobej='ffprobe -v quiet -hide_banner -print_format json -show_format -show_streams'
+alias yt-dlp='yt-dlp --no-update'
 
 # Other
 alias clip='xclip -selection c'

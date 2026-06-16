@@ -1,9 +1,9 @@
 {
   pkgs,
-  unstable,
   lib,
   config,
   config-vars,
+  llama,
   inputs,
   ...
 }:
@@ -57,6 +57,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    ansel
     ardour
     borgbackup
     caffeine-ng
@@ -68,11 +69,13 @@ in
     fritzing
     google-cloud-sdk
     hugin
+    kdePackages.kdenlive
     liquidctl
     mat2
     mcaselector
     noise-repellent
     numlockx
+    opencode
     openscad-unstable
     orca-slicer
     p7zip
@@ -81,22 +84,16 @@ in
     qrencode
     sqlite-interactive
     v4l-utils
+    yarg
 
-    unstable.ansel
-    unstable.kdePackages.kdenlive
-    unstable.opencode
-    unstable.yarg
-
-    ((import inputs.nixpkgs-llama config-vars.nixpkgs-config).llama-cpp.override {
-      cudaSupport = true;
-    })
+    llama
 
     inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
 
     # make the NVIDIA X11 libraries available for gpu-screen-recorder
     (pkgs.runCommand "gpu-screen-recorder" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
       mkdir -p $out/bin
-      makeWrapper ${unstable.gpu-screen-recorder}/bin/gpu-screen-recorder $out/bin/gpu-screen-recorder \
+      makeWrapper ${pkgs.gpu-screen-recorder}/bin/gpu-screen-recorder $out/bin/gpu-screen-recorder \
         --prefix LD_LIBRARY_PATH : ${pkgs.libglvnd}/lib \
         --prefix LD_LIBRARY_PATH : ${nvidia-package}/lib
     '')
@@ -221,30 +218,33 @@ in
     };
   };
 
-  # this rule needs to have a custom priority other than 99-local because
-  # the uaccess tag needs to be assigned before the 70- tier of priorities
-  # https://github.com/systemd/systemd/issues/4288#issuecomment-348166161
-  services.udev.packages = lib.singleton (
-    pkgs.writeTextFile {
-      name = "aquacomputer-quadro";
-      text = ''
+  services.udev = {
+    enable = true;
+
+    # this rule needs to have a custom priority other than 99-local because
+    # the uaccess tag needs to be assigned before the 70- tier of priorities
+    # https://github.com/systemd/systemd/issues/4288#issuecomment-348166161
+    packages = lib.singleton (
+      pkgs.writeTextFile {
+        name = "aquacomputer-quadro";
         # Aquacomputer Quadro allow access to non-root users
-        ACTION!="remove", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0c70", ATTRS{idProduct}=="f00d", MODE="0660", TAG+="uaccess"
-      '';
-      destination = "/etc/udev/rules.d/60-aquacomputer-quadro.rules";
-    }
-  );
+        text = ''
+          ACTION!="remove", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0c70", ATTRS{idProduct}=="f00d", MODE="0660", TAG+="uaccess"
+        '';
+        destination = "/etc/udev/rules.d/60-aquacomputer-quadro.rules";
+      }
+    );
 
-  services.udev.extraRules = ''
     # Disable motherboard bluetooth adapter
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="0e8d", ATTRS{idProduct}=="0616", ATTR{authorized}="0"
-
+    #   ATTRS{idVendor}=="0e8d", ATTRS{idProduct}=="0616"
     # Disable motherboard USB audio
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="0414", ATTRS{idProduct}=="a014", ATTR{authorized}="0"
-
-    # Sunshine input rules
-    KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
-  '';
+    #   ATTRS{idVendor}=="0414", ATTRS{idProduct}=="a014"
+    extraRules = ''
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="0e8d", ATTRS{idProduct}=="0616", ATTR{authorized}="0"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="0414", ATTRS{idProduct}=="a014", ATTR{authorized}="0"
+      KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+    '';
+  };
 
   # Epson scanner support
   hardware.sane = {

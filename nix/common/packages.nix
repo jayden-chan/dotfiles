@@ -1,9 +1,4 @@
-{
-  pkgs,
-  unstable,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -27,6 +22,7 @@
     ffmpegthumbnailer
     file
     file-roller
+    firefox-devedition
     fontconfig
     fzf
     gimp
@@ -44,6 +40,7 @@
     mediainfo
     mousepad
     mullvad-browser
+    neovim
     nil
     nitrogen
     nixfmt
@@ -60,6 +57,7 @@
     rofi
     rsync
     signal-desktop
+    spotify
     stylua
     taplo
     tokei
@@ -70,6 +68,7 @@
     wireguard-tools
     x42-plugins
     yq-go
+    yt-dlp
     yubikey-manager
     zbar
     zsh-syntax-highlighting
@@ -92,11 +91,6 @@
     xprop
     xrdb
     xset
-
-    unstable.firefox-devedition
-    unstable.spotify
-    unstable.yt-dlp
-    unstable.neovim
 
     inputs.agenix.packages.${stdenv.hostPlatform.system}.default
     inputs.notifications-dbus-mon.packages."${stdenv.hostPlatform.system}".default

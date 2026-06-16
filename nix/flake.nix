@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-llama.url = "github:nixos/nixpkgs?rev=9ae611a455b90cf061d8f332b977e387bda8e1ca";
     crane.url = "github:ipetkov/crane";
 
@@ -78,13 +77,19 @@
       };
 
       host-args = {
-        grace = {
+        grace = rec {
           config-vars = {
             system = "x86_64-linux";
             timezone = "America/Edmonton";
             terminal-font-size = 12;
             vsync = false;
           };
+          llama =
+            (import inputs.nixpkgs-llama {
+              system = config-vars.system;
+              config.allowUnfree = true;
+            }).llama-cpp.override
+              { cudaSupport = true; };
         };
 
         swift = {

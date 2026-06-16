@@ -1,7 +1,7 @@
 {
   pkgs,
-  unstable,
   config-vars,
+  inputs,
   ...
 }:
 
@@ -100,7 +100,7 @@
         cookies_tmp_path="$(${pkgs.lib.getExe' pkgs.coreutils "mktemp"} --tmpdir=/dev/shm cookies-backup-XXXXX.txt)"
         ${pkgs.lib.getExe' pkgs.coreutils "rm"} "$cookies_tmp_path"
         set +e
-        ${pkgs.lib.getExe' unstable.yt-dlp "yt-dlp"} --cookies-from-browser "firefox:$profile_path" --cookies "$cookies_tmp_path"
+        ${pkgs.lib.getExe' pkgs.yt-dlp "yt-dlp"} --cookies-from-browser "firefox:$profile_path" --cookies "$cookies_tmp_path"
         set -e
         ${pkgs.lib.getExe' pkgs.coreutils "cp"} "$cookies_tmp_path" "$(${pkgs.lib.getExe' pkgs.gnused "sed"} -n '2p' /run/agenix/cookies-backup)"
         ${pkgs.lib.getExe' pkgs.coreutils "rm"} -f "$cookies_tmp_path"
@@ -118,7 +118,7 @@
     };
 
     Timer = {
-      OnCalendar = "daily";
+      OnCalendar = "*-*-* 14:13:00";
       Unit = "cookies-backup.service";
     };
   };

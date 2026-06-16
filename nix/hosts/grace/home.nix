@@ -1,4 +1,10 @@
-{ lib, config-vars, ... }:
+{
+  lib,
+  config-vars,
+  llama,
+  pkgs,
+  ...
+}:
 
 let
   fingerprint_zowie_xl2746s = "00ffffffffffff0009d1777f01010101031f0104a53c22783fa265a454519d26105054a56b80d1c081c081008180a9c0b30081bc0101023a801871382d40582c450056502100001e000000ff0045424d314d3030353035534c30000000fd0030f0ffff3c010a202020202020000000fc005a4f57494520584c204c43440a012b020318f14b010203040590111213141f2309070783010000fe5b80a0703835403020350056502100001a866f80a0703840403020350056502100001a5a8780a070384d403020350056502100001a23e88078703887401c20980c56502100001a9cc700085200a0407490370056502100001c00000000000000000000000000b8";
@@ -112,5 +118,21 @@ in
       Icon=${config-vars.dotfiles-dir}/scripts/wallpaper/wallpaper-ico.png
       Terminal=false
     '';
+  };
+
+  systemd.user.services."llama-server" = {
+    Unit = {
+      Description = "llama.cpp server";
+      After = "graphical-session.target";
+      PartOf = "graphical-session.target";
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.lib.getExe' llama "llama-server"} --host 0.0.0.0 --port 10097 --no-models-autoload --models-max 1 --models-preset ${config-vars.home-dir}/Documents/ai/config.ini --api-key-file /run/agenix/llama-api-key";
+    };
   };
 }

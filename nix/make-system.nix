@@ -15,7 +15,6 @@ let
   };
   specialArgs = nixpkgs.lib.recursiveUpdate args (
     nixpkgs.lib.recursiveUpdate host-args."${hostname}" {
-      unstable = import args.inputs.nixpkgs-unstable nixpkgs-config;
       config-vars = {
         inherit nixpkgs-config;
         inherit hostname;

@@ -59,4 +59,11 @@
     owner = config-vars.username;
     group = "users";
   };
+
+  age.secrets."llama-api-key" = {
+    file = ../secrets/llama-api-key.age;
+    mode = "0400";
+    owner = config-vars.username;
+    group = "users";
+  };
 }
