@@ -14,21 +14,6 @@ nitrogen --restore &
 ps_ax="/tmp/autostart_psax";
 ps -ax > "$ps_ax"
 
-if ! rga "/bin/redshift" "$ps_ax"; then
-    msg "starting redshift"
-    redshift &
-fi
-
-if ! rga "/bin/thunar --daemon" "$ps_ax"; then
-    msg "starting thunar daemon"
-    thunar --daemon &
-fi
-
-if ! rga "notifications-dbus-mon" "$ps_ax"; then
-    msg "starting notifications-dbus-mon"
-    notifications-dbus-mon &
-fi
-
 if [ "$HOSTNAME" = "grace" ]; then
     if ! rga "/share/carla/carla" "$ps_ax"; then
         msg "starting carla"

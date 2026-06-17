@@ -15,9 +15,8 @@
     group = "users";
   };
 
-  age.secrets.redshift = {
+  age.secrets."redshift.conf" = {
     file = ../secrets/redshift.conf.age;
-    path = "${config-vars.home-dir}/.config/redshift.conf";
     mode = "0400";
     owner = config-vars.username;
     group = "users";

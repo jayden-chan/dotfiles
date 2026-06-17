@@ -135,4 +135,39 @@ in
       ExecStart = "${pkgs.lib.getExe' llama "llama-server"} --host 0.0.0.0 --port 10097 --no-models-autoload --models-max 1 --models-preset ${config-vars.home-dir}/Documents/ai/config.ini --api-key-file /run/agenix/llama-api-key";
     };
   };
+
+  systemd.user.services."cookies-backup" = {
+    Unit = {
+      Description = "Firefox cookies backup";
+    };
+
+    Service = {
+      ExecStart = pkgs.writeShellScript "cookies-backup" ''
+        set -euo pipefail
+        profile_path="${config-vars.home-dir}/$(${pkgs.lib.getExe' pkgs.gnused "sed"} -n '1p' /run/agenix/cookies-backup)"
+        cookies_tmp_path="$(${pkgs.lib.getExe' pkgs.coreutils "mktemp"} --tmpdir=/dev/shm cookies-backup-XXXXX.txt)"
+        ${pkgs.lib.getExe' pkgs.coreutils "rm"} "$cookies_tmp_path"
+        set +e
+        ${pkgs.lib.getExe' pkgs.yt-dlp "yt-dlp"} --cookies-from-browser "firefox:$profile_path" --cookies "$cookies_tmp_path"
+        set -e
+        ${pkgs.lib.getExe' pkgs.coreutils "cp"} "$cookies_tmp_path" "$(${pkgs.lib.getExe' pkgs.gnused "sed"} -n '2p' /run/agenix/cookies-backup)"
+        ${pkgs.lib.getExe' pkgs.coreutils "rm"} -f "$cookies_tmp_path"
+      '';
+    };
+  };
+
+  systemd.user.timers."cookies-backup" = {
+    Unit = {
+      Description = "Firefox cookies backup";
+    };
+
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+
+    Timer = {
+      OnCalendar = "*-*-* 14:13:00";
+      Unit = "cookies-backup.service";
+    };
+  };
 }

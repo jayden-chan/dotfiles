@@ -1,7 +1,6 @@
 {
   pkgs,
   config-vars,
-  inputs,
   ...
 }:
 
@@ -20,6 +19,7 @@
     ./picom.nix
     ./pnpm.nix
     ./starship.nix
+    ./systemd.nix
     ./thunar-uca.nix
     ./tmux.nix
     ./xresources.nix
@@ -86,40 +86,5 @@
     enableFishIntegration = false;
     enableNushellIntegration = false;
     enableScDaemon = false;
-  };
-
-  systemd.user.services."cookies-backup" = {
-    Unit = {
-      Description = "Firefox cookies backup";
-    };
-
-    Service = {
-      ExecStart = pkgs.writeShellScript "cookies-backup" ''
-        set -euo pipefail
-        profile_path="${config-vars.home-dir}/$(${pkgs.lib.getExe' pkgs.gnused "sed"} -n '1p' /run/agenix/cookies-backup)"
-        cookies_tmp_path="$(${pkgs.lib.getExe' pkgs.coreutils "mktemp"} --tmpdir=/dev/shm cookies-backup-XXXXX.txt)"
-        ${pkgs.lib.getExe' pkgs.coreutils "rm"} "$cookies_tmp_path"
-        set +e
-        ${pkgs.lib.getExe' pkgs.yt-dlp "yt-dlp"} --cookies-from-browser "firefox:$profile_path" --cookies "$cookies_tmp_path"
-        set -e
-        ${pkgs.lib.getExe' pkgs.coreutils "cp"} "$cookies_tmp_path" "$(${pkgs.lib.getExe' pkgs.gnused "sed"} -n '2p' /run/agenix/cookies-backup)"
-        ${pkgs.lib.getExe' pkgs.coreutils "rm"} -f "$cookies_tmp_path"
-      '';
-    };
-  };
-
-  systemd.user.timers."cookies-backup" = {
-    Unit = {
-      Description = "Firefox cookies backup";
-    };
-
-    Install = {
-      WantedBy = [ "timers.target" ];
-    };
-
-    Timer = {
-      OnCalendar = "*-*-* 14:13:00";
-      Unit = "cookies-backup.service";
-    };
   };
 }
