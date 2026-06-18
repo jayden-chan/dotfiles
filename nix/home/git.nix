@@ -93,7 +93,7 @@ in
 
             .null-ls-root
             .null-ls-enable-eslint
-            .git-ignored-general
+            .attic
 
             ##### Linux OS ignores
 
