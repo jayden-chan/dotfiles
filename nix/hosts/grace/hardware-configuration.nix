@@ -28,8 +28,9 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a2325fd9-da29-4e34-9c93-fc68e0b8f6ff";
+    device = "/dev/mapper/MyVolGroup-nixos--root";
     fsType = "ext4";
+    options = [ "x-systemd.device-timeout=infinity" ];
   };
 
   fileSystems."/boot" = {
@@ -41,7 +42,7 @@
     ];
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/990a8fc4-e619-4e21-91a9-0a27d766fa9c"; } ];
+  swapDevices = [ { device = "/dev/mapper/MyVolGroup-nixos--swap"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
