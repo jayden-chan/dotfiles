@@ -68,10 +68,10 @@ return {
 				client.server_capabilities.documentFormattingProvider = false
 
 				user_cmd(bufnr, "TSOrganizeImports", function()
-					vim.lsp.buf.execute_command({
+					client:exec_cmd({
 						command = "_typescript.organizeImports",
-						arguments = { vim.fn.expand("%:p") },
-					})
+						arguments = { vim.api.nvim_buf_get_name(bufnr) },
+					}, { bufnr = bufnr })
 				end, { nargs = 0 })
 
 				on_attach(client, bufnr)
