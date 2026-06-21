@@ -84,6 +84,8 @@ in
     qrencode
     sqlite-interactive
     v4l-utils
+
+    hidapi
     yarg
 
     llama
@@ -230,6 +232,7 @@ in
         # Aquacomputer Quadro allow access to non-root users
         text = ''
           ACTION!="remove", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0c70", ATTRS{idProduct}=="f00d", MODE="0660", TAG+="uaccess"
+          KERNEL=="hidraw*", TAG+="uaccess"
         '';
         destination = "/etc/udev/rules.d/60-aquacomputer-quadro.rules";
       }
@@ -239,9 +242,12 @@ in
     #   ATTRS{idVendor}=="0e8d", ATTRS{idProduct}=="0616"
     # Disable motherboard USB audio
     #   ATTRS{idVendor}=="0414", ATTRS{idProduct}=="a014"
+    # Allow access to Harmonix Rock Band 3 Keytar
+    #   SUBSYSTEM=="usb", ATTRS{idVendor}=="1bad", ATTRS{idProduct}=="3330", MODE="0660", GROUP="input"
     extraRules = ''
       SUBSYSTEM=="usb", ATTRS{idVendor}=="0e8d", ATTRS{idProduct}=="0616", ATTR{authorized}="0"
       SUBSYSTEM=="usb", ATTRS{idVendor}=="0414", ATTRS{idProduct}=="a014", ATTR{authorized}="0"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="1bad", ATTRS{idProduct}=="3330", MODE="0660", GROUP="input"
       KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
     '';
   };

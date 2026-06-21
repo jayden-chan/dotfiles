@@ -671,7 +671,7 @@ local globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "u", function()
 		awful.spawn.with_line_callback(
-			{ "guitar-midi-mapper", "RedOctane Guitar Hero X-plorer", ".*Virtual Raw MIDI \\d-1:VirMIDI.*" },
+			{ "guitar-midi-mapper", "gamepad", ".*Virtual Raw MIDI \\d-1:VirMIDI.*", "RedOctane Guitar Hero X-plorer" },
 			{
 				stdout = function(line)
 					awesome.emit_signal("guitar-midi-mapper", line)
