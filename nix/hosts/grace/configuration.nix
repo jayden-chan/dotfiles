@@ -86,7 +86,14 @@ in
     v4l-utils
 
     hidapi
-    yarg
+    (yarg.overrideAttrs {
+      version = "0.15.0";
+      src = fetchzip {
+        url = "https://github.com/YARC-Official/YARG/releases/download/v0.15.0/YARG_v0.15.0-Linux-x86_64.zip";
+        stripRoot = false;
+        hash = "sha256-xIWiQe0GSt6S9j2Xte/p+FHuO07Tv69zxS+OdNEI1sI=";
+      };
+    })
 
     llama
 
