@@ -48,6 +48,14 @@ alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window
 alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files -e ssh'
 alias myip='curl https://ipinfo.io/ip && echo'
 
+# systemd
+alias sre='systemctl restart'
+alias sure='systemctl --user restart'
+alias sys='systemctl status'
+alias sus='systemctl --user status'
+alias sj='journalctl -xeu'
+alias sju='journalctl --user -xeu'
+
 # better defaults
 alias clear='clear -x'
 alias ls='eza --binary'
