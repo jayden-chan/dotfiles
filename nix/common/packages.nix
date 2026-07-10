@@ -14,6 +14,7 @@
     carla
     czkawka-full
     dig
+    discord
     eza
     fastfetch
     fd
@@ -64,7 +65,6 @@
     trash-cli
     typst
     usbutils
-    vesktop
     wireguard-tools
     x42-plugins
     yq-go
