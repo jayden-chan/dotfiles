@@ -93,6 +93,7 @@ in
         stripRoot = false;
         hash = "sha256-xIWiQe0GSt6S9j2Xte/p+FHuO07Tv69zxS+OdNEI1sI=";
       };
+      mainProgram = "yarg";
     })
 
     llama
