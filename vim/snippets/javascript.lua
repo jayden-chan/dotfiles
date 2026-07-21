@@ -103,7 +103,7 @@ export const {1} = (props: {{}}) => {{
 import {{ Decimal }} from "decimal.js";
 import {{ writeFileSync }} from "node:fs";
 import {{ cube }} from "scad-js";
-import {{ n }} from "./lib";
+import {{ n }} from "./lib/index.ts";
 
 const EXT_WIDTH = new Decimal("0.45");
 
@@ -124,6 +124,7 @@ main();
 			{ i(0) }
 		)
 	),
+	s("d", fmt('new Decimal("{}")', i(0))),
 	s(
 		"zz",
 		fmt(
