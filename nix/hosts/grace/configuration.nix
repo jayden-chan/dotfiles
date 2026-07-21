@@ -69,13 +69,13 @@ in
     fritzing
     google-cloud-sdk
     hugin
+    inkscape
     kdePackages.kdenlive
     liquidctl
     mat2
     mcaselector
     noise-repellent
     numlockx
-    opencode
     openscad-unstable
     orca-slicer
     p7zip

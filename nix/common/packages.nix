@@ -26,7 +26,7 @@
     firefox-devedition
     fontconfig
     fzf
-    gimp
+    (gimp-with-plugins.overrideAttrs ({ plugins = [ gimpPlugins.resynthesizer ]; }))
     gnumake
     go
     gopls
@@ -65,6 +65,7 @@
     trash-cli
     typst
     usbutils
+    watchexec
     wireguard-tools
     x42-plugins
     yq-go
