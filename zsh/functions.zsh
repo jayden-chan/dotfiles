@@ -7,7 +7,8 @@ function uridec     () { echo 'console.log(decodeURI(process.env.TO_DECODE))' | 
 function podprune () {
     podman container ls -a --external --quiet | xargs --no-run-if-empty podman container rm -f
     podman image ls | rg -v 'git\.jayden\.codes' | rg -v '<none>' | tail -n +2 | awk '{print $3}' | xargs --no-run-if-empty podman image rm
-    podman image prune
+    # --force flag just skips the interactive confirmation
+    podman image prune --force
 }
 
 function randstring () {
