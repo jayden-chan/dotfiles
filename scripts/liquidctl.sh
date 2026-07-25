@@ -10,10 +10,6 @@ fan2="fan3"
 pump="fan2"
 level="$1"
 
-if [ "$2" = "--automated" ]; then
-    notify-send -u critical "liquidctl" "WARNING: Cooling level was set automatically"
-fi
-
 set -e
 
 case "$level" in

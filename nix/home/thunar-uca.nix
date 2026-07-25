@@ -165,15 +165,6 @@
             <range>*</range>
             <patterns>*</patterns>
             <image-files/>
-        </action>
-        <action>
-            <icon></icon>
-            <name>Anonymize</name>
-            <unique-id>1690485195569083-1</unique-id>
-            <command>picman anonymize %F</command>
-            <description></description>
-            <range>*</range>
-            <patterns>*</patterns>
             <audio-files/>
             <other-files/>
             <text-files/>
