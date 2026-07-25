@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=a2ec72db81381f99216520dff1414a72c337f1f4";
+    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=2efbe86bc8088ba17d56bd274541d31ada21dd9d";
     crane.url = "github:ipetkov/crane";
 
     agenix.url = "github:ryantm/agenix";
