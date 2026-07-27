@@ -88,8 +88,8 @@
             (import inputs.nixpkgs-llama {
               system = config-vars.system;
               config.allowUnfree = true;
-            }).llama-cpp.override
-              { cudaSupport = true; };
+              config.cudaSupport = true;
+            }).llama-cpp;
         };
 
         swift = {

@@ -9,14 +9,9 @@
 hostname:
 let
   system = host-args."${hostname}".config-vars.system;
-  nixpkgs-config = {
-    system = system;
-    config.allowUnfree = true;
-  };
   specialArgs = nixpkgs.lib.recursiveUpdate args (
     nixpkgs.lib.recursiveUpdate host-args."${hostname}" {
       config-vars = {
-        inherit nixpkgs-config;
         inherit hostname;
       };
     }

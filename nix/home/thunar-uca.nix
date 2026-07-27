@@ -141,7 +141,18 @@
             <command>${config-vars.terminal} -e sh -c &apos;picman sd-import %f | bat; read&apos;</command>
             <description></description>
             <range>*</range>
-            <patterns>*</patterns>
+            <patterns>*disk</patterns>
+            <directories/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>Sync G-codes</name>
+            <submenu></submenu>
+            <unique-id>1689902676394519-1</unique-id>
+            <command>miscman gcode-sync %f</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*MK4S*</patterns>
             <directories/>
         </action>
         <action>
@@ -161,6 +172,21 @@
             <submenu>picman</submenu>
             <unique-id>1690485195569083-1</unique-id>
             <command>picman anonymize %F</command>
+            <description></description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <image-files/>
+            <audio-files/>
+            <other-files/>
+            <text-files/>
+            <video-files/>
+        </action>
+        <action>
+            <icon></icon>
+            <name>Anonymize (no resize)</name>
+            <submenu>picman</submenu>
+            <unique-id>1690485194958793-1</unique-id>
+            <command>picman anonymize --noresize %F</command>
             <description></description>
             <range>*</range>
             <patterns>*</patterns>

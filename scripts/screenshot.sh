@@ -4,12 +4,13 @@ shopt -s expand_aliases
 alias maimselect='maim --noopengl --capturebackground --select --hidecursor'
 alias clip='xclip -selection c -filter'
 
-tmp_file=$(mktemp -t maimscript-XXXXXX)
+tmp_file="/dev/shm/maim_screenshot.png"
 
 case "$1" in
     # select a region to screenshot (or click to screenshot window)
     --select)
-        maimselect | clip -t image/png > "$tmp_file"
+        maimselect > "$tmp_file"
+        xclip -in -selection clipboard -t image/png "$tmp_file"
         notify-send -i "$tmp_file" "Maim" "Screenshot taken"
         ;;
     # scan a QR code
@@ -36,5 +37,3 @@ case "$1" in
         notify-send -i "$tmp_file" "Maim" "Screenshot taken"
         ;;
 esac
-
-rm -f "$tmp_file"

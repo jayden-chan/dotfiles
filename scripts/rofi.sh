@@ -47,7 +47,7 @@ elif [ "$1" = "--save-screenshot" ]; then
     if [ -f "$out_path" ]; then
         notify-send "Error" "File ${file} already exists"
     else
-        xclip -selection clipboard -t image/png -o > "$out_path"
+        cp "/dev/shm/maim_screenshot.png" "$out_path"
         notify-send -i "$out_path" "Maim" "Screenshot saved to ${file}"
     fi
 elif [ "$1" = "--autorandr" ]; then

@@ -135,6 +135,9 @@ function syc () {
         echo "=== syncing Git repos"
         cpr -e ssh                homelab:docker/forgejo/forgejo/git/repositories/jayden/ "$base_path/Git/"
 
+        echo "=== syncing YARG data"
+        cpr                       "$HOME/.config/unity3d/YARC/YARG/"                 "$base_path/YARG/"
+
         echo "=== syncing documents"
         cpr                       "$HOME/Documents/3D Printing/"                     "$base_path/Documents/3D Printing/"
         cpr                       "$HOME/Documents/Fritzing/"                        "$base_path/Documents/Fritzing/"

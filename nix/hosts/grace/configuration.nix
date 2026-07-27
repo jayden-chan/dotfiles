@@ -82,6 +82,7 @@ in
     prismlauncher
     protontricks
     qrencode
+    rembg
     sqlite-interactive
     v4l-utils
 
@@ -97,13 +98,6 @@ in
     })
 
     llama
-
-    (python3Packages.toPythonApplication (
-      python3Packages.rembg.override {
-        withCli = true;
-        cudaSupport = true;
-      }
-    ))
 
     inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
 

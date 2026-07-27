@@ -9,6 +9,7 @@ logged_cmd() {
 }
 
 webcam_model="C920"
+camera_setup_file="/dev/shm/webcam_setup_done"
 
 video_device=$(v4l2-ctl --list-devices | rg "C920" -A 1 | tail -n +2 | awk '{$1=$1};1')
 audio_device=$(pw-cli list-objects Node | rg "$webcam_model" | rg 'node\.name = "(.*)"' --only-matching --replace='$1' --color=never)
@@ -16,6 +17,11 @@ audio_device=$(pw-cli list-objects Node | rg "$webcam_model" | rg 'node\.name = 
 echo "Video Device: $video_device"
 echo "Audio Device: $audio_device"
 echo
+
+if [ "$video_device" = "" ] || [ "$audio_device" = "" ]; then
+    echo "Error: failed to locate either video or audio device"
+    exit 1
+fi
 
 if [ "$1" = "focus" ]; then
     logged_cmd v4l2-ctl -d "$video_device" -c focus_absolute="$2"
@@ -27,26 +33,30 @@ if [ "$1" = "exposure" ]; then
     exit $?
 fi
 
-echo "Setting camera to 1080p"
-logged_cmd v4l2-ctl -d "$video_device" --set-fmt-video=width=1920,height=1080,pixelformat=MJPG --set-parm=30
+if [ ! -f "$camera_setup_file" ] || [ "$1" = "--setup" ]; then
+    echo "Setting camera to 1080p"
+    logged_cmd v4l2-ctl -d "$video_device" --set-fmt-video=width=1920,height=1080,pixelformat=MJPG --set-parm=30
 
-sleep 1
+    sleep 1
 
-echo "Configuring optional camera settings"
+    echo "Configuring optional camera settings"
 
-# auto_exposure=1 means Manual Mode
-# auto_exposure=3 means Aperture Priority Mode
-logged_cmd v4l2-ctl -d "$video_device" -c auto_exposure=1
-sleep 1
-logged_cmd v4l2-ctl -d "$video_device" -c gain=50
-sleep 1
-logged_cmd v4l2-ctl -d "$video_device" -c exposure_dynamic_framerate=0
-sleep 1
-logged_cmd v4l2-ctl -d "$video_device" -c focus_automatic_continuous=0
-sleep 3
-logged_cmd v4l2-ctl -d "$video_device" -c focus_absolute=40
-sleep 1
-logged_cmd v4l2-ctl -d "$video_device" -c exposure_time_absolute=156
+    # auto_exposure=1 means Manual Mode
+    # auto_exposure=3 means Aperture Priority Mode
+    logged_cmd v4l2-ctl -d "$video_device" -c auto_exposure=1
+    sleep 1
+    logged_cmd v4l2-ctl -d "$video_device" -c gain=50
+    sleep 1
+    logged_cmd v4l2-ctl -d "$video_device" -c exposure_dynamic_framerate=0
+    sleep 1
+    logged_cmd v4l2-ctl -d "$video_device" -c focus_automatic_continuous=0
+    sleep 3
+    logged_cmd v4l2-ctl -d "$video_device" -c focus_absolute=40
+    sleep 1
+    logged_cmd v4l2-ctl -d "$video_device" -c exposure_time_absolute=156
+
+    echo "1" > "$camera_setup_file"
+fi
 
 echo "Starting feed"
 ffmpeg -f v4l2 -input_format mjpeg \

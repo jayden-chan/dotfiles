@@ -105,13 +105,13 @@ import {{ writeFileSync }} from "node:fs";
 import {{ cube }} from "scad-js";
 import {{ n }} from "./lib/index.ts";
 
-const EXT_WIDTH = new Decimal("0.45");
+// PHYSICAL CONSTANTS
 
+// MODEL VARIABLES
 const buf = new Decimal("0.01");
-const cubeWidth = new Decimal("10");
 
 function main() {{
-	const model = cube(n([cubeWidth, cubeWidth, cubeWidth]));
+	const model = cube(n(["10", "10", "10"]));
 	const output = [model].map((model) => model.serialize().trim()).join("\n");
 
 	const fn = 512;

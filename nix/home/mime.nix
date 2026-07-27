@@ -4,6 +4,7 @@ let
   basic-text-editor = "org.xfce.mousepad.desktop";
   browser = "firefox-devedition.desktop";
   file-roller = "org.gnome.FileRoller.desktop";
+  gimp = "gimp.desktop";
   mpv = "mpv.desktop";
   nsxiv = "nsxiv.desktop";
   protontricks = "protontricks-launch.desktop";
@@ -36,6 +37,7 @@ in
     "image/svg+xml" = [ nsxiv ];
     "image/webp" = [ qview ];
     "image/x-portable-pixmap" = [ qview ];
+    "image/x-xcf" = [ gimp ];
     "inode/directory" = [ thunar ];
     "text/csv" = [ basic-text-editor ];
     "text/html" = [ browser ];
