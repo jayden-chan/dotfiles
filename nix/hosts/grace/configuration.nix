@@ -98,6 +98,13 @@ in
 
     llama
 
+    (python3Packages.toPythonApplication (
+      python3Packages.rembg.override {
+        withCli = true;
+        cudaSupport = true;
+      }
+    ))
+
     inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
 
     # make the NVIDIA X11 libraries available for gpu-screen-recorder
