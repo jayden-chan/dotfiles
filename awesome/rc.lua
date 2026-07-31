@@ -636,7 +636,7 @@ local globalkeys = gears.table.join(
 	),
 
 	awful.key({ modkey, "Shift" }, "n", function()
-		awful.spawn.with_shell(scripts .. '/lakehouse-edit.ts "$(xclip -selection c -o)"')
+		awful.spawn.with_shell('miscman lakehouse-edit "$(xclip -selection c -o)"')
 	end, { description = "edit lakehouse note", group = "misc" }),
 
 	awful.key({ modkey }, "e", function()
