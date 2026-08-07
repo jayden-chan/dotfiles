@@ -4,6 +4,7 @@
   config,
   config-vars,
   llama,
+  unstable,
   inputs,
   ...
 }:
@@ -57,6 +58,8 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    aether-lv2
+    alsa-scarlett-gui
     ansel
     ardour
     borgbackup
@@ -68,6 +71,7 @@ in
     exiv2
     fritzing
     google-cloud-sdk
+    guitarix
     hugin
     inkscape
     kdePackages.kdenlive
@@ -79,12 +83,14 @@ in
     openscad-unstable
     orca-slicer
     p7zip
+    picocom
     prismlauncher
     protontricks
     qrencode
     rembg
     sqlite-interactive
     v4l-utils
+    vesktop
 
     hidapi
     (yarg.overrideAttrs {
@@ -98,6 +104,7 @@ in
     })
 
     llama
+    unstable.ratatouille-lv2
 
     inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
 
@@ -169,7 +176,10 @@ in
       }
     ];
 
-    allowedUDPPorts = [ ];
+    allowedUDPPorts = [
+      10097
+    ];
+
     allowedTCPPorts = [
       ssh-port
 

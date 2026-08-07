@@ -1,23 +1,26 @@
 {
-  nixpkgs,
-  agenix,
-  stylix,
-  home-manager,
   args,
   host-args,
+  inputs,
 }:
 hostname:
 let
   system = host-args."${hostname}".config-vars.system;
-  specialArgs = nixpkgs.lib.recursiveUpdate args (
-    nixpkgs.lib.recursiveUpdate host-args."${hostname}" {
+  specialArgs = inputs.nixpkgs.lib.recursiveUpdate args (
+    inputs.nixpkgs.lib.recursiveUpdate host-args."${hostname}" {
       config-vars = {
         inherit hostname;
       };
+      unstable = (
+        import inputs.nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        }
+      );
     }
   );
 in
-nixpkgs.lib.nixosSystem {
+inputs.nixpkgs.lib.nixosSystem {
   specialArgs = specialArgs;
 
   system = system;
@@ -25,9 +28,9 @@ nixpkgs.lib.nixosSystem {
   modules = [
     ./hosts/${hostname}/configuration.nix
 
-    agenix.nixosModules.default
-    stylix.nixosModules.stylix
-    home-manager.nixosModules.home-manager
+    inputs.agenix.nixosModules.default
+    inputs.stylix.nixosModules.stylix
+    inputs.home-manager.nixosModules.home-manager
 
     {
       home-manager.useGlobalPkgs = true;

@@ -40,9 +40,10 @@
 
     extraGroups = [
       "audio"
-      "video"
+      "dialout"
       "input"
       "networkmanager"
+      "video"
       "wheel"
     ];
   };

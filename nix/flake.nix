@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=2efbe86bc8088ba17d56bd274541d31ada21dd9d";
+    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=ed4942cb09ecfb6f7628166d9e041923c13bede6";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     crane.url = "github:ipetkov/crane";
 
     agenix.url = "github:ryantm/agenix";
@@ -48,14 +49,7 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      agenix,
-      home-manager,
-      stylix,
-      ...
-    }@inputs:
+    { ... }@inputs:
     let
       args = {
         inherit inputs;
@@ -89,7 +83,7 @@
               system = config-vars.system;
               config.allowUnfree = true;
               config.cudaSupport = true;
-            }).llama-cpp;
+            }).llama-cpp-cuda;
         };
 
         swift = {
@@ -103,12 +97,9 @@
       };
 
       system-inputs = {
-        inherit nixpkgs;
-        inherit agenix;
-        inherit stylix;
-        inherit home-manager;
         inherit args;
         inherit host-args;
+        inherit inputs;
       };
     in
     {
