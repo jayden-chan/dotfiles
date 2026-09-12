@@ -1,8 +1,9 @@
-{ config-vars, ... }:
+{ config-vars, unstable, ... }:
 
 {
   programs.lazygit = {
     enable = true;
+    package = unstable.lazygit;
 
     settings = {
       gui = {
@@ -17,6 +18,27 @@
         showFileTree = false;
         showCommandLog = false;
         mouseEvents = false;
+
+        shrinkSidePanelsToContent = true;
+        expandFocusedSidePanel = true;
+
+        sidePanels = [
+          [ "status" ]
+          [
+            "files"
+            "worktrees"
+          ]
+          [
+            "commits"
+            "reflog"
+          ]
+          [
+            "branches"
+            "remotes"
+            "tags"
+          ]
+          [ "stash" ]
+        ];
 
         theme = {
           selectedLineBgColor = [ config-vars.theme.cursorline ];
@@ -37,13 +59,16 @@
           nextBlock-alt = "l";
           scrollUpMain-alt1 = "I";
           scrollDownMain-alt1 = "K";
+
+          suspendApp = "<disabled>";
         };
         files = {
           commitChangesWithEditor = "c";
-          commitChanges = "C";
           ignoreFile = "h";
           amendLastCommit = "A";
-          stashAllChanges = "S";
+
+          copyFileInfoToClipboard = "<disabled>";
+          commitChanges = "<disabled>";
         };
       };
 
@@ -56,9 +81,9 @@
           "production"
         ];
         skipHookPrefix = "--wip--";
-        pagers = [
+        diffRenderers = [
           {
-            pager = "delta --dark --paging=never";
+            command = "delta --dark --paging=never";
             colorArg = "always";
           }
         ];

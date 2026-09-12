@@ -55,5 +55,9 @@
     GOPROXY = "direct";
     ARTILLERY_DISABLE_TELEMETRY = "true";
     ASTRO_TELEMETRY_DISABLED = "1";
+    PI_OFFLINE = "1";
+    PI_CODING_AGENT_DIR = "${XDG_CONFIG_HOME}/pi";
+    PI_SKIP_VERSION_CHECK = "1";
+    PI_TELEMETRY = "0";
   };
 }

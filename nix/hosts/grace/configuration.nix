@@ -78,7 +78,6 @@ in
     liquidctl
     mat2
     mcaselector
-    noise-repellent
     numlockx
     openscad-unstable
     orca-slicer
@@ -105,6 +104,7 @@ in
 
     llama
     unstable.ratatouille-lv2
+    unstable.pi-coding-agent
 
     inputs.guitar-midi-mapper.packages."${stdenv.hostPlatform.system}".default
 
