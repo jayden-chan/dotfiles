@@ -1,7 +1,7 @@
 {
   lib,
   config-vars,
-  llama,
+  nixpkgs-cuda,
   pkgs,
   ...
 }:
@@ -132,7 +132,7 @@ in
     };
 
     Service = {
-      ExecStart = "${pkgs.lib.getExe' llama "llama-server"} --host 0.0.0.0 --port 10097 --no-models-autoload --models-max 1 --models-preset ${config-vars.home-dir}/Documents/ai/config.ini --api-key-file /run/agenix/llama-api-key";
+      ExecStart = "${pkgs.lib.getExe' nixpkgs-cuda.llama-cpp-cuda "llama-server"} --host 0.0.0.0 --port 10097 --no-models-autoload --models-max 1 --models-preset ${config-vars.home-dir}/Documents/ai/config.ini --api-key-file /run/agenix/llama-api-key";
     };
   };
 

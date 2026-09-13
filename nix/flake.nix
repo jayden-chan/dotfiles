@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-llama.url = "github:nixos/nixpkgs?rev=ed4942cb09ecfb6f7628166d9e041923c13bede6";
+    nixpkgs-cuda.url = "github:nixos/nixpkgs?rev=ed4942cb09ecfb6f7628166d9e041923c13bede6";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     crane.url = "github:ipetkov/crane";
 
@@ -78,12 +78,13 @@
             terminal-font-size = 12;
             vsync = false;
           };
-          llama =
-            (import inputs.nixpkgs-llama {
+          nixpkgs-cuda = (
+            import inputs.nixpkgs-cuda {
               system = config-vars.system;
               config.allowUnfree = true;
               config.cudaSupport = true;
-            }).llama-cpp-cuda;
+            }
+          );
         };
 
         swift = {
