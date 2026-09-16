@@ -83,11 +83,15 @@ return {
 		vim.lsp.config("bashls", default_lsp_config)
 		vim.lsp.enable({ "bashls" })
 
-		vim.lsp.config("gopls", default_lsp_config)
-		vim.lsp.enable({ "gopls" })
+		if os.getenv("NVIMCONFIG_ENABLE_GOPLS") == "1" then
+			vim.lsp.config("gopls", default_lsp_config)
+			vim.lsp.enable({ "gopls" })
+		end
 
-		vim.lsp.config("clangd", default_lsp_config)
-		vim.lsp.enable({ "clangd" })
+		if os.getenv("NVIMCONFIG_ENABLE_CLANGD") == "1" then
+			vim.lsp.config("clangd", default_lsp_config)
+			vim.lsp.enable({ "clangd" })
+		end
 
 		vim.lsp.config("taplo", default_lsp_config)
 		vim.lsp.enable({ "taplo" })
@@ -97,6 +101,14 @@ return {
 
 		vim.lsp.config("nil_ls", default_lsp_config)
 		vim.lsp.enable({ "nil_ls" })
+
+		if os.getenv("NVIMCONFIG_ENABLE_OXC") == "1" then
+			vim.lsp.config("oxfmt", default_lsp_config)
+			vim.lsp.enable({ "oxfmt" })
+
+			vim.lsp.config("oxlint", default_lsp_config)
+			vim.lsp.enable({ "oxlint" })
+		end
 
 		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,

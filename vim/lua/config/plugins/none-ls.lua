@@ -20,7 +20,11 @@ return {
 			on_attach = lsp_config.on_attach,
 			flags = lsp_config.default_flags,
 			sources = {
-				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.prettierd.with({
+					condition = function()
+						return os.getenv("NVIMCONFIG_DISABLE_PRETTIER") ~= "1"
+					end,
+				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.nixfmt,
 				null_ls.builtins.formatting.sql_formatter.with({
