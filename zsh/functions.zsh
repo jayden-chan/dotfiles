@@ -85,6 +85,25 @@ function findreplace () {
     done
 }
 
+function tsinit () {
+    if [ "$1" = "" ]; then
+        echo "Usage: tsinit <project name>"
+        return
+    fi
+
+    local project_name="$1"
+
+    git clone ssh://git@git.jayden.codes:2222/jayden/ts-template.git "$project_name"
+    cd "$project_name"
+    rm -rf "./.git"
+    git init
+    echo 'PATH="$PATH:node_modules/.bin"' >> .env
+    findreplace "ts-template" "s|ts-template|$project_name|g"
+    pnpm i -D oxlint oxfmt @types/node@26 typescript@7
+    cd ..
+    cd "$project_name"
+}
+
 function gig () {
     if [[ "$1" == "ls" ]]; then
         curl --silent https://api.github.com/repos/github/gitignore/contents/ | jq '.[].name' -r | rg "\.gitignore" --replace=''

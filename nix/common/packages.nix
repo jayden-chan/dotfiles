@@ -51,7 +51,6 @@
     pavucontrol
     picom
     pnpm
-    prettierd
     qview
     redshift
     ripgrep
@@ -76,7 +75,6 @@
 
     bash-language-server
     lua-language-server
-    typescript-language-server
     yaml-language-server
 
     # needed for nvim tree-sitter

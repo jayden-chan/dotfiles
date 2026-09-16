@@ -22,7 +22,7 @@ return {
 			sources = {
 				null_ls.builtins.formatting.prettierd.with({
 					condition = function()
-						return os.getenv("NVIMCONFIG_DISABLE_PRETTIER") ~= "1"
+						return os.getenv("NVIMCONFIG_ENABLE_PRETTIER") == "1"
 					end,
 				}),
 				null_ls.builtins.formatting.stylua,

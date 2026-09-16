@@ -59,39 +59,10 @@ return {
 		---                       ---
 		--- Language Server Setup ---
 		---                       ---
-		vim.lsp.config(
-			"ts_ls",
-			vim.tbl_extend("force", default_lsp_config, {
-				filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-				root_markers = { "package.json" },
-				on_attach = function(client, bufnr)
-					client.server_capabilities.documentFormattingProvider = false
 
-					user_cmd(bufnr, "TSOrganizeImports", function()
-						client:exec_cmd({
-							command = "_typescript.organizeImports",
-							arguments = { vim.api.nvim_buf_get_name(bufnr) },
-						}, { bufnr = bufnr })
-					end, { nargs = 0 })
-
-					on_attach(client, bufnr)
-				end,
-			})
-		)
-		vim.lsp.enable({ "ts_ls" })
-
-		vim.lsp.config("bashls", default_lsp_config)
-		vim.lsp.enable({ "bashls" })
-
-		if os.getenv("NVIMCONFIG_ENABLE_GOPLS") == "1" then
-			vim.lsp.config("gopls", default_lsp_config)
-			vim.lsp.enable({ "gopls" })
-		end
-
-		if os.getenv("NVIMCONFIG_ENABLE_CLANGD") == "1" then
-			vim.lsp.config("clangd", default_lsp_config)
-			vim.lsp.enable({ "clangd" })
-		end
+		-- Typescript 7.0 only
+		vim.lsp.config("tsc", default_lsp_config)
+		vim.lsp.enable({ "tsc" })
 
 		vim.lsp.config("taplo", default_lsp_config)
 		vim.lsp.enable({ "taplo" })
@@ -102,30 +73,47 @@ return {
 		vim.lsp.config("nil_ls", default_lsp_config)
 		vim.lsp.enable({ "nil_ls" })
 
-		if os.getenv("NVIMCONFIG_ENABLE_OXC") == "1" then
-			vim.lsp.config("oxfmt", default_lsp_config)
-			vim.lsp.enable({ "oxfmt" })
+		vim.lsp.config("oxfmt", default_lsp_config)
+		vim.lsp.enable({ "oxfmt" })
 
-			vim.lsp.config("oxlint", default_lsp_config)
-			vim.lsp.enable({ "oxlint" })
+		vim.lsp.config("oxlint", default_lsp_config)
+		vim.lsp.enable({ "oxlint" })
+
+		vim.lsp.config("bashls", default_lsp_config)
+		vim.lsp.enable({ "bashls" })
+
+		if os.getenv("NVIMCONFIG_ENABLE_TS6") == "1" then
+			vim.lsp.config(
+				"ts_ls",
+				vim.tbl_extend("force", default_lsp_config, {
+					filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+					root_markers = { "package.json" },
+					on_attach = function(client, bufnr)
+						client.server_capabilities.documentFormattingProvider = false
+
+						user_cmd(bufnr, "TSOrganizeImports", function()
+							client:exec_cmd({
+								command = "_typescript.organizeImports",
+								arguments = { vim.api.nvim_buf_get_name(bufnr) },
+							}, { bufnr = bufnr })
+						end, { nargs = 0 })
+
+						on_attach(client, bufnr)
+					end,
+				})
+			)
+			vim.lsp.enable({ "ts_ls" })
 		end
 
-		vim.lsp.config(
-			"tailwindcss",
-			vim.tbl_extend("force", default_lsp_config, {
-				filetypes = { "typescriptreact", "javascriptreact", "html" },
-				settings = {
-					tailwindCSS = {
-						experimental = {
-							classRegex = {
-								{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-								{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-							},
-						},
-					},
-				},
-			})
-		)
+		if os.getenv("NVIMCONFIG_ENABLE_GOPLS") == "1" then
+			vim.lsp.config("gopls", default_lsp_config)
+			vim.lsp.enable({ "gopls" })
+		end
+
+		if os.getenv("NVIMCONFIG_ENABLE_CLANGD") == "1" then
+			vim.lsp.config("clangd", default_lsp_config)
+			vim.lsp.enable({ "clangd" })
+		end
 
 		vim.lsp.config(
 			"tailwindcss",
