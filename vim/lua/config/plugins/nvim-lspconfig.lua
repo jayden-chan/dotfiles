@@ -59,25 +59,25 @@ return {
 		---                       ---
 		--- Language Server Setup ---
 		---                       ---
-		vim.lsp.config("ts_ls", {
-			capabilities = capabilities,
-			on_init = on_init,
-			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-			root_markers = { "package.json" },
-			on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = false
+		vim.lsp.config(
+			"ts_ls",
+			vim.tbl_extend("force", default_lsp_config, {
+				filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+				root_markers = { "package.json" },
+				on_attach = function(client, bufnr)
+					client.server_capabilities.documentFormattingProvider = false
 
-				user_cmd(bufnr, "TSOrganizeImports", function()
-					client:exec_cmd({
-						command = "_typescript.organizeImports",
-						arguments = { vim.api.nvim_buf_get_name(bufnr) },
-					}, { bufnr = bufnr })
-				end, { nargs = 0 })
+					user_cmd(bufnr, "TSOrganizeImports", function()
+						client:exec_cmd({
+							command = "_typescript.organizeImports",
+							arguments = { vim.api.nvim_buf_get_name(bufnr) },
+						}, { bufnr = bufnr })
+					end, { nargs = 0 })
 
-				on_attach(client, bufnr)
-			end,
-			flags = default_flags,
-		})
+					on_attach(client, bufnr)
+				end,
+			})
+		)
 		vim.lsp.enable({ "ts_ls" })
 
 		vim.lsp.config("bashls", default_lsp_config)
@@ -110,67 +110,82 @@ return {
 			vim.lsp.enable({ "oxlint" })
 		end
 
-		vim.lsp.config("tailwindcss", {
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = on_attach,
-			flags = default_flags,
-			filetypes = { "typescriptreact", "javascriptreact", "html" },
-			settings = {
-				tailwindCSS = {
-					experimental = {
-						classRegex = {
-							{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-							{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+		vim.lsp.config(
+			"tailwindcss",
+			vim.tbl_extend("force", default_lsp_config, {
+				filetypes = { "typescriptreact", "javascriptreact", "html" },
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = {
+								{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+								{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+							},
 						},
 					},
 				},
-			},
-		})
+			})
+		)
+
+		vim.lsp.config(
+			"tailwindcss",
+			vim.tbl_extend("force", default_lsp_config, {
+				filetypes = { "typescriptreact", "javascriptreact", "html" },
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = {
+								{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+								{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+							},
+						},
+					},
+				},
+			})
+		)
 		vim.lsp.enable({ "tailwindcss" })
 
-		vim.lsp.config("rust_analyzer", {
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = on_attach,
-			flags = default_flags,
-			settings = {
-				["rust-analyzer"] = {
-					cargo = {
-						allFeatures = true,
-					},
-					checkOnSave = true,
-					check = {
-						features = "all",
-						command = "clippy",
-					},
-					completion = {
-						postfix = {
-							enable = false,
+		vim.lsp.config(
+			"rust_analyzer",
+			vim.tbl_extend("force", default_lsp_config, {
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+						checkOnSave = true,
+						check = {
+							features = "all",
+							command = "clippy",
+						},
+						completion = {
+							postfix = {
+								enable = false,
+							},
 						},
 					},
 				},
-			},
-		})
+			})
+		)
 		vim.lsp.enable({ "rust_analyzer" })
 
-		vim.lsp.config("lua_ls", {
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = false
-				on_attach(client, bufnr)
-			end,
-			flags = default_flags,
-			settings = {
-				Lua = {
-					runtime = { version = "LuaJIT" },
-					diagnostics = { globals = { "vim", "awesome", "client", "root", "screen" } },
-					telemetry = { enable = false },
-					format = { enable = false },
+		vim.lsp.config(
+			"lua_ls",
+			vim.tbl_extend("force", default_lsp_config, {
+				on_attach = function(client, bufnr)
+					client.server_capabilities.documentFormattingProvider = false
+					on_attach(client, bufnr)
+				end,
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						diagnostics = { globals = { "vim", "awesome", "client", "root", "screen" } },
+						telemetry = { enable = false },
+						format = { enable = false },
+					},
 				},
-			},
-		})
+			})
+		)
 		vim.lsp.enable({ "lua_ls" })
 	end,
 }
