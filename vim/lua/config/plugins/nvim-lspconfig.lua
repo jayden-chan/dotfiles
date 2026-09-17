@@ -59,11 +59,6 @@ return {
 		---                       ---
 		--- Language Server Setup ---
 		---                       ---
-
-		-- Typescript 7.0 only
-		vim.lsp.config("tsc", default_lsp_config)
-		vim.lsp.enable({ "tsc" })
-
 		vim.lsp.config("taplo", default_lsp_config)
 		vim.lsp.enable({ "taplo" })
 
@@ -73,16 +68,10 @@ return {
 		vim.lsp.config("nil_ls", default_lsp_config)
 		vim.lsp.enable({ "nil_ls" })
 
-		vim.lsp.config("oxfmt", default_lsp_config)
-		vim.lsp.enable({ "oxfmt" })
-
-		vim.lsp.config("oxlint", default_lsp_config)
-		vim.lsp.enable({ "oxlint" })
-
 		vim.lsp.config("bashls", default_lsp_config)
 		vim.lsp.enable({ "bashls" })
 
-		if os.getenv("NVIMCONFIG_ENABLE_TS6") == "1" then
+		if os.getenv("NVIMCONFIG_OLD_TS") == "1" then
 			vim.lsp.config(
 				"ts_ls",
 				vim.tbl_extend("force", default_lsp_config, {
@@ -103,6 +92,15 @@ return {
 				})
 			)
 			vim.lsp.enable({ "ts_ls" })
+		else
+			vim.lsp.config("tsc", default_lsp_config)
+			vim.lsp.enable({ "tsc" })
+
+			vim.lsp.config("oxfmt", default_lsp_config)
+			vim.lsp.enable({ "oxfmt" })
+
+			vim.lsp.config("oxlint", default_lsp_config)
+			vim.lsp.enable({ "oxlint" })
 		end
 
 		if os.getenv("NVIMCONFIG_ENABLE_GOPLS") == "1" then
