@@ -97,7 +97,7 @@
           config-vars = {
             system = "x86_64-linux";
             timezone = "America/Edmonton";
-            terminal-font-size = 13.5;
+            terminal-font-size = 8;
             vsync = true;
           };
         };
