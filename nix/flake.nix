@@ -3,13 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-cuda.url = "github:nixos/nixpkgs?rev=ed4942cb09ecfb6f7628166d9e041923c13bede6";
+    nixpkgs-cuda.url = "github:nixos/nixpkgs?rev=79b35bf0bda5cd110f856aa5b5b2c5ba4460dbf5";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     crane.url = "github:ipetkov/crane";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-    agenix.inputs.darwin.follows = "";
 
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,9 +16,16 @@
     stylix.url = "github:nix-community/stylix/release-26.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+    git-check.url = "git+ssh://git@git.jayden.codes/jayden/git-check.git";
+    git-check.inputs.nixpkgs.follows = "nixpkgs";
+    git-check.inputs.crane.follows = "crane";
+
     guitar-midi-mapper.url = "git+ssh://git@git.jayden.codes/jayden/guitar-midi-mapper.git";
     guitar-midi-mapper.inputs.nixpkgs.follows = "nixpkgs";
     guitar-midi-mapper.inputs.crane.follows = "crane";
+
+    mediaman.url = "git+ssh://git@git.jayden.codes/jayden/mediaman.git";
+    mediaman.inputs.nixpkgs.follows = "nixpkgs";
 
     notifications-dbus-mon.url = "git+ssh://git@git.jayden.codes/jayden/notifications-dbus-mon.git";
     notifications-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,13 +42,6 @@
     spotify-dbus-mon.url = "git+ssh://git@git.jayden.codes/jayden/spotify-dbus-mon.git";
     spotify-dbus-mon.inputs.nixpkgs.follows = "nixpkgs";
     spotify-dbus-mon.inputs.crane.follows = "crane";
-
-    git-check.url = "git+ssh://git@git.jayden.codes/jayden/git-check.git";
-    git-check.inputs.nixpkgs.follows = "nixpkgs";
-    git-check.inputs.crane.follows = "crane";
-
-    mediaman.url = "git+ssh://git@git.jayden.codes/jayden/mediaman.git";
-    mediaman.inputs.nixpkgs.follows = "nixpkgs";
 
     weblogs.url = "git+ssh://git@git.jayden.codes/jayden/weblogs.git";
     weblogs.inputs.nixpkgs.follows = "nixpkgs";

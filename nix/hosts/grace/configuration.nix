@@ -104,6 +104,18 @@ in
 
     nixpkgs-cuda.llama-cpp-cuda
     nixpkgs-cuda.whisper-cpp
+
+    (nixpkgs-cuda.stable-diffusion-cpp.overrideAttrs {
+      version = "master-889-c678dfe";
+      src = fetchFromGitHub {
+        owner = "leejet";
+        repo = "stable-diffusion.cpp";
+        tag = "master-889-c678dfe";
+        hash = "sha256-Jsh/Yn97Mvcrcztomjn4QAltuxckJBck0Up6xQcObPo=";
+        fetchSubmodules = true;
+      };
+    })
+
     unstable.ratatouille-lv2
     unstable.pi-coding-agent
 
@@ -202,7 +214,7 @@ in
     settings = {
       AllowUsers = [ config-vars.username ];
       PermitRootLogin = "no";
-      X11Forwarding = true;
+      X11Forwarding = false;
     };
   };
 
