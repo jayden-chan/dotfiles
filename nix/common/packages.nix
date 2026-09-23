@@ -5,12 +5,11 @@
     age
     age-plugin-yubikey
     alsa-utils
+    anki
     awesome
     bash
     bat
     bc
-    brave
-    bruno
     carla
     czkawka-full
     dig
@@ -27,7 +26,6 @@
     fontconfig
     fzf
     (gimp-with-plugins.overrideAttrs ({ plugins = [ gimpPlugins.resynthesizer ]; }))
-    gnumake
     go
     gopls
     gparted
@@ -47,6 +45,7 @@
     nixfmt
     nodejs_26
     nsxiv
+    pandoc
     passage
     pavucontrol
     picom
@@ -56,13 +55,12 @@
     ripgrep
     rofi
     rsync
-    signal-desktop
     spotify
     stylua
     taplo
     tokei
     trash-cli
-    typst
+    ungoogled-chromium
     usbutils
     watchexec
     wireguard-tools

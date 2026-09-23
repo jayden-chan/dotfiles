@@ -66,7 +66,6 @@ in
     caffeine-ng
     discordchatexporter-cli
     dive
-    drm_info
     exiftool
     exiv2
     fritzing
@@ -77,7 +76,6 @@ in
     kdePackages.kdenlive
     liquidctl
     mat2
-    mcaselector
     numlockx
     openscad-unstable
     orca-slicer
@@ -89,29 +87,20 @@ in
     rembg
     sqlite-interactive
     v4l-utils
-    vesktop
 
     hidapi
-    (yarg.overrideAttrs {
-      version = "0.15.0";
-      src = fetchzip {
-        url = "https://github.com/YARC-Official/YARG/releases/download/v0.15.0/YARG_v0.15.0-Linux-x86_64.zip";
-        stripRoot = false;
-        hash = "sha256-xIWiQe0GSt6S9j2Xte/p+FHuO07Tv69zxS+OdNEI1sI=";
-      };
-      mainProgram = "yarg";
-    })
+    unstable.yarg
 
     nixpkgs-cuda.llama-cpp-cuda
     nixpkgs-cuda.whisper-cpp
 
     (nixpkgs-cuda.stable-diffusion-cpp.overrideAttrs {
-      version = "master-889-c678dfe";
+      version = "master-929-3f8527a";
       src = fetchFromGitHub {
         owner = "leejet";
         repo = "stable-diffusion.cpp";
-        tag = "master-889-c678dfe";
-        hash = "sha256-Jsh/Yn97Mvcrcztomjn4QAltuxckJBck0Up6xQcObPo=";
+        tag = "master-929-3f8527a";
+        hash = "sha256-AMWPF0nPpU92MuTHQo9QUJQm5IvVLPEPDOR/Wrgziq4=";
         fetchSubmodules = true;
       };
     })
