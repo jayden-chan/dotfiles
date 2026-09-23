@@ -4,9 +4,62 @@ function sc         () { jq .scripts ${1:-package.json} }
 function kns        () { kubectl config set-context --current --namespace="$1" }
 function uridec     () { echo 'console.log(decodeURI(process.env.TO_DECODE))' | TO_DECODE="$1" node - }
 
+function ztar () {
+    local input="$1"
+    local use_age="false"
+    if [ "$input" = "-a" ]; then
+        input="$2"
+        use_age="true"
+    fi
+
+    if [[ ! -d "$input" ]]; then
+        echo "Error: Directory '$input' does not exist"
+        return 1
+    fi
+
+    (
+        set -euo pipefail
+        if [ "$use_age" = "true" ]; then
+            tar --create --file=- "$input" \
+                | zstd --compress -10 \
+                | age --passphrase > "${input}.tar.zstd.age"
+        else
+            tar --create --file=- "$input" \
+                | zstd --compress -10 > "${input}.tar.zstd"
+        fi
+        rm -r "$input"
+    )
+}
+
+function zuntar () {
+    local input="$1"
+    if [[ ! -f "$input" ]]; then
+        echo "Error: File '$input' does not exist"
+        return 1
+    fi
+
+    (
+        set -euo pipefail
+        if [ "${input:e}" = "age" ]; then
+            age --decrypt "$input" \
+                | zstd --decompress \
+                | tar --extract --file=-
+        else
+            zstd --decompress < "$input" \
+                | tar --extract --file=-
+        fi
+        rm -r "$input"
+    )
+}
+
 function podprune () {
     podman container ls -a --external --quiet | xargs --no-run-if-empty podman container rm -f
-    podman image ls | rg -v 'git\.jayden\.codes' | rg -v '<none>' | tail -n +2 | awk '{print $3}' | xargs --no-run-if-empty podman image rm
+    podman image ls \
+        | rg --invert-match 'git\.jayden\.codes' \
+        | rg --invert-match '<none>' \
+        | tail -n +2 \
+        | awk '{print $3}' \
+        | xargs --no-run-if-empty podman image rm
     # --force flag just skips the interactive confirmation
     podman image prune --force
 }
