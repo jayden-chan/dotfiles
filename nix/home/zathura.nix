@@ -21,7 +21,6 @@
       "guioptions" = "vh";
       "scroll-step" = 100;
       "scroll-page-aware" = true;
-      "page-padding" = 8;
     };
   };
 }
