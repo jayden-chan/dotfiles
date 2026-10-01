@@ -47,6 +47,15 @@
       Terminal=false
     '';
 
+    ".local/share/applications/b-mute.desktop".text = ''
+      [Desktop Entry]
+      Exec=${config-vars.dotfiles-dir}/scripts/b-mute.sh
+      Type=Application
+      Name=Mute Browser
+      Comment=Mute the browser sink for 90 seconds
+      Terminal=false
+    '';
+
     ".local/share/applications/picom.desktop".text = ''
       [Desktop Entry]
       Exec=systemctl --user start picom
