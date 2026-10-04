@@ -643,6 +643,18 @@ local globalkeys = gears.table.join(
 		awful.spawn("audioman", false)
 	end, { description = "run audioman", group = "misc" }),
 
+	awful.key({ modkey }, "t", function()
+		if mute_widget.visible then
+			-- Control change
+			-- Channel 1
+			-- Control function = channel volume
+			-- 127 volume (max)
+			awful.spawn({ "amidi", "--port=" .. midi_port, "--send-hex=B0077F" })
+			mute_widget:set_visible(false)
+		end
+		awful.spawn({ "whisper" }, false)
+	end, { description = "run whisper", group = "misc" }),
+
 	awful.key({ modkey }, "x", function()
 		awful.spawn.with_shell('sleep 0.3; xdotool type "$(xclip -selection c -o)"')
 	end, { description = "type clipboard", group = "misc" }),
@@ -888,10 +900,6 @@ local clientkeys = gears.table.join(
 	awful.key({ modkey }, "p", function(c)
 		c:move_to_screen(c.screen.index - 1)
 	end, { description = "move to next screen", group = "client" }),
-
-	awful.key({ modkey }, "t", function(c)
-		c.ontop = not c.ontop
-	end, { description = "toggle keep on top", group = "client" }),
 
 	awful.key({ modkey, "Control" }, "t", function(c)
 		awful.titlebar.toggle(c)
