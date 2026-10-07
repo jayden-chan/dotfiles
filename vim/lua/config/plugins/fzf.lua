@@ -49,7 +49,6 @@ return {
 				.. " --glob '!*.lock'"
 				.. " --glob '!*.lockb'"
 				.. " --glob '!package-lock.json'"
-				.. " --glob '!pnpm-lock.yaml'"
 				.. " --glob '!COPYING'"
 				.. " --glob '!LICENSE'"
 				.. " --glob '!*.svg'"

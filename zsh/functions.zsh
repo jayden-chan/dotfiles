@@ -152,7 +152,7 @@ function tsinit () {
     git init
     echo 'PATH="$PATH:node_modules/.bin"' >> .env
     findreplace "ts-template" "s|ts-template|$project_name|g"
-    pnpm i -D oxlint oxfmt @types/node@26 typescript@7
+    npm i -D oxlint oxfmt @types/node@26 typescript@7
     cd ..
     cd "$project_name"
 }

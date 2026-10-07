@@ -49,7 +49,6 @@
     passage
     pavucontrol
     picom
-    pnpm
     qview
     redshift
     ripgrep

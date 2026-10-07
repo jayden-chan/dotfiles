@@ -79,7 +79,6 @@ in
           ''
             *.age -diff
             package-lock.json -diff
-            pnpm-lock.yaml -diff
             Cargo.lock -diff
           ''
         }";
