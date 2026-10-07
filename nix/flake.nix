@@ -24,6 +24,9 @@
     guitar-midi-mapper.inputs.nixpkgs.follows = "nixpkgs";
     guitar-midi-mapper.inputs.crane.follows = "crane";
 
+    mdv.url = "git+ssh://git@git.jayden.codes/jayden/mdv.git";
+    mdv.inputs.nixpkgs.follows = "nixpkgs";
+
     mediaman.url = "git+ssh://git@git.jayden.codes/jayden/mediaman.git";
     mediaman.inputs.nixpkgs.follows = "nixpkgs";
 

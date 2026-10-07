@@ -240,6 +240,26 @@
         "type": "github"
       }
     },
+    "mdv": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791388353,
+        "narHash": "sha256-Ew6hqtAxwLfzmO2tpN96J6YVp5xlBGVcc6tl9yvIcXQ=",
+        "ref": "refs/heads/main",
+        "rev": "bbee6e9c2a43354e1e1daea982588e02767ff5c1",
+        "revCount": 4,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/mdv.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/mdv.git"
+      }
+    },
     "mediaman": {
       "inputs": {
         "nixpkgs": [
@@ -386,6 +406,7 @@
         "git-check": "git-check",
         "guitar-midi-mapper": "guitar-midi-mapper",
         "home-manager": "home-manager",
+        "mdv": "mdv",
         "mediaman": "mediaman",
         "nixpkgs": "nixpkgs",
         "nixpkgs-cuda": "nixpkgs-cuda",
