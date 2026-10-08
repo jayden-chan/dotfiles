@@ -33,6 +33,7 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
+    arandr
 
     inputs.ic4-scrape.packages."${stdenv.hostPlatform.system}".default
   ];

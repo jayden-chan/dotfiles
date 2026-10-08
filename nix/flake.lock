@@ -240,6 +240,29 @@
         "type": "github"
       }
     },
+    "ic4-scrape": {
+      "inputs": {
+        "crane": [
+          "crane"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791483356,
+        "narHash": "sha256-xbicZ/XO6ao25qKZBFzhA84nDGJVJvrla7NQxZ3u2ls=",
+        "ref": "refs/heads/main",
+        "rev": "f39b4e65a9ec2c2194403b05bff6ea8e75122260",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/ic4-scrape.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.jayden.codes/jayden/ic4-scrape.git"
+      }
+    },
     "mdv": {
       "inputs": {
         "nixpkgs": [
@@ -406,6 +429,7 @@
         "git-check": "git-check",
         "guitar-midi-mapper": "guitar-midi-mapper",
         "home-manager": "home-manager",
+        "ic4-scrape": "ic4-scrape",
         "mdv": "mdv",
         "mediaman": "mediaman",
         "nixpkgs": "nixpkgs",

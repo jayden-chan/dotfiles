@@ -63,7 +63,6 @@ in
     ansel
     ardour
     borgbackup
-    caffeine-ng
     discordchatexporter-cli
     dive
     exiftool

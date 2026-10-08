@@ -10,6 +10,7 @@
     bash
     bat
     bc
+    caffeine-ng
     carla
     czkawka-full
     dig
