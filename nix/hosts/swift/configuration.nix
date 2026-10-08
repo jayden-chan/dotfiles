@@ -1,8 +1,6 @@
 {
-  config,
-  lib,
   pkgs,
-  config-vars,
+  inputs,
   ...
 }:
 
@@ -33,5 +31,9 @@
     allowedTCPPorts = [ 4334 ];
   };
 
-  environment.systemPackages = with pkgs; [ brightnessctl ];
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+
+    inputs.ic4-scrape.packages."${stdenv.hostPlatform.system}".default
+  ];
 }

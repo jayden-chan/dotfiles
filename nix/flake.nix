@@ -24,6 +24,10 @@
     guitar-midi-mapper.inputs.nixpkgs.follows = "nixpkgs";
     guitar-midi-mapper.inputs.crane.follows = "crane";
 
+    ic4-scrape.url = "git+ssh://git@git.jayden.codes/jayden/ic4-scrape.git";
+    ic4-scrape.inputs.nixpkgs.follows = "nixpkgs";
+    ic4-scrape.inputs.crane.follows = "crane";
+
     mdv.url = "git+ssh://git@git.jayden.codes/jayden/mdv.git";
     mdv.inputs.nixpkgs.follows = "nixpkgs";
 
